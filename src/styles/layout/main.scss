@@ -1,0 +1,231 @@
+.main {
+  display: grid;
+  grid-row-gap: 150px;
+}
+
+.benefits {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding-top: 150px;
+  padding-bottom: 50px;
+
+  &__item {
+    width: 276px;
+  }
+
+  &__icon {
+    width: $iconSize;
+    height: $iconSize;
+  }
+
+  &__subject {
+    margin-top: 42px;
+    height: 60px;
+  }
+
+  &__desc {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 21px;
+    color: $grey;
+  }
+}
+
+.presentation {
+  margin: auto;
+  position: relative;
+
+  &__play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: $playBtnSize;
+    height: $playBtnSize;
+    border-radius: 50%;
+    border: 1px solid $aliceBlue;
+
+    font-family: "DIN Pro", sans-serif;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $aliceBlue;
+    line-height: $playBtnSize;
+  }
+
+  &__img:hover {
+    filter: brightness(50%);
+  }
+}
+
+.about {
+  position: relative;
+  display: flex;
+
+  &__title {
+    position: absolute;
+    top: 15px;
+    right: 92px;
+  }
+
+  &__info {
+    padding-top: 200px;
+    padding-left: 30px;
+  }
+
+  &__desc {
+    color: $grey;
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: 30px;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: $medium-weight;
+    text-transform: uppercase;
+    color: $turquoise;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 40%;
+      height: 1px;
+      background-color: $turquoise;
+    }
+  }
+}
+
+.technology {
+  &__img {
+    margin-left: -89px;
+  }
+}
+
+.testimonials {
+  width: 786px;
+  margin: 0 auto;
+
+  &__text {
+    font-family: "DIN Pro", sans-serif;
+    font-size: 24px;
+    line-height: 150%;
+    text-align: center;
+    position: relative;
+
+    &::after {
+      content: url(../images/quotes.png);
+      position: absolute;
+      top: -32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+  }
+
+  &__customer {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  &__customer-name {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 169%;
+    font-weight: $medium-weight;
+  }
+
+  &__customer-position {
+    margin-top: 5px;
+    font-size: 14px;
+    line-height: 120%;
+    font-weight: $light-weight;
+    color: $grey;
+  }
+}
+
+.features {
+  background-image: url(../images/features-img.png);
+  background-repeat: no-repeat;
+  background-position: 400px 400px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 200px;
+    left: 120px;
+    width: 100%;
+    height: 80%;
+    background: $whiteSmoke;
+    z-index: -1;
+  }
+
+  &__card {
+    position: relative;
+    width: 378px;
+    
+    &--first {
+      left: 524px;
+    }
+
+    &--second {
+      left: 116px;
+    }
+
+    &--third {
+      padding-top: 121px;
+      left: 319px;
+    }
+  }
+
+  &__name {
+    color: $green;
+  }
+
+  &__desc {
+    margin-top: 25px;
+    list-style-type: initial;
+  }
+
+  &__item {
+    padding-top: 13px;
+  }
+}
+
+.questions {
+  display: flex;
+
+  &__form {
+    width: 438px;
+  }
+
+  &__input {
+    @extend %input;
+    height: 48px;
+
+    &::placeholder {
+      @extend %input-placeholder;
+    }
+  }
+
+  &__textarea {
+    @extend %input;
+    margin-top: 19px;
+    height: 128px;
+
+    &::placeholder {
+      @extend %input-placeholder;
+    }
+  }
+
+  &__btn {
+    @extend %button;
+    margin-top: 30px;
+    background: $turquoise;
+  }
+}
