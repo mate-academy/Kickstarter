@@ -1,10 +1,7 @@
 .header {
   padding-top: 25px;
-
-  &__top {
-    display: flex;
-    justify-content: space-between;
-  }
+  display: flex;
+  justify-content: space-between;
 
   &__action {
     width: 276px;
@@ -15,6 +12,10 @@
     font-weight: $hairline-weight;
     color: $darkGrey;
     text-transform: uppercase;
+
+    @media (max-width: $tabletSize) {
+      display: none;
+    }
   }
 
   &__btn {
@@ -26,20 +27,134 @@
     }
   }
 
-  &__promo {
-    display: flex;
-    align-items: center;
-    padding-top: 80px;
-  }
-
-  &__text {
-    width: 276px;
-    margin-top: 27px;
-  }
-
   &__nav {
-    padding-top: 80px;
-    width: 60%;
-    margin: 0 auto;
+    position: fixed;
+    bottom: 0;
+    right: -100%;
+    z-index: 1;
+    flex-direction: column;
+    height: 100vh;
+    width: 45vw;
+    padding: 50px;
+    background-color: $granit;
+    transition-timing-function: ease-in;
+    transition-duration: 0.5s;
+    visibility: hidden;
+
+    @media (max-width: $mobileSize) {
+      padding: 50px 30px;
+    }
   }
+
+  &__nav-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__nav-item {
+    padding-top: 30px;
+  }
+
+  &__nav-link {
+    font-size: 12px;
+    color: $white;
+    text-transform: uppercase;
+  }
+
+  &__closer {
+    position: absolute;
+    right: 50px;
+    top: 20px;
+    color: $white;
+  }
+}
+
+//Hamburger menu
+.toggler {
+  position: absolute;
+  right: 50px;
+  top: 20px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  z-index: 3;
+  opacity: 0;
+}
+
+.hamburger {
+  position: absolute;
+  right: 50px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: 2;
+
+  @media (max-width: $tabletSize) {
+    opacity: 1;
+  }
+}
+
+/* Hamburger Line (middle one)*/
+.hamburger > div {
+  position: relative;
+  flex: none;
+  width: 100%;
+  height: 3px;
+  background: $granit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+/* Hamburger Lines - Top & Bottom */
+.hamburger > div::before,
+.hamburger > div::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 100%;
+  height: 3px;
+  background: inherit;
+}
+
+/* Moves Line Down */
+.hamburger > div::after {
+  top: 10px;
+}
+
+.toggler:checked {
+  position: fixed;
+}
+
+.toggler:checked + .hamburger {
+  position: fixed;
+}
+
+/* Toggler Animation */
+.toggler:checked + .hamburger > div {
+  background: $white;
+  transform: rotate(135deg);
+}
+
+/* Turns Lines Into X */
+.toggler:checked + .hamburger > div:before,
+.toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* Rotate On Hover When Checked */
+.toggler:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
+}
+
+.toggler:checked ~ .header__nav {
+  right: 0;
+  visibility: visible;
 }
