@@ -1,0 +1,60 @@
+.device {
+  // margin-top: 100px;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: $mobileScreens) {
+    flex-direction: column-reverse;
+  }
+
+  &__description {
+    max-width: 380px;
+
+    @media (max-width: $mobileScreens) {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    &_title {
+      @include headerFont;
+
+      @media (max-width: $tabletsScreens) {
+        font-size: 48px;
+      }
+
+      @media (max-width: $mobileScreens) {
+        font-size: 44px;
+      }
+    }
+
+    &_about {
+      margin-top: 27px;
+      max-width: 276px;
+
+      font-size: 16px;
+      line-height: 150%;
+
+      color: $strongGreyColor;
+    }
+  }
+
+  &__photo {
+    background: url(../images/device-tablet.svg) center/contain no-repeat;
+    position: relative;
+    right: 25px;
+    height: 464px;
+    width: 939px;
+    @media (max-width: $tabletsScreens) {
+      position: static;
+      margin-left: 15px;
+    }
+
+    @media (max-width: $mobileScreens) {
+      width: 320px;
+      height: 245px;
+    }
+
+  }
+}
