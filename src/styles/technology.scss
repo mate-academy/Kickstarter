@@ -5,7 +5,13 @@
 
   &__title {
     padding-left: 9%;
-    @extend %titleBox;
+    @extend %titlePC;
+
+    @media (max-width: $mediaMobile) {
+      padding-left: 0;
+      text-align: center;
+      @include titleTextMobile;
+    }
   }
 
   &__image {
@@ -16,6 +22,19 @@
 
     background: url("../images/technology.png") no-repeat center;
     background-size: contain;
+
+    @media (max-width: $mediaTablet) {
+      background-size: cover;
+      background-position: left;
+    }
+  }
+
+  &__control {
+    display: none;
+
+    @media (max-width: $mediaMobile) {
+      display: block;
+    }
   }
 
   &__testimonials {

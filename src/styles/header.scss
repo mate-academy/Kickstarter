@@ -5,22 +5,32 @@
   padding-top: 13px;
 
   @media (max-width: $mediaTablet) {
-    padding: 27px 33px 0;
+    padding: 0 33px;
   }
 
   &__top {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $mediaMobile) {
+      height: 76px;
+    }
   }
 
   &__control {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: $mediaMobile) {
+      display: none;
+    }
   }
 
   &__specs {
     @include link;
+    transition: all 300ms;
 
     &:hover {
       @extend %hoverLink;
@@ -42,11 +52,22 @@
   }
 
   &__buy {
+    cursor: pointer;
     @extend %inSaidCenter;
     width: 102px;
     height: 48px;
 
     background-color: $colorBasic;
     color: $colorWhite;
+
+    transition: background 300ms;
+
+    &:hover {
+      background-color: $colorBlack;
+    }
+  }
+
+  &__menu {
+    display: none;
   }
 }

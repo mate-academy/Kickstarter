@@ -5,10 +5,23 @@
   width: 100%;
   height: 931px;
 
+  @media (max-width: $mediaMobile) {
+    background-color: #f2f2f2;
+    height: 100%;
+  }
+
   &__title {
     padding-left: 5%;
     margin-bottom: 130px;
-    @extend %titleBox;
+    @extend %titlePC;
+
+    @media (max-width: $mediaMobile) {
+      padding-left: 0;
+      margin-bottom: 50px;
+
+      text-align: center;
+      @include titleTextMobile;
+    }
   }
 
   &__block {
@@ -17,6 +30,15 @@
     width: 77%;
     height: 75%;
     background-color: #f2f2f2;
+
+    @media (max-width: $mediaMobile) {
+      align-self: center;
+
+      display: grid;
+      justify-content: center;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 20% 1fr;
+    }
   }
 
   &__music {
@@ -24,6 +46,12 @@
     position: absolute;
     left: 30%;
     top: -15%;
+
+    @media (max-width: $mediaMobile) {
+      position: relative;
+      left: 0;
+      top: 0;
+    }
   }
 
   &__connect {
@@ -31,6 +59,13 @@
     position: absolute;
     top: 25%;
     left: -10%;
+
+    @media (max-width: $mediaMobile) {
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
   }
 
   &__app {
@@ -38,15 +73,24 @@
     position: absolute;
     left: 20%;
     bottom: -5%;
+
+    @media (max-width: $mediaMobile) {
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
   }
 
   &__subtitle {
     margin-bottom: 44px;
 
-    font-size: 34px;
-    line-height: 120%;
-    text-transform: uppercase;
+    @include subTitleText($titleSize: 34px, $titleLineHeight: 120%);
     color: $colorFeatures;
+
+    @media (max-width: $mediaMobile) {
+      @include subTitleText($titleSize: 24px, $titleLineHeight: 30px);
+    }
   }
 
   &__list {
@@ -55,6 +99,10 @@
 
   &__item {
     margin-bottom: 13px;
+
+    @media (max-width: $mediaMobile) {
+      @include subTitleText($titleSize: 14px, $titleLineHeight:21px);
+    }
   }
 
   &__image {
@@ -72,5 +120,19 @@
       width: 90%;
       height: 64%;
     }
+
+    @media (max-width: $mediaMobile) {
+      position: static;
+
+      width: 100%;
+      height: 100%;
+
+      background-position: center;
+      background-size: contain;
+    }
+  }
+
+  &__control {
+    display: none;
   }
 }

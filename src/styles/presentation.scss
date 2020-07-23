@@ -16,12 +16,16 @@
     &:hover {
       filter: brightness(0.4);
     }
+
+    @media (max-width: $mediaMobile) {
+      height: 246px;
+    }
   }
 
   &__play {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: $centerPlay;
+    left: $centerPlay;
 
     width: $sizePlay;
     height: $sizePlay;
@@ -34,13 +38,20 @@
     border: 1px solid $colorWhite;
     border-radius: 50%;
 
-    transform: translate(-50%, -50%);
+    transform: translate(-$centerPlay, -$centerPlay);
 
     @media (max-width: $mediaTablet) {
       width: $sizePlayTablet;
       height: $sizePlayTablet;
 
       line-height: $sizePlayTablet;
+    }
+
+    @media (max-width: $mediaMobile) {
+      width: $sizePlayMobile;
+      height: $sizePlayMobile;
+
+      line-height: $sizePlayMobile;
     }
   }
 }

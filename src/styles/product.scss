@@ -1,15 +1,28 @@
 .product {
   display: grid;
-  grid-template-columns: 40%  60%;
-  margin: 10% 0;
+  grid-template-columns: 35%  65%;
+  padding: 100px 0 141px;
 
   @media (max-width: $mediaTablet) {
-    margin: 100px 0 141px;
     padding-left: 20px;
+  }
+
+  @media (max-width: $mediaMobile) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-row-gap: 40px;
+    padding: 0 0 100px;
+
   }
 
   &__title-info {
     align-self: center;
+
+    @media (max-width: $mediaMobile) {
+      text-align: center;
+      margin: 0 auto;
+      width: 70%;
+    }
   }
 
   &__title {
@@ -20,11 +33,22 @@
     @media (max-width: $mediaTablet) {
       @include titleText($titleSize: 48px);
     }
+
+    @media (max-width: $mediaMobile) {
+      margin: 0 auto 23px;
+      @include titleText($titleSize: 44px);
+    }
   }
 
   &__picture {
     width: 100%;
+
     background: url("../images/header-speaker.png") no-repeat bottom left;
     background-size: cover;
+
+    @media (max-width: $mediaMobile) {
+      grid-row-start: 1;
+      background: url("../images/header-speaker-mobile.png") no-repeat center;
+    }
   }
 }

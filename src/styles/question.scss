@@ -4,7 +4,21 @@
   grid-column-gap: 10%;
   justify-content: center;
 
+  @media (max-width: $mediaTablet) {
+    padding: 0 20px;
+  }
+
+  @media (max-width: $mediaMobile) {
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 1fr;
+    grid-row-gap: 30px;
+  }
+
   &__title {
-    @extend %titleBox;
+    @extend %titlePC;
+
+    @media (max-width: $mediaMobile) {
+      @include titleTextMobile;
+    }
   }
 }
