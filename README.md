@@ -1,6 +1,7 @@
 # Kickstarter landing page
 
-Implement landing page according to [Figma design](https://www.figma.com/file/5jdcVOv7NiA0l0HGfqEyHC/%E2%84%9611-(kickstarter)-(Copy)?node-id=0%3A1) - Use BEM and SCSS
+Implement landing page according to [Figma design](<https://www.figma.com/file/5jdcVOv7NiA0l0HGfqEyHC/%E2%84%9611-(kickstarter)-(Copy)?node-id=0%3A1>) - Use BEM and SCSS
+
 - The design 1440px
 - Notebook 1280px
 - Tablet 768px
@@ -16,14 +17,13 @@ Implement landing page according to [Figma design](https://www.figma.com/file/5j
 1. Implement `Questions` block
 1. Implement the footer.
 1. Implement the buy page.
-    - Implement step cart
-    - Implement step shipping
-    - Implement step payment
-    - Implement step thanks
-
-
+   - Implement step cart
+   - Implement step shipping
+   - Implement step payment
+   - Implement step thanks
 
 ## Instructions
+
 1. **Fork** the repo.
 2. **Clone** the forked one. (The project link should have your name but not `mate-academy`)
 3. Run `npm install` (or just `npm i`)
@@ -37,10 +37,9 @@ Implement landing page according to [Figma design](https://www.figma.com/file/5j
 11. `git push origin develop` - to send you code for PR
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/layout_miami/)
+    [DEMO LINK](https://ArtemiiKab.github.io/layout_miami/)
 14. Copy `DEMO LINK` to the PR description
 
 > To update you PR repeat steps 7-11
 
 --> [CHECKLIST](https://github.com/mate-academy/Kickstarter/blob/master/Checklist.md)
-
