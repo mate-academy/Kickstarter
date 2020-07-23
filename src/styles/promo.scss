@@ -5,7 +5,17 @@
     justify-content: center;
     align-items: center;
     height: 590px;
-    background: url(../images/promo-video.svg) center/contain no-repeat;
+    background: url(../images/promo-video.svg) center/cover no-repeat;
+
+    @media (max-width: $tabletsScreens) {
+      height: 400px;
+      background-size: contain;
+    }
+
+    @media (max-width: $mobileScreens) {
+      height: 246px;
+      background-size: cover;
+    }
   }
 
   &__togler {
@@ -22,6 +32,16 @@
     cursor: pointer;
     transition: transform $transitionTime;
 
+    @media (max-width: $tabletsScreens) {
+      height: 190px;
+      width: 190px;
+    }
+
+    @media (max-width: $mobileScreens) {
+      height: 108px;
+      width: 108px;
+    }
+
     &:hover {
       transform: scale(1.1);
     }
@@ -37,6 +57,14 @@
       line-height: 18px;
       text-align: center;
       color: #f3f4f5;
+
+      @media (max-width: $tabletsScreens) {
+        content: "";
+        background: url(../images/icons/play-icon.svg) center/contain no-repeat;
+        width: 20px;
+        height: 26px;
+        left: calc(50% - 10px);
+      }
     }
   }
 }
