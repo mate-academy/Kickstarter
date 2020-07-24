@@ -1,6 +1,10 @@
 .header {
   height: 60px;
 
+  &__togler {
+    display: none;
+  }
+
   &__container {
     display: flex;
     justify-content: space-between;
@@ -27,6 +31,10 @@
     line-height: 18px;
 
     width: 284px;
+
+    @media (max-width: $mobileScreens) {
+      display: none;
+    }
   }
 
   &__specs {
@@ -67,5 +75,44 @@
     &:hover {
       background-color: $mediumGreyColor;
     }
+  }
+}
+
+.mobile-burger {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  height: 20px;
+  width: 20px;
+
+  @media (max-width: $mobileScreens) {
+    display: inline-block;
+  }
+
+  &_1 {
+    position: absolute;
+    top: 5px;
+    width: 20px;
+    height: 2px;
+    background-color: $strongGreyColor;
+    border-radius: 2px;
+  }
+
+  &_2 {
+    position: absolute;
+    top: 11px;
+    width: 20px;
+    height: 2px;
+    background-color: $strongGreyColor;
+    border-radius: 2px;
+  }
+
+  &_3 {
+    position: absolute;
+    top: 17px;
+    width: 20px;
+    height: 2px;
+    background-color: $strongGreyColor;
+    border-radius: 2px;
   }
 }
