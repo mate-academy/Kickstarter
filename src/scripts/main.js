@@ -22,21 +22,10 @@
 })();
 
 (function navShadow() {
-  let posTop;
-
   window.onscroll = function() {
-    posTop = (window.pageYOffset !== undefined)
-      ? window.pageYOffset
-      : (document.documentElement
-          || document.body.parentNode
-          || document.body)
-        .scrollTop;
-
-    if (posTop > 672) {
+    if (document.querySelector('.nav').offsetTop - window.pageYOffset === 0) {
       document.querySelector('.nav').style.boxShadow = '0 0 2px #0db2b3';
-    }
-
-    if (posTop <= 672) {
+    } else {
       document.querySelector('.nav').style.boxShadow = 'none';
     }
   };

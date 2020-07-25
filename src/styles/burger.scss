@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: 0.1s;
+    transition: 0.5s;
     position: fixed;
     top: 15px;
     right: 30px;
@@ -28,7 +28,7 @@
     height: 3px;
     border-radius: 3px;
     background: black;
-    transition: 0.3s;
+    transition: 0.5s;
     transform-origin: 0;
 
     &:nth-of-type(2) {
@@ -38,14 +38,14 @@
 
   &__menu {
     background: #f6f6f6;
-    height: 100vh;
+    padding-top: 25vw;
+    height: 130vh;
     width: 100vw;
     z-index: 50;
     position: fixed;
     left: 100%;
     display: none;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     transition: 0.5s;
   
@@ -93,14 +93,18 @@
       transform: translateX(-100%);
     }
   
-    &:checked ~ .burger__toggler > .burger__strip:nth-of-type(1) {
-      transform: rotate(45deg);
-      margin-left: 7px;
-    }
-  
-    &:checked ~ .burger__toggler > .burger__strip:nth-of-type(2) {
-      transform: rotate(-45deg);
-      margin: 15px 0 0 7px;
+    &:checked ~ .burger__toggler {
+      transform: rotate(-180deg);
+
+      & > .burger__strip:nth-of-type(1) {
+        transform: rotate(45deg);
+        margin-left: 7px;
+      }
+
+      & > .burger__strip:nth-of-type(2) {
+        transform: rotate(-45deg);
+        margin: 15px 0 0 7px;
+      }
     }
   }
 }
