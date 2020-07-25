@@ -1,4 +1,8 @@
 .nav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+
   display: flex;
   align-items: center;
   height: $navHeight;
@@ -18,12 +22,16 @@
     list-style: none;
   }
 
-  &__link {
-    @include link;
-    transition: all 300ms;
+  &__item {
+    transition: transform 300ms;
 
     &:hover {
-      @extend %hoverLink;
+      transform: scale(1.2);
     }
+  }
+
+  &__link {
+    @include link;
+    font-weight: 600;
   }
 }

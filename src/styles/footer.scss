@@ -1,21 +1,21 @@
 .footer {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 265px;
-  margin: 0 auto;
-
-  @media (max-width: $mediaMobile) {
-    padding: 0 20px;
-  }
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  justify-content: center;
+  justify-items: center;
+  margin: 0 auto 100px;
 
   &__copyright {
-    margin-bottom: 100px;
-
     text-align: center;
     @include smallText;
+  }
+
+  &__contacts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 46px;
+    padding: 65px 0 36px;
   }
 
   &__back-home {
@@ -28,6 +28,20 @@
 
     @media (max-width: $mediaMobile) {
       right: 10%;
+    }
+
+    &:hover {
+      animation: backHome 300ms infinite;
+    }
+
+    @keyframes backHome {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-5px);
+      }
     }
   }
 
@@ -47,8 +61,6 @@
   &__t {
     @extend %sizeSocial;
     transition: background 300ms linear;
-
-    margin: 0 46px;
 
     background: url("../images/social-icon/twitter.svg") no-repeat center;
     background-size: contain;
