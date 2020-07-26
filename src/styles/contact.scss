@@ -1,0 +1,83 @@
+.contact {
+  @include section;
+  display: flex;
+  justify-content: space-around;
+
+  &__title {
+    width: calc(50% - 10px);
+    font-size: 56px;
+    line-height: 72px;
+    text-transform: uppercase;
+    max-width: 480px;
+  }
+
+  &__form {
+    width: calc(50% - 10px);
+    max-width: 435px;
+  }
+
+  &__input {
+    padding: 15px 30px;
+    width: 100%;
+    margin-bottom: 19px;
+    line-height: 19px;
+    background-color: $backgroundColor;
+    border: 1px solid #828282;
+
+    &::placeholder {
+      line-height: 19px;
+      color: #bdbdbd;
+    }
+  }
+
+  &__textarea {
+    margin-bottom: 30px;
+    height: 128px;
+    resize: none;
+  }
+
+  &__button {
+    height: 48px;
+    width: 102px;
+    background-color: #0db2b3;
+    text-transform: uppercase;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 0 6px 10px rgba(0,117,255,0.46);
+      background-color: #0c797a;
+    }
+  }
+
+}
+
+@media screen and (max-width: $tabScreenPoint) {
+  .contact {
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: $mobileScreenPoint) {
+  .contact {
+    flex-direction: column;
+    padding-top: 45px;
+
+    &__title,
+    &__form {
+      margin-left: auto;
+      margin-right: auto;
+      min-width: 270px;
+      max-width: 50%;
+    }
+
+    &__title {
+      margin-left: calc(10% - 25px);
+      margin-bottom: 30px;
+      font-size: 37px;
+      line-height: 46px;
+    }
+  }
+}

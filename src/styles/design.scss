@@ -1,8 +1,6 @@
 .design {
-  padding: 150px 25px 50px;
-  margin: auto;
-  max-width: 1244px;
-  position: relative;
+  @include section;
+  padding-top: 150px;
   display: flex;
   justify-content: center;
 
@@ -35,6 +33,7 @@
     text-transform: uppercase;
     font-size: 12px;
     position: relative;
+    transition: all 0.3s;
 
     &::after {
       content: "";
@@ -45,7 +44,17 @@
       position: absolute;
       bottom: 0;
       left: 0;
+      transition: width 0.3s;
     }
+
+    &:hover {
+      transform: translateY(-5px);
+
+      &::after {
+        width: 125px;
+      }
+    }
+
   }
 
   &__title {
