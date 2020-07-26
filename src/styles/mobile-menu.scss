@@ -1,0 +1,40 @@
+.mobile-menu {
+  position: absolute;
+  text-align: right;
+  padding-right: 5vw;
+  padding-top: 100px;
+  padding-bottom: 50px;
+
+  &__list {
+    display: none;
+    flex-direction: column;
+  }
+
+  &__link {
+    color: $mainColor;
+    font-size: 22px;
+    line-height: 150%;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:hover {
+      color: $backgroundColor;
+    }
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .mobile-menu {
+    z-index: 1;
+    width: 100%;
+    height: max-content;
+    background-color: $headerSecondaryColor;
+    top: -100%;
+    left: 0;
+    transition: top $transitionDuration;
+
+    &__list {
+      display: flex;
+    }
+  }
+}

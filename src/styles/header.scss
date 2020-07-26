@@ -1,0 +1,106 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: $smallFontSize;
+  line-height: 18px;
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 255px;
+    text-transform: uppercase;
+
+  }
+
+  &__specs {
+    font-weight: 300;
+    color: #4f4f4f;
+  }
+
+  &__language {
+    cursor: pointer;
+
+    &-toggler {
+      display: none;
+    }
+
+    &-caption::before {
+      content: "EN ";
+      color: $mainColor;
+    }
+
+    &-toggler:checked + &-caption::before {
+      color: $headerSecondaryColor;
+      font-weight: 300;
+    }
+
+    &-caption::after {
+      content: " UA";
+      font-weight: 300;
+      color: $headerSecondaryColor;
+    }
+
+    &-toggler:checked + &-caption::after {
+      color: $mainColor;
+      font-weight: 400;
+    }
+
+    //&-caption::before {
+    //  content: "EN ";
+    //  color: $mainColor;
+    //}
+
+    //&-caption::after {
+    //  content: " UA";
+    //  font-weight: 300;
+    //  color: $headerSecondaryColor;
+    //}
+  }
+
+  &__buy-button {
+    color: #fff;
+    background-color: $mainColor;
+    height: 48px;
+
+    &:hover {
+      background-color: $hoverColor;
+    }
+  }
+
+  &__menu {
+
+    &-icon {
+      display: none;
+      z-index: 2;
+      width: 24px;
+      height: 14px;
+      background-image: url("../images/menu.svg");
+      @include backgroundImagePosition;
+      cursor: pointer;
+    }
+
+    &-toggler {
+      display: none;
+
+      &:checked + .mobile-menu {
+        top: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .header {
+    height: 76px;
+
+    &__controls {
+      display: none;
+    }
+
+    &__menu-icon {
+      display: block;
+    }
+  }
+}
