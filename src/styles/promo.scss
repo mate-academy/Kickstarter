@@ -1,3 +1,46 @@
+.specs {
+  background: #fff;
+  position: relative;
+  z-index: 1;
+  display: none;
+
+  &__container {
+    max-width: 670px;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+
+  &__x {
+    position: fixed;
+    height: 30px;
+    width: 30px;
+    top: 15px;
+    right: 30px;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__wrapper {
+    margin-top: 50px;
+  }
+
+  &__heading {
+    margin-bottom: 20px;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__item {
+    margin: 10px 0;
+  }
+}
+
 .header {
   &__container {
     @extend %big-container;
@@ -29,7 +72,7 @@
       text-decoration: none;
     }
 
-    &-ua-span {
+    &-span--transparent {
       color: #bdbdbd;
     }
 
@@ -61,7 +104,6 @@
     @extend %big-container;
     padding-bottom: 130px;
     display: grid;
-    grid-template-rows: 1fr 130px;
     align-items: end;
   }
 
@@ -73,7 +115,7 @@
   }
 
   &__paragraph {
-    width: 275px;
+    min-width: 275px;
     font-size: 16px;
     line-height: 24px;
     grid-column: 1 / 2;
@@ -90,7 +132,6 @@
     }
 
     &__heading {
-      width: 270px;
       font-size: 48px;
     }
 
@@ -103,7 +144,7 @@
     }
   }
 
-  @media (max-width: 760px) {
+  @media (max-width: 880px) {
     &__container {
       display: block;
       padding-bottom: 0;
@@ -124,6 +165,10 @@
   }
 
   @media (max-width: 500px) {
+    &__heading {
+      font-size: 34px;
+    }
+
     &__speaker-img {
       width: 143%;
     }
