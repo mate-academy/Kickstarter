@@ -1,0 +1,74 @@
+.presentation {
+  position: relative;
+  background-image: url("../images/video.png");
+  height: 590px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media (max-width: $tabletBreakPoint) {
+    height: 400px;
+  }
+
+  @media (max-width: $mobileBreakPoint) {
+    height: 246px;
+  }
+
+  &__record-player {
+    $recordPlayerSize: 232px;
+    width: $recordPlayerSize;
+    height: $recordPlayerSize;
+
+    position: absolute;
+    top: calc(50% - #{$recordPlayerSize / 2});
+    left: calc(50% - #{$recordPlayerSize / 2});
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid $recordPlayerColor;
+    border-radius: 50%;
+
+    @media (max-width: $mobileBreakPoint) {
+      $recordPlayerSize: 108px;
+      width: $recordPlayerSize;
+      height: $recordPlayerSize;
+      top: calc(50% - #{$recordPlayerSize / 2});
+      left: calc(50% - #{$recordPlayerSize / 2});
+    }
+  }
+
+  &__link {
+    font-family: "DIN Pro", "Roboto", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    color: $recordPlayerColor;
+
+    &--triangle {
+      display: none;
+
+      @media (max-width: $tabletBreakPoint) {
+        display: block;
+      }
+    }
+
+    &--word {
+      @media (max-width: $tabletBreakPoint) {
+        display: none;
+      }
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 26px;
+
+    @media (max-width: $mobileBreakPoint) {
+      width: 14px;
+      height: 18px;
+    }
+  }
+}
