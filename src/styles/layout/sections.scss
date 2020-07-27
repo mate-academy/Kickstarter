@@ -136,6 +136,7 @@
   @include big-padding-top;
   margin: auto;
   height: 500px;
+  overflow: hidden;
 
   @media (max-width: $mediumSize) {
     display: none;
@@ -147,8 +148,8 @@
     // padding: 0 60px;
     margin: auto;
     position: absolute;
-    left: -10px;
-    right: -10px;
+    left: 0;
+    right: 0;
     overflow: hidden;
   }
 
@@ -390,15 +391,15 @@
   overflow: hidden;
 
   @media (max-width: $notebookSize) {
-    background-position: 200px 400px;
+    background-position: 200px 550px;
   }
 
   @media (max-width: $mediumSize) {
     background-image: url(../images/features-small.png);
-    background-position: 150px 450px;
+    background-position: 150px 550px;
   }
 
-  @media (max-width: $tabletSize) {
+  @media (max-width: $tabletSize - 1px) {
     background: $whiteSmoke;
     margin: 0 -36px;
     padding: 45px 36px;
@@ -419,7 +420,7 @@
     padding-top: 50px;
     position: relative;
 
-    @media (max-width: $tabletSize) {
+    @media (max-width: $tabletSize - 1px) {
       position: static;
       text-align: left;
       padding-left: 20px;
@@ -450,7 +451,7 @@
         left: 228px;
       }
 
-      @media (max-width: $tabletSize) {
+      @media (max-width: $tabletSize - 1px) {
         padding-top: 50px;
       }
     }
@@ -473,7 +474,7 @@
     max-width: 100%;
     display: none;
 
-    @media (max-width: $tabletSize) {
+    @media (max-width: $tabletSize - 1px) {
       display: block;
     }
   }
@@ -483,14 +484,14 @@
   @include big-padding-top;
   display: flex;
 
-  @media (max-width: $tabletSize) {
+  @media (max-width: $tabletSize - 1px) {
     flex-direction: column;
   }
 
   &__title {
     padding-right: 20px;
 
-    @media (max-width: $tabletSize) {
+    @media (max-width: $tabletSize - 1px) {
       text-align: center;
       padding-bottom: 30px;
       padding-right: 0;
@@ -514,6 +515,11 @@
     &::placeholder {
       @extend %input-placeholder;
     }
+
+    @media (max-width: $mediumSize) {
+      height: 201px;
+    }
+
   }
 
   &__btn {
