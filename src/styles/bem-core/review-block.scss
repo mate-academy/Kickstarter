@@ -1,0 +1,66 @@
+.review {
+  max-width: 786px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: $mobileScreens) {
+    max-width: 260px;
+  }
+
+  &__text {
+    font-family: DINPro, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    text-align: center;
+
+    color: $strongGreyColor;
+
+    @media (max-width: $mobileScreens) {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    z-index: -1;
+    height: 191px;
+    width: 233px;
+    background: url(../images/review-background.svg) center/contain no-repeat;
+    left: calc(50% - 117px);
+    bottom: calc(50% - 50px);
+  }
+
+  &__person-photo {
+    margin-top: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+
+    &_scale {
+      transition: transform $transitionTime;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__name {
+    margin-top: 20px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    line-height: 27px;
+    color: $strongGreyColor;
+  }
+
+  &__position {
+    margin-top: 5px;
+    font-size: 14px;
+    line-height: 120%;
+    color: $lightGreyColor;
+  }
+}

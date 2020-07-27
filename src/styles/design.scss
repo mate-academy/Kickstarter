@@ -1,0 +1,105 @@
+.design {
+  display: flex;
+  justify-content: center;
+  padding: 75px 0;
+
+  @media (max-width: $mobileScreens) {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  &__map {
+    background: url(../images/design-map.svg) center/cover no-repeat;
+    width: 582px;
+    height: 388px;
+    margin-right: 30px;
+
+    @media (max-width: $tabletsScreens) {
+      margin-right: 20px;
+    }
+
+    @media (max-width: $mobileScreens) {
+      display: none;
+    }
+  }
+
+  &__map-mobile {
+    display: none;
+
+    @media (max-width: $mobileScreens) {
+      display: block;
+      background: url(../images/design-map-mobile.svg) center/contain no-repeat;
+      margin-top: 50px;
+      width: 259px;
+      height: 210px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: $mobileScreens) {
+      max-width: $mobileContainer;
+    }
+  }
+
+  &__title {
+    position: relative;
+    right: 100px;
+
+    @include subtitleFont;
+
+    @media (max-width: $mobileScreens) {
+      font-size: 37px;
+      position: static;
+      align-self: baseline;
+    }
+
+    &_nowrap {
+      white-space: nowrap;
+    }
+  }
+
+  &__description {
+    max-width: 378px;
+    margin-top: 30px;
+    margin-right: 34px;
+
+    @include regularFont;
+    color: $lightGreyColor;
+
+    @media (max-width: $mobileScreens) {
+      margin-right: 0;
+    }
+  }
+
+  &__see-more {
+    position: relative;
+    align-self: start;
+    margin-top: 30px;
+
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $blueColor;
+    transition: transform $transitionTime;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 40%;
+      height: 1px;
+      background-color: $blueColor;
+      left: 0;
+      bottom: -6px;
+      transition: width $transitionTime;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

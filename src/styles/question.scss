@@ -1,0 +1,94 @@
+.question {
+  display: flex;
+  justify-content: space-between;
+  transition: all $transitionTime;
+
+  @media (max-width: $mobileScreens) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    @include subtitleFont;
+    margin-left: 50px;
+    max-width: 510px;
+    transition: all $transitionTime;
+
+    @media (max-width: $tabletsScreens) {
+      margin-left: 0;
+      max-width: 360px;
+    }
+
+    @media (max-width: $mobileScreens) {
+      position: relative;
+      right: 13px;
+      font-size: 37px;
+      line-height: 46px;
+      max-width: 260px;
+    }
+  }
+
+  &__form {
+    margin-right: 50px;
+    margin-left: 20px;
+    max-width: 420px;
+    color: #bdbdbd;
+
+    @media (max-width: $tabletsScreens) {
+      max-width: 340px;
+    }
+
+    @media (max-width: $mobileScreens) {
+      max-width: 260px;
+      margin-top: 30px;
+    }
+  }
+
+  &__email {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #828282;
+    outline: none;
+    padding-left: 30px;
+  }
+
+  &__message {
+    padding-left: 30px;
+    padding-top: 15px;
+    margin-top: 20px;
+    resize: none;
+    width: 100%;
+    height: 128px;
+    border: 1px solid #828282;
+    outline: none;
+    
+    @media (max-width: $tabletsScreens) {
+      height: 201px;
+    }
+
+    @media (max-width: $mobileScreens) {
+      height: 128px;
+    }
+  }
+
+  &__send-btn {
+    margin-top: 25px;
+    width: 102px;
+    height: 40px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    background-color: $blueColor;
+    outline: none;
+    border: none;
+    font-size: 12px;
+    line-height: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color $transitionTime;
+
+    &:hover {
+      background-color: #0c797a;
+    }
+  }
+}
