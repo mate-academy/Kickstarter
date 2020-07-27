@@ -1,0 +1,100 @@
+.header {
+  &__section {
+    max-width: 1244px;
+    padding: 15px 25px;
+    margin: auto;
+    position: relative;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__control {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__choice {
+    display: flex;
+    padding: 14px 25px;
+    margin-left: 10px;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 300;
+
+    &_specs {
+      position: relative;
+      color: #4f4f4f;
+      font-weight: 300;
+      transition: all 0.3s;
+
+      &:hover {
+        color: black;
+        transition: all 0.3s;
+
+        &::after {
+          content: "";
+          width: 48px;
+          height: 1px;
+          background-color: $mainFontColor;
+          position: absolute;
+          bottom: 0;
+          left: 25px;
+        }
+      }
+    }
+
+    &_language {
+      padding: 0;
+    }
+  }
+
+  &__language {
+    padding: 14px 3px;
+    color: $mainFontColor;
+    font-weight: 500;
+
+    &_slesh {
+      cursor: default;
+    }
+
+    &_not-active {
+      color: #bdbdbd;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $mainFontColor;
+      }
+    }
+  }
+
+  &__buy {
+    display: flex;
+    padding: 14px 40px;
+    margin-left: 35px;
+    font-size: 12px;
+    line-height: 21px;
+    color: white;
+    background-color: $mainFontColor;
+    border: 1px solid $backgroundColor;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $mainFontColor;
+      background-color: $backgroundColor;
+      border: 1px solid $mainFontColor;
+    }
+  }
+
+}
+
+@media screen and (max-width: $mobileScreenPoint) {
+  .header {
+    &__control {
+      display: none;
+    }
+  }
+}

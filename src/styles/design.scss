@@ -1,0 +1,143 @@
+.design {
+  @include section;
+  padding-top: 150px;
+  display: flex;
+  justify-content: center;
+
+  &__img {
+    width: 582px;
+    height: 388px;
+  }
+
+  &__description {
+    margin-left: 20px;
+    width: calc(50%);
+    max-width: 378px;
+    min-width: 340px;
+  }
+
+  &__mobile-img {
+    display: none;
+  }
+
+  &__text {
+    margin-top: 182px;
+    color: $secondaryFontColor;
+  }
+
+  &__link {
+    display: block;
+    margin-top: 30px;
+    height: 25px;
+    color: #0db2b3;
+    text-transform: uppercase;
+    font-size: 12px;
+    position: relative;
+    transition: all 0.3s;
+
+    &::after {
+      content: "";
+      width: 53px;
+      height: 1px;
+      background-color: #0db2b3;
+      transform: matrix(1, 0, 0, -1, 0, 0);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: width 0.3s;
+    }
+
+    &:hover {
+
+      &::after {
+        width: 125px;
+      }
+    }
+
+  }
+
+  &__title {
+    @include sectionTitle;
+    position: absolute;
+    left: 50%;
+    width: 420px;
+  }
+
+}
+
+@media screen and (max-width: $tabScreenPoint) {
+  .design {
+
+    padding-bottom: 60px;
+    justify-content: start;
+
+    &__img {
+      width: 623px;
+      height: 415px;
+      position: absolute;
+      right: calc(50% + 20px);
+    }
+
+    &__description {
+      margin-left: 50%;
+    }
+
+    &__title {
+      left: 40%;
+    }
+  }
+
+}
+
+@media screen and (max-width: $mobileScreenPoint) {
+  .design {
+    padding-top: 90px;
+    padding-bottom: 45px;
+
+    &__img {
+      display: none;
+    }
+
+    &__description {
+      min-width: 270px;
+      max-width: none;
+      width: 100%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__title {
+      align-self: start;
+      margin-left: calc(10% - 25px);
+      min-width: 270px;
+      max-width: 50%;
+      position: static;
+      font-size: 37px;
+      line-height: 55px;
+    }
+
+    &__mobile-img {
+      min-width: 270px;
+      max-width: 50%;
+      display: block;
+      margin-top: 50px;
+      height: 210px;
+    }
+
+    &__text {
+      min-width: 270px;
+      max-width: 50%;
+      margin-top: 29px;
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+    &__link {
+      min-width: 270px;
+      max-width: 50%;
+    }
+
+  }
+}

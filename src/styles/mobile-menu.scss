@@ -1,0 +1,61 @@
+.mobile-menu {
+  display: none;
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__label {
+    display: inline-block;
+    background-image: url(../images/mobile-menu.svg);
+    width: 24px;
+    height: 14px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__nav {
+    position: absolute;
+    top: -500px;
+    right: 0;
+    left: 0;
+    background-color: $backgroundColor;
+    opacity: 0.8;
+
+    transition: all 0.4s;
+
+    z-index: 1;
+  }
+
+  &__list {
+    margin-top: 100px;
+  }
+
+  &__link {
+    display: block;
+    padding: 10px 25px;
+    text-align: right;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: $mobileScreenPoint) {
+  .mobile-menu {
+    display: block;
+
+    &__checkbox:checked ~ .mobile-menu__label {
+      background-image: url(../images/mobile-menu-cross.svg);
+    }
+
+    &__checkbox:checked ~ .mobile-menu__nav {
+      top: 0;
+    }
+  }
+}

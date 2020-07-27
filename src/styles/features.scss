@@ -1,0 +1,152 @@
+.features {
+  @include section;
+  overflow: hidden;
+
+  &__title {
+    @include sectionTitle;
+    padding-left: 3%;
+    margin-bottom: 24px;
+  }
+
+  &__block {
+    max-width: 392px;
+
+    &_1 {
+      margin-left: 45%;
+    }
+
+    &_2 {
+      margin-left: 5%;
+    }
+
+    &_3 {
+      margin: 120px 0 0 20%;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 38px;
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: $decorationColor;
+  }
+
+  &__item {
+    line-height: 19px;
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 13px;
+  }
+
+  &__rectangle {
+    position: absolute;
+    left: 15%;
+    top: 290px;
+    z-index: -2;
+  }
+
+  &__img {
+    position: absolute;
+    right: 5%;
+    bottom: 80px;
+    z-index: -1;
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: $tabScreenPoint) {
+  .features {
+    padding-top: 80px;
+
+    &__title {
+      margin-bottom: 50px;
+    }
+
+    &__block {
+
+      &_1 {
+        margin-left: 40%;
+      }
+
+      &_2 {
+        margin-top: 50px;
+      }
+
+      &_3 {
+        margin-top: 70px;
+      }
+    }
+    
+    &__rectangle {
+      height: 644px;
+      top: 300px;
+    }
+
+    &__img {
+      height: 379px;
+      width: auto;
+      bottom: 220px;
+      right: 0;
+    }
+  }
+}
+
+@media screen and (max-width: $mobileScreenPoint) {
+  .features {
+    padding: 45px 25px;
+    background-color: #f2f2f2;
+
+    &__title {
+      padding-left: 0;
+      margin-left: calc(10% - 25px);
+      font-size: 37px;
+      line-height: 60px;
+    }
+
+    &__block {
+
+      &_1,
+      &_2,
+      &_3 {
+        padding-left: 12px;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: 270px;
+        max-width: 50%;
+      }
+    }
+
+    &__heading {
+      margin-bottom: 20px;
+      font-size: 30px;
+      line-height: 37px;
+    }
+
+    &__item {
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+    &__item:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &__rectangle {
+      display: none;
+    }
+
+    &__img {
+      position: static;
+      margin-left: 10%;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      object-fit: contain;
+      z-index: 0;
+    }
+  }
+}

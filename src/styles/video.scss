@@ -1,0 +1,47 @@
+.video {
+
+  position: relative;
+
+  &__img {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &__play {
+    position: absolute;
+    background-image: url(../images/play.svg);
+    height: 232px;
+    width: 232px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+    transition: transform 0.5s;
+  }
+
+  &__play:hover {
+    transform: scale(1.1);
+  }
+}
+
+@media screen and (max-width: $tabScreenPoint) {
+  .video {
+    &__play {
+      background-image: url(../images/tablet-play.svg);
+      background-size: contain;
+      height: 190px;
+      width: 190px;
+    }
+  }
+}
+
+@media screen and (max-width: $mobileScreenPoint) {
+  .video {
+    &__play {
+      height: 108px;
+      width: 108px;
+    }
+  }
+}
