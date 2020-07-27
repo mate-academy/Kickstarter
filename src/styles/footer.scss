@@ -1,0 +1,96 @@
+.footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__home-button {
+    position: absolute;
+    right: 20%;
+    top: 0;
+    width: 20px;
+    height: 24px;
+    background-image: url("../images/arrow.svg");
+    @include backgroundImagePosition;
+  }
+
+  &__logo {
+    margin-bottom: 65px;
+  }
+
+  &__socials {
+    @include backgroundImagePosition;
+    transition: $transitionDuration;
+
+    &--container {
+      display: flex;
+      margin-bottom: 36px;
+    }
+
+    &--fb {
+      background-image: url("../images/facebook.svg");
+      width: 11px;
+      height: 19px;
+
+      &:hover {
+        background-image: url("../images/facebook-hover.svg");
+      }
+    }
+
+    &--twitter {
+      background-image: url("../images/twitter.svg");
+      width: 22px;
+      height: 17px;
+      margin: 0 45px;
+
+      &:hover {
+        background-image: url("../images/twitter-hover.svg");
+      }
+    }
+
+    &--instagram {
+      background-image: url("../images/instagram.svg");
+      width: 18px;
+      height: 18px;
+
+      &:hover {
+        background-image: url("../images/instagram-hover.svg");
+      }
+    }
+  }
+
+  &__copyright {
+    text-align: center;
+    color: $headerSecondaryColor;
+    font-weight: 300;
+    font-size: $smallFontSize;
+    line-height: 21px;
+    padding: 0 5%;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .footer {
+
+    &__home-button {
+      right: 10%;
+      top: -50%;
+    }
+
+    &__logo {
+      display: none;
+    }
+
+    &__socials {
+
+      &--container {
+        margin: 10px 0 23px;
+      }
+    }
+
+    &__copyright {
+      font-size: 12px;
+    }
+  }
+}

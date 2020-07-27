@@ -1,0 +1,79 @@
+.presentation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 590px;
+  background-image: url("../images/presentation.svg");
+  background-size: cover;
+  background-position: center;
+
+  &__play-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 232px;
+    height: 232px;
+    border: 1px solid #f3f4f5;
+    border-radius: 50%;
+    font-family: "DIN Pro", Helvetica, sans-serif;
+    font-weight: 700;
+    color: #f3f4f5;
+    cursor: pointer;
+    transition: transform $transitionDuration;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &::before {
+      content: "PLAY";
+    }
+
+    &::after {
+      display: none;
+      content: "";
+      width: 24px;
+      height: 32px;
+      background-image: url("../images/play.svg");
+      @include backgroundImagePosition;
+    }
+
+    &:hover::after {
+      display: block;
+    }
+
+    &:hover::before {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $tabletBreakpoint) {
+  .presentation {
+    height: 440px;
+
+    &__play-button {
+      width: 190px;
+      height: 190px;
+    }
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .presentation {
+    height: 246px;
+
+    &__play-button {
+      font-size: 12px;
+      width: 108px;
+      height: 108px;
+
+      &::after {
+        background-size: contain;
+        width: 10px;
+        height: 13px;
+      }
+    }
+  }
+}

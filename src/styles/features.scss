@@ -1,0 +1,155 @@
+.features {
+  position: relative;
+  height: 931px;
+  display: flex;
+  flex-direction: column;
+
+  &__heading {
+    line-height: 70px;
+    padding-left: 50px;
+
+    &--small {
+      color: $green;
+      font-size: 34px;
+      line-height: 120%;
+      font-weight: 500;
+      margin-bottom: 38px;
+    }
+  }
+
+  &__container {
+    position: absolute;
+    bottom: 20px;
+    align-self: flex-end;
+    width: 85%;
+    height: 75%;
+    background-color: $featuresBackgroundColor;
+  }
+
+  &__image {
+    position: absolute;
+    background-image: url("../images/features.png");
+    background-size: cover;
+    background-position: right;
+    right: 10%;
+    bottom: 16px;
+    width: 70%;
+    height: 70%;
+  }
+
+  &__list {
+    list-style: initial;
+
+    &--container {
+      position: absolute;
+      z-index: 1;
+    }
+
+    &--sound {
+      left: 40%;
+      top: -100px;
+    }
+
+    &--connectivity {
+      top: 25%;
+      left: -10%;
+    }
+
+    &--app {
+      left: 15%;
+      bottom: -5%;
+    }
+  }
+
+  &__item {
+    line-height: 19px;
+    margin-bottom: 13px;
+  }
+}
+
+@media (max-width: $tabletBreakpoint) {
+  .features {
+    height: 951px;
+
+    &__container {
+      bottom: 10%;
+      width: 90%;
+      height: 65%;
+    }
+
+    &__image {
+      background-position: right;
+      right: 0;
+      bottom: 10%;
+      width: 90%;
+      height: 60%;
+    }
+
+    &__list {
+
+      &--app {
+        bottom: -15%;
+      }
+
+      &--connectivity {
+        top: 30%;
+        left: -10%;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .features {
+    background-color: $featuresBackgroundColor;
+    padding: 0 5vw;
+    height: 100%;
+
+    &__heading {
+      font-size: 37px;
+      line-height: 60px;
+      margin-bottom: 50px;
+      padding-left: 0;
+
+      &--small {
+        font-size: 30px;
+        line-height: 37px;
+        margin-bottom: 20px;
+        margin-left: -5vh;
+      }
+    }
+
+    &__container {
+      position: static;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__image {
+      position: static;
+      height: 222px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &__list {
+      padding-left: 5vw;
+      margin-left: -5vh;
+
+      &--container {
+        position: static;
+        margin-bottom: 50px;
+
+        &:last-child {
+          margin-bottom: 100px;
+        }
+      }
+    }
+
+    &__item {
+      font-size: $smallFontSize;
+      line-height: 21px;
+      margin-bottom: 10px;
+    }
+  }
+}
