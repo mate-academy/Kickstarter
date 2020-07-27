@@ -1,0 +1,142 @@
+.button {
+  height: 48px;
+  width: 48px;
+
+  &__round {
+    height: 100%;
+    width: 100%;
+    background-color: $important-color;
+    border-radius: 50%;
+    transition: 1s;
+
+    &-cross {
+      height: 11px;
+      width: 11px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    &:hover {
+      background-color: $button-hover-background;
+    }
+  }
+
+  &__vector {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    border-bottom: 1px solid $text-color;
+    border-right: 1px solid $text-color;
+    position: absolute;
+    right: 24px;
+    display: table;
+    table-layout: fixed;
+    transition: 0.5s;
+
+    &-text {
+      display: table-cell;
+      word-wrap: break-word;
+      vertical-align: bottom;
+      font-size: 12px;
+      line-height: 1.5em;
+      padding-bottom: 5px;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -2.5px;
+        width: 43px;
+        height: 5px;
+        background-color: $text-color;
+      }
+    }
+  }
+
+  &__round:hover ~ &__vector {
+    width: 65px;
+    height: 130px;
+    opacity: 1;
+    z-index: 4;
+    
+    @media(min-width: $tablet-width) {
+      height: 150px;
+      width: 120px;
+    }
+
+    @media(min-width: $laptop-width) {
+      height: 150px;
+      width: 200px;
+    }
+  }
+  
+  &__round-1:hover ~ &__vector {
+
+    @media(min-width: $tablet-width) {
+      width: 110px;
+      height: 250px;
+    }
+  }
+  
+  &__round-3:hover ~ &__vector {
+
+    @media(min-width: $laptop-width) {
+      height: 220px;
+    }
+  }
+
+  &__round-4:hover ~ &__vector {
+    height: 170px;
+    
+    @media(min-width: $tablet-width) {
+      height: 330px;
+    }
+    
+    @media(min-width: $laptop-width) {
+      height: 340px;
+    }
+  }
+
+  &__round-5:hover ~ &__vector {
+    height: 80px;
+  }
+
+  &__round-6:hover ~ &__vector {
+    height: 180px;
+    
+    @media(min-width: $tablet-width) {
+      height: 260px;
+    }
+    
+    @media(min-width: $laptop-width) {
+      height: 300px;
+    }
+  }
+  
+  &__round-8:hover ~ &__vector {
+
+    @media(min-width: $tablet-width) {
+      height: 210px;
+    }
+    
+    @media(min-width: $laptop-width) {
+      height: 200px;
+    }
+  }
+
+  &__round-9:hover ~ &__vector {
+    height: 165px;
+    
+    @media(min-width: $tablet-width) {
+      height: 260px;
+    }
+    
+    @media(min-width: $laptop-width) {
+      height: 300px;
+    }
+  }
+}
