@@ -1,0 +1,48 @@
+.promo {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: $containerPaddingY 0;
+
+  @media (max-width: $breakPointMedium) {
+    padding: ($containerPaddingY * 0.8) 0;
+  }
+
+  @media (max-width: $breakPointSmall) {
+    padding: ($containerPaddingY * 0.6) 0;
+  }
+
+  &__video {
+    width: 100%;
+
+    @include hover(transform, scale(1.1));
+
+  }
+
+  &::after {
+    content: "PLAY";
+    color: $colorButtonText;
+    text-align: center;
+    line-height: 100px;
+    font-weight: bold;
+
+    height: 100px;
+    width: 100px;
+
+    border: 1px solid;
+    border-radius: 50%;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    cursor: pointer;
+  }
+
+  &:hover::after {
+    color: $colorHighlight;
+    border: 2px solid;
+  }
+}

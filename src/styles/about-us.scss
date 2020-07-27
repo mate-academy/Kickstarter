@@ -1,0 +1,91 @@
+.about-us {
+  display: flex;
+  justify-content: space-between;
+
+  transition: 1s;
+
+  @media (max-width: $breakPointMedium) {
+    transform: translate(-20%, 0);
+  }
+
+  @media (max-width: 720px) {
+    transform: translate(-45%, 0);
+  }
+
+  @media (max-width: $breakPointSmall) {
+    flex-direction: column;
+    transform: none;
+  }
+
+  &__image {
+    height: 388px;
+
+    @media (max-width: $breakPointSmall) {
+      width: 100%;
+      height: 50%;
+    }
+  }
+
+  &__description {
+    margin-left: 30px;
+
+    @media (max-width: $breakPointSmall) {
+      margin: 0;
+    }
+  }
+
+  &__primary-title {
+    position: absolute;
+    left: 45%;
+
+    @extend %contentPrimaryTitle;
+
+    @media (max-width: $breakPointMedium) {
+      left: 60%;
+    }
+
+    @media (max-width: $breakPointSmall) {
+      transform: none;
+      position: relative;
+      left: 0;
+
+      margin-bottom: 50px;
+    }
+  }
+
+  &__text {
+    line-height: 150%;
+    font-weight: normal;
+
+    color: $colorText;
+    margin: 150px 0 30px;
+
+    @media (max-width: $breakPointMedium) {
+      min-width: 200px;
+    }
+
+    @media (max-width: $breakPointSmall) {
+      margin-top: 30px;
+    }
+  }
+
+  &__link {
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 15px;
+    text-transform: uppercase;
+
+    color: $colorHighlight;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 10%;
+      margin-top: 6px;
+      background-color: $colorHighlight;
+    }
+
+    @include hover(color, $colorHighlightHover);
+  }
+}

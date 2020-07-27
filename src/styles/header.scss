@@ -1,0 +1,120 @@
+.header {
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+
+  overflow-x: hidden;
+
+  &__container {
+    padding: 10px $containerPaddingX $containerPaddingY;
+    max-width: 1100px + $containerPaddingX * 2;
+
+    @media (max-width: $breakPointMedium) {
+      padding-bottom: $containerPaddingY * 0.8;
+    }
+  
+    @media (max-width: $breakPointSmall) {
+      padding-bottom: $containerPaddingY * 0.6;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 0.9rem;
+    line-height: 150%;
+    text-transform: uppercase;
+
+    & :nth-child(n) {
+      margin-right: 37px;
+    }
+
+    & :last-child {
+      margin-right: 0;
+    }
+
+    @media (max-width: $breakPointSmall) {
+      display: none;
+    }
+  }
+
+  &__specs {
+    color: $colorTitle;
+
+    cursor: pointer;
+
+    @include hover(color, $colorHighlight);
+  }
+
+  &__lang-switcher {
+    @include hover(color, $colorHighlight);
+  }
+
+  &__buy {
+    padding: 15px 35px;
+
+    background-color: $colorTitle;
+    color: $colorButtonText;
+
+    font-size: 0.8rem;
+
+    @include hover(background-color, $colorHighlight);
+  }
+
+  &__middle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 89px;
+
+    @media (max-width: $breakPointSmall) {
+      flex-direction: column-reverse;
+      text-align: center;
+      margin-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &__description {
+    width: 30%;
+
+    @media (max-width: $breakPointSmall) {
+      width: 100%;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 934px;
+
+    position: absolute;
+    left: 40%;
+    z-index: -1;
+
+    @media (max-width: $breakPointSmall) {
+      position: relative;
+      width: 130%;
+      left: 10%;
+    }
+  }
+
+  &__primary-title {
+    margin-bottom: 27px;
+
+    @extend %headerPrimaryTitle;
+  }
+
+  &__text {
+    font-style: bold;
+    color: $colorTitle;
+  }
+}
