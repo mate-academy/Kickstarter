@@ -109,7 +109,7 @@
         .style.marginTop = '22px';
 
       document.querySelector('.description-card:nth-of-type(1) .description-card__paragraph')
-        .innerHTML = 'Щоб надати Luna справді бездоганний вигляд, ми виготовили його з авiацiйного алюмінію, iз застосуванням тривимірної технології розгинання на розтягуванні, а також високоточної техніки холодного кування.';
+        .innerHTML = 'Щоб надати Luna справді бездоганний вигляд, ми виготовили його з авiацiйного алюмінію iз застосуванням тривимірної технології розгинання на розтягуванні, а також високоточної техніки холодного кування.';
 
       document.querySelector('.description-card:nth-of-type(2) .description-card__heading')
         .innerHTML = 'Подвiйна акустична система';
@@ -124,10 +124,10 @@
         .style.marginTop = '22px';
 
       document.querySelector('.description-card:nth-of-type(3) .description-card__paragraph')
-        .innerHTML = 'Luna може бути пiд\'єднаний до вашого домашнього Wi-Fi. Розташуйте кілька динаміків у різних кімнатах, щоб отримувати яскравi музичнi враження по всьому будинку.';
+        .innerHTML = 'Luna пiд\'єднується до вашого домашнього Wi-Fi. Розташуйте кілька динаміків у різних кімнатах, щоб отримувати яскравi музичнi враження по всьому будинку.';
 
       document.querySelector('.description-card:nth-of-type(4) .description-card__heading')
-        .innerHTML = 'Iнтуiтивна система освiтлення';
+        .innerHTML = 'Iнтуїтивна система освiтлення';
 
       document.querySelector('.description-card:nth-of-type(4) .description-card__paragraph')
         .innerHTML = 'Інтуїтивно зрозумілий інтерфейс користувача дозволяє регулювати відтінок і насиченість кольору освітлення, щоб воно вiдповiдало будь-якому настрою та ситуації.';
@@ -136,7 +136,7 @@
         .innerHTML = 'Розроблений <br> на майбутнє';
 
       document.querySelector('.about__paragraph')
-        .innerHTML = 'У 2014 році група примхливих промислових дизайнерів, ветеранiв інженерії та акустичних експертів утворила crazybaby. Це цiла купа ентузiастiв, які достатньо божевільні, щоб вважати, що можуть кинути виклик всiй галузі своїми бомбезними аудіопродуктами.';
+        .innerHTML = 'У 2014 році група перспектвиних промислових дизайнерів, ветеранiв інженерії та акустичних експертів, утворила crazybaby. Це цiла купа ентузiастiв, достатньо божевільних, щоб вважати, що вони можуть кинути виклик всiй галузі своїми бомбезними аудіопродуктами.';
 
       document.querySelector('.about__more')
         .innerHTML = 'Бiльше про нас';
@@ -145,7 +145,7 @@
         .innerHTML = 'Технологiя';
 
       document.querySelector('.technology__review-paragraph')
-        .innerHTML = 'Для мене насправді було сюрпризом, коли я побачив, який повний, прекрасний звук виходить з цього маленького компактного пристрою. А з алюмінієвою поверхнею щітки вiн відчувається таким знайомим. Як мій iPhone.';
+        .innerHTML = 'Для мене насправді було сюрпризом, коли я побачив, який повний, прекрасний звук виходить з цього маленького компактного пристрою. А з алюмінієвою поверхнею щітки вiн є таким звичним. Як мій iPhone.';
 
       document.querySelector('.technology__person-name')
         .innerHTML = 'Гарретт Мартiн';
@@ -159,7 +159,7 @@
         .innerHTML = 'Звук & Музика';
 
       document.querySelector('.features-card:nth-of-type(1) .features-card__item:nth-of-type(1)')
-        .innerHTML = 'Вiбрує в груди на базовiй потужностi';
+        .innerHTML = 'Вiдчувається вiбрацiя у грудях на базовiй потужностi';
 
       document.querySelector('.features-card:nth-of-type(1) .features-card__item:nth-of-type(2)')
         .innerHTML = 'Цифрова передача аудіо без втрат якостi';
