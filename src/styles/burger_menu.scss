@@ -1,5 +1,104 @@
 .burger-menu {
   &__button {
     display: none;
+
+    position: absolute;
+    top: 10px;
+    right: $containerPaddingX;
+
+    height: 30px;
+    width: 30px;
+
+    opacity: 0;
+
+    z-index: 2;
+
+    @media (max-width: $breakPointSmall) {
+      display: block;
+    }
+  }
+
+  &__dash-block {
+    position: absolute;
+    top: 10px;
+    right: $containerPaddingX;
+  }
+
+  &__dash {
+    display: block;
+    width: 30px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    
+    background: $colorTitle;
+    border-radius: 3px;
+    
+    z-index: 1;
+    
+    transform-origin: 4px 0;
+    
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1),
+      opacity 0.55s ease;
+
+    &:first-child {
+      transform-origin: 0% 0%;
+    }
+
+    &:nth-last-child(2) {
+      transform-origin: 0% 100%;
+    }
+
+    
+  }
+
+  &__button:checked + .burger-menu__dash-block .burger-menu__dash {
+    opacity: 1;
+    transform: rotate(45deg) translate(-6px, -16px);
+    background-color: $colorTitle;
+  }
+
+  &__button:checked + .burger-menu__dash-block :nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  &__button:checked + .burger-menu__dash-block :nth-last-child(2) {
+    transform: rotate(-45deg) translate(-2px, 13.5px);
+  }
+
+  &__button:checked ~ .nav {
+    width: 100%;
+    height: 100%;
+
+    background-color: $bgColorMain;
+
+    margin: 0;
+
+    display: block;
+
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+
+    @media (min-width: $breakPointSmall) {
+      display: none;
+    }
+  }
+
+  &__button:checked ~ .nav .nav__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 70%;
+
+    margin: 100px auto;
+  }
+
+  &__button:checked ~ .nav .nav__list :nth-child(n + 1) {
+    font-weight: bold;
+    font-size: 1.5rem;
   }
 }
