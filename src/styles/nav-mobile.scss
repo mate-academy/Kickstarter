@@ -2,11 +2,11 @@
   display: none;
   position: absolute;
   z-index: 1;
-  top: 25px;
   right: $tabletBodyIndentsX;
   width: 100vw;
   height: 100vh;
   background-color: rgba(247, 247, 247, 0.7);
+  animation: appearance 0.2s linear;
 
   &__item {
     margin: 20px 0;
@@ -21,5 +21,15 @@
     @extend %headerLinksStyle;
     color: inherit;
     @include hover(color, $styleColor);
+  }
+}
+
+@keyframes appearance {
+  0% {
+    top: -100%;
+  }
+
+  100% {
+    top: 25px;
   }
 }
