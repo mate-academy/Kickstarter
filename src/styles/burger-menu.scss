@@ -1,4 +1,6 @@
 .burger-menu {
+  $gapLineBurger: 7px;
+
   &__toggler,
   &__menu {
     display: none;
@@ -9,19 +11,19 @@
 
     &__icon {
       cursor: pointer;
-      z-index: 2;
+      z-index: $burgerZIndex;
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 24px;
-      height: 24px;
+      width: $burgerSize;
+      height: $burgerSize;
 
       > span {
-        z-index: 2;
+        z-index: $burgerZIndex;
         display: block;
-        width: 24px;
-        height: 3px;
+        width: $burgerSize;
+        height: $burgerSizeHeight;
         background-color: $colorBasic;
 
         &::before,
@@ -30,8 +32,8 @@
           position: absolute;
 
           display: block;
-          width: 24px;
-          height: 3px;
+          width: $burgerSize;
+          height: $burgerSizeHeight;
 
           background-color: $colorBasic;
 
@@ -39,25 +41,27 @@
         }
 
         &::before {
-          transform: translateY(7px);
+          transform: translateY($gapLineBurger);
         }
 
         &::after {
-          transform: translateY(-7px);
+          transform: translateY(-#{$gapLineBurger});
         }
       }
     }
 
     &__toggler:checked ~ &__icon span {
+      $rotateLineBurger: 45deg;
+
       height: 0;
 
       &::before {
-        transform: rotate(45deg);
+        transform: rotate($rotateLineBurger);
         background-color: $colorWhite;
       }
 
       &::after {
-        transform: rotate(-45deg);
+        transform: rotate(-#{$rotateLineBurger});
         background-color: $colorWhite;
       }
     }
