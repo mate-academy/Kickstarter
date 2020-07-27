@@ -2,6 +2,7 @@
 
   &__container {
     max-width: $someSectionsMaxContentWidth;
+    padding-top: $normalPaddingY;
     margin: 0 auto;
     position: relative;
     min-height: 800px;
@@ -12,10 +13,12 @@
 
     @media (max-width: $tabletBreakPoint) {
       min-height: 700px;
+      padding-top: $tabletPaddingY;
     }
 
     @media (max-width: $mobileBreakPoint) {
       min-height: 500px;
+      padding-top: $mobilePaddingY;
     }
   }
 
@@ -32,7 +35,7 @@
 
   &__picture {
     position: absolute;
-    top: 66px;
+    top: 216px;
     left: $bodyIndentsX;
 
     @media (max-width: $tabletBreakPoint) {
@@ -80,8 +83,12 @@
 
     &::before {
       content: url("../images/plus.png");
-      width: 11px;
-      height: 11px;
+      $plusSize: 13px;
+      width: $plusSize;
+      height: $plusSize;
+      position: absolute;
+      left: $buttonSize / 2 - $plusSize / 2;
+      top: $buttonSize / 2 - $plusSize / 2;
     }
 
     &:hover > .technology__description {
@@ -97,7 +104,7 @@
       text-align: left;
 
       @media (max-width: $tabletBreakPoint) {
-        height: 130px;
+        height: $tabletPaddingY;
         width: 100px;
       }
 

@@ -1,4 +1,6 @@
 .presentation {
+  $blockName: &;
+
   position: relative;
   background-image: url("../images/video.png");
   height: 590px;
@@ -29,6 +31,7 @@
 
     border: 1px solid $recordPlayerColor;
     border-radius: 50%;
+    cursor: pointer;
 
     @media (max-width: $mobileBreakPoint) {
       $recordPlayerSize: 108px;
@@ -36,6 +39,14 @@
       height: $recordPlayerSize;
       top: calc(50% - #{$recordPlayerSize / 2});
       left: calc(50% - #{$recordPlayerSize / 2});
+    }
+
+    &:hover > #{$blockName}__link--word {
+      display: none;
+    }
+
+    &:hover > #{$blockName}__link--triangle {
+      display: block;
     }
   }
 
@@ -46,14 +57,6 @@
     text-transform: uppercase;
 
     color: $recordPlayerColor;
-
-    &:hover {
-      display: none;
-
-      & ~ .presentation__link--triangle {
-        display: block;
-      }
-    }
 
     &--triangle {
       display: none;

@@ -1,19 +1,25 @@
 .features {
   position: relative;
   overflow: hidden;
+  padding-top: $normalPaddingY;
   padding-left: $bodyIndentsX;
   max-width: $someSectionsMaxContentWidth;
   margin: 0 auto;
 
   @media (max-width: $someSectionsTabletBreakPoint) {
     padding-left: $tabletBodyIndentsX;
+    padding-top: $tabletPaddingY;
+  }
+
+  @media (max-width: $mobileBreakPoint) {
+    padding-top: $mobilePaddingY;
   }
 
   &::after {
     content: "";
     position: absolute;
     z-index: -2;
-    top: 205px;
+    top: 355px;
     right: 0;
 
     display: block;
@@ -23,9 +29,13 @@
     background-color: #f2f2f2;
 
     @media (max-width: $mobileBreakPoint) {
-      top: 0;
+      top: 100px;
       width: 100vw;
       height: 100%;
+    }
+
+    @media (max-width: $mobileBreakPoint) {
+      top: 45px;
     }
   }
 
@@ -41,11 +51,12 @@
     @media (max-width: $someSectionsTabletBreakPoint) {
       max-width: 700px;
       margin-top: 51px;
-      margin-left: 0;
+      margin-left: 50px;
     }
 
     @media (max-width: $mobileBreakPoint) {
       padding-left: $tabletBodyIndentsX;
+      margin-left: 0;
     }
   }
 
