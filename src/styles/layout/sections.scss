@@ -90,11 +90,24 @@
       padding: 40px 20px 0;
       width: 340px;
     }
+
+    @media (max-width: $mobileSize) {
+      padding: 40px 0;
+    }
   }
 
   &__icon {
     width: $iconSize;
     height: $iconSize;
+    transition: transform 0.75s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &--rotate:hover {
+      transform: rotate(180deg) scale(1.2);
+    }
   }
 
   &__subject {
@@ -124,14 +137,14 @@
   margin: auto;
   height: 500px;
 
-  @media (max-width: $notebookSize) {
+  @media (max-width: $mediumSize) {
     display: none;
   }
 
   &__container {
     max-width: 1960px;
     height: 332px;
-    padding: 0 60px;
+    // padding: 0 60px;
     margin: auto;
     position: absolute;
     left: -10px;
@@ -158,6 +171,13 @@
     width: 100%;
     position: absolute;
     bottom: -570px;
+
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 
   // @media (max-width: $mobileSize) {
@@ -315,6 +335,7 @@
   }
 
   @media (max-width: $tabletSize) {
+    padding-top: 100px;
     padding-bottom: 50px;
   }
 
@@ -378,8 +399,9 @@
   }
 
   @media (max-width: $tabletSize) {
-    padding-top: 45px;
     background: $whiteSmoke;
+    margin: 0 -36px;
+    padding: 45px 36px;
   }
 
   &::after {
@@ -460,10 +482,6 @@
 .questions {
   @include big-padding-top;
   display: flex;
-
-  // @media (max-width: $tabletSize) {
-  //   padding-top: 100px;
-  // }
 
   @media (max-width: $tabletSize) {
     flex-direction: column;
