@@ -1,0 +1,141 @@
+.features {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 931px;
+  scroll-behavior: smooth;
+
+  @media (max-width: $mediaMobile) {
+    background-color: $colorFeaturesBlock;
+    height: 100%;
+  }
+
+  &__title {
+    padding-left: 5%;
+    margin-bottom: 130px;
+    @extend %titlePC;
+
+    @media (max-width: $mediaMobile) {
+      padding-left: 0;
+      margin-bottom: 50px;
+
+      text-align: center;
+      @include titleTextMobile;
+    }
+  }
+
+  &__block {
+    position: relative;
+    align-self: flex-end;
+    width: 77%;
+    height: 75%;
+    background-color: $colorFeaturesBlock;
+
+    @media (max-width: $mediaMobile) {
+      align-self: center;
+
+      display: grid;
+      justify-content: center;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 20% 1fr;
+    }
+  }
+
+  &__music {
+    z-index: 1;
+    position: absolute;
+    left: 30%;
+    top: -15%;
+
+    @media (max-width: $mediaMobile) {
+      position: relative;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &__connect {
+    z-index: 1;
+    position: absolute;
+    top: 25%;
+    left: -10%;
+
+    @media (max-width: $mediaMobile) {
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &__app {
+    z-index: 1;
+    position: absolute;
+    left: 20%;
+    bottom: -5%;
+
+    @media (max-width: $mediaMobile) {
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 44px;
+
+    @include subTitleText($titleSize: 34px, $titleLineHeight: 120%);
+    color: $colorFeatures;
+
+    @media (max-width: $mediaMobile) {
+      @include subTitleText($titleSize: 24px, $titleLineHeight: 30px);
+    }
+  }
+
+  &__list {
+    @include normalText($sizeLineHeight: 19px);
+    font-weight: 500;
+  }
+
+  &__item {
+    margin-bottom: 13px;
+
+    @media (max-width: $mediaMobile) {
+      @include smallText;
+      font-weight: 500;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    right: 0;
+    bottom: 10%;
+
+    width: 70%;
+    height: 72%;
+
+    background: url("../images/features.png") no-repeat center right;
+    background-size: cover;
+
+    @media (max-width: $mediaTablet) {
+      width: 90%;
+      height: 64%;
+    }
+
+    @media (max-width: $mediaMobile) {
+      position: static;
+
+      width: 100%;
+      height: 100%;
+
+      background-position: center;
+      background-size: contain;
+    }
+  }
+
+  &__control {
+    display: none;
+  }
+}

@@ -1,0 +1,75 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: $headerPaddingTop;
+  scroll-behavior: smooth;
+
+  @media (max-width: $mediaTablet) {
+    padding: $headerPaddingTop 33px 0;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $mediaMobile) {
+      height: 76px;
+    }
+  }
+
+  &__control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $mediaMobile) {
+      display: none;
+    }
+  }
+
+  &__specs {
+    @include link;
+    transition: all $transition;
+
+    &:hover {
+      @extend %hoverLink;
+    }
+  }
+
+  &__language {
+    padding: 0 37px;
+  }
+
+  &__language-radio {
+    @include link($lineHeightLink: 18px);
+    text-transform: uppercase;
+    color: $colorInfo;
+  }
+
+  &__language-toggler {
+    display: none;
+  }
+
+  &__buy {
+    cursor: pointer;
+    @extend %inSaidCenter;
+    width: 102px;
+    height: 48px;
+
+    background-color: $colorBasic;
+    color: $colorWhite;
+    text-transform: uppercase;
+
+    transition: background $transition;
+
+    &:hover {
+      background-color: $colorBlack;
+    }
+  }
+
+  &__menu {
+    display: none;
+  }
+}

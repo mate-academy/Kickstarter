@@ -1,0 +1,98 @@
+.about-us {
+  position: relative;
+
+  display: grid;
+  grid-template-rows: max-content 70%;
+  justify-content: center;
+  scroll-behavior: smooth;
+
+  @media (max-width: $mediaMobile) {
+    grid-row-gap: 50px;
+    justify-content: center;
+    padding: 0 30px;
+  }
+
+  &__title {
+    position: absolute;
+    left: 45%;
+
+    @extend %titlePC;
+
+    @media (max-width: $mediaMobile) {
+      position: static;
+      text-align: center;
+
+      @include titleTextMobile;
+    }
+  }
+
+  &__designed {
+    display: grid;
+    grid-template-columns: 40% 35%;
+    grid-template-rows: 388px;
+    grid-column-gap: 3%;
+    justify-content: center;
+
+    @media (max-width: $mediaTablet) {
+      grid-template-columns: 54% 43%;
+      grid-template-rows: 415px;
+    }
+
+    @media (max-width: $mediaMobile) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 210px max-content;
+      grid-row-gap: 29px;
+    }
+  }
+
+  &__image {
+    background: url("../images/designed.png") no-repeat center;
+    background-size: cover;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @media (max-width: $mediaMobile) {
+      justify-content: start;
+    }
+  }
+
+  &__text {
+    color: $colorBenefits;
+    padding-right: 10%;
+  }
+
+  &__link {
+    position: relative;
+    max-width: max-content;
+    margin: 30px 0;
+
+    color: $colorButton;
+    @include smallText($smallTextSize:12px, $smallTextLineHeight: 15px);
+    text-transform: uppercase;
+    font-weight: 500;
+
+    transition: all $transition;
+
+    &:after {
+      position: relative;
+      top: 6px;
+
+      display: block;
+      content: "";
+      width: 50%;
+      height: 2px;
+
+      background-color: $colorButton;
+
+      transition: width $transition;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

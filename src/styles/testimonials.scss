@@ -1,0 +1,55 @@
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 55%;
+  height: auto;
+
+  @media (max-width: $mediaMobile) {
+    width: 90%;
+  }
+
+  &__quotes {
+    position: absolute;
+    z-index: -1;
+    width: 233px;
+    height: 191px;
+
+    background-image: url("../images/quotes.png");
+  }
+
+  &__text {
+    margin: 30px 0;
+
+    text-align: center;
+
+    @include textTestimonials;
+
+    @media(max-width: $mediaMobile) {
+      @include textTestimonials($sizeText: 14px, $textHeight: 21px);
+    }
+  }
+
+  &__person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__photo {
+    width: 64px;
+    height: 64px;
+
+    background: url("../images/people.png") no-repeat center;
+  }
+
+  &__name {
+    margin: 20px 0 5px;
+    color: $colorBasic;
+  }
+
+  &__position {
+    color: $colorBenefits;
+    font-size: 14px;
+  }
+}
