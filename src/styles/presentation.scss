@@ -1,5 +1,8 @@
 .presentation {
   $blockName: &;
+  $recordPlayerSize: 232px;
+  $tabletRecordPlayerSize: 190px;
+  $mobileRecordPlayerSize: 108px;
 
   position: relative;
   background-image: url("../images/video.png");
@@ -17,7 +20,6 @@
   }
 
   &__record-player {
-    $recordPlayerSize: 232px;
     width: $recordPlayerSize;
     height: $recordPlayerSize;
 
@@ -32,13 +34,20 @@
     border: 1px solid $recordPlayerColor;
     border-radius: 50%;
     cursor: pointer;
+    @include hover(transform, scale(1.05));
+
+    @media (max-width: $tabletBreakPoint) {
+      width: $tabletRecordPlayerSize;
+      height: $tabletRecordPlayerSize;
+      top: calc(50% - #{$tabletRecordPlayerSize / 2});
+      left: calc(50% - #{$tabletRecordPlayerSize / 2});
+    }
 
     @media (max-width: $mobileBreakPoint) {
-      $recordPlayerSize: 108px;
-      width: $recordPlayerSize;
-      height: $recordPlayerSize;
-      top: calc(50% - #{$recordPlayerSize / 2});
-      left: calc(50% - #{$recordPlayerSize / 2});
+      width: $mobileRecordPlayerSize;
+      height: $mobileRecordPlayerSize;
+      top: calc(50% - #{$mobileRecordPlayerSize / 2});
+      left: calc(50% - #{$mobileRecordPlayerSize / 2});
     }
 
     &:hover > #{$blockName}__link--word {
@@ -53,6 +62,7 @@
   &__link {
     font-family: "DIN Pro", "Roboto", sans-serif;
     font-size: 24px;
+    line-height: 0;
     font-weight: 700;
     text-transform: uppercase;
 
@@ -74,8 +84,14 @@
   }
 
   &__icon {
-    width: 20px;
-    height: 26px;
+    width: 24px;
+    height: 32px;
+
+
+    @media (max-width: $tabletBreakPoint) {
+      width: 20px;
+      height: 26px;
+    }
 
     @media (max-width: $mobileBreakPoint) {
       width: 14px;
