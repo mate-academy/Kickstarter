@@ -1,0 +1,177 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__top {
+    order: 1;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    padding: 28px 30px 0;
+
+    @media (min-width: 720px) {
+      padding: 41px 34px 22px;
+    }
+  }
+
+  &__link-container {
+    position: absolute;
+    top: 27px;
+    right: 33px;
+    display: none;
+
+    @media (min-width: 720px) {
+      display: flex;
+    }
+  }
+
+  &__link {
+    display: none;
+    align-items: center;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+
+    @media (min-width: 720px) {
+      display: flex;
+    }
+
+    &--specs {
+      width: 70px;
+      font-size: 14px;
+      line-height: 18px;
+      color: #4f4f4f;
+    }
+
+    &--language {
+      color: #333;
+    }
+
+    &--unactive {
+      color: #828282;
+    }
+
+    &--buy {
+      display: flex;
+      justify-content: center;
+      margin-left: 27px;
+      width: 102px;
+      height: 48px;
+      color: #fff;
+      background-color: #333;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 31px;
+    right: $headerMenuRight;
+    width: 24px;
+    height: 17px;
+    background: url(../images/menu-icon.svg) center no-repeat;
+    cursor: pointer;
+
+    @media (min-width: 720px) {
+      display: none;
+    }
+  }
+
+  &__main {
+    order: 3;
+    padding: 0 30px;
+    flex-direction: column;
+
+    @media (min-width: 720px) {
+      display: flex;
+    }
+  }
+
+  &__main-title {
+    padding: 40px 0 23px;
+    text-align: center;
+    font-size: 44px;
+    line-height: 57px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    @media (min-width: 720px) {
+      width: 340px;
+      padding-top: 137px;
+      text-align: left;
+    }
+  }
+
+  &__image-container {
+    order: 2;
+    width: 100%;
+    overflow: hidden;
+
+    @media (min-width: 720px) {
+      position: absolute;
+      top: 175px;
+      left: 285px;
+      z-index: -1;
+    }
+  }
+
+  &__image {
+    width: 160%;
+
+    @media (min-width: 720px) {
+      width: 100%;
+    }
+  }
+
+  &__navbar {
+    display: none;
+  }
+
+  &__navlist {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    padding-right: $headerMenuRight + $headerMenuWidth + 5px;
+  }
+
+  &__navlink {
+    display: block;
+    padding: 5px 0;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__paragraph {
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+
+    @media (min-width: 720px) {
+      width: 250px;
+      text-align: left;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+
+    &:checked ~ .header__navbar {
+      display: block;
+      position: absolute;
+      width: 100%;
+      background-color: $c-gray;
+      z-index: 1;
+    }
+
+    &:checked + .header__menu {
+      width: $headerMenuWidth;
+      height: 13px;
+      background: url(../images/cross-icon.svg);
+      z-index: 2;
+    }
+  }
+}
