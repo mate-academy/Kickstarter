@@ -41,6 +41,8 @@
   width: 102px;
   height: $header-height;
   cursor: pointer;
+  outline: none;
+  padding: 0;
   margin-left: 37px;
   background-color: #333;
   color: white;
@@ -57,17 +59,31 @@
   }
 }
 
+.header__toogler {
+  display: none;
+}
+
 @media screen and (max-width: 700px) {
   .header {
     margin-bottom: 0;
   }
 
-  .header__info {
+  .header__toogler-label {
     background-image: url(../images/menu-mobile.svg);
     @include image;
     width: 24px;
     height: 14px;
+    cursor: pointer;
+    display: block;
+    z-index: 2;
   }
+
+  .header__toogler:checked + .header__toogler-label {
+    background-image: url(../images/Vector.svg);
+    width: 24px;
+    height: 14px;
+  }
+
   .header__button,
   .header__lang,
   .header__specs {

@@ -43,15 +43,22 @@
   line-height: 15px;
   text-transform: uppercase;
   color: #0db2b3;
-}
 
-.article__link::after {
-  content: "";
-  display: block;
-  margin: 6px 0 30px;
-  background-color: #0db2b3;
-  width: 10%;
-  height: 1px;
+  &::after {
+    content: "";
+    display: block;
+    margin: 6px 0 30px;
+    background-color: #0db2b3;
+    width: 15%;
+    height: 1px;
+    transition: width 1s;
+  }
+  
+  &:hover {
+    &::after {
+      width: 35%;
+    }
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -93,6 +100,7 @@
   .article__image {
     order: 2;
     width: 100%;
+    height: 200px;
     margin: 0 0 30px;
     background-position: center;
     background-size: cover;
