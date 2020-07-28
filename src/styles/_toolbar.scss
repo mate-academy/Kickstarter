@@ -1,0 +1,63 @@
+.toolbar-input {
+  display: none;
+}
+
+.toolbar-toggle {
+  background-image: url("../images/toolbar/toolbar-open.svg");
+  z-index: 2;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  display: none;
+
+  @media (max-width: $mobileWidth) {
+    display: block;
+  }
+}
+
+.toolbar-input:checked + .toolbar-toggle {
+  background-image: url("../images/toolbar/toolbar-close.svg");
+  width: 20px;
+  height: 20px;
+}
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: $white;
+  width: 100vw;
+  height: 100vh;
+  transition: left 1s;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+    margin-left: 30px;
+
+  }
+
+  &__item {
+    margin-bottom: 30px;
+  }
+
+  &__link {
+    font-size: 36px;
+    color: $black;
+    font-weight: $mediumWeight;
+    cursor: pointer;
+    transition: color 0.5s;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+.toolbar-input:checked ~ .toolbar {
+  left: 0;
+}
