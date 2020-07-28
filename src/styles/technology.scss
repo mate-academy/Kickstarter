@@ -69,32 +69,19 @@
     position: absolute;
     width: $scrollBtnWidth;
     height: $scrollBtnWidth;
-    border-radius: 50%;
-    background-color: #0db2b3;
-    color: #fff;
     cursor: pointer;
-
-    &:after {
-      content: "+";
-      font-size: 32px;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      align-self: center;
-    }
 
     &:before {
       content: "";
       display: flex;
       justify-content: center;
       position: absolute;
-      text-align: center;
       left: -100%;
-      top: $scrollBtnWidth / 2;
+      top: $scrollBtnWidth/3;
+      text-align: center;
+      color: $mainColor;
       width: 300%;
       height: 0;
-
       background-color: $colorHighlight;
       opacity: 0.9;
       transition: height 0.5s;
@@ -102,9 +89,6 @@
     }
 
     &:hover {
-      &:after {
-        content: "-";
-      }
       &:before {
         content: "Detail description";
         padding-top: $scrollBtnWidth;
@@ -162,8 +146,13 @@
 
       &:nth-child(5) {
         top: 140px;
-        left: 210px;
+        left: 220px;
       }
+    }
+
+    &__btn-img {
+      width: 36px;
+      height: 36px;
     }
   }
 }
