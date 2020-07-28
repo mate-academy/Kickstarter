@@ -1,0 +1,60 @@
+.header {
+  @extend %text-2;
+  position: relative;
+  display: grid;
+  row-gap: 90px;
+  margin: 0 auto;
+  padding-left: $contentMinGap;
+  padding-right: $contentMinGap;
+  padding-top: 13px;
+  max-width: $contentMaxWidthPC;
+  overflow: hidden;
+  
+
+  @media (max-width: $breakpointPC - 1px) {
+    max-width: $contentMaxWidthTablet;
+    row-gap: 100px;
+  }
+
+  @media (max-width: $breakpointTablet - 1px) {
+    row-gap: 20px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    color: $activeDarkGrey;
+  }
+
+  &__banner {
+    display: flex;
+    align-items: center;
+  }
+
+  &__radio {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  &__info {
+
+    display: flex;
+    align-items: center;
+    gap: 37px;
+
+    @media (max-width: $breakpointTablet - 1px) {
+      display: none;
+    }
+  }
+
+  &__switcher {
+    color: $activeLightGrey;
+    cursor: pointer;
+
+    &--active {
+      color: $activeBlack;
+    }
+  }
+}

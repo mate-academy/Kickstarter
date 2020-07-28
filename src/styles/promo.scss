@@ -1,0 +1,51 @@
+.promo {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+  @media (max-width: $breakpointPC - 1px) {
+    max-width: $contentMaxWidthTablet;
+  }
+
+  @media (max-width: $breakpointTablet - 1px) {
+    grid-template-columns: auto;
+    row-gap: 30px;
+  }
+
+  &__heading {
+    @extend %style-1;
+    text-transform: uppercase;
+    margin-top: 80px;
+    margin-bottom: 44px;
+
+    @media (max-width: $breakpointPC - 1px) {
+      margin-top: 30px;
+      margin-bottom: 34px;
+    }
+
+    @media (max-width: $breakpointTablet - 1px) {
+      margin-bottom: 23px;
+      text-align: center;
+    }
+  }
+
+  &__info {
+    @extend %text-1;
+    margin-top: 0;
+
+    @media (max-width: $breakpointTablet - 1px) {
+      text-align: center;
+    }
+  }
+
+  &__img {
+    background: url(../images/promo-header.png) no-repeat bottom left;
+    background-size: cover;
+
+    @media (max-width: $breakpointTablet - 1px) {
+      order: -1;
+      margin: 0 auto;
+      height: 245px;
+      width: 320px;
+    }
+  }
+}
