@@ -11,9 +11,7 @@
   }
 
   &__title {
-    font-family: DIN Pro, sans-serif;
-    font-size: 56px;
-    line-height: 72px;
+    @include secondaryLanguage(56px, 72px);
     text-transform: uppercase;
     color: $colorHighlight;
     max-width: 480px;
@@ -37,26 +35,24 @@
     min-height: 128px;
     margin-bottom: 30px;
     resize: none;
-    &::placeholder {
-      padding-top: 4%;
-    }
+    padding-top: 4%;
   }
 
   &__item {
+    font-family: "Helvetica", sans-serif;
     border: 1px solid #828282;
     box-sizing: border-box;
-    background-color: #f7f7f7;
-    &::placeholder {
-      padding-left: 5%;
-    }
+    background-color: $mainColor;
+    padding-left: 5%;
   }
 
   &__submit {
     width: 102px;
     height: 48px;
-    background-color: #0db2b3;
-    color: #f7f7f7;
+    background-color: $linkColor;
+    color: $mainColor;
     margin-bottom: 140px;
+    text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
@@ -65,7 +61,7 @@
     }
   }
 
-  @media (max-width: 850px) {
+  @media (max-width: $tabletScreen) {
     margin-top: 45px;
 
     &__main-container {
@@ -78,6 +74,13 @@
       font-size: 37px;
       line-height: 46px;
       margin-bottom: 30px;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 350px) {
+    &__title {
+      text-align: left;
     }
   }
 }

@@ -23,9 +23,7 @@
   }
 
   &__title {
-    font-family: DIN Pro, sans-serif;
-    font-size: 56px;
-    line-height: 72px;
+    @include secondaryLanguage(56px, 72px);
     color: $colorHighlight;
     z-index: 2;
   }
@@ -48,13 +46,14 @@
   &__link {
     display: block;
     margin-top: 30px;
-    color: #0db2b3;
+    color: $linkColor;
+    text-transform: uppercase;
     &:after {
       content: "";
       display: block;
       width: 15%;
-      height: 3px;
-      background-color: #0db2b3;
+      height: 1px;
+      background-color: $linkColor;
       position: relative;
       margin-top: 5px;
       margin-bottom: 180px;
@@ -68,7 +67,7 @@
     }
   }
 
-  @media (max-width: 850px) {
+  @media (max-width: $tabletScreen) {
     margin-top: 90px;
 
     &__container {

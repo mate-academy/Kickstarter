@@ -4,8 +4,8 @@
   &__main-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 30px;
     grid-row-gap: 40px;
+    grid-column-gap: 30px;
   }
 
   &__container {
@@ -16,33 +16,34 @@
   }
 
   &__title {
-    font-family: DIN Pro, sans-serif;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 30px;
-    margin-bottom: 20px;
+    @include secondaryLanguage(24px, 30px);
     height: 60px;
+    text-transform: uppercase;
   }
 
   &__icon {
     margin-bottom: 40px;
     height: 44px;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   &__text {
     font-size: 14px;
     line-height: 21px;
     color: #7c7c7c;
+    margin-top: 20px;
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1120px) {
     &__main-container {
       grid-template-columns: repeat(2, 1fr);
       grid-column-gap: 20px;
     }
   }
 
-  @media (max-width: 850px) {
+  @media (max-width: $tabletScreen) {
     &__main-container {
       grid-template-columns: 1fr;
     }
@@ -64,7 +65,7 @@
     }
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: $screenTV) {
     padding: 0;
 
     &__main-container {
