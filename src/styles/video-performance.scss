@@ -1,0 +1,50 @@
+.video-performance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 590px;
+  width: 100vw;
+  background-image: url(../images/video-background.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media (max-width: $breakpointPC - 1px) {
+    height: 400px;
+  }
+
+  @media (max-width: $breakpointTablet - 1px) {
+    height: 320px;
+  }
+
+  &__button-sign {
+    display: none;
+  }
+
+  &__button {
+    @extend %h4;
+
+    height: 232px;
+    width: 232px;
+    text-transform: uppercase;
+    color: #f3f4f5;
+    background-color: transparent;
+    border: 1px solid #f3f4f5;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      .video-performance__text {
+        display: none;
+      }
+
+      .video-performance__button-sign {
+        display: inline;
+      }
+    }
+  }
+}
