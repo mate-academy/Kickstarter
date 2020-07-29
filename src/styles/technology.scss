@@ -5,9 +5,14 @@
     padding-bottom: 130px;
   }
 
+  @media (min-width: 1250px) {
+    margin: 0 auto;
+    width: 1250px;
+    padding-bottom: 84px;
+  }
+
   &__title {
     padding: 0 30px;
-    font-weight: normal;
     font-size: 37px;
     line-height: 46px;
     text-transform: uppercase;
@@ -44,6 +49,7 @@
     background-color: #0db2b3;
     border-radius: 50%;
     cursor: pointer;
+    transition: transform 0.4s;
 
     &::before {
       @extend %labelCrossStyle;
@@ -52,6 +58,10 @@
     &::after {
       @extend %labelCrossStyle;
       transform: rotate(90deg);
+    }
+
+    &:hover {
+      transform: scale(1.2);
     }
 
     &--1 {
@@ -165,31 +175,8 @@
     }
   }
 
-  &__description-container {
-    position: relative;
-  }
-
-  &__description {
-    display: none;
-    position: absolute;
-    left: 30px;
-    bottom: 10px;
-  }
-
-  &__item {
-    display: none;
-
-    &:checked + .technology__description {
-      display: block;
-    }
-  }
-
   &__counter {
-    position: relative;
-    padding-top: 23px;
-    text-align: center;
-    font-size: 16px;
-    line-height: 20px;
+    @extend %counter;
 
     @media (min-width: 618px) {
       display: none;
@@ -199,38 +186,8 @@
       display: block;
     }
 
-    &::before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 2px;
-      left: calc(50% - 40px);
-      width: 48px;
-      height: 13px;
-      border-top: 2px solid #bdbdbd;
-      border-left: 2px solid #bdbdbd;
-      transform: skewX(45deg);
-      cursor: pointer;
+    @media (min-width: 1181px) {
+      display: none;
     }
-
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      left: calc(50% - 8px);
-      width: 48px;
-      height: 13px;
-      border-bottom: 2px solid #333;
-      border-right: 2px solid #333;
-      transform: skewX(45deg);
-      cursor: pointer;
-    }
-  }
-
-  &__total-count {
-    font-size: 11px;
-    line-height: 14px;
-    color: #bdbdbd;
   }
 }

@@ -1,7 +1,6 @@
 %pageFont {
-  font-family: "din", sans-serif;
+  font-family: "helveticaN", sans-serif;
   font-size: 16px;
-  font-weight: 400;
   color: $fontColor;
 }
 
@@ -15,4 +14,46 @@
   height: 2px;
   border-radius: 1px;
   background-color: #fff;
+}
+
+%counter {
+  position: relative;
+  padding-top: 23px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: calc(50% - 40px);
+    width: 48px;
+    height: 13px;
+    border-top: 2px solid #bdbdbd;
+    border-left: 2px solid #bdbdbd;
+    transform: skewX(45deg);
+    cursor: pointer;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 8px);
+    width: 48px;
+    height: 13px;
+    border-bottom: 2px solid #333;
+    border-right: 2px solid #333;
+    transform: skewX(45deg);
+    cursor: pointer;
+  }
+
+  .counter__total-count {
+    font-size: 11px;
+    line-height: 14px;
+    color: #bdbdbd;
+  }
 }
