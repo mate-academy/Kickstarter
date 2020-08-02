@@ -3,6 +3,14 @@
   margin: auto;
   padding-top: 90px;
   display: flex;
+  overflow-x: hidden;
+
+  @media (max-width: $tabletSize) {
+
+    &::before {
+      content: url(../images/mobilePromo.svg);
+    }
+  }
 
   &__text {
     width: 30%;
@@ -10,10 +18,12 @@
   }
 
   &__title {
+    font-family: DIN Pro, sans-serif;
     font-size: 64px;
     font-weight: bold;
     line-height: 130%;
     text-transform: uppercase;
+
   }
 
   &__description {
@@ -24,10 +34,45 @@
   }
 
   &__img {
+    z-index: -1;
     background: url(../images/promoImage.png);
     background-position: left;
     background-repeat: no-repeat;
-    width: 70%;
+    width: 900px;
     height: 464px;
+    overflow: hidden;
   }
+
+  @media (max-width: $mediumSize) {
+    justify-content: space-between;
+
+    &__img {
+      width: 600px;
+    }
+  }
+
+  @media (max-width: $tabletSize) {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 22px;
+
+    &__text {
+      padding-top: 40px;
+      width: 90%;
+    }
+
+    &__title {
+      text-align: center;
+      font-size: 44px;
+    }
+
+    &__description {
+      text-align: center;
+    }
+
+    &__img {
+      display: none;
+    }
+  }
+
 }

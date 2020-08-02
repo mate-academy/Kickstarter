@@ -1,0 +1,82 @@
+.burger {
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: #f6f6f6;
+
+    height: 100vh;
+    z-index: -1;
+    transition: bottom 0.5s, visibility 0.5s;
+  }
+
+  &__list {
+    margin: 0 auto;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__label {
+    position: absolute;
+    display: none;
+    right: 20px;
+    top: 40px;
+    background-image: url(../images/burger.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 14px;
+    width: 24px;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.2s;
+  }
+
+  &__checkbox:checked ~ &__nav {
+    z-index: 1;
+    bottom: 0;
+    visibility: visible;
+  }
+
+  &__checkbox:checked + &__label {
+    background-image: url(../images/burger-closer.png);
+    background-size: cover;
+    height: 24px;
+    width: 24px;
+  }
+
+  &__item {
+    font-family: DIN Pro, sans-serif;
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: bold;
+    margin-bottom: 32px;
+
+    &:first-child {
+      margin-top: 100px;
+    }
+  }
+
+  @media (max-width: $tabletSize) {
+    &__label {
+      display: inline-block;
+    }
+  }
+}
+
+.burger__checkbox:checked {
+  .burger {
+    z-index: 1;
+  }
+}
