@@ -1,0 +1,91 @@
+.aboutUs {
+  margin: 150px auto 0;
+  max-width: 990px;
+  display: flex;
+  position: relative;
+
+  &__title {
+    font-family: DIN Pro, sans-serif;
+    position: absolute;
+    text-transform: uppercase;
+    font-size: 56px;
+    line-height: 72px;
+    right: 0;
+    top: 8px;
+  }
+
+  &__img {
+    width: 70%;
+    height: 388px;
+    background: url(../images/aboutUs.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+
+  &__text {
+    max-width: 30%;
+    margin-left: 30px;
+    padding-top: 182px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__description {
+    font-size: 16px;
+    color: #7c7c7c;
+    line-height: 24px;
+  }
+
+  &__link {
+    position: relative;
+    padding-top: 30px;
+    color: #0db2b3;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 15px;
+    display: inline-block;
+    transition: opacity $hoverDuration;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 15%;
+      height: 1px;
+      background-color: #0db2b3;
+      transition: width $hoverDuration;
+    }
+
+    &:hover {
+      opacity: 0.7;
+      &::after {
+        width: 34%;
+      }
+    }
+  }
+
+  @media (max-width: $tabletSize) {
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+      position: static;
+      font-size: 37px;
+      width: 90%;
+    }
+
+    &__img {
+      width: 90%;
+    }
+
+    &__text {
+      max-width: 90%;
+      padding-top: 29px;
+      margin: 0;
+    }
+  }
+
+}
