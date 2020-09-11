@@ -1,15 +1,25 @@
 .features {
   &__container {
     position: relative;
+
+    @media (max-width: $mobileBreakpoint) {
+      & > div:nth-of-type(n+2) {
+        display: none;
+      }
+    }
   }
 
   &__title {
     margin-bottom: 24px;
+
+    @media (max-width: $mobileBreakpoint) {
+      margin-bottom: 50px;
+    }
   }
 
   &__img {
     position: absolute;
-    right: 0;
+    right: -$containerMarginDesktop;
     bottom: 20px;
     z-index: -1;
   }

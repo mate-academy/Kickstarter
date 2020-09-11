@@ -1,6 +1,21 @@
 .advantages {
   &__container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(220px, $cardWidth));
+    justify-content: center;
+    column-gap: 30px;
+
+    @media (max-width: $desktopBreakpoint) {
+      grid-template-columns: repeat(2, minmax(220px, $cardBigWidth));
+      row-gap: 70px;
+    }
+
+    @media (max-width: $mobileBreakpoint) {
+      grid-template-columns: repeat(1, minmax(220px, $cardWidth));
+
+      & > div:nth-child(n+2) {
+        display: none;
+      }
+    }
   }
 }

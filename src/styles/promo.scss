@@ -1,22 +1,47 @@
 .promo {
-  overflow: hidden;
-
   &__container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: end;
     margin-bottom: 90px;
+
+    @media (max-width: $mobileBreakpoint) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
   }
 
   &__title {
     font-size: 64px;
     font-weight: 900;
     line-height: 130%;
-    margin-top: 64px;
     margin-bottom: 44px;
+
+    @media (max-width: $tabletBreakpoint) {
+      font-size: 56px;
+      margin-bottom: 34px;
+    }
+
+    @media (max-width: $mobileBreakpoint) {
+      font-size: 44px;
+      margin-bottom: 23px;
+    }
   }
 
   &__subtitle {
-    width: 276px;
+    max-width: 276px;
     font-weight: 900;
-    line-height: 24px;
+    line-height: 150%;
+
+    @media (max-width: $mobileBreakpoint) {
+      margin: 0 auto;
+    }
+  }
+
+  &__img {
+    @media (max-width: $mobileBreakpoint) {
+      order: -1;
+    }
   }
 }

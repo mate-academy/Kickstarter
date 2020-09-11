@@ -7,13 +7,20 @@
   top: 0;
   z-index: 1;
 
+  @media (max-width: $tabletBreakpoint) {
+    display: none;
+  }
+
   &__list {
-    display: flex;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    width: $tabletBreakpoint;
   }
 
   &__item {
     height: $navHeight;
-    margin-right: 50px;
 
     &:last-child {
       margin-right: 0;
@@ -28,6 +35,11 @@
     text-transform: uppercase;
     position: relative;
     transform: translate(0, 50%);
+
+    &:hover {
+      color: $c-basicDark;
+      font-weight: 500;
+    }
 
     &--is-active {
       color: $c-basicDark;

@@ -4,6 +4,11 @@
     justify-content: center;
     align-items: flex-end;
     max-width: $containerSmallWidth;
+
+    @media (max-width: $desktopBreakpoint) {
+      position: relative;
+      right: 0;
+    }
   }
 
   &__text {
@@ -16,10 +21,10 @@
   }
 
   &__subtitle {
+    min-width: 340px;
     margin-bottom: 20px;
-    font-weight: 900;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 150%;
     color: $c-basicLight;
   }
 
@@ -39,6 +44,12 @@
       background-color: $c-accent;
       position: relative;
       top: 10px;
+    }
+
+    &:hover {
+      .about__see-more::after {
+        width: 100px;
+      }
     }
   }
 }

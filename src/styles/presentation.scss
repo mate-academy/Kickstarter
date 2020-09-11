@@ -6,6 +6,14 @@
     width: 100%;
     height: 590px;
     object-fit: cover;
+
+    @media (max-width: $tabletBreakpoint) {
+      height: 400px;
+    }
+
+    @media (max-width: $mobileBreakpoint) {
+      height: 246px;
+    }
   }
 
   &__btn {
@@ -19,11 +27,25 @@
     left: 50%;
     transform: translate(-50%, -50%);
     cursor: pointer;
+    font-family: "DINPro", serif;
     font-weight: bold;
     font-size: 24px;
-    line-height: 18px;
     color: $c-bg;
     text-transform: uppercase;
 
+    &:hover {
+      background: url(../images/play.svg) no-repeat center;
+      color: transparent;
+    }
+
+    @media (max-width: $tabletBreakpoint) {
+      width: $btnPlaySizeTablet;
+      height: $btnPlaySizeTablet;
+    }
+
+    @media (max-width: $mobileBreakpoint) {
+      width: $btnPlaySizeMobile;
+      height: $btnPlaySizeMobile;
+    }
   }
 }
