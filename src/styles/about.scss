@@ -1,40 +1,78 @@
 .about {
   &__container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    align-items: end;
     max-width: $containerSmallWidth;
+    margin-left: auto;
 
-    @media (max-width: $desktopBreakpoint) {
-      position: relative;
-      right: 0;
+    @media (max-width: $mobileBreakpoint) {
+      grid-template-columns: 1fr;
+      margin: 0 $containerMarginMobile 90px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 415px;
+    object-fit: cover;
+
+    @media (max-width: $mobileBreakpoint) {
+      margin-bottom: 30px;
+      height: 210px;
     }
   }
 
   &__text {
     margin-left: 30px;
+
+    @media (max-width: $mobileBreakpoint) {
+      margin-left: 0;
+    }
   }
 
   &__title {
-    margin-left: -102px;
     margin-bottom: 30px;
+    margin-left: 570px;
+    position: absolute;
+    max-width: 400px;
+
+    @media (max-width: $containerSmallWidth) {
+      margin-left: 40vw;
+    }
+
+    @media (max-width: $tabletBreakpoint) {
+      margin-left: 25vw;
+    }
+
+    @media (max-width: $mobileBreakpoint) {
+      margin-left: 0;
+      position: relative;
+    }
   }
 
   &__subtitle {
-    min-width: 340px;
     margin-bottom: 20px;
     font-size: 16px;
     line-height: 150%;
     color: $c-basicLight;
+
+    @media (max-width: $mobileBreakpoint) {
+      font-size: 14px;
+    }
   }
 
   &__see-more {
     display: block;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
     color: $c-accent;
+
+    @media (max-width: $mobileBreakpoint) {
+      margin-bottom: 0;
+    }
 
     &:after {
       content: "";
@@ -44,12 +82,6 @@
       background-color: $c-accent;
       position: relative;
       top: 10px;
-    }
-
-    &:hover {
-      .about__see-more::after {
-        width: 100px;
-      }
     }
   }
 }
