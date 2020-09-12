@@ -1,16 +1,19 @@
 .promo {
   @include small-padding-top;
+  padding-bottom: 80px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   position: relative;
   overflow-x: hidden;
+  background-color: $bcgColor;
 
   @media (max-width: $tabletSize) {
     flex-direction: column-reverse;
   }
 
   @media (max-width: $mobileSize) {
+    padding-bottom: 0;
     &::before {
       content: url("../images/hero-mobile.png");
       position: absolute;
@@ -20,6 +23,7 @@
 
   &__info {
     width: 30%;
+    z-index: 1;
 
     @media (max-width: $notebookSize) {
       width: 35%;
@@ -31,7 +35,7 @@
     }
 
     @media (max-width: $mobileSize) {
-      padding-top: 195px;
+      padding-top: 240px;
     }
   }
   
@@ -43,7 +47,6 @@
     position: absolute;
     right: -100px;
     bottom: 0;
-    z-index: -1;
     max-width: 100%;
 
     @media (max-width: $notebookSize) {
@@ -99,7 +102,7 @@
   &__icon {
     width: $iconSize;
     height: $iconSize;
-    transition: transform 0.75s ease;
+    transition: transform 500ms ease;
 
     &:hover {
       transform: scale(1.2);
@@ -145,23 +148,11 @@
   &__container {
     max-width: 1960px;
     height: 332px;
-    // padding: 0 60px;
     margin: auto;
     position: absolute;
     left: 0;
     right: 0;
     overflow: hidden;
-  }
-
-  &__moto {
-    position: absolute;
-    z-index: 3;
-    top: 80px;
-    left: 50%;
-    transform: translate(-50%);
-    font-size: 50px;
-    color: #f2f2f2;
-    text-transform: initial;
   }
 
   &__video-container {
@@ -180,26 +171,6 @@
     width: 100%;
     object-fit: cover;
   }
-
-  // @media (max-width: $mobileSize) {
-  //   display: none;
-  // }
-
-  // &__iframe-wrapper {
-  //   position: relative;
-  //   width: 100%;
-  //   padding-bottom: 56.25%;
-  //   height: 0;
-  // }
-
-  // &__iframe {
-  //   border: none;
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  // }
 }
 
 .about {
@@ -223,6 +194,7 @@
     position: absolute;
     top: calc(10px + #{$bigColumnGap});
     right: 92px;
+    z-index: 1;
 
     @media (max-width: $mediumSize) {
       right: 40px;
@@ -236,7 +208,6 @@
 
   &__picture {
     position: absolute;
-    z-index: -1;
 
     @media (max-width: $mediumSize) {
       left: -150px;
@@ -308,6 +279,12 @@
     height: 350px;
   }
 
+  &__container {
+    position: absolute;
+    height: 700px;
+    width: 1100px;
+  }
+
   &__img {
     position: absolute;
     left: -120px;
@@ -322,6 +299,177 @@
 
     @media (max-width: $mobileSize) {
       width: 624px;
+    }
+  }
+
+  &__text {
+    display: none;
+    min-width: 100px;
+  }
+
+  &__button {
+    position: absolute;
+    width: $iconSize;
+    height: $iconSize;
+    background-color: $turquoise;
+    border: none;
+    outline: none;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+
+    &::before {
+      content: url("../images/plus.svg");
+      width: $plusSize;
+      height: $plusSize;
+      position: absolute;
+      left: 50%;
+      margin-left: -$plusSize / 2;
+      top: 50%;
+      margin-top: -$plusSize / 2;
+    }
+
+    &:hover {
+      background-color: $black;
+    }
+
+    &:hover > .technology__desc {
+      display: flex;
+      align-items: flex-end;
+      text-align: left;
+      position: absolute;
+      top: 45px;
+      right: $iconSize / 2;
+      height: 200px;
+      width: 150px;
+      border-bottom: 1px solid $granit;
+      border-right: 1px solid $granit;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        width: 63px;
+        height: 5px;
+        background-color: $granit;
+      }
+    }
+
+    &:hover .technology__text {
+      position: absolute;
+      display: block;
+      max-width: 174px;
+      padding-bottom: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    &--1 {
+      top: 30%;
+      left: 3%;
+
+      @media (max-width: $mobileSize) {
+        top: 15%;
+        left: 4%;
+
+        &:hover > .technology__desc {
+          height: 120px;
+          width: 100px;
+        }
+      }
+    }
+
+    &--2 {
+      top: 51%;
+      left: 17%;
+
+      @media (max-width: $mobileSize) {
+        top: 23%;
+
+        &:hover > .technology__desc {
+          height: 90px;
+        }
+      }
+    }
+
+    &--3 {
+      top: 40%;
+      left: 26%;
+
+      @media (max-width: $mobileSize) {
+        top: 12%;
+        left: 22%;
+      }
+    }
+
+    &--4 {
+      top: 22%;
+      left: 30%;
+
+      &:hover > .technology__desc {
+        height: 350px;
+      }
+
+      @media (max-width: $mobileSize) {
+        top: 15%;
+
+        &:hover > .technology__desc {
+          height: 150px;
+        }
+      }
+    }
+
+    &--5 {
+      top: 60%;
+      left: 39%;
+
+      &:hover > .technology__desc {
+        height: 150px;
+      }
+
+      @media (max-width: $mobileSize) {
+        top: 10%;
+      }
+    }
+
+    &--6 {
+      top: 25%;
+      left: 51%;
+
+      &:hover > .technology__desc {
+        height: 290px;
+      }
+    }
+
+    &--7 {
+      top: 47%;
+      left: 64%;
+    }
+
+    &--8 {
+      top: 30%;
+      left: 78%;
+    }
+
+    &--9 {
+      top: 17%;
+      left: 88%;
+
+      &:hover > .technology__desc {
+        height: 250px;
+      }
+    }
+
+    &--10 {
+      top: 32%;
+      left: 92%;
+    }
+
+    &--11 {
+      top: 23%;
+      left: 94%;
     }
   }
 }
@@ -483,6 +631,7 @@
 .questions {
   @include big-padding-top;
   display: flex;
+  position: relative;
 
   @media (max-width: $tabletSize - 1px) {
     flex-direction: column;
@@ -519,7 +668,6 @@
     @media (max-width: $mediumSize) {
       height: 201px;
     }
-
   }
 
   &__btn {
