@@ -1,0 +1,43 @@
+.mob-nav {
+
+  &__icon-block {
+    width: 25px;
+    border-radius: 2px;
+    margin-top: 4px;
+    height: 4px;
+    background-color: $activeBlack;
+    transition: 0.3s;
+  }
+
+  &__toggle {
+    display: none;
+
+    &:checked ~ .mob-nav__btn > .mob-nav__icon-block:first-child {
+      transform: rotate(45deg) translateY(11px);
+    }
+
+    &:checked ~ .mob-nav__btn > .mob-nav__icon-block:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:checked ~ .mob-nav__btn > .mob-nav__icon-block:last-child {
+      transform: rotate(-45deg) translateY(-12px);
+    }
+
+    &:checked ~ .nav__list {
+      transform: translateX(100%);
+    }
+  }
+
+  &__btn {
+    position: fixed;
+    top: 13px;
+    right: 50px;
+    cursor: pointer;
+    z-index: 2;
+
+    @media (min-width: $breakpointTablet) {
+      display: none;
+    }
+  }
+}

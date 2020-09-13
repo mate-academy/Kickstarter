@@ -1,0 +1,64 @@
+.header {
+  @extend %text-2;
+  position: relative;
+  display: grid;
+  row-gap: 90px;
+  margin: 0 auto;
+  padding-top: 13px;
+  padding-bottom: 150px;
+  max-width: $contentMaxWidthPC;
+  overflow: hidden;
+  
+
+  @media (max-width: $breakpointPC - 1px) {
+    max-width: $contentMaxWidthTablet;
+    row-gap: 100px;
+    padding-bottom: 130px;
+  }
+
+  @media (max-width: $breakpointTablet - 1px) {
+    row-gap: 20px;
+    justify-content: center;
+    padding-bottom: 90px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    color: $activeDarkGrey;
+  }
+
+  &__banner {
+    display: flex;
+    align-items: center;
+  }
+
+  &__radio {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: $breakpointTablet - 1px) {
+      display: none;
+    }
+  }
+
+  &__info-item {
+    margin-right: 37px;
+  }
+
+  &__switcher {
+    color: $activeLightGrey;
+    cursor: pointer;
+
+    &--active {
+      color: $activeBlack;
+    }
+  }
+}

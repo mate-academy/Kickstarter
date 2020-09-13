@@ -1,0 +1,41 @@
+.nav {
+  color: $activeGranit;
+
+  @media (min-width: $breakpointTablet) {
+    position: sticky;
+    top: 0;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 76px;
+    transition: 0.3s;
+    z-index: 1;
+
+    @media (max-width: $breakpointTablet - 1px) {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      flex-direction: column;
+      height: 100vh;
+      width: 100%;
+      background-color: $backgroundColor;
+    }
+  }
+
+  &__link {
+    text-transform: uppercase;
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+    transition: color 0.3s text-shadow 0.3s;
+
+    &:hover {
+      color: $activeTurqoise;
+      text-shadow: 0 0 0.65px #333, 0 0 0.65px #333;
+    }
+  }
+}
