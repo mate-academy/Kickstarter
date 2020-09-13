@@ -1,8 +1,6 @@
 .promo {
   position: relative;
 
-  overflow: hidden;
-
   padding: $containerPaddingY 0;
 
   @media (max-width: $breakPointMedium) {
@@ -14,35 +12,66 @@
   }
 
   &__video {
-    width: 100%;
-
-    @include hover(transform, scale(1.1));
-
+    background: url(../images/pictures/promo.png) center/cover no-repeat;
+    height: 600px;
   }
 
-  &::after {
-    content: "PLAY";
-    color: $colorButtonText;
-    text-align: center;
-    line-height: 100px;
-    font-weight: bold;
+  &__youtube {
+    display: none;
+  }
 
-    height: 100px;
-    width: 100px;
-
-    border: 1px solid;
-    border-radius: 50%;
-
+  &__togler {
     position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    opacity: 0;
+  }
+
+  &__play {
+    display: block;
+    position: absolute;
+    z-index: 0;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 
-    cursor: pointer;
-  }
+    height: 100px;
+    width: 100px;
 
-  &:hover::after {
-    color: $colorHighlight;
-    border: 2px solid;
+    &::after {
+      content: "PLAY";
+      color: $colorButtonText;
+      text-align: center;
+      line-height: 100px;
+      font-weight: bold;
+
+      height: 100px;
+      width: 100px;
+
+      border: 1px solid;
+      border-radius: 50%;
+
+      position: absolute;
+      z-index: 0;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      cursor: pointer;
+    }
+
+    &:hover::after {
+      color: $colorHighlight;
+      border: 2px solid;
+    }
   }
+}
+
+#promo__togler:checked ~ .promo__youtube {
+  display: block;
+}
+
+#promo__togler:checked + .promo__play {
+  display: none;
 }
