@@ -1,0 +1,49 @@
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 30px;
+  align-items: baseline;
+
+  @media (max-width: $breakPointMedium) {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 70px;
+  }
+
+  @media (max-width: $breakPointSmall) {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 50px;
+  }
+
+  &__icon {
+    transition: transform 1s;
+  }
+
+  &__item {
+    text-align: center;
+
+    &:hover .benefits__icon {
+      transform: scale(1.5);
+    }
+  }
+
+  &__title {
+    font-family: "DIN Pro", sans-serif;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 30px;
+    text-transform: uppercase;
+
+    color: $colorTitle;
+
+    margin: 48px 0 20px;
+    height: 60px;
+  }
+
+  &__description {
+    font-weight: normal;
+    font-size: 0.9rem;
+    line-height: 21px;
+
+    color: $colorText;
+  }
+}

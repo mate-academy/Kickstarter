@@ -1,0 +1,77 @@
+.promo {
+  position: relative;
+
+  padding: $containerPaddingY 0;
+
+  @media (max-width: $breakPointMedium) {
+    padding: ($containerPaddingY * 0.8) 0;
+  }
+
+  @media (max-width: $breakPointSmall) {
+    padding: ($containerPaddingY * 0.6) 0;
+  }
+
+  &__video {
+    background: url(../images/pictures/promo.png) center/cover no-repeat;
+    height: 600px;
+  }
+
+  &__youtube {
+    display: none;
+  }
+
+  &__togler {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    opacity: 0;
+  }
+
+  &__play {
+    display: block;
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 100px;
+    width: 100px;
+
+    &::after {
+      content: "PLAY";
+      color: $colorButtonText;
+      text-align: center;
+      line-height: 100px;
+      font-weight: bold;
+
+      height: 100px;
+      width: 100px;
+
+      border: 1px solid;
+      border-radius: 50%;
+
+      position: absolute;
+      z-index: 0;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      cursor: pointer;
+    }
+
+    &:hover::after {
+      color: $colorHighlight;
+      border: 2px solid;
+    }
+  }
+}
+
+#promo__togler:checked ~ .promo__youtube {
+  display: block;
+}
+
+#promo__togler:checked + .promo__play {
+  display: none;
+}

@@ -1,0 +1,133 @@
+.header {
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+
+  overflow: hidden;
+
+  @media (max-width: $breakPointSmall) {
+    height: 100vh;
+  }
+
+  &__container {
+    padding: 10px $containerPaddingX $containerPaddingY;
+    width: 1100px + $containerPaddingX * 2;
+
+    @media (max-width: $breakPointMedium) {
+      padding-bottom: $containerPaddingY * 0.8;
+    }
+  
+    @media (max-width: $breakPointSmall) {
+      padding-bottom: $containerPaddingY * 0.6;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 0.9rem;
+    line-height: 150%;
+    text-transform: uppercase;
+
+    & :nth-child(n) {
+      margin-right: 37px;
+    }
+
+    & :last-child,
+    & :nth-child(2),
+    & :nth-child(3) {
+      margin-right: 0;
+    }
+
+    @media (max-width: $breakPointSmall) {
+      display: none;
+    }
+  }
+
+  &__specs {
+    color: $colorTitle;
+
+    cursor: pointer;
+
+    @include hover(color, $colorHighlight);
+  }
+
+  &__lang-switcher {
+    @include hover(color, $colorHighlight);
+  }
+
+  &__buy {
+    background-color: $colorTitle;
+    color: $colorButtonText;
+
+    font-size: 0.8rem;
+
+    @include hover(background-color, $colorHighlight);
+
+    &-link {
+      display: block;
+      text-align: center;
+      height: 45px;
+      line-height: 45px;
+      width: 100px;
+    }
+  }
+
+  &__middle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 89px;
+
+    @media (max-width: $breakPointSmall) {
+      flex-direction: column-reverse;
+      text-align: center;
+      margin-top: 10px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__description {
+    width: 30%;
+
+    @media (max-width: $breakPointSmall) {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 934px;
+
+    position: absolute;
+    left: 40%;
+    z-index: -1;
+
+    @media (max-width: $breakPointSmall) {
+      position: relative;
+      width: 130%;
+      left: 25%;
+    }
+  }
+
+  &__primary-title {
+    margin-bottom: 27px;
+
+    @extend %headerPrimaryTitle;
+  }
+
+  &__text {
+    font-style: bold;
+    color: $colorTitle;
+  }
+}
