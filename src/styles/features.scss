@@ -1,0 +1,132 @@
+.features {
+  padding: 0 10vw;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 150px;
+    padding-bottom: 1000px;
+  }
+
+  &__title {
+    @include secondaryLanguage(56px, 70px);
+    font-weight: bold;
+    color: $colorHighlight;
+  }
+
+  &__img-container {
+    display: flex;
+    position: absolute;
+    top: 18%;
+    left: 12%;
+    width: 100%;
+    height: 700px;
+    background-color: #f2f2f2;
+  }
+
+  &__img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__content-block {
+    position: absolute;
+  }
+
+  &__content-blocks {
+    position: relative;
+    & > :first-child {
+      top: 24px;
+      left: 50%;
+    }
+
+    & > :nth-child(2) {
+      top: 300px;
+      left: 5%;
+    }
+
+    & > :last-child {
+      top: 640px;
+      left: 28%;
+    }
+  }
+
+  &__block-title {
+    margin-bottom: 38px;
+    font-family: "DinPro", sans-serif;
+    font-size: 34px;
+    text-transform: uppercase;
+    color: #0c797a;
+  }
+
+  &__block-item {
+    list-style: initial;
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 24px;
+    color: $colorHighlight;
+  }
+
+  @media (max-width: 1100px) {
+    &__img {
+      width: 586px;
+      height: 379px;
+      bottom: 100px;
+    }
+  }
+
+  @media (max-width: $tabletScreen) {
+    background-color: #f2f2f2;
+
+    &__container {
+      align-items: center;
+      margin-top: 50px;
+      padding-bottom: 540px;
+    }
+
+    &__content-block {
+      display: none;
+    }
+
+    &__mobile-active {
+      display: block;
+      position: unset;
+    }
+
+    &__title {
+      margin-bottom: 20px;
+      font-size: 37px;
+      line-height: 60px;
+    }
+
+    &__block-title {
+      font-size: 30px;
+      line-height: 37px;
+      text-align: center;
+    }
+
+    &__block-item {
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  @media (max-width: $mobileScreen) {
+    &__img {
+      bottom: 30%;
+      width: 340px;
+      height: 222px;
+    }
+
+    &__img-container {
+      background: transparent;
+    }
+
+    &__container {
+      padding-bottom: 300px;
+    }
+  }
+}

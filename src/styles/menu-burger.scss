@@ -1,0 +1,60 @@
+.menu-burger {
+  &__toggle {
+    display: none;
+  }
+
+  &__button {
+    $iconTranslate: 5px;
+    position: relative;
+    cursor: pointer;
+    z-index: 4;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+
+    > span {
+      position: relative;
+      z-index: 3;
+      width: 18px;
+      height: 2px;
+
+      background-color: $colorHighlight;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+
+        width: 18px;
+        height: 2px;
+
+        background-color: $colorHighlight;
+        transition: transform 0.3s;
+      }
+
+      &::before {
+        transform: translateY(-#{$iconTranslate});
+      }
+
+      &::after {
+        transform: translateY($iconTranslate);
+      }
+    }
+  }
+
+  &__toggle:checked ~ &__button > span {
+    $iconRotate: 45deg;
+    height: 0;
+
+    &::before {
+      transform: rotate(-#{$iconRotate});
+    }
+
+    &::after {
+      transform: rotate($iconRotate);
+    }
+  }
+}

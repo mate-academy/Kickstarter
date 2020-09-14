@@ -1,0 +1,86 @@
+.form {
+  display: flex;
+  justify-content: center;
+  padding: 0 10vw;
+
+  &__main-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 40% 40%;
+    grid-column-gap: 20%;
+  }
+
+  &__title {
+    @include secondaryLanguage(56px, 72px);
+    text-transform: uppercase;
+    color: $colorHighlight;
+    max-width: 480px;
+    max-height: 143px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 340px;
+    min-width: 260px;
+  }
+
+  &__email {
+    height: 48px;
+    margin-bottom: 20px;
+  }
+
+  &__textarea {
+    min-height: 128px;
+    margin-bottom: 30px;
+    resize: none;
+    padding-top: 4%;
+  }
+
+  &__item {
+    font-family: "Helvetica", sans-serif;
+    border: 1px solid #828282;
+    box-sizing: border-box;
+    background-color: $mainColor;
+    padding-left: 5%;
+  }
+
+  &__submit {
+    width: 102px;
+    height: 48px;
+    background-color: $linkColor;
+    color: $mainColor;
+    margin-bottom: 140px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      box-shadow: 0 6px 10px rgba(0, 117, 255, 0.46);
+      background-color: #0c797a;
+    }
+  }
+
+  @media (max-width: $tabletScreen) {
+    margin-top: 45px;
+
+    &__main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__title {
+      font-size: 37px;
+      line-height: 46px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 350px) {
+    &__title {
+      text-align: left;
+    }
+  }
+}

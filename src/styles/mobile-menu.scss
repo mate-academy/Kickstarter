@@ -1,0 +1,45 @@
+.mobile-menu {
+  &__nav {
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    opacity: 0.95;
+    transition: bottom 0.5s;
+  }
+
+  &__list {
+    margin-top: 100px;
+  }
+
+  &__link {
+    display: block;
+    margin-left: 40px;
+    margin-bottom: 4%;
+    color: $colorHighlight;
+    font-size: 24px;
+    line-height: 30px;
+    transition: color 0.5s;
+    &:hover {
+      color: $mainColor;
+    }
+  }
+
+  .menu-burger__toggle:checked ~ &__nav {
+    width: 100%;
+    height: 100vh;
+    text-align: left;
+    background-image: linear-gradient(to bottom right, #0db2b3, #f2f2f2);
+    z-index: 3;
+    animation: slide 0.5s forwards;
+  }
+
+  @keyframes slide {
+    from {
+      bottom: 100%;
+    }
+
+    to {
+      bottom: 0;
+    }
+  }
+}

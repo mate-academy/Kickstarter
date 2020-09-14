@@ -1,0 +1,162 @@
+.technology {
+  $scrollBtnWidth: 48px;
+  display: flex;
+  position: relative;
+  padding: 0 10vw;
+  overflow-x: hidden;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 820px;
+  }
+
+  &__title {
+    @include secondaryLanguage(56px, 70px);
+    width: 100%;
+    font-weight: bold;
+    color: $colorHighlight;
+    margin-bottom: 70px;
+  }
+
+  &__img-container {
+    position: relative;
+  }
+
+  &__img {
+    position: absolute;
+
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__menu {
+    width: 100%;
+    background-color: tomato;
+    & > :first-child {
+      top: 140px;
+      left: 400px;
+    }
+    & > :nth-child(2) {
+      top: 240px;
+      left: 130px;
+    }
+
+    & > :nth-child(3) {
+      left: 350px;
+      top: 290px;
+    }
+
+    & > :nth-child(4) {
+      left: 280px;
+      top: 340px;
+    }
+
+    & > :nth-child(5) {
+      left: 500px;
+      top: 420px;
+    }
+
+    & > :nth-child(6) {
+      left: 580px;
+      top: 200px;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    width: $scrollBtnWidth;
+    height: $scrollBtnWidth;
+    cursor: pointer;
+
+    &:before {
+      content: "";
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      left: -100%;
+      top: $scrollBtnWidth/3;
+      text-align: center;
+      color: $mainColor;
+      width: 300%;
+      height: 0;
+      background-color: $colorHighlight;
+      opacity: 0.9;
+      transition: height 0.5s;
+      z-index: 2;
+    }
+
+    &:hover {
+      &:before {
+        content: "Detail description";
+        padding-top: $scrollBtnWidth;
+        height: 300%;
+        border-radius: 8px;
+      }
+
+      .technology__btn-img {
+        fill: #0c797a;
+      }
+    }
+  }
+
+  @media (max-width: $tabletScreen) {
+    &__container {
+      padding-bottom: 800px;
+    }
+    &__title {
+      padding-top: 90px;
+      font-size: 37px;
+      line-height: 46px;
+      text-align: center;
+      padding-bottom: 0;
+    }
+  }
+
+  @media (max-width: $mobileScreen) {
+    &__container {
+      padding-bottom: 400px;
+    }
+
+    &__img {
+      max-width: 620px;
+      top: -50px;
+    }
+
+    &__btn {
+      width: 36px;
+      height: 36px;
+
+      &:first-child {
+        top: 0;
+        left: 180px;
+      }
+      &:nth-child(2) {
+        top: 40px;
+        left: 50px;
+      }
+
+      &:nth-child(3) {
+        top: 60px;
+        left: 165px;
+      }
+
+      &:nth-child(4) {
+        top: 100px;
+        left: 115px;
+      }
+
+      &:nth-child(5) {
+        top: 140px;
+        left: 220px;
+      }
+    }
+
+    &__btn-img {
+      width: 36px;
+      height: 36px;
+    }
+  }
+}
