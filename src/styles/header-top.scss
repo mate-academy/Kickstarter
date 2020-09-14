@@ -1,0 +1,68 @@
+.header {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 48px;
+
+    margin: 13px 123px 0;
+  }
+
+  &__links {
+    white-space: nowrap;
+  }
+
+  &__link {
+    margin-right: 39px;
+    transition: 400ms;
+
+    text-decoration: none;
+    color: #4f4f4f;
+
+    &--is-active {
+      color: $main-color;
+      font-weight: 600;
+
+      cursor: default;
+    }
+
+    &--not-active {
+      color: #bdbdbd;
+    }
+
+    &:nth-child(2) {
+      margin: 0;
+
+      &::after {
+        content: "/";
+        color: $main-color;
+      }
+    }
+
+    &:nth-child(2n+1):hover {
+      text-shadow: 1px 1px 1px $main-color;
+    }
+  }
+
+  &__button {
+    height: 48px;
+    width: 102px;
+
+    color: #fff;
+    background-color: $main-color;
+
+    font-size: 12px;
+    line-height: 15px;
+
+    cursor: pointer;
+
+    transition: 600ms;
+    border: none;
+
+    &:hover {
+      background-color: $button-hover-color;
+      border-radius: 3px;
+    }
+  }
+}
