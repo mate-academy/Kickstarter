@@ -62,26 +62,29 @@
     }
   }
 
+  &__line {
+    display: block;
+    width: 55px;
+    height: 1px;
+    background-color: $c-accent;
+    margin-bottom: 30px;
+    transition: width 0.3s;
+
+    @media (max-width: $mobileBreakpoint) {
+      margin-bottom: 0;
+    }
+  }
+
   &__see-more {
     display: block;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
     color: $c-accent;
 
-    @media (max-width: $mobileBreakpoint) {
-      margin-bottom: 0;
-    }
-
-    &:after {
-      content: "";
-      display: block;
-      width: 55px;
-      height: 1px;
-      background-color: $c-accent;
-      position: relative;
-      top: 10px;
+    &:hover + .about__line {
+      width: 150px;
     }
   }
 }
