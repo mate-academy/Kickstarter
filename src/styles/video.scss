@@ -9,6 +9,10 @@ $btn-size: 232px;
   
   align-items: center;
 
+  font-size: 24px;
+  font-family: Helvetica, sans-serif;
+  
+
 }
 
 .video__bg {
@@ -18,49 +22,65 @@ $btn-size: 232px;
 
 .video__button {
   position: relative;
-  width: $btn-size;
-  height: $btn-size;
-  border-radius: 50%;
-  border: 2px solid white;
-  cursor: pointer;
-  
   margin: 0 auto;
-
   transition-duration: $duration;
 }
 
-.video__button-text {
-  width: fit-content;
-  margin: 0 auto;
-  font-size: 24px;
-  font-family: Helvetica, sans-serif;
-  text-transform: uppercase;
+.video-btn {
+  width: $btn-size;
+  height: $btn-size;
+  border-radius: 50%;
+  justify-content: center;
+  border: 2px solid white;
   line-height: $btn-size;
-  color: #fff;
-  
+  justify-items: center;
+  text-align: center;
+  cursor: pointer;
 }
 
-.video__button-play {
+.video-btn__text {
+  font-family: "DINPro", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.video-btn__icon {
   position: absolute;
   width: 24px;
-  left: 105px;
-  bottom: 98px;
+  height: 32px;
+  right: calc(50% - 16px);
+  top: calc(50% - 16px);
   
   background-image: url(../images/play.png);
   background-position: center;
   background-repeat: no-repeat;
-  height: 32px;
   
   opacity: 0;
 }
 
-/*.video__button:hover {
+.video-btn:hover {
   border-color: $hover-color;
-  .video__button-text {
+  .video-btn__text {
     opacity: 0;
   }
-  
-  .video__button-play {
+
+  .video-btn__icon {
     opacity: 100%;
   }
-}*/
+}
+
+@media (max-width: 768px) {
+  .video-btn {
+    height: 190px;
+    width: 190px;
+    line-height: 190px;
+  }
+
+  .video-btn__icon {
+    width: 20px;
+    height: 26px;
+  }
+}
