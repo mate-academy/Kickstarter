@@ -14,6 +14,13 @@
   &__logo {
     width: 121px;
     height: 26px;
+
+    cursor: pointer;
+    transition: transform $transition-duration-quick;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__heading-nav {
@@ -26,14 +33,17 @@
       margin-left: 39px;
 
       background-color: $text-color;
+      border-color: $text-color;
       color: white;
+
       text-transform: uppercase;
       font-weight: bold;
+      cursor: pointer;
 
-      transition: background-color, color $transition-duration;
+      transition: background-color, color $transition-duration-quick;
 
       &:hover {
-        background-color: white;
+        background-color: transparent;
         color: $text-color;
       }
     }
@@ -54,6 +64,8 @@
     font-size: $main-font-size;
     color: #bdbdbd;
 
+    transition: font-weight, color $transition-duration-quick;
+
     &--specs {
       padding: 0 7px 0 0;
       margin-right: 12px;
@@ -64,6 +76,16 @@
       color: $text-color;
       font-weight: bold;
     }
+
+    &:hover {
+      font-weight: bold;
+      color: $text-color;
+    }
+  }
+
+  &__heading-burger {
+    background-image: url(../images/icons/burger-menu.svg);
+    display: none;
   }
 
   &__main {
@@ -75,6 +97,8 @@
 
   &__title {
     padding-left: 123px;
+    text-transform: uppercase;
+    color: $text-color;
 
     & > h1 {
       font-size: 64px;
@@ -105,5 +129,43 @@
     max-width: 1440px;
     height: 76px;
     padding: 0 123px;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .header {
+    &__heading {
+      padding: 13px 30px;
+    }
+
+    &__heading-nav {
+      display: none;
+    }
+
+    &__heading-burger {
+      display: block;
+    }
+
+    &__main {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      margin: 0 auto;
+    }
+
+    &__image-small {
+      background: url(../images/speakers-main-small.svg) no-repeat center;
+      width: 320px;
+      height: 245px;
+    }
+
+    &__image {
+      display: none;
+    }
+
+    &__title {
+      padding: 0;
+    }
   }
 }
