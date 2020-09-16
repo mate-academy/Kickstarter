@@ -1,33 +1,45 @@
 .technology {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   &__title {
     font-size: $title-font-size;
     color: $text-color;
-
-    margin-left: 225px;
   }
 
   &__speaker {
-    position: relative;
+    width: 1200px;
   }
-
-  &__speaker-img {
-    display: flex;
-    justify-content: center;
-  }
-
-  &__speaker-description {
-    color: $text-color;
+}
+@media (max-width: $notebook-width) {
+  .technology {
+    &__speaker {
+      width: 1000px;
+    }
   }
 }
 
 @media (max-width: $tablet-width) {
   .technology {
     &__title {
-      display: none;
+      font-size: 36px;
     }
 
-    &__speaker-img {
-      display: none;
+    &__speaker {
+      width: 700px;
+    }
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .technology {
+    &__title {
+      margin: 0 auto;
+    }
+
+    &__speaker {
+      width: 320px;
     }
   }
 }

@@ -90,13 +90,13 @@
 
   &__main {
     display: flex;
-    justify-content: space-between;
-    margin-top: 89px;
+    justify-content: center;
+    align-items: center;
+    
     margin-bottom: 121px;
   }
 
   &__title {
-    padding-left: 123px;
     text-transform: uppercase;
     color: $text-color;
 
@@ -115,14 +115,13 @@
       font-size: 16px;
       line-height: 24px;
 
-      width: 276px;
+      max-width: 276px;
       height: 96px;
     }
   }
 
   &__image {
-    width: 939px;
-    height: 464px;
+    height: 500px;
   }
 
   &__navbar {
@@ -132,8 +131,21 @@
   }
 }
 
+@media (max-width: $notebook-width) {
+  .header {
+    &__inner {
+      padding: 0 30px;
+    }
+  }
+}
+
 @media (max-width: $tablet-width) {
   .header {
+    &__inner {
+      padding: 0 30px;
+      height: 590px;
+    }
+
     &__heading {
       padding: 13px 30px;
     }
@@ -145,27 +157,34 @@
     &__heading-burger {
       display: block;
     }
+  }
+}
 
-    &__main {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-
-      margin: 0 auto;
+@media (max-width: $mobile-width) {
+  .header {
+    &__inner {
+      height: 800px;
     }
 
-    &__image-small {
-      background: url(../images/speakers-main-small.svg) no-repeat center;
-      width: 320px;
-      height: 245px;
+    &__main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     &__image {
-      display: none;
+      width: 320px;
+      height: 320px;
+      z-index: -1;
     }
 
     &__title {
-      padding: 0;
+      & > h1 {
+        font-size: 44px;
+        line-height: 57px;
+        height: 149px;
+      }
     }
   }
 }
