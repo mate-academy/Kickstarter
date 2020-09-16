@@ -5,19 +5,23 @@
   column-gap: 30px;
 
   &__h {
+    position: absolute;
     width: 480px;
-    margin-left: -120px;
+    left: 50%;
   }
   
   &__img {
     width: 582px;
     height: 388px;
+    
+    z-index: -1;
   }
   
   &__info {
     width: 400px;
     background-color: $c-gray;
     border: 20px solid transparent;
+    padding-top: 130px;
   }
   
   &__text {
@@ -55,18 +59,45 @@
   }
 
   .design__img {
-    margin-left: -100px;
-    z-index: -1;
+    width: 623px;
+    height: 415px;
+    margin-left: -130px;
   }
 
   .design__h {
     
     max-width: 430px;
-    margin-left: -90px;
+    left: 253px;
   }
 
   .design__info {
     width: 340px;
-    margin-left: -150px;
+    margin-left: -200px;
+  }
+}
+
+@media (max-width: 767px) {
+  .design {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .design__h {
+    position: relative;
+    left: 0;
+    margin: 0 auto;
+  }
+
+  .design__img {
+    max-width: 260px;
+    height: 210px;
+    margin-left: calc(50% - 130px);
+
+  }
+
+  .design__info {
+    min-width: 260px;
+    margin: 0 auto;
+    padding-top: 0;
   }
 }
