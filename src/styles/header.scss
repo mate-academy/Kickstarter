@@ -8,33 +8,54 @@
     margin-top: 13px;
   }
 
-  &__links {
+  &__options {
     display: flex;
     align-items: center;
     text-transform: uppercase;
 
     &__item {
-      width: 95%;
       padding-left: 40px;
       color: $dark-font-color;
       transition: color 0.3s, font-weight 0.3s;
   
       &:hover {
-        color: #000;
-        text-shadow: 0 0 1px #000;
-      }
-
-      &-button {
-        display: block;
-        padding: 0 35px;
-        margin-left: 39px;
-        line-height: 3.7em;
-        font-weight: 500;
-        font-size: 12px;
-        background-color: #333;
-        color: #fff;
+        color: $hover-font-color;
+        text-shadow: 0 0 1px $hover-font-color;
       }
     }
+  }
+
+  &__set-language {
+    position: relative;
+    padding: 0 25px;
+  }
+
+  &__ua {
+    color: $unactive-font-color;
+    font-weight: 300;
+  }
+
+  &__check {
+    position: absolute;
+    left: 25px;
+    width: 50px;
+    opacity: 0;
+    cursor: pointer;
+
+    &:checked + .header__ua {
+      color: #333;
+      font-weight: normal;
+    }
+  }
+
+  &__action {
+    display: block;
+    padding: 0 35px;
+    line-height: 3.7em;
+    font-weight: 500;
+    font-size: 12px;
+    background-color: #333;
+    color: #fff;
   }
 
   &__intro {
@@ -46,14 +67,94 @@
   }
 }
 
-@media (max-width: 1380px) {
-  .header__links {
-    &__item {
-      font-size: 1vw;
+@media (max-width: 980px) {
+  .header {
+    padding: 0 60px 70px;
 
+    &__links {
       &-button {
-        font-size: 0.9vw;
+        padding: 0 25px;
+        font-size: 9px;
       }
     }
+  }
+}
+
+@media (max-width: 980px) {
+  .header {
+    &__logo {
+      width: 20%;
+      height: auto;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .header__options {
+    font-size: 10px;
+  }
+
+  .header__action {
+    padding: 0 20px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 650px) {
+  .header {
+    padding: 0 60px 70px;
+
+    &__links {
+      &__item {
+        font-size: 1vw;
+  
+        &-button {
+          padding: 0 15px;
+          font-size: 9px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .header {
+    &__logo {
+      width: 30%;
+    }
+
+    &__options {
+      font-size: 8px;
+    }
+
+    &__action {
+      padding: 0 15px;
+      font-size: 7px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    padding: 0 20px 40px;
+
+    &__options {
+      font-size: 6px;
+    }
+
+    &__action {
+      padding: 0 10px;
+      font-size: 6px;
+    }
+
+    &__set-language {
+      padding: 0 10px;
+    }
+  }
+}
+
+@media (min-width: 1740px) {
+  .header {
+    padding-top: 40px;
   }
 }
