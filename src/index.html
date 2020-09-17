@@ -10,7 +10,9 @@
     <header class="header">
       <div class="header__top">
         <div class="header__logo">
-          <img src="/images/logo.svg" alt="Crazybaby Logo">
+          <a href="#">
+            <img src="/images/logo.svg" alt="Crazybaby Logo">
+          </a>
         </div>
         <div class="header__burger"></div>
         <div class="header__links">
@@ -142,7 +144,38 @@
           </p>
         </div>
       </section>
+
+      <section class="video">
+        <video
+          class="video__screen"
+          controls
+          preload="none"
+          src="https://v.kickstarter.com/1600489623_b7e84a9af7b4a5c4fb2c53d21d29a7f74ce29d7d/projects/2248611/video-654125-h264_high.mp4"
+          type="video/mp4; codecs=&quot;avc1.64001E, mp4a.40.2&quot;"
+          poster="/images/video-poster.png"
+          id="player"
+        >
+        </video>
+        <button
+          id="buttonPressed"
+          class="video__button"
+          data-video-url="https://v.kickstarter.com/1600489623_b7e84a9af7b4a5c4fb2c53d21d29a7f74ce29d7d/projects/2248611/video-654125-h264_high.mp4"
+          onclick="toggle_visibility('buttonPressed');"
+        >
+          Play
+        </button>
+      </section>
     </main>
     <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/player.js"></script>
+    <script type="text/javascript">
+      function toggle_visibility(buttonPressed) {
+          var e = document.getElementById(buttonPressed);
+          if(e.style.display == 'block')
+             e.style.display = 'none';
+          else
+             e.style.display = 'none';
+      }
+    </script>
   </body>
 </html>
