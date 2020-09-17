@@ -3,20 +3,22 @@
   font-size: 14px;
   overflow: hidden;
 
+  @media (max-width: $tabletBreakpoint) {
+    position: sticky;
+    top: 0;
+    background: $c-bg;
+    z-index: 2;
+  }
+
   &__container {
     display: grid;
     grid-template-columns: 1fr repeat(3, $btnWidth);
     align-items: center;
     margin-top: 13px;
-    margin-bottom: 50px;
+    margin-bottom: 0;
 
     @media (max-width: $tabletBreakpoint) {
-      margin-top: 27px;
       grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: $mobileBreakpoint) {
-      margin-bottom: 0;
     }
   }
 
@@ -62,10 +64,8 @@
     background-image: url(/images/burger.svg);
 
     @media (max-width: $tabletBreakpoint) {
-      & {
-        display: block;
-        justify-self: flex-end;
-      }
+      display: block;
+      justify-self: flex-end;
     }
   }
 
@@ -79,7 +79,7 @@
     }
 
     &:checked ~ .mobile-menu {
-      left: 0;
+      transform: translate(-100vw);
     }
   }
 }

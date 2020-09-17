@@ -1,9 +1,14 @@
 .presentation {
-  position: relative;
-  margin-bottom: $sectionMarginBottom;
+  &__container {
+    position: relative;
+    margin-bottom: $sectionMarginBottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  @media (max-width: $mobileBreakpoint) {
-    margin-bottom: 90px;
+    @media (max-width: $mobileBreakpoint) {
+      margin-bottom: 90px;
+    }
   }
 
   &__picture {
@@ -21,35 +26,36 @@
   }
 
   &__btn {
-    width: $btnPlaySize;
-    height: $btnPlaySize;
+    width: 232px;
+    height: 232px;
     background-color: transparent;
     border: 1px solid $c-bg;
     border-radius: 50%;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     cursor: pointer;
     font-family: "DINPro", serif;
     font-weight: bold;
     font-size: 24px;
     color: $c-bg;
     text-transform: uppercase;
+    outline: none;
+    transition: transform 0.3s;
 
     &:hover {
       background: url(../images/play.svg) no-repeat center;
       color: transparent;
+      transform: scale(1.1);
     }
 
     @media (max-width: $tabletBreakpoint) {
-      width: $btnPlaySizeTablet;
-      height: $btnPlaySizeTablet;
+      width: 190px;
+      height: 190px;
+      font-size: 16px;
     }
 
     @media (max-width: $mobileBreakpoint) {
-      width: $btnPlaySizeMobile;
-      height: $btnPlaySizeMobile;
+      width: 108px;
+      height: 108px;
     }
   }
 }
