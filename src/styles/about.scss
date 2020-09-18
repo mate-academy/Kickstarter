@@ -1,4 +1,6 @@
 .about {
+  position: relative;
+
   &__design {
     display: grid;
     grid-template-columns: repeat(2, 380px);
@@ -14,7 +16,6 @@
     width: 490px;
     display: flex-end;
     flex-direction: column;
-    position: relative;
   }
 
   &__design-title {
@@ -22,6 +23,10 @@
     font-size: $title-font-size;
     line-height: 72px;
     color: $text-color;
+  }
+
+  &__design-image-small {
+    display: none;
   }
 
   &__design-text {
@@ -37,6 +42,7 @@
   &__design-link {
     position: relative;
     color: $link-color;
+    text-transform: uppercase;
 
     transition: font-weight $transition-duration-slow;
 
@@ -64,31 +70,23 @@
   }
 }
 
-@media (max-width: $notebook-width) {
-  .about {
-
-    &__design-image {
-      width: 490px;
-    }
-
-    &__design-info {
-      width: 390px;
-    }
-  }
-}
-
 @media (max-width: $tablet-width) {
   .about {
     &__design {
+      grid-template-columns: none;
+    }
+
+    &__design-info {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       text-align: center;
+
+      width: 460px;
     }
 
     &__design-image {
-      width: 490px;
+      display: none;
     }
 
     &__design-title {
@@ -96,15 +94,22 @@
       font-size: 37px;
       line-height: 55px;
       color: $text-color;
-      order: 1;
+
+      margin-bottom: 50px;
+    }
+
+    &__design-image-small {
+      display: block;
+      width: 460px;
+      margin-bottom: 30px;
     }
 
     &__design-text {
       position: static;
-      margin: auto;
+      display: flex;
+      flex-direction: column;
       color: $text-color-light;
       font-size: 16px;
-      
     }
 
     &__design-link {
@@ -117,8 +122,17 @@
 
 @media (max-width: $mobile-width) {
   .about {
-    &__design-image {
-      width: 320px;
+
+    &__design-info {
+      width: 260px;
+    }
+
+    &__design-image-small {
+      width: 260px;
+    }
+
+    &__design-text {
+      width: 260px;
     }
   }
 }
