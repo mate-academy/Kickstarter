@@ -12,6 +12,7 @@ burger.onclick = function() {
     document.body.style.overflow = 'hidden';
   } else {
     mobMenu.style.left = '-100%';
+    document.body.style.overflow = 'visible';
   }
 };
 
