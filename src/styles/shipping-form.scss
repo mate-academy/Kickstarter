@@ -1,0 +1,65 @@
+.shipping-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 378px;
+
+  &__label {
+    width: 100%;
+    font-family: $helvetica-Neue-font;
+    font-weight: 400;
+    color: $advantages-title-color;
+    margin-top: 10px;
+    transform: translateY(-60px);
+    animation: focus 0.5s backwards paused;
+  }
+
+  &__input {
+    width: inherit;
+    border: none;
+    appearance: none;
+    outline: none;
+    border-bottom: 1px solid $unactive-font-color;
+    background-color: transparent;
+    padding: 10px 0;
+    
+
+    &:focus + .shipping-form__label {
+      animation-fill-mode: forwards;
+      animation-play-state: running;
+    }
+
+    & + & {
+      margin-top: 30px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__revert-btn {
+    font-family: $helvetica-Neue-font;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: $dark-font-color;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+@keyframes focus {
+  0% {
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
+  }
+}

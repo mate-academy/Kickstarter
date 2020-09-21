@@ -1,16 +1,29 @@
 .page-switcher {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  max-width: 400px;
-  margin: 0 auto;
+
+  &__title {
+    font-weight: 500;
+  }
 
   &__item {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: $helvetica-Neue-font;
     color: $unactive-font-color;
+  }
+
+  &__line {
+    position: absolute;
+    top: 7px;
+    right: 50px;
+    background-color: #4f4f4f;
+    height: 1px;
+    width: 188px;
+    display: none;
   }
 
   &__circle {
@@ -36,13 +49,12 @@
     }
   }
 
-  &__title {
-    font-weight: 500;
-  }
-
   &__item--active {
     color: $dark-font-color;
 
+    & > .page-switcher__line {
+      display: block;
+    }
     & > .page-switcher__circle {
       border: 1px solid $dark-font-color;
 
@@ -50,5 +62,27 @@
         background-color: $dark-font-color;
       }
     }
+  }
+
+  &__item--used {
+    color: $dark-font-color;
+
+    & > .page-switcher__circle {
+      &::before {
+        background-color: $dark-font-color;
+      }
+    }
+
+    &:nth-child(2) .page-switcher__line {
+      display: block;
+    }
+  }
+
+  &__item:nth-child(2) {
+    margin: 0 150px;
+  }
+
+  &__item:nth-child(3) > .page-switcher__line {
+    width: 203px;
   }
 }
