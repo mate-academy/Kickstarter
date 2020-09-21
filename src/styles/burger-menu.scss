@@ -1,5 +1,5 @@
 .burger-menu {
-  display: none;
+  display: flex;
   width: 100vw;
   height: 100vh;
   flex-direction: column;
@@ -11,7 +11,12 @@
   color: $main-color;
 
   z-index: 2;
+  transform: translateX(100vw);
   transition: transform $duration;
+
+  @media (min-width: 901px) {
+    display: none;
+  }
 
   &__toggler {
     display: none;
@@ -90,5 +95,5 @@
 }
 
 .burger-menu__toggler:checked ~ .burger-menu {
-  display: flex;
+  transform: translateX(0);
 }
