@@ -15,6 +15,7 @@
 
   &__logo {
     transition: 400ms;
+    z-index: 70;
 
     &:hover {
       transform: scale(1.1);
@@ -93,11 +94,83 @@
       display: none;
     }
 
+    &__logo {
+      position: fixed;
+    }
+
+    &__wrapper {
+      display: flex;
+      justify-content: flex-end;
+      position: fixed;
+      width: 100%;
+      height: 50px;
+      top: 0;
+      left: 0;
+      z-index: 50;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $color-white;
+      }
+    }
+
     &__burger {
+      margin-top: 24px;
+      margin-right: 32px;
+      display: block;
+      position: relative;
       width: 24px;
       height: 14px;
 
-      background: url(/images/Burger.svg) no-repeat center;
+      span {
+        background-color: $color-black;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        top: 6px;
+
+        transition: 600ms;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        background-color: $color-black;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+
+        transition: 600ms;
+      }
+
+      &::before {
+        top: 0;
+      }
+
+      &::after {
+        bottom: 0;
+      }
+    }
+
+    &__burger.active::before {
+      transform: rotate(45deg);
+      top: 6px;
+    }
+
+    &__burger.active::after {
+      transform: rotate(-45deg);
+      bottom: 6px;
+    }
+
+    &__burger.active span {
+      transform: scale(0);
     }
   }
 }
