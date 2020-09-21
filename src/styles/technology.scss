@@ -1,45 +1,152 @@
 .technology {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  text-align: center;
 
   &__title {
     font-size: $title-font-size;
-    color: $text-color;
+    margin-left: 100px;
   }
 
-  &__speaker {
+  &__features {
+    position: relative;
+    height: 546px;
     width: 1200px;
   }
-}
-@media (max-width: $notebook-width) {
-  .technology {
-    &__speaker {
-      width: 1000px;
+
+  &__img {
+    width: 1230px;
+    transform: rotate(-7.85deg);
+  }
+
+  &__description {
+    position: absolute;
+
+    width: 48px;
+    height: 48px;
+    line-height: 45px;
+
+    background-color: $link-color;
+    border-radius: 50%;
+
+    color: #fff;
+    font-size: 22px;
+
+    transition: transform $transition-duration-slow;
+
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &--1 {
+      left: 7%;
+      top: 55%;
+    }
+
+    &--2 {
+      left: 22%;
+      top: 70%;
+    }
+
+    &--3 {
+      left: 27%;
+      top: 55%;
+    }
+
+    &--4 {
+      left: 31%;
+      top: 30%;
+    }
+
+    &--5 {
+      left: 41%;
+      top: 75%;
+    }
+
+    &--6 {
+      left: 51%;
+      top: 30%;
+    }
+
+    &--7 {
+      left: 63%;
+      top: 55%;
+    }
+
+    &--8 {
+      left: 72%;
+      top: 25%;
+    }
+
+    &--9 {
+      left: 86%;
+      top: 13%;
+    }
+
+    &--10 {
+      left: 92%;
+      top: 36%;
+    }
+  }
+
+  &__message {
+    position: absolute;
+    left: 77%;
+    top: 85%;
+
+    max-width: 120px;
+
+    &::after {
+      content: "";
+      display: block;
+
+      height: 240px;
+      width: 200px;
+      background-color: transparent;
+      border-right: 1px solid $text-color;
+      border-bottom: 1px solid $text-color;
+      margin: -230px 5px 0;
     }
   }
 }
 
 @media (max-width: $tablet-width) {
   .technology {
-    &__title {
-      font-size: 36px;
+    &__heading {
+      margin-top: 130px;
     }
 
-    &__speaker {
-      width: 700px;
+    &__title {
+      font-size: 37px;
+      margin: 0 auto;
     }
   }
 }
 
 @media (max-width: $mobile-width) {
   .technology {
-    &__title {
-      margin: 0 auto;
+    &__features {
+      max-width: 624px;
+      height: 277px;
     }
 
-    &__speaker {
-      width: 320px;
+    &__img {
+      max-width: 624px;
+    }
+
+    &__heading {
+      margin-top: 0;
+      margin-left: 30px;
+    }
+
+    &__description {
+      height: 40px;
+      width: 40px;
+      line-height: 40px;
     }
   }
 }
