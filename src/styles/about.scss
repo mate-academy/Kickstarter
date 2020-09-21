@@ -26,19 +26,20 @@
   }
 
   &__title {
-    font-size: $fz-heading;
-    line-height: $line-height-heading;
-
     position: absolute;
     right: -320px;
     bottom: 238px;
+
+    font-size: $fz-heading;
+    line-height: $line-height-heading;
   }
 
   &__text {
+    align-items: end;
+
     font-size: $fz-text;
     line-height: 24px;
     color: $c-text-gray;
-    align-items: end;
 
     @media screen and (max-width: $breakpoint-tablet) {
       margin-right: 30px;
@@ -55,14 +56,26 @@
     text-transform: uppercase;
     color: $c-btn-green;
 
+    transition: color 0.1s;
+
     &::after {
       content: "";
       display: block;
+      margin-top: 6px;
+
       width: 53px;
       height: 1px;
+
       background-color: $c-btn-green;
 
-      margin-top: 6px;
+      transition: background-color 0.1s;
+    }
+    &:hover {
+      color: $c-list-green;
+
+      &::after {
+        background-color: $c-list-green;
+      }
     }
   }
 }
@@ -70,10 +83,10 @@
 @media screen and (max-width: $breakpoint-650px) {
   .about {
     &__container {
+      position: static;
       grid-template-columns: 400px;
       grid-template-rows: 2.5fr 1fr;
       justify-content: center;
-      position: static;
 
       @media screen and (max-width: $breakpoint-mobile) {
         grid-template-columns: 300px;
