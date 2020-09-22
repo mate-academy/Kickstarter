@@ -1,6 +1,6 @@
 'use strict';
 
-/* $(
+$(
   '<div class="product-quantity-nav">\n'
   + '<div class="product-quantity-button product-quantity-down">-</div>\n'
     + '<div class="product-quantity-button product-quantity-up">+</div>\n'
@@ -40,4 +40,4 @@ $('.product-quantity').each(
       spinner.find('input').val(newVal);
       spinner.find('input').trigger('change');
     });
-  }); */
+  });
