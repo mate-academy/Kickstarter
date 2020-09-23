@@ -1,8 +1,10 @@
 .nav {
   white-space: nowrap;
   &__list {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: 50px;
+    text-align: center;
     padding: 0 50px;
   }
   
@@ -12,11 +14,13 @@
     color: $general-font-color;
     text-transform: uppercase;
     cursor: pointer;
-    transition: font-weight $hover-duration ease-in;
+    transition: font-weight $hover-duration, transform $hover-duration;
 
     &:hover {
+      position: relative;
       color: $hover-font-color;
       font-weight: 500;
+      transform: scale(1.1);
     }
   }
 
@@ -45,7 +49,12 @@
   .nav {
     &__item {
       font-size: 1.8vw;
-      padding: 0;
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    display: none;
   }
 }

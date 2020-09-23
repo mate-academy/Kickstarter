@@ -2,61 +2,98 @@
   display: flex;
   align-items: center;
   overflow: hidden;
+
+  &__info {
+    color: #333;
+  }
     
   &__title {
+    max-width: 378px;
     font-size: $large-font-size;
     text-transform: uppercase;
     text-align: start;
     font-family: "Dino Pro Bold", Arial, Helvetica, sans-serif;
     white-space: pre-line;
-    margin-bottom: 44px;
+    margin-bottom: 34px;
   }
 
   &__text {
-    max-width: 266px;
+    max-width: 230px;
     font-size: $small-font-size;
     line-height: 24px;
   }
 
   &__img {
-    height: auto;
-    display: block;
-    position: relative;
-    left: 20px;
+    max-width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: left;
   }
 }
 
-@media (max-width: 1380px) {
+@media (max-width: 1000px) {
   .intro {
     &__title {
-      font-size: 4.6vw;
-    }
-
-    &__text {
-      font-size: 1vw;
-    }
-
-    &__img {
-      width: 75%;
+      margin-bottom: 20px;
+      font-size: 48px;
+      line-height: 62px;
     }
   }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 920px) {
   .intro {
     &__title {
-      margin-bottom: 20px;
+      font-size: 40px;
+      line-height: 50px;
     }
 
     &__text {
-      font-size: 1vw;
-      max-width: 266px;
+    max-width: 200px;
+    font-size: 14px;
+    line-height: 20px;
     }
 
     &__img {
-      width: 70%;
+      height: auto;
+    }
+  }
+}
+
+@media (max-width: 740px) {
+  .intro {
+    &__title {
+      font-size: 35px;
+      line-height: 40px;
+    }
+
+    &__text {
+    max-width: 160px;
+    font-size: 12px;
+    line-height: 20px;
+    }
+
+    &__img {
+      margin: 0 auto;
+
+      & > img {
+        width: 200%;
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .intro {
+    &__title {
+      font-size: 30px;
+      line-height: 35px;
+    }
+
+    &__text {
+      font-size: 10px;
+      max-width: 140px;
+      line-height: 16px;
     }
   }
 }
@@ -73,22 +110,41 @@
   }
 }
 
+@media (max-width: 480px) {
+  .intro {
+    flex-direction: column-reverse;
+
+    &__title {
+      font-size: 44px;
+      line-height: 57px;
+      text-align: center;
+       margin: 0 auto;
+    }
+
+    &__text {
+      font-size: 16px;
+      line-height: 24px;
+      max-width: 80%;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    &__img {
+      max-width: 100vh;
+    }
+  }
+}
+
 @media (min-width: 1540px) {
   .intro {
     &__title {
-      max-width: none;
-      font-size: 5vw;
+      max-width: 500px;
+      font-size: 5.5vw;
     }
 
     &__text {
       font-size: 1vw;
       max-width: 320px;
-    }
-
-    &__img {
-      height: 620px;
-      width: 75%;
-      left: 0;
     }
   }
 }

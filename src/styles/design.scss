@@ -9,9 +9,7 @@
 
   &__title {
     position: relative;
-    font-family: $Dino-bold-font;
-    font-size: $section-title-font-size;
-    background-color: transparent;
+    @include title;
     white-space: nowrap;
     transform: translateX(-100px);
     z-index: 2;
@@ -19,11 +17,11 @@
 
   &__text {
     font-size: 16px;
-    font-weight: 24px;
+    font-weight: 400;
     margin: 30px 0;
     line-height: 24px;
     color: $text-font-color;
-    width: 300px;
+    max-width: 340px;
   }
 
   &__link {
@@ -45,65 +43,79 @@
   }
 }
 
+
+
 @media (max-width: 1050px) {
   .design {
+    justify-content: end;
 
-    &__title {
-      font-size: 4.5vw;
-      line-height: 6vw;
-      transform: translateX(-28%);
+    .design__title {
+      transform: translateX(-26%);
     }
 
-    &__text {
-      margin: 0 0 20px;
-      font-size: 1.6vw;
-      line-height: 2.4vw;
-    }
+    &__img {
+      width: 372px;
+      
 
-    &__img img {
-      max-width: 100%;
+      & > img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center; 
+      }
     }
   }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 920px) {
   .design {
-
     &__title {
-      font-size: 3.5vw;
-      line-height: 4.5vw;
-      transform: translateX(-15%);
+      font-size: 40px;
+      line-height: 50px;
     }
 
     &__text {
-      width: 240px;
-      margin: 10px 0;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .design {
+    &__link {
+      font-size: 1.5vw;
+    }
+  }
+}
+
+@media (max-width: 740px) {
+  .design {
+    &__title {
+      font-size: 35px;
+      line-height: 40px;
+    }
+
+    &__text {
+      max-width: 280px;
+      margin: 20px 20px 20px 0;
     }
 
     &__img {
       margin-right: 10px;
     }
-
-    &__link {
-      font-size: 1.8vw;
-    }
-  }
+  } 
 }
 
-@media (max-width: 770px) {
+@media (max-width: 640px) {
   .design {
     &__title {
-      font-size: 3vw;
-      line-height: 4vw;
+      font-size: 30px;
+      line-height: 35px;
     }
-
     &__text {
-      width: 180px;
-      margin: 5px 0;
-    }
-
-    &__link {
-      font-size: 1.5vw;
+      font-size: 10px;
+      line-height: 16px;
     }
   }
 }
