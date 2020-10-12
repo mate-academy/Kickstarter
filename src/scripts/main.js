@@ -2,20 +2,29 @@
 
 const menu = document.querySelector('.burger-menu');
 const btn = menu.querySelector('.burger-menu__nav-tgl');
-btn.addEventListener('click', evt => {
-	menu.classList.toggle('active');
-})
+const body = document.querySelector('body');
+const bodyHidden = document.querySelector('body.hudden');
+const nav = document.querySelector('.burger-menu__nav');
 
-const video = document.querySelector('.video-section__item'),
-      juise = document.querySelector('.video-section__red-juice'),
-      playBtn = document.getElementById('play-pause');
+btn.addEventListener('click', evt => {
+  menu.classList.toggle('active');
+  body.classList.toggle('hidden');
+  bodyHidden.classList.toggle('active');
+});
+
+nav.addEventListener('click', () => {
+  menu.classList.toggle('active');
+  body.classList.toggle('hidden');
+});
+
+const video = document.querySelector('.video-section__item');
+const playBtn = document.getElementById('play-pause');
 
 function tagglePlayPause() {
-  if(video.paused) {
+  if (video.paused) {
     playBtn.className = 'pause';
     video.play();
-  } 
-  else {
+  } else {
     playBtn.className = 'play';
     video.pause();
   }
@@ -23,35 +32,40 @@ function tagglePlayPause() {
 
 playBtn.onclick = function() {
   tagglePlayPause();
-}
+};
 
-let slider = tns({
+// eslint-disable-next-line no-undef
+const aboutSlider = tns({
   container: '.about-slider',
   items: 1,
   responsive: {
-    650: {
+    640: {
       edgePadding: 20,
       gutter: 20,
-      items: 1
+      items: 2,
     },
     700: {
-      gutter: 30
+      gutter: 30,
     },
     900: {
-      items: 3
-    }
-  }
+      items: 3,
+    },
+  },
 });
 
+aboutSlider();
 
-/* $(
+// eslint-disable-next-line no-undef
+$(
   '<div class="product-quantity-nav">\n'
-  + '<div class="product-quantity-button product-quantity-down">-</div>\n'npm 
+  + '<div class="product-quantity-button product-quantity-down">-</div>\n'
     + '<div class="product-quantity-button product-quantity-up">+</div>\n'
     + '</div>').insertAfter('.product-quantity input');
 
+// eslint-disable-next-line no-undef
 $('.product-quantity').each(
   function() {
+    // eslint-disable-next-line no-undef
     const spinner = $(this);
     const input = spinner.find('input[type="number"]');
     const btnUp = spinner.find('.product-quantity-up');
@@ -84,4 +98,4 @@ $('.product-quantity').each(
       spinner.find('input').val(newVal);
       spinner.find('input').trigger('change');
     });
-  }); */
+  });
