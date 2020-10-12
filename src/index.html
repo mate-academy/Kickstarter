@@ -8,47 +8,49 @@
   </head>
   <body>
     <header class="header" id="to-top">
-      <div class="header__top">
-        <div class="header__logo">
-          <a href="#">
-            <img src="/images/logo.svg" alt="Crazybaby Logo">
-          </a>
-        </div>
-        <div class="header__wrapper">
-          <div class="header__burger">
-            <span></span>
+      <div class="header__container">
+        <div class="header__top">
+          <div class="header__logo">
+            <a href="#">
+              <img src="/images/logo.svg" alt="Crazybaby Logo">
+            </a>
+          </div>
+          <div class="header__wrapper">
+            <div class="header__burger">
+              <span></span>
+            </div>
+          </div>
+          <div class="header__links">
+            <a class="header__link" href="#">SPECS</a>
+            <a class="header__link header__link--is-active" href="#">EN</a>
+            <a class="header__link header__link--not-active" href="#">UA</a>
+            <button class="header__button">BUY</button>
           </div>
         </div>
-        <div class="header__links">
-          <a class="header__link" href="#">SPECS</a>
-          <a class="header__link header__link--is-active" href="#">EN</a>
-          <a class="header__link header__link--not-active" href="#">UA</a>
-          <button class="header__button">BUY</button>
-        </div>
-      </div>
 
-      <div class="header__middle">
-        <div class="intro">
-          <h1 class="intro__title">
-            Futuristic<br>
-            wireless<br>
-            speaker
-          </h1>
-          <p class="intro__text">
-            Luna’s performance is balanced and<br>
-            smooth in all frequency ranges which<br>
-            makes the music both naturally<br>
-            pleasant and distinctly more layered.
-          </p>
-        </div>
+        <div class="header__middle">
+          <div class="intro">
+            <h1 class="intro__title">
+              Futuristic<br>
+              wireless<br>
+              speaker
+            </h1>
+            <p class="intro__text">
+              Luna’s performance is balanced and<br>
+              smooth in all frequency ranges which<br>
+              makes the music both naturally<br>
+              pleasant and distinctly more layered.
+            </p>
+          </div>
 
-        <img
-          class="header__img"
-          src="/images/crazybaby.png"
-          alt="Crazy Baby Speaker"
-        >
-        <div class="header__img-phone"></div>
-        <div class="header__cart"></div>
+          <img
+            class="header__img"
+            src="/images/crazybaby.png"
+            alt="Crazy Baby Speaker"
+          >
+          <div class="header__img-phone"></div>
+          <div class="header__cart"></div>
+        </div>
       </div>
     </header>
 
@@ -149,22 +151,20 @@
         </div>
       </section>
 
-      <section class="video">
+      <section class="section video section__video">
         <video
           class="video__screen"
           controls
           preload="none"
-          src="https://v.kickstarter.com/1600489623_b7e84a9af7b4a5c4fb2c53d21d29a7f74ce29d7d/projects/2248611/video-654125-h264_high.mp4"
+          src="/video/luna-video.mp4"
           type="video/mp4; codecs=&quot;avc1.64001E, mp4a.40.2&quot;"
           poster="/images/video-poster.png"
-          id="player"
+          id="video-play"
         >
         </video>
         <button
-          id="buttonPressed"
+          onclick="playVid(); hideButton();"
           class="video__button"
-          data-video-url="https://v.kickstarter.com/1600489623_b7e84a9af7b4a5c4fb2c53d21d29a7f74ce29d7d/projects/2248611/video-654125-h264_high.mp4"
-          onclick="toggleVisibility('buttonPressed');"
         >
           Play
         </button>
@@ -212,17 +212,17 @@
               >
             </div>
 
-            <div class="technology__part technology__part--1">+</div>
-            <div class="technology__part technology__part--2">+</div>
-            <div class="technology__part technology__part--3">+</div>
-            <div class="technology__part technology__part--4">+</div>
-            <div class="technology__part technology__part--5">+</div>
-            <div class="technology__part technology__part--6">+</div>
-            <div class="technology__part technology__part--7">+</div>
-            <div class="technology__part technology__part--8">+</div>
-            <div class="technology__part technology__part--9">+</div>
-            <div class="technology__part technology__part--10">+</div>
-            <div class="technology__part technology__part--11">+</div>
+            <div class="technology__part technology__part1">+</div>
+            <div class="technology__part technology__part2">+</div>
+            <div class="technology__part technology__part3">+</div>
+            <div class="technology__part technology__part4">+</div>
+            <div class="technology__part technology__part5">+</div>
+            <div class="technology__part technology__part6">+</div>
+            <div class="technology__part technology__part7">+</div>
+            <div class="technology__part technology__part8">+</div>
+            <div class="technology__part technology__part9">+</div>
+            <div class="technology__part technology__part10--active">+</div>
+            <div class="technology__part technology__part11">+</div>
 
             <span class="technology__message">Control button ring ornament</span>
           </div>
@@ -328,6 +328,7 @@
             action="#"
             method="POST"
             class="form questions__form"
+            onsubmit="setTimeout(function(){window.location.reload();},10);"
           >
             <label for="email" class="form__container">
               <input
@@ -355,65 +356,66 @@
       </section>
 
       <footer class="footer">
-
-        <img
-          src="/images/logo.svg"
-          alt="Footer Logo"
-          class="footer__logo"
-        >
-
-        <a href="#to-top">
+        <div class="footer__container">
           <img
-            src="/images/arrow.svg"
-            alt="Arrow to homepage"
-            class="footer__arrow"
+            src="/images/logo.svg"
+            alt="Footer Logo"
+            class="footer__logo"
           >
-        </a>
 
-        <div class="socials footer__socials">
-          <a href="#">
+          <a href="#to-top">
             <img
-              src="/images/facebook.svg"
-              alt="Facebook Logo"
-              class="socials__img">
+              src="/images/arrow.svg"
+              alt="Arrow to homepage"
+              class="footer__arrow"
+            >
           </a>
 
-          <a href="#">
-            <img
-              src="/images/twitter.svg"
-              alt="Twitter Logo"
-              class="socials__img">
-          </a>
+          <div class="socials footer__socials">
+            <a href="#">
+              <img
+                src="/images/facebook.svg"
+                alt="Facebook Logo"
+                class="socials__img">
+            </a>
 
-          <a href="#">
-            <img
-              src="/images/instagram.svg"
-              alt="Instagram Logo"
-              class="socials__img">
-          </a>
+            <a href="#">
+              <img
+                src="/images/twitter.svg"
+                alt="Twitter Logo"
+                class="socials__img">
+            </a>
+
+            <a href="#">
+              <img
+                src="/images/instagram.svg"
+                alt="Instagram Logo"
+                class="socials__img">
+            </a>
+          </div>
+
+          <p class="footer__copyright">
+            © 2019 All rights reserved. Terms of Use & Privacy Policy
+          </p>
         </div>
-
-        <p class="footer__copyright">
-          © 2019 All rights reserved. Terms of Use & Privacy Policy
-        </p>
       </footer>
     </main>
     <script type="text/javascript" src="scripts/main.js"></script>
-    <script type="text/javascript" src="scripts/player.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script type="text/javascript">
-      'use sctrict';
+      'use strict';
+      let vid = document.getElementById("video-play");
 
-      function toggleVisibility(buttonPressed) {
-        const e = document.getElementById(buttonPressed);
+      function hideButton() {
+        document.querySelector('.video__button').style.display = "none";
+      }
 
-        if (e.style.display === 'block') {
-          e.style.display = 'none';
-        } else {
-          e.style.display = 'none';
-        }
+      function playVid() {
+        vid.play();
       }
     </script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script type="text/javascript">
       'use strict';
 
@@ -421,6 +423,17 @@
         $('.header__burger').click(function(event) {
           $('.header__burger, .nav').toggleClass('active');
           $('body').toggleClass('lock');
+        });
+      });
+    </script>
+
+    <script type="text/javascript">
+      'use strict';
+
+      $(document).ready(function() {
+        $('.nav__link').click(function(event) {
+          $('.header__burger, .nav').removeClass('active');
+          $('body').removeClass('lock');
         });
       });
     </script>
