@@ -163,7 +163,6 @@
         >
         </video>
         <button
-          onclick="playVid(); hideButton();"
           class="video__button"
         >
           Play
@@ -405,15 +404,11 @@
 
     <script type="text/javascript">
       'use strict';
-      let vid = document.getElementById("video-play");
 
-      function hideButton() {
-        document.querySelector('.video__button').style.display = "none";
-      }
-
-      function playVid() {
-        vid.play();
-      }
+      document.querySelector('.video__button').onclick = () => {
+        document.querySelector('.video__screen').play();
+        document.querySelector('.video__button').style.display = 'none';
+};
     </script>
 
     <script type="text/javascript">
