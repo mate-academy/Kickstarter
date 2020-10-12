@@ -1,5 +1,6 @@
 'use strict';
 
+<<<<<<< HEAD
 const menu = document.querySelector('.burger-menu');
 const btn = menu.querySelector('.burger-menu__nav-tgl');
 const body = document.querySelector('body');
@@ -56,6 +57,8 @@ const aboutSlider = tns({
 aboutSlider();
 
 // eslint-disable-next-line no-undef
+=======
+>>>>>>> c506129026c1dfe9426160ad0887882407de3534
 $(
   '<div class="product-quantity-nav">\n'
   + '<div class="product-quantity-button product-quantity-down">-</div>\n'
