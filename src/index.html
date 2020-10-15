@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kickstarter</title>
     <link rel="stylesheet" href="./styles/main.scss">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/burger.js"></script>
   </head>
   <body>
     <header class="header" id="to-top">
@@ -21,8 +23,9 @@
             </div>
           </div>
           <div class="header__links">
-            <a class="header__link" href="#">SPECS</a>
+            <a class="header__link header__link--scale-onhover" href="#">SPECS</a>
             <a class="header__link header__link--is-active" href="#">EN</a>
+            <span>/</span>
             <a class="header__link header__link--not-active" href="#">UA</a>
             <button class="header__button">BUY</button>
           </div>
@@ -54,7 +57,7 @@
       </div>
     </header>
 
-    <nav class="nav header__nav">
+    <nav class="header__nav nav">
       <ul class="nav__list">
         <li class="nav__item">
           <a href="#story" class="nav__link nav__link--is-active">Our story</a>
@@ -79,7 +82,7 @@
     </nav>
 
     <main class="main">
-      <section class="description main__description" id="story">
+      <section class="main__description description" id="story">
         <div class="description__cell description__cell--1">
           <img
             src="/images/circ.svg"
@@ -151,7 +154,7 @@
         </div>
       </section>
 
-      <section class="section video section__video">
+      <section class="section video">
         <video
           class="video__screen"
           controls
@@ -162,15 +165,11 @@
           id="video-play"
         >
         </video>
-        <button
-          class="video__button"
-        >
-          Play
-        </button>
+        <button class="video__button">Play</button>
       </section>
 
       <section class="section" id="about-us">
-        <div class="design section__design">
+        <div class="section__design design">
           <div class="design__photo">
             <img
               src="/images/design.png"
@@ -180,7 +179,7 @@
           </div>
 
           <div class="design__info">
-            <h2 class="section__heading design__heading">
+            <h2 class="section__heading section__heading--moved-left">
               Designed for the future
             </h2>
 
@@ -192,15 +191,16 @@
               the industry with disruptive audio products.
             </p>
             <a href="#" class="design__link">See more about us</a>
+            <div class="design__line"></div>
           </div>
         </div>
       </section>
 
       <section class="section" id="technology">
-        <h2 class="section__heading technology__heading">
+        <h2 class="section__heading">
           Technology
         </h2>
-        <div class="technology section__technology">
+        <div class="section__technology technology">
           <div class="technology__features">
             <div class="technology__photo">
               <img
@@ -210,22 +210,22 @@
               >
             </div>
 
-            <div class="technology__part technology__part1">+</div>
-            <div class="technology__part technology__part2">+</div>
-            <div class="technology__part technology__part3">+</div>
-            <div class="technology__part technology__part4">+</div>
-            <div class="technology__part technology__part5">+</div>
-            <div class="technology__part technology__part6">+</div>
-            <div class="technology__part technology__part7">+</div>
-            <div class="technology__part technology__part8">+</div>
-            <div class="technology__part technology__part9">+</div>
-            <div class="technology__part technology__part10--active">+</div>
-            <div class="technology__part technology__part11">+</div>
+            <div class="technology__part technology__part--position1">+</div>
+            <div class="technology__part technology__part--position2">+</div>
+            <div class="technology__part technology__part--position3">+</div>
+            <div class="technology__part technology__part--position4">+</div>
+            <div class="technology__part technology__part--position5">+</div>
+            <div class="technology__part technology__part--position6">+</div>
+            <div class="technology__part technology__part--position7">+</div>
+            <div class="technology__part technology__part--position8">+</div>
+            <div class="technology__part technology__part--position9">+</div>
+            <div class="technology__part technology__part--position10">+</div>
+            <div class="technology__part technology__part--position11">+</div>
 
             <span class="technology__message">Control button ring ornament</span>
           </div>
         </div>
-        <div class="review">
+        <div class="section__review review">
           <p class="review__text">
             It really took me by surprise honestly to have such full beautiful sound
             that coming out of this small compact device. And with the brush
@@ -255,18 +255,18 @@
       </section>
 
       <section class="section" id="features">
-        <div class="features section__features">
-          <h2 class="section__heading features__heading">
+        <div class="section__features features">
+          <h2 class="section__heading">
             Features
           </h2>
 
           <div class="features__description">
-            <div class="advantage features__advantage features__advantage--right features__advantage--1">
+            <div class="features__advantage advantage features__advantage--moved-right">
               <h3 class="advantage__title">
                 Sound & Music
               </h3>
 
-              <ul class="list advantage__list">
+              <ul class="advantage__list list">
                 <li class="list__item">Feel-in-chest Base Power</li>
                 <li class="list__item">Lossless Digital Audio Transmission</li>
                 <li class="list__item">Easy & Stable Stereo Pairing</li>
@@ -276,12 +276,12 @@
               </ul>
             </div>
 
-            <div class="advantage features__advantage features__advantage--2">
+            <div class="features__advantage advantage features__advantage--hidden">
               <h3 class="advantage__title">
                 Connectivity
               </h3>
 
-              <ul class="list advantage__list">
+              <ul class="advantage__list list">
                 <li class="list__item">Hands Free Wireless Audio</li>
                 <li class="list__item">Bluetooth 4.0 LE</li>
                 <li class="list__item">Wi-Fi 2.4 GHz (802.11 b/g/n)</li>
@@ -291,12 +291,12 @@
               </ul>
             </div>
 
-            <div class="advantage features__advantage features__advantage--center features__advantage--3">
+            <div class="features__advantage advantage features__advantage--centered features__advantage--hidden">
               <h3 class="advantage__title">
                 App features
               </h3>
 
-              <ul class="list advantage__list">
+              <ul class="advantage__list list">
                 <li class="list__item">Customize Music Schedule</li>
                 <li class="list__item">Wake Up with Favorite Songs</li>
                 <li class="list__item">Home Detection Auto Wake Up</li>
@@ -316,15 +316,15 @@
       </section>
 
       <section class="section" id="questions">
-        <div class="questions section__questions">
-          <h2 class="section__heading questions__heading">
+        <div class="section__questions questions">
+          <h2 class="section__heading section__heading--added-space">
             Do you have any questions?
           </h2>
 
           <form
             action="#"
             method="POST"
-            class="form questions__form"
+            class="questions__form form"
             onsubmit="setTimeout(function(){window.location.reload();},10);"
           >
             <label for="email" class="form__container">
@@ -368,7 +368,7 @@
             >
           </a>
 
-          <div class="socials footer__socials">
+          <div class="footer__socials socials">
             <a href="#">
               <img
                 src="/images/facebook.svg"
@@ -398,30 +398,6 @@
       </footer>
     </main>
     <script type="text/javascript" src="scripts/main.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <script type="text/javascript" src="scripts/video-btn.js"></script>
-
-    <script type="text/javascript">
-      'use strict';
-
-      $(document).ready(function() {
-        $('.header__burger').click(function(event) {
-          $('.header__burger, .nav').toggleClass('active');
-          $('body').toggleClass('lock');
-        });
-      });
-    </script>
-
-    <script type="text/javascript">
-      'use strict';
-
-      $(document).ready(function() {
-        $('.nav__link').click(function(event) {
-          $('.header__burger, .nav').removeClass('active');
-          $('body').removeClass('lock');
-        });
-      });
-    </script>
   </body>
 </html>

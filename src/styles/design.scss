@@ -8,10 +8,6 @@
     margin-left: 30px;
   }
 
-  &__heading {
-    transform: translate(-26%);
-  }
-
   &__img {
     width: 582px;
     height: 388px;
@@ -26,6 +22,16 @@
     line-height: 24px;
 
     color: $color-dark-gray;
+  }
+
+  &__line {
+    align-self: flex-start;
+    display: block;
+    width: 55px;
+    height: 1px;
+    background-color: $color-green;
+    margin-bottom: 30px;
+    transition: width 300ms;
   }
 
   &__link {
@@ -43,28 +49,8 @@
 
     color: $color-green;
 
-    transition: 500ms;
-
-    &::after {
-      content: "";
-
-      position: absolute;
-      display: block;
-
-      height: 1px;
-      width: 53px;
-      bottom: 0;
-
-      background-color: $color-green;
-
-      transition: 500ms;
-    }
-
-    &:hover {
-      &::after {
-        width: 100%;
-        transition: inherit;
-      }
+    &:hover + .design__line {
+      width: 130px;
     }
   }
 }
@@ -108,10 +94,6 @@
     &__info {
       align-items: center;
       margin-left: 0;
-    }
-
-    &__heading {
-      display: none;
     }
 
     &__img {

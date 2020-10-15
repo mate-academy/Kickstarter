@@ -2,6 +2,9 @@
   position: relative;
   max-width: 1200px;
   height: 590px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &__screen {
     height: 590px;
@@ -13,9 +16,9 @@
 
   &__button {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
 
     width: 232px;
     height: 232px;
@@ -30,27 +33,15 @@
     border-radius: 50%;
     border: 1px solid $video-button-color;
 
-    cursor: pointer;
+    transition: transform 400ms;
 
-    transition: 400ms;
+    cursor: pointer;
 
     &:hover {
       color: transparent;
       border-color: $color-green;
-
-      &::after {
-        content: "";
-
-        border-top: 24px solid transparent;
-        border-bottom: 24px solid transparent;
-
-        border-left: 32px solid $color-green;
-
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
+      transform: scale(1.1);
+      background: url(/images/play-icon.svg) no-repeat center;
     }
 
     &:focus {
