@@ -23,7 +23,6 @@ video.onpause = function() {
   playBtn.style.display = 'flex';
 };
 
-// eslint-disable-next-line no-undef
 document.querySelector(
   '<div class="product-quantity-nav">\n'
   + '<div class="product-quantity-button product-quantity-down">-</div>\n'
