@@ -5,13 +5,16 @@ const btn = menu.querySelector('.burger-menu__nav-tgl');
 const link = document.querySelector('.burger-menu__nav');
 const video = document.querySelector('.video-section__item');
 const playBtn = document.querySelector('.video-section__play-button');
+const body = document.body;
 
 btn.addEventListener('click', evt => {
   menu.classList.toggle('active');
+  body.style.overflow = 'hidden';
 });
 
 link.addEventListener('click', evt => {
   menu.classList.remove('active');
+  body.style.overflow = 'visible';
 });
 
 playBtn.onclick = function() {
