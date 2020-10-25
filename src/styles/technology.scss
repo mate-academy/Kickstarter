@@ -36,7 +36,7 @@
     line-height: 21px;
     font-weight: 300;
     vertical-align: baseline;
-    color: #000;
+    color: $hover-font-color;
     max-width: 177px;
 
     &::after {
@@ -59,13 +59,13 @@
     border-radius: 50%;
     background-color: $decor-color;
     font-size: 24px;
-    color: #fff;
+    color: $technology-point-inner-color;
     z-index: 2;
     cursor: pointer;
     transition: background-color 0.3s;
 
     &--active {
-      background-color: #131313;
+      background-color: $hover-background-color;
 
       > .technology__content {
         opacity: 1;
@@ -169,7 +169,7 @@
   }
 
   &__point:hover {
-    background: #131313;
+    background: $hover-background-color;
 
     > .technology__content {
       opacity: 1;
@@ -189,6 +189,7 @@
 
   &__title {
     @include title;
+    margin: 0 225px;
   }
 
   &__shadow {
@@ -198,7 +199,7 @@
     right: 0;
     width: 50%;
     margin: 0 auto;
-    box-shadow: 0 0 150px 20px #989898;
+    box-shadow: 0 0 150px 20px $shadow-color;
     transform: rotate(-9deg);
   }
 
@@ -255,6 +256,22 @@
           height: 270px;
         }
       }
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .technology {
+    &__title {
+      margin: 0 50px;
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .technology {
+    &__title {
+      margin: 0 50px;
     }
   }
 }
@@ -351,18 +368,6 @@
     }
   }
 }
-/* 
-@media (min-width: 1100px) {
-  .technology {
-    &__point {
-      &:nth-child(9) {
-        > .technology__content {
-          height: 300px;
-        }
-      }
-    }
-  }
-} */
 
 @media (min-width: 1500px) {
   .technology {
@@ -372,6 +377,22 @@
           height: 350px;
         }
       }
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .technology {
+    &__title {
+      margin: 0 50px;
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .technology {
+    &__title {
+      margin: 0 20px;
     }
   }
 }
