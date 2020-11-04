@@ -1,0 +1,33 @@
+.advantages {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(220px, $cardWidth));
+    justify-content: center;
+    column-gap: 30px;
+    margin-top: 50px;
+
+    @media (max-width: $desktopBreakpoint) {
+      grid-template-columns: repeat(2, minmax(220px, $cardBigWidth));
+      row-gap: 70px;
+    }
+
+    @media (max-width: $mobileBreakpoint) {
+      grid-template-columns: repeat(5, 100%);
+      overflow-x: scroll;
+      position: relative;
+      padding-bottom: 50px;
+      margin-left: 0;
+      margin-right: 0;
+      justify-content: start;
+      align-items: center;
+      gap: 0;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 100%;
+      }
+    }
+  }
+}
