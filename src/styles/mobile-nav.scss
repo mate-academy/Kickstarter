@@ -1,79 +1,35 @@
 .mobile-nav {
   position: absolute;
-  top: 14px;
-  right: 50px;
+  transform: translateX(-108%);
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  width: 100%;
+  width: 80%;
+  height: 100vh;
 
-  text-align: right;
-  display: none;
+  background-color: #0db2b3;
 
-  & > label {
-    font-size: 16px;
-    display: none;
+  transition: transform 0.5s ease;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    list-style: none;
   }
 
-  &__menu {
-    background-color: $link-color;
-    border-radius: 10px;
+  &__item {
+    margin-top: 10px;
+    padding: 15px;
 
-    width: 100%;
-
-    & > a {
-      text-decoration: none;
-      text-transform: uppercase;
-      font-weight: bold;
-      color: $background-color;
-      line-height: 70px;
-
-      border-radius: 10%;
-
-      &:active {
-        background-color: $link-color;
-        opacity: 0.5;
-      }
-    }
+    text-align: center;
   }
-}
 
-#toggle {
-  display: none;
-}
-
-@media (max-width: $tablet-width) {
-  .mobile-nav {
-    display: block;
-    width: 75vw;
-    z-index: 3;
-
-    & > label {
-      display: block;
-      cursor: pointer;
-    }
-    
-    &__menu {
-      text-align: center;
-      display: none;
-      
-      & > a {
-        display: block;
-        margin: 0 auto;
-        width: 50%;
-
-        &::after {
-          content: "";
-          display: block;
-          position: absolute;
-          height: 1px;
-          width: 50%;
-          border-radius: 8px;
-          background-color: $background-color;
-        }
-      }
-    }
-  }
-  
-  #toggle:checked + .mobile-nav__menu {
-    display: block;
+  &__link {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 }
