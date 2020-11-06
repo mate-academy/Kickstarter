@@ -1,0 +1,127 @@
+.features {
+  max-width: 1440px;
+  padding-left: 123px;
+  padding-top: 150px;
+
+  &__heading {
+    font-size: $fz-heading;
+    line-height: 70px;
+    text-transform: uppercase;
+  }
+
+  &__container {
+    position: relative;
+
+    height: 700px;
+    margin-top: 150px;
+    margin-left: 150px;
+
+    background-color: $c-background-feature;
+  }
+
+  &__list {
+    position: absolute;
+    z-index: 1;
+
+    &:nth-child(1) {
+      left: 32%;
+      top: -15%;
+    }
+
+    &:nth-child(2) {
+      top: 28%;
+      left: -8%;
+    }
+
+    &:nth-child(3) {
+      bottom: -20px;
+      left: 18%;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    right: 123px;
+    bottom: 16px;
+
+    @media screen and (max-width: $breakpoint-notebook) {
+      width: 600px;
+      right: 53px;
+      bottom: 90px;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-1024px) {
+  .features {
+    padding-left: 80px;
+
+    &__container {
+      margin-left: 50px;
+    }
+
+    &__image {
+      right: 24px;
+      bottom: 135px;
+
+      width: 568px;
+    }
+
+  }
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+  .features {
+    padding-left: 50px;
+
+    &__container {
+      margin-left: 50px;
+    }
+
+    &__image {
+      width: 525px;
+    }
+
+    &__list {
+      &:nth-child(3) {
+        bottom: -85px;
+      }
+    }
+
+  }
+}
+
+@media screen and (max-width: $breakpoint-650px) {
+  .features {
+    padding: 45px 30px;
+
+    background-color: $c-background-feature;
+
+    &__heading {
+      transform: scale(0.9);
+    }
+
+    &__container,
+    &__list,
+    &__image {
+      position: static;
+
+    }
+
+    &__container {
+      height: auto;
+      margin-top: 50px;
+      margin-left: 0;
+    }
+
+    &__list {
+      margin-top: 20px;
+      transform: scale(0.9);
+    }
+
+    &__image {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+}

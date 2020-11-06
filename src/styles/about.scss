@@ -1,0 +1,122 @@
+.about {
+  display: grid;
+  grid-template-columns: 990px;
+  justify-content: center;
+  overflow: hidden;
+
+  &__container {
+
+    position: relative;
+    display: grid;
+    grid-template-columns: 582px 40%;
+    column-gap: 20px;
+    align-items: end;
+
+    @media screen and (max-width: $breakpoint-1024px) {
+      left: -100px;
+    }
+  }
+
+  &__test {
+    position: relative;
+  }
+
+  &__image {
+    object-fit: contain;
+  }
+
+  &__title {
+    position: absolute;
+    right: -320px;
+    bottom: 238px;
+
+    font-size: $fz-heading;
+    line-height: $line-height-heading;
+  }
+
+  &__text {
+    align-items: end;
+
+    font-size: $fz-text;
+    line-height: 24px;
+    color: $c-text-gray;
+
+    @media screen and (max-width: $breakpoint-tablet) {
+      margin-right: 30px;
+    }
+  }
+
+  &__more {
+    margin: 30px 0;
+  }
+
+  &__link {
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $c-btn-green;
+
+    transition: color $transform-duration;
+
+    &::after {
+      content: "";
+      display: block;
+      margin-top: 6px;
+
+      width: 53px;
+      height: 1px;
+
+      background-color: $c-btn-green;
+
+      transition: background-color $transform-duration;
+    }
+    &:hover {
+      color: $c-list-green;
+
+      &::after {
+        background-color: $c-list-green;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-650px) {
+  .about {
+    &__container {
+      position: static;
+      grid-template-columns: 400px;
+      grid-template-rows: 2.5fr 1fr;
+      justify-content: center;
+
+      padding-left: 30px;
+
+      @media screen and (max-width: $breakpoint-mobile) {
+        grid-template-columns: 300px;
+        grid-template-rows: 2fr 1fr;
+        padding-left: 18px;
+      }
+    }
+
+    &__test {
+      position: static;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__image {
+      height: 300px;
+    }
+
+    &__title {
+      position: static;
+      order: -1;
+
+      font-size: 37px;
+      line-height: 55px;
+    }
+
+    &__text {
+      margin: 0;
+    }
+  }
+}

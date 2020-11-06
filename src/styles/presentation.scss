@@ -1,0 +1,102 @@
+.presentation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 4190px;
+  height: 590px;
+
+  &__icon {
+    display: none;
+
+    width: 24px;
+    height: 32px;
+  }
+
+  &__text {
+    margin: auto;
+  }
+
+  &__clip {
+    width: 100%;
+    height: 100%;
+
+    outline: none;
+    object-fit: cover;
+
+    @media screen and (min-width: 1440px) {
+      width: 1440px;
+    }
+  }
+
+  &__play {
+    position: absolute;
+    display: flex;
+
+    width: 232px;
+    height: 232px;
+
+    border: 1px solid white;
+    border-radius: 50%;
+
+    font-size: 24px;
+    text-align: center;
+    color: white;
+
+    transition: transform 0.3s, border-color 0.3s;
+
+    cursor: pointer;
+
+    &:hover {
+      border-color: $c-btn-green;
+      transform: scale(1.2);
+
+      .presentation {
+        &__text {
+          display: none;
+        }
+
+        &__icon {
+          display: block;
+          margin: auto;
+
+          fill: $c-btn-green;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+  .presentation {
+    height: 400px;
+
+    &__icon {
+      width: 20px;
+      height: 26px;
+    }
+
+    &__play {
+      width: 190px;
+      height: 190px;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-650px) {
+  .presentation {
+    height: 246px;
+
+    &__icon {
+      width: 14px;
+      height: 18px;
+    }
+
+    &__play {
+      width: 108px;
+      height: 108px;
+
+      font-size: 10px;
+    }
+  }
+}
