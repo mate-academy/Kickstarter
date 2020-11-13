@@ -1,0 +1,70 @@
+.video {
+  position: relative;
+  max-width: 1200px;
+  height: 590px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__screen {
+    height: 590px;
+
+    object-fit: cover;
+    width: 100%;
+    outline: none;
+  }
+
+  &__button {
+    position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+
+    width: 232px;
+    height: 232px;
+
+    color: $video-button-color;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: $titles-font;
+    text-transform: uppercase;
+
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid $video-button-color;
+
+    transition: transform 400ms;
+
+    cursor: pointer;
+
+    &:hover {
+      color: transparent;
+      border-color: $color-green;
+      transform: scale(1.1);
+      background: url(/images/play-icon.svg) no-repeat center;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+@media (max-width: $phone-screen) {
+  .video {
+    max-width: 768px;
+    max-height: 260px;
+
+    &__screen {
+      max-width: 768px;
+      max-height: 260px;
+    }
+
+    &__button {
+      max-width: 108px;
+      max-height: 108px;
+
+      font-size: 12px;
+    }
+  }
+}

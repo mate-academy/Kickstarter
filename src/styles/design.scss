@@ -1,0 +1,112 @@
+.design {
+  max-width: 1100px;
+  display: flex;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+  }
+
+  &__img {
+    width: 582px;
+    height: 388px;
+  }
+
+  &__text {
+    max-width: 380px;
+
+    margin: 30px 0;
+
+    font-size: 16px;
+    line-height: 24px;
+
+    color: $color-dark-gray;
+  }
+
+  &__line {
+    align-self: flex-start;
+    display: block;
+    width: 55px;
+    height: 1px;
+    background-color: $color-green;
+    margin-bottom: 30px;
+    transition: width 300ms;
+  }
+
+  &__link {
+    position: relative;
+
+    padding-bottom: 6px;
+
+    max-width: 130px;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: $color-green;
+
+    &:hover + .design__line {
+      width: 130px;
+    }
+  }
+}
+
+@media (max-width: $tablet-screen) {
+  .design {
+    &__photo {
+      overflow: hidden;
+      direction: rtl;
+    }
+
+    &__img {
+      width: 623px;
+      height: 415px;
+    }
+  }
+}
+
+@media (max-width: $phone-screen) {
+  .design {
+    flex-direction: column;
+    align-items: center;
+
+    &__photo {
+      &::before {
+        content: "Designed for the future";
+        display: block;
+        text-transform: uppercase;
+        text-align: center;
+
+        margin-bottom: 50px;
+
+        font-family: $titles-font;
+        font-weight: bold;
+        max-width: 260px;
+        font-size: 37px;
+        line-height: 55px;
+      }
+    }
+
+    &__info {
+      align-items: center;
+      margin-left: 0;
+    }
+
+    &__img {
+      width: 259px;
+      height: 210px;
+    }
+
+    &__link {
+      align-self: flex-start;
+    }
+
+    &__text {
+      max-width: 260px;
+    }
+  }
+}
