@@ -1,0 +1,82 @@
+.characteristics {
+  display: grid;
+  grid-template-columns: repeat(4, 275px);
+  justify-content: center;
+  width: 100%;
+  column-gap: 30px;
+  row-gap: 40px;
+}
+
+.characteristics__card {
+  max-width: 400px;
+}
+
+.characteristics__slider {
+  display: none;
+  position: relative;
+  justify-content: center;
+  justify-items: center;
+  gap: 10px;
+
+  @media (max-width: 767px) {
+    display: flex;
+  }
+}
+
+.characteristics__toggler {
+  display: none;
+}
+
+.characteristics__slider-label {
+  display: block;
+  position: relative;
+  width: 50px;
+  height: 24px;
+  border: 5px solid $c-gray;
+  border-top: 10px solid $c-gray;
+  border-bottom: 10px solid $c-gray;
+
+  margin: 0 5px;
+  background-color: $main-color;
+  cursor: pointer;
+
+  transition: transform $duration, background-color $duration;
+
+  &:hover {
+    background-color: $hover-color;
+    transform: scale(1.3);
+  }
+}
+
+@media (max-width: 1199px) {
+  .characteristics {
+    grid-template-columns: repeat(2, 275px);
+  }
+}
+
+@media (max-width: 767px) {
+  .characteristics {
+    display: flex;
+    justify-content: start;
+    gap: 500px;
+    padding-left: calc(50% - 137.5px);
+    transition: transform $duration;
+    
+    overflow: hidden;
+  }
+
+  .characteristics__toggler-2:checked ~ .wrap .characteristics {
+    overflow: visible;
+    transform: translateX(-775px);
+  }
+
+  .characteristics__toggler-3:checked ~ .wrap .characteristics {
+    overflow: visible;
+    transform: translateX(-1550px);
+  }
+
+  .characteristics__toggler-4:checked ~ .wrap .characteristics {
+    overflow: visible;
+    transform: translateX(-2325px);
+  }
+}

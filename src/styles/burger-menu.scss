@@ -1,0 +1,99 @@
+.burger-menu {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+
+  background-color: $hover-color;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-align: center;
+  color: $main-color;
+
+  z-index: 2;
+  transform: translateX(100vw);
+  transition: transform $duration;
+
+  @media (min-width: 901px) {
+    display: none;
+  }
+
+  &__toggler {
+    display: none;
+    position: fixed;
+  
+    right: 10px;
+    top: 20px;
+    z-index: 3;
+  }
+  
+  &__label {
+    display: none;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    
+    width: 25px;
+    height: 25px;
+    background-image: url(../images/burger.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.6;
+
+    cursor: pointer;
+  
+    z-index: 3;
+  
+    @media (max-width: 900px) {
+      display: block;
+    }
+  }
+  
+  &__logo {
+    position: relative;
+    margin: 20px auto;
+  }
+  
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+  
+  &__item {
+    width: 140px;
+    height: 36px;
+    background-color: white;
+
+    border: 2px solid $text-color;
+    line-height: 36px;
+    text-align: center;
+    cursor: pointer;
+ 
+    margin-top: 35px;
+  
+    transition: transform $duration;
+  
+    &:hover {
+      border-color: $main-color;
+      transform: scale(1.1);
+      font-weight: 500;
+    }
+  }
+  
+  &__link {
+    &--active {
+      font-weight: 500;
+    }
+  }
+}
+
+.burger-menu__toggler:checked + .burger-menu__label {
+  background-image: url(../images/burger-x.svg);
+  opacity: 1;
+}
+
+.burger-menu__toggler:checked ~ .burger-menu {
+  transform: translateX(0);
+}
