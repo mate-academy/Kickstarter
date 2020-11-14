@@ -1,0 +1,124 @@
+.video-section {
+  position: relative;
+  font-size: 0;
+  height: 600px;
+
+  &__item {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__play-button {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 30px;
+    right: 0;
+    margin: auto;
+    border: 1px solid $video-btn-color;
+    border-radius: 50%;
+    transform-origin: center;
+    transition: transform 300ms ease-out, border-color 300ms;
+    background-color: transparent;
+    cursor: pointer;
+
+    > span {
+      display: none;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      color: $video-btn-color;
+      height: 0;
+      width: 0;
+      border-top: 16px solid transparent;
+      border-bottom: 16px solid transparent;
+      border-left: 24px solid $video-btn-color;
+    }
+
+    &::after {
+      content: "PLAY";
+      position: absolute;
+      height: 18px;
+      width: 57px;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      color: $video-btn-color;
+      font-family: $Dino-bold-font;
+      font-size: 24px;
+      font-weight: 500;
+      display: none;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      border-color: $decor-color;
+
+      &::before {
+        border-left: 24px solid $decor-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .video-section {
+    &__play-button {
+      width: 150px;
+      height: 150px;
+    }
+  }
+}
+
+@media (max-width: 820px) {
+  .video-section {
+    height: 350px;
+    
+    &__item {
+      object-fit: contain;
+    }
+  
+    &__red-bar {
+      display: none;
+    }
+  
+    &__play-button {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .video-section {
+    height: 300px;
+  }
+}
+  
+@media (max-width: 470px) {
+  .video-section {
+    &__play-button {
+      width: 50px;
+      height: 50px;
+
+      &::before {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 8px solid $video-btn-color;
+      }
+    }
+  }
+}

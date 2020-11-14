@@ -1,0 +1,132 @@
+.burger-menu {
+  display: none;
+
+  &__nav {
+    display: none;
+
+    &::before {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      content: "";
+      width: 100vw;
+      height: 100vh;
+      background-color: $general-color;
+      clip-path: circle(30px at calc(100% - 65px) 65px);
+      visibility: hidden;
+    }
+
+    &-tgl {
+      display: inline-block;
+      cursor: pointer;
+      z-index: 1;
+      width: 70px;
+      height: 70px;
+      border: none;
+      padding: 0;
+      background: transparent;
+      line-height: 0.6;
+      text-align: center;
+      outline: none;
+      
+      &-middle {
+        display: inline-block;
+        position: relative;
+        height: 2px;
+        width: 34px;
+        border-radius: 1px;
+        background: $general-font-color;
+        vertical-align: middle;
+        z-index: 1;
+
+        &:before,
+        &:after {
+          display: inline-block;
+          position: absolute;
+          content: "";
+          width: inherit;
+          height: 2px;
+          border-radius: 1px;
+          background-color: $general-font-color;
+          transition: transform 500ms;
+          
+        }
+        
+        &:before {
+          top: -11px;
+          left: 0;
+        }
+        
+        &:after {
+          top: 11px;
+          left: 0;
+        }
+      }
+        
+      &:focus {
+        outline: none;
+      }
+    
+      &:hover > span:after,
+      &:hover > span:before {
+        left: 0;
+      }
+    }
+  }
+
+  &__link {
+    transition: color 600ms ease;
+  }
+
+  &.active &__nav {
+    display: block;
+
+    &:before {
+      visibility: visible;
+      clip-path: circle(100%);
+    }
+
+    &-tgl-middle {
+      height: 0;
+
+      &:after,
+      &:before {
+        top: 0;
+        left: 0;
+        width: 34px;
+      }
+
+      &:after {
+        transform: rotate(-45deg);
+      }
+    
+      &:before {
+        transform: rotate(45deg);
+      }
+    }
+
+    & .burger-menu__list {
+      display: block;
+      position: absolute;
+      left: 20px;
+      color: $general-font-color;
+    }
+
+    & .burger-menu__item .burger-menu__link {
+      color: $general-font-color;
+    }
+  }
+
+  &__item {
+    &:not(:first-child) {
+      padding-top: 30px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .burger-menu {
+    display: block;
+  }
+}

@@ -3,11 +3,443 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
-    <link rel="stylesheet" href="./styles/main.scss">
+    <title>Kickstarter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
+    <link rel="icon" href="images/kick_logo.svg">
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+   ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.scss">
   </head>
   <body>
-    <h1>Hello Mate Academy</h1>
+    <header class="header" id="header">
+      <div class="header__top">
+        <a href="index.html" class="header__logo">
+          <img
+            src="images/kick_logo.svg"
+            alt="logo"
+          >
+        </a>
+        <div class="header__options">
+          <a href="#" class="header__link">specs</a>
+          <div class="set-language header__set-language">
+            <input
+              type="radio"
+              class="set-language__check"
+              id="set-language-EN"
+              name="set-language"
+              value="EN"
+              checked
+              title="Switch to English?"
+            >
+            <label for="set-language-EN" class="set-language__label">EN</label>
+            <span>/</span>
+            <input
+              type="radio"
+              class="set-language__check"
+              id="set-language-UA"
+              name="set-language"
+              value="UA"
+              title="Switch to Ukrainian?"
+            >
+            <label for="set-language-UA" class="set-language__label">UA</label>
+          </div>
+          <a href="cart.html" class="header__action">buy</a>
+        </div>
+        <div class="burger-menu">
+          <button
+            type="button"
+            class="burger-menu__nav-tgl"
+            aria-label="toggle menu"
+          >
+            <span class="burger-menu__nav-tgl-middle" aria-hidden="true"></span>
+          </button>
+          <nav class="burger-menu__nav">
+            <ul class="burger-menu__list">
+              <li class="burger-menu__item">
+                <a href="#video-section" class="burger-menu__link">OUR STORY</a>
+              </li>
+              <li class="burger-menu__item">
+                <a href="#about" class="burger-menu__link">ABOUT US</a>
+              </li>
+              <li class="burger-menu__item">
+                <a href="#technology" class="burger-menu__link">TECHNOLOGY</a>
+              </li>
+              <li class="burger-menu__item">
+                <a href="#features" class="burger-menu__link">FEATURES</a>
+              </li>
+              <li class="burger-menu__item">
+                <a href="#contact-us" class="burger-menu__link">GET IN TOUCH</a>
+              </li>
+              <li class="burger-menu__item">
+                <a href="cart.html" class="burger-menu__link">BUY</a>
+              </li>
+            </ul>
+          </nav>
+        </div> <!-- burger-menu -->
+      </div> <!-- header__top -->
+
+      <div class="intro header__intro">
+        <div class="intro__info">
+          <h1 class="intro__title">Futuristic Wireless Speaker</h1>
+          <p class="intro__text">
+            Luna’s performance is balanced and smooth in all frequency ranges which makes the
+            music both naturally pleasant and distinctly more layered.
+          </p>
+        </div>
+        <img
+          src="images/intro_img.png"
+          alt="img of product"
+          class="intro__img"
+        >
+      </div> <!-- header__intro -->
+
+      <nav class="nav header__nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#video-section" class="nav__link">OUR STORY</a>
+          </li>
+          <li class="nav__item">
+            <a href="#about" class="nav__link">ABOUT US</a>
+          </li>
+          <li class="nav__item">
+            <a href="#technology" class="nav__link">TECHNOLOGY</a>
+          </li>
+          <li class="nav__item">
+            <a href="#features" class="nav__link">FEATURES</a>
+          </li>
+          <li class="nav__item">
+            <a href="#contact-us" class="nav__link">GET IN TOUCH</a>
+          </li>
+        </ul>
+      </nav> <!-- header__nav -->
+    </header> <!-- header -->
+
+    <main class="main">
+      <section id="about" class="about main__item main__about-section">
+        <div class="about__item ">
+          <img
+            src="images/about_icons/compass.png"
+            alt="compass"
+            class="about__icon"
+          >
+          <h3 class="about__title">Futuristic Design</h3>
+          <p class="about__text">
+            To give Luna a truly flawless look, we specifically picked aircraft grade aluminum as
+            its material and adopted both
+            three-dimensional stretch-bending technology and a high
+            precision cold forging technique
+          </p>
+        </div>
+        <div class="about__item">
+          <img
+            src="images/about_icons/sound.png"
+            alt="sound"
+            class="about__icon"
+          >
+          <h3 class="about__title">Tweeter Speaker System</h3>
+          <p class="about__text">
+            To deliver a more layered sound performance better than a sole full-range speaker,
+            our team equipped Luna with one more tweeter speaker responsible for
+            high-frequency sound independently.
+          </p>
+        </div>
+
+        <div class="about__item">
+          <img
+            src="images/about_icons/signal.png"
+            alt="signal"
+            class="about__icon"
+          >
+          <h3 class="about__title">Multiroom System</h3>
+          <p class="about__text">
+            Luna is natively compatible with your home Wi-Fi. Set up multiple speakers in
+            different rooms to expand your music experience
+            into the entire house.
+          </p>
+        </div>
+
+        <div class="about__item">
+          <img
+            src="images/about_icons/light.png"
+            alt="light"
+            class="about__icon"
+          >
+          <h3 class="about__title">Intuitive Lighting System</h3>
+          <p class="about__text">
+            An intuitive user interface allows you to adjust the hue and saturation of color for
+            lighting that fits any mood and situation.
+          </p>
+        </div>
+      </section> <!-- about -->
+
+      <section id="video-section" class="video-section">
+        <video
+          class="video-section__item"
+          src="videos/video.webm"
+          type="webm"
+          poster="images/video_cover.png"
+          controls
+       >
+        </video>
+        <div class="video-section__play-button" id="play-pause"></div>
+      </section>
+
+      <section class="design m_225 main__design-section">
+        <div class="design__img">
+          <img src="images/sections/design.png" alt="design">
+        </div>
+        <div class="design__content">
+          <h2 class="design__title">DESIGNED FOR <br> THE FUTURE</h2>
+          <div class="design__text">In 2014, a group of geeky industrial designers,
+            engineering veterans and acoustic experts formed
+            crazybaby. This is a bunch of passionate people
+            who are crazy enough to think they can challenge
+            the industry with disruptive audio products.
+          </div>
+          <a href="#" class="design__link">See more about us</a>
+        </div>
+      </section> <!-- design -->
+
+      <section id="technology" class="technology main__technology-section">
+        <h2 class="technology__title">technology</h2>
+        <div class="technology__wrapper">
+          <img
+            src="images/sections/technology.png"
+            alt="product in details"
+            class="technology__img"
+          >
+          <div class="technology__shadow"></div>
+          <div class="technology__point">
+            <div class="technology__inner">+</div>
+            <div class="technology__content">
+              <h3 class="technology__name">
+                Control button ring ornament
+              </h3>
+            </div>
+          </div>
+
+          <div class="technology__point">
+            <div class="technology__inner">+</div>
+            <div class="technology__content">
+              <h3 class="technology__name">
+                Control button ring ornament
+              </h3>
+            </div>
+          </div>
+
+          <div class="technology__point">
+            <div class="technology__inner">+</div>
+            <div class="technology__content">
+              <h3 class="technology__name">
+                Control button ring ornament
+              </h3>
+            </div>
+          </div>
+
+          <div class="technology__point">
+            <div class="technology__inner">+</div>
+            <div class="technology__content">
+              <h3 class="technology__name">
+                Control button ring ornament
+              </h3>
+            </div>
+          </div>
+
+          <div class="technology__point">
+            <div class="technology__inner">+</div>
+            <div class="technology__content">
+              <h3 class="technology__name">
+                Light giding component for running light
+              </h3>
+            </div>
+          </div>
+
+          <div class="technology__point">
+            <div class="technology__inner">+</div>
+            <div class="technology__content">
+              <h3 class="technology__name">
+                Control button ring ornament
+              </h3>
+            </div>
+          </div>
+
+          <div class="technology__point">
+            <div class="technology__inner">+</div>
+            <div class="technology__content">
+              <h3 class="technology__name">
+                Control button ring ornament
+              </h3>
+            </div>
+          </div>
+
+          <div class="technology__point">
+            <div class="technology__inner">+</div>
+            <div class="technology__content">
+              <h3 class="technology__name">
+                Control button ring ornament
+              </h3>
+            </div>
+          </div>
+
+          <div class="technology__point">
+            <div class="technology__inner">+</div>
+            <div class="technology__content">
+              <h3 class="technology__name">
+                Control button ring ornament
+              </h3>
+            </div>
+          </div>
+
+          <div class="technology__point">
+            <div class="technology__inner">+</div>
+            <div class="technology__content">
+              <h3 class="technology__name">
+                Control button ring ornament
+              </h3>
+            </div>
+          </div>
+
+          <div class="technology__point">
+            <div class="technology__inner">+</div>
+            <div class="technology__content">
+              <h3 class="technology__name">
+                Control button ring ornament
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section> <!-- techology -->
+
+      <section class="quote main__quote-section">
+        <p class="quote__text">
+          <img
+            src="images/sections/quotes.png"
+            alt="quotes"
+            class="quote__img"
+          >
+          It really took me by surprise honestly to have such full beautiful
+          sound that coming out of this small compact device. And with the brush aluminum surface,
+          it feels so familiar. Like my iPhone.
+        </p>
+        <div class="author quote__author">
+          <img
+            src="./images/sections/author_Garrett.png"
+            alt="Garrett Martin`s photo"
+            class="author__avatar"
+          >
+          <div class="author__name">Garrett Martin</div>
+          <div class="author__rank">Creative Director</div>
+        </div>
+      </section> <!-- quote -->
+
+      <section id="features" class="features main__featurea-section">
+        <h2 class="features__title">FEATURES</h2>
+
+        <div class="features__inner">
+          <div class="advantages features__advantages">
+            <h3 class="advantages__title">Sound & Music</h3>
+            <ul class="advantages__list">
+              <li class="advantages__item">Feel-in-chest Base Power</li>
+              <li class="advantages__item">Lossless Digital Audio Transmission</li>
+              <li class="advantages__item">Easy & Stable Stereo Pairing</li>
+              <li class="advantages__item">Crisp and Clear High Frequency Sound</li>
+              <li class="advantages__item">Streams from Cloud Music and Local Library</li>
+              <li class="advantages__item">Auto Music Playback from Last Song Stopped</li>
+            </ul>
+          </div>
+
+          <div class="advantages features__advantages">
+            <h3 class="advantages__title">Connectivity</h3>
+            <ul class="advantages__list">
+              <li class="advantages__item">Hands Free Wireless Audio</li>
+              <li class="advantages__item">Bluetooth 4.0 LE</li>
+              <li class="advantages__item">Wi-Fi 2.4 GHz (802.11 b/g/n)</li>
+              <li class="advantages__item">Smart Multiroom System Set Up</li>
+              <li class="advantages__item">Party Mode with 6.0 Units and above</li>
+              <li class="advantages__item">Powerful MESHNET Multi Speaker Network</li>
+            </ul>
+          </div>
+
+          <div class="advantages features__advantages">
+            <h3 class="advantages__title">App Features</h3>
+            <ul class="advantages__list">
+              <li class="advantages__item">Customize Music Schedule</li>
+              <li class="advantages__item">Wake Up with Favorite Songs</li>
+              <li class="advantages__item">Home Detection Auto Wake Up</li>
+              <li class="advantages__item">Color Wheel & Saturation Change</li>
+            </ul>
+          </div>
+
+          <img
+            src="./images/sections/features__img.png"
+            alt="product image"
+            class="features__img"
+          >
+        </div>
+      </section> <!-- features -->
+
+      <section id="contact-us" class="contact-us">
+        <h2 class="contact-us__title">DO YOU HAVE ANY QUESTIONS?</h2>
+        <form
+          name="contact-us-form"
+          method="GET"
+          action="index.html"
+          class="contact-us-form contact-us__form"
+        >
+          <input
+            name="contact-us-email"
+            type="email"
+            class="contact-us-form__email"
+            placeholder="Your email"
+            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            required
+          >
+          <textarea
+            name="contact-us-form"
+            class="contact-us-form__textarea"
+            placeholder="Your massage..."
+            rows="5"
+            required
+         ></textarea>
+          <button type="submit" class="contact-us-form__button">SEND</button>
+        </form>
+      </section> <!-- contact-us -->
+    </main>
+
+    <footer class="footer">
+      <a href="index.html" class="footer__logo">
+        <img
+          src="images/kick_logo.svg"
+          alt="logo"
+        >
+      </a>
+      <div class="network footer__network">
+        <a href="#" class="network__item">
+          <img src="images/footer/facebook.svg" alt="facebook link">
+        </a>
+        <a href="#" class="network__item">
+          <img src="images/footer/twitter.svg" alt="twitter link">
+        </a>
+        <a href="#" class="network__item">
+          <img src="images/footer/instagram.png" alt="instagram link">
+        </a>
+      </div>
+      <div class="footer__copyright">
+        <a href="#" class="footer__copyright-link">
+        © 2019 All rights reserved. Terms of Use & Privacy Policy
+        </a>
+      </div>
+      <a href="#header" class="footer__go-up">
+        <img src="images/footer/go_up.png" alt="go to header">
+      </a>
+    </footer> <!-- footer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>

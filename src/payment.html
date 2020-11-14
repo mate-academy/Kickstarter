@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+   >
+    </script>
+    <link rel="stylesheet" href="styles/style.scss">
+    <title>Kickstarter</title>
+  </head>
+
+  <body>
+    <section class="payment">
+      <div class="page-top shipping__page-top">
+        <a href="index.html" class="page-top__logo">
+          <img src="images/kick_logo.svg" alt="logo">
+        </a>
+        <a href="shipping.html" class="page-top__revert">
+          <img src="images/cart/turn-back.png" alt="go back">
+        </a>
+      </div>
+      <div class="page-switcher payment__page-switcher">
+        <div class="page-switcher__item page-switcher__item--used">
+          <div class="page-switcher__circle"></div>
+          <h3 class="page-switcher__title">CART</h3>
+        </div>
+        <div class="page-switcher__item page-switcher__item--used">
+          <div class="page-switcher__line"></div>
+          <div class="page-switcher__circle"></div>
+          <h3 class="page-switcher__title">SHIPPING</h3>
+        </div>
+        <div class="page-switcher__item page-switcher__item--active">
+          <div class="page-switcher__line"></div>
+          <div class="page-switcher__circle"></div>
+          <h3 class="page-switcher__title">PAYMENT</h3>
+        </div>
+      </div> <!-- page-switcher -->
+      <div class="payment-card payment__payment-card">
+        <div class="payment-card__pay-methods">
+          <a href="#" class="payment-card__pay-method">
+            <img src="images/payment/MasterCard_logo.svg" alt="Mastercard logo">
+          </a>
+          <a href="#" class="payment-card__pay-method">
+            <img src="images/payment/visa-logo-png_44632.svg" alt="visa logo">
+          </a>
+          <a href="#" class="payment-card__pay-method">
+            <img src="images/payment/Apple_Pay_logo 2.svg" alt="Apple Pay logo">
+          </a>
+          <a href="#" class="payment-card__pay-method">
+            <img src="images/payment/american express.svg" alt="american express logo">
+          </a>
+        </div>
+        <form
+          name="payment-card"
+          method="POST"
+          class="payment-card__form"
+          id="payment-card"
+          action="end.html"
+        >
+          <input
+            id="name"
+            type="text"
+            for="payment-card"
+            class="payment-card__input"
+            placeholder="Ivan Petrenko"
+            onfocus="this.placeholder = '' "
+          >
+          <label for="name" class="payment-card__label">Card holder</label>
+
+          <input
+            id="card-number"
+            type="text"
+            for="payment-card"
+            class="payment-card__input"
+            placeholder="0000 0000 0000 0000"
+            onfocus="this.placeholder = '' "
+          >
+          <label for="card-number" class="payment-card__label">Card number</label>
+
+          <div class="payment-card__wrap">
+            <fieldset class="payment-card__date">
+              <legend class="payment-card__label-date">Expires</legend>
+              <input
+                type="text"
+                for="payment-card"
+                class="payment-card__input-date"
+                placeholder="MM"
+                onfocus="this.placeholder = '' "
+                pattern="/d"
+              >
+              <span>/</span>
+              <input
+                id="cvc"
+                type="text"
+                for="payment-card"
+                class="payment-card__input-date"
+                placeholder="YY"
+                onfocus="this.placeholder = '' "
+              >
+            </fieldset>
+            <label for="cvc" class="payment-card__cvc">
+              CVC
+              <input
+                type="text"
+                for="payment-card"
+                class="payment-card__input"
+                onfocus="this.placeholder = '' "
+                placeholder="***"
+                pattern="[0-9]*"
+                inputmode="numeric"
+              >
+            </label>
+          </div>
+          <div class="payment-card__footer">
+            <a class="payment-card__revert-btn" href="shipping.html">return to shipping</a>
+            <a href="end.html" class="form-btn payment-card__form-btn">place order</a>
+          </div>
+        </form>
+      </div>
+    </section> <!-- payment -->
+    <footer class="footer">
+      <img
+        src="images/kick_logo.svg"
+        alt="logo"
+        class="footer__logo"
+      >
+      <div class="network footer__network">
+        <a href="#" class="network__item">
+          <img src="images/footer/facebook.svg" alt="facebook link">
+        </a>
+        <a href="#" class="network__item">
+          <img src="images/footer/twitter.svg" alt="twitter link">
+        </a>
+        <a href="#" class="network__item">
+          <img src="images/footer/instagram.png" alt="instagram link">
+        </a>
+      </div>
+      <div class="footer__copyright">
+        <a href="#" class="footer__copyright-link">
+          © 2019 All rights reserved. Terms of Use & Privacy Policy
+        </a>
+      </div>
+    </footer> <!-- footer -->
+  </body>
+</html>
