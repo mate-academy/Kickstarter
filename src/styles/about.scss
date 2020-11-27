@@ -1,0 +1,155 @@
+.about {
+  position: relative;
+
+  &__design {
+    display: grid;
+    grid-template-columns: repeat(2, 380px);
+    gap: 0 130px;
+    justify-content: center;
+  }
+
+  &__design-background {
+    width: 582px;
+  }
+
+  &__design-info {
+    width: 490px;
+    display: flex-end;
+    flex-direction: column;
+  }
+
+  &__design-title {
+    position: absolute;
+    font-size: $title-font-size;
+    line-height: 72px;
+    color: $text-color;
+  }
+
+  &__design-image {
+    display: none;
+  }
+
+  &__design-text {
+    position: absolute;
+    right: 0;
+    top: 230px;
+    width: 378px;
+
+    color: $text-color-light;
+    font-size: 16px;
+
+    & > p {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__design-link {
+    position: relative;
+    color: $link-color;
+    text-transform: uppercase;
+
+    transition: font-weight $transition-duration-slow;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 1px;
+      width: 25%;
+
+      bottom: -6px;
+      border-radius: 8px;
+      background-color: $link-color;
+
+      transition: width $transition-duration-quick;
+    }
+
+    &:hover {
+      font-weight: bold;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: $notebook-width) {
+  .about {
+    &__design-info {
+      width: 440px;
+    }
+
+    &__design-background {
+      width: 540px;
+    }
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .about {
+    &__design {
+      grid-template-columns: none;
+    }
+
+    &__design-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      width: 460px;
+    }
+
+    &__design-background {
+      display: none;
+    }
+
+    &__design-title {
+      position: static;
+      font-size: 37px;
+      line-height: 55px;
+      color: $text-color;
+
+      margin-bottom: 50px;
+    }
+
+    &__design-image {
+      display: block;
+      width: 460px;
+      margin-bottom: 30px;
+    }
+
+    &__design-text {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      color: $text-color-light;
+      font-size: 16px;
+      line-height: $main-line-height;
+    }
+
+    &__design-link {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .about {
+
+    &__design-info {
+      width: 260px;
+    }
+
+    &__design-image {
+      width: 260px;
+    }
+
+    &__design-text {
+      width: 260px;
+    }
+  }
+}

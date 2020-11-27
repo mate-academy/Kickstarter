@@ -1,0 +1,92 @@
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 123px;
+
+  &__logo {
+    width: 121px;
+    height: 26px;
+  
+    cursor: pointer;
+    transition: transform $transition-duration-quick;
+  
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  &__nav {
+    display: flex;
+    align-items: center;
+    position: sticky;
+  }
+  
+  &__list {
+    list-style: none;
+  }
+  
+  &__item {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  &__link {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: $main-font-size;
+    color: #bdbdbd;
+
+    padding: 0 3px;
+  
+    transition: font-weight, color $transition-duration-quick;
+  
+    &--specs {
+      padding: 0 7px 0 0;
+      margin-right: 12px;
+      color: #4f4f4f;
+    }
+  
+    &--active {
+      color: $text-color;
+      font-weight: bold;
+    }
+  
+    &:hover {
+      font-weight: bold;
+      color: $text-color;
+    }
+  }
+
+  &__button {
+    width: 102px;
+    height: 48px;
+    margin-left: 39px;
+
+    background-color: $text-color;
+    border: none;
+    color: $background-color;
+
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: $transition-duration-slow;
+
+    &:hover {
+      background-color: $link-color;
+      color: $background-color;
+    }
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .heading {
+    padding: 13px 30px;
+    justify-content: space-between;
+
+    &__nav {
+      display: none;
+    }
+  }
+}
