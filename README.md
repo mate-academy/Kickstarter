@@ -1,9 +1,22 @@
-# Kickstarter landing page
+# Luna Speakers page
 
-Stack: HTML5, SASS, JS.
+- [DEMO LINK](https://andlap24.github.io/Kickstarter/)
 
-Fully responsive layout was made by using CSS Grid and Flexbox (mobiles, tablets, laptops screens).
+## Description
+Stack: HTML5, SASS(SCSS), JavaScript, BEM.
 
 Implementing landing page according to [Figma design](https://www.figma.com/file/5jdcVOv7NiA0l0HGfqEyHC/%E2%84%9611-(kickstarter)-(Copy)?node-id=0%3A1).
 
-Click the link to see [DEMO](https://andlap24.github.io/Kickstarter/).
+### Dependencies
+* Node v12.16.3 and higher
+* NPM v6.14.4 and higher
+
+### Installing
+* Fork and clone this repository
+* Run `npm install` in your terminal
+* Run `npm start`
+
+## Troubleshooting
+
+Any advise for common problems or issues.
+For any contributing or problem solving you could find me [here](mailto:andrew.laptev24@gmail.com).
