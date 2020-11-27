@@ -1,10 +1,11 @@
 .header {
   margin: 13px auto 0;
-  max-width: 1262px;
+  padding-right: 34px;
+  padding-left: 34px;
+  max-width: 1254px;
   overflow: hidden;
 
-  font-family: Arial, sans-serif;
-
+  /*#region header__top*/
   &__top {
     position: relative;
     height: 48px;
@@ -14,137 +15,236 @@
     justify-content: space-between;
     align-items: center;
 
-    .header__logo {
-      margin-left: 34px;
-    }
-
-    .header__buttons {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      margin-right: 34px;
-
-      .header__specs {
-        width: 72px;
-
-        margin-right: 12px;
-
-        font-size: 14px;
-        color: #4f4f4f;
-      }
-
-      .header__specs:hover {
-        font-weight: bold;
-      }
-
-      .header__lang {
-        margin-right: 39px;
-
-        font-size: 14px;
-
-        .header__eng {
-          position: relative;
-
-          font-size: 14px;
-          color: #bdbdbd;
-        }
-
-        .header__eng:hover {
-          color: #333;
-        }
-
-        .header__eng::after {
-          content: "/";
-          margin: 0 3px;
-
-          font-size: 14px;
-          color: #333;
-        }
-
-        .header__ua {
-          width: 20px;
-          font-size: 14px;
-          color: #bdbdbd;
-        }
-
-        .header__ua:hover {
-          color: #3333;
-        }
-
-        .header__buy {
-          width: 102px;
-          height: 48px;
-
-          background-color: #333;
-
-          text-align: center;
-          line-height: 48px;
-          font-size: 12px;
-          color: #fff;
-        }
-      }
-    }
+    transition: all 0.5s;
   }
 
-  &__product {
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__specs {
+    width: 72px;
+
+    margin-right: 12px;
+
+    font-size: 14px;
+    color: #4f4f4f;
+
+    transition: all 0.5s;
+  }
+
+  &__specs:hover {
+    font-weight: bold;
+  }
+
+  &__lang {
+    display: flex;
+    justify-content: start;
+    margin-right: 39px;
+
+    font-size: 14px;
+
+    transition: all 0.5s;
+  }
+
+  &__eng {
     position: relative;
 
-    .header__name {
-      position: relative;
-      z-index: 1;
-      margin: 153px auto 40px 34px;
-
-      width: 378px;
-      height: 249px;
-
-      font-family: DINPro, sans-serif;
-      font-size: 64px;
-      color: #333;
-      font-weight: 900;
-    }
-
-    .header__description {
-      margin-left: 34px;
-
-      width: 276px;
-      height: 96px;
-
-      font-size: 16px;
-      line-height: 24px;
-      color: #333;
-    }
-
-    .header__look {
-      display: block;
-      position: absolute;
-      right: 0;
-      top: -64px;
-      left: 378px;
-
-      width: 939px;
-    }
+    font-size: 14px;
+    color: #bdbdbd;
   }
+
+  &__eng:hover {
+    color: #333;
+  }
+
+  &__eng::after {
+    content: "/";
+    margin: 0 3px;
+
+    font-size: 14px;
+    color: #333;
+  }
+
+  &__ua {
+    width: 20px;
+    font-size: 14px;
+    color: #bdbdbd;
+  }
+
+  &__ua:hover {
+    color: #333;
+  }
+
+  &__buy {
+    width: 102px;
+    height: 48px;
+
+    background-color: #333;
+
+    text-align: center;
+    line-height: 48px;
+    font-size: 12px;
+    color: #fff;
+
+    transition: all 0.3s;
+  }
+  /*#endregion header__top*/
+
+  /*#region header__product*/
+  &__product {
+    position: relative;
+  }
+
+  &__name {
+    position: relative;
+    z-index: 1;
+    margin: 153px auto 40px 0;
+
+    width: 378px;
+
+    font-family: DINPro, sans-serif;
+    font-size: 64px;
+    color: #333;
+    font-weight: 900;
+
+    transition: all 0.3s;
+  }
+
+  &__description {
+    position: relative;
+    z-index: 1;
+    // margin-left: 34px;
+
+    width: 276px;
+    height: 96px;
+
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+
+    transition: all 0.3s;
+  }
+
+  &__look {
+    position: absolute;
+    display: block;
+    top: -64px;
+    left: 378px;
+
+    width: 939px;
+
+    transition: all 0.5s;
+    transform-origin: 350px;
+  }
+  /*#endregion header__product*/
+
+  /*#region header__nav-bar*/
 
   &__nav-bar {
     max-width: 854px;
     margin: 148px auto;
+  }
 
-    .header__nav-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-      justify-content: space-between;
+  .header__nav-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-between;
+    padding: 0 34px;
 
-      padding: 0 34px;
+    text-align: center;
+  }
 
-      .header__nav-item {
-        font-size: 14px;
-      }
+  .header__nav-item {
+    font-size: 14px;
 
-      .header__nav-item:hover {
-        font-weight: bold;
-        cursor: pointer;
-      }
+    transition: all 0.3s;
+  }
+
+  .header__nav-item:hover {
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+/*#endregion header__nav-bar*/
+
+@media screen and (max-width: 768px) {
+  .header__nav-bar {
+    margin: 123px auto;
+  }
+
+  .header__name {
+    margin-top: 129px;
+
+    font-size: 48px;
+  }
+
+  .header__description {
+    width: 240px;
+    height: 120px;
+  }
+
+  .header__look {
+    top: -29px;
+    left: 285px;
+    width: 739px;
+    height: 365px;
+  }
+}
+
+@media screen and (max-width: 626px) {
+  .header {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  /*#region top*/
+  .header__top {
+    margin-top: 17px;
+    height: 46px;
+  }
+
+  .header__buttons {
+    padding: 0;
+    font-size: 0;
+  }
+
+  .header__specs {
+    transform: translate(250%, 0);
+    width: 0;
+    opacity: 0;
+    font-size: 0;
+  }
+
+  .header__lang {
+    transform: translate(250%, 0);
+    width: 0;
+    opacity: 0;
+  }
+
+  .header__eng {
+    font-size: 0;
+
+    &::after {
+      font-size: 0;
     }
   }
+
+  .header__ua {
+    font-size: 0;
+  }
+
+  .header__buy {
+    width: 24px;
+    height: 14px;
+    font-size: 0;
+  }
+  /*#endregion top*/
+
+  .header__nav-bar {
+    display: none;
+  }
+
 }
