@@ -6,7 +6,7 @@
     grid-template-columns: repeat(4, 1fr);
     text-align: center;
 
-    margin-bottom: 150px;
+    margin-bottom: $mainMargin;
   }
 
   &__item {
@@ -28,8 +28,10 @@
 
   &__preview {
     position: relative;
+
     display: block;
     width: 100%;
+
     overflow: hidden;
 
     transition: all 0.3s;
@@ -37,6 +39,7 @@
 
   &__preview:hover {
     filter: brightness(60%);
+    cursor: pointer;
   }
 
   &__preview::after {
@@ -45,16 +48,18 @@
     z-index: 2;
     left: 50%;
     top: 50%;
+
     transform: translate(-50%, -50%);
 
     display: block;
-    width: 232px;
-    height: 232px;
+    width: $previewAfterSize;
+    height: $previewAfterSize;
+  
     border-radius: 50%;
-    border: 1px solid #f3f4f5;
-    color: #f3f4f5;
+    border: 1px solid $previewAfterColor;
+    color: $previewAfterColor;
 
     text-align: center;
-    line-height: 232px;
+    line-height: $previewAfterSize;
   }
 }
