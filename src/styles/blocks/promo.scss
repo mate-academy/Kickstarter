@@ -1,0 +1,70 @@
+.promo {
+  position: relative;
+  
+  &--parameters {
+    margin: 150px 0 0;
+  }
+
+  &__video-media {
+    background-image: url("../images/video-img.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 590px;
+    width: 100%;
+    position: relative;
+  }
+
+  &__video {
+    display: none;
+  }
+
+  &__play {
+    display: block;
+    cursor: pointer;
+
+    &::after {
+      content: "PLAY";
+      color: #fff;
+      font-family: "DIN Pro", sans-serif;
+      font-size: 24px;
+      height: 232px;
+      width: 232px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      line-height: 232px;
+      transition: all 0.5s;
+    }
+
+    &:hover::after {
+      border-color: #0db2b3;
+      color: #0db2b3;
+    }
+  }
+
+  &__togler {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+
+    &:checked {
+      display: none;
+    }
+
+    &:checked + .promo__play {
+      display: none;
+    }
+    &:checked ~ .promo__video {
+      display: block;
+    }
+  }
+}
