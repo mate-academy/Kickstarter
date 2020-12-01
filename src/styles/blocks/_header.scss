@@ -4,8 +4,50 @@
   @include drawColumns(2);
   align-items: center;
 
+  @include forTablet {
+    padding-top: 27px;
+    padding-bottom: 27px;
+    @include drawColumns(8);
+  }
+
   &__nav {
-    position: relative;
     justify-self: end;
+
+    @include forTablet {
+      display: none;
+    }
+  }
+
+  &__text-box {
+    display: none;
+
+    @include forTablet {
+      grid-column: 6 / span 3;
+      justify-self: end;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      column-gap: 27px;
+      align-items: center;
+    }
+
+    @include forDesktop {
+      column-gap: 37px;
+    }
+  }
+
+  &__text {
+    text-transform: uppercase;
+  }
+
+  &__lang-switch {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 3px;
+  }
+
+  &__button {
+    @include flexCenter;
+    height: 48px;
+    width: 102px;
   }
 }
