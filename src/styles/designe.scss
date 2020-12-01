@@ -1,33 +1,43 @@
 .design {
   position: relative;
-  width: 990px;
-
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  height: 388px;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 30px;
 
   &__img {
+    position: absolute;
     display: block;
+    max-width: 582px;
+    right: 50%;
+    transform: translate(87px, 0);
   }
 
   &__title {
     position: absolute;
-    left: 510px;
-    top: 8px;
     z-index: 2;
+    left: 50%;
+    transform: translate(15px, 0);
 
-    max-width: 482px;
+    display: block;
+    min-width: 260px;
 
     font-family: $titleFont;
     font-size: 56px;
+    line-height: 72px;
+  }
+
+  &__description {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    transform: translate(117px, 180px);
   }
 
   &__text {
-    position: absolute;
-    left: 612px;
-    top: 168px;
-
     display: block;
-    max-width: 378px;
+    max-width: 360px;
 
     font-family: $textFont;
     font-size: 16px;
@@ -35,23 +45,20 @@
   }
 
   &__link {
-    position: absolute;
-    left: 612px;
-    top: 321px;
-
     display: block;
+    margin-top: 30px;
 
     font-family: $textFont;
     font-size: 12px;
     line-height: 15px;
-    color: #0db2b3;
     font-weight: bold;
     text-transform: uppercase;
+    color: $secondColor;
   }
 
   &__link::after {
     content: "";
-    position: absolute;
+    position: relative;
     left: 0;
     bottom: -6px;
 
@@ -59,5 +66,66 @@
     width: 54px;
     height: 1px;
     background-color: $secondColor;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .design {
+    transform: translate(-5%, 0);
+  }
+}
+
+@media screen and (max-width: 865px) {
+  .design {
+    transform: translate(-15%, 0);
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .design__title {
+    min-width: 480px;
+  }
+
+  .design__text {
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .design {
+    display: block;
+    height: 635px;
+    transform: translate(0, 0);
+    padding-right: 0;
+  }
+
+  .design__img {
+    display: block;
+    top: 160px;
+    width: 80%;
+    transform: translate(50%, 0);
+  }
+
+  .design__title {
+    display: block;
+    transform: translate(-50%, 0);
+    width: 80%;
+    font-size: 37px;
+    line-height: 37px;
+    text-align: center;
+  }
+
+  .design__description {
+    display: block;
+    width: 80%;
+    top: 450px;
+    transform: translate(-50%, 0);
+    margin: 0;
+    padding: 0;
+  }
+
+  .design__text {
+    display: block;
+    width: 80%;
   }
 }

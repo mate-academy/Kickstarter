@@ -4,6 +4,10 @@
     display: grid;
     grid-gap: 30px;
     grid-template-columns: repeat(4, 1fr);
+
+    padding-right: $mainPadding;
+    padding-left: $mainPadding;
+
     text-align: center;
 
     margin-bottom: $mainMargin;
@@ -23,7 +27,9 @@
   }
 
   &__text {
+    font-family: $textFont;
     font-size: 14px;
+    line-height: 21px;
   }
 
   &__preview {
@@ -61,5 +67,40 @@
 
     text-align: center;
     line-height: $previewAfterSize;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .benefits__list {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .benefits__list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+  }
+
+  .benefits__item {
+    grid-template-rows: 60px 60px auto;
+  }
+
+  .benefits__text {
+    margin-bottom: 74px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .benefits__list {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    margin-bottom: 50px;
+  }
+
+  .benefits__item {
+    grid-template-rows: 60px 60px auto;
   }
 }
