@@ -10,6 +10,12 @@
   grid-template-columns: repeat($columns, 1fr);
 }
 
+@mixin forMobile {
+  @media (max-width: $tabletMinWidth) {
+    @content;
+  }
+}
+
 @mixin forTablet {
   @media (min-width: $tabletMinWidth) {
     @content;
@@ -26,4 +32,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@mixin fontDIN {
+  font-family: "DIN Pro", "Roboto", sans-serif;
+}
+
+@mixin fontHelvetica {
+  font-family: "HelveticaNeueCyr", "Roboto", sans-serif;
 }
