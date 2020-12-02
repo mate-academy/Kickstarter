@@ -3,6 +3,14 @@
   
   &--parameters {
     margin: 150px 0 0;
+
+    @media (max-width: 768px) {
+      margin-top: 130px;
+    }
+
+    @media (max-width: 320px) {
+      margin-top: 90px;
+    }
   }
 
   &__video-media {
@@ -13,6 +21,14 @@
     height: 590px;
     width: 100%;
     position: relative;
+
+    @media (max-width: 768px) {
+      height: 400px;
+    }
+
+    @media (max-width: 320px) {
+      height: 246px;
+    }
   }
 
   &__video {
@@ -25,12 +41,12 @@
 
     &::after {
       content: "PLAY";
-      color: #fff;
+      color: $operational-color-light;
       font-family: "DIN Pro", sans-serif;
       font-size: 24px;
       height: 232px;
       width: 232px;
-      border: 1px solid #fff;
+      border: 1px solid $operational-color-light;
       border-radius: 50%;
       position: absolute;
       top: 50%;
@@ -39,11 +55,29 @@
       text-align: center;
       line-height: 232px;
       transition: all 0.5s;
+
+      @media (max-width: 768px) {
+        content: "";
+        background-image: url("../images/Vector/Play-btn.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 190px;
+        width: 190px;
+      }
+
+      @media (max-width: 320px) {
+        height: 108px;
+        width: 108px;
+      }
     }
 
     &:hover::after {
-      border-color: #0db2b3;
-      color: #0db2b3;
+      border-color: $highlight-color;
+      color: $highlight-color;
+
+      @media (max-width: 768px) {
+        background-image: url("../images/Vector/Play-btn-hover.svg");
+      }
     }
   }
 

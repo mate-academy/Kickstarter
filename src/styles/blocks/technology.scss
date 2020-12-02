@@ -7,9 +7,6 @@
 
   &__title {
     padding-left: 102px;
-    font-size: 56px;
-    line-height: 70px;
-    text-transform: uppercase;
   }
 
   &__dots {
@@ -36,7 +33,7 @@
       top: 197px;
       width: 63px;
       height: 5px;
-      background-color: #000;
+      background-color: $operational-color-dark;
     }
 
     &--1::after {
@@ -55,6 +52,10 @@
       top: -3px;
     }
 
+    &--8::after {
+      top: 227px;
+    }
+
     &--9::after {
       top: -3px;
     }
@@ -63,7 +64,7 @@
   &__info {
     height: 48px;
     width: 48px;
-    background-color: #0db2b3;
+    background-color: $highlight-color;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -73,11 +74,17 @@
     cursor: pointer;
 
     &::before {
-      content: url("../images/Vector/plus.svg");
+      content: "";
+      display: block;
+      height: 12px;
+      width: 12px;
+      background-image: url("../images/Vector/plus.svg");
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
     &:hover {
-      background-color: #000;
+      background-color: $operational-color-dark;
     }
 
     &:hover > .technology__text {
@@ -89,8 +96,8 @@
       width: 150px;
       height: 200px;
       align-items: flex-end;
-      border-bottom: 1px solid #333;
-      border-right: 1px solid #333;
+      border-bottom: 1px solid $secondary-highlight-color;
+      border-right: 1px solid $secondary-highlight-color;
 
     }
 
@@ -101,7 +108,7 @@
       &:hover > .technology__text {
         height: 70px;
         align-items: flex-start;
-        border-top: 1px solid #333;
+        border-top: 1px solid $secondary-highlight-color;
         border-bottom: 0;
         top: -70px;
         right: 24px;
@@ -126,7 +133,7 @@
       &:hover > .technology__text {
         height: 70px;
         align-items: flex-start;
-        border-top: 1px solid #333;
+        border-top: 1px solid $secondary-highlight-color;
         border-bottom: 0;
         top: -70px;
         right: 24px;
@@ -149,7 +156,7 @@
       &:hover > .technology__text {
         height: 130px;
         align-items: flex-start;
-        border-top: 1px solid #333;
+        border-top: 1px solid $secondary-highlight-color;
         border-bottom: 0;
         top: -130px;
         right: 24px;
@@ -164,6 +171,10 @@
     &--8 {
       top: 23%;
       left: 74%;
+
+      &:hover > .technology__text {
+        height: 230px;
+      }
     }
 
     &--9 {
@@ -173,7 +184,7 @@
       &:hover > .technology__text {
         height: 70px;
         align-items: flex-start;
-        border-top: 1px solid #333;
+        border-top: 1px solid $secondary-highlight-color;
         border-bottom: 0;
         top: -70px;
         right: 24px;
@@ -194,11 +205,16 @@
 
 @media (max-width: 768px) {
   .technology {
+
+    &--parameters {
+      margin-top: 130px;
+    }
+
     &__img {
       width: 1194px;
     }
 
-    .technology__info {
+    &__info {
       &--1 {
         top: 220px;
         left: 75px;
@@ -274,8 +290,13 @@
   .technology {
 
     &__title {
-      font-size: 37px;
       width: 100%;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .technology {
+    margin-top: 90px;
   }
 }
