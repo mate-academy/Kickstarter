@@ -1,22 +1,24 @@
 'use strict';
 
-const sliderBox = document.querySelector('.features__container');
-const sliderParts = document.querySelectorAll(
-  '.features__container .features__card'
-);
+const sliderBox = document.querySelector('.technology__container');
+const sliderContent = document.querySelector('.technology__slider');
 
-const prevBtn = document.querySelector('#prevBtn');
-const nextBtn = document.querySelector('#nextBtn');
+const prevBtn = document.querySelector('#prevBtn2');
+const nextBtn = document.querySelector('#nextBtn2');
 
-const pageNum = document.querySelector('#features-page');
+const pageNum = document.querySelector('#tech-page');
 
 let counter = 0;
-const size = 260;
+const counterMax = 3;
+
+const width = sliderContent.clientWidth;
+
+const size = width / 3;
 
 pageNum.textContent = '0' + (counter + 1);
 
 nextBtn.addEventListener('click', () => {
-  if (counter >= sliderParts.length - 1) {
+  if (counter >= counterMax) {
     return;
   };
   sliderBox.style.transition = 'transform 0.5s ease-in-out';
@@ -25,7 +27,7 @@ nextBtn.addEventListener('click', () => {
   pageNum.textContent = '0' + (counter + 1);
   prevBtn.classList.add('buttons-box__button--active');
 
-  if (counter === sliderParts.length - 1) {
+  if (counter === counterMax - 1) {
     nextBtn.classList.remove('buttons-box__button--active');
   }
 });
