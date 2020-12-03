@@ -23,6 +23,11 @@ nextBtn.addEventListener('click', () => {
   counter++;
   sliderBox.style.transform = 'translateX(' + (-size * counter) + 'px)';
   pageNum.textContent = '0' + (counter + 1);
+  prevBtn.classList.add('buttons-box__button--active');
+
+  if (counter === sliderParts.length - 1) {
+    nextBtn.classList.remove('buttons-box__button--active');
+  }
 });
 
 prevBtn.addEventListener('click', () => {
@@ -33,4 +38,9 @@ prevBtn.addEventListener('click', () => {
   counter--;
   sliderBox.style.transform = 'translateX(' + (-size * counter) + 'px)';
   pageNum.textContent = '0' + (counter + 1);
+  nextBtn.classList.add('buttons-box__button--active');
+
+  if (counter === 0) {
+    prevBtn.classList.remove('buttons-box__button--active');
+  }
 });
