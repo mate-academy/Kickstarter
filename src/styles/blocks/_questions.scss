@@ -1,12 +1,16 @@
 .questions {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 
   &__heading {
+    grid-column: 1 / 13;
     @include FontSet("Din Pro Bold", 37px, 55px);
     text-transform: uppercase;
     margin-bottom: 30px;
   }
 
   &__form {
+    grid-column: 1 / 13;
 
     &-mail {
       @include FontSet("Helvetica Neue Roman", 16px, 19px);
@@ -37,6 +41,22 @@
       border: none;
       background-color: $productCardCircleColor;
       color: $simpleWhite;
+    }
+  }
+
+  @media (min-width: 768px) {
+
+    &__heading {
+      grid-column: 1 / 6;
+      @include FontSet("Din Pro Bold", 56px, 70px);
+    }
+
+    &__form {
+      grid-column: 7 / 13;
+
+      &-text {
+        height: 200px;
+      }
     }
   }
 }
