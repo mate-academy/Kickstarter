@@ -1,29 +1,44 @@
 .technology {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 
   &__heading {
+    grid-column: 1 / 13;
     @include FontSet("Din Pro Bold", 37px, 55px);
     text-transform: uppercase;
     padding: 0 $paddingForMobile 40px;
   }
 
   &__photo {
+    grid-column: 1 / 13;
     width: 100%;
-    height: 277px;
+    height: 420px;
     background-image: url(../../src/images/technologyPhoto624x277.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
+    background-position: center left;
   }
 
   @media (min-width: 768px) {
 
     &__photo {
-      height: 546px;
+      height: 820px;
       background-image: url(../../src/images/technologyPhoto1231x546.png);
+      background-position: left center;
     }
 
     &__heading {
       @include FontSet("Din Pro Bold", 56px, 70px);
+    }
+  }
+
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(12, 100px);
+    justify-content: center;
+
+    &__photo {
+      height: 600px;
+      background-image: url(../../src/images/technologyPhoto1231x546.png);
     }
   }
 }

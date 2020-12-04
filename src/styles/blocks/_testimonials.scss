@@ -1,6 +1,10 @@
 .testimonials {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-content: center;
 
   &__text {
+    grid-column: 1 / 13;
     @include FontSet("Din Pro Bold", 14px, 21px);
     text-align: center;
     position: relative;
@@ -20,6 +24,7 @@
   }
 
   &__photo {
+    grid-column: 1 / 13;
     height: 62px;
     background-image: url(../../src/images/testimonialsPhoto62x62.png);
     background-repeat: no-repeat;
@@ -28,12 +33,14 @@
   }
 
   &__name {
+    grid-column: 1 / 13;
     @include FontSet("Helvetica Neue Roman", 16px, 27px);
     color: $fontColorDark;
     text-align: center;
   }
 
   &__position {
+    grid-column: 1 / 13;
     @include FontSet("Helvetica Neue Roman", 14px, 17px);
     color: $fontColorGrey;
     text-align: center;
@@ -45,5 +52,9 @@
     &__text {
       @include FontSet("Din Pro Bold", 24px, 36px);
     }
+  }
+
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(12, 100px);
   }
 }
