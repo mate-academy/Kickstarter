@@ -2,14 +2,23 @@
   position: relative;
 
   &__text {
+    margin: auto;
+    max-width: 786px;
     font-size: 14px;
     font-weight: 600;
     line-height: 21px;
     text-align: center;
     color: $cGranit;
+
+    @include forTablet {
+      font-size: 24px;
+      line-height: 36px;
+    }
   }
 
   &__photo {
+    position: relative;
+    z-index: 3;
     margin: 40px auto 0;
     display: block;
     width: 62px;
@@ -38,8 +47,19 @@
 
   &__decor {
     position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 208px;
     height: 171px;
     background-image: url("/images/quotes.svg");
+    background-size: cover;
+    background-position: top center;
+
+    @include forTablet {
+      top: -32px;
+      width: 233px;
+      height: 191px;
+    }
   }
 }
