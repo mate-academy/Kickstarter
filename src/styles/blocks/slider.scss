@@ -1,0 +1,91 @@
+.slider {
+
+  &--technology,
+  &--feature,
+  &--benefits {
+    display: none;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 48px 4px 48px;
+    justify-content: center;
+    align-items: end;
+    color: $third-background-color;
+    font-family: "DIN Pro", sans-serif;
+    font-size: 11px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__radio {
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+  }
+
+  &__arrow {
+    display: inline-block;
+    background-image: url("../images/Vector/tech_arrow.svg");
+    width: 48px;
+    height: 13px;
+
+    &--2 {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__radio:checked + .slider__arrow--1 {
+    background-image: url("../images/Vector/tech_arrow-bold.svg");
+    transform: rotate(180deg);
+  }
+
+  &__radio:checked + .slider__arrow--2 {
+    background-image: url("../images/Vector/tech_arrow-bold.svg");
+    transform: rotate(0deg);
+  }
+
+  &__num {
+    padding-top: 6px;
+    transition: transform 0.5s;
+  }
+
+  &__radio:not(:checked) ~ .slider__num {
+    transform: scale(1.2);
+    color: $secondary-highlight-color;
+  }
+
+  @media (max-width: 768px) {
+    &--technology {
+      display: block;
+    }
+  }
+
+  &--feature {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+
+    @media (max-width: 560px) {
+      display: block;
+      top: 50%;
+    }
+
+    @media (max-width: 320px) {
+      top: 53%;
+    }
+  }
+
+  &--benefits {
+
+    @media (max-width: 516px) {
+      display: block;
+    }
+  }
+}

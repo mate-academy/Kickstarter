@@ -1,0 +1,104 @@
+.promo {
+  position: relative;
+  
+  &--parameters {
+    margin: 150px 0 0;
+
+    @media (max-width: 768px) {
+      margin-top: 130px;
+    }
+
+    @media (max-width: 320px) {
+      margin-top: 90px;
+    }
+  }
+
+  &__video-media {
+    background-image: url("../images/video-img.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 590px;
+    width: 100%;
+    position: relative;
+
+    @media (max-width: 768px) {
+      height: 400px;
+    }
+
+    @media (max-width: 320px) {
+      height: 246px;
+    }
+  }
+
+  &__video {
+    display: none;
+  }
+
+  &__play {
+    display: block;
+    cursor: pointer;
+
+    &::after {
+      content: "PLAY";
+      color: $operational-color-light;
+      font-family: "DIN Pro", sans-serif;
+      font-size: 24px;
+      height: 232px;
+      width: 232px;
+      border: 1px solid $operational-color-light;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      line-height: 232px;
+      transition: all 0.5s;
+
+      @media (max-width: 768px) {
+        content: "";
+        background-image: url("../images/Vector/Play-btn.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 190px;
+        width: 190px;
+      }
+
+      @media (max-width: 320px) {
+        height: 108px;
+        width: 108px;
+      }
+    }
+
+    &:hover::after {
+      border-color: $highlight-color;
+      color: $highlight-color;
+
+      @media (max-width: 768px) {
+        background-image: url("../images/Vector/Play-btn-hover.svg");
+      }
+    }
+  }
+
+  &__togler {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+
+    &:checked {
+      display: none;
+    }
+
+    &:checked + .promo__play {
+      display: none;
+    }
+    &:checked ~ .promo__video {
+      display: block;
+    }
+  }
+}

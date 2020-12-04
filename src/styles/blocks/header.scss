@@ -1,0 +1,120 @@
+.header {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  
+  &__content {
+    padding-top: $top-edge-gap;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  &__top-menu {
+    display: grid;
+    gap: $top-menu-gap;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(1, $top-menu-height);
+    align-items: center;
+    line-height: $top-menu-line-height;
+  }
+
+  &__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $third-background-color;
+    transition: color 0.5s;
+
+    &:hover {
+      color: $secondary-highlight-color;
+    }
+  }
+
+  &__slash {
+    color: $third-background-color;
+  }
+  &__middle {
+    margin-top: $middle-margin-top;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  &__text {
+    padding-top: $header-text-padding-top;
+  }
+
+  &__main-txt {
+    margin-bottom: $main-text-margin-bottom;
+    text-transform: uppercase;
+    font-family: "DIN Pro", sans-serif;
+    font-weight: bold;
+    font-size: $main-text-font-size;
+    line-height: $main-text-line-height;
+    width: $main-text-width;
+  }
+
+  &__secondary-txt {
+    width: $secondary-text-width;
+    font-size: $secondary-text-font-size;
+    line-height: $secondary-text-line-height;
+  }
+
+  &__img {
+    display: flex;
+    width: 100%;
+    max-width: $img-max-width;
+    position: absolute;
+    left: $img-left-pos;
+    z-index: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+
+    &__main-txt {
+      font-size: $main-txt-font-size-768px;
+    }
+    &__img {
+      left: $img-left-pos-768px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    &__top-menu {
+      display: none;
+    }
+
+    &__middle {
+      flex-direction: column-reverse;
+    }
+
+    &__text {
+      width: 100%;
+      text-align: center;
+      padding: 0;
+    }
+
+    &__main-txt {
+      width: 100%;
+      font-size: $main-text-font-size-600px;
+    }
+
+    &__secondary-txt {
+      width: 100%;
+    }
+
+    &__img {
+      position: relative;
+      display: block;
+      left: $img-left-pos-600px;
+    }
+  }
+}

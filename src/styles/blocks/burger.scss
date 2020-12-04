@@ -1,0 +1,75 @@
+.burger-menu {
+  display: none;
+  position: absolute;
+  top: 13px;
+  right: 34px;
+
+  &__line {
+    display: block;
+    height: 3px;
+    width: 30px;
+    background-color: $operational-color-dark;
+    margin-bottom: 5px;
+    transition: transform 0.5s;
+  }
+}
+
+.burger-checkbox {
+  display: none;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 13px;
+  right: 34px;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .burger-menu,
+  .burger-checkbox {
+    display: block;
+  }
+
+  .burger-checkbox {
+    &:not(:checked) ~ .nav {
+      display: none;
+    }
+    &:checked + .burger-menu {
+      & :nth-child(1) {
+        transform: translate(0, 8px) rotate(45deg);
+      }
+
+      & :nth-child(2) {
+        transform: rotate(-45deg);
+      }
+
+      & :nth-child(3) {
+        display: none;
+      }
+    }
+    &:checked ~ .nav {
+      display: block;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      background-color: $c-gray;
+      padding-top: 100px;
+  
+      & :first-child {
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        gap: 60px;
+  
+        font-size: 6vw;
+      }
+    }
+  }
+}
