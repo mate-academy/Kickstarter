@@ -4,10 +4,6 @@
   grid-template-rows: 76px;
   align-items: center;
 
-  &__buy-section {
-    display: none;
-  }
-
   &__toggler {
     height: 50%;
     width: 24px;
@@ -15,6 +11,7 @@
     align-items: center;
     justify-content: center;
     grid-column: 12 / 13;
+    grid-row: 1 / 2;
     justify-self: end;
   }
 
@@ -41,6 +38,48 @@
     }
   }
 
+  &__buy {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+
+    &__buy {
+      grid-column: 7 / 12;
+      grid-row: 1 / 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include FontSet("Helvetica Neue Roman", 12px, 15px);
+
+      &-button {
+        width: 102px;
+        height: 48px;
+        background-color: $fontColorDark;
+        color: $simpleWhite;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &-language {
+        text-decoration: none;
+        color: $fontColorLightGrey;
+
+        &--active {
+          color: $fontColorDark;
+        }
+      }
+
+      &-link {
+        text-decoration: none;
+        color: $fontColorMiddleGrey;
+      }
+    }
+  }
+
   @media (min-width: 1440px) {
     grid-template-columns: repeat(12, 100px);
     justify-content: center;
@@ -48,8 +87,11 @@
     &__toggler {
       width: 48px;
     }
-  }
 
+    &__buy {
+      grid-column: 9 / 12;
+    }
+  }
 }
 
 .brand {

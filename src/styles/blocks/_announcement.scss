@@ -1,18 +1,105 @@
 .announcement {
-  height: 246px;
-  width: 100%;
-  background-image: url(../../src/images/announcementImg320x246.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+
+  &__video {
+    height: 246px;
+    width: 100%;
+    background-image: url(../../src/images/announcementImg320x246.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    &-clicker {
+
+      &::after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 108px;
+        height: 108px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 1px solid white;
+        cursor: pointer;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-25%, -50%);
+        background-image: url(../../src/images/playButton24x32.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+  }
 
   @media (min-width: 768px) {
-    height: 400px;
-    background-image: url(../../src/images/announcementImg768x400.png);
+
+    &__video {
+      height: 400px;
+      background-image: url(../../src/images/announcementImg768x400.png);
+
+      &-clicker {
+
+        &::after {
+          width: 190px;
+          height: 190px;
+        }
+
+        &::before {
+          width: 26px;
+          height: 26px;
+        }
+      }
+    }
   }
 
   @media (min-width: 1440px) {
-    height: 590px;
-    background-image: url(../../src/images/announcementImg1440x590.png);
+
+    &__video {
+      height: 590px;
+      background-image: url(../../src/images/announcementImg1440x590.png);
+      transition: filter 1s;
+
+      &-clicker {
+
+        &::after {
+          width: 232px;
+          height: 232px;
+        }
+
+        &::before {
+          @include FontSet( "Din Pro Normal", 24px, 18px);
+          content: "PLAY";
+          background-image: none;
+          color: white;
+          transform: translate(-100%, -50%);
+          transition: transform 1s;
+        }
+      }
+    }
+
+    &:hover {
+      .announcement__video {
+        filter: brightness(0.4);
+      }
+
+      .announcement__video-clicker {
+
+        &::before {
+          content: "";
+          width: 32px;
+          height: 32px;
+          background-image: url(../../src/images/playButton24x32.svg);
+          transform: translate(-25%, -50%);
+        }
+      }
+    }
   }
 }
