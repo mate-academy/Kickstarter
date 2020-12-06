@@ -1,4 +1,13 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 'use strict';
+
+const elem = document.querySelector('.main-carousel');
+const flkty = new Flickity(elem, {
+  cellAlign: 'center',
+  contain: true,
+  arrowShape: false,
+});
 
 const menu = document.querySelector('.navbar');
 const toggler = document.querySelector('.menu__toggler');

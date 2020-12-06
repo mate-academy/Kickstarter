@@ -5,10 +5,16 @@
 
   &__block {
     grid-column: 1 / 13;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 80px 120px 120px;
+    justify-items: center;
     padding-bottom: 50px;
+
+    &-ico {
+      grid-column: 1 / 5;
+      grid-row: 1 / 2;
+    }
 
     &:nth-child(1) {
 
@@ -55,6 +61,8 @@
     }
 
     &-heading {
+      grid-column: 1 / 5;
+      grid-row: 2 / 3;
       @include FontSet("Din Pro Normal", 24px, 30px);
       text-transform: uppercase;
       text-align: center;
@@ -62,6 +70,8 @@
     }
 
     &-text {
+      grid-column: 1 / 5;
+      grid-row: 3 / 4;
       @include FontSet("Helvetica Neue Roman", 14px, 21px);
       color: $fontColorGrey;
       text-align: center;
@@ -72,6 +82,10 @@
 
     &__block {
       grid-column: 6 span;
+
+      &-text {
+        padding: 10px;
+      }
     }
   }
 
@@ -82,10 +96,6 @@
 
     &__block {
       grid-column: 3 span;
-      display: grid;
-      grid-template-columns: auto;
-      grid-template-rows: repeat(3, 1fr);
-      justify-items: center;
 
       &-heading {
         align-self: start;
