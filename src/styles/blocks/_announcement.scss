@@ -1,14 +1,30 @@
 .announcement {
 
   &__video {
+    position: relative;
     height: 246px;
     width: 100%;
     background-image: url(../../src/images/announcementImg320x246.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    z-index: 100;
+
+    &-clip {
+      position: absolute;
+      top: 0;
+      z-index: 10;
+    }
+
+    &--active {
+      visibility: hidden;
+    }
 
     &-clicker {
+
+      &--active {
+        visibility: hidden;
+      }
 
       &::after {
         content: "";
@@ -22,6 +38,7 @@
         border-radius: 50%;
         border: 1px solid white;
         cursor: pointer;
+        z-index: 100;
       }
 
       &::before {
@@ -35,6 +52,7 @@
         background-image: url(../../src/images/playButton24x32.svg);
         background-repeat: no-repeat;
         background-size: contain;
+        z-index: 100;
       }
     }
   }
@@ -63,6 +81,7 @@
   @media (min-width: 1440px) {
 
     &__video {
+      position: relative;
       height: 590px;
       background-image: url(../../src/images/announcementImg1440x590.png);
       transition: filter 1s;
@@ -86,6 +105,7 @@
     }
 
     &:hover {
+
       .announcement__video {
         filter: brightness(0.4);
       }
