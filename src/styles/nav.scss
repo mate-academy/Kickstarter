@@ -1,0 +1,99 @@
+.nav {
+  display: flex;
+  align-items: center;
+  height: $header-height;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    column-gap: $small-gap;
+    transition-duration: 0.5s;
+
+    @include smaler-screen {
+      background-color: #f6f6f6;
+
+      top: 80px;
+      display: flex;
+      flex-direction: column;
+      line-height: 70px;
+      left: -100%;
+
+      z-index: 1;
+
+      position: absolute;
+      visibility: hidden;
+    }
+  }
+
+  &__link {
+    color: $main-light;
+    font-size: 14px;
+    @include hover(color, $nav-hover);
+  }
+
+  &__span {
+
+    @include toggler;
+
+    &::before {
+      content: "";
+      top: -8px;
+      @include toggler;
+      transition-duration: 0.3s;
+    }
+
+    &::after {
+      content: "";
+      top: 8px;
+      @include toggler;
+      transition-duration: 0.3s;
+    }
+  }
+
+  &__toggler {
+    display: none;
+
+    &:checked ~ .nav__list {
+      visibility: visible;
+      left: 0;
+      padding-left: 30px;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    &:checked ~ .nav__toggler-label > .nav__span {
+      transform: rotate(45deg);
+    }
+
+    &:checked ~ .nav__toggler-label > .nav__span::before {
+      top: 0;
+      transform: rotate(0);
+    }
+
+    &:checked ~ .nav__toggler-label > .nav__span::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+  }
+
+  &__toggler-label {
+    display: none;
+    position: absolute;
+
+    left: 250px;
+    top: 35px;
+    width: 24px;
+    height: 14px;
+
+    cursor: pointer;
+
+    @include smaler-screen {
+      display: flex;
+    }
+
+    @media (max-width: 585px) {
+      left: initial;
+      right: 30px;
+    }
+  }
+}

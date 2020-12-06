@@ -1,0 +1,78 @@
+.header {
+  height: $header-height;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: light;
+
+  &__content {
+    position: relative;
+
+    @include centered-container($desktop-width);
+    padding: 13px 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include notebook {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    @include tablet-screen {
+      margin: 27px 0;
+    }
+
+    @media (max-width: 585px) {
+      margin-top: 15px;
+    }
+  }
+
+  &__right-hand {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: $small-gap;
+    align-items: center;
+
+    @media (max-width: 585px) {
+      display: none;
+    }
+  }
+
+  &__specs {
+    font-weight: light;
+    color: $specs-color;
+  }
+
+  &__buy {
+    display: inline-block;
+    text-align: center;
+    line-height: 48px;
+
+    background-color: $main-dark;
+    color: $white;
+
+    font-weight: normal;
+    width: $grid-column + $grid-gap;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__lang-label {
+    text-transform: uppercase;
+    color: $main-light;
+  }
+
+  &__lang-check {
+    display: none;
+
+    &:checked + .header__lang-label {
+      font-weight: normal;
+      color: $main-dark;
+    }
+  }
+
+  &__span::after {
+    content: "/";
+    color: $main-dark;
+  }
+}

@@ -1,0 +1,51 @@
+.presentation {
+  &__content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-bottom: 150px;
+
+    overflow: hidden;
+  }
+
+  &__pic-wrapper {
+    width: 100%;
+    position: relative;
+    // transition-duration: 0.5s;
+    transition: 0.5s;
+    &::before {
+      content: url(../images/presentation/button-hover.svg);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+
+    &:hover {
+      filter: brightness(70%);
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__img {
+    margin: 0 auto;
+    // object-fit: contain;
+    width: 100%;
+    transition-duration: 0.3s;
+    // object-position: left center;
+    @media (max-width: 450px) {
+      width: 100%;
+      // object-fit: cover;
+    }
+  }
+
+  &__youtube {
+    width: 100%;
+    display: none;
+  }
+}

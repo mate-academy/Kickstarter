@@ -1,0 +1,93 @@
+.questions {
+  padding: 0 0 142px;
+
+  @include mobile {
+    padding-bottom: 45px;
+  }
+
+  &__content {
+
+    @include centered-container($desktop-10);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 50px;
+
+    @include notebook {
+      padding-right: 30px;
+      padding-left: 30px;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      padding-top: 45px;
+    }
+  }
+
+  &__heading {
+    // max-width: 480px;
+
+    font-family: "DINPro", sans-serif;
+    font-weight: bolder;
+    font-size: 56px;
+    line-height: 72px;
+    color: $main-dark;
+    text-transform: uppercase;
+
+    @include mobile {
+      text-align: center;
+      padding-bottom: 40px;
+      font-size: 37px;
+      line-height: 46px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    // max-width: 438px;
+
+    & ::placeholder {
+      color: $main-light;
+    }
+
+  }
+
+  &__user-mail {
+    @include form-look;
+    margin-bottom: 19px;
+
+    @include notebook {
+      // margin-left: 70px;
+    }
+  }
+
+  &__user-message {
+    @include form-look;
+    margin-bottom: 30px;
+    resize: none;
+    overflow: auto;
+    height: 128px;
+  }
+
+  &__send {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 102px;
+    height: 40px;
+    border: 0;
+    outline: none;
+
+    color: $white;
+    background-color: $green;
+
+    font-family: "Helvetica Neue", sans-serif;
+    text-transform: uppercase;
+
+    @include mobile {
+      align-self: center;
+    }
+  }
+}
