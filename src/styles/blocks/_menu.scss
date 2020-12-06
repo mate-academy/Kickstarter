@@ -41,6 +41,11 @@
     grid-row: 1 / 2;
     justify-self: end;
     cursor: pointer;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
 
     &--active {
 
@@ -69,13 +74,34 @@
 
   @media (min-width: 768px) {
 
+    &__brand-link {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      transform: rotateX(0);
+      transition-property: transform;
+      transition-duration: 1s;
+      transition-delay: 0.4s;
+
+      &--open {
+        transform: rotateX(-90deg);
+      }
+    }
+
     &__buy {
       grid-column: 7 / 12;
       grid-row: 1 / 2;
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
       align-items: center;
+
       @include FontSet("Helvetica Neue Roman", 12px, 15px);
+      transform: rotateX(0);
+      transition: transform 1s;
+
+      &--active {
+        transform: rotateX(-90deg);
+      }
 
       &-button {
         width: 102px;
@@ -96,11 +122,20 @@
         &--active {
           color: $fontColorDark;
         }
+        &:hover {
+          color: $fontColorDark;
+          @include FontSet("Helvetica Neue Bold", 12px, 15px);
+        }
       }
 
       &-link {
         text-decoration: none;
         color: $fontColorMiddleGrey;
+
+        &:hover {
+          color: $fontColorDark;
+          @include FontSet("Helvetica Neue Bold", 12px, 15px);
+        }
       }
     }
   }

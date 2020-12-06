@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KickStarter</title>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
   <body>
     <header class="header">
       <section class="header__menu menu">
-        <a href="">
+        <a href="#" class="menu__brand-link">
           <img
           class="menu__brand brand"
           alt="Brand img"
@@ -20,27 +21,38 @@
         <nav class="navbar">
           <ul class="navbar__list">
             <li class="navbar__item">
-              <a href="#" class="navbar__link navbar__link--active">
+              <picture>
+                <source media="(max-width: 767px)" srcset="./../src/images/logoHeadWhite.png">
+                <source media="(min-width: 768px)" srcset="./../src/images/logoHead.png">
+                <img
+                  class="navbar__item-brand"
+                  src="./../src/images/logoHead.png"
+                  alt="Brand"
+                >
+              </picture>
+            </li>
+            <li class="navbar__item">
+              <a href="#" class="navbar__link button-link button-link--slide">
                 Our story
               </a>
             </li>
             <li class="navbar__item">
-              <a href="#" class="navbar__link">
+              <a href="#" class="navbar__link button-link button-link--slide">
                 About us
               </a>
             </li>
             <li class="navbar__item">
-              <a href="#" class="navbar__link">
+              <a href="#" class="navbar__link button-link button-link--slide">
                 Technology
               </a>
             </li>
             <li class="navbar__item">
-              <a href="#" class="navbar__link">
+              <a href="#" class="navbar__link button-link button-link--slide">
                 Features
               </a>
             </li>
             <li class="navbar__item">
-              <a href="#" class="navbar__link">
+              <a href="#" class="navbar__link button-link button-link--slide">
                 Get in touch
               </a>
             </li>
@@ -53,7 +65,18 @@
             <span>/</span>
             <a href="#" class="menu__buy-language">UA</a>
           </div>
-          <a href="#" class="menu__buy-button">Buy</a>
+          <a href="#" class="menu__buy-button button-snake">
+            <svg
+              width="102px"
+              height="48px"
+              viewBox="0 0 102 48"
+              class="border"
+            >
+              <polyline points="101,1 101,47 1,47 1,1 101,1" class="bg-line"></polyline>
+              <polyline points="101,1 101,47 1,47 1,1 101,1" class="hl-line"></polyline>
+            </svg>
+            <span class="button-span">Buy</span>
+          </a>
         </div>
         <div class="menu__toggler">
           <div class="menu__clicker">
@@ -79,57 +102,59 @@
             <span class="presentation__circle-ico"></span>
           </a>
         </h1>
-        <p class="presentation__notation">          Luna’s performance is balanced and smooth
+        <p class="presentation__notation">
+          Luna’s performance is balanced and smooth
           in all frequency ranges which makes the
           music both naturally pleasant and distinctly more layered.
-
         </p>
       </section>
       <section class="header__promo promo">
-        <div class="promo__block">
-          <div class="promo__block-ico"></div>
-          <h3 class="promo__block-heading">
-            Futuristic Design
-          </h3>
-          <div class="promo__block-text">
-            To give Luna a truly flawless look,
-            we specifically picked aircraft grade aluminum as its material and adopted both three-dimensional stretch-bending technology
-            and a high precision cold forging technique.
+        <div class="main-carousel" data-flickity="{ 'cellAlign': 'center', 'contain': true }">
+          <div class="promo__block carousel-cell">
+            <div class="promo__block-ico"></div>
+            <h3 class="promo__block-heading">
+              Futuristic Design
+            </h3>
+            <div class="promo__block-text">
+              To give Luna a truly flawless look,
+              we specifically picked aircraft grade aluminum as its material and adopted both three-dimensional stretch-bending technology
+              and a high precision cold forging technique.
+            </div>
           </div>
-        </div>
-        <div class="promo__block">
-          <div class="promo__block-ico"></div>
-          <h3 class="promo__block-heading">
-            Tweeter Speaker System
-          </h3>
-          <p class="promo__block-text">
-            To deliver a more layered sound performance better
-            than a sole full-range speaker, our team equipped
-            Luna with one more tweeter speaker responsible for
-            high-frequency sound independently.
-          </p>
-        </div>
-        <div class="promo__block">
-          <div class="promo__block-ico"></div>
-          <h3 class="promo__block-heading">
-            Multiroom System
-          </h3>
-          <p class="promo__block-text">
-            Luna is natively compatible with your home Wi-Fi.
-            Set up multiple speakers in different rooms to expand
-            your music experience into the entire house.
-          </p>
-        </div>
-        <div class="promo__block">
-          <div class="promo__block-ico"></div>
-          <h3 class="promo__block-heading">
-            Intuitive Lighting System
-          </h3>
-          <p class="promo__block-text">
-            An intuitive user interface allows you to adjust the
-            hue and saturation of color for lighting that fits
-            any mood and situation.
-          </p>
+          <div class="promo__block carousel-cell">
+            <div class="promo__block-ico"></div>
+            <h3 class="promo__block-heading">
+              Tweeter Speaker System
+            </h3>
+            <p class="promo__block-text">
+              To deliver a more layered sound performance better
+              than a sole full-range speaker, our team equipped
+              Luna with one more tweeter speaker responsible for
+              high-frequency sound independently.
+            </p>
+          </div>
+          <div class="promo__block carousel-cell">
+            <div class="promo__block-ico"></div>
+            <h3 class="promo__block-heading">
+              Multiroom System
+            </h3>
+            <p class="promo__block-text">
+              Luna is natively compatible with your home Wi-Fi.
+              Set up multiple speakers in different rooms to expand
+              your music experience into the entire house.
+            </p>
+          </div>
+          <div class="promo__block carousel-cell">
+            <div class="promo__block-ico"></div>
+            <h3 class="promo__block-heading">
+              Intuitive Lighting System
+            </h3>
+            <p class="promo__block-text">
+              An intuitive user interface allows you to adjust the
+              hue and saturation of color for lighting that fits
+              any mood and situation.
+            </p>
+          </div>
         </div>
       </section>
     </header>
@@ -305,7 +330,7 @@
          ></textarea>
           <input
             type="submit"
-            class="questions__form-submit"
+            class="questions__form-submit button-send"
             value="SEND"
           >
         </form>
@@ -329,6 +354,7 @@
         </p>
       </section>
     </footer>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>
