@@ -1,15 +1,29 @@
 @import "variables";
 @import "toolbar";
+@import "menu-mobile";
 @import "introduction";
 @import "menu";
 @import "system";
+@import "arrows";
 
 .header {
   // height: 100vh;
+  position: relative;
   padding: 13px 5px 150px;
 
   @media (max-width: 767px) {
-    padding-left: 0;
+    padding: 28px 0 150px;
+  }
+
+  &__menu-mobile {
+    position: absolute;
+    display: none;
+    top: 40px;
+    right: 30px;
+
+    @media (max-width: 767px) {
+      display: block;
+    }
   }
 
   &__toolbar {
@@ -48,6 +62,16 @@
     @media (max-width: 767px) {
       margin-top: 100px;
     }
+  }
+
+  &__arrows {
+    display: none;
+    margin: 50px auto 0;
+
+    @media (max-width: 767px) {
+      display: block;
+    }
+
   }
 
 }
