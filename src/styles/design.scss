@@ -71,7 +71,7 @@
     font-size: 16px;
     line-height: 24px;
     color: #7c7c7c;
-    
+
     @media (max-width: 999px) {
       min-width: 345px;
     }
@@ -88,11 +88,27 @@
   &__link {
     display: inline-block;
     margin-top: 30px;
+    width: fit-content;
     font-family: "Helvetica Neue", sans-serif;
     font-size: 12px;
     line-height: 15px;
     text-transform: uppercase;
     color: #0db2b3;
+
+    &::after {
+      content: "";
+      display: block;
+      border: 1px solid #0db2b3;
+      width: 53px;
+      margin-top: 6px;
+      transition: width 0.3s;
+    }
+
+    &:hover {
+      &::after {
+        width: 125px;
+      }
+    }
 
     @media (max-width: 767px) {
       display: block;
