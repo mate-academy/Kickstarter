@@ -29,6 +29,15 @@
     color: $main-light;
     font-size: 14px;
     @include hover(color, $nav-hover);
+
+    @include smaler-screen {
+      font-size: 20px;
+    }
+  }
+
+  &__burger-specs {
+    display: none;
+    @extend .nav__link;
   }
 
   &__span {
@@ -59,6 +68,10 @@
       padding-left: 30px;
       width: 100vw;
       height: 100vh;
+    }
+
+    &:checked ~ .nav__list > .nav__li > .nav__burger-specs {
+      display: initial;
     }
 
     &:checked ~ .nav__toggler-label > .nav__span {
