@@ -29,6 +29,14 @@ toggler.onclick = function toggleSidebar() {
   header.classList.toggle('header--open');
 };
 
+menu.onclick = function haha() {
+  toggler.classList.toggle('menu__toggler--active');
+  buy.classList.toggle('menu__buy--active');
+  menu.classList.toggle('navbar--open');
+  brand.classList.toggle('menu__brand-link--open');
+  header.classList.toggle('header--open');
+};
+
 clicker.onclick = function toggleVideo() {
   video.classList.toggle('announcement__video--active');
   clicker.classList.toggle('announcement__video-clicker--active');
