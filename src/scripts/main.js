@@ -29,33 +29,33 @@ const itemsCount = items.length;
 const itemWidth = container.clientWidth / slidesToshow;
 const movePosition = slidesToscroll * itemWidth;
 
-items.forEach((item) => {
-  if (window.matchMedia('(max-width: 767px)').matches) {
+if (window.matchMedia('(max-width: 767px)').matches) {
+  items.forEach((item) => {
     item.style.minWidth = `${itemWidth}px`;
-  }
-});
+  });
 
-btnPrev.addEventListener('click', () => {
-  position += movePosition;
+  btnPrev.addEventListener('click', () => {
+    position += movePosition;
 
-  setPosition();
+    setPosition();
+    checkBtns();
+  });
+
+  btnNext.addEventListener('click', () => {
+    position -= movePosition;
+
+    setPosition();
+    checkBtns();
+  });
+
+  const setPosition = () => {
+    track.style.transform = `translateX(${position}px)`;
+  };
+
+  const checkBtns = () => {
+    btnPrev.disabled = position === 0;
+    btnNext.disabled = position <= -(itemsCount - slidesToshow) * itemWidth;
+  };
+
   checkBtns();
-});
-
-btnNext.addEventListener('click', () => {
-  position -= movePosition;
-
-  setPosition();
-  checkBtns();
-});
-
-const setPosition = () => {
-  track.style.transform = `translateX(${position}px)`;
 };
-
-const checkBtns = () => {
-  btnPrev.disabled = position === 0;
-  btnNext.disabled = position <= -(itemsCount - slidesToshow) * itemWidth;
-};
-
-checkBtns();

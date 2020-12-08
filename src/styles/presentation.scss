@@ -1,0 +1,96 @@
+.presentation {
+  position: relative;
+  padding: 0 calc(50% - #{1440px / 2});
+
+  &__video {
+    display: none;
+    width: 100%;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+  }
+
+  &__video-buttons {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: calc(50% - #{$buttonVidoSize / 2});
+    left: calc(50% - #{$buttonVidoSize / 2});
+    outline: none;
+    width: $buttonVidoSize;
+    height: $buttonVidoSize;
+    background-color: transparent;
+    border: 1px solid $buttonVideoColor;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:focus {
+      border: 1px solid $buttonVideoColor;
+    }
+
+    @include adaptiv(1080px) {
+      width: $buttonVidoSizeMiddle;
+      height: $buttonVidoSizeMiddle;
+      top: calc(50% - #{$buttonVidoSizeMiddle / 2});
+      left: calc(50% - #{$buttonVidoSizeMiddle / 2});
+    }
+
+    @include adaptiv(1080px) {
+      width: $buttonVidoSizeMiddle;
+      height: $buttonVidoSizeMiddle;
+      top: calc(50% - #{$buttonVidoSizeMiddle / 2});
+      left: calc(50% - #{$buttonVidoSizeMiddle / 2});
+    }
+
+    @include adaptiv(767px) {
+      width: $buttonVidoSizeSmall;
+      height: $buttonVidoSizeSmall;
+      top: calc(50% - #{$buttonVidoSizeSmall/ 2});
+      left: calc(50% - #{$buttonVidoSizeSmall / 2});
+    }
+  }
+
+  &__video-button {
+    font-family: "DIN Pro", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: $buttonVideoColor;
+
+    @include adaptiv(1080px) {
+      font-size: 18px;
+    }
+
+    @include adaptiv(767px) {
+      font-size: 14px;
+    }
+  }
+
+  &__video-icon {
+    display: none;
+    width: 24px;
+    height: 32px;
+    background: url("../images/presentation_icon.png") no-repeat center / cover;
+
+    @include adaptiv(1080px) {
+      width: 20px;
+      height: 26px;
+    }
+
+    @include adaptiv(767px) {
+      width: 14px;
+      height: 18px;
+    }
+  }
+
+  &__video-buttons:hover &__video-button {
+    display: none;
+  }
+
+  &__video-buttons:hover &__video-icon {
+    display: block;
+  }
+}
