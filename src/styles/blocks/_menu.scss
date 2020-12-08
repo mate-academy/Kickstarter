@@ -1,0 +1,59 @@
+.menu {
+
+  &__toggle {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    top: -100%;
+  }
+
+  &__span,
+  &__span::before,
+  &__span::after {
+    display: block;
+    position: absolute;
+
+    width: 100%;
+    height: 2px;
+
+    background-color: $cGranit;
+
+    transition-duration: 0.3s;
+  }
+
+  &__span::before {
+    content: "";
+    top: -4px;
+  }
+
+  &__span::after {
+    content: "";
+    top: 4px;
+  }
+
+  &__toggle:checked ~ &__btn > &__span {
+    transform: rotate(45deg);
+  }
+
+  &__toggle:checked ~ &__btn > &__span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+
+  &__toggle:checked ~ &__btn > &__span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  &__btn {
+    display: block;
+    position: relative;
+    margin: 14px auto 0;
+
+    width: 24px;
+    height: 14px;
+
+    cursor: pointer;
+    z-index: 1;
+  }
+}

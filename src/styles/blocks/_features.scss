@@ -1,0 +1,77 @@
+.features {
+
+  &__slider {
+    margin: auto;
+    width: 260px;
+    overflow: hidden;
+
+    @include forTablet {
+      width: 100%;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: start;
+    flex-wrap: nowrap;
+    flex-basis: 1;
+    flex-shrink: 0;
+    align-items: flex-start;
+
+    @include forTablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 74px 40px;
+      justify-items: center;
+    }
+
+    @include forDesktop {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr;
+      gap: 0 30px;
+    }
+  }
+
+  &__card {
+    min-width: 260px;
+    text-align: center;
+
+    @include forTablet {
+      width: 320px;
+    }
+
+    @include forDesktop {
+      max-width: 276px;
+    }
+  }
+
+  &__image {
+    height: 44px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @for $i from 1 through 4 {
+      &--#{$i} {
+        background-image: url("/images/features/pict#{$i}.svg");
+      }
+    }
+  }
+
+  &__header {
+    margin-top: 40px;
+    height: 60px;
+
+    text-transform: uppercase;
+    color: $cGranit;
+  }
+
+  &__text {
+    margin-top: 20px;
+  }
+
+  &__buttons {
+    margin: 52px auto 0;
+  }
+}

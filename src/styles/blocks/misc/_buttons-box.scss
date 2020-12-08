@@ -1,0 +1,63 @@
+.buttons-box {
+  width: 93px;
+
+  display: grid;
+  grid-template-rows: 13px 20px;
+  justify-items: center;
+  row-gap: 8px;
+
+  &--features {
+    @include forTablet {
+      display: none;
+    }
+  }
+
+  &--technology {
+    @include forDesktop {
+      display: none;
+    }
+  }
+
+  &--features2 {
+    @include forTablet {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+  }
+
+  &__button {
+    display: inline-block;
+    width: 48px;
+    height: 13px;
+    background-image: url("/images/features/button-left.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &--right {
+      transform: rotate(180deg);
+    }
+
+    &--active {
+      background-image: url("/images/features/button-left-active.svg");
+
+      &:hover {
+        background-image: url("/images/features/button-left-hover.svg");
+      }
+    }
+  }
+
+  &__pages {
+    display: inline-block;
+    font-size: 11px;
+    color: $cLightGrey;
+
+    &--large {
+      font-size: 16px;
+      color: $cGranit;
+    }
+  }
+}

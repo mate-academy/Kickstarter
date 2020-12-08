@@ -1,0 +1,104 @@
+.future {
+  position: relative;
+
+  @include forTablet {
+    @include drawColumns(2);
+    grid-template-rows: repeat(2, auto);
+    column-gap: 20px;
+    max-width: 800px;
+  }
+
+  &__header {
+    font-size: 37px;
+    line-height: 55px;
+    text-transform: uppercase;
+    color: $cGranit;
+
+    @include forTablet {
+      position: relative;
+      z-index: 2;
+      margin-left: -90px;
+      font-size: 56px;
+      line-height: 72px;
+
+    }
+  }
+
+  &__decor-container {
+    @include flexCenter;
+    position: relative;
+    top: -8px;
+    margin-top: 50px;
+
+    @include forTablet {
+      height: 100%;
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      margin-top: 0;
+    }
+  }
+
+  &__image {
+    display: block;
+    height: 100%;
+    max-width: 500px;
+    object-position: center;
+
+    &--small {
+      @include forTablet {
+        display: none;
+      }
+    }
+
+    &--large {
+      display: none;
+
+      @include forTablet {
+        position: absolute;
+        right: 0;
+        width: unset;
+        display: block;
+      }
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    margin-top: 30px;
+
+    @include forTablet {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    margin-bottom: 42px;
+    display: inline-block;
+    margin-top: 30px;
+    padding-bottom: 6px;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $cTurquoise;
+
+    &::after {
+      content: "";
+      position: absolute;
+
+      top: calc(100% - 1px);
+      left: 0;
+      right: 50%;
+      display: block;
+      height: 1px;
+      background-color: $cTurquoise;
+      transition: all 0.5s;
+    }
+
+    &:hover::after {
+      right: 0;
+    }
+  }
+}

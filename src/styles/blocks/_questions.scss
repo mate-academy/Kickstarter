@@ -1,0 +1,87 @@
+.questions {
+
+  @include forTablet {
+    @include drawColumns(2);
+    column-gap: 20px;
+  }
+
+  @include forDesktop {
+    @include drawColumns(12);
+  }
+
+  &__header {
+    font-size: 37px;
+    line-height: 46px;
+    text-transform: uppercase;
+    color: $cGranit;
+
+    @include forTablet {
+      padding-right: 20px;
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    @include forDesktop {
+      grid-column: 2 / span 5;
+      line-height: 72px;
+    }
+  }
+
+  &__form {
+    @include forMobile {
+      margin-top: 30px;
+    }
+
+    @include forDesktop {
+      grid-column: 8 / span 4;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 16px 30px;
+    @include fontHelvetica;
+    font-size: 16px;
+    line-height: 19px;
+    color: $cGranit;
+    background-color: transparent;
+    border: 1px solid #828282;
+
+    &::placeholder {
+      color: $cLightGrey;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &--message {
+      resize: none;
+      margin-top: 19px;
+      height: 128px;
+      @include fontHelvetica;
+      font-size: 16px;
+      line-height: 19px;
+      color: $cGranit;
+
+      &::placeholder {
+        color: $cLightGrey;
+      }
+
+      @include forTablet {
+        height: 201px;
+      }
+
+      @include forDesktop {
+        height: 128px;
+      }
+    }
+  }
+
+  &__button {
+    margin-top: 30px;
+    width: 102px;
+    height: 48px;
+    @include flexCenter;
+  }
+}

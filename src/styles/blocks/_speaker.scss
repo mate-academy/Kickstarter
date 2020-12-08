@@ -1,0 +1,101 @@
+.speaker {
+  position: relative;
+  @include drawColumns(1);
+  justify-items: center;
+  text-align: center;
+  overflow: hidden;
+
+  @include forTablet {
+    grid-template-columns: 3fr 5fr;
+  }
+
+  @include forDesktop {
+    overflow: visible;
+  }
+
+  &__photo {
+    display: block;
+    width: 100%;
+    transition: transform 0.5s;
+
+    &--small {
+      max-width: 500px;
+
+      @include forTablet {
+        display: none;
+      }
+    }
+
+    &--large {
+      display: none;
+
+      @include forTablet {
+        position: absolute;
+        left: -25px;
+        display: block;
+        height: 100%;
+        width: auto;
+      }
+
+      @include forDesktop {
+        transform: scale(1.27) translateX(10%);
+        transform-origin: bottom center;
+      }
+    }
+  }
+
+  &__header {
+    margin-top: 40px;
+
+    text-transform: uppercase;
+    line-height: 130%;
+    font-weight: 900;
+    color: $cGranit;
+
+    @include forMobile {
+      font-size: 44px;
+      max-width: 400px;
+    }
+
+    @include forTablet {
+      position: relative;
+      z-index: 1;
+      margin-top: 27px;
+      grid-column: 1;
+      justify-self: start;
+      font-size: 48px;
+      text-align: start;
+    }
+  }
+
+  &__text {
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin-top: 23px;
+
+    @include forMobile {
+      max-width: 400px;
+    }
+
+    @include forTablet {
+      margin-top: 34px;
+      grid-column: 1;
+      justify-self: start;
+      text-align: start;
+      max-width: 250px;
+    }
+
+    @include forDesktop {
+      max-width: 280px;
+    }
+  }
+
+  &__photo-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+}

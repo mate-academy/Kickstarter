@@ -1,0 +1,77 @@
+$buttons:
+  1 32% 7.6%,
+  2 51.5% 19.6%,
+  3 39.6% 26.2%,
+  4 20.2% 31.8%,
+  5 60.2% 39.7%,
+  6 25.2% 50.3%,
+  7 46.1% 61%,
+  8 26% 72.3%,
+  9 12.3% 82.5%,
+  10 31.2% 84.5%,
+  11 22.6% 91.2%;
+
+.technology {
+  position: relative;
+
+  &__header {
+    padding-left: $minSidePadding;
+    font-size: 37px;
+    line-height: 46px;
+    text-transform: uppercase;
+    color: $cGranit;
+
+    @include forTablet {
+      position: relative;
+      left: 106px;
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    @include forDesktop {
+      left: 186px;
+    }
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    justify-content: start;
+
+    @include forDesktop {
+      justify-content: center;
+    }
+  }
+
+  &__slider {
+    position: relative;
+  }
+
+  &__image {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 657px;
+
+    @include forTablet {
+      width: 1294px;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    z-index: 2;
+
+    @each $num, $top, $left in $buttons {
+      &--#{$num} {
+        top: $top;
+        left: $left;
+      }
+    }
+  }
+
+  &__buttons {
+    position: relative;
+    margin: auto;
+  }
+}

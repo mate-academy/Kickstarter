@@ -1,0 +1,131 @@
+.video {
+  position: relative;
+
+  transition: all 0.5s;
+
+  &:hover {
+    filter: brightness(0.7);
+  }
+
+  &__file {
+    display: none;
+
+    height: 246px;
+
+    @include forTablet {
+      height: 400px;
+    }
+
+    @include forDesktop {
+      height: 590px;
+    }
+  }
+
+  &__container {
+
+    @include flexCenter;
+    overflow: hidden;
+
+    @include forMobile {
+      min-height: 246px;
+      max-height: 246px;
+    }
+
+    @include forTablet {
+      min-height: 400px;
+      max-height: 590px;
+    }
+  }
+
+  &__image {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    transition: all 0.5s;
+
+    @include forMobile {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  &__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 108px;
+    height: 108px;
+    border: 1px solid #f3f4f5;
+    border-radius: 50%;
+
+    background: none;
+
+    transition: all 0.5s;
+
+    @include forTablet {
+      width: 190px;
+      height: 190px;
+    }
+
+    @include forDesktop {
+      width: 232px;
+      height: 232px;
+    }
+  }
+
+  &__play-text {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #f3f4f5;
+    transition: all 0.5s;
+
+    @include forTablet {
+      font-size: 20px;
+    }
+
+    @include forDesktop {
+      font-size: 24px;
+    }
+
+    &:hover {
+      display: none;
+    }
+  }
+
+  &__play-button {
+    display: none;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 18px;
+
+    background-image: url("/images/play/play-icon.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include forTablet {
+      width: 20px;
+      height: 26px;
+    }
+
+    @include forDesktop {
+      width: 24px;
+      height: 32px;
+    }
+  }
+
+  &__play:hover > .video__play-text {
+    display: none;
+  }
+
+  &__play:hover > .video__play-button {
+    display: block;
+  }
+}

@@ -1,0 +1,68 @@
+.header {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  @include drawColumns(2);
+  align-items: center;
+
+  @include forTablet {
+    padding-top: 27px;
+    @include drawColumns(8);
+  }
+
+  @include forDesktop {
+    padding-top: 13px;
+  }
+
+  &__nav {
+    justify-self: end;
+
+    @include forTablet {
+      display: none;
+    }
+  }
+
+  &__text-box {
+    display: none;
+
+    @include forTablet {
+      grid-column: 6 / span 3;
+      justify-self: end;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      column-gap: 27px;
+      align-items: center;
+    }
+
+    @include forDesktop {
+      column-gap: 37px;
+    }
+  }
+
+  &__text {
+    text-transform: uppercase;
+    color: $cDarkGrey;
+    cursor: pointer;
+
+    &:hover {
+      color: $cGranit;
+      -webkit-text-stroke: 1px $cGranit;
+    }
+
+    &--active {
+      color: $cGranit;
+      -webkit-text-stroke: 1px $cGranit;
+    }
+  }
+
+  &__lang-switch {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 3px;
+  }
+
+  &__button {
+    @include flexCenter;
+    height: 48px;
+    width: 102px;
+  }
+}

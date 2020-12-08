@@ -1,0 +1,36 @@
+.navigation {
+  display: none;
+
+  @include forTablet {
+    @include flexCenter;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    column-gap: 60px;
+    transition: column-gap 0.5s;
+
+    @include forDesktop {
+      column-gap: 80px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    text-transform: uppercase;
+    transition: -webkit-text-stroke 0.3s;
+
+    &:hover {
+      color: $cGranit;
+      -webkit-text-stroke: 1px $cGranit;
+    }
+
+    &:active {
+      color: $cGranit;
+      -webkit-text-stroke: 1px $cGranit;
+    }
+  }
+}
