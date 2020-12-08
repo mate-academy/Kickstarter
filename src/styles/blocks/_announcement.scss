@@ -1,6 +1,9 @@
 .announcement {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 
   &__video {
+    grid-column: 1 / 13;
     position: relative;
     height: 246px;
     width: 100%;
@@ -8,7 +11,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    z-index: 100;
+    z-index: 40;
 
     &-clip {
       position: absolute;
@@ -38,7 +41,7 @@
         border-radius: 50%;
         border: 1px solid white;
         cursor: pointer;
-        z-index: 100;
+        z-index: 50;
       }
 
       &::before {
@@ -52,7 +55,7 @@
         background-image: url(../../src/images/playButton24x32.svg);
         background-repeat: no-repeat;
         background-size: contain;
-        z-index: 100;
+        z-index: 50;
       }
     }
   }
@@ -79,12 +82,19 @@
   }
 
   @media (min-width: 1440px) {
+    grid-template-columns: repeat(12, 75px);
+    column-gap: 30px;
+    justify-content: center;
 
     &__video {
       position: relative;
       height: 590px;
       background-image: url(../../src/images/announcementImg1440x590.png);
       transition: filter 1s;
+
+      &-clip {
+        grid-column: 1 / 13;
+      }
 
       &-clicker {
 

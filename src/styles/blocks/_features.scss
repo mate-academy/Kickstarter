@@ -14,7 +14,15 @@
   &__block {
     grid-column: 1 / 13;
     padding: 45px $paddingForMobile;
-    z-index: 50;
+    z-index: 40;
+
+    &:nth-child(3) {
+      display: none;
+    }
+
+    &:nth-child(4) {
+      display: none;
+    }
 
     &-heading {
       @include FontSet("Din Pro Normal", 30px, 37px);
@@ -39,7 +47,6 @@
   }
 
   &__photo {
-
     grid-column: 1 / 13;
     width: 100%;
     height: 222px;
@@ -74,7 +81,12 @@
         grid-column: 6 / 13;
       }
 
+      &:nth-child(3) {
+        display: block;
+      }
+
       &:nth-child(4) {
+        display: block;
         grid-column: 5 / 12;
       }
     }
@@ -92,15 +104,16 @@
   }
 
   @media (min-width: 1440px) {
-
-    &::after {
-      top: 20%;
-      width: 1200px;
-      height: 701px;
-    }
-
     grid-template-columns: repeat(12, 100px);
     justify-content: center;
+
+    &::after {
+      grid-column: 12 / 12;
+      background-color: $BGColorLightGrey;
+      bottom: 6%;
+      height: 701px;
+      width: 1113px;
+    }
 
     &__heading {
       padding-left: 0;
