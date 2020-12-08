@@ -1,0 +1,214 @@
+.header {
+  padding: 13px calc(50% - #{((1194px + 68px) / 2 )});
+  position: relative;
+  overflow-x: hidden;
+
+  @include adaptiv(767px) {
+    padding-top: 0;
+  }
+
+  &__wrapper-top {
+    padding: 0 34px;
+    margin-bottom: 90px;
+
+    @include adaptiv(1023px) {
+      margin-bottom: 100px;
+    }
+
+    @include adaptiv(767px) {
+      padding: 0 30px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    height: 48px;
+
+    @include adaptiv(767px) {
+      height: 76px;
+    }
+  }
+
+  &__wrapper-logo {
+    @include hover(transform, scale(1.2));
+  }
+
+  &__group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 276px;
+
+    @include adaptiv(767px) {
+      display: none;
+    }
+  }
+
+  &__link {
+    @extend %fontGroup;
+    @include hover(color, $activeColor);
+  }
+
+  &__language {
+    display: none;
+  }
+
+  &__switch-label {
+    @extend %fontGroup;
+    cursor: pointer;
+
+    &--english {
+      color: $mainColor;
+    }
+
+    &--ukrainian {
+      color: $staticColor;
+    }
+  }
+
+  &__language--english:checked ~ &__switch-label--ukrainian,
+  &__language--ukrainian:checked ~ &__switch-label--english {
+    color: $staticColor;
+  }
+
+  &__language--ukrainian:checked ~ &__switch-label--ukrainian {
+    color: $mainColor;
+  }
+
+  &__mark {
+    @extend %fontGroup;
+    color: $mainColor;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 48px;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 500;
+    background-color: $mainColor;
+    color: #fff;
+    text-transform: uppercase;
+
+    @include hoverEffect(background-color, $activeColor, color, $mainColor);
+  }
+
+  &__burger {
+    @include adaptivMobile(768px) {
+      display: none;
+    }
+
+    &--active {
+      position: relative;
+      // position: fixed;
+      // top: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    margin: 0 auto 30px;
+    padding: 0 34px;
+
+    overflow: hidden;
+
+    @include adaptiv(1023px) {
+      justify-content: space-between;
+    }
+
+    @include adaptiv(767px) {
+      flex-direction: column-reverse;
+      align-items: center;
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  &__describe {
+    padding: 81px 0 11px;
+    position: relative;
+
+    @include adaptiv(1023px) {
+      padding-top: 29px;
+      padding-bottom: 0;
+    }
+
+    @include adaptiv(767px) {
+      padding: 0;
+    }
+  }
+
+  &__title {
+    width: 378px;
+    margin-bottom: 27px;
+    font-family: "DIN Pro", sans-serif;
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 1.3;
+    text-transform: uppercase;
+
+    @include adaptiv (1023px) {
+      position: relative;
+      width: 250px;
+      margin-bottom: 34px;
+      font-size: 48px;
+    }
+
+    @include adaptiv(767px) {
+      margin-bottom: 23px;
+      width: 260px;
+      font-size: 44px;
+    }
+  }
+
+  &__paragraph {
+    width: 276px;
+
+    @include adaptiv(1023px) {
+      padding-right: 10px;
+      width: 250px;
+    }
+
+    @include adaptiv(767px) {
+      padding-right: 0;
+      margin: 0 auto;
+    }
+  }
+
+  &__button-icon {
+    position: absolute;
+    right: 0;
+    top: 112px;
+    display: flex;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+
+    @include adaptivMobile(768px) {
+      display: none;
+    }
+  }
+
+  &__button-image {
+    object-position: center;
+    width: 100%;
+  }
+
+  &__image {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+
+    @include adaptiv(767px) {
+      margin-bottom: 40px;
+      width: 100%;
+    }
+  }
+}

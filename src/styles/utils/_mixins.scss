@@ -4,3 +4,23 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin hoverEffect($_property, $_toValue, $_property_1, $_toValue_1) {
+  transition: #{$_property} 0.3s, #{$_property_1} 0.3s;
+  &:hover {
+    #{$_property}: $_toValue;
+    #{$_property_1}: $_toValue_1;
+  }
+}
+
+@mixin adaptiv ($_value) {
+  @media (max-width: $_value) {
+    @content;
+  }
+}
+
+@mixin adaptivMobile ($_value) {
+  @media (min-width: $_value) {
+    @content;
+  }
+}
