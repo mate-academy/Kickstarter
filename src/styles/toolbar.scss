@@ -1,0 +1,79 @@
+@import "variables";
+
+.toolbar {
+  max-width: 1194px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-column-gap: 40px;
+
+    @media (max-width: $width-mobile) {
+      display: none;
+    }
+
+  }
+
+  &__item {
+    color: $color-text;
+  }
+
+  &__link {
+    font-family: "Helvetica Neue-Ligter", sans-serif;
+    font-size: 14px;
+    color: $color-toolbar;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 48px;
+    width: 100%;
+
+  }
+
+  &__link--specs {
+    color: $color-toolbar;
+    transition: all 0.3s;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+
+  &__link--en {
+    font-weight: bold;
+  }
+
+  &__link--ua {
+    color: $color-secondary;
+    &:hover {
+      color: $color-toolbar;
+    }
+  }
+
+  &__item--buy {
+    height: 48px;
+    width: 102px;
+    background-color: $color-text;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__link--buy {
+    display: inline-block;
+    font-size: 12px;
+    color: #fff;
+  }
+}

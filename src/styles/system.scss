@@ -1,0 +1,70 @@
+@import "variables";
+
+.system {
+  max-width: 1194px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 30px;
+
+  @media (max-width: $width-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 74px;
+  }
+
+  @media (max-width: $width-mobile) {
+    display: block;
+
+    &__item:not(:first-child) {
+      display: none;
+    }
+  }
+
+  &__image {
+    height: 45px;
+    width: 50px;
+    margin: 0 auto;
+    background: no-repeat center;
+  }
+
+  &__image--divider {
+    background-image: url(../images/divider.png);
+  }
+
+  &__image--speaker {
+    background-image: url(../images/speaker.png);
+  }
+
+  &__image--wifi {
+    background-image: url(../images/wifi.png);
+  }
+
+  &__image--light {
+    background-image: url(../images/sun.png);
+  }
+
+  &__header {
+    margin-top: 40px;
+    min-height: 60px;
+    font-family: "DIN Pro", sans-serif;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-text;
+  }
+
+  &__paragraph {
+    margin-top: 20px;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $color-paragraph;
+
+    @media (max-width: $width-mobile) {
+      max-width: 260px;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,120 @@
+@import "variables";
+
+.design {
+  display: flex;
+  justify-content: space-between;
+  max-width: 940px;
+  position: relative;
+
+  @media (max-width: $width-mobile) {
+    display: block;
+  }
+
+  &__photo {
+    height: 388px;
+    width: 582px;
+    background: url(../images/design.png) no-repeat left;
+    background-size: cover;
+
+    @media (max-width: $width-tablet) {
+      height: 415px;
+      font-size: 52px;
+    }
+
+    @media (max-width: $width-mobile) {
+      margin: 50px auto 0;
+      height: 210px;
+      width: 259px;
+      background-size: cover;
+    }
+
+  }
+
+  &__text {
+    margin-left: 30px;
+
+    @media (max-width: $width-tablet) {
+      margin-left: 20px;
+    }
+
+  }
+
+  &__header {
+    position: absolute;
+    top: 10px;
+    left: 52.5%;
+    max-width: 480px;
+    font-family: "DIN Pro", sans-serif;
+    text-transform: uppercase;
+    font-size: 56px;
+    line-height: 72px;
+    color: $color-text;
+    background-color: transparent;
+
+    @media (max-width: $width-tablet) {
+      max-width: 430px;
+      left: 40%;
+      font-size: 52px;
+    }
+
+    @media (max-width: $width-mobile) {
+      position: static;
+      max-width: 260px;
+      font-size: 37px;
+      line-height: 55px;
+      margin: 0 auto;
+    }
+  }
+
+  &__paragraph {
+    margin-top: 180px;
+    width: 378px;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: $color-paragraph;
+
+    @media (max-width: $width-tablet) {
+      min-width: 345px;
+    }
+
+    @media (max-width: $width-mobile) {
+      margin: 29px auto 0;
+      width: 260px;
+      font-size: 14px;
+      line-height: 21px;
+      min-width: 260px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: 30px;
+    width: fit-content;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $color-link;
+
+    &::after {
+      content: "";
+      display: block;
+      border: 1px solid $color-link;
+      width: 53px;
+      margin-top: 6px;
+      transition: width 0.3s;
+    }
+
+    &:hover {
+      &::after {
+        width: 125px;
+      }
+    }
+
+    @media (max-width: $width-mobile) {
+      display: block;
+      text-align: center;
+    }
+  }
+}
