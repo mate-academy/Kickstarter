@@ -13,7 +13,16 @@ burger.onclick = function() {
   burgerLine.classList.toggle('burger__line--active');
   nav.classList.toggle('nav--active');
   navlist.classList.toggle('nav__list--active');
-  page.classList.toggle('page--active');
+  page.classList.toggle('page--lock');
+};
+
+navlist.onclick = function() {
+  burger.classList.toggle('header__burger--active');
+  burgerIcon.classList.toggle('burger__icon--active');
+  burgerLine.classList.toggle('burger__line--active');
+  nav.classList.toggle('nav--active');
+  navlist.classList.toggle('nav__list--active');
+  page.classList.toggle('page--lock');
 };
 
 let position = 0;
