@@ -22,17 +22,17 @@ const slidesToscroll = 1;
 const container = document.querySelector('.promo__wrapper-features');
 const track = document.querySelector('.promo__features');
 // const item = document.querySelector('.promo__feature');
-const btnPrev = document.querySelector('.promo__button--prev');
-const btnNext = document.querySelector('.promo__button--next');
+const btnPrev = document.querySelector('.slider-toggle__button--prev');
+const btnNext = document.querySelector('.slider-toggle__button--next');
 const items = document.querySelectorAll('.promo__feature');
 const itemsCount = items.length;
 const itemWidth = container.clientWidth / slidesToshow;
 const movePosition = slidesToscroll * itemWidth;
 
 if (window.matchMedia('(max-width: 767px)').matches) {
-  items.forEach((item) => {
-    item.style.minWidth = `${itemWidth}px`;
-  });
+  // items.forEach((item) => {
+  //   item.style.minWidth = `${itemWidth}px`;
+  // });
 
   btnPrev.addEventListener('click', () => {
     position += movePosition;
