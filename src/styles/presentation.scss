@@ -1,15 +1,51 @@
 .presentation {
   position: relative;
+  display: flex;
   padding: 0 calc(50% - #{1440px / 2});
+  height: 590px;
+
+  @include adaptiv(970px) {
+    height: 400px;
+  }
+
+  @include adaptiv(550px) {
+    height: 246px;
+  }
 
   &__video {
     display: none;
     width: 100%;
+
+    &--active {
+      display: block;
+    }
   }
 
   &__image {
-    display: block;
-    width: 100%;
+    width: 1440px;
+    background: url("../images/presentation_image.jpg") no-repeat center / cover;
+    position: relative;
+
+    &--disable {
+      display: none;
+    }
+  }
+
+  &__mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    cursor: pointer;
+
+    transition: all 0.3s linear;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &__video-buttons {
@@ -51,6 +87,10 @@
       top: calc(50% - #{$buttonVidoSizeSmall/ 2});
       left: calc(50% - #{$buttonVidoSizeSmall / 2});
     }
+
+    &--disable {
+      display: none;
+    }
   }
 
   &__video-button {
@@ -86,11 +126,13 @@
     }
   }
 
-  &__video-buttons:hover &__video-button {
+  &__video-buttons:hover &__video-button,
+  &__image:hover + &__video-buttons > &__video-button {
     display: none;
   }
 
-  &__video-buttons:hover &__video-icon {
+  &__video-buttons:hover &__video-icon,
+  &__image:hover + &__video-buttons > &__video-icon {
     display: block;
   }
 }

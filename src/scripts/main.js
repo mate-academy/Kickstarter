@@ -6,6 +6,9 @@ const burgerLine = document.querySelector('.burger__line');
 const nav = document.querySelector('.nav');
 const navlist = document.querySelector('.nav__list');
 const page = document.querySelector('.page');
+const playVideo = document.querySelector('.presentation__video-buttons');
+const video = document.querySelector('.presentation__video');
+const image = document.querySelector('.presentation__image');
 
 burger.onclick = function() {
   burger.classList.toggle('header__burger--active');
@@ -17,12 +20,19 @@ burger.onclick = function() {
 };
 
 navlist.onclick = function() {
-  burger.classList.toggle('header__burger--active');
-  burgerIcon.classList.toggle('burger__icon--active');
-  burgerLine.classList.toggle('burger__line--active');
-  nav.classList.toggle('nav--active');
-  navlist.classList.toggle('nav__list--active');
-  page.classList.toggle('page--lock');
+  burger.classList.remove('header__burger--active');
+  burgerIcon.classList.remove('burger__icon--active');
+  burgerLine.classList.remove('burger__line--active');
+  nav.classList.remove('nav--active');
+  navlist.classList.remove('nav__list--active');
+  page.classList.remove('page--lock');
+};
+
+playVideo.onclick = function() {
+  video.classList.add('presentation__video--active');
+  playVideo.classList.add('presentation__video--active');
+  image.classList.add('presentation__image--disable');
+  playVideo.classList.add('presentation__video-buttons--disable');
 };
 
 let position = 0;
