@@ -1,0 +1,79 @@
+.support {
+  padding: 0 calc(50% - #{1084px / 2});
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 34px;
+
+    @include adaptiv(767px) {
+      padding: 0 30px;
+      margin: 0 auto;
+      max-width: 320px;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    max-width: 480px;
+    margin-right: 20px;
+    font-family: "DIN Pro", sans-serif;
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 70px;
+    text-transform: uppercase;
+
+    @include adaptiv(767px) {
+      margin: 0 0 30px;
+      font-size: 37px;
+      line-height: 46px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 438px;
+
+    @include adaptiv(767px) {
+      width: 100%;
+    }
+  }
+
+  &__form-input {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px 20px 15px 30px;
+    min-width: 340px;
+    height: 48px;
+    border: 1px solid #828282;
+    background-color: inherit;
+
+    @include adaptiv(767px) {
+      min-width: auto;
+    }
+
+    &::placeholder {
+      font-family: "HelveticaNeueCyr", sans-serif;
+      font-size: 16px;
+      line-height: 19px;
+      font-weight: 300;
+      color: $staticColor;
+    }
+
+    &--message {
+      height: 128px;
+      resize: none;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__form-button {
+    @extend %button;
+    color: white;
+    background-color: $activeColor;
+    cursor: pointer;
+
+    @include hover(background-color, $listTitleColor);
+  }
+}

@@ -1,0 +1,170 @@
+.features {
+  position: relative;
+  @include adaptiv(767px) {
+    height: 801px;
+    background: url("../images/features-bc-image-small.png") no-repeat center / contain;
+    border-top: 1px solid $backgroundColor;
+  }
+
+  &__background-image {
+    display: none;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: $backgroundColor;
+
+    @include adaptiv(767px) {
+      display: block;
+    }
+
+  }
+
+  &__wrapper {
+    padding-left: calc(100% - #{(1215px + 34px)});
+    display: flex;
+
+    @include adaptivLaptop(1441px) {
+      padding: 0 calc(50% - #{(1215px + 34px) / 2});
+    }
+
+    @include adaptiv(767px) {
+      width: 260px;
+      margin: 0 auto 50px;
+    }
+  }
+
+  &__card-wrapper {
+    width: 102px;
+    height: 701px;
+    margin-left: 34px;
+
+    @include adaptiv(767px) {
+      display: flex;
+      width: auto;
+      height: auto;
+      margin: 0;
+      overflow: hidden;
+    }
+  }
+
+  &__title-wrapper {
+    padding: 0 calc(50% - #{1294px / 2});
+    margin-bottom: 132px;
+
+    @include adaptiv(1023px) {
+      margin-bottom: 158px;
+    }
+
+    @include adaptiv(767px) {
+      margin-bottom: 50px;
+      margin-top: 45px;
+    }
+  }
+
+  &__title {
+    @extend %title;
+  }
+
+  &__list-wrapper {
+    position: relative;
+    width: max-content;
+
+    @include adaptiv(767px) {
+      position: static;
+      min-width: 100%;
+    }
+
+    &--top {
+      margin-left: 394px;
+      bottom: 108px;
+
+      @include adaptiv(1023px) {
+        margin-left: 328px;
+        bottom: 102px;
+      }
+
+      @include adaptiv(767px) {
+        margin: 0;
+      }
+    }
+
+    &--middle {
+      bottom: 108px;
+
+      @include adaptiv(1023px) {
+        bottom: 102px;
+      }
+    }
+
+    &--bottom {
+      margin-left: 197px;
+      bottom: 34px;
+
+      @include adaptiv(1023px) {
+        top: 10px;
+      }
+
+      @include adaptiv(767px) {
+        margin: 0;
+      }
+    }
+  }
+
+  &__list-title {
+    margin-left: 20px;
+    margin-bottom: 44px;
+    font-family: "DIN Pro", sans-serif;
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: $listTitleColor;
+
+    @include adaptiv(1023px) {
+      margin-bottom: 38px;
+    }
+
+    @include adaptiv(767px) {
+      margin-left: 0;
+      margin-bottom: 20px;
+      font-size: 30px;
+      line-height: 37px;
+    }
+  }
+
+  &__item {
+    font-size: 14px;
+    line-height: 21px;
+    list-style-type: disc;
+    list-style-position: inside;
+
+    &:not(:last-child) {
+      margin-bottom: 13px;
+
+      @include adaptiv(1023px) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__background {
+    flex-grow: 1;
+    width: 1113px;
+    min-width: 644px;
+    height: 701px;
+    background: url("../images/features-bc-image.png") no-repeat center / cover;
+
+    @include adaptiv(1023px) {
+      height: 620px;
+    }
+
+    @include adaptiv(767px) {
+      display: none;
+    }
+  }
+
+  &__button {
+    background-color: $backgroundColor;
+  }
+}
