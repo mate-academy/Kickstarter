@@ -1,0 +1,109 @@
+.promo {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: auto;
+
+  &__block {
+    grid-column: 1 / 13;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 80px 120px 120px;
+    justify-items: center;
+    padding-bottom: 50px;
+
+    &-ico {
+      grid-column: 1 / 5;
+      grid-row: 1 / 2;
+    }
+
+    &:nth-child(1) {
+
+      .promo__block-ico {
+        width: 50px;
+        height: 40px;
+        background-image: url(../../src/images/promoIcoFirst50x40.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+    }
+
+    &:nth-child(2) {
+
+      .promo__block-ico {
+        width: 50px;
+        height: 40px;
+        background-image: url(../../src/images/promoIcoSecond46x40.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+    }
+
+    &:nth-child(3) {
+
+      .promo__block-ico {
+        width: 46px;
+        height: 36px;
+        background-image: url(../../src/images/promoIcoThird46x36.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+    }
+
+    &:nth-child(4) {
+
+      .promo__block-ico {
+        width: 46px;
+        height: 36px;
+        background-image: url(../../src/images/promoIcoFourth44x44.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+    }
+
+    &-heading {
+      grid-column: 1 / 5;
+      grid-row: 2 / 3;
+      @include FontSet("Din Pro Normal", 24px, 30px);
+      text-transform: uppercase;
+      text-align: center;
+      padding: 40px 0 50px;
+    }
+
+    &-text {
+      grid-column: 1 / 5;
+      grid-row: 3 / 4;
+      @include FontSet("Helvetica Neue Roman", 14px, 21px);
+      color: $fontColorGrey;
+      text-align: center;
+    }
+  }
+
+  @media (min-width: 768px) {
+
+    &__block {
+      grid-column: 6 span;
+
+      &-text {
+        padding: 10px;
+      }
+    }
+  }
+
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(12, 75px);
+    column-gap: 30px;
+    justify-content: center;
+
+    &__block {
+      grid-column: 3 span;
+
+      &-heading {
+        align-self: start;
+      }
+
+      &-text {
+        align-self: start;
+      }
+    }
+  }
+}

@@ -1,0 +1,251 @@
+.technology {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  &__heading {
+    grid-column: 1 / 13;
+    @include FontSet("Din Pro Bold", 37px, 55px);
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 $paddingForMobile 40px;
+  }
+
+  &__photo {
+    grid-column: 1 / 13;
+    display: grid;
+    grid-template-columns: repeat(20, 5%);
+    grid-template-rows: repeat(20, 5%);
+    min-height: 361px;
+    background-image: url(../../src/images/technologyPhoto624x277.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center left;
+    position: relative;
+
+    &-cl {
+      cursor: pointer;
+      display: none;
+
+      &::before {
+        content: "+";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        z-index: 10;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $fontColorGreen;
+      }
+
+      &:hover::after {
+        background-color: black;
+      }
+
+      &--1 {
+        grid-column: 5;
+        grid-row: 8;
+        position: relative;
+        display: block;
+      }
+
+      &--2 {
+        grid-column: 9 ;
+        grid-row: 12;
+        position: relative;
+        display: block;
+      }
+
+      &--3 {
+        grid-column: 12;
+        grid-row: 9;
+        position: relative;
+        display: block;
+      }
+
+      &--4 {
+        grid-column: 13;
+        grid-row: 5;
+        position: relative;
+        display: block;
+      }
+
+      &--5 {
+        grid-column: 17;
+        grid-row: 13;
+        position: relative;
+        display: block;
+      }
+    }
+  }
+
+  @media (min-width: 568px) {
+
+    &__photo {
+      height: 540px;
+    }
+  }
+
+  @media (min-width: 768px) {
+
+    &__photo {
+      height: 711px;
+      background-image: url(../../src/images/technologyPhoto1231x546.png);
+      background-position: 0 center;
+
+      &-cl {
+
+        &--1 {
+          grid-column: 4;
+          grid-row: 7;
+          position: relative;
+          display: block;
+        }
+
+        &--2 {
+          grid-column: 8 ;
+          grid-row: 11;
+          position: relative;
+          display: block;
+        }
+
+        &--3 {
+          grid-column: 10;
+          grid-row: 10;
+          position: relative;
+          display: block;
+        }
+
+        &--4 {
+          grid-column: 12;
+          grid-row: 5;
+          position: relative;
+          display: block;
+        }
+
+        &--5 {
+          grid-column: 15;
+          grid-row: 13;
+          position: relative;
+          display: block;
+        }
+
+        &--6 {
+          grid-column: 18;
+          grid-row: 6;
+          position: relative;
+          display: block;
+        }
+      }
+    }
+
+    &__heading {
+      @include FontSet("Din Pro Bold", 56px, 70px);
+    }
+  }
+
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(12, 100px);
+    justify-content: center;
+
+    &__photo {
+      height: 600px;
+      background-image: url(../../src/images/technologyPhoto1440.png);
+
+      &-cl {
+
+        &--1 {
+          grid-column: 3;
+          grid-row: 7;
+          position: relative;
+          display: block;
+        }
+
+        &--2 {
+          grid-column: 5 ;
+          grid-row: 12;
+          position: relative;
+          display: block;
+        }
+
+        &--3 {
+          grid-column: 6;
+          grid-row: 10;
+          position: relative;
+          display: block;
+        }
+
+        &--4 {
+          grid-column: 7;
+          grid-row: 5;
+          position: relative;
+          display: block;
+        }
+
+        &--5 {
+          grid-column: 9;
+          grid-row: 13;
+          position: relative;
+          display: block;
+        }
+
+        &--6 {
+          grid-column: 11;
+          grid-row: 6;
+          position: relative;
+          display: block;
+        }
+
+        &--7 {
+          grid-column: 13;
+          grid-row: 10;
+          position: relative;
+          display: block;
+        }
+
+        &--8 {
+          grid-column: 15;
+          grid-row: 6;
+          position: relative;
+          display: block;
+        }
+
+        &--9 {
+          grid-column: 17;
+          grid-row: 3;
+          position: relative;
+          display: block;
+        }
+
+        &--10 {
+          grid-column: 18;
+          grid-row: 8;
+          position: relative;
+          display: block;
+        }
+
+        &--11 {
+          grid-column: 19;
+          grid-row: 5;
+          position: relative;
+          display: block;
+        }
+      }
+    }
+
+    &__heading {
+      padding: 0;
+      text-align: left;
+    }
+  }
+}

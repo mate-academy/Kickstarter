@@ -1,0 +1,173 @@
+.menu {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 76px;
+  align-items: center;
+
+  &__clicker {
+    box-sizing: border-box;
+    width: 24px;
+    height: 16px;
+    position: relative;
+  }
+
+  &__span {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    background-color: $fontColorDark;
+    transform-origin: left;
+    transition: transform 0.5s;
+
+    &:nth-child(2) {
+      top: 50%;
+      opacity: 1;
+      transition: opacity 0.5s;
+    }
+
+    &:nth-child(3) {
+      top: 100%;
+    }
+  }
+
+  &__toggler {
+    height: 50%;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: 12 / 13;
+    grid-row: 1 / 2;
+    justify-self: end;
+    cursor: pointer;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &--active {
+
+      .menu__clicker {
+
+        .menu__span:nth-child(1) {
+          transform-origin: left;
+          transform: rotate(42deg);
+        }
+
+        .menu__span:nth-child(2) {
+          opacity: 0;
+        }
+
+        .menu__span:nth-child(3) {
+          transform-origin: left;
+          transform: rotate(-42deg);
+        }
+      }
+    }
+  }
+
+  &__buy {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+
+    &__brand-link {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      transform: rotateX(0);
+      transition-property: transform;
+      transition-duration: 1s;
+      transition-delay: 0.4s;
+
+      &--open {
+        transform: rotateX(-90deg);
+      }
+    }
+
+    &__buy {
+      grid-column: 7 / 12;
+      grid-row: 1 / 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+      align-items: center;
+
+      @include FontSet("Helvetica Neue Roman", 12px, 15px);
+      transform: rotateX(0);
+      transition: transform 1s;
+
+      &--active {
+        transform: rotateX(-90deg);
+      }
+
+      &-button {
+        width: 102px;
+        height: 48px;
+        background-color: $fontColorDark;
+        color: $simpleWhite;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &-language {
+        text-decoration: none;
+        color: $fontColorLightGrey;
+
+        &--active {
+          color: $fontColorDark;
+        }
+        &:hover {
+          color: $fontColorDark;
+          @include FontSet("Helvetica Neue Bold", 12px, 15px);
+        }
+      }
+
+      &-link {
+        text-decoration: none;
+        color: $fontColorMiddleGrey;
+
+        &:hover {
+          color: $fontColorDark;
+          @include FontSet("Helvetica Neue Bold", 12px, 15px);
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(12, 100px);
+    justify-content: center;
+
+    &__toggler {
+      width: 48px;
+    }
+
+    &__buy {
+      grid-column: 9 / 12;
+      transform: rotateX(0);
+      transition-property: transform;
+      transition-duration: 1s;
+      transition-delay: 0.4s;
+
+      &--active {
+        transform: rotateX(90deg);
+      }
+    }
+  }
+}
+
+.brand {
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: transform 0.5s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

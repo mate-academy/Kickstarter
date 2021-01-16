@@ -1,0 +1,135 @@
+.announcement {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  &__video {
+    grid-column: 1 / 13;
+    position: relative;
+    height: 246px;
+    width: 100%;
+    background-image: url(../../src/images/announcementImg320x246.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    z-index: 40;
+
+    &-clip {
+      position: absolute;
+      top: 0;
+      z-index: 10;
+    }
+
+    &--active {
+      visibility: hidden;
+    }
+
+    &-clicker {
+
+      &--active {
+        visibility: hidden;
+      }
+
+      &::after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 108px;
+        height: 108px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 1px solid white;
+        cursor: pointer;
+        z-index: 50;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-25%, -50%);
+        background-image: url(../../src/images/playButton24x32.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 50;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+
+    &__video {
+      height: 400px;
+      background-image: url(../../src/images/announcementImg768x400.png);
+
+      &-clicker {
+
+        &::after {
+          width: 190px;
+          height: 190px;
+        }
+
+        &::before {
+          width: 26px;
+          height: 26px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(12, 75px);
+    column-gap: 30px;
+    justify-content: center;
+
+    &__video {
+      position: relative;
+      height: 590px;
+      background-image: url(../../src/images/announcementImg1440x590.png);
+      transition: filter 1s;
+
+      &-clip {
+        grid-column: 1 / 13;
+      }
+
+      &-clicker {
+
+        &::after {
+          width: 232px;
+          height: 232px;
+        }
+
+        &::before {
+          @include FontSet( "Din Pro Normal", 24px, 18px);
+          content: "PLAY";
+          background-image: none;
+          color: white;
+          transform: translate(-100%, -50%);
+          transition: transform 1s;
+        }
+      }
+    }
+
+    &:hover {
+
+      .announcement__video {
+        filter: brightness(0.4);
+      }
+
+      .announcement__video-clicker {
+
+        &::before {
+          content: "";
+          width: 32px;
+          height: 32px;
+          background-image: url(../../src/images/playButton24x32.svg);
+          transform: translate(-25%, -50%);
+        }
+      }
+    }
+  }
+}
