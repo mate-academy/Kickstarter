@@ -199,7 +199,14 @@
           </picture>
         </div>
         <div class="presentation__youtube">
-          <iframe class="presentation__youtube-vid"></iframe>
+          <iframe
+            class="presentation__youtube-vid"
+            width="100%"
+            src="https://www.youtube.com/embed/VjVSYsMzmEU"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
         </div>
       </div>
 
@@ -468,11 +475,12 @@
 
     </footer>
 
-    <script src="scripts/main.js">
-      document.querySelector('.presentation__pic-wrapper').onclick = function() {
-        this.style.display = 'none';
+    <script>
+
+      const video = document.querySelector('.presentation__pic-wrapper');
+      video.onclick = () => {
+        video.style = "display: none;";
         document.querySelector('.presentation__youtube').style.display = 'block';
-        document.querySelector('.presentation__youtube-vid').src = 'https://www.youtube.com/watch?v=VjVSYsMzmEU'
       }
     </script>
   </body>
