@@ -1,0 +1,91 @@
+.about {
+  display: flex;
+  max-width: 990px;
+  position: relative;
+  margin: 150px auto 0;
+
+  &__title {
+    font-family: "DIN Pro", sans-serif;
+    position: absolute;
+    right: 0;
+    top: 8px;
+    text-transform: uppercase;
+    font-size: 56px;
+    line-height: 72px;
+  }
+
+  &__img {
+    height: 388px;
+    width: 70%;
+    background: url(../images/aboutPic.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    max-width: 30%;
+    margin-left: 30px;
+    padding-top: 182px;
+    font-family: "HalveticaNeue", sans-serif;
+  }
+
+  &__description {
+    font-size: 16px;
+    color: #7c7c7c;
+    line-height: 24px;
+  }
+
+  &__link {
+    display: inline-block;
+    position: relative;
+    padding-top: 30px;
+    font-family: "HalveticaNeueMedium", sans-serif;
+    color: #0db2b3;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 15px;
+    transition: opacity 0.5s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      height: 1px;
+      width: 17%;
+      background-color: #0db2b3;
+      transition: width 0.5s;
+    }
+
+    &:hover {
+      opacity: 0.7;
+      &::after {
+        width: 33%;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  
+    &__title {
+      width: 90%;
+      font-size: 37px;
+      position: static;
+    }
+  
+    &__img {
+      width: 90%;
+    }
+  
+    &__text {
+      margin: 0;
+      padding-top: 29px;
+      max-width: 90%;
+    }
+  }
+}
