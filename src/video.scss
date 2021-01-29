@@ -1,4 +1,56 @@
-.video-img {
-  margin: 150px 0;
-  width: 100vw;
+.video {
+  position: relative;
+
+  &__img {
+    margin: 150px 0;
+    width: 100vw;
+    overflow: hidden;
+
+    @media(max-width: 1024px) {
+      height: 400px;
+      transform-origin: left bottom;
+    }
+  
+    @media(max-width: 320px) {
+      height: 250px;
+    }
+  }
+  
+  &__button {
+    position: absolute;
+    width: 232px;
+    height: 232px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0,2s;
+
+    @media(max-width: 1024px) {
+      width: 190px;
+      height: 190px;
+    }
+
+    @media(max-width: 580px) {
+      width: 108px;
+      height: 108px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: rgba(119, 180, 212, 0.5);
+    }
+  }
+
+  &__icon {
+    margin: 0;
+    position: absolute;
+    font-family: 'Din Pro';
+    font-size: 24px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+  }
 }
