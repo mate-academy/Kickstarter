@@ -1,13 +1,30 @@
 .technology {
-  margin-top: 150px;
+  padding-bottom: 130px;
   position: relative;
+
+  &__title {
+    margin: 0;
+  }
+
+  &__carousel {
+    margin-bottom: 160px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 
   @media(max-width: 1300px) {
     overflow: hidden;
   }
 
   &__device-img {
-    min-width: 1200px;
+    width: 1300px;
+
+    @media(max-width: 425px) {
+      transform: scale(0.5);
+      position: relative;
+      right: 330px;
+    }
   }
 
   &__text {
@@ -19,7 +36,16 @@
     line-height: 36px;
 
     @media(max-width: 900px) {
-      width: 700px;
+      width: 90%;
+    }
+
+    @media(max-width: 768px) {
+      width: 100%;
+    }
+
+    @media(max-width: 480px) {
+      font-size: 14px;
+      line-height: 21px;
     }
   }
 
@@ -140,4 +166,25 @@
     top: 50%;
     transform: translateY(-50%);
   }
+}
+
+.pages {
+  display: flex;
+  align-items: baseline;
+  color: #BDBDBD;
+  font-family: "Din Pro";
+  font-size: 11px;
+
+  &__page {
+    color: inherit;
+
+    &--is-active {
+      color: #333;
+      font-size: 16px;
+    }
+  }
+}
+
+.page {
+  padding: 0 4px;
 }
