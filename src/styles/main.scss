@@ -12,6 +12,7 @@
 @import "features";
 @import "FAQ";
 @import "footer";
+@import "burger";
 
 body {
   background: #f6f6f6;
@@ -67,6 +68,11 @@ a:link {
       font-size: 40px;
     }
   }
+  .video {
+    &__play {
+      font-size: 14px;
+    }
+  }
   @media screen and (max-width: 665px) {
     .nav {
       visibility: hidden;
@@ -79,6 +85,9 @@ a:link {
       }
       &__app {
         visibility: hidden;
+      }
+      &__title {
+        font-size: 37px;
       }
       &__connectivity {
         visibility: hidden;
@@ -99,9 +108,14 @@ a:link {
       }
     }
     .header {
-      &__menu {
+      &__item {
         display: none;
       }
+    }
+    .header__burger {
+
+      display: block;
+
     }
     .benefits {
       display: block;
@@ -153,5 +167,16 @@ a:link {
         font-size: 37px;
       }
     }
+    .footer {
+      &__text {
+        max-width: 300px;
+        text-align: center;
+      }
+    }
+    .burger__check:checked ~ .burger {
+      display: block;
+      position: absolute;
+    }
+
   }
 }
