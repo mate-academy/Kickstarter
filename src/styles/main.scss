@@ -31,11 +31,15 @@ a:link {
   padding: 120px 10vw 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @media screen and (max-width: 768px) {
   .benefits {
     padding: 0;
     .benefits__text {
-      padding: 0 0 0 34px;
+      padding: 0;
       align-self: center;
       grid-column: 1 / span 7;
     }
@@ -45,7 +49,9 @@ a:link {
 
     }
     .benefits__details {
-      padding-right: 20px;
+      padding: 30px 20px;
+      min-width: 70%;
+      align-self: center;
     }
     &__picture {
       background-position: top left;
@@ -73,110 +79,113 @@ a:link {
       font-size: 14px;
     }
   }
-  @media screen and (max-width: 665px) {
-    .nav {
+}
+@media screen and (max-width: 665px) {
+  .nav {
+    visibility: hidden;
+  }
+  .features {
+    background-color: #f2f2f2;
+    &__sound {
+      grid-column: 1 / span 19;
+      grid-row: 2 / 13;
+    }
+    &__app {
       visibility: hidden;
     }
-    .features {
-      background-color: #f2f2f2;
-      &__sound {
-        grid-column: 1 / span 19;
-        grid-row: 2 / 13;
-      }
-      &__app {
-        visibility: hidden;
-      }
-      &__title {
-        font-size: 37px;
-      }
-      &__connectivity {
-        visibility: hidden;
-      }
-      &__slider {
-        visibility: visible;
-      }
+    &__title {
+      font-size: 37px;
     }
-    .presentation {
-      padding: 0;
-      &__item:nth-child(2),
-      &__item:nth-child(3),
-      &__item:nth-child(4) {
-        display: none;
-      }
-      &__slider {
-        visibility: visible;
-      }
+    &__connectivity {
+      visibility: hidden;
     }
-    .header {
-      &__item {
-        display: none;
-      }
+    &__slider {
+      visibility: visible;
     }
-    .header__burger {
+  }
+  .presentation {
+    padding: 0;
+    &__item:nth-child(2),
+    &__item:nth-child(3),
+    &__item:nth-child(4) {
+      display: none;
+    }
+    &__slider {
+      visibility: visible;
+    }
+  }
+  .header {
+    &__item {
+      display: none;
+    }
+    &__bbutton {
+      display: block;
+    }
+  }
+  .header__burger {
 
-      display: block;
-
-    }
-    .benefits {
-      display: block;
-    }
-    .benefits__title,
-    .benefits__details {
-      text-align: center;
-      font-size: 44px;
-    }
-    .benefits__details {
-      font-size: 16px;
-    }
-    .design {
-      display: block;
-      height: auto;
-      padding-bottom: 50px;
-      &__picture {
-        height: 210px;
-        margin: 30px;
-      }
-      &__title {
-        padding: 30px;
-        font-size: 37px;
-      }
-      &__text {
-        margin: 0 30px;
-      }
-      &__link {
-        padding: 30px;
-      }
-    }
-    .FAQ {
-      &__title {
-        font-size: 37px;
-        text-align: left;
-      }
-    }
-    .phrase {
-      &__text {
-        font-size: 14px;
-        line-height: 21px;
-      }
-    }
-    .technology {
-      &__title {
-        grid-column: 3 / span 10;
-      }
-      h2 {
-        font-size: 37px;
-      }
-    }
-    .footer {
-      &__text {
-        max-width: 300px;
-        text-align: center;
-      }
-    }
-    .burger__check:checked ~ .burger {
-      display: block;
-      position: absolute;
-    }
+    display: block;
 
   }
+  .benefits {
+    display: block;
+  }
+  .benefits__title,
+  .benefits__details {
+    text-align: center;
+    font-size: 44px;
+  }
+  .benefits__details {
+    font-size: 16px;
+  }
+  .design {
+    display: block;
+    height: auto;
+    padding-bottom: 50px;
+    &__picture {
+      height: 210px;
+      margin: 30px;
+    }
+    &__title {
+      padding: 30px;
+      font-size: 37px;
+    }
+    &__text {
+      margin: 0 30px;
+    }
+    &__link {
+      padding: 30px;
+    }
+  }
+  .FAQ {
+    &__title {
+      font-size: 37px;
+      text-align: left;
+    }
+  }
+  .phrase {
+    &__text {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+  .technology {
+    &__title {
+      grid-column: 3 / span 10;
+    }
+    h2 {
+      font-size: 37px;
+    }
+  }
+  .footer {
+    &__text {
+      max-width: 300px;
+      text-align: center;
+    }
+  }
+  .burger__check:checked ~ .burger {
+    display: block;
+    position: absolute;
+  }
+
 }
