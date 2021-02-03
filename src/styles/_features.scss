@@ -1,36 +1,49 @@
 .features {
+  overflow: hidden;
+  &__main-container {
+    width: 1110px;
+    height: 700px;
+    margin-left: 327px;
+    background-color: #f2f2f2;
+  }
+
   &__main-text {
-    padding: 150px 0 130px 123px;
     font-size: 56px;
     line-height: 70px;
     text-transform: uppercase;
     color: #333;
+    position: relative;
+    left: 123px;
+    padding-top: 150px;
+    padding-bottom: 130px;
   }
 
   &__container {
-    display: grid;
-    justify-content: right;
-  }
-
-  &__container-for-all {
     position: relative;
-  }
-
-  &__photo-container {
-    width: 1113px;
-    height: 701px;
-    background-color: #f2f2f2;
-    position: relative;
-
   }
 
   &__photo {
-    position: absolute;
-    width: 786px;
-    height: 509px;
     top: 176px;
-    right: 123px;
-    background-image: url("../images/features.png");
+    left: 123px;
+    position: absolute;
+  }
+
+  &__music {
+    position: relative;
+    right: -200px;
+    top: -70px;
+  }
+
+  &__connectivity {
+    position: relative;
+    top: -60px;
+    right: 0;
+  }
+
+  &__app {
+    position: relative;
+    top: -20px;
+    right: -200px;
   }
 
   &__details-main-text {
@@ -38,31 +51,61 @@
     line-height: 120%;
     text-transform: uppercase;
     color: #0c797a;
-    padding: 0 0 44px 15px;
+    padding: 0 0 20px 15px;
   }
 
   &__details-list-item {
     font-size: 16px;
     line-height: 24px;
     color: #333;
-    padding-bottom: 13px;
+    padding-bottom: 5px;
   }
+}
 
-  &__music {
-    position: absolute;
-    right: 415px;
-    top: -66px;
+@media screen and (max-width: 1024px) {
+  .features {
+    &__main-container {
+      margin-left: 124px;
+    }
   }
+}
 
-  &__connectivity {
-    position: absolute;
-    top: 155px;
-    left: -88px;
-  }
+@media screen and (max-width: 767px) {
+  .features {
+    &__main-text {
+      left: 0;
+      right: 0;
+      max-width: 260px;
+      font-size: 37px;
+      line-height: 46px;
+      margin: auto;
+    }
 
-  &__app {
-    position: absolute;
-    top: 532px;
-    left: 115px;
+    &__main-container {
+      width: auto;
+      height: auto;
+      margin: 0;
+    }
+
+    &__container {
+      display: grid;
+      justify-content: center;
+    }
+
+    &__photo {
+      display: none;
+    }
+
+    &__music {
+      position: initial;
+    }
+
+    &__connectivity {
+      position: initial;
+    }
+
+    &__app {
+      position: initial;
+    }
   }
 }
