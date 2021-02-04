@@ -1,18 +1,21 @@
 .technology {
   overflow: hidden;
+
   &__img-container {
     position: relative;
     left: 20%;
   }
 
   &__main-text {
-    padding-top: 150px;
     position: relative;
+    padding-top: 150px;
     left: 400px;
+
     font-size: 56px;
     line-height: 70px;
     text-transform: uppercase;
-    color: #333;
+
+    color: $main-color-text;
   }
 
   &__img {
@@ -84,12 +87,20 @@
     position: relative;
     width: 48px;
     height: 48px;
-    background-color: #0db2b3;
+
     border-radius: 50%;
+    background-color: $secondary-color;
+
+    transition: background-color, transform 1s;
+  }
+
+  &__plus-icon:hover {
+    background-color: $for-row-color;
+    transform: scale(1.2);
   }
 
   &__plus-eleventh > &__plus-icon {
-    background-color: #131313;
+    background-color: $eight-row-color;
   }
 
   &__plus-position {
@@ -111,7 +122,7 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: $medium-width) {
   .technology {
     &__main-text {
       left: 136px;
@@ -119,15 +130,16 @@
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $small-width) {
   .technology {
     &__main-text {
       left: 0;
       right: 0;
+      margin: auto;
       max-width: 260px;
+
       font-size: 37px;
       line-height: 46px;
-      margin: auto;
     }
   }
 }

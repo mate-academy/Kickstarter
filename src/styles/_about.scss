@@ -15,18 +15,19 @@
   }
 
   &__draw-img {
-    background-image: url(../images/design_draw.png);
     width: 582px;
     height: 388px;
+    background-image: url(../images/design_draw.png);
   }
 
   &__main-text {
     position: absolute;
     top: 8px;
     left: 510px;
+    min-width: 430px;
+
     font-size: 56px;
     line-height: 72px;
-    min-width: 430px;
   }
 
   &__main-text-position {
@@ -35,31 +36,39 @@
   }
 
   &__text {
+    padding: 182px 0 0 30px;
     max-width: 448px;
     min-width: 310px;
-    padding: 182px 0 0 30px;
     font-size: 16px;
+
     line-height: 24px;
-    color: #7c7c7c;
+
+    color: $tertiary-color;
   }
 
   &__link {
-    padding: 30px 0 0 30px;
     position: relative;
+    padding: 30px 0 0 30px;
   }
 
   &__link-properties {
-    color: #0db2b3;
+    padding-bottom: 6px;
     text-transform: uppercase;
     font-weight: 500;
     font-size: 12px;
     line-height: 15px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid #0db2b3;
+
+    border-bottom: 1px solid $secondary-color;
+    color: $secondary-color;
+    transition: color 1s;
+  }
+
+  &__link-properties:hover {
+    color: $main-color-text;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: $medium-width) {
   .about {
     &__draw {
       left: -200px;
@@ -72,7 +81,7 @@
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $small-width) {
   .about {
     &__small {
       display: block;
@@ -99,14 +108,15 @@
 
     &__main-text-small {
       font-size: 37px;
-      line-height: 55px;
-      color: #333;
       text-align: center;
+      line-height: 55px;
+
+      color: $main-color-text;
     }
 
     &__link {
-      align-self: start;
       padding-left: 0;
+      align-self: start;
     }
 
     &__text {

@@ -8,7 +8,7 @@
     font-size: 56px;
     line-height: 72px;
     text-transform: uppercase;
-    color: #333;
+    color: $main-color-text;
     max-width: 480px;
     padding-right: 100px;
   }
@@ -24,7 +24,7 @@
     border: 1px solid #828282;
     font-size: 16px;
     line-height: 19px;
-    color: #bdbdbd;
+    color: $five-row-color;
     padding-left: 30px;
   }
 
@@ -34,15 +34,14 @@
     border: 1px solid #828282;
     font-size: 16px;
     line-height: 19px;
-    color: #bdbdbd;
-    padding: 30px;
+    padding: 0 0 50px 30px;
   }
 
   &__form-email::placeholder,
   &__form-text::placeholder {
     font-size: 16px;
     line-height: 19px;
-    color: #bdbdbd;
+    color: $five-row-color;
   }
 
   &__form-text::placeholder {
@@ -56,14 +55,20 @@
   &__form-button {
     width: 102px;
     height: 48px;
-    background-color: #0db2b3;
-    color: #fff;
+    background-color: $secondary-color;
+    color: $first-color;
     border: none;
+    transition: color 1s;
+    cursor: pointer;
+  }
+
+  &__form-button:hover {
+    color: $main-color-text;
   }
 
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: $medium-width) {
   .question {
     &__main-text {
       padding-right: 20px;
@@ -77,7 +82,7 @@
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $small-width) {
   .question {
     flex-direction: column;
     justify-content: center;

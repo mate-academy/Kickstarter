@@ -3,21 +3,24 @@
 
   &__item-container {
     padding-top: 170px;
-
   }
 
   &__item-view {
     display: flex;
-    height: 590px;
-    text-align: center;
+    justify-content: center;
+    position: relative;
+
     background-image: url(../images/device_design.png);
     background-repeat: no-repeat;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 1s;
-    position: relative;
-    width: 100vw;
     background-position: center;
+
+    width: 100vw;
+    height: 590px;
+
+    text-align: center;
+    align-items: center;
+
+    transition: opacity 1s;
   }
 
   &__item-view:hover {
@@ -25,12 +28,15 @@
   }
 
   &__item-text {
+    padding: 107px 87px;
+
     font-size: 24px;
     line-height: 18px;
-    padding: 107px 87px;
-    border: 1px solid #f3f4f5;
+
+    border: 1px solid $ten-row-color;
     border-radius: 50%;
-    color: #f3f4f5;
+
+    color: $ten-row-color;
   }
 
   &__play-button {
@@ -43,14 +49,17 @@
 
   &__item-view:hover > &__play-button {
     display: block;
-    opacity: 100%;
     width: 24px;
     height: 32px;
+
     background: url(../images/play-icon.svg) no-repeat;
+
+    opacity: 100%;
+
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: $medium-width) {
   .presentation {
     &__item-view {
       height: 400px;
