@@ -21,9 +21,9 @@
     width: 1300px;
 
     @media(max-width: 425px) {
-      transform: scale(0.5);
+      transform: scale(0.48);
       position: relative;
-      right: 330px;
+      right: 360px;
     }
   }
 
@@ -52,6 +52,19 @@
   &__person {
     margin: 0 auto;
     text-align: center;
+    position: relative;
+
+    &::after {
+      content: '';
+      background-image: url("../images/brackets.svg");
+      background-repeat: no-repeat;
+      width: 233px;
+      height: 100%;
+      left: calc(50% - 233px / 2);
+      bottom: 120px;
+      position: absolute;
+      z-index: -1;
+    }
   }
 }
 
@@ -82,81 +95,96 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background-color: #0DB2B3;
-    transition: all 1s;
+    background-color: #0db2b3;
+    transition: background 0.3s;
 
     &:hover {
-      transform: scale(1.2);
+      background: #131313;
     }
   }
 
   &__pill--1 {
     left: 100px;
-    top: 350px;
+    top: 310px;
+
+    @media(max-width: 425px) {
+      left: 30px;
+      top: 320px;
+    }
   }
 
   &__pill--2 {
     left: 270px;
-    top: 480px;
+    top: 440px;
+
+    @media(max-width: 425px) {
+      left: 100px;
+      top: 400px;
+    }
   }
 
   &__pill--3 {
     left: 350px;
-    top: 420px;
+    top: 380px;
+
+    @media(max-width: 425px) {
+      left: 140px;
+      top: 350px;
+    }
   }
 
   &__pill--4 {
     left: 410px;
-    top: 250px;
+    top: 210px;
+
+    @media(max-width: 425px) {
+      left: 150px;
+      top: 270px;
+    }
   }
 
   &__pill--5 {
     left: 510px;
-    top: 540px;
+    top: 500px;
+
+    @media(max-width: 425px) {
+      left: 220px;
+      top: 430px;
+    }
   }
 
   &__pill--6 {
     left: 650px;
-    top: 300px;
+    top: 260px;
   }
 
   &__pill--7 {
     left: 790px;
-    top: 440px;
+    top: 400px;
   }
 
   &__pill--8 {
     left: 940px;
-    top: 300px;
+    top: 260px;
   }
 
   &__pill--9 {
     left: 1050px;
-    top: 190px;
+    top: 150px;
   }
 
   &__pill--10 {
     left: 1180px;
-    top: 280px;
+    top: 240px;
   }
 
   &__pill--11 {
     left: 1130px;
-    top: 350px;
+    top: 310px;
   }
 
   &__pill--active {
     background: #131313;
-
-    &::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 70px;
-      height: 200px;
-      width: 1px;
-      background-color: #000;
-    }
   }
 }
 
@@ -166,12 +194,19 @@
     top: 50%;
     transform: translateY(-50%);
   }
+
+  &__extra {
+    height: 170px;
+    width: 200px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+  }
 }
 
 .pages {
   display: flex;
   align-items: baseline;
-  color: #BDBDBD;
+  color: #bdbdbd;
   font-family: "Din Pro";
   font-size: 11px;
 
