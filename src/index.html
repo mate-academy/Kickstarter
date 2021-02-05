@@ -6,10 +6,26 @@
     <title>Title</title>
     <link rel="stylesheet" href="./styles/style.scss">
     <link rel="icon" href="images/icon.svg">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("a").on('click', function(event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function(){
+            window.location.hash = hash;
+          });
+        }
+      });
+    });
+    </script>
   </head>
   <body class="body">
     <header class="header">
-      <a name="anchor"></a>
+      <a id="anchor"></a>
       <div class="header__burger">
         <input
           id="burger-toggle"
@@ -75,7 +91,7 @@
           <span class="header__button-burger"></span>
         </label>
 
-        <nav class="header__nav nav">
+        <nav class="header__nav nav" id="menu">
           <ul class="nav__list">
             <li class="nav__item">
               <a href="#our_story" class="nav__story nav__link">
@@ -193,7 +209,7 @@
 
       <section class="main__item presentation">
         <div class="presentation__item-container">
-          <a name="our_story"></a>
+          <a id="our_story"></a>
           <div class="presentation__item-view">
             <a class="presentation__item-text">
               PLAY
@@ -208,7 +224,7 @@
           <div class="about__draw">
             <div class="about__draw-img"></div>
             <div class="about__main-text">
-              <a name="about"></a>
+              <a id="about"></a>
               <p class="about__main-text-position">
                 DESIGNED FOR THE FUTURE
               </p>
@@ -232,7 +248,7 @@
 
       <section class="main__about-small about__small">
         <div class="about__text-small">
-          <a name="about_small"></a>
+          <a id="about_small"></a>
           <p class="about__main-text-small">
             DESIGNED FOR THE FUTURE
           </p>
@@ -261,7 +277,7 @@
 
       <section class="main__technology technology">
         <div class="technology__main-text">
-          <a name="technology"></a>
+          <a id="technology"></a>
           <p class="technology__text-properties">
             technology
           </p>
@@ -416,7 +432,7 @@
 
       <section class="main__features features">
         <div class="features__main-text">
-          <a name="features"></a>
+          <a id="features"></a>
           <p class="features__text-properties">
             features
           </p>
