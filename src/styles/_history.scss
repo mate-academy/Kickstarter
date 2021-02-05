@@ -8,12 +8,12 @@
     width: 582px;
     height: 388px;
     float: left;
-    margin-left: 225px;
+    margin-left: 200px;
   }
   
   &__heading {
     transform: translate(-77px, 15px);
-    font-family: "DIN Pro", sans-serif;
+    font-family: $font-family-din;
     font-size: 56px;
     line-height: 72px;
     color: $text-color-granit;
@@ -21,25 +21,27 @@
 
   &__text,
   &__info {
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: $font-family-helv;
     overflow: hidden;
     padding: 30px 0 15px 30px;
   }
 
   &__text {
+    width: 370px;
+
     font-size: 16px;
     line-height: 150%;
   }
 
   &__info {
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: $font-family-helv;
     font-size: 12px;
     line-height: 15px;
     text-transform: uppercase;
 
     &--link {
       color: $history-link-color;
-      font-family: "Helvetica Neue", sans-serif;
+      font-family: $font-family-helv;
       font-size: 12px;
       line-height: 15px;
 
@@ -50,13 +52,41 @@
         margin-top: 6px;
   
         border-bottom: 1px solid $history-link-color;
-        transition-duration: 1s;
+        transition: width 1s;
       }
 
       &:hover::after {
         width: 10.4em;
-        transition-duration: 1s;
+        transition: width 1s;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .history {
+    &__img {
+      margin-left: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .history {
+    overflow: hidden;
+    width: 871px;
+
+    &__img {
+      width: 479px;
+      margin-left: -90px;
+    }
+
+    /* &__heading {
+      margin-right: -151px;
+    } */
+
+    &__text {
+      width: 345px;
     }
   }
 }

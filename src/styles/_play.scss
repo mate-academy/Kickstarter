@@ -1,23 +1,16 @@
+@import "mixins";
+
 .play {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend %display-flex-row;
+
   height: 590px;
-  width: 100%;
+  width: 99%;
   background-color: rgba(47, 13, 13, 0.46);
   background-image: url(../images/Speaker2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 
-  &__circle {
-    position: relative;
-    width: 232px;
-    height: 232px;
-    border: 1px solid #f3f4f5;
-    border-radius: 50%;
-  }
-  
   &__circle::after {
     content: "PLAY";
     position: absolute;
@@ -29,5 +22,25 @@
     line-height: 18px;
     color: #f3f4f5;
     font-family: $font-family-din;
+  }
+  
+  &__circle {
+    position: relative;
+    width: 232px;
+    height: 232px;
+    border: 1px solid #f3f4f5;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover::after {
+      content: url(../images/triangle.svg);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .play {
+    height: 400px;
+    width: 99%;
   }
 }

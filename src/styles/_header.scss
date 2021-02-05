@@ -1,17 +1,15 @@
 @import "vars";
+@import "mixins";
 
 .header {
-  max-width: 1440px;
-  
   &-top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend %display-flex-row;
     
     &__describe {
       display: flex;
       flex-direction: column;
       margin-left: $wide-screen-margin;
+      z-index: 3;
     }
 
     &__headline {
@@ -32,6 +30,50 @@
     &__photo {
       width: 939px;
       height: 464px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header {
+    &-top {
+      &__photo {
+        width: 532px;
+        height: 416px;
+        margin: 19px 109px 0 0;
+        object-position: 0 0;
+        object-fit: cover;
+      }
+
+      &__headline {
+        margin-top: 80px;
+      }
+
+      &__describe {
+        margin-left: 45px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    &-top {
+      overflow: hidden;
+      
+      &__headline {
+        font-size: 48px;
+      }
+
+      &__describe {
+        margin-left: 30px;
+      }
+
+      &__photo {
+        height: 365px;
+        margin: 30px -67px 0 -72px;
+        z-index: -1;
+      }
     }
   }
 }

@@ -1,9 +1,8 @@
 @import "vars";
+@import "mixins";
 
 .nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend %display-flex-row;
 
   &__list {
     padding-top: 88px;
@@ -22,18 +21,23 @@
 
     text-align: center;
     color: #131313;
-    transition-duration: 1s;
+    transition: background-color 1s;
 
     &:hover {
       background-color: $text-color-light-grey;
       border-radius: 4px;
-      transition-duration: 1s;
     }
   }
 }
 
-@media screen and (max-width: $laptop-screen-breakpoint) {
-  /* .nav {
-    
-  } */
+@media screen and (max-width: 1024px) {
+  .nav {
+    &__item {
+      display: none;
+    }
+
+    &__link {
+      font-size: 99px;
+    }
+  }
 }

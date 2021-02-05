@@ -1,3 +1,5 @@
+@import "vars";
+
 .info {
   display: flex;
   justify-content: center;
@@ -14,8 +16,7 @@
   &__icon {
     height: 40px;
     width: 50px;
-    align-self: center;/* 
-    padding-bottom: 42px; */
+    align-self: center;
   }
 
   &__heading {
@@ -23,7 +24,7 @@
 
     align-self: center;
 
-    font-family: "DIN Pro", sans-serif;
+    font-family: $font-family-din;
     font-size: 24px;
     line-height: 30px;
     text-align: center;
@@ -35,11 +36,45 @@
     padding-top: 20px;
     padding-bottom: 150px;
 
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: $font-family-helv;
     font-size: 14px;
     line-height: 21px;
     text-align: center;
     width: 276px;
     align-items: start;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .info {
+    width: 900px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    padding: 0 33px;
+
+    &__text {
+      padding-bottom: 90px;
+      width: 340px;
+    }
+
+    &__icon {
+      margin-bottom: 40px;
+    }
+
+    &__column {
+      margin: 0;
+      padding: 0 10px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .info {
+    width: 730px;
+    justify-content: flex-start;
+    padding: 0 17px;
   }
 }

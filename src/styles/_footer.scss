@@ -1,8 +1,8 @@
+@import "../styles/mixins.scss";
+@import "../styles/vars";
+
 .footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @extend %display-flex-column;
 
   &__logo {
     margin-top: 142px;
@@ -13,12 +13,28 @@
   }
 
   &__icon {
-    margin: 0 46px 36px;
+    margin: 0 18px 36px;
+
+    &--twitter {
+      margin-right: 38px;
+    }
+
+    &--instagram {
+      margin-right: 45px;
+    }
   }
 
   &__rights {
     font-size: 14px;
     color: $text-color-light-grey;
     margin-bottom: 100px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    &__logo {
+      margin: 142px 0 0 274px;
+    }
   }
 }
