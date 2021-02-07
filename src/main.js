@@ -2,11 +2,6 @@
 
 const burgerButton = document.querySelector('.menu__btn');
 const burgerMenu = document.querySelector('.menu__burger');
-const initialPagePosition = document.querySelector('.footer__start-button');
-
-initialPagePosition.addEventListener('click', ev => {
-  window.scrollTo(0, 0);
-});
 
 burgerButton.addEventListener('click', (e) => {
   const flag = e.target.closest('.menu__btn').classList.toggle('flag');
