@@ -30,6 +30,8 @@
       height: 3px;
       background-color: $text-color-granit;
       transform: translateY(7px);
+      transition: transform 0.5s;
+      transform-origin: 14px;
     }
 
     &::after {
@@ -49,7 +51,18 @@
     &__checkbox {
       &:checked {
         & ~ .lang__menu {
-          opacity: 0;
+          opacity: 1;
+        }
+
+        & ~ .toggle > .toggle__button {
+          height: 0;
+          &::after {
+            transform: rotate(45deg);
+          }
+
+          &::before {
+            transform: rotate(-45deg);
+          }
         }
       }
     }
