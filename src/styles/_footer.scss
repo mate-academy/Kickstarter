@@ -3,6 +3,7 @@
 
 .footer {
   @extend %display-flex-column;
+  position: relative;
 
   &__logo {
     margin-top: 142px;
@@ -29,20 +30,33 @@
     color: $text-color-light-grey;
     margin-bottom: 100px;
   }
+
+  &__arrow {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1024px) {
   .footer {
     &__logo {
-      margin: 142px 0 0 274px;
+      margin: 142px auto 0;
     }
   }
 }
 
-/* @media screen and (max-width: 500px) {
+@media screen and (max-width: 500px) {
   .footer {
     &__logo {
+      margin: 0 auto;
+      opacity: 0;
+    }
 
+    &__arrow {
+      display: block;
+      position: absolute;
+      top: 20%;
+      right: 15%;
+      transform: rotate(90deg);
     }
   }
-} */
+}

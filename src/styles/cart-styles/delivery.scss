@@ -1,12 +1,11 @@
 @import "../vars";
+@import "../mixins";
 
 .delivery {
 
   &,
   &__wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend %display-flex-row;
   }
 
   &__wrapper {
@@ -24,5 +23,16 @@
     line-height: 20px;
     font-weight: 500;
     font-style: 18px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .delivery {
+    &,
+    &__wrapper {
+      justify-content: flex-start;
+      align-items: flex-start;
+
+    }
   }
 }
