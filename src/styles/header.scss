@@ -1,0 +1,110 @@
+@import "variables";
+
+.header {
+
+  display: flex;
+  padding: 13px 8.5vw;
+  align-items: center;
+
+  font-family: "Helvetica Neue", sans-serif;
+
+  &__logo {
+
+    display: flex;
+    align-items: center;
+    flex-basis: 162px;
+
+    line-height: 26px;
+
+  }
+
+  &__menu {
+
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+
+  }
+
+  &__lang {
+
+    color: #8a8a8a;
+
+  }
+
+  &__item {
+
+    display: flex;
+    flex-basis: 90px;
+    justify-content: center;
+    align-items: center;
+
+    &-buy {
+
+      display: inline;
+      box-sizing: border-box;
+      padding: 14px 20px;
+
+      font-size: 12px;
+      line-height: 15px;
+      text-decoration: none;
+      color: $standard_white;
+
+      border: 1px solid $standard_black;
+      background-color: $standard_black;
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    &-buy:hover {
+
+      background-color: $standard_white;
+      color: $standard_black;
+
+    }
+
+    &__lang:visited {
+
+      color: $standard_black;
+
+    }
+
+    .lang-disabled {
+
+      color: $standard_black;
+      pointer-events: none;
+      cursor: default;
+
+    }
+  }
+
+  &__bbutton {
+
+    display: none;
+
+  }
+
+  .is-active {
+
+    color: #000;
+
+  }
+}
+
+@media screen and (max-width: 665px) {
+
+  .header {
+    &__item {
+      display: none;
+    }
+
+    &__bbutton {
+      display: block;
+    }
+  }
+
+  .header__burger {
+
+    display: block;
+
+  }
+}

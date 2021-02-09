@@ -1,0 +1,121 @@
+.design {
+
+  display: grid;
+  padding: 150px 8.5vw;
+  width: auto;
+  height: 388px;
+  grid-template-columns: repeat(24, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+
+  &__picture {
+
+    grid-column: 2 / span 13;
+    grid-row: 1 /  span 15;
+
+    background: url(/images/design_picture.jpg);
+    background-repeat: no-repeat;
+
+  }
+
+  &__title {
+
+    grid-column: 13 / span 12;
+    grid-row: 1 /  span 5;
+
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    font-size: 54px;
+    line-height: 64px;
+
+  }
+
+  &__text {
+
+    grid-column: 16 / span 9;
+    grid-row: 5 /  span 2;
+
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 24px;
+
+  }
+
+  &__link {
+
+    grid-column: 16 / span 9;
+    grid-row: 9 /  span 1;
+
+    color: $light_blue;
+    font-size: 12px;
+    line-height: 14px;
+
+    &::after {
+
+      content: "";
+      position: relative;
+      top: 6px;
+      display: block;
+      height: 1px;
+      width: 53px;
+
+      background-color: $light_blue;
+      transition: font-weight 0.5s;
+    }
+
+    &-a {
+
+      font-family: "Helvetica Neue", sans-serif;
+      color: $light_blue;
+
+    }
+  }
+
+  &__link:hover {
+
+    font-weight: bold;
+    cursor: pointer;
+
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .design {
+
+    padding: 130px 0;
+
+    &__picture {
+      grid-column: 1 / span 14;
+    }
+
+    &__title {
+      font-size: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 665px) {
+  .design {
+    display: block;
+    height: auto;
+    padding-bottom: 50px;
+
+    &__picture {
+      height: 210px;
+      margin: 30px;
+    }
+
+    &__title {
+      padding: 30px;
+      font-size: 37px;
+    }
+
+    &__text {
+      margin: 0 30px;
+    }
+
+    &__link {
+      padding: 30px;
+    }
+  }
+}
