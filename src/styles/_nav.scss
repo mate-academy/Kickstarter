@@ -1,0 +1,43 @@
+@import "vars";
+@import "mixins";
+
+.nav {
+  @extend %display-flex-row;
+
+  &__list {
+    padding-top: 88px;
+  }
+
+  &__item {
+    margin: 10px;
+    display: inline-block;
+    list-style: none;
+  }
+
+  &__link {
+    display: block;
+    width: 174px;
+    line-height: 41px;
+
+    text-align: center;
+    color: #131313;
+    transition: background-color 1s;
+
+    &:hover {
+      background-color: $text-color-light-grey;
+      border-radius: 4px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .nav {
+    &__item {
+      display: none;
+    }
+
+    &__link {
+      font-size: 99px;
+    }
+  }
+}
