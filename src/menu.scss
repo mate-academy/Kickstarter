@@ -1,0 +1,76 @@
+.menu {
+  &__burger {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    padding: 20px;
+    width: 45vw;
+    background-color: rgba(darkgrey, 0.6);
+
+    @media(min-width: 750px) {
+      display: none;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    color: $primaryColor;
+    position: relative;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    line-height: 48px;
+
+    @media(min-width: 751px) {
+      display: none;
+    }
+  }
+
+  &__toggler {
+    display: block;
+    line-height: 48px;
+    width: 100%;
+    height: 4px;
+    color: red;
+    background-color: #000;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      background-color: #000;
+      width: 100%;
+      height: 4px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 6px;
+      background-color: #000;
+      width: 100%;
+      height: 4px;
+    }
+  }
+}
+
+#menu__checkbox {
+  display: none;
+}
+
+#menu__checkbox:checked ~ .menu__btn .menu__toggler {
+  transform: rotate(45deg);
+}
+
+#menu__checkbox:checked ~ .menu__btn .menu__toggler::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu__checkbox:checked ~ .menu__btn .menu__toggler::after {
+  top: 0;
+  transform: rotate(90deg);
+}
