@@ -5,11 +5,13 @@
     flex-direction: column;
     align-items: center;
   }
-  &__title,
-  &__form {
-    flex-basis: 45%;
+
+  &__title {
+    flex-basis: 55%;
   }
+
   &__form {
+    flex-basis: 40%;
     width: 100%;
     max-width: 485px;
   }
@@ -18,13 +20,19 @@
     margin: 12px 0;
     padding: 14px 30px;
     display: block;
-    border: 1px solid #828282;
+    border: 1px solid $grayLite;
+    border-radius: 3px;
     width: 100%;
+    color: $textColor;
+    transition: border-color $transition;
 
     &::placeholder {
-      text-transform: capitalize;
       font-size: $FontSizeXl;
       color: $grayLite;
+    }
+
+    &:hover {
+      border-color: $gray;
     }
   }
 
@@ -33,5 +41,11 @@
     background: $turquoise;
     text-transform: uppercase;
     color: $white;
+    cursor: pointer;
+    transition: box-shadow $transition;
+
+    &:hover {
+      box-shadow: $boxShadow;
+    }
   }
 }

@@ -44,9 +44,29 @@
     object-fit: $fit-type;
   }
 }
+
 @mixin iconCenter {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+@mixin underline($color:$white, $height:2px) {
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: $height;
+    background-color: $color;
+    opacity: 0;
+    transition: $transition;
+  }
+  &:hover::before {
+    animation-name: ter;
+    width: 100%;
+    opacity: 1;
+  }
 }
