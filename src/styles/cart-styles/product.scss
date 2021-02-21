@@ -61,6 +61,22 @@
       border-radius: 50%;
       border-color: $text-color-dark-grey;
     }
+
+    &:nth-child(2) {
+      background-color: #a4a4a4;
+    }
+
+    &:nth-child(3) {
+      background-color: #a1847d;
+    }
+
+    &:nth-child(4) {
+      background-color: #b4a492;
+    }
+
+    &:nth-child(5) {
+      background-color: #828387;
+    }
   }
 
   &__chosen {
@@ -75,6 +91,20 @@
   &__number {
     margin: 50px 0;
     text-align: center;
+
+    &--plus,
+    &--minus {
+      display: inline-block;
+      font-size: 36px;
+      vertical-align: middle;
+      margin: 0 18px;
+      cursor: pointer;
+      color: $text-color-light-grey;
+
+      &:hover {
+        color: $text-color-granit;
+      }
+    }
 
     input {
       width: 72px;
@@ -111,9 +141,73 @@
   .product {
     display: block;
 
+    &__photo {
+      margin: 150px calc(50% - 408px / 2) 0;
+    }
+
     &__coloring {
       width: 59vw;
       float: left;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .product {
+    position: relative;
+    &__photo {
+      width: 194px;
+      height: 194px;
+      margin: 150px calc(50% - 194px / 2) 0;
+    }
+
+    &__name,
+    &__cost {
+      position: absolute;
+    }
+
+    &__name {
+      font-size: 36px;
+      top: 2%;
+      left: calc(50% - 180px / 2);
+    }
+
+    &__cost {
+      top: 5%;
+      left: calc(50% - 86px / 2);
+    }
+
+    &__coloring {
+      width: 100vw;
+      margin-top: 80px;
+
+      border-right: 0;
+      float: none;
+    }
+
+    &__colors {
+      display: flex;
+      justify-content: center;
+      width: 100vw;
+      margin: 0;
+    }
+
+    &__color {
+      margin: 14px;
+    }
+
+    &__chosen {
+      width: 100vw;
+      margin-top: 30px;
+    }
+
+    &__number {
+      width: 100vw;
+    }
+
+    &__add {
+      margin: 0 calc(50% - 174px / 2);
+      margin-bottom: 55px;
     }
   }
 }
