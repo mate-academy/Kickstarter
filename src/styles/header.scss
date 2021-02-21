@@ -1,0 +1,238 @@
+.header {
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 13px 123px 89px;
+
+    @media (max-width: 1182px) {
+      padding: 13px 60px 89px;
+    }
+
+    @media (max-width: 1182px) {
+      padding: 13px 30px 89px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 13px 30px 0;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__pic {
+    display: block;
+  }
+
+  &__specs {
+    margin-right: 45px;
+    display: inline-block;
+    @include FontSet("Helvetica Neue Roman", 14px, 21px);
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__specs-color {
+    color: hsl(0, 0%, 31%);
+  }
+
+  &__en {
+    display: inline-block;
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__ua {
+    display: inline-block;
+    margin-right: 37px;
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__buy {
+    display: inline-block;
+    width: 102px;
+    height: 48px;
+
+    @include FontSet("Helvetica Neue Roman", 12px, 15px);
+    text-align: center;
+    text-transform: uppercase;
+    color: hsl(0, 0%, 100%);
+
+    background: hsl(0, 0%, 20%);
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__holder {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    margin-top: 100px;
+
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__text {
+    position: relative;
+    padding-bottom: 20px;
+    align-self: flex-end;
+    color: #333;
+
+    @media (max-width: 991px) {
+      display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+      align-self: center;
+    }
+  }
+
+  &__title {
+    max-width: 378px;
+    margin-bottom: 27px;
+    @include FontSet("Din Pro Bold", 64px, 83px);
+    text-transform: uppercase;
+
+    @media (max-width: 991px) {
+      max-width: 298px;
+      @include FontSet("Din Pro Bold", 48px, 62px);
+    }
+
+    @media (max-width: 768px) {
+      max-width: 478px;
+      text-align: center;
+      margin-top: 40px;
+    }
+  }
+
+  &__subtitle {
+    @include FontSet("Helvetica Neue Roman", 16px, 24px);
+    max-width: 278px;
+
+    @media (max-width: 991px) {
+      max-width: 250px;
+    }
+
+    @media (max-width: 768px) {
+      max-width: 478px;
+      text-align: center;
+    }
+  }
+
+  &__photo {
+    overflow: hidden;
+    object-fit: cover;
+  }
+
+  &__basket {
+    display: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: hsl(180, 86%, 38%);
+    box-shadow: 0 5px 8px rgba(154, 154, 154, 0.61);
+    line-height: 48px;
+
+    @media (max-width: 768px) {
+      position: absolute;
+      right: 0;
+      bottom: 155px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__cart {
+    width: 24px;
+    height: 18px;
+
+  }
+
+  &__speaker {
+
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+
+  &__speaker-small {
+    display: none;
+
+    @media (max-width: 991px) {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.nav {
+  margin-top: 160px;
+  margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    @include FontSet("Din Pro Normal", 24px, 30px);
+
+  }
+
+  &__link {
+    color: #333;
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+  }
+
+  &__link &__thumb {
+    fill: none;
+    stroke: #70aec9;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 338;
+    stroke-dashoffset: 338;
+    stroke-linecap: round;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% + 60px);
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: stroke-dashoffset 0s 0.2s, opacity 0.2s;
+    z-index: -1;
+  }
+
+  &__link:hover &__thumb {
+    stroke-dashoffset: 0;
+    opacity: 1;
+    transition: opacity 0s,
+      stroke-dashoffset 0.3s cubic-bezier(0.65, 0.04, 0.35, 1);
+  }
+}
