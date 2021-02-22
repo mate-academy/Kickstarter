@@ -1,0 +1,293 @@
+.features {
+  display: grid;
+  grid-template-columns: repeat(22, 1fr);
+  grid-template-rows: repeat(14, 80px);
+
+  @media (max-width: 767px) {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+
+  &__caption {
+    position: relative;
+    grid-column: 4 / 8;
+    @include FontSet("Din Pro bold", 56px, 70px);
+    text-transform: uppercase;
+    color: hsl(0, 0%, 20%);
+
+    @media (max-width: 767px) {
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    @media (max-width: 636px) {
+      @include FontSet("Din Pro bold", 37px, 60px);
+    }
+
+    @media (max-width: 340px) {
+      max-width: 230px;
+      text-align: left;
+      margin-left: 32px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__inner_1 {
+    position: relative;
+    bottom: 60px;
+    grid-column: 11 / 18;
+    grid-row: 3 / 5;
+    white-space: nowrap;
+
+    @media (max-width: 767px) {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    @media (max-width: 636px) {
+      white-space: normal;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__inner_2 {
+    position: relative;
+    z-index: 3;
+    grid-column: 5 / 14;
+    grid-row: 6 / 7;
+    white-space: nowrap;
+
+    @media (max-width: 1024px) {
+      grid-column: 4 / 14;
+    }
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    @media (max-width: 636px) {
+      white-space: normal;
+    }
+  }
+
+  &__inner_3 {
+    position: relative;
+    z-index: 3;
+    grid-column: 8 / 14;
+    grid-row: 11 / 18;
+    white-space: nowrap;
+
+    @media (max-width: 1024px) {
+      top: 30px;
+      grid-row: 10 / 18;
+    }
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    @media (max-width: 636px) {
+      white-space: normal;
+    }
+  }
+
+  &__hidden {
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__visible {
+    @media (max-width: 767px) {
+      height: 350px;
+      display: flex;
+    }
+  }
+
+  &__title {
+    @include FontSet("Din Pro Medium", 34px, 41px);
+    text-align-last: left;
+    color: hsl(181, 82%, 26%);
+    text-transform: uppercase;
+    padding-bottom: 44px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    padding-bottom: 13px;
+    @include FontSet("Helvetica Neue Roman", 16px, 24px);
+    text-align-last: left;
+    list-style-type: disc;
+    color: hsl(0, 0%, 20%);
+
+    @media (max-width: 636px) {
+      @include FontSet("Din Pro Medium", 14px, 21px);
+      width: 250px;
+      text-align: left;
+    }
+
+    @media (max-width: 340px) {
+      margin-left: 20px;
+    }
+  }
+
+  // .features__left
+
+  &__left {
+    @include buttonHidden;
+    width: 50px;
+    height: 15px;
+    background-color: transparent;
+    transform: skewX(45deg);
+    grid-column: 9;
+    grid-row: 2;
+
+    @media (max-width: 767px) {
+      @include buttonVisible;
+    }
+  }
+
+  // .features__left--gray
+
+  &__left--gray {
+    border-top: 1px solid hsl(0, 0%, 74%);
+    border-left: 1px solid hsl(0, 0%, 74%);
+  }
+
+  // .features__right
+
+  &__right {
+    @include buttonHidden;
+    width: 50px;
+    height: 15px;
+    background-color: transparent;
+    transform: skewX(45deg);
+    grid-column: 10;
+    grid-row: 2;
+
+    @media (max-width: 767px) {
+      @include buttonVisible;
+    }
+  }
+
+  // .features__right--black
+
+  &__right--black {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+  }
+
+  // .features__block
+
+  &__block {
+    margin-top: 20px;
+    grid-column: 5/15;
+    grid-row: 2;
+    text-align: center;
+
+    @media (max-width: 767px) {
+      display: block;
+    }
+  }
+
+  // .features__min
+
+  &__min {
+    display: none;
+
+    @media (max-width: 767px) {
+      display: inline-block;
+      color: hsl(0, 0%, 20%);
+      @include FontSet("Din Pro Normal", 16px, 20px);
+
+      &::after {
+        content: "/";
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+    }
+  }
+
+  // .features__max
+
+  &__max {
+    display: none;
+
+    @media (max-width: 767px) {
+      display: inline-block;
+      @include FontSet("Din Pro Normal", 11px, 14px);
+      color: hsl(0, 0%, 74%);
+    }
+  }
+
+  &__pic {
+    grid-column: 10 / 22;
+    grid-row: 6 / 16;
+    width: 100%;
+    object-fit: cover;
+
+    @media (max-width: 1024px) {
+      width: 120%;
+    }
+
+    @media (max-width: 874px) {
+      grid-column: 8 / 19;
+      width: 140%;
+    }
+
+    @media (max-width: 767px) {
+      width: 100%;
+      margin-top: 38px;
+    }
+  }
+}
+
+.color-numbe-black {
+  display: none;
+  @media (max-width: 776px) {
+    display: inline-block;
+    @include FontSet("Din Pro Normal", 16px, 20px);
+    color: hsl(0, 0%, 20%);
+  }
+}
+
+.color_black_left {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.color-black-right {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.color_gray {
+  border-bottom: 1px solid hsl(0, 0%, 74%);
+  border-right: 1px solid hsl(0, 0%, 74%);
+}
+
+.color-gray-right {
+  border-top: 1px solid hsl(0, 0%, 74%);
+  border-left: 1px solid hsl(0, 0%, 74%);
+}
+
+.features-visible {
+  @media (max-width: 776px) {
+    visibility: visible;
+  }
+}
