@@ -708,3 +708,68 @@ document.querySelector('.technology__left').addEventListener('click', () => {
   numberColor.removeAttribute('colorNumberTechnologyBlack');
   numberColor.setAttribute('class', 'technology__max');
 });
+
+// ???????????????????????????????????????????????????????????????????????????
+
+const featuresBtn = document.getElementsByClassName('features__inner');
+const featuresDeleteClass = document.getElementById('features_deleteClass');
+const featuresBtnLeft = document.getElementById('features_btn_left');
+const featuresBtnRight = document.getElementById('features_btn_right');
+
+let y = 0;
+
+featuresBtn[y].classList.remove('features__hidden');
+featuresBtn[y].classList.add('features__visible');
+
+document.querySelector('.features__right').addEventListener('click', () => {
+  if (featuresBtn.length - 1 > y) {
+    featuresBtn[y].classList.remove('features__visible');
+    featuresBtn[y].classList.add('features__hidden');
+    y = (y < featuresBtn.length - 1) ? y + 1 : 0;
+
+    if (y === 1) {
+      featuresBtnLeft.removeAttribute('features__left--gray');
+      featuresBtnLeft.setAttribute('class', 'features__left color_black_left');
+    }
+
+    if (y === featuresBtn.length - 1) {
+      featuresBtnRight.removeAttribute('color_black_left');
+      featuresBtnRight.setAttribute('class', 'features__left color_gray');
+    }
+
+    featuresBtn[y].classList.remove('features__hidden');
+    featuresBtn[y].classList.add('features__visible');
+    document.querySelector('.features__min').innerHTML = y + 1;
+
+    if (y === featuresBtn.length - 1) {
+      featuresDeleteClass.removeAttribute('features__max');
+      featuresDeleteClass.setAttribute('class', 'color-numbe-black');
+    }
+  }
+});
+
+document.querySelector('.features__left').addEventListener('click', () => {
+  if (y > 0) {
+    featuresBtn[y].classList.remove('features__visible');
+    featuresBtn[y].classList.add('features__hidden');
+    y = (y > 0) ? y - 1 : featuresBtn.length - 1;
+
+    if (y === featuresBtn.length - 2) {
+      featuresBtnRight.removeAttribute('features__left--gray');
+
+      featuresBtnRight
+        .setAttribute('class', 'features__left color-black-right');
+    }
+
+    if (y === 0) {
+      featuresBtnLeft.removeAttribute('color-black-right');
+      featuresBtnLeft.setAttribute('class', 'features__left color-gray-right');
+    }
+
+    featuresBtn[y].classList.remove('features__hidden');
+    featuresBtn[y].classList.add('features__visible');
+    document.querySelector('.features__min').innerHTML = y + 1;
+  }
+  featuresDeleteClass.removeAttribute('color-numbe-black');
+  featuresDeleteClass.setAttribute('class', 'features__max');
+});
