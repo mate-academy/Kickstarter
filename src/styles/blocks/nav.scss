@@ -1,37 +1,35 @@
 .nav {
-  &__list {
-    @include flex-center;
-    text-transform: uppercase;
-    @media (max-width: $breakpoint-md) {
-      display: none;
-    }
+  @media (max-width: $breakpoint-md) {
+    display: none;
   }
 
-  &__item {
-    margin-left: 35px;
+  &__list {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 760px;
   }
 
   &__link {
-    color: $gray;
-  }
-
-  &__language {
-    color: $grayLite;
-  }
-
-  &__language--active {
+    display: inline-block;
+    text-transform: uppercase;
     color: $textColor;
-  }
-
-  &__btn-buy {
-    display: block;
-    color: $white;
-    background-color: $textColor;
-    padding: 16px 40px;
-    transition: box-shadow $transition;
+    padding: 10px 20px;
+    transition: background-color $transition,
+      opacity $transition,
+      box-shadow $transition,
+      color $transition;
 
     &:hover {
+      background-color: #333;
+      color: white;
+      opacity: 0.5;
       box-shadow: $boxShadow;
     }
+  }
+
+  &--margin {
+    margin: 50px auto 30px;
   }
 }

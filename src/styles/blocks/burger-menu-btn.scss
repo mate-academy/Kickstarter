@@ -7,10 +7,10 @@
   @media (max-width: $breakpoint-md) {
     display: flex;
   }
-}
 
-.burger-menu-wrapper--active {
-  z-index: 100;
+  &--active {
+    z-index: 101;
+  }
 }
 
 .burger-menu {
@@ -27,7 +27,8 @@
     width: 25px;
     height: 3px;
     background-color: $textColor;
-    transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+    transition: transform $transitionFast ease-in
+      top $transitionFast linear $transitionFast;
   }
 
   &:after {
@@ -38,22 +39,27 @@
     width: 25px;
     height: 3px;
     background-color: $textColor;
-    transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+    transition: transform $transitionFast ease-in,
+      top $transitionFast linear $transitionFast;
   }
-}
 
-.burger-menu.burger-menu--active {
-  background-color: transparent;
-}
+  &--active {
+    background-color: transparent;
+  }
 
-.burger-menu.burger-menu--active::before {
-  transform: rotate(45deg);
-  top: 0;
-  transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
-}
+  &--active::before {
+    transform: rotate(45deg);
+    top: 0;
+    background: $white;
+    transition: top $transitionFast linear,
+      transform $transitionFast ease-in $transitionFast;
+  }
 
-.burger-menu.burger-menu--active::after {
-  transform: rotate(-45deg);
-  top: 0;
-  transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+  &--active::after {
+    transform: rotate(-45deg);
+    top: 0;
+    background: $white;
+    transition: top $transitionFast linear,
+      transform $transitionFast ease-in $transitionFast;
+  }
 }
