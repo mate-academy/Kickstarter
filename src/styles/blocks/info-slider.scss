@@ -1,0 +1,43 @@
+.info-slider {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: auto;
+
+  @media (max-width: $breakpoint-md) {
+    display: flex;
+  }
+
+  &__item {
+    animation-name: fade;
+    animation-duration: 1s;
+  }
+
+  &__prev,
+  &__next {
+    position: relative;
+    cursor: pointer;
+    font-size: 60px;
+  }
+
+  &__prev {
+    left: 9px;
+    bottom: 5px;
+    color: $grayLite;
+  }
+
+  &__next {
+    right: 9px;
+    top: 5px;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
