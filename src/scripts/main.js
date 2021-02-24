@@ -1,5 +1,6 @@
 'use strict';
 
+const cost = 129;
 const check = document.getElementById('toggler');
 
 document.querySelector('#show').addEventListener('click', () => {
@@ -772,4 +773,401 @@ document.querySelector('.features__left').addEventListener('click', () => {
   }
   featuresDeleteClass.removeAttribute('color-numbe-black');
   featuresDeleteClass.setAttribute('class', 'features__max');
+});
+
+document.querySelector('.header__buy').addEventListener('click', () => {
+  let twoClick = 0;
+  const modlWindow = document.getElementById('open-window');
+  const closeHeader = document.getElementById('header');
+  const closeMain = document.getElementById('close_main');
+
+  twoClick++;
+
+  if (twoClick === 2) {
+    twoClick = 0;
+
+    return;
+  }
+
+  closeHeader.removeAttribute('open');
+  closeHeader.setAttribute('class', 'close');
+
+  closeMain.removeAttribute('class');
+  closeMain.setAttribute('class', 'main close');
+
+  modlWindow.removeAttribute('close');
+  modlWindow.setAttribute('class', 'modal-cart  open');
+});
+
+document.querySelector('.modal-cart__btn-back')
+  .addEventListener('click', () => {
+    const modlWindow = document.getElementById('open-window');
+    const closeHeader = document.getElementById('header');
+    const closeMain = document.getElementById('close_main');
+
+    closeHeader.removeAttribute('class');
+    closeHeader.setAttribute('class', 'open');
+
+    closeMain.removeAttribute('class');
+    closeMain.setAttribute('class', 'main open');
+
+    modlWindow.removeAttribute('class');
+    modlWindow.setAttribute('class', 'modal-cart  close');
+  });
+
+let numSilver = 0;
+let numGray = 0;
+let numBrown = 0;
+let numGold = 0;
+let numSpace = 0;
+const searchSelected = document.getElementsByClassName('modal-cart__elect');
+const defoltCrazyBaby = document.getElementById('one-color');
+let colorBaby = 'Silver';
+
+defoltCrazyBaby.removeAttribute('class');
+
+defoltCrazyBaby
+  .setAttribute('class', 'modal-cart__elect modal-cart__elect--silver');
+
+document.querySelector('#one-color').addEventListener('click', (event) => {
+  numSilver++;
+
+  colorBaby = 'Silver';
+
+  const photoSilver = document.getElementById('cart_pic');
+
+  for (let w = 0; w < searchSelected.length; w++) {
+    const result = searchSelected[w];
+
+    if (result.classList.contains('modal-cart__elect--gray')) {
+      result.classList.remove('modal-cart__elect--gray');
+      numGray = 0;
+    }
+
+    if (result.classList.contains('modal-cart__elect--brown')) {
+      result.classList.remove('modal-cart__elect--brown');
+      numBrown = 0;
+    }
+
+    if (result.classList.contains('modal-cart__elect--gold')) {
+      result.classList.remove('modal-cart__elect--gold');
+      numGold = 0;
+    }
+
+    if (result.classList.contains('modal-cart__elect--space')) {
+      result.classList.remove('modal-cart__elect--space');
+      numSpace = 0;
+    }
+  }
+
+  if (numSilver === 2) {
+    event.currentTarget
+      .setAttribute('class', 'modal-cart__elect');
+    numSilver = 0;
+    colorBaby = '';
+
+    return;
+  }
+
+  photoSilver.removeAttribute('src');
+  photoSilver.setAttribute('src', './133.e91cbd36.png');
+
+  event.currentTarget
+    .setAttribute('class', 'modal-cart__elect modal-cart__elect--silver');
+});
+
+document.querySelector('#two-color').addEventListener('click', (event) => {
+  numGray++;
+  colorBaby = 'Gray';
+
+  const photoGray = document.getElementById('cart_pic');
+
+  for (let x = 0; x < searchSelected.length; x++) {
+    const result = searchSelected[x];
+
+    if (result.classList.contains('modal-cart__elect--silver')) {
+      result.classList.remove('modal-cart__elect--silver');
+      numSilver = 0;
+    }
+
+    if (result.classList.contains('modal-cart__elect--brown')) {
+      result.classList.remove('modal-cart__elect--brown');
+      numBrown = 0;
+    }
+
+    if (result.classList.contains('modal-cart__elect--gold')) {
+      result.classList.remove('modal-cart__elect--gold');
+      numGold = 0;
+    }
+
+    if (result.classList.contains('modal-cart__elect--space')) {
+      result.classList.remove('modal-cart__elect--space');
+      numSpace = 0;
+    }
+  }
+
+  if (numGray === 2) {
+    event.currentTarget
+      .setAttribute('class', 'modal-cart__elect');
+    numGray = 0;
+    colorBaby = '';
+
+    return;
+  }
+
+  photoGray.removeAttribute('src');
+  photoGray.setAttribute('src', './gray.5ce83d2d.jpg');
+
+  event.currentTarget
+    .setAttribute('class', 'modal-cart__elect modal-cart__elect--gray');
+});
+
+document.querySelector('#three-color').addEventListener('click', (event) => {
+  numBrown++;
+  colorBaby = 'Brown';
+
+  const photoBrown = document.getElementById('cart_pic');
+
+  for (let z = 0; z < searchSelected.length; z++) {
+    const result = searchSelected[z];
+
+    if (result.classList.contains('modal-cart__elect--silver')) {
+      result.classList.remove('modal-cart__elect--silver');
+      numSilver = 0;
+    }
+
+    if (result.classList.contains('modal-cart__elect--gray')) {
+      result.classList.remove('modal-cart__elect--gray');
+      numGray = 0;
+    }
+
+    if (result.classList.contains('modal-cart__elect--gold')) {
+      result.classList.remove('modal-cart__elect--gold');
+      numGold = 0;
+    }
+
+    if (result.classList.contains('modal-cart__elect--space')) {
+      result.classList.remove('modal-cart__elect--space');
+      numSpace = 0;
+    }
+  }
+
+  if (numBrown === 2) {
+    event.currentTarget
+      .setAttribute('class', 'modal-cart__elect');
+    numBrown = 0;
+    colorBaby = '';
+
+    return;
+  }
+
+  photoBrown.removeAttribute('src');
+  photoBrown.setAttribute('src', './brown.99b549a4.jpg');
+
+  event.currentTarget
+    .setAttribute('class', 'modal-cart__elect modal-cart__elect--brown');
+});
+
+document.querySelector('#four-color').addEventListener('click', (event) => {
+  numGold++;
+  colorBaby = 'Gold';
+
+  const photoGold = document.getElementById('cart_pic');
+
+  for (let col = 0; col < searchSelected.length; col++) {
+    const result = searchSelected[col];
+
+    if (result.classList.contains('modal-cart__elect--silver')) {
+      result.classList.remove('modal-cart__elect--silver');
+      numSilver = 0;
+    }
+
+    if (result.classList.contains('modal-cart__elect--gray')) {
+      result.classList.remove('modal-cart__elect--gray');
+      numGray = 0;
+    }
+
+    if (result.classList.contains('modal-cart__elect--brown')) {
+      result.classList.remove('modal-cart__elect--brown');
+      numBrown = 0;
+    }
+
+    if (result.classList.contains('modal-cart__elect--space')) {
+      result.classList.remove('modal-cart__elect--space');
+      numSpace = 0;
+    }
+  }
+
+  if (numGold === 2) {
+    event.currentTarget
+      .setAttribute('class', 'modal-cart__elect');
+    numGold = 0;
+    colorBaby = '';
+
+    return;
+  }
+
+  photoGold.removeAttribute('src');
+  photoGold.setAttribute('src', './gold.095d013b.jpg');
+
+  event.currentTarget
+    .setAttribute('class', 'modal-cart__elect modal-cart__elect--gold');
+});
+
+document.querySelector('#five-color').addEventListener('click', (event) => {
+  numSpace++;
+  colorBaby = 'Space';
+
+  const photoSpace = document.getElementById('cart_pic');
+
+  for (let fined = 0; fined < searchSelected.length; fined++) {
+    const result = searchSelected[fined];
+
+    if (result.classList.contains('modal-cart__elect--silver')) {
+      result.classList.remove('modal-cart__elect--silver');
+      numSilver = 0;
+    }
+
+    if (result.classList.contains('modal-cart__elect--gray')) {
+      result.classList.remove('modal-cart__elect--gray');
+      numGray = 0;
+    }
+
+    if (result.classList.contains('modal-cart__elect--brown')) {
+      result.classList.remove('modal-cart__elect--brown');
+      numBrown = 0;
+    }
+
+    if (result.classList.contains('modal-cart__elect--gold')) {
+      result.classList.remove('modal-cart__elect--gold');
+      numGold = 0;
+    }
+  }
+
+  if (numSpace === 2) {
+    event.currentTarget
+      .setAttribute('class', 'modal-cart__elect');
+    numSpace = 0;
+    colorBaby = '';
+
+    return;
+  }
+
+  photoSpace.removeAttribute('src');
+  photoSpace.setAttribute('src', './space.d874271c.jpg');
+
+  event.currentTarget
+    .setAttribute('class', 'modal-cart__elect modal-cart__elect--space');
+});
+
+let quantity = 1;
+
+document.querySelector('.modal-cart__addition')
+  .addEventListener('click', (event) => {
+    quantity++;
+
+    document.querySelector('.modal-cart__col').innerHTML = quantity;
+  });
+
+document.querySelector('.modal-cart__subtraction')
+  .addEventListener('click', (event) => {
+    if (quantity > 0) {
+      quantity--;
+
+      document.querySelector('.modal-cart__col').innerHTML = quantity;
+    }
+  });
+
+// const closeMinCard = document.createElement('button');
+const modalCart = document.querySelector('.modal-cart');
+const itemsList = modalCart.querySelector('.modal-cart__list');
+const sum = document.getElementById('total');
+let total = 0;
+
+document.querySelector('.modal-cart__add')
+  .addEventListener('click', (event) => {
+    const id = +new Date();
+
+    if (colorBaby.length === 0 || quantity === 0) {
+      return;
+    }
+
+    total += quantity;
+
+    itemsList.insertAdjacentHTML('beforeend', `
+      <li id = "${id}" class="modal-cart__product">
+        <img
+          src="./smallGray.c04b446d.png"
+          alt=""
+          class="modal-cart__small-pic"
+        >
+        <div class="modal-cart__new-text">
+          Color: <span modal-cart__indent>${colorBaby}</span>
+        </div>
+        <div class="modal-cart__new-amount">
+          <button type="button" class="modal-cart__new-subtraction">
+            <span class="modal-cart__new-minus"></span>
+          </button>
+          <div class="modal-cart__new-quantity">${quantity}</div>
+          <button type="button" class="modal-cart__new-addition">
+            <span class="modal-cart__new-pluse"></span>
+          </button>
+        </div>
+        <button type="button" class="modal-cart__min-close"></button>
+      </li>
+    `);
+
+    sum.innerHTML = `$${(cost * total).toFixed(2)}`;
+  });
+
+itemsList.addEventListener('click', (event) => {
+  if (!event.target.matches('.modal-cart__min-close')) {
+    return;
+  }
+
+  event.target.closest('.modal-cart__product').remove();
+
+  const numberSubtraction = document
+    .querySelectorAll('.modal-cart__new-quantity');
+  let newSumProducts = 0;
+
+  for (let good = 0; good < numberSubtraction.length; good++) {
+    newSumProducts += +numberSubtraction[good].innerHTML;
+  }
+
+  total = newSumProducts;
+
+  sum.innerHTML = `$${(cost * newSumProducts).toFixed(2)}`;
+});
+
+let totalProduct = 0;
+
+itemsList.addEventListener('click', (event) => {
+  const item = event.target;
+
+  // const allCart = modalCart.querySelectorAll('.modal-cart__product');
+
+  if (item.classList.contains('modal-cart__new-addition')
+    || item.classList.contains('modal-cart__new-pluse')) {
+    totalProduct++;
+    sum.innerHTML = `$${(cost * (totalProduct + quantity)).toFixed(2)}`;
+
+    document.querySelector('.modal-cart__new-quantity')
+      .innerHTML = totalProduct + quantity;
+  }
+});
+
+itemsList.addEventListener('click', (event) => {
+  const item = event.target;
+
+  if (item.classList.contains('modal-cart__new-subtraction')
+    || item.classList.contains('modal-cart__new-minus')) {
+    if (totalProduct + quantity > 0) {
+      totalProduct--;
+    }
+    sum.innerHTML = `$${(cost * (totalProduct + quantity)).toFixed(2)}`;
+
+    document.querySelector('.modal-cart__new-quantity')
+      .innerHTML = totalProduct + quantity;
+  }
 });
