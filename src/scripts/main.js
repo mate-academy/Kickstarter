@@ -834,7 +834,7 @@ document.querySelector('#one-color').addEventListener('click', (event) => {
 
   colorBaby = 'Silver';
 
-  const photoSilver = document.getElementById('cart_pic');
+  // const photoSilver = document.getElementById('cart_pic');
 
   for (let w = 0; w < searchSelected.length; w++) {
     const result = searchSelected[w];
@@ -869,8 +869,8 @@ document.querySelector('#one-color').addEventListener('click', (event) => {
     return;
   }
 
-  photoSilver.removeAttribute('src');
-  photoSilver.setAttribute('src', './133.e91cbd36.png');
+  // photoSilver.removeAttribute('src');
+  // photoSilver.setAttribute('src', './133.e91cbd36.png');
 
   event.currentTarget
     .setAttribute('class', 'modal-cart__elect modal-cart__elect--silver');
@@ -880,7 +880,7 @@ document.querySelector('#two-color').addEventListener('click', (event) => {
   numGray++;
   colorBaby = 'Gray';
 
-  const photoGray = document.getElementById('cart_pic');
+  // const photoGray = document.getElementById('cart_pic');
 
   for (let x = 0; x < searchSelected.length; x++) {
     const result = searchSelected[x];
@@ -915,8 +915,8 @@ document.querySelector('#two-color').addEventListener('click', (event) => {
     return;
   }
 
-  photoGray.removeAttribute('src');
-  photoGray.setAttribute('src', './gray.5ce83d2d.jpg');
+  // photoGray.removeAttribute('src');
+  // photoGray.setAttribute('src', './133.e91cbd36.png');
 
   event.currentTarget
     .setAttribute('class', 'modal-cart__elect modal-cart__elect--gray');
@@ -926,7 +926,7 @@ document.querySelector('#three-color').addEventListener('click', (event) => {
   numBrown++;
   colorBaby = 'Brown';
 
-  const photoBrown = document.getElementById('cart_pic');
+  // const photoBrown = document.getElementById('cart_pic');
 
   for (let z = 0; z < searchSelected.length; z++) {
     const result = searchSelected[z];
@@ -961,8 +961,8 @@ document.querySelector('#three-color').addEventListener('click', (event) => {
     return;
   }
 
-  photoBrown.removeAttribute('src');
-  photoBrown.setAttribute('src', './brown.99b549a4.jpg');
+  // photoBrown.removeAttribute('src');
+  // photoBrown.setAttribute('src', './133.e91cbd36.png');
 
   event.currentTarget
     .setAttribute('class', 'modal-cart__elect modal-cart__elect--brown');
@@ -972,7 +972,7 @@ document.querySelector('#four-color').addEventListener('click', (event) => {
   numGold++;
   colorBaby = 'Gold';
 
-  const photoGold = document.getElementById('cart_pic');
+  // const photoGold = document.getElementById('cart_pic');
 
   for (let col = 0; col < searchSelected.length; col++) {
     const result = searchSelected[col];
@@ -1007,8 +1007,8 @@ document.querySelector('#four-color').addEventListener('click', (event) => {
     return;
   }
 
-  photoGold.removeAttribute('src');
-  photoGold.setAttribute('src', './gold.095d013b.jpg');
+  // photoGold.removeAttribute('src');
+  // photoGold.setAttribute('src', './133.e91cbd36.png');
 
   event.currentTarget
     .setAttribute('class', 'modal-cart__elect modal-cart__elect--gold');
@@ -1018,7 +1018,7 @@ document.querySelector('#five-color').addEventListener('click', (event) => {
   numSpace++;
   colorBaby = 'Space';
 
-  const photoSpace = document.getElementById('cart_pic');
+  // const photoSpace = document.getElementById('cart_pic');
 
   for (let fined = 0; fined < searchSelected.length; fined++) {
     const result = searchSelected[fined];
@@ -1053,8 +1053,8 @@ document.querySelector('#five-color').addEventListener('click', (event) => {
     return;
   }
 
-  photoSpace.removeAttribute('src');
-  photoSpace.setAttribute('src', './space.d874271c.jpg');
+  // photoSpace.removeAttribute('src');
+  // photoSpace.setAttribute('src', './133.e91cbd36.png');
 
   event.currentTarget
     .setAttribute('class', 'modal-cart__elect modal-cart__elect--space');
