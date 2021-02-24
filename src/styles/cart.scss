@@ -1,0 +1,647 @@
+.modal-cart {
+  position: relative;
+  margin: 0 auto;
+  align-items: center;
+  max-width: 1440px;
+  padding: 25px 225px 20px 123px;
+
+  @media (max-width: 1294px) {
+    padding: 25px 100px 20px;
+  }
+
+  @media (max-width: 1159px) {
+    padding: 25px 30px 20px;
+  }
+
+  &__logo {
+    align-self: flex-start;
+    width: 161px;
+  }
+
+  &__btn-back {
+    position: relative;
+    width: 100%;
+    text-align: left;
+  }
+
+  &__back {
+    position: absolute;
+    margin-top: 50px;
+    display: inline-block;
+    width: 50px;
+    height: 40px;
+    color: hsl(0, 0%, 20%);
+    background: url(../images/cart/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media (max-width: 555px) {
+      background: url(../images/cart/close.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-top: 0;
+      right: -17px;
+      bottom: 0;
+    }
+  }
+
+  &__process {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 396px;
+    margin-top: 100px;
+
+    @media (max-width: 638px) {
+      width: 250px;
+    }
+
+    @media (max-width: 423px) {
+      width: 200px;
+    }
+  }
+
+  &__cart {
+    width: 13px;
+    height: 13px;
+    border: 2px solid gray;
+    background: hsl(0, 0%, 31%);
+    border-radius: 50%;
+    &::after {
+      content: "cart";
+      position: relative;
+      top: 20px;
+      right: 15px;
+      @include FontSet("Helvetica Neue Roman", 16px, 20px);
+      text-transform: uppercase;
+
+      @media (max-width: 423px) {
+        @include FontSet("Helvetica Neue Roman", 12px, 18px);
+        right: 10px;
+      }
+    }
+  }
+
+  &__shipping {
+    width: 13px;
+    height: 13px;
+    border: 2px solid hsl(0, 0%, 88%);
+    background: hsl(0, 0%, 88%);
+    border-radius: 50%;
+    &::after {
+      content: "SHIPPING";
+      position: relative;
+      top: 20px;
+      right: 30px;
+      color: hsl(0, 0%, 82%);
+      @include FontSet("Helvetica Neue Roman", 16px, 20px);
+      text-transform: uppercase;
+
+      @media (max-width: 423px) {
+        @include FontSet("Helvetica Neue Roman", 12px, 18px);
+        right: 22px;
+      }
+    }
+  }
+
+  &__payment {
+    width: 13px;
+    height: 13px;
+    border: 2px solid hsl(0, 0%, 88%);
+    background: hsl(0, 0%, 88%);
+    border-radius: 50%;
+    &::after {
+      content: "PAYMENT";
+      position: relative;
+      top: 20px;
+      right: 28px;
+      @include FontSet("Helvetica Neue Roman", 16px, 20px);
+      color: hsl(0, 0%, 82%);
+      text-transform: uppercase;
+
+      @media (max-width: 423px) {
+        @include FontSet("Helvetica Neue Roman", 12px, 18px);
+        right: 22px;
+      }
+    }
+  }
+
+  &__box {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 90px;
+
+    @media (max-width: 1010px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__pic {
+    width: 350px;
+    height: 350px;
+    object-fit: contain;
+
+    @media (max-width: 423px) {
+      width: 270px;
+      height: 270px;
+    }
+
+    @media (max-width: 336px) {
+      width: 259px;
+    }
+  }
+
+  &__hiddenPic {
+    display: none;
+  }
+
+  &__wrapper {
+    display: flex;
+    margin-bottom: 100px;
+
+    @media (max-width: 638px) {
+      flex-direction: column;
+    }
+  }
+
+  &__inner {
+    margin-left: 20px;
+    margin-right: 80px;
+
+    @media (max-width: 423px) {
+      margin-right: 20px;
+    }
+  }
+
+  &__name {
+    text-align: center;
+    @include FontSet("Din Pro Medium", 48px, 60px);
+    text-transform: uppercase;
+    color: hsl(0, 0%, 20%);
+  }
+
+  &__price {
+    margin-top: 20px;
+    @include FontSet("Helvetica Neue Roman", 24px, 30px);
+    color: hsl(0, 0%, 20%);
+    text-align: center;
+  }
+
+  &__color {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    margin-top: 50px;
+
+    @media (max-width: 423px) {
+      width: 250px;
+    }
+  }
+
+  &__elect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+  }
+
+  &__elect--silver {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border: 2px solid gray;
+    border-radius: 50%;
+
+    &::after {
+      content: "silver";
+      position: absolute;
+      top: 30px;
+      @include FontSet("Helvetica Neue Roman", 12px, 18px);
+      color: hsl(0, 0%, 20%);
+      text-transform: uppercase;
+    }
+  }
+
+  &__elect--gray {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border: 2px solid gray;
+    border-radius: 50%;
+
+    &::after {
+      content: "gray";
+      position: absolute;
+      top: 30px;
+      @include FontSet("Helvetica Neue Roman", 12px, 18px);
+      color: hsl(0, 0%, 20%);
+      text-transform: uppercase;
+    }
+  }
+
+  &__elect--brown {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border: 2px solid gray;
+    border-radius: 50%;
+
+    &::after {
+      content: "brown ";
+      position: absolute;
+      top: 30px;
+      @include FontSet("Helvetica Neue Roman", 12px, 18px);
+      color: hsl(0, 0%, 20%);
+      text-transform: uppercase;
+    }
+  }
+
+  &__elect--gold {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border: 2px solid gray;
+    border-radius: 50%;
+
+    &::after {
+      content: "gold";
+      position: absolute;
+      top: 30px;
+      @include FontSet("Helvetica Neue Roman", 12px, 18px);
+      color: hsl(0, 0%, 20%);
+      text-transform: uppercase;
+    }
+  }
+
+  &__elect--space {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border: 2px solid gray;
+    border-radius: 50%;
+
+    &::after {
+      content: "space";
+      position: absolute;
+      top: 30px;
+      @include FontSet("Helvetica Neue Roman", 12px, 18px);
+      color: hsl(0, 0%, 20%);
+      text-transform: uppercase;
+    }
+  }
+
+  &__silver {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: hsl(0, 0%, 83%);
+    border-radius: 50%;
+  }
+
+  &__gray {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: hsl(0, 0%, 64%);
+    border-radius: 50%;
+  }
+
+  &__brown {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: hsl(12, 16%, 56%);
+    border-radius: 50%;
+  }
+
+  &__gold {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: hsl(32, 18%, 64%);
+    border-radius: 50%;
+  }
+
+  &__space-gray {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: hsl(228, 2%, 52%);
+    border-radius: 50%;
+  }
+
+  &__amount {
+    display: flex;
+    justify-content: center;
+    margin-top: 88px;
+  }
+
+  &__subtraction {
+    padding-right: 15px;
+    background-color: transparent;
+  }
+
+  &__minus {
+    display: block;
+    width: 12px;
+    height: 2px;
+    background: hsl(0, 0%, 82%);
+    border-radius: 1px;
+  }
+
+  &__col {
+    width: 72px;
+    height: 38px;
+    @include FontSet("Helvetica Neue Roman", 14px, 38px);
+    text-align: center;
+    border: 1px solid hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 20%);
+  }
+
+  &__addition {
+    padding-left: 15px;
+    background-color: transparent;
+  }
+
+  &__plus {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12px;
+    height: 2px;
+    background: hsl(0, 0%, 31%);
+    border-radius: 1px;
+
+    &::after {
+      position: absolute;
+      content: "";
+      display: inline-block;
+      width: 2px;
+      height: 12px;
+      background: hsl(0, 0%, 31%);
+      border-radius: 1px;
+    }
+  }
+
+  &__add {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 174px;
+    height: 48px;
+    margin-bottom: 70px;
+    @include FontSet("Helvetica Neue Roman", 12px, 18px);
+    color: hsl(0, 0%, 20%);
+    line-height: 48px;
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid hsl(0, 0%, 20%);
+
+    &::after {
+      content: "";
+      position: relative;
+      top: 30px;
+      right: 80px;
+      display: block;
+      width: 336px;
+      height: 1px;
+      background: hsl(0, 0%, 88%);
+
+      @media (max-width: 423px) {
+        width: 260px;
+        right: 50px;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      right: -120px;
+      display: block;
+      width: 1px;
+      height: 423px;
+      background: hsl(0, 0%, 88%);
+
+      @media (max-width: 423px) {
+        display: none;
+      }
+    }
+  }
+
+  &__delivery {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__car {
+    display: inline-block;
+    margin-right: 28px;
+
+    @media (max-width: 390px) {
+      margin-right: 15px;
+    }
+  }
+
+  &__free {
+    display: inline-block;
+    @include FontSet("Helvetica Neue Roman", 16px, 20px);
+    color: hsl(0, 0%, 31%);
+
+    @media (max-width: 638px) {
+      margin-bottom: 90px;
+    }
+
+    @media (max-width: 390px) {
+      @include FontSet("Helvetica Neue Roman", 14px, 17px);
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__holder {
+    margin-top: 90px;
+
+    @media (max-width: 638px) {
+      margin: 0 auto;
+    }
+  }
+
+  &__order {
+    margin-bottom: 160px;
+    @include FontSet("Helvetica Neue Roman", 16px, 20px);
+    text-transform: uppercase;
+
+    @media (max-width: 638px) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__total {
+    padding-bottom: 15px;
+    @include FontSet("Helvetica Neue Roman", 16px, 19px);
+    color: hsl(0, 0%, 31%);
+  }
+
+  &__sum {
+    margin-bottom: 25px;
+    @include FontSet("Din Pro Medium", 34px, 43px);
+    color: hsl(0, 0%, 20%);
+  }
+
+  &__btn {
+    width: 194px;
+    height: 48px;
+    @include FontSet("Helvetica Neue Roman", 12px, 15px);
+    color: hsl(0, 0%, 100%);
+    background: hsl(0, 0%, 20%);
+    text-transform: uppercase;
+  }
+
+  &__list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__product {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 580px;
+    height: 118px;
+    margin: 0 auto;
+    background: hsl(0, 0%, 100%);
+
+    @media (max-width: 638px) {
+      width: 380px;
+    }
+
+    @media (max-width: 436px) {
+      width: 280px;
+      height: 200px;
+    }
+
+    @media (max-width: 350px) {
+      width: 260px;
+    }
+  }
+
+  &__new-text {
+    @include FontSet("Helvetica Neue Roman", 14px, 38px);
+
+    @media (max-width: 638px) {
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  &__indent {
+    display: inline-block;
+    margin-left: 15px;
+  }
+
+  &__new-amount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__new-subtraction {
+    display: block;
+    margin-right: 15px;
+    width: 25px;
+    height: 25px;
+    padding-right: 15px;
+    background-color: transparent;
+  }
+
+  &__new-minus {
+    display: block;
+    width: 12px;
+    height: 2px;
+    background: hsl(0, 0%, 82%);
+    border-radius: 1px;
+  }
+
+  &__new-quantity {
+    width: 72px;
+    height: 38px;
+    @include FontSet("Helvetica Neue Roman", 14px, 38px);
+    text-align: center;
+    border: 1px solid hsl(0, 0%, 88%);
+    color: hsl(0, 0%, 20%);
+  }
+
+  &__new-addition {
+    margin-left: 15px;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+  }
+
+  &__new-pluse {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12px;
+    height: 2px;
+    background: hsl(0, 0%, 31%);
+    border-radius: 1px;
+
+    &::after {
+      position: absolute;
+      content: "";
+      display: inline-block;
+      width: 2px;
+      height: 12px;
+      background: hsl(0, 0%, 31%);
+      border-radius: 1px;
+    }
+  }
+
+  &__min-close {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+    width: 20px;
+    height: 20px;
+    margin-top: 20px;
+    background-color: transparent;
+
+    @media (max-width: 436px) {
+      margin-top: 10px;
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      text-align: center;
+      width: 14px;
+      height: 2px;
+      background: hsl(0, 0%, 51%);
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: 2px;
+      height: 14px;
+      background: hsl(0, 0%, 51%);
+      transform: rotate(45deg);
+    }
+  }
+}
