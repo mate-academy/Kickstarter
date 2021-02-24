@@ -1,4 +1,5 @@
 .unit {
+  transition: transform 0.3s;
 
   &:first-child {
     position: relative;
@@ -24,6 +25,25 @@
     list-style: outside;
     .unit__item {
       margin-bottom: 13px;
+    }
+  }
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+@media (max-width: $phone-break-point ) {
+  .unit {
+    margin-bottom: 80px;
+    &:first-child {
+      left: 0;
+      position: static;
+    }
+    &:last-child {
+      position: static;
+    }
+    &__list {
+      list-style: inside;
     }
   }
 }
