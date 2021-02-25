@@ -2,19 +2,23 @@
 
 // slider
 
-function slider(btnPrev, btnNext, sliderItem) {
+function slider(sliderItem, idPrev, idNext) {
   let slideIndex = 1;
 
   showSlides(slideIndex);
 
-  const next = document.querySelector(`${btnNext}`);
-  const prev = document.querySelector(`${btnPrev}`);
+  const btnIdNext = document.getElementById(`${idNext}`);
+  const btnIdPrev = document.getElementById(`${idPrev}`);
 
-  next.addEventListener('click', () => {
+  btnIdNext.addEventListener('click', () => {
+    btnIdNext.classList.add(`${idNext}-active`);
+    btnIdPrev.classList.remove(`${idPrev}-active`);
     showSlides(slideIndex += 1);
   });
 
-  prev.addEventListener('click', () => {
+  btnIdPrev.addEventListener('click', () => {
+    btnIdPrev.classList.add(`${idPrev}-active`);
+    btnIdNext.classList.remove(`${idNext}-active`);
     showSlides(slideIndex -= 1);
   });
 
@@ -37,17 +41,17 @@ function slider(btnPrev, btnNext, sliderItem) {
   }
 }
 
-const infoPrev = '.info-slider__prev';
-const infoNext = '.info-slider__next';
+const idInfoPrev = 'info-slider__btn--prev';
+const idInfoNext = 'info-slider__btn--next';
 const infoSlides = 'info-slider__item';
 
-slider(infoPrev, infoNext, infoSlides);
+slider(infoSlides, idInfoPrev, idInfoNext);
 
-const featuresPrev = '.features-slider__prev';
-const featuresNext = '.features-slider__next';
 const featuresSlides = 'features-slider__item';
+const idFeaturesPrev = 'features-slider__btn--prev';
+const idFeaturesNext = 'features-slider__btn--next';
 
-slider(featuresPrev, featuresNext, featuresSlides);
+slider(featuresSlides, idFeaturesPrev, idFeaturesNext);
 
 // end slider
 
@@ -73,3 +77,36 @@ mobileNav.onclick = function() {
 };
 
 // burger-menu end
+
+const en = document.getElementById('en');
+const ua = document.getElementById('ua');
+const enMob = document.getElementById('enMob');
+const uaMob = document.getElementById('uaMob');
+
+en.addEventListener('click', () => {
+  en.classList.add('header-nav__language--active');
+  ua.classList.remove('header-nav__language--active');
+  enMob.classList.add('mobile-nav__language--active');
+  uaMob.classList.remove('mobile-nav__language--active');
+});
+
+ua.addEventListener('click', () => {
+  ua.classList.add('header-nav__language--active');
+  en.classList.remove('header-nav__language--active');
+  uaMob.classList.add('mobile-nav__language--active');
+  enMob.classList.remove('mobile-nav__language--active');
+});
+
+enMob.addEventListener('click', () => {
+  en.classList.add('header-nav__language--active');
+  ua.classList.remove('header-nav__language--active');
+  enMob.classList.add('mobile-nav__language--active');
+  uaMob.classList.remove('mobile-nav__language--active');
+});
+
+uaMob.addEventListener('click', () => {
+  ua.classList.add('header-nav__language--active');
+  en.classList.remove('header-nav__language--active');
+  uaMob.classList.add('mobile-nav__language--active');
+  enMob.classList.remove('mobile-nav__language--active');
+});
