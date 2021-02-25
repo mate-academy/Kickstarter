@@ -829,12 +829,16 @@ defoltCrazyBaby.removeAttribute('class');
 defoltCrazyBaby
   .setAttribute('class', 'modal-cart__elect modal-cart__elect--silver');
 
+const photoSilver = document.getElementById('cart_pic');
+
+photoSilver.removeAttribute('src');
+
+photoSilver.setAttribute('src', 'https://i.ibb.co/FwxZdms/Silver.png');
+
 document.querySelector('#one-color').addEventListener('click', (event) => {
   numSilver++;
 
   colorBaby = 'Silver';
-
-  const photoSilver = document.getElementById('cart_pic');
 
   for (let w = 0; w < searchSelected.length; w++) {
     const result = searchSelected[w];
