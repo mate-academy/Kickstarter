@@ -1,0 +1,175 @@
+.main {
+
+  &__wrapper {
+    padding: 0 123px;
+    text-align: center;
+
+    overflow: hidden;
+    @media (max-width: 1182px) {
+      padding: 30px 30px 0;
+    }
+  }
+}
+
+.description {
+
+  &__inner {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-height: 300px;
+
+    @media (max-width: 1357px) {
+      justify-content: center;
+      gap: 20px;
+    }
+
+    @media (max-width: 631px) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  // .description__text
+
+  &__text {
+    text-align: center;
+    max-width: 276px;
+
+    @media (max-width: 632px) {
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  // .description__pic
+
+  &__pic {
+    margin-bottom: 42px;
+  }
+
+  // .description__title
+
+  &__title {
+    @include FontSet("Din Pro Normal", 24px, 30px);
+    margin-bottom: 50px;
+    color: hsl(0, 0%, 20%);
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__title--2 {
+    margin-bottom: 20px;
+  }
+
+  &__title--4 {
+    margin-bottom: 20px;
+  }
+
+  // .description__subtitle
+
+  &__subtitle {
+    margin-bottom: 70px;
+    @include FontSet("Helvetica Neue Roman", 14px, 21px);
+    font-size: 14px;
+    line-height: 21px;
+    color: hsl(0, 0%, 49%);
+
+    @media (max-width: 631px) {
+      width: 276px;
+    }
+  }
+
+  &__left {
+    @include buttonHidden;
+    width: 50px;
+    height: 15px;
+    background-color: transparent;
+    transform: skewX(45deg);
+
+    @media (max-width: 632px) {
+      @include buttonVisible;
+    }
+  }
+
+  &__left--gray {
+    border-top: 1px solid hsl(0, 0%, 74%);
+    border-left: 1px solid hsl(0, 0%, 74%);
+  }
+
+  &__right {
+    @include buttonHidden;
+    width: 50px;
+    height: 15px;
+    background-color: transparent;
+    transform: skewX(45deg);
+
+    @media (max-width: 632px) {
+      @include buttonVisible;
+    }
+  }
+
+  &__right--black {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+  }
+
+  &__block {
+    margin-top: 20px;
+  }
+
+  &__min {
+    display: none;
+
+    @media (max-width: 632px) {
+      display: inline-block;
+      color: hsl(0, 0%, 20%);
+      @include FontSet("Din Pro Normal", 16px, 20px);
+
+      &::after {
+        content: "/";
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+    }
+  }
+
+  &__max {
+    display: none;
+
+    @media (max-width: 632px) {
+      display: inline-block;
+      @include FontSet("Din Pro Normal", 11px, 14px);
+      color: hsl(0, 0%, 74%);
+    }
+  }
+}
+
+.colorNumberBlack {
+  display: none;
+  @media (max-width: 632px) {
+    display: inline-block;
+    @include FontSet("Din Pro Normal", 16px, 20px);
+    color: hsl(0, 0%, 20%);
+  }
+}
+
+.colorBlackLeft {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.colorBlackRight {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.colorGray {
+  border-bottom: 1px solid hsl(0, 0%, 74%);
+  border-right: 1px solid hsl(0, 0%, 74%);
+}
+
+.colorGrayRight {
+  border-top: 1px solid hsl(0, 0%, 74%);
+  border-left: 1px solid hsl(0, 0%, 74%);
+}
