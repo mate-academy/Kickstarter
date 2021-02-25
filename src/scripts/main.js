@@ -870,7 +870,7 @@ document.querySelector('#one-color').addEventListener('click', (event) => {
   }
 
   photoSilver.removeAttribute('src');
-  photoSilver.setAttribute('src', './133.e91cbd36.png');
+  photoSilver.setAttribute('src', 'https://i.ibb.co/FwxZdms/Silver.png');
 
   event.currentTarget
     .setAttribute('class', 'modal-cart__elect modal-cart__elect--silver');
