@@ -8,7 +8,9 @@ burger.onclick = function() {
 
   if (nav.style.visibility === 'visible') {
     nav.style.visibility = 'hidden';
+    nav.style.bottom = '100vh';
   } else {
     nav.style.visibility = 'visible';
+    nav.style.bottom = '0';
   };
 };
