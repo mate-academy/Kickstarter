@@ -799,11 +799,211 @@ document.querySelector('.header__buy').addEventListener('click', () => {
   modlWindow.setAttribute('class', 'modal-cart  open');
 });
 
+document.querySelector('.header__cart').addEventListener('click', () => {
+  let twoClick = 0;
+  const modlWindow = document.getElementById('open-window');
+  const closeHeader = document.getElementById('header');
+  const closeMain = document.getElementById('close_main');
+
+  twoClick++;
+
+  if (twoClick === 2) {
+    twoClick = 0;
+
+    return;
+  }
+
+  closeHeader.removeAttribute('open');
+  closeHeader.setAttribute('class', 'close');
+
+  closeMain.removeAttribute('class');
+  closeMain.setAttribute('class', 'main close');
+
+  modlWindow.removeAttribute('close');
+  modlWindow.setAttribute('class', 'modal-cart  open');
+});
+
+document.querySelector('.header__basket').addEventListener('click', () => {
+  let twoClick = 0;
+  const modlWindow = document.getElementById('open-window');
+  const closeHeader = document.getElementById('header');
+  const closeMain = document.getElementById('close_main');
+
+  twoClick++;
+
+  if (twoClick === 2) {
+    twoClick = 0;
+
+    return;
+  }
+
+  closeHeader.removeAttribute('open');
+  closeHeader.setAttribute('class', 'close');
+
+  closeMain.removeAttribute('class');
+  closeMain.setAttribute('class', 'main close');
+
+  modlWindow.removeAttribute('close');
+  modlWindow.setAttribute('class', 'modal-cart  open');
+});
+
+document.querySelector('.modal-cart__btn').addEventListener('click', () => {
+  let twoClick = 0;
+  const shippingOpen = document.getElementById('shipping-open');
+  const modlWindow = document.getElementById('open-window');
+
+  twoClick++;
+
+  if (twoClick === 2) {
+    twoClick = 0;
+
+    return;
+  }
+
+  modlWindow.removeAttribute('class');
+  modlWindow.setAttribute('class', 'modal-cart close');
+
+  shippingOpen.removeAttribute('close');
+  shippingOpen.setAttribute('class', 'shipping  open');
+});
+
+document.querySelector('.shipping__continue').addEventListener('click', () => {
+  let twoClick = 0;
+  const paymentOpen = document.getElementById('payment-open');
+  const shippingOpen = document.getElementById('shipping-open');
+
+  twoClick++;
+
+  if (twoClick === 2) {
+    twoClick = 0;
+
+    return;
+  }
+
+  shippingOpen.removeAttribute('class');
+  shippingOpen.setAttribute('class', 'shipping close');
+
+  paymentOpen.removeAttribute('close');
+  paymentOpen.setAttribute('class', 'payment  open');
+});
+
+document.querySelector('.shipping__return').addEventListener('click', () => {
+  let twoClick = 0;
+  const shippingOpen = document.getElementById('shipping-open');
+  const modlWindow = document.getElementById('open-window');
+  const closeHeader = document.getElementById('header');
+  const closeMain = document.getElementById('close_main');
+
+  twoClick++;
+
+  if (twoClick === 2) {
+    twoClick = 0;
+
+    return;
+  }
+
+  closeHeader.removeAttribute('open');
+  closeHeader.setAttribute('class', 'close');
+
+  closeMain.removeAttribute('class');
+  closeMain.setAttribute('class', 'main close');
+
+  modlWindow.removeAttribute('class');
+  modlWindow.setAttribute('class', 'modal-cart open');
+
+  shippingOpen.removeAttribute('close');
+  shippingOpen.setAttribute('class', 'shipping  close');
+});
+
+document.querySelector('.payment__return').addEventListener('click', () => {
+  let twoClick = 0;
+  const paymentOpen = document.getElementById('payment-open');
+  const shippingOpen = document.getElementById('shipping-open');
+  const closeHeader = document.getElementById('header');
+  const closeMain = document.getElementById('close_main');
+
+  twoClick++;
+
+  if (twoClick === 2) {
+    twoClick = 0;
+
+    return;
+  }
+
+  closeHeader.removeAttribute('open');
+  closeHeader.setAttribute('class', 'close');
+
+  closeMain.removeAttribute('class');
+  closeMain.setAttribute('class', 'main close');
+
+  shippingOpen.removeAttribute('class');
+  shippingOpen.setAttribute('class', 'shipping open');
+
+  paymentOpen.removeAttribute('close');
+  paymentOpen.setAttribute('class', 'payment  close');
+});
+
 document.querySelector('.modal-cart__btn-back')
   .addEventListener('click', () => {
     const modlWindow = document.getElementById('open-window');
     const closeHeader = document.getElementById('header');
     const closeMain = document.getElementById('close_main');
+
+    closeHeader.removeAttribute('class');
+    closeHeader.setAttribute('class', 'open');
+
+    closeMain.removeAttribute('class');
+    closeMain.setAttribute('class', 'main open');
+
+    modlWindow.removeAttribute('class');
+    modlWindow.setAttribute('class', 'modal-cart  close');
+  });
+
+document.querySelector('.shipping__back')
+  .addEventListener('click', () => {
+    const modlWindow = document.getElementById('open-window');
+    const closeHeader = document.getElementById('header');
+    const closeMain = document.getElementById('close_main');
+
+    closeHeader.removeAttribute('class');
+    closeHeader.setAttribute('class', 'open');
+
+    closeMain.removeAttribute('class');
+    closeMain.setAttribute('class', 'main open');
+
+    modlWindow.removeAttribute('class');
+    modlWindow.setAttribute('class', 'modal-cart  close');
+  });
+
+document.querySelector('.shipping__back')
+  .addEventListener('click', () => {
+    const shippingOpen = document.getElementById('shipping-open');
+    const modlWindow = document.getElementById('open-window');
+    const closeHeader = document.getElementById('header');
+    const closeMain = document.getElementById('close_main');
+
+    shippingOpen.removeAttribute('open');
+    shippingOpen.setAttribute('class', 'shipping  close');
+
+    closeHeader.removeAttribute('class');
+    closeHeader.setAttribute('class', 'open');
+
+    closeMain.removeAttribute('class');
+    closeMain.setAttribute('class', 'main open');
+
+    modlWindow.removeAttribute('class');
+    modlWindow.setAttribute('class', 'modal-cart  close');
+  });
+
+document.querySelector('.payment__back')
+  .addEventListener('click', () => {
+    const paymentOpen = document.getElementById('payment-open');
+    const modlWindow = document.getElementById('open-window');
+    const closeHeader = document.getElementById('header');
+    const closeMain = document.getElementById('close_main');
+
+    paymentOpen.removeAttribute('open');
+    paymentOpen.setAttribute('class', 'payment  close');
 
     closeHeader.removeAttribute('class');
     closeHeader.setAttribute('class', 'open');

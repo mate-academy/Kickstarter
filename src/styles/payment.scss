@@ -1,0 +1,449 @@
+.payment {
+  padding: 0 30px;
+
+  &__logo {
+    margin-top: 25px;
+    align-self: flex-start;
+    width: 161px;
+  }
+
+  // .payment__btn-back
+
+  &__btn-back {
+    position: relative;
+    width: 100%;
+    text-align: left;
+  }
+
+  // .payment__back
+
+  &__back {
+    position: absolute;
+    margin-top: 50px;
+    display: inline-block;
+    width: 50px;
+    height: 40px;
+    color: hsl(0, 0%, 20%);
+    background: url(../images/cart/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media (max-width: 555px) {
+      background: url(../images/cart/close.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-top: 0;
+      right: -17px;
+      bottom: 0;
+    }
+  }
+
+  // .payment__process
+
+  &__process {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 396px;
+    margin-top: 100px;
+    margin-bottom: 90px;
+
+    @media (max-width: 638px) {
+      width: 250px;
+    }
+
+    @media (max-width: 423px) {
+      width: 200px;
+    }
+  }
+
+  // .payment__cart
+
+  &__cart {
+    position: relative;
+    z-index: 1;
+    width: 13px;
+    height: 13px;
+    color: hsl(0, 0%, 31%);
+    border: 2px solid gray;
+    background: hsl(0, 0%, 31%);
+    border-radius: 50%;
+    &::after {
+      content: "cart";
+      position: relative;
+      top: 20px;
+      right: 15px;
+      @include FontSet("Helvetica Neue Roman", 16px, 20px);
+      text-transform: uppercase;
+
+      @media (max-width: 423px) {
+        @include FontSet("Helvetica Neue Roman", 12px, 18px);
+        right: 10px;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: relative;
+      top: 4px;
+      left: 11px;
+      display: block;
+      width: 180px;
+      height: 1px;
+      background-color: hsl(0, 0%, 31%);
+
+      @media (max-width: 638px) {
+        width: 110px;
+      }
+
+      @media (max-width: 423px) {
+        width: 85px;
+      }
+    }
+  }
+
+  // .payment__shipping
+
+  &__shipping {
+    position: relative;
+    z-index: 1;
+    width: 13px;
+    height: 13px;
+    border: 2px solid gray;
+    background: hsl(0, 0%, 31%);
+    border-radius: 50%;
+    &::after {
+      content: "SHIPPING";
+      position: relative;
+      top: 20px;
+      right: 30px;
+      color: hsl(0, 0%, 31%);
+
+      @include FontSet("Helvetica Neue Roman", 16px, 20px);
+      text-transform: uppercase;
+
+      @media (max-width: 423px) {
+        @include FontSet("Helvetica Neue Roman", 12px, 18px);
+        right: 22px;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: relative;
+      top: 4px;
+      left: 11px;
+      display: block;
+      width: 180px;
+      height: 1px;
+      background-color: hsl(0, 0%, 31%);
+
+      @media (max-width: 638px) {
+        width: 110px;
+      }
+
+      @media (max-width: 423px) {
+        width: 85px;
+      }
+    }
+  }
+
+  // .payment__payment
+
+  &__payment {
+    width: 13px;
+    height: 13px;
+    border: 2px solid gray;
+    background: hsl(0, 0%, 31%);
+    border-radius: 50%;
+    &::after {
+      content: "PAYMENT";
+      position: relative;
+      top: 20px;
+      right: 28px;
+      @include FontSet("Helvetica Neue Roman", 16px, 20px);
+      color: hsl(0, 0%, 31%);
+      text-transform: uppercase;
+
+      @media (max-width: 423px) {
+        @include FontSet("Helvetica Neue Roman", 12px, 18px);
+        right: 22px;
+      }
+    }
+  }
+
+  // .payment__inner
+
+  &__inner {
+    width: 582px;
+    margin: 0 auto;
+    background: hsl(0, 0%, 100%);
+    border: 1px solid hsl(0, 0%, 88%);
+    box-sizing: border-box;
+    border-radius: 10px;
+
+    @media (max-width: 672px) {
+      width: 340px;
+      background-color: hsl(0, 0%, 96%);
+      border: none;
+    }
+
+    @media (max-width: 490px) {
+      width: 260px;
+    }
+  }
+
+  // .payment__images
+
+  &__images {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 55px;
+    margin-bottom: 42px;
+
+    @media (max-width: 490px) {
+      width: 250px;
+    }
+  }
+
+  // .payment__master
+
+  &__master {
+    width: 33px;
+    height: 25px;
+    align-self: center;
+  }
+
+  &__visa {
+    width: 40px;
+    height: 22px;
+    align-self: center;
+  }
+
+  &__pay {
+    width: 38px;
+    height: 15px;
+    align-self: center;
+  }
+
+  &__express {
+    width: 36px;
+    height: 24px;
+    align-self: center;
+  }
+
+  &__box {
+    margin-top: 42px;
+    padding-left: 110px;
+    @include FontSet("Helvetica Neue Roman", 12px, 14px);
+    color: hsl(0, 0%, 49%);
+
+    @media (max-width: 672px) {
+      padding-left: 0;
+    }
+  }
+
+  &__text {
+    display: block;
+    margin-top: 22px;
+    padding-left: 110px;
+
+    @media (max-width: 672px) {
+      padding-left: 0;
+    }
+  }
+
+  // .payment__holder
+
+  &__holder {
+    display: block;
+    width: 378px;
+    border-bottom: 1px solid hsl(181, 82%, 26%);
+    margin: 0 auto;
+    height: 40px;
+
+    &::placeholder {
+      color: hsl(0, 0%, 88%);
+      @include FontSet("Helvetica Neue Roman", 12px, 24px);
+    }
+
+    @media (max-width: 672px) {
+      background-color: hsl(0, 0%, 96%);
+    }
+
+    @media (max-width: 490px) {
+      width: 260px;
+    }
+  }
+
+  // .payment__number
+
+  &__number {
+    display: block;
+    width: 378px;
+    border-bottom: 1px solid hsl(181, 82%, 26%);
+    margin: 0 auto;
+    height: 35px;
+
+    &::placeholder {
+      color: hsl(0, 0%, 88%);
+      @include FontSet("Helvetica Neue Roman", 12px, 24px);
+    }
+
+    @media (max-width: 672px) {
+      background-color: hsl(0, 0%, 96%);
+    }
+
+    @media (max-width: 490px) {
+      width: 260px;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    margin-left: 102px;
+
+    @media (max-width: 672px) {
+      margin-left: 0;
+    }
+  }
+
+  // .payment__expires
+
+  &__expires {
+    display: block;
+    margin-top: 40px;
+    @include FontSet("Helvetica Neue Roman", 12px, 24px);
+  }
+
+  &__exp {
+    display: block;
+  }
+
+  // .payment__mm
+
+  &__mm {
+    position: relative;
+    display: inline-block;
+    width: 23px;
+    height: 24px;
+    margin-right: 25px;
+    border-bottom: 1px solid hsl(0, 0%, 74%);
+    @include FontSet("Helvetica Neue Roman", 12px, 14px);
+
+    &::placeholder {
+      color: hsl(0, 0%, 88%);
+      @include FontSet("Helvetica Neue Roman", 12px, 24px);
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    &::after {
+      content: "/";
+      display: inline-block;
+    }
+
+    @media (max-width: 672px) {
+      background-color: hsl(0, 0%, 96%);
+    }
+  }
+
+  // .payment__yy
+
+  &__yy {
+    width: 23px;
+    height: 24px;
+    border-bottom: 1px solid hsl(0, 0%, 74%);
+    @include FontSet("Helvetica Neue Roman", 12px, 14px);
+
+    &::placeholder {
+      color: hsl(0, 0%, 88%);
+      @include FontSet("Helvetica Neue Roman", 12px, 24px);
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    @media (max-width: 672px) {
+      background-color: hsl(0, 0%, 96%);
+    }
+  }
+
+  // .payment__password
+
+  &__password {
+    display: block;
+    margin-top: 40px;
+    margin-left: 30px;
+    @include FontSet("Helvetica Neue Roman", 12px, 24px);
+  }
+
+  // .payment__cvc
+
+  &__cvc {
+    display: block;
+    height: 24px;
+    width: 72px;
+    border-bottom: 1px solid hsl(0, 0%, 74%);
+
+    &::placeholder {
+      color: hsl(0, 0%, 88%);
+      @include FontSet("Helvetica Neue Roman", 12px, 24px);
+    }
+
+    @media (max-width: 672px) {
+      background-color: hsl(0, 0%, 96%);
+    }
+  }
+
+  // .payment__buttons
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+    padding-bottom: 50px;
+
+    @media (max-width: 448px) {
+      width: 260px;
+    }
+
+    @media (max-width: 490px) {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+  }
+
+  // .payment__return
+
+  &__return {
+    width: 174px;
+    height: 48px;
+
+    @include FontSet("Helvetica Neue Roman", 12px, 14px);
+    color: hsl(0, 0%, 31%);
+    text-transform: uppercase;
+  }
+
+  // .payment__continue
+
+  &__continue {
+    height: 48px;
+    width: 174px;
+    @include FontSet("Helvetica Neue Roman", 12px, 15px);
+    background-color: hsl(0, 0%, 20%);
+    text-transform: uppercase;
+    color: hsl(0, 0%, 100%);
+
+    @media (max-width: 490px) {
+      margin-bottom: 20px;
+    }
+  }
+}
