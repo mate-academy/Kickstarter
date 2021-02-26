@@ -32,6 +32,11 @@ document.querySelector('#end3').addEventListener('click', () => {
   check.removeAttribute('checked');
 });
 
+document.querySelector('#end4').addEventListener('click', () => {
+  check.setAttribute('disabled', 'disabled');
+  check.removeAttribute('checked');
+});
+
 const divs = document.getElementsByClassName('description__text');
 const number = document.getElementById('deleteClass');
 const btnColorsLeft = document.getElementById('btn_left');
@@ -887,6 +892,26 @@ document.querySelector('.shipping__continue').addEventListener('click', () => {
   paymentOpen.setAttribute('class', 'payment  open');
 });
 
+document.querySelector('.payment__continue').addEventListener('click', () => {
+  let twoClick = 0;
+  const paymentOpen = document.getElementById('payment-open');
+  const thankOpen = document.getElementById('thank-open');
+
+  twoClick++;
+
+  if (twoClick === 2) {
+    twoClick = 0;
+
+    return;
+  }
+
+  thankOpen.removeAttribute('class');
+  thankOpen.setAttribute('class', 'thank open');
+
+  paymentOpen.removeAttribute('close');
+  paymentOpen.setAttribute('class', 'payment  close');
+});
+
 document.querySelector('.shipping__return').addEventListener('click', () => {
   let twoClick = 0;
   const shippingOpen = document.getElementById('shipping-open');
@@ -1013,6 +1038,22 @@ document.querySelector('.payment__back')
 
     modlWindow.removeAttribute('class');
     modlWindow.setAttribute('class', 'modal-cart  close');
+  });
+
+document.querySelector('.thank__btn')
+  .addEventListener('click', () => {
+    const thankOpen = document.getElementById('thank-open');
+    const closeHeader = document.getElementById('header');
+    const closeMain = document.getElementById('close_main');
+
+    closeHeader.removeAttribute('class');
+    closeHeader.setAttribute('class', 'open');
+
+    closeMain.removeAttribute('class');
+    closeMain.setAttribute('class', 'main open');
+
+    thankOpen.removeAttribute('class');
+    thankOpen.setAttribute('class', 'thank  close');
   });
 
 let numSilver = 0;
