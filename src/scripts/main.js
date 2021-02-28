@@ -2,6 +2,7 @@
 
 const cost = 129;
 const check = document.getElementById('toggler');
+let colorBaby = 'Silver';
 
 document.querySelector('#show').addEventListener('click', () => {
   if (check.hasAttribute('checked')) {
@@ -852,12 +853,33 @@ document.querySelector('.header__basket').addEventListener('click', () => {
   modlWindow.setAttribute('class', 'modal-cart  open');
 });
 
+let addCartProduct = '';
+const notSelectedProduct = document.querySelector('.modal-cart__holder');
+let findNotSelect = '';
+
 document.querySelector('.modal-cart__btn').addEventListener('click', () => {
   let twoClick = 0;
   const shippingOpen = document.getElementById('shipping-open');
   const modlWindow = document.getElementById('open-window');
 
   twoClick++;
+
+  if (findNotSelect) {
+    return;
+  }
+
+  if (!addCartProduct) {
+    notSelectedProduct.insertAdjacentHTML('beforeend', `
+      <div class = "modal-cart__not-selected">
+        You need to add the product to the cart
+      </div>
+  `);
+
+    findNotSelect = notSelectedProduct
+      .querySelector('.modal-cart__not-selected');
+
+    return;
+  }
 
   if (twoClick === 2) {
     twoClick = 0;
@@ -1063,7 +1085,6 @@ let numGold = 0;
 let numSpace = 0;
 const searchSelected = document.getElementsByClassName('modal-cart__elect');
 const defoltCrazyBaby = document.getElementById('one-color');
-let colorBaby = 'Silver';
 
 defoltCrazyBaby.removeAttribute('class');
 
@@ -1327,6 +1348,8 @@ document.querySelector('.modal-cart__subtraction')
 const modalCart = document.querySelector('.modal-cart');
 const itemsList = modalCart.querySelector('.modal-cart__list');
 const sum = document.getElementById('total');
+let addColorCart = '';
+let addQuantityCart = 0;
 let total = 0;
 
 const url = {
@@ -1355,6 +1378,20 @@ document.querySelector('.modal-cart__add')
       }
     }
 
+    for (let color = 0; color < addColorCart.length; color++) {
+      if (addColorCart[color].innerHTML === colorBaby) {
+        const numProd = +addQuantityCart[color].innerHTML;
+
+        addQuantityCart[color].innerHTML = numProd + quantity;
+
+        const previous = +sum.innerHTML.slice(1);
+
+        sum.innerHTML = `$${((cost * total) + previous).toFixed(2)}`;
+
+        return;
+      }
+    }
+
     itemsList.insertAdjacentHTML('beforeend', `
       <li class="modal-cart__product">
         <img
@@ -1363,7 +1400,7 @@ document.querySelector('.modal-cart__add')
           class="modal-cart__small-pic"
         >
         <div class="modal-cart__new-text">
-          Color: <span modal-cart__indent>${colorBaby}</span>
+          Color: <span class = "modal-cart__indent">${colorBaby}</span>
         </div>
         <div class="modal-cart__new-amount">
           <button type="button" class="modal-cart__new-subtraction">
@@ -1375,6 +1412,16 @@ document.querySelector('.modal-cart__add')
         <button type="button" class="modal-cart__min-close"></button>
       </li>
     `);
+
+    addColorCart = itemsList.querySelectorAll('.modal-cart__indent');
+    addQuantityCart = itemsList.querySelectorAll('.modal-cart__new-quantity');
+
+    if (findNotSelect) {
+      findNotSelect.remove();
+      findNotSelect = '';
+    }
+
+    addCartProduct = itemsList.querySelector('.modal-cart__product');
 
     const prev = +sum.innerHTML.slice(1);
 
@@ -1399,6 +1446,11 @@ itemsList.addEventListener('click', (event) => {
   total = newSumProducts;
 
   sum.innerHTML = `$${(cost * newSumProducts).toFixed(2)}`;
+
+  addCartProduct = itemsList.querySelector('.modal-cart__product');
+
+  addColorCart = itemsList.querySelectorAll('.modal-cart__indent');
+  addQuantityCart = itemsList.querySelectorAll('.modal-cart__new-quantity');
 });
 
 itemsList.addEventListener('click', (event) => {
