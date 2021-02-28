@@ -155,6 +155,7 @@
     border: 2px solid $colorGrayForCart;
     background: $colorGray;
     border-radius: 50%;
+
     &::after {
       content: "PAYMENT";
       position: relative;
@@ -228,6 +229,7 @@
   }
 
   &__box {
+    position: relative;
     margin-top: 42px;
     padding-left: 110px;
     @include FontSet("Helvetica Neue Roman", 12px, 14px);
@@ -270,6 +272,7 @@
   }
 
   &__number {
+    position: relative;
     display: block;
     width: 378px;
     border-bottom: 1px solid hsl(181, 82%, 26%);
@@ -279,6 +282,11 @@
     &::placeholder {
       color: $colorLightGray;
       @include FontSet("Helvetica Neue Roman", 12px, 24px);
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
     }
 
     @media (max-width: 672px) {
@@ -300,6 +308,7 @@
   }
 
   &__expires {
+    position: relative;
     display: block;
     margin-top: 40px;
     @include FontSet("Helvetica Neue Roman", 12px, 24px);
@@ -360,6 +369,7 @@
   }
 
   &__password {
+    position: relative;
     display: block;
     margin-top: 40px;
     margin-left: 30px;
@@ -375,6 +385,11 @@
     &::placeholder {
       color: $colorLightGray;
       @include FontSet("Helvetica Neue Roman", 12px, 24px);
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
     }
 
     @media (max-width: 672px) {
@@ -435,4 +450,16 @@
       margin-bottom: 20px;
     }
   }
+}
+
+.mistakes {
+  position: absolute;
+  top: 75%;
+  left: 10px;
+  // right: 0;
+  display: block;
+  width: 230px;
+  text-align: center;
+  color: red;
+  @include FontSet("Helvetica Neue Roman", 10px, 13px);
 }

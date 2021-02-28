@@ -894,45 +894,66 @@ document.querySelector('.modal-cart__btn').addEventListener('click', () => {
   shippingOpen.setAttribute('class', 'shipping  open');
 });
 
-document.querySelector('.shipping__continue').addEventListener('click', () => {
-  let twoClick = 0;
-  const paymentOpen = document.getElementById('payment-open');
-  const shippingOpen = document.getElementById('shipping-open');
+const form = document.querySelector('.shipping__form');
+const formPay = document.querySelector('.payment__form');
+let isValidateName = false;
+let isValidateEmail = false;
+let isValidatePhone = false;
+let isValidateCountry = false;
+let isValidateCity = false;
+let isValidateAddress = false;
 
-  twoClick++;
+document.querySelector('.shipping__continue')
+  .addEventListener('click', (event) => {
+    if (isValidateName === true
+        && isValidateEmail === true
+        && isValidatePhone === true
+        && isValidateCountry === true
+        && isValidateCity === true
+        && isValidateAddress === true
+    ) {
+      let twoClick = 0;
+      const paymentOpen = document.getElementById('payment-open');
+      const shippingOpen = document.getElementById('shipping-open');
 
-  if (twoClick === 2) {
-    twoClick = 0;
+      form.reset();
 
-    return;
-  }
+      twoClick++;
 
-  shippingOpen.removeAttribute('class');
-  shippingOpen.setAttribute('class', 'shipping close');
+      if (twoClick === 2) {
+        twoClick = 0;
 
-  paymentOpen.removeAttribute('close');
-  paymentOpen.setAttribute('class', 'payment  open');
-});
+        return;
+      }
 
-document.querySelector('.payment__continue').addEventListener('click', () => {
-  let twoClick = 0;
-  const paymentOpen = document.getElementById('payment-open');
-  const thankOpen = document.getElementById('thank-open');
+      shippingOpen.removeAttribute('class');
+      shippingOpen.setAttribute('class', 'shipping close');
 
-  twoClick++;
+      paymentOpen.removeAttribute('close');
+      paymentOpen.setAttribute('class', 'payment  open');
+    }
+  });
 
-  if (twoClick === 2) {
-    twoClick = 0;
+document.querySelector('.payment__continue')
+  .addEventListener('click', (event) => {
+    let twoClick = 0;
+    const paymentOpen = document.getElementById('payment-open');
+    const thankOpen = document.getElementById('thank-open');
 
-    return;
-  }
+    twoClick++;
 
-  thankOpen.removeAttribute('class');
-  thankOpen.setAttribute('class', 'thank open');
+    if (twoClick === 2) {
+      twoClick = 0;
 
-  paymentOpen.removeAttribute('close');
-  paymentOpen.setAttribute('class', 'payment  close');
-});
+      return;
+    }
+
+    thankOpen.removeAttribute('class');
+    thankOpen.setAttribute('class', 'thank open');
+
+    paymentOpen.removeAttribute('close');
+    paymentOpen.setAttribute('class', 'payment  close');
+  });
 
 document.querySelector('.shipping__return').addEventListener('click', () => {
   let twoClick = 0;
@@ -1043,7 +1064,7 @@ document.querySelector('.shipping__back')
   });
 
 document.querySelector('.payment__back')
-  .addEventListener('click', () => {
+  .addEventListener('click', (event) => {
     const paymentOpen = document.getElementById('payment-open');
     const modlWindow = document.getElementById('open-window');
     const closeHeader = document.getElementById('header');
@@ -1486,4 +1507,135 @@ itemsList.addEventListener('click', (event) => {
     document.getElementById(`${prodectNum}`)
       .innerHTML = colNum;
   }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const regExpName = /^[A-Za-z_-]{3,30}$/;
+  const regExpEmail = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
+  // eslint-disable-next-line max-len
+  const regExpPhone = /^\+?(\d{1,3})?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+
+  const validateElem = (elem) => {
+    if (elem.name === 'Name') {
+      if (!regExpName.test(elem.value) && elem.value !== '') {
+        elem.nextElementSibling
+          .textContent = 'Enter the correct username! Only latin letters!';
+        isValidateName = false;
+      } else {
+        elem.nextElementSibling.textContent = '';
+        isValidateName = true;
+      }
+    }
+
+    if (elem.name === 'Email') {
+      if (!regExpEmail.test(elem.value) && elem.value !== '') {
+        elem.nextElementSibling
+          .textContent = 'Enter the correct email!';
+        isValidateAddress = false;
+      } else {
+        elem.nextElementSibling.textContent = '';
+        isValidateEmail = true;
+      }
+    }
+
+    if (elem.name === 'PhoneNumber') {
+      if (!regExpPhone.test(elem.value) && elem.value !== '') {
+        elem.nextElementSibling
+          .textContent = 'Enter the correct phone number!';
+        isValidateAddress = false;
+      } else {
+        elem.nextElementSibling.textContent = '';
+        isValidatePhone = true;
+      }
+    }
+
+    if (elem.name === 'Country') {
+      if (!regExpName.test(elem.value) && elem.value !== '') {
+        elem.nextElementSibling
+          .textContent = 'Enter the correct country! Only latin letters!';
+        isValidateAddress = false;
+      } else {
+        elem.nextElementSibling.textContent = '';
+        isValidateCountry = true;
+      }
+    }
+
+    if (elem.name === 'City') {
+      if (!regExpName.test(elem.value) && elem.value !== '') {
+        elem.nextElementSibling
+          .textContent = 'Enter the correct city! Only latin letters!';
+        isValidateAddress = false;
+      } else {
+        elem.nextElementSibling.textContent = '';
+        isValidateCity = true;
+      }
+    }
+
+    if (elem.name === 'Address') {
+      if (!regExpName.test(elem.value) && elem.value !== '') {
+        elem.nextElementSibling
+          .textContent = 'Enter the correct city! Only latin letters!';
+        isValidateAddress = false;
+      } else {
+        elem.nextElementSibling.textContent = '';
+        isValidateAddress = true;
+      }
+    }
+  };
+
+  // for (const elem of form.elements) {
+  //   if (elem.tagName !== 'BUTTON') {
+  //     elem.addEventListener('blur', (event) => {
+  //       console.log(elem)
+  //       validateElem(elem);
+  //     });
+  //   }
+  // }
+
+  for (const elem of form.elements) {
+    if (elem.tagName !== 'BUTTON') {
+      elem.addEventListener('input', (event) => {
+        validateElem(elem);
+      });
+    }
+  }
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    for (const elem of form.elements) {
+      if (elem.tagName === 'BUTTON') {
+        return;
+      }
+
+      if (elem.value === '') {
+        elem.nextElementSibling
+          .textContent = 'Please, fill in this input field!';
+        isValidateName = false;
+        isValidateEmail = false;
+        isValidatePhone = false;
+        isValidateCountry = false;
+        isValidateCity = false;
+        isValidateAddress = false;
+      } else {
+        elem.nextElementSibling.textContent = '';
+        isValidateName = true;
+        isValidateEmail = true;
+        isValidatePhone = true;
+        isValidateCountry = true;
+        isValidateCity = true;
+        isValidateAddress = true;
+      }
+    }
+  });
+
+  formPay.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    for (const elem of formPay.elements) {
+      if (elem.tagName === 'BUTTON') {
+        return;
+      }
+    }
+  });
 });
