@@ -1517,7 +1517,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const validateElem = (elem) => {
     if (elem.name === 'Name') {
-      if (!regExpName.test(elem.value) && elem.value !== '') {
+      if (!regExpName.test(elem.value)) {
         elem.nextElementSibling
           .textContent = 'Enter the correct username! Only latin letters!';
         isValidateName = false;
@@ -1528,7 +1528,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (elem.name === 'Email') {
-      if (!regExpEmail.test(elem.value) && elem.value !== '') {
+      if (!regExpEmail.test(elem.value)) {
         elem.nextElementSibling
           .textContent = 'Enter the correct email!';
         isValidateAddress = false;
@@ -1539,7 +1539,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (elem.name === 'PhoneNumber') {
-      if (!regExpPhone.test(elem.value) && elem.value !== '') {
+      if (!regExpPhone.test(elem.value)) {
         elem.nextElementSibling
           .textContent = 'Enter the correct phone number!';
         isValidateAddress = false;
@@ -1550,7 +1550,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (elem.name === 'Country') {
-      if (!regExpName.test(elem.value) && elem.value !== '') {
+      if (!regExpName.test(elem.value)) {
         elem.nextElementSibling
           .textContent = 'Enter the correct country! Only latin letters!';
         isValidateAddress = false;
@@ -1561,7 +1561,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (elem.name === 'City') {
-      if (!regExpName.test(elem.value) && elem.value !== '') {
+      if (!regExpName.test(elem.value)) {
         elem.nextElementSibling
           .textContent = 'Enter the correct city! Only latin letters!';
         isValidateAddress = false;
@@ -1572,7 +1572,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (elem.name === 'Address') {
-      if (!regExpName.test(elem.value) && elem.value !== '') {
+      if (!regExpName.test(elem.value)) {
         elem.nextElementSibling
           .textContent = 'Enter the correct city! Only latin letters!';
         isValidateAddress = false;
