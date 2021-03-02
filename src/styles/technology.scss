@@ -1,0 +1,210 @@
+.technology {
+  height: 790px;
+  margin: 0 auto;
+  padding-top: 150px;
+  overflow: hidden;
+  position: relative;
+
+  &__title {
+    @include fontSet("DIN Pro", 56px, 70px);
+    text-transform: uppercase;
+    color: $colorText;
+    margin-left: 16%;
+    margin-bottom: 66px;
+  }
+
+  &__container {
+    margin: auto;
+    margin-bottom: 550px;
+    width: 1230px;
+    height: 546px;
+    position: relative;
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+    transform: rotate(7.85);
+    object-position: center;
+    object-fit: cover;
+  }
+
+  &__desc {
+    display: none;
+  }
+
+  &__button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $buttonSize;
+    height: $buttonSize;
+    background-color: $colorHover;
+    border: 0.5px solid $colorHover;
+    border-radius: 50%;
+    
+    &::before {
+      content: url("../images/plus.svg");
+      width: 14px;
+      height: 14px;
+    }
+
+    &:hover > .technology__desc {
+      position: absolute;
+      top: $buttonSize + 26px;
+      right: ($buttonSize - 2px) / 2;
+      height: 230px;
+      width: 170px;
+      display: flex;
+      align-items: flex-end;
+      text-align: left;
+      border-right: 1px solid $colorText;
+      border-bottom: 1px solid $colorText;
+
+      @media (max-width: $breakPointLaptop) {
+        width: 150px;
+      }
+
+      @media (max-width: $breakPointMobile) {
+        top: $buttonSizeMobile + 20px;
+        right: ($buttonSizeMobile - 2px) / 2;
+        height: 130px;
+        width: 100px;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 63px;
+        height: 5px;
+        bottom: -3px;
+        background-color: $colorText;
+      }
+    }
+    
+    &:hover {
+      background-color: $activColorText;
+      border: 0.5px solid $backgroundColor;
+    }
+
+    &:hover .technology__description {
+      position: absolute;
+      display: block;
+      max-width: 110px;
+      margin-bottom: 10px;
+      @include fontSet("Helvetica Neue Light", 14px, 21px);
+      font-weight: 300px;
+      color: $colorText;
+
+      @media (max-width: $breakPointMobile) {
+        @include fontSet("Helvetica Neue Light", 14px, 18px);
+        margin-bottom: 5px;
+      }
+    }
+
+    &--1 {
+      @include positionButton(26%, 8%);
+    }
+
+    &--2 {
+      @include positionButton(30%, 17%);
+    }
+
+    &--3 {
+      @include positionButton(34%, 23%);
+    }
+
+    &--4 {
+      @include positionButton(22%, 33%);
+    }
+
+    &--5 {
+      @include positionButton(26%, 42%);
+    }
+
+    &--6 {
+      @include positionButton(34%, 48%);
+    }
+
+    &--7 {
+      @include positionButton(32%, 60%);
+    }
+
+    &--8 {
+      @include positionButton(16%, 72%);
+    }
+
+    &--9 {
+      @include positionButton(32%, 82%);
+    }
+
+    &--10 {
+      @include positionButton(10%, 86%);
+    }
+
+    &--11 {
+      @include positionButton(24%, 90%);
+    }
+  }
+}
+
+@media (max-width: $breakPointLaptop) {
+  .technology {
+    &__container {
+      margin: 0 40px;
+    }
+  }
+}
+
+@media (max-width: $breakPointTablet) {
+  .technology {
+    padding-top: 130px;
+
+    &__title {
+      margin-left: 40px;
+    }
+  }
+}
+
+@media (max-width: $breakPointMobile) {
+  .technology {
+    padding-top: 90px;
+    height: 460px;
+
+    &__title {
+      @include fontSet("DIN Pro", 37px, 46px);
+      margin-bottom: 40px;
+    }
+
+    &__container {
+      max-width: 625px;
+      height: 277px;
+      margin-left: 60px;
+    }
+
+    .technology {
+      &__container {
+        margin: 0 40px;
+      }
+    }
+
+    &__button {
+      width: $buttonSizeMobile;
+      height: $buttonSizeMobile;
+    }
+  }
+}
+
+@media (max-width: $breakPointMobileSmall) {
+  .technology {
+    &__title {
+      margin-left: 20px;
+    }
+
+    &__container {
+      margin-left: 40px;
+    }
+  }
+
+}

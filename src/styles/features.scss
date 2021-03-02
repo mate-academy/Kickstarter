@@ -1,0 +1,202 @@
+.features {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 931px;
+  max-width: 1317px;
+  margin-left: 10vw;
+
+  &__title {
+    @include fontSet("DIN Pro", 56px, 70px);
+    text-transform: uppercase;
+    color: $colorText;
+    padding-left: 20px;
+
+    &-list {
+      @include fontSet("DIN Pro Medium", 34px, 40.8px);
+      color: $colorValid;
+      text-transform: uppercase;
+      margin-bottom: 38px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        color: $colorHover;
+      }
+    }
+
+    &-list--top {
+      margin-bottom: 44px;
+    }
+  }
+
+  &-content {
+    position: absolute;
+    z-index: 1;
+    max-width: 350px;
+  }
+
+  &__content {
+    position: absolute;
+    align-self: flex-end;
+    background-color: $colorContent;
+    width: 85%;
+    height: 75%;
+    bottom: 20px;
+    right: 0;
+
+    &-sound {
+      top: -15%;
+      left: 28.7%;
+    }
+
+    &-connectivity {
+      top: 22%;
+      left: -7.9%;
+    }
+
+    &-app {
+      top: 75%;
+      left: 10.3%;
+    }
+  }
+
+  &__item {
+    @include fontSet("Helvetica Neue Roman", 16px, 19px);
+    font-weight: 400;
+    color: $colorText;
+    margin-bottom: 13px;
+    position: relative;
+    cursor: pointer;
+
+    @media (max-width: $breakPointMobile) {
+      margin-left: 15px;
+    }
+
+    &::before {
+      cursor: pointer;
+      position: absolute;
+      content: url("../images/bullet.svg");
+      width: 15px;
+      height: 6px;
+      top: -15%;
+      right: 100%;
+    }
+
+    &:hover::before {
+      content: url("../images/bullet_hover.svg");
+    }
+  }
+
+  &__image {
+    position: absolute;
+    width: 70%;
+    height: 72%;
+    right: 10vw;
+    bottom: 16px;
+  }
+}
+
+@media (max-width: $breakPointLaptop) {
+  .features {
+    margin-left: 40px;
+
+    &__image {
+      right: 40px;
+    }
+  }
+}
+
+@media (max-width: $breakPointTablet) {
+  .features {
+    &__title-list--top {
+      margin-bottom: 38px;
+    }
+  }
+}
+
+@media (max-width: $breakPointMobile) {
+  .features {
+    background-color: $colorContent;
+    margin-left: 0;
+    height: 100%;
+
+    &-section {
+      padding-top: 0;
+    }
+
+    &__title {
+      @include fontSet("DIN Pro", 37px, 60px);
+      padding-left: 40px;
+      padding-top: 45px;
+
+      &-list {
+        @include fontSet("DIN Pro Medium", 30px, 37px);
+        margin: 51px 0 20px;
+      }
+    }
+
+    &-content {
+      position: static;
+      z-index: 0;
+    }
+
+    &__content {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding-left: 40px;
+
+      &-connectivity {
+        padding-left: 35%;
+        padding-right: 40px;
+        max-width: none;
+      }
+    }
+
+    &__item {
+      @include fontSet("Helvetica Neue Roman", 14px, 21px);
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &__image {
+      position: static;
+      min-width: 344px;
+      min-height: 222px;
+      align-self: flex-end;
+      padding-right: 40px;
+      margin-bottom: 45px;
+    }
+  }
+
+  .container__features-section {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: $breakPointMobileSmall) {
+  .features {
+    &__title {
+      padding-left: 20px;
+    }
+
+    &__content {
+      padding-left: 20px;
+
+      &-connectivity {
+        padding-left: 0;
+        max-width: 350px;
+      }
+    }
+
+    &__image {
+      padding-right: 20px;
+      margin: 45px 0;
+    }
+  }
+}

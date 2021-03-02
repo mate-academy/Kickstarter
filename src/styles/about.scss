@@ -1,0 +1,130 @@
+.about {
+  margin: 0 auto;
+  padding-top: 150px;
+  position: relative;
+  display: grid;
+  justify-content: center;
+  max-width: 990px;
+  grid-column-gap: 30px;
+  grid-template-columns: 58% 38%;
+
+  &__title {
+    position: absolute;
+    top: 158px;
+    left: 51%;
+    @include fontSet("DIN Pro", 56px, 72px);
+    text-transform: uppercase;
+    color: $colorText;
+  }
+
+  &__image {
+    display: grid;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 388px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 182px;
+  }
+
+  &__text {
+    @include fontSet("Helvetica Neue Roman", 16px, 24px);
+    font-weight: 400;
+    color: $colorTextMain;
+  }
+
+  &__link-info {
+    margin-top: 30px;
+  }
+
+  &__link {
+    @include fontSet("Helvetica Neue Medium", 12px, 15px);
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $colorHover;
+    transition: 0.3s;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 54px;
+      background-color: $colorHover;
+      margin-top: 6px;
+      transition: 0.3s;
+    }
+
+    &:hover::after {
+      width: 128px;
+    }
+  }
+}
+
+@media (max-width: $breakPointLaptop) {
+  .about {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+
+@media (max-width: $breakPointTablet) {
+  .about {
+    display: grid;
+    padding-top: 130px;
+    grid-template-columns: repeat(2, calc(50% - 10px));
+    grid-column-gap: 20px;
+    margin-left: 0;
+
+    &__title {
+      left: 35%;
+      top: 138px;
+    }
+
+    &__image {
+      object-position: 35%;
+      height: 415px;
+    }
+
+    &__text {
+      max-width: 378px;
+    }
+  }
+}
+
+@media (max-width: $breakPointMobile) {
+  .about {
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 89px 40px 0;
+
+    &__title {
+      position: static;
+      @include fontSet("DIN Pro", 37px, 55px);
+    }
+
+    &__image {
+      margin: 50px 0 29px;
+      height: 210px;
+    }
+
+    &__info {
+      margin-top: 0;
+    }
+
+    &__text {
+      @include fontSet("Helvetica Neue Roman", 14px, 21px);
+      max-width: none;
+    }
+  }
+}
+
+@media (max-width: $breakPointMobileSmall) {
+  .about {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}

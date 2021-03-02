@@ -1,0 +1,53 @@
+.nav {
+  margin: 50px auto 150px;
+  background-color: $backgroundColor;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  &__list {
+    position: sticky;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 0 32%;
+    grid-column-gap: 45px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include fontSet("Helvetica Neue Light", 14px, 21px);
+    font-weight: 300px;
+    text-transform: uppercase;
+    color: $colorText;
+    height: 76px;
+    width: 120px;
+    transition: 0.3s;
+
+    &:hover {
+      @include fontSet("Helvetica Neue Medium", 14px, 21px);
+      font-weight: 500;
+      color: $activColorText;
+    }
+  }
+}
+
+@media (max-width: $breakPointTablet) {
+  .nav {
+    margin: 100px 0;
+
+    &__list {
+      margin: 0 5%;
+      grid-column-gap: min(5px);
+    }
+  }
+}
+
+@media (max-width: $breakPointMobile) {
+  .nav {
+    display: none;
+  }
+}

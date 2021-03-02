@@ -1,0 +1,97 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 89px;
+  text-transform: uppercase;
+  
+  &__logo {
+    width: 161px;
+    height: 26px;
+    transition: 0.3s;
+    position: relative;
+    z-index: 2;
+
+    &:hover {
+      transform: scale3d(1.2, 1.2, 1.2) translateX(10px);
+    }
+  }
+
+  &__specs {
+    @include fontSet("Helvetica Neue Light", 14px, 17px);
+    font-weight: 300;
+    color: $colorSpecs;
+    transition: 0.3s;
+
+    &:hover {
+      color: $colorHover;
+    }
+
+  }
+
+  &__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 269px;
+  }
+
+  &__language-option {
+    @include fontSet("Helvetica Neue Roman", 14px, 18px);
+    color: $colorText;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  &__toggler-language {
+    display: none;
+  }
+
+  &__language-option::before {
+    content: "EN ";
+    font-weight: 400;
+  }
+
+  &__toggler-language:checked + &__language-option::before {
+    @include fontSet("Helvetica Neue Roman", 14px, 18px);
+    font-weight: 300;
+    color: $inactiveColor;
+  }
+  
+  &__language-option::after {
+    content: " UA";
+    font-weight: 300;
+    color: $inactiveColor;
+  }
+
+  &__toggler-language:checked + &__language-option::after {
+    font-weight: 400;
+    color: $colorText;
+  }
+
+  &__button {
+    width: 102px;
+    height: 48px;
+    background-color: $colorText;
+    color: $colorButtonText;
+    @include fontSet("Helvetica Neue Medium", 12px, 15px);
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.3s;
+
+    &:hover {
+      color: $colorText;
+      background-color: $colorHover;
+    }
+  }
+}
+
+@media (max-width: $breakPointMobile) {
+  .header {
+    margin-bottom: 22px;
+
+    &__options {
+      display: none;
+    }
+  }
+}

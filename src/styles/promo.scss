@@ -1,0 +1,78 @@
+.promo {
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+
+  &__title {
+    @include fontSet("DIN Pro Black", 64px, 83px);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: $colorText;
+    max-width: 378px;
+    margin-bottom: 27px;
+  }
+
+  &__text {
+    max-width: 276px;
+    margin-bottom: 11px;
+    @include fontSet("Helvetica Neue Roman", 16px, 24px);
+    font-weight: 400;
+    color: $colorText;
+  }
+
+  &__image {
+    width: 939px;
+    height: 464px;
+  }
+}
+
+@media (max-width: $breakPointTablet) {
+  .promo {
+    &__title {
+      max-width: 340px;
+      margin-bottom: 34px;
+      @include fontSet("DIN Pro Black", 48px, 62px);
+    }
+
+    &__text {
+      max-width: 250px;
+      margin-bottom: 0;
+    }
+
+    &__image {
+      position: relative;
+      left: -20px;
+      z-index: -1;
+      height: 365px;
+    }
+  }
+}
+
+@media (max-width: $breakPointMobile) {
+  .promo {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    &__image {
+      margin-left: 220px;
+      min-width: 320px;
+      height: 245px;
+      order: -1;
+    }
+
+    &__info {
+      text-align: center;
+    }
+
+    &__title {
+      @include fontSet("DIN Pro Black", 44px, 57px);
+      margin: 40px 0 23px;
+    }
+
+    &__text,
+    &__title {
+      max-width: none;
+    }
+  }
+}

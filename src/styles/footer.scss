@@ -1,0 +1,128 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+  position: relative;
+  max-width: 942px;
+  padding-bottom: 100px;
+
+  &__arrow {
+    position: absolute;
+    background-image: url("../images/arrow.svg");
+    width: 20px;
+    height: 24px;
+    top: 8px;
+    right: 14px;
+
+    @media (max-width: $breakPointMobile) {
+      right: 0;
+    }
+  }
+
+  @media (max-width: $breakPointLaptop) {
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+
+  &__logo {
+    width: 161px;
+    height: 26px;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale3d(1.2, 1.2, 1.2);
+    }
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    margin-top: 63px;
+    margin-bottom: 36px;
+  }
+
+  &__icon {
+    &-facebook {
+      background-image: url("../images/facebook.svg");
+      width: 11px;
+      height: 19px;
+      transition: 0.3s;
+
+      &:hover {
+        background-image: url("../images/facebook_hover.svg");
+        transform: scale(1.5);
+      }
+    }
+
+    &-twitter {
+      background-image: url("../images/twitter.svg");
+      width: 22px;
+      height: 17px;
+      margin-right: 43px;
+      margin-left: 43px;
+      transition: 0.3s;
+
+      &:hover {
+        background-image: url("../images/twitter_hover.svg");
+        transform: scale(1.5);
+      }
+    }
+
+    &-instagram {
+      background-image: url("../images/instagram.svg");
+      width: 18px;
+      height: 18px;
+      transition: 0.3s;
+
+      &:hover {
+        background-image: url("../images/instagram_hover.svg");
+        transform: scale(1.5);
+      }
+    }
+  }
+
+  &__copyright {
+    @include fontSet("Helvetica Neue Light", 14px, 21px);
+    color: $inactiveColor;
+    font-weight: 300px;
+  }
+}
+
+@media (max-width: $breakPointTablet) {
+  .footer {
+    max-width: none;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: 42px 0 50px;
+  }
+}
+
+@media (max-width: $breakPointMobile) {
+  .footer {
+    padding-top: 57px;
+
+    &__logo {
+      display: none;
+    }
+
+    &__copyright {
+      @include fontSet("Helvetica Neue Light", 12px, 21px);
+      text-align: center;
+    }
+
+    &__socials {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (max-width: $breakPointMobileSmall) {
+  .footer {
+    max-width: none;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}

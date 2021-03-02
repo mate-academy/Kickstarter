@@ -1,0 +1,74 @@
+.menu {
+  display: none;
+
+  &__toggler {
+    display: none;
+  }
+
+  &__label {
+    background-image: url("../images/menu.svg");
+    background-position: top;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 16px;
+    z-index: 2;
+    position: fixed;
+    top: 28px;
+    right: 40px;
+    cursor: pointer;
+  }
+
+  &-nav {
+    position: absolute;
+    top: -600%;
+    right: 0;
+    left: -100%;
+    background-color: rgba(208, 208, 208, 0.4);
+    z-index: 1;
+    transition: all 0.5s;
+
+    &__link {
+      display: inline-block;
+
+      &:hover {
+        color: $colorHover;
+        font-weight: 600;
+      }
+    }
+
+    &__list {
+      margin: 100px 0 45px;
+      margin-right: 11vw;
+      text-align: right;
+    }
+
+    &__item {
+      @include fontSet("Helvetica Neue Medium", 16px, 20px);
+      font-weight: 500;
+      color: $colorText;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media (max-width: $breakPointMobile) {
+  .menu {
+    display: block;
+
+    &__toggler:checked ~ &__label {
+      background-image: url("../images/cross.svg");
+      position: fixed;
+    }
+
+    &__toggler:checked ~ &-nav {
+      top: 0;
+      position: fixed;
+    }
+  }
+}
+
+@media (max-width: $breakPointMobileSmall) {
+  .menu__label {
+    right: 20px;
+  }
+}
