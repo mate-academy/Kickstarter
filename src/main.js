@@ -15,7 +15,7 @@ burgerButton.addEventListener('click', (e) => {
   window.onresize = function(e) {
     const currentWidth = e.target.innerWidth;
 
-    if (currentWidth < 751 && flag) {
+    if (currentWidth < 768 && flag) {
       burgerMenu.style.display = 'flex';
     } else {
       burgerMenu.style.display = 'none';

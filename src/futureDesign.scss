@@ -1,8 +1,8 @@
 .future-design {
-  display: grid;
+  display: block;
+  padding: 0 35px 130px;
   grid-gap: 0 30px;
   grid-template-columns: repeat(12, 1fr);
-  padding: 0 0 130px;
   font-family: "Helvetica Neue";
   position: relative;
 
@@ -10,12 +10,12 @@
     grid-template-columns: repeat(8, 1fr);
   }
 
-  @media(max-width: 720px) {
-    display: block;
-    padding: 0 35px 130px;
+  @media(min-width: 768px) {
+    display: grid;
+    padding: 0 0 130px;
   }
 
-  @media(max-width: 425px) {
+  @media(max-width: $mobileLarge) {
     padding: 0 0 130px;
   }
 
@@ -23,7 +23,7 @@
     grid-column-start: 7;
     grid-column-end: 12;
     margin: 0;
-    position: absolute;
+    position: static;
 
     @media(max-width: 1100px) {
       grid-column-start: 4;
@@ -31,11 +31,11 @@
 
     }
 
-    @media(max-width: 720px) {
-      position: static;
+    @media(min-width: 768px) {
+      position: absolute;
     }
 
-    @media(max-width: 425px) {
+    @media(max-width: $mobileLarge) {
       font-size: 37px;
       text-align: left;
       font-weight: 600;
@@ -53,7 +53,7 @@
       box-shadow: 5px 3px 5px black;
     }
 
-    @media(max-width: 1300px) {
+    @media(max-width: $notebook) {
       grid-row-start: 1;
       grid-column-start: 1;
       grid-column-end: 6;
@@ -67,30 +67,25 @@
     
     }
 
-    @media(max-width: 768px) {
+    @media(max-width: $laptopSmall) {
       position: relative;
       left: -80px;
     }
 
-    @media(max-width: 720px) {
+    @media(max-width: $mobileLarge) {
       position: static;
-      width: 100vw;
-      height: 100%;
       margin: 50px 0 30px;
-    }
-
-    @media(max-width: 425px) {
       width: 100vw;
       height: 100%;
     }
   }
 
   &__content {
-    margin-top: 200px;
+    margin: 0 auto;
     grid-column-start: 8;
     grid-column-end: 12;
 
-    @media(max-width: 1300px) {
+    @media(max-width: $notebook) {
       grid-column-start: 8;
       grid-column-end: 13;
     }
@@ -101,11 +96,11 @@
       grid-column-end: 9;
     }
 
-    @media(max-width: 720px) {
-      margin: 0 auto;
+    @media(min-width: 768px) {
+      margin-top: 200px;
     }
 
-    @media(max-width: 425px) {
+    @media(max-width: $mobileLarge) {
       text-align: left;
     }
   }
@@ -129,7 +124,7 @@
 
   &__text {
     font-size: 16px;
-    @media(max-width: 425px) {
+    @media(max-width: $mobileLarge) {
       font-size: 14px;
     }
   }
