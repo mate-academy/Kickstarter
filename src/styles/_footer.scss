@@ -1,0 +1,67 @@
+@import "../styles/mixins.scss";
+@import "../styles/vars";
+
+.footer {
+  @extend %display-flex-column;
+  position: relative;
+
+  &__logo {
+    margin-top: 142px;
+  }
+
+  &__media {
+    margin-top: 65px;
+  }
+
+  &__icon {
+    margin: 0 18px 36px;
+
+    &--twitter {
+      margin-right: 38px;
+    }
+
+    &--instagram {
+      margin-right: 45px;
+    }
+  }
+
+  &__rights {
+    font-size: 14px;
+    color: $text-color-light-grey;
+    margin-bottom: 100px;
+  }
+
+  &__arrow {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    &__logo {
+      margin: 142px auto 0;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footer {
+    &__logo {
+      margin: 0 auto;
+      opacity: 0;
+    }
+
+    &__arrow {
+      display: block;
+      position: absolute;
+      top: 20%;
+      right: 15%;
+      transform: rotate(90deg);
+    }
+
+    &__rights {
+      width: 80%;
+      text-align: center;
+    }
+  }
+}

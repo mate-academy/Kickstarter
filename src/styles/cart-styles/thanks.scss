@@ -1,0 +1,146 @@
+@import "../reset";
+@import "../vars";
+@import "../footer";
+
+@font-face {
+  font-family: $font-family-helv;
+  src: url("../../fonts/Opium.ttf") format("ttf");
+}
+
+body {
+  background-color: #e5e5e5;
+  font-family: "Opium", sans-serif;
+}
+
+.thanks {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__wrapper {
+    margin: 225px auto;
+
+    &::before {
+      content: url(../../images/Group.png);
+      position: absolute;
+      width: 886px;
+      top: 20%;
+      left: 20%;
+      transform: rotate(-157.14deg);
+      z-index: -1;
+    }
+  }
+
+  &__heading {
+    font-family: "Opium", sans-serif;
+    font-size: 72px;
+    line-height: 178%;
+    text-align: center;
+
+    color: #0c797a;
+  }
+
+  &__text {
+    margin-bottom: 15px;
+
+    font-size: 16px;
+    line-height: 225%;
+    text-align: center;
+    color: $text-color-granit;
+    font-weight: 600;
+  }
+
+  &__info {
+    width: 373px;
+    margin-bottom: 60px;
+
+    line-height: 27px;
+    color: $text-color-granit;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  &__link {
+    display: block;
+    margin: 1px 100px -160px;
+  }
+
+  &__homepage {
+    width: 174px;
+    height: 48px;
+    display: block;
+
+    background-color: #fff;
+    border: 1px solid #0c797a;
+    font-size: 12px;
+    line-height: 18px;
+    cursor: pointer;
+    font-weight: 600;
+    color: $history-link-color;
+    transition: background-color 0.5s;
+
+    &:hover {
+      background-color: #0c797a;
+      color: #fff;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    width: 100vw;
+  }
+
+  .thanks {
+    &__wrapper {
+      &::before {
+        transform: unset;
+        top: 0;
+        left: -12px;
+      }
+    }
+
+    &__info {
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    width: 100vw;
+  }
+
+  .thanks {
+    &__wrapper {
+      &::before {
+        transform: unset;
+        width: 640px;
+        top: 0;
+        left: -12px;
+      }
+    }
+
+    &__info {
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .thanks {
+    overflow: hidden;
+
+    &__heading {
+      font-size: 48px;
+    }
+
+    &__wrapper {
+      margin-top: 87px;
+      &::before {
+        width: 100vw;
+      }
+    }
+  }
+}
