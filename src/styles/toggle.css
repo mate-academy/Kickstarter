@@ -1,0 +1,60 @@
+.toggle {
+  display: none;
+  position: relative;
+  width: 24px;
+  height: 12px;
+}
+
+.toggle__checkbox {
+  display: none;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: calc(50% + 1px);
+  left: calc(50% - 15px);
+}
+
+.toggle__button {
+  display: block;
+  margin-top: 20px;
+  width: 24px;
+  height: 3px;
+  background-color: #333;
+}
+
+.toggle__button::before,
+.toggle__button::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #333;
+  transform: translateY(7px);
+  transition: transform 0.5s;
+  transform-origin: 14px;
+}
+
+.toggle__button::after {
+  transform: translateY(-10px);
+}
+
+@media screen and (max-width: 600px) {
+  .toggle {
+    display: block;
+  }
+  .toggle__button {
+    display: inline-block;
+  }
+  .toggle__checkbox:checked ~ .lang__menu {
+    opacity: 1;
+  }
+  .toggle__checkbox:checked ~ .toggle > .toggle__button {
+    height: 0;
+  }
+  .toggle__checkbox:checked ~ .toggle > .toggle__button::after {
+    transform: rotate(45deg);
+  }
+  .toggle__checkbox:checked ~ .toggle > .toggle__button::before {
+    transform: rotate(-45deg);
+  }
+}
