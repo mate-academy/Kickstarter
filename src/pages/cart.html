@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speaker</title>
     <link rel="stylesheet" href="../styles/css/cart.css">
+    <!-- <link type="text/javascript" defer
+      src="../scripts/cart.js"
+    > -->
   </head>
   <body class="page">
 
@@ -69,15 +72,19 @@
         <h3 class="product__name">LUNA EYE</h3>
         <h4 class="product__cost">$129.00</h4>
         <div class="product__colors">
-          <div class="product__color"></div>
-          <div class="product__color"></div>
-          <div class="product__color"></div>
-          <div class="product__color"></div>
-          <div class="product__color"></div>
+          <div class="product__color product__color--circle" data-color="SILVER"></div>
+          <div class="product__color" data-color="ALABASTER"></div>
+          <div class="product__color" data-color="PHARLAP"></div>
+          <div class="product__color" data-color="GREY"></div>
+          <div class="product__color" data-color="JUMBO"></div>
         </div>
         <div class="product__chosen">SILVER</div>
         <div class="product__number">
-          <span class="product__number--minus">- </span><input type="text" placeholder="1"><span class="product__number--plus"> +</span>
+          <span class="product__number--minus">- </span>
+          <input type="text" placeholder="1"
+            id="amount" value="1"
+          >
+          <span class="product__number--plus"> +</span>
         </div>
 
         <button class="product__add">ADD TO CARD</button>
@@ -148,5 +155,48 @@
 
       </div>
     </footer>
+
+    <script>
+      const productColors = document.querySelector('.product__colors');
+      const productNumber = document.querySelector('.product__number');
+
+      productColors.addEventListener('click', (clickEvent)=> {
+        if (clickEvent.target.className !== 'product__color') {
+          return;
+        }
+        const colorName = document.querySelector('.product__chosen');
+        const allColors = productColors.children;
+
+        for (const circle of allColors) {
+          if (circle.classList.contains('product__color--circle')) {
+            circle.classList.remove('product__color--circle');
+          }
+        }
+
+        clickEvent.target.classList.add('product__color--circle');
+        colorName.textContent = clickEvent.target.getAttribute('data-color');
+      });
+
+      productNumber.addEventListener('click', (clickEvent)=> {
+        const amount = document.querySelector('#amount');
+
+        if (clickEvent.target
+          .classList.contains('product__number--plus')) {
+            amount.value = +amount.value + 1;
+        }
+
+        if (clickEvent.target
+          .classList.contains('product__number--minus')) {
+            amount.value = +amount.value - 1;
+            if (amount.value < 0) {
+              amount.value = 0;
+            }
+        }
+      });
+
+      productNumber.addEventListener('dblclick', (clickEvent) => {
+        clickEvent.preventDefault();
+      } );
+    </script>
   </body>
 </html>
