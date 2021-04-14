@@ -1,6 +1,36 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin backgroundImage($link) {
+  background-image: url($link);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+@mixin wrapper {
+  max-width: $maxWidth;
+  width: calc(100% - 2 * #{$mainShift});
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: $deviceChangerTablet) {
+    width: calc(100% - 2 * #{$mainShiftTablet});
+  }
+
+  @media (min-width: $deviceChangerDesktop) {
+    width: calc(100% - 2 * #{$mainShiftDesktop});
+  }
+}
+
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+@mixin togglerButton {
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: $deviceChangerTablet) {
+    display: none;
   }
 }
