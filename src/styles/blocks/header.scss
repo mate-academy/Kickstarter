@@ -1,0 +1,137 @@
+.header {
+  width: 100%;
+
+  &-top {
+    display: flex;
+    justify-content: space-between;
+
+    @include header-top-padding;
+
+    &__logo {
+      width: 161px;
+      height: 26px;
+
+      align-self: center;
+    }
+
+    &__block {
+      display: flex;
+      column-gap: 37px;
+
+      align-items: center;
+    }
+
+    &__specs {
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 14px;
+      font-weight: lighter;
+
+      text-transform: uppercase;
+
+      color: #4f4f4f;
+
+      cursor: pointer;
+
+    }
+
+    &__languages {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 3px;
+
+      &-en {
+        @extend %p-language-en;
+
+        cursor: pointer;
+      }
+
+      &-slash {
+        @extend %p-language-en;
+      }
+
+      &-ua {
+        @extend %p-language-ua;
+
+        cursor: pointer;
+      }
+    }
+
+    &__button {
+      width: 102px;
+      height: 48px;
+
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 12px;
+      line-height: 48px;
+
+      text-align: center;
+      text-transform: uppercase;
+
+      background: $main-text-color;
+      color: #fff;
+
+      transition: background 0.3s linear;
+
+      &:hover {
+        background: $secondary-text-color;
+      }
+    }
+  }
+
+  &-content {
+    display: flex;
+
+    @include header-content-padding;
+
+    &__text {
+      padding-top: 81px;
+    }
+
+    &__main-text {
+      width: 378px;
+      @extend %h1;
+    }
+
+    &__p-text {
+      width: 276px;
+      @extend %p-header;
+    }
+
+    &__picture {
+      position: relative;
+      z-index: 1;
+      width: 939px;
+      height: 464px;
+
+      background-image: url("../images/header.webp");
+      background-repeat: no-repeat;
+      background-position: left;
+    }
+  }
+}
+
+.nav {
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(5, 174px);
+    justify-content: center;
+    align-items: center;
+
+    height: 76px;
+  }
+
+  &__list {
+    @extend %nav-text;
+
+    cursor: pointer;
+
+    transition: transform 0.3s linear;
+
+    &:hover {
+      @extend %nav-text-hover;
+
+      transform: scale(1.1);
+    }
+  }
+}
