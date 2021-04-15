@@ -8,3 +8,7 @@ button.addEventListener('click', () => {
   burgerToggler.classList.toggle('burger-toggler--active');
   nav.classList.toggle('nav-burger--active');
 });
+
+const video = document.querySelector('video');
+
+video.onclick = () => video.paused ? video.play() : video.pause();
