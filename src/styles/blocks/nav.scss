@@ -1,0 +1,34 @@
+.nav {
+  position: sticky;
+  top: 0;
+
+  z-index: 2;
+
+  background: $bg-gray;
+  box-shadow: 0 1px 5px 1px rgba($color: $secondary-text-color, $alpha: 0.15);
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(5, 120px);
+    column-gap: 45px;
+    justify-content: center;
+    align-items: center;
+
+    height: 76px;
+
+  }
+
+  &__list {
+    @extend %nav-text;
+
+    cursor: pointer;
+
+    transition: transform 0.3s linear;
+
+    &:hover {
+      @extend %nav-text-hover;
+
+      transform: scale(1.1);
+    }
+  }
+}

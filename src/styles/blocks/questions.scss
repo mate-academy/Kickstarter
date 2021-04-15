@@ -1,0 +1,83 @@
+.questions {
+  display: flex;
+  @include questions_padding;
+  justify-content: space-between;
+
+  &__title {
+    width: 480px;
+    @extend %h2-lh-72;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 19px;
+
+  width: 438px;
+  margin-bottom: 30px;
+
+  &-email {
+    width: 100%;
+    height: 48px;
+
+    padding-left: 15px;
+
+    @extend %form;
+    outline: none;
+    border: 1px solid $form-text-color;
+
+    &:hover {
+      @extend %form-hover;
+    }
+
+    &:focus {
+      @extend %form-focus;
+    }
+  }
+
+  &-message {
+    width: 100%;
+    height: 128px;
+
+    padding: 15px 0 16px 16px;
+    resize: none;
+
+    @extend %form;
+
+    outline: none;
+    border: 1px solid $form-text-color;
+
+    &:hover {
+      @extend %form-hover;
+    }
+
+    &:focus {
+      @extend %form-focus;
+    }
+  }
+
+  &-button {
+    width: 102px;
+    height: 48px;
+
+    outline: none;
+    cursor: pointer;
+
+    @extend %form-button;
+
+    background: $aboutUs-link-color;
+    border: none;
+
+    transition: font-size 0.3s linear;
+
+    &:hover {
+      font-size: 16px;
+      box-shadow: 0 3px 15px rgba($main-text-color, 0.25);
+    }
+
+    &:focus {
+      transform: scale(1.2);
+    }
+  }
+}
