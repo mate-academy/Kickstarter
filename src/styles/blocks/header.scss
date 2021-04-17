@@ -1,9 +1,11 @@
 .header {
+  display: block;
   width: 100%;
 
   &-top {
     display: flex;
     justify-content: space-between;
+    align-self: center;
 
     @include header-top-padding;
 
@@ -70,7 +72,7 @@
       background: $main-text-color;
       color: #fff;
 
-      transition: background 0.3s linear;
+      transition: background-color 0.3s linear;
 
       &:hover {
         background: $secondary-text-color;
@@ -80,6 +82,7 @@
 
   &-content {
     display: flex;
+    justify-content: space-between;
 
     @include header-content-padding;
 
@@ -91,7 +94,6 @@
       width: 378px;
       @extend %h1;
       margin-bottom: 27px;
-
     }
 
     &__p-text {
@@ -101,11 +103,41 @@
 
     &__picture {
       display: block;
-      width: 900px;
-      height: 464px;
+      width: 90vw;
+
+      overflow: hidden;
 
       object-position: left;
       object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+
+    &-top {
+      @include header-top-padding-tablet;
+    }
+
+    &-content {
+      @include header-content-padding-tablet;
+
+      &__main-text {
+        width: 340px;
+        font-size: 48px;
+        margin-right: -80px;
+      }
+
+      &__picture {
+        margin-top: 50px;
+        width: 739px;
+      }
+
+      &__p-text {
+        width: 250px;
+        height: 120px;
+      }
     }
   }
 }

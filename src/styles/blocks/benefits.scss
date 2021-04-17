@@ -1,8 +1,8 @@
 .benefits {
-  display: flex;
-  justify-content: space-between;
-  column-gap: 10px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 276px);
+  column-gap: 20px;
+  justify-content: center;
 
   @include benefits-padding;
 
@@ -55,5 +55,12 @@
     &-text {
       @extend %p-Benefits;
     }
+  }
+}
+
+@media (max-width: 1380px) {
+  .benefits {
+    grid-template-columns: repeat(2, 276px);
+    justify-items: center;
   }
 }

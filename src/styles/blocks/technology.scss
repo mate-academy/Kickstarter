@@ -1,4 +1,6 @@
 .technology {
+  display: flex;
+  flex-direction: column;
   @include technology-padding;
 
   &__title {
@@ -9,9 +11,13 @@
 
   &__picture {
     display: block;
-    height: 546px;
+    height: 100%;
+    width: 100%;
 
-    margin: auto;
+    object-position: left;
+    object-fit: cover;
+
+    // margin: auto;
   }
 
   &__container {
@@ -53,5 +59,22 @@
     &-position {
       @extend %p-Technology-position;
     }
+  }
+}
+
+@media (max-width: 1000px) {
+  .technology {
+    @include technology-padding-tablet;
+    overflow: hidden;
+
+    &__picture {
+      width: 1230.99px;
+      object-position: left;
+      overflow: hidden;
+    }
+  }
+
+  .nav {
+    display: none;
   }
 }

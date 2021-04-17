@@ -1,11 +1,14 @@
 .about-us {
   @include about-us_padding;
 
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   column-gap: 30px;
+  justify-content: center;
+
+  overflow: hidden;
 
   &__img {
+    display: block;
     width: 582px;
     height: 388px;
   }
@@ -42,5 +45,18 @@
     width: 53.28px;
 
     border: 1px solid $aboutUs-link-color;
+  }
+}
+
+@media (max-width: 1000px) {
+  &__img {
+    width: 623px;
+    height: 415px;
+  }
+  .about-us {
+    column-gap: 20px;
+    &__text {
+      width: 340px;
+    }
   }
 }

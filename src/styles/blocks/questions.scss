@@ -1,7 +1,11 @@
 .questions {
-  display: flex;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 100px;
   @include questions_padding;
-  justify-content: space-between;
+  margin: auto;
+  max-width: 1440px;
 
   &__title {
     width: 480px;
@@ -14,7 +18,8 @@
   flex-direction: column;
   row-gap: 19px;
 
-  width: 438px;
+  max-width: 438px;
+  min-width: 300px;
   margin-bottom: 30px;
 
   &-email {
@@ -78,6 +83,23 @@
 
     &:focus {
       transform: scale(1.2);
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .questions {
+    column-gap: 20px;
+    @include questions_padding-tablet;
+
+    &__title {
+      width: 340px;
+    }
+  }
+
+  .form {
+    &-message {
+      height: 201px;
     }
   }
 }
