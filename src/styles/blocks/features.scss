@@ -1,22 +1,24 @@
 .features {
-  position: relative;
   padding-left: 123px;
-  padding-bottom: 901px;
+  padding-bottom: 200px;
+  height: 100%;
 
   &__title {
     width: 378px;
-    padding-bottom: 130px;
 
     @extend %h2-lh-70;
     text-align: center;
   }
 
   &__card {
-    position: relative;
-    width: 1113px;
-    height: 701px;
+    position: absolute;
+    height: 100%;
+    margin-top: 24px;
+    padding-bottom: 200px;
 
-    background: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
 
     &-title {
       @extend %h3-Features;
@@ -33,69 +35,80 @@
     }
 
     &-1 {
-      position: absolute;
-      top: -106px;
-      right: 415px;
-
-      z-index: 1;
+      margin-left: 400px;
     }
 
     &-2 {
-      position: absolute;
-      top: 155px;
-      right: 823px;
-
-      z-index: 1;
+      margin-right: 300px;
     }
 
     &-3 {
-      position: absolute;
-      top: 532px;
-      left: 101px;
-
-      z-index: 1;
+      margin-top: 100px;
+      margin-left: 200px;
     }
+  }
+
+  &__img-block {
+    position: relative;
+    z-index: -1;
+
+    margin-top: 130px;
+    margin-left: 8vw;
+    right: 0;
+    height: 701px;
+
+    overflow: hidden;
+
+    background: #f2f2f2;
   }
 
   &__img {
     padding: 176px 123px 16px 204px;
+    width: 100%;
   }
 
 }
 
-.card {
-  position: absolute;
-  right: 0;
-  padding-bottom: 200px;
-}
-
 @media (max-width:1000px) {
   .features {
+    padding-left: 12vw;
+    padding-bottom: 130px;
 
     &__card {
       width: 644px;
-      height: 620px;
-      left: 100px;
-
       background-color: unset;
 
       &-1 {
-        top: -25px;
-        right: -50px;
-      }
-  
-      &-2 {
-        top: 155px;
-        right: 823px;
-      }
-  
-      &-3 {
-        top: 532px;
-        left: 101px;
+        margin-left: 280px;
       }
     }
+
     &__img {
-      padding: 163px 0 78px 58px;
+      padding: 80px 0 78px 58px;
+      margin-top: 30px;
+      width: 586px;
+    }
+  }
+}
+
+@media (max-width: 780px) {
+  .features {
+    padding-left: 4vw;
+    padding-bottom: 130px;
+
+    &__card {
+      width: 644px;
+      background-color: unset;
+
+      &-1 {
+        margin-left: 300px;
+      }
+    }
+
+    &__img {
+      padding: 80px 0 78px 58px;
+      margin-top: 30px;
+      width: 586px;
     }
   }
 }
