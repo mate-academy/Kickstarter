@@ -1,0 +1,57 @@
+.about-text {
+  max-width: 320px;
+  &__heading {
+    width: 400px;
+    position: relative;
+    right: 100px;
+    margin-bottom: 30px;
+  }
+  &__description {
+    width: 370px;
+    margin-bottom: 30px;
+  }
+  &__link {
+    color: $about-technology-highlight;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 12px;
+    &:hover {
+      color: rgb(11, 118, 118);
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50%;
+      height: 2px;
+      background-color: $about-technology-highlight;
+    }
+  }
+  &__photo--mobile {
+    display: none;
+  }
+}
+
+@media (max-width: $phone-break-point ) {
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    &__heading {
+      width: inherit;
+      right: 0;
+      padding-bottom: 50px;
+    }
+    &__photo--mobile {
+      width: 100%;
+      display: block;
+      padding-bottom: 30px;
+    }
+    &__description {
+      width: inherit;
+    }
+  }
+}
