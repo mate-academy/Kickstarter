@@ -1,0 +1,60 @@
+.menu {
+  z-index: 2;
+  display: none;
+  position: relative;
+
+  width: 24px;
+
+  align-self: center;
+
+  cursor: pointer;
+
+  &__icon {
+    width: 24px;
+    height: 2px;
+
+    background: $main-text-color;
+
+    transition: width 0.2s linear;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -6px;
+
+      width: 24px;
+      height: 2px;
+
+      transform-origin: right;
+    
+      background: $main-text-color;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 6px;
+
+      width: 24px;
+      height: 2px;
+
+      transform-origin: left;
+
+      background: $main-text-color;
+    }
+
+    &:hover {
+      width: 16px;
+    }
+  }
+}
+
+.header__checkbox:checked > .menu {
+  background-color: $bg-gray;
+}
+
+@media (max-width: 779px) {
+  .menu {
+    display: block;
+  }
+}
