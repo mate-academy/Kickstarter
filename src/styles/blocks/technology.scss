@@ -16,8 +16,6 @@
 
     object-position: left;
     object-fit: cover;
-
-    // margin: auto;
   }
 
   &__container {
@@ -32,8 +30,10 @@
 
     &-text {
       position: relative;
-      left: -275px;
+      left: 50%;
       bottom: -50px;
+      transform: translateX(-50%);
+
       width: 786px;
 
       @extend %p-Technology-article;
@@ -67,14 +67,56 @@
     @include technology-padding-tablet;
     overflow: hidden;
 
+    &__title {
+      margin: auto;
+      margin-bottom: 20px;
+
+      font-size: 37px;
+      line-height: 46px;
+    }
+
     &__picture {
       width: 1230.99px;
       object-position: left;
       overflow: hidden;
     }
-  }
 
-  .nav {
-    display: none;
+    &__container {
+      width: 233px;
+  
+      &-text {
+        width: 90vw;
+        bottom: -30px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .technology {
+    padding: 0;
+    padding-bottom: 90px;
+
+    &__picture {
+      width: 625px;
+      object-position: left;
+      overflow: hidden;
+    }
+
+    &__container {
+      margin: auto;
+      margin-bottom: 2px;
+  
+      width: 208px;
+  
+      &-text {
+        position: relative;
+        bottom: -10px;
+        width: 260px;
+
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
   }
 }
