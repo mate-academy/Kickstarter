@@ -1,0 +1,191 @@
+.header {
+  min-height: 100vh;
+
+  @media (min-width: $deviceChangerDesktop) {
+    min-height: auto;
+  }
+
+  &__icon-wrapper {
+    @include wrapper;
+
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+    padding-top: 28px;
+  }
+
+  &__items-wrapper {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 27px;
+  }
+
+  &__language {
+    display: none;
+
+    @media (min-width: $deviceChangerDesktop) {
+      display: block;
+      font-size: 14px;
+      line-height: 18px;
+      color: #828282;
+      cursor: pointer;
+    }
+
+    &--strong {
+      color: #333;
+      filter: contrast(2);
+    }
+  }
+
+  &__specs {
+    display: none;
+
+    &:hover {
+      filter: contrast(2);
+    }
+
+    @media (min-width: $deviceChangerDesktop) {
+      display: block;
+      font-size: 14px;
+      line-height: 17px;
+      color: #4f4f4f;
+      cursor: pointer;
+    }
+  }
+
+  &__logo {
+    width: 161px;
+    height: 26px;
+  }
+
+  &__content {
+
+    @media (min-width: $deviceChangerTablet) {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      width: calc(100% - #{$mainShiftTablet});
+      margin-top: 130px;
+      margin-left: $mainShiftTablet;
+    }
+
+    @media (min-width: $deviceChangerDesktop) {
+      justify-content: space-between;
+      width: calc(100% - #{$mainShiftDesktop});
+      max-width: $maxWidth;
+      margin-left: $mainShiftDesktop;
+    }
+
+    @media (min-width: $maxWidth + $mainShiftDesktop * 2) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__image-wrapper {
+    overflow: hidden;
+    max-width: 650px;
+
+    @media (min-width: $deviceChangerDesktop) {
+      max-width: none;
+    }
+  }
+
+  &__image {
+    width: 160%;
+
+    @media (min-width: $deviceChangerPhone) {
+      margin-top: -60px 0 0;
+      width: 739px;
+    }
+
+    @media (min-width: $deviceChangerDesktop) {
+      width: 1000px;
+    }
+  }
+
+  &__text-wrapper {
+    margin: 0 auto;
+
+    @media (min-width: $deviceChangerPhone) {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    @media (min-width: $deviceChangerTablet) {
+      display: block;
+      margin: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 23px;
+
+    font-size: 44px;
+    line-height: 130%;
+    color: $colorSilverTitle;
+
+    @media (min-width: $deviceChangerTablet) {
+      font-size: 48px;
+      line-height: 62px;
+      text-align: left;
+    }
+
+    @media (min-width: $deviceChangerDesktop) {
+      font-size: 64px;
+      line-height: 83px;
+    }
+  }
+
+  &__description {
+    margin: 0 auto;
+    width: 260px;
+
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: $colorSilverTitle;
+
+    @media (min-width: $deviceChangerPhone) {
+      display: flex;
+      align-items: center;
+      width: 250px;
+      margin: 0;
+    }
+    @media (min-width: $deviceChangerTablet) {
+      font-size: 16px;
+      line-height: 24px;
+      text-align: left;
+    }
+  }
+
+  &__nav-burger {
+    position: absolute;
+  }
+
+  &__button-buy {
+    display: none;
+
+    @media (min-width: $deviceChangerDesktop) {
+      display: block;
+      width: 102px;
+      height: 48px;
+
+      color: #fff;
+      background-color: #333;
+
+      text-transform: uppercase;
+
+      cursor: pointer;
+      transition-duration: 250ms;
+
+      &:hover {
+        box-shadow: 5px 5px 5px silver;
+        filter: contrast(2);
+        transform: scale(1.05);
+      }
+    }
+  }
+}

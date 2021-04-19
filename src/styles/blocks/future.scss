@@ -1,0 +1,83 @@
+.future {
+  display: grid;
+
+  @media (min-width: $deviceChangerTablet) {
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas: "image title" "image text";
+    justify-content: center;
+    gap: 30px 20px;
+    overflow: hidden;
+  }
+
+  &__title {
+    margin-bottom: 50px;
+
+    color: $colorSilverTitle;
+
+    font-size: 37px;
+    line-height: 55px;
+    text-align: left;
+
+    @media (min-width: $deviceChangerTablet) {
+      position: relative;
+      z-index: 1;
+
+      grid-area: title;
+      align-self: center;
+      margin-bottom: 0;
+      margin-left: -91px;
+      
+      font-size: 56px;
+      line-height: 72px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: 30px;
+
+    @media (min-width: $deviceChangerTablet) {
+      grid-area: image;
+      justify-self: right;
+      width: 623px;
+    }
+  }
+
+  &__text {
+    color: $colorSilverTitle;
+    font-size: 14px;
+    line-height: 21px;
+
+    @media (min-width: $deviceChangerTablet) {
+      grid-area: text;
+      max-width: 390px;
+
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    color: $blueColor;
+
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+    
+    &::after {
+      content: "";
+
+      display: block;
+      width: 53px;
+      height: 1px;
+      margin-top: 6px;
+
+      background-color: $blueColor;
+    }
+  }
+}

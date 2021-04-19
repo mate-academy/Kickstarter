@@ -1,0 +1,166 @@
+.features {
+  position: relative;
+  padding-top: 1px;
+
+  &__background {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    height: 100%;
+
+    background-color: #f2f2f2;
+
+    @media (min-width: $deviceChangerTablet) {
+      width: 80%;
+      height: 60%;
+
+      left: auto;
+      right: 0;
+      top: 50%;
+      transform: translateY(-35%);
+    }
+
+    @media (min-width: $deviceChangerDesktop) {
+      height: 70%;
+
+      transform: translateY(-20%);
+    }
+  }
+
+  &__title {
+    @include wrapper;
+    margin-top: 44px;
+    margin-bottom: 50px;
+
+    text-align: left;
+    font-size: 37px;
+    line-height: 60px;
+    text-transform: uppercase;
+
+    @media (min-width: $deviceChangerTablet) {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__cards-wrapper {
+    width: $gearCardWidth;
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    @media (min-width: $deviceChangerTablet) {
+      width: auto;
+      overflow: visible;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, $gearCardWidth);
+    gap: 74px $gearCardShift;
+
+    transition: transform 500ms;
+
+    @media (min-width: $deviceChangerTablet) {
+      position: relative;
+      z-index: 1;
+
+      @include wrapper;
+      grid-template-columns: 1fr;
+      gap: 60px;
+      justify-content: center;
+    }
+  }
+
+  &__card {
+    @media (min-width: $deviceChangerTablet) {
+
+      &:nth-child(1) {
+        justify-self: center;
+        margin-left: 200px;
+      }
+
+      &:nth-child(2) {
+        justify-self: start;
+      }
+
+      &:nth-child(3) {
+        justify-self: center;
+        margin-left: -200px;
+      }
+    }
+  }
+
+  &__card-title {
+    width: 100%;
+    margin-bottom: 20px;
+
+    text-align: left;
+    font-size: 30px;
+    line-height: 37px;
+    text-transform: uppercase;
+
+    color: $blueColor;
+
+    @media (min-width: $deviceChangerTablet) {
+      font-size: 34px;
+      line-height: 41px;
+    }
+  }
+
+  &__list {
+    list-style: disc;
+  }
+
+  &__item {
+    margin-left: 20px;
+    margin-bottom: 10px;
+
+    color: $colorSilverTitle;
+
+    font-size: 14px;
+    line-height: 21px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: $deviceChangerTablet) {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+
+  &__image-wrapper {
+    display: flex;
+    justify-content: center;
+
+    @media (min-width: $deviceChangerTablet) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -10%);
+
+      @include wrapper;
+      justify-content: flex-end;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 450px;
+
+    @media (min-width: $deviceChangerTablet) {
+      max-width: none;
+      width: 510px;
+    }
+
+    @media (min-width: $deviceChangerDesktop) {
+      max-width: none;
+      width: 700px;
+    }
+  }
+}

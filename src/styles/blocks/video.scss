@@ -1,0 +1,88 @@
+.video {
+  position: relative;
+  width: 100%;
+
+  &__video {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    height: 166px;
+    // max-width: $deviceChangerPhone;
+
+    @media (min-width: $deviceChangerTablet) {
+      display: block;
+      height: 400px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: $deviceChangerDesktop) {
+      display: block;
+      height: 590px;
+      margin: 0 auto;
+    }
+  }
+
+  &__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // z-index: 2;
+
+    @include circle(108px);
+    border: 1px solid #f3f4f5;
+    cursor: pointer;
+
+    @media (min-width: $deviceChangerTablet) {
+      @include circle(190px);
+    }
+
+    @media (min-width: $deviceChangerDesktop) {
+      @include circle(234px);
+      border: 0;
+    }
+
+    &:after {
+      content: "";
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @include arrow(18px, #f3f4f5);
+    }
+
+    @media (min-width: $deviceChangerTablet) {
+      @include arrow(20px, #f3f4f5);
+      border: 2px solid #f3f4f5;
+    }
+
+    @media (min-width: $deviceChangerDesktop) {
+      @include arrow(24px, #f3f4f5);
+      border: 2px solid #f3f4f5;
+    }
+
+    &:hover:after {
+      content: "play";
+
+      display: block;
+      border: 0 solid transparent;
+
+      color: #f3f4f5;
+
+      font-family: DIN Pro, sans-serif;
+      text-transform: uppercase;
+      font-size: 18px;
+      line-height: 18px;
+
+      @media (min-width: $deviceChangerTablet) {
+        font-size: 20px;
+      }
+
+      @media (min-width: $deviceChangerDesktop) {
+        font-size: 24px;
+      }
+    }
+  }
+}

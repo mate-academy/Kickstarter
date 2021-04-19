@@ -1,0 +1,86 @@
+.gear {
+
+  &__cards-wrapper {
+    width: $gearCardWidth;
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    @media (min-width: $deviceChangerTablet) {
+      width: auto;
+      overflow: visible;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(4, $gearCardWidth);
+    gap: 74px $gearCardShift;
+
+    transition: transform 500ms;
+
+    @media (min-width: $deviceChangerTablet) {
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: center;
+      justify-items: center;
+    }
+
+    @media (min-width: $deviceChangerDesktop) {
+      grid-template-columns: repeat(4, minmax(200px, $gearCardWidth));
+      justify-content: space-between;
+    }
+  }
+
+  &__card {
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__card-image {
+    margin-bottom: 40px;
+    width: 58px;
+    height: 46px;
+
+    @for $index from 1 through 4 {
+      &--bcgrnd--#{$index} {
+        @include backgroundImage("../images/gear-icons/gear_#{$index}.svg");
+      }
+    }
+  }
+
+  &__card-title {
+    margin-bottom: 50px;
+
+    color: $colorSilverTitle;
+
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__card-text {
+    color: $colorSiverText;
+
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+  }
+
+  &__arrows-wrapper {
+    margin-top: 50px;
+    position: relative;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(2,50px);
+    cursor: pointer;
+
+    @media (min-width: $deviceChangerTablet) {
+      display: none;
+    }
+  }
+}

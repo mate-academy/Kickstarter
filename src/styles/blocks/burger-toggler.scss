@@ -1,0 +1,61 @@
+.burger-toggler {
+  position: relative;
+  display: block;
+  z-index: 1;
+  height: 15px;
+  width: 24px;
+
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  border-color: transparent;
+
+  cursor: pointer;
+
+  transition-duration: 200ms;
+
+  @media (min-width: $deviceChangerDesktop) {
+    display: none;
+  }
+
+  &__lines,
+  &__lines::after,
+  &__lines::before {
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: black;
+  }
+
+  &__lines {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &:before {
+      content: "";
+      top: -7px;
+    }
+
+    &::after {
+      content: "";
+      top: 7px;
+    }
+  }
+
+  &--active &__lines {
+    background-color: transparent;
+  }
+
+  &--active &__lines::before {
+    top: 0;
+    transform: rotate(45deg);
+    background-color: #828282;
+  }
+
+  &--active &__lines::after {
+    top: 0;
+    transform: rotate(-45deg);
+    background-color: #828282;
+  }
+}

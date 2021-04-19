@@ -1,0 +1,67 @@
+.nav-burger {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  transform: translateY(-100%);
+  max-width: $deviceChangerDesktop;
+  height: 100vh;
+  background-color: $colorSilverTitle;
+  opacity: 0;
+
+  transition: transform 500ms, opacity 500ms;
+
+  @media (min-width: $deviceChangerDesktop) {
+    display: none;
+  }
+
+  &__logo {
+    color: white;
+    height: 26px;
+    width: 161px;
+    position: absolute;
+    font-size: 20px;
+    top: 40px;
+    left: 40px;
+    letter-spacing: 3px;
+  }
+
+  &__list {
+    transform: translateY(50%);
+  }
+
+  &__item {
+    margin: 0 30% 20px;
+
+    text-align: center;
+
+    &:after {
+      content: "";
+
+      display: block;
+      height: 1px;
+      background-color: rgb(200, 200, 200);
+      margin-top: 4px;
+    }
+  }
+
+  &__link {
+    color: $backgroundColor;
+
+    font-family: Halvetica Neue , sans-serif;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  &--active {
+    transform: translate(0);
+    // width: 100vh;
+    opacity: 1;
+
+    // @media (min-width: $deviceChangerDesktop) {
+    //   display: none;
+    // }
+  }
+}
