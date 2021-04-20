@@ -1,7 +1,8 @@
 'use strict';
 
-const toggler = document.querySelector('.presentation__img-play');
+const toggler = document.querySelector('.menu-button');
+const menu = document.querySelector('.nav-buttom');
 
 toggler.addEventListener('click', () => {
-  toggler.classList.toggle('img-play--active');
+  menu.classList.toggle('nav-buttom--laptop');
 });
