@@ -1,19 +1,49 @@
 .about-us {
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin: 0 225px;
+  margin: 0 auto;
+
+  max-width: 1200px;
+
+  &-img {
+    height: 400px;
+    width: 100%;
+    background-image: url("../images/img-about-us.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+
+    @media (max-width: 650px) {
+      height: 250px;
+    }
+  }
 
   &-headline {
     position: absolute;
-    top: 10px;
-    left: 598px;
+    right: 115px;
+
+    @media (max-width: 650px) {
+      position: static;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 37px;
+      line-height: 55px;
+    }
   }
 
   &-despription {
-    margin: 0 0 30px 30px;
+    position: relative;
+    top: 160px;
+    margin-left: 30px;
     max-width: 400px;
+
+    @media (max-width: 650px) {
+      margin-bottom: 100px;
+      top: 30px;
+    }
   }
 
   &-paragraph {
@@ -31,10 +61,15 @@
     font-family: "Helvetica NeueCyr", sans-serif;
     font-size: 12px;
     line-height: 14.65px;
-
-   
   }
 
+  @media (max-width: 650px) {
+    flex-direction: column;
+    background-position: center;
+    position: static;
+
+    padding: 0 30px;
+  }
 }
 
 .about-us-link::after {
