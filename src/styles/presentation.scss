@@ -1,0 +1,60 @@
+$height-img-video: 590px;
+
+.presentation {
+  margin-top: 150px;
+  position: relative;
+  height: $height-img-video;
+
+  @media (max-width: 700px) {
+    margin-top: 75px;
+  }
+
+  &__img-video {
+    width: 100%;
+    height: $height-img-video;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  &__img-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+    height: $height-img-video;
+  }
+}
+
+.presentation__img-play {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  position: absolute;
+  z-index: 3;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url(../images/rectangle-presentation.png);
+  object-fit: cover;
+  width: calc(#{$height-img-video} / 3);
+  height: calc(#{$height-img-video} / 3);
+  border: 2px solid silver;
+  left: calc(50% - #{$height-img-video} / 6);
+  top: calc((#{$height-img-video} - (#{$height-img-video} / 3)) / 2);
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover::after {
+    content: "PLAY";
+    visibility: visible;
+    font-size: 24px;
+    margin: auto;
+    line-height: 18px;
+    color: rgba(243, 244, 245, 1);
+  }
+
+  &:hover {
+    background-image: url();
+  }
+}
