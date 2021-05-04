@@ -1,0 +1,161 @@
+.payment {
+  @include max-width;
+  @include topContent;
+  @include buttonConfiguration;
+
+  &__array {
+    background-image: url(../images/array2.svg);
+    transition: transform 1s;
+  }
+
+  &__array:hover {
+    transform: scale(2);
+  }
+
+  &__content-top {
+    padding-bottom: 90px;
+  }
+
+  &__card-container {
+    width: 582px;
+    height: 486px;
+    margin: auto;
+    padding-top: 50px;
+
+    background-color: $first-color;
+    border: 1px solid $eleven-row-color;
+    border-radius: 10px;
+  }
+
+  &__card-icons {
+    display: grid;
+    grid-template-columns: 33px 40px 38px 36px;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  &__form {
+    display: grid;
+    justify-content: center;
+  }
+
+  &__form-bottom {
+    display: grid;
+    grid-template-columns: repeat(2,70px);
+    justify-content: left;
+    gap: 20px;
+  }
+
+  &__form-name-cvv,
+  &__form-name-date,
+  &__form-name {
+    padding: 40px 0 10px;
+
+    font-size: 10px;
+    line-height: 12px;
+
+    color: rgba(12, 121, 122, 0.3);
+  }
+
+  &__form-input {
+    width: 378px;
+
+    font-size: 14px;
+    line-height: 24px;
+
+    border: none;
+    border-bottom: 1px solid $five-row-color;
+    background-color: $first-color;
+    color: $eleven-row-color;
+  }
+
+  &__form-date,
+  &__form-cvv {
+    padding-top: 40px;
+  }
+
+  &__form-input-cvv,
+  &__form-input-date {
+    width: 70px;
+
+    font-size: 14px;
+    line-height: 24px;
+
+    border: none;
+    border-bottom: 1px solid $five-row-color;
+    background-color: $first-color;
+    color: $eleven-row-color;
+  }
+
+  &__form-input-cvv,
+  &__form-input-date,
+  &__form-input {
+    padding-left: 10px;
+  }
+
+  &__form--color {
+    background-color: #fff;
+  }
+
+  &__buttons {
+    display: grid;
+    grid-template-columns: repeat(2,174px);
+    justify-content: center;
+    align-items: center;
+    padding-top: 45px;
+  }
+}
+
+@media screen and (max-width: $medium-width) {
+  .payment {
+    &__array {
+      top: 90px;
+    }
+
+    &__card-container {
+      width: 520px;
+    }
+
+    &__form-input {
+      width: 340px;
+    }
+
+    &__buttons {
+      grid-template-columns: repeat(2,160px);
+    }
+    &__button-continue {
+      width: 160px;
+    }
+  }
+}
+
+@media screen and (max-width: $small-width) {
+  .payment {
+    &__array {
+      position: relative;
+      top: 8px;
+    }
+
+    &__card-container {
+      width: 100%;
+      border: none;
+      background-color: $backgroundColor;
+    }
+
+    &__content-top {
+      grid-template-columns: repeat(3, 100px);
+    }
+
+    &__buttons {
+      grid-template-columns: repeat(2,120px);
+    }
+
+    &__button-continue {
+      width: 120px;
+    }
+
+    &__form-input {
+      width: 260px;
+    }
+  }
+}

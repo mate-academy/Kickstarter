@@ -4,10 +4,599 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
-    <link rel="stylesheet" href="./styles/main.scss">
+    <link rel="stylesheet" href="./styles/style.scss">
+    <link rel="icon" href="images/icon.svg">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("a").on('click', function(event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function(){
+            window.location.hash = hash;
+          });
+        }
+      });
+    });
+    </script>
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
+  <body class="body">
+    <header class="header">
+      <a id="anchor"></a>
+      <div class="header__burger">
+        <input
+          id="burger-toggle"
+          class="burger-toggle"
+          type="checkbox"
+        >
+        <div class="header__container-top">
+          <div class="header__logo">
+            <img
+            src="images/logo.svg"
+            class="header__logo-img"
+            alt="Logo">
+          </div>
+          <div class="header__top-nav">
+            <div class="header__specs">
+              <a href="#specs" class="header__specs-link">
+                SPECS
+              </a>
+            </div>
+            <div class="header__change-language">
+              <a href="#en" class="header__change-language-link--active">
+                EN
+              </a>
+              /
+              <a href="#ua" class="header__change-language-link--disabled">
+                UA
+              </a>
+            </div>
+            <div class="header__buy">
+              <a href="cart.html" class="header__buy-link">
+                BUY
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="header__container-main">
+          <img
+            class="header__photo-speaker-small"
+            src="images/main_photo-small.png"
+            alt="Futuristic Wireless Speaker"
+          >
+          <div class="header__main-text">
+            <h1 class="header__main-text--big">
+              Futuristic Wireless Speaker
+            </h1>
+            <p class="header__main-text--small">
+              Luna’s performance is balanced and smooth in
+              all frequency ranges which makes the music both naturally
+              pleasant and distinctly more layered.
+            </p>
+          </div>
+          <div class="header__main-photo">
+            <img
+              class="header__photo-speaker"
+              src="images/main_photo.svg"
+              alt="Futuristic Wireless Speaker"
+            >
+          </div>
+        </div>
+
+        <label class="header__burger-container" for="burger-toggle">
+          <span class="header__button-burger"></span>
+        </label>
+
+        <nav class="header__nav nav" id="menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#our_story" class="nav__story nav__link">
+                OUR STORY
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="#about" class="nav__benefits nav__link">
+                ABOUT US
+              </a>
+              <a href="#about_small" class="nav__benefits nav__link-small">
+                ABOUT US
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="#technology" class="nav__technology nav__link">
+                TECHNOLOGY
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="#features" class="nav__features nav__link">
+                FEATURES
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="cart.html" class="nav__touch nav__link">
+                GET IN TOUCH
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+    </header>
+
+    <main class="main">
+      <section class="main__container-top benefits">
+        <div class="benefits__container">
+          <div class="benefits__icon">
+            <img src="images/compass.svg" alt="compass icon">
+          </div>
+          <div class="benefits__main-text">
+            <h2 class="benefits__text-head">
+              Futuristic Design
+            </h2>
+          </div>
+          <div class="benefits__text">
+            <p class="benefits__text-about">
+              To give Luna a truly flawless look,
+              we specifically picked aircraft grade
+              aluminum as its material and adopted both
+              three-dimensional stretch-bending technology and
+              a high precision cold forging technique.
+            </p>
+          </div>
+        </div>
+
+        <div class="benefits__container">
+          <div class="benefits__icon">
+            <img src="images/sound.svg" alt="sound icon">
+          </div>
+          <div class="benefits__main-text">
+            <h2 class="benefits__text-head">
+              Tweeter Speaker System
+            </h2>
+          </div>
+          <div class="benefits__text">
+            <p class="benefits__text-about">
+              To deliver a more layered sound performance
+              better than a sole full-range speaker, our
+              team equipped Luna with one more tweeter speaker
+              responsible for high-frequency sound independently.
+            </p>
+          </div>
+        </div>
+
+        <div class="benefits__container">
+          <div class="benefits__icon">
+            <img src="images/wireless.svg" alt="wireless icon">
+          </div>
+          <div class="benefits__main-text">
+            <h2 class="benefits__text-head">
+              Multiroom System
+            </h2>
+          </div>
+          <div class="benefits__text">
+            <p class="benefits__text-about">
+              Luna is natively compatible with your
+              home Wi-Fi. Set up multiple speakers
+              in different rooms to expand your music experience
+              into the entire house.
+            </p>
+          </div>
+        </div>
+
+        <div class="benefits__container">
+          <div class="benefits__icon">
+            <img src="images/light.svg" alt="light icon">
+          </div>
+          <div class="benefits__main-text">
+            <h2 class="benefits__text-head">
+              Intuitive Lighting System
+            </h2>
+          </div>
+          <div class="benefits__text">
+            <p class="benefits__text-about">
+              An intuitive user interface allows
+              you to adjust the hue and saturation
+              of color for lighting that fits any
+              mood and situation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="main__item presentation">
+        <div class="presentation__item-container">
+          <a id="our_story"></a>
+          <div class="presentation__item-view">
+            <a class="presentation__item-text">
+              PLAY
+            </a>
+            <div class="presentation__play-button"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="main__about about">
+        <div class="about__draw-container">
+          <div class="about__draw">
+            <div class="about__draw-img"></div>
+            <div class="about__main-text">
+              <a id="about"></a>
+              <p class="about__main-text-position">
+                DESIGNED FOR THE FUTURE
+              </p>
+            </div>
+          </div>
+          <div class="about__text-container">
+            <div class="about__text">
+              In 2014, a group of geeky industrial designers,
+              engineering veterans and acoustic experts formed crazybaby.
+              This is a bunch of passionate people who are crazy enough to
+              think they can challenge the industry with disruptive audio products.
+            </div>
+            <div class="about__link">
+              <a href="#see more" class="about__link-properties">
+                See more about us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="main__about-small about__small">
+        <div class="about__text-small">
+          <a id="about_small"></a>
+          <p class="about__main-text-small">
+            DESIGNED FOR THE FUTURE
+          </p>
+        </div>
+        <div class="about__small-img">
+          <img
+            src="images/design_draw.png"
+            class="about__draw-img-small"
+            alt="design draw"
+          >
+        </div>
+        <div class="about__text-container-small">
+          <div class="about__text">
+            In 2014, a group of geeky industrial designers,
+            engineering veterans and acoustic experts formed crazybaby.
+            This is a bunch of passionate people who are crazy enough to
+            think they can challenge the industry with disruptive audio products.
+            <div class="about__link">
+              <a href="#see more" class="about__link-properties">
+                See more about us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="main__technology technology">
+        <div class="technology__main-text">
+          <a id="technology"></a>
+          <p class="technology__text-properties">
+            technology
+          </p>
+        </div>
+        <div class="technology__img-container">
+          <div class="technology__img"></div>
+
+          <div class="technology__plus-container technology__plus-first ">
+            <div class="technology__plus-icon">
+              <img
+                src="images/plus.svg"
+                class="technology__plus-position"
+                alt="plus icon"
+              >
+            </div>
+          </div>
+
+          <div class="technology__plus-container technology__plus-second">
+            <div class="technology__plus-icon">
+              <img
+                src="images/plus.svg"
+                class="technology__plus-position"
+                alt="plus icon"
+              >
+            </div>
+          </div>
+
+          <div class="technology__plus-container technology__plus-third">
+            <div class="technology__plus-icon">
+              <img
+                src="images/plus.svg"
+                class="technology__plus-position"
+                alt="plus icon"
+              >
+            </div>
+          </div>
+
+          <div class="technology__plus-container technology__plus-fourth">
+            <div class="technology__plus-icon">
+              <img
+                src="images/plus.svg"
+                class="technology__plus-position"
+                alt="plus icon"
+              >
+            </div>
+          </div>
+
+          <div class="technology__plus-container technology__plus-fifth">
+            <div class="technology__plus-icon">
+              <img
+                src="images/plus.svg"
+                class="technology__plus-position"
+                alt="plus icon"
+              >
+            </div>
+          </div>
+
+          <div class="technology__plus-container technology__plus-sixth">
+            <div class="technology__plus-icon">
+              <img
+                src="images/plus.svg"
+                class="technology__plus-position"
+                alt="plus icon"
+              >
+            </div>
+          </div>
+
+          <div class="technology__plus-container technology__plus-seventh">
+            <div class="technology__plus-icon">
+              <img
+                src="images/plus.svg"
+                class="technology__plus-position"
+                alt="plus icon"
+              >
+            </div>
+          </div>
+
+          <div class="technology__plus-container technology__plus-eighth">
+            <div class="technology__plus-icon">
+              <img
+                src="images/plus.svg"
+                class="technology__plus-position"
+                alt="plus icon"
+              >
+            </div>
+          </div>
+
+          <div class="technology__plus-container technology__plus-ninth">
+            <div class="technology__plus-icon">
+              <img
+                src="images/plus.svg"
+                class="technology__plus-position"
+                alt="plus icon"
+              >
+            </div>
+          </div>
+
+          <div class="technology__plus-container technology__plus-tenth">
+            <div class="technology__plus-icon">
+              <img
+                src="images/plus.svg"
+                class="technology__plus-position"
+                alt="plus icon"
+              >
+            </div>
+          </div>
+
+          <div class="technology__plus-container technology__plus-eleventh">
+            <div class="technology__plus-icon">
+              <img
+                src="images/plus.svg"
+                class="technology__plus-position"
+                alt="plus icon"
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="main__testimonials testimonials">
+        <div class="testimonials__response">
+          <div class="testimonials__response-img">
+            <span class="testimonials__comment">
+              It really took me by surprise honestly
+              to have such full beautiful sound that coming
+              out of this small compact device. And with the brush
+              aluminum surface, it feels so familiar. Like my iPhone.
+            </span>
+          </div>
+
+          <div class="testimonials__person">
+            <div class="testimonials__person-photo">
+              <img
+                src="images/GarrettMartin.png"
+                class="testimonials__person-img"
+                alt="Garrett Martin"
+              >
+            </div>
+            <div class="testimonials__person-name">
+              <p class="testimonials__name-text">
+                Garrett Martin
+              </p>
+            </div>
+            <div class="testimonials__person-position">
+              <p class="testimonials__position-text">
+                Creative Director
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="main__features features">
+        <div class="features__main-text">
+          <a id="features"></a>
+          <p class="features__text-properties">
+            features
+          </p>
+        </div>
+
+        <div class="features__main-container">
+          <div class="features__container">
+            <div class="features__photo">
+              <img src="images/features.png" alt="features">
+            </div>
+
+            <div class="features__details features__music">
+              <h3 class="features__details-main-text">
+                Sound & Music
+              </h3>
+              <ul class="features__details-list">
+                <li class="features__details-list-item">
+                  Feel-in-chest Base Power
+                </li>
+                <li class="features__details-list-item">
+                  Lossless Digital Audio Transmission
+                </li>
+                <li class="features__details-list-item">
+                  Easy & Stable Stereo Pairing
+                </li>
+                <li class="features__details-list-item">
+                  Crisp and Clear High Frequency Sound
+                </li>
+                <li class="features__details-list-item">
+                  Streams from Cloud Music and Local Library
+                </li>
+                <li class="features__details-list-item">
+                  Auto Music Playback from Last Song Stopped
+                </li>
+              </ul>
+            </div>
+
+            <div class="features__details features__connectivity">
+              <h3 class="features__details-main-text">
+                Connectivity
+              </h3>
+              <ul class="features__details-list">
+                <li class="features__details-list-item">
+                  Hands Free Wireless Audio
+                </li>
+                <li class="features__details-list-item">
+                  Bluetooth 4.0 LE
+                </li>
+                <li class="features__details-list-item">
+                  Wi-Fi 2.4 GHz (802.11 b/g/n)
+                </li>
+                <li class="features__details-list-item">
+                  Smart Multiroom System Set Up
+                </li>
+                <li class="features__details-list-item">
+                  Party Mode with 6.0 Units and above
+                </li>
+                <li class="features__details-list-item">
+                  Powerful MESHNET Multi Speaker Network
+                </li>
+              </ul>
+            </div>
+
+            <div class="features__details features__app">
+              <h3 class="features__details-main-text">
+                App Features
+              </h3>
+              <ul class="features__details-list">
+                <li class="features__details-list-item">
+                  Customize Music Schedule
+                </li>
+                <li class="features__details-list-item">
+                  Wake Up with Favorite Songs
+                </li>
+                <li class="features__details-list-item">
+                  Home Detection Auto Wake Up
+                </li>
+                <li class="features__details-list-item">
+                  Color Wheel & Saturation Change
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="main__question question">
+        <div class="question__main-text">
+          DO YOU HAVE ANY QUESTIONS?
+        </div>
+        <div class="question__form-container">
+          <form class="question__form">
+            <label for="contact_email"></label>
+            <input
+              type="email"
+              id="contact_email"
+              placeholder="Your eMAIL"
+              class="question__form-email"
+              required
+            >
+
+            <label for="question_form"></label>
+            <input
+              type="text"
+              id="question_form"
+              class="question__form-text"
+              placeholder="Message"
+              required
+            >
+
+            <div class="question__button">
+              <input
+                type="button"
+                class="question__form-button"
+                value="SEND"
+              >
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </main>
+    <footer class="footer">
+      <div class="footer__logo">
+        <img src="images/logo.svg" alt="Logo">
+      </div>
+
+      <div class="footer__container">
+        <a
+          href="https://www.facebook.com/hicrazybaby/"
+          class="footer__facebook-logo"
+        >
+          <img src="images/facebook.svg" alt="facebook logo">
+        </a>
+        <a href="https://twitter.com/crazybabyaudio"
+           class="footer__twitter-logo"
+        >
+          <img src="images/twitter.svg" alt="twitter logo">
+        </a>
+        <a
+          href="https://www.instagram.com/crazybaby/"
+          class="footer__instagram-logo"
+        >
+          <img src="images/instagram.svg" alt="instagram logo">
+        </a>
+      </div>
+
+      <div class="footer__anchor">
+        <a href="#anchor">
+          <img
+            src="images/array.svg"
+            alt="to the top"
+            class="footer__anchor-img"
+          >
+        </a>
+      </div>
+
+      <div class="footer__privacy">
+        <p class="footer__privacy-text">
+          &copy; 2019 All rights reserved. Terms of Use & Privacy Policy
+        </p>
+      </div>
+    </footer>
+
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,250 @@
+#burger-toggle {
+  display: none;
+}
+
+.header {
+  @include max-width;
+  
+  &__container-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 123px 0;
+    align-items: center;
+  }
+
+  &__top-nav {
+    display: grid;
+    grid-template-columns: 70px 57px 102px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 37px;
+  }
+
+  &__specs-link {
+    padding: 10px;
+    line-height: 21px;
+
+    color: $six-row-color;
+
+    transition: color 1s;
+  }
+
+  &__specs-link:hover {
+    color: $for-row-color;
+  }
+
+  &__change-language {
+    color: $main-color-text;
+  }
+
+  &__change-language-link--active {
+    line-height: 18px;
+    color: $main-color-text;
+    transition: color 1s;
+  }
+
+  &__change-language-link--disabled {
+    line-height: 18px;
+    color: $five-row-color;
+    transition: color 1s;
+  }
+
+  &__change-language-link--disabled:hover,
+  &__change-language-link--active:hover {
+    color: $for-row-color;
+  }
+
+  &__buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 48px;
+
+    background-color: $main-color-text;
+
+    cursor: pointer;
+  }
+
+  &__buy-link {
+    padding: 20px 40px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: $first-color;
+
+    transition: color 1s;
+  }
+
+  &__buy-link:hover {
+    color: $for-row-color;
+  }
+
+  &__container-main {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 90px 0 0 123px;
+
+    overflow: hidden;
+  }
+
+  &__main-text {
+    display: grid;
+    font-size: 16px;
+    line-height: 24px;
+    color: $main-color-text;
+    align-content: center;
+  }
+
+  &__main-text--big {
+    max-width: 378px;
+    font-size: 64px;
+    line-height: 130%;
+
+  }
+
+  &__main-text--small {
+    padding-top: 27px;
+    max-width: 276px;
+  }
+
+  &__photo-speaker-small {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: $medium-width) {
+  .header {
+    &__container-top {
+      padding: 41px 34px 0;
+    }
+
+    &__top-nav {
+      gap: 27px;
+    }
+
+    &__container-main {
+      padding: 90px 0 0 32px;
+    }
+  }
+}
+
+@media screen and (max-width: $small-width) {
+  .header {
+    &__top-nav {
+      display: none;
+    }
+
+    &__container-main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px 0 0;
+    }
+
+    &__photo-speaker-small {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__main-photo {
+      display: none;
+    }
+
+    &__main-text {
+      justify-items: center;
+      padding: 40px 0 100px;
+      text-align: center;
+    }
+
+    &__main-text--big {
+      max-width: 280px;
+    }
+
+    &__main-text--small {
+      max-width: 260px;
+    }
+
+    &__burger-container {
+      display: flex;
+      position: absolute;
+      align-items: center;
+
+      width: 26px;
+      height: 26px;
+      top: 39px;
+      right: 23px ;
+
+      z-index: 1;
+    }
+    &__button-burger,
+    &__button-burger::after,
+    &__button-burger::before {
+      display: block;
+      position: absolute;
+
+      width: 18px;
+      height: 2px;
+
+      transition: 1s;
+
+      background-color: #616161;
+    }
+
+    &__button-burger::before {
+      content: "";
+      top: 8px;
+    }
+
+    &__button-burger::after {
+      content: "";
+      top: -9px;
+    }
+
+    &__logo-img {
+      position: absolute;
+      z-index: 1;
+    }
+
+    #burger-toggle:checked ~ &__burger-container > &__button-burger {
+      transform: rotate(45deg);
+    }
+
+    #burger-toggle:checked ~ &__burger-container > &__button-burger::before {
+      top: 0;
+      transform: rotate(0);
+    }
+
+    #burger-toggle:checked ~ &__burger-container > &__button-burger::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+
+    #burger-toggle:checked ~ &__nav {
+      visibility: visible;
+      background-color: $seven-row-color;
+      transition: 1s;
+    }
+
+    #burger-toggle:checked ~ &__specs {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    #burger-toggle:checked ~ &__container-top > &__top-nav {
+      display: grid;
+      justify-content: center;
+      position: relative;
+      top: 450px;
+      z-index: 1;
+    }
+  }
+}

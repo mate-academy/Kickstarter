@@ -1,0 +1,90 @@
+.presentation {
+  overflow: hidden;
+
+  &__item-container {
+    padding-top: 170px;
+  }
+
+  &__item-view {
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    background-image: url(../images/device_design.png);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 100vw;
+    height: 590px;
+
+    text-align: center;
+    align-items: center;
+
+    transition: opacity 1s;
+  }
+
+  &__item-view:hover {
+    opacity: 0.4;
+  }
+
+  &__item-text {
+    padding: 107px 87px;
+
+    font-size: 24px;
+    line-height: 18px;
+
+    border: 1px solid $ten-row-color;
+    border-radius: 50%;
+
+    color: $ten-row-color;
+  }
+
+  &__play-button {
+    display: none;
+  }
+
+  &__item-view:hover > &__item-text {
+    display: none;
+  }
+
+  &__item-view:hover > &__play-button {
+    display: block;
+    width: 24px;
+    height: 32px;
+
+    background: url(../images/play-icon.svg) no-repeat;
+
+    opacity: 100%;
+
+  }
+}
+
+@media screen and (max-width: $medium-width) {
+  .presentation {
+    &__item-container {
+      padding: 130px 0;
+    }
+
+    &__item-view {
+      height: 400px;
+    }
+    &__item-text {
+      padding: 85px 65px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .presentation {
+    &__item-container {
+      padding: 80px 0;
+    }
+
+    &__item-view {
+      height: 400px;
+    }
+    &__item-text {
+      padding: 70px 50px;
+    }
+  }
+}
