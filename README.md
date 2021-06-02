@@ -15,11 +15,6 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Uj
 1. Implement `Features` block.
 1. Implement `Questions` block
 1. Implement the footer.
-1. Implement the buy page.
-    - Implement step cart
-    - Implement step shipping
-    - Implement step payment
-    - Implement step thanks
 
 
 
