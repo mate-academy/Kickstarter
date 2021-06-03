@@ -1,0 +1,42 @@
+.header {
+  &__lable {
+    z-index: 4;
+    position: absolute;
+    right: 31px;
+    top: 33px;
+
+    display: none;
+    width: 24px;
+    height: 24px;
+
+    font-size: 26px;
+    font-weight: 900;
+    color: $primary-color;
+
+    cursor: pointer;
+
+    transform: rotate(90deg);
+
+    &::after {
+      content: "|||";
+    }
+  }
+
+  &__checkbox {
+    display: none;
+    &:checked ~ .nav-burger {
+      margin-top: 0;
+
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 779px) {
+  .header {
+    margin-bottom: 101px;
+    &__lable {
+      display: block;
+    }
+  }
+}
