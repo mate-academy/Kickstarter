@@ -2,15 +2,38 @@
   display: flex;
   width: $desktop-width;
   justify-content: space-between;
-
-  &__links {
-    width: 30%;
+  &__burger {
     display: flex;
-    justify-content: space-between;
+    align-items: space-between;
+    width: 40%;
+  }
+  &__checkbox {
+    display: none;
+  }
+  &__label {
+    display: none;
+    @media (min-width: $mobile-min) and (max-width: $tablet-min) {
+      display: block;
+    }
   }
 
+  &__links {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    @media (min-width: $mobile-min) and (max-width: $tablet-min) {
+      display: none;
+    }
+    padding: 0;
+  }
+  // &__links-list {
+
+  // }
   &__language-links {
     display: flex;
+    justify-content: space-around;
   }
 
   &__link {
@@ -19,6 +42,7 @@
     justify-content: center;
     text-align: center;
     align-items: center;
+    margin-left: 5px;
 
     &--active {
       color: $text-color;
@@ -27,8 +51,33 @@
     &--buy {
       color: #fff;
       background-color: $text-color;
+      margin: 0;
       width: 102px;
       height: 48px;
+    }
+  }
+  @media (min-width: $mobile-min) and (max-width: $tablet-min) {
+    &__burger {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__label {
+      display: block;
+    }
+    &__links {
+      display: none;
+    }
+    // &__checkbox:checked ~ .header__label {
+    //   display: none;
+    // }
+
+    &__checkbox:checked ~ .header__links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
     }
   }
 }
