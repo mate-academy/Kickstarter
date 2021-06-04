@@ -1,0 +1,46 @@
+.menu {
+  cursor: pointer;
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  top: 3.7%;
+  right: 0;
+  width: 30vw;
+  height: 30vh;
+  align-items: center;
+  gap: 10px;
+
+  @media (max-width:768px) {
+    display: flex;
+   
+  }
+  
+  &__link {
+    font-size: 32px;
+    line-height: 21px;
+    text-decoration: none;
+    color: $black;
+    transform: translateY(-150%);
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  &__image {
+    height: 30px;
+    width: 60px;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__checkbox:checked ~ &__image {
+    display: none;
+  }
+
+  &__checkbox:not(:checked) ~ &__link {
+    display: none;
+  }
+}

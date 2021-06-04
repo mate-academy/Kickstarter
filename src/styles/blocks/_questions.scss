@@ -1,0 +1,76 @@
+.questions {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+
+  &__name {
+    margin: 0 auto;
+    min-width: 300px;
+    max-width: 500px;
+    font-family: $Din;
+    font-size: 56px;
+    line-height: 72px;
+    text-transform: uppercase;
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    perspective: 400px;
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__email {
+    width: 70%;
+    height: 40px;
+
+    &::placeholder {
+      font-size: 20px;
+    }
+  }
+
+  &__text {
+    width: 70%;
+    height: 100px;
+    padding: 10px;
+  }
+
+  &__button {
+    position: relative;
+    align-self: start;
+    left: 15%;
+    cursor: pointer;
+    width: 102px;
+    height: 48px;
+    font-family: $Helvetica;
+    font-size: 12px;
+    text-transform: uppercase;
+    background-color: $blue;
+    border: 1px solid $blue;
+    color: $white;
+
+    &:hover {
+      background-color: $white;
+      color: $blue;
+      transition: 1s;
+    }
+  }
+
+  @media (max-width:768px) {
+    & {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    &__name {
+      transform: translateY(-70%);
+    }
+  }
+}

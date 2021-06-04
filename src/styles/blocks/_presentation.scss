@@ -1,0 +1,64 @@
+.presentation {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-left: 73px;
+  padding-bottom: 121px;
+  align-items: center;
+
+  &__info {
+    position: relative;
+    left: 50px;
+    padding: 9px;
+    flex-direction: column;
+    display: flex;
+    max-width: 378px;
+    height: 464px;
+    justify-content: flex-end;
+    gap: 27px;
+    align-items: end;
+
+    &-name {
+      font-family: $Din;
+      font-size: 64px;
+      line-height: 130%;
+      text-transform: uppercase;
+      color: $black;
+
+    }
+    &-text {
+      max-width: 276px;
+      min-width: 250px;
+      font-family: $Helvetica;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__image {
+    display: flex;
+    overflow: hidden;
+
+    &-value {
+      object-fit: cover;
+      object-position: left;
+      min-width: 135%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    & {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    &__image {
+      order: 1;
+    }
+
+    &__info {
+      order: 2;
+      left: 18%;
+      align-items: center;
+      text-align: center;
+    }
+  }
+}
