@@ -1,15 +1,32 @@
 .technology {
+
+  &__container {
+    @extend %container;
+  }
+  
   &__title {
-    margin-left: 20%;
+    margin-bottom: 40px;
   }
 
   &__img-box {
-    display: flex;
-    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
   }
 
   &__img {
-    width: 80%;
+    position: relative;
+    width: 100%;
     transform: rotate(-8deg);
+  
+    @include respond(tab-port) {
+      width: 1200px;
+      height: 540px;
+    }
+  
+    @include respond(phone) {
+      width: 600px;
+      height: 250px;
+    }
   }
 }

@@ -1,12 +1,33 @@
 .benefit {
-  display: grid;
-  grid-template-rows: 90px 60px 20px 1fr;
-  text-align: center;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+
+    @extend %container;
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(2, minmax(150px, 1fr));
+      gap: 60px 20px;
+    }
+
+    @include respond(phone) {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-rows: 90px 60px 20px 1fr;
+    text-align: center;
+  }
 
   &__icon {
     justify-self: center;
     width: 50px;
-    height: 40px;
+    height: 50px;
     color: $color-dark-grey;
   }
 

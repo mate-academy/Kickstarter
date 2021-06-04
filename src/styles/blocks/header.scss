@@ -1,6 +1,13 @@
 .header {
   margin-bottom: 45px;
   padding-top: 15px;
+  @include respond(phone) {
+    margin-bottom: 80px;
+  }
+
+  &__container {
+    @extend %container;
+  }
   
   &__top {
     display: flex;
@@ -9,12 +16,18 @@
     margin-bottom: 90px;
     padding: 13px 0;
     height: 48px;
+    @include respond(phone) {
+      margin-bottom: 0;
+    }
   }
 
   &__right-side {
     display: flex;
     justify-content: center;
     align-items: center;
+    @include respond(phone) {
+      display: none;
+    }
   }
 
   &__spec {
@@ -31,21 +44,30 @@
     align-items: flex-end;
     gap: 10px;
     margin-bottom: 120px;
+    @include respond(phone) {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin-bottom: 0;
+    }
   }
 
   &__title {
-    font-size: 64px;
-    font-weight: bold;
-    line-height: 84px;
-    letter-spacing: 5px;
     margin-bottom: 27px;
   }
 
   &__subtitle {
     display: inline-block;
     width: 60%;
-    font-size: 16px;
-    line-height: 24px;
+
+    @include respond(tab-land) {
+      width: 80%;
+    }
+  
+    @include respond(tab-port) {
+      width: 90%;
+    }
+
   }
 
   &__main-img {
@@ -53,23 +75,35 @@
     background-image: url("../images/wireles-spiker.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 460px;
+    background-position: bottom left;
+    height: 100%;
     z-index: -1;
+    @include respond(phone) {
+      display: flex;
+      order: -1;
+      height: 245px;
+      width: 100%;
+      background-position: center;
+      background-size: contain;
+    }
   }
 }
 
 .languages {
   margin-right: 37px;
+
   &__item {
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
     color: $color-light-grey;
     text-decoration: none;
+
     &--active {
       font-weight: 500;
       color: $color-granit;
     }
   }
+
   &__slash {
     color: $color-granit;
   }

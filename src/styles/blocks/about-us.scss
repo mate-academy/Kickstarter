@@ -4,20 +4,75 @@
   justify-content: center;
 
   &__container {
+    position: relative;
     display: flex;
     max-width: 990px;
+
+    @include respond(phone) {
+      flex-direction: column;
+      padding: 3rem;
+    }
+
+  }
+
+  &__img {
+    width: 100%;
+
+    @include respond(tab-land) {
+      width: 50%;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+    }
   }
 
   &__title {
-    transform: translateX(-75px);
+    position: absolute;
+    left: 50%;
+    display: block;
+    max-width: 430px;
+
+    @include respond(tab-land) {
+      left: 45%;
+      font-size: 5rem;
+      line-height: 6rem;
+    }
+
+    @include respond(phone) {
+      position: relative;
+      left: 0;
+      order: -1;
+      margin-bottom: 50px;
+    }
+
+  }
+
+  &__wrap {
+    align-self: flex-end;
   }
 
   &__subtitle {
-    margin: 30px 0 30px 30px;
+    display: inline-block;
+    padding: 0 10px 30px 30px;
     color: $color-light-grey;
+
+    @include respond(tab-land) {
+      margin-top: 100px;
+      padding: 0 10px 10px 30px;
+    }
+
+    @include respond(phone) {
+      margin-top: 0;
+      padding: 30px 0;
+    }
   }
 
   &__button {
     margin-left: 30px;
+
+    @include respond(phone) {
+      margin-left: 0;
+    }
   }
 }
