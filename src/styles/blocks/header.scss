@@ -7,7 +7,12 @@
   
   &-specs {
     color: #4f4f4f;
-    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.5s;
+    
+    &:hover {
+      color: #333;
+    }
   }
 
   &-block {
@@ -18,18 +23,33 @@
   }
 
   &-language {
-    display: flex;
-    cursor: pointer;
-
+  
     .ukrainian {
+      text-decoration: none;
       color: #bdbdbd;
     }
+
+    .english {
+      color: $main-color;
+      text-decoration: none;
+    }
+
+    .ukrainian,
+    .english {
+      transition: color 0.5s;
+
+      &:hover {
+        color: #0ff;
+      }
+    }
+    
   }
 
   &-btn {
     width: 102px;
     padding: 16px 0;
     color: $light-color;
+    border: 1px solid $main-color;
     font-family: $Helvetica-Neue;
     font-size: 12px;
     line-height: 15px;
@@ -37,6 +57,13 @@
     text-align: center;
     text-decoration: none;
     background-color: $main-color;
+
+    transition: all 0.5s;
+
+    &:hover {
+      color: $main-color;
+      background-color: transparent;
+    }
   }
   &-content {
     display: flex;
