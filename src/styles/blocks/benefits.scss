@@ -7,13 +7,24 @@
   &__entry {
     flex-basis: 25%;
     margin-right: 30px;
-    margin-bottom: 150px;
     &:last-child {
       margin: 0;
     }
+
     display: grid;
     grid-template-rows: 50px 100px 1fr;
     align-items: start;
+
+    @include tablet {
+      flex-basis: 45%;
+    }
+
+    @include phone {
+      flex-grow: 1;
+      &:not(:first-child) {
+        display: none;
+      }
+    }
   }
 
   &__logo {
@@ -23,5 +34,14 @@
   &__heading {
     text-transform: uppercase;
     font-size: 24px;
+  }
+
+  @include tablet {
+    flex-wrap: wrap;
+  }
+
+  @include phone {
+    justify-content: center;
+    margin-top: 96px;
   }
 }

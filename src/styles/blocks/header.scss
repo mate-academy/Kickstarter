@@ -12,7 +12,7 @@
   }
   &__label {
     display: none;
-    @media (min-width: $mobile-min) and (max-width: $tablet-min) {
+    @include phone {
       display: block;
     }
   }
@@ -21,9 +21,9 @@
     width: 100%;
     list-style: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin: 0;
-    @media (min-width: $mobile-min) and (max-width: $tablet-min) {
+    @include phone {
       display: none;
     }
     padding: 0;
@@ -31,6 +31,7 @@
 
   &__language-links {
     display: flex;
+    margin-left: 20px;
     justify-content: space-around;
   }
 
@@ -40,7 +41,7 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    margin-left: 5px;
+    margin-left: 20px;
 
     &--active {
       color: $text-color;
@@ -50,11 +51,12 @@
       color: #fff;
       background-color: $text-color;
       margin: 0;
+      margin-left: 20px;
       width: 102px;
       height: 48px;
     }
   }
-  @media (min-width: $mobile-min) and (max-width: $tablet-min) {
+  @include phone {
     &__burger {
       display: flex;
       flex-direction: column;
@@ -63,11 +65,12 @@
 
     &__label {
       display: block;
+      align-self: flex-end;
     }
     &__links {
       display: none;
     }
-    
+
     &__checkbox:checked ~ .header__links {
       display: flex;
       flex-direction: column;
