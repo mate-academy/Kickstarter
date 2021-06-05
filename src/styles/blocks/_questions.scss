@@ -4,6 +4,10 @@
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
 
+  @media (max-width:768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   &__name {
     margin: 0 auto;
     min-width: 300px;
@@ -12,6 +16,12 @@
     font-size: 56px;
     line-height: 72px;
     text-transform: uppercase;
+
+    @media (max-width:768px) {
+      font-size: 37px;
+      line-height: 46px;
+      transform: translateY(-70%);
+    }
   }
 
   &__input {
@@ -30,9 +40,11 @@
   &__email {
     width: 70%;
     height: 40px;
+    @include hover;
 
     &::placeholder {
       font-size: 20px;
+      opacity: 0.5;
     }
   }
 
@@ -40,6 +52,11 @@
     width: 70%;
     height: 100px;
     padding: 10px;
+    @include hover;
+
+    &::placeholder {
+      opacity: 0.5;
+    }
   }
 
   &__button {
@@ -49,26 +66,11 @@
     cursor: pointer;
     width: 102px;
     height: 48px;
-    font-family: $Helvetica;
     font-size: 12px;
     text-transform: uppercase;
     background-color: $blue;
     border: 1px solid $blue;
     color: $white;
-
-    &:hover {
-      background-color: $white;
-      color: $blue;
-      transition: 1s;
-    }
-  }
-
-  @media (max-width:768px) {
-    & {
-      grid-template-columns: repeat(1, 1fr);
-    }
-    &__name {
-      transform: translateY(-70%);
-    }
+    @include button;
   }
 }
