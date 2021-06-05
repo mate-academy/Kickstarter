@@ -1,13 +1,23 @@
 .nav {
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+
   @include respond(tab-port) {
     display: block;
   }
+
   @include respond(phone) {
-    display: none;
+    width: 0;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+
+  &--desktop {
+    @include respond(phone) {
+      display: none;
+    }
   }
 
   &__list {
@@ -15,26 +25,59 @@
     justify-content: center;
     align-items: center;
     list-style: none;
+
     @include respond(tab-port) {
       justify-content: space-between;
+    }
+
+    @include respond(phone) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      flex-direction: column;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba($color: $color-bg-features, $alpha: 0.9);
     }
   }
 
   &__item {
     padding: 30px;
+
     @include respond(tab-port) {
       padding: 30px 10px;
+    }
+
+    @include respond(phone) {
+      padding: 20px 10px;
     }
   }
 
   &__link {
+    display: inline-block;
     font-size: 1.6rem;
-    color: $color-granit;
     font-weight: 400;
     text-decoration: none;
+    color: $color-granit;
+    transition: all 0.2s;
+
     &:hover {
       font-weight: 600;
       color: $color-black;
+      transform: scale(1.1);
+    }
+
+    @include respond(phone) {
+      font-size: 3rem;
+      font-weight: 500;
+
+      &:hover {
+        font-weight: 600;
+        color: $color-black;
+        transform: scale(1.2);
+      }
     }
   }
 }
