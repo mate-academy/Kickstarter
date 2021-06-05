@@ -1,0 +1,59 @@
+.nav-btn {
+  display: none;
+
+  @include respond(phone) {
+    display: block;
+  }
+
+  &__bar {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__bar,
+  &__bar::after,
+  &__bar::before {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: $color-granit;
+    transition: all 0.3s;
+  }
+
+  &__bar::after,
+  &__bar::before {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  &__bar::before {
+    top: -8px;
+  }
+
+  &__bar::after {
+    top: 8px;
+  }
+
+  &__checkbox:checked + &__button &__bar::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__bar::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+  &__checkbox:checked + &__button &__bar {
+    height: 0;
+  }
+
+  &__checkbox:checked ~ .nav {
+    width: 100%;
+    opacity: 1;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+}

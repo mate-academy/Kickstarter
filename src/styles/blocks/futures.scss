@@ -1,0 +1,88 @@
+.features {
+  position: relative;
+  z-index: -2;
+  background: url(../images/bacground.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 80% 80%;
+  
+  @include respond(phone) {
+    background-size: cover;
+  }
+
+  &__wrap {
+    @extend %container;
+  }
+
+  &__container {
+    @include respond(phone) {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 25px;
+  }
+  
+  &__title-article {
+    font-size: 3.4rem;
+    line-height: 4rem;
+    color: $color-green;
+  }
+
+  &__box {
+    max-width: 40rem;
+
+    &--1 {
+      position: relative;
+      left: 40%;
+      @include respond(phone) {
+        left: 0;
+      }
+    }
+
+    &--2 {
+      position: relative;
+      left: 10%;
+      margin-bottom: 100px;
+      @include respond(phone) {
+        display: none;
+      }
+    }
+
+    &--3 {
+      position: relative;
+      left: 30%;
+      transform: translateY(20px);
+      @include respond(phone) {
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+    margin-bottom: 13px;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    list-style: none;
+    list-style-image: url("../images/bullet.svg");
+    &:last-child {
+      list-style-image: none;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    right: 12rem;
+    z-index: -1;
+    @include respond(phone) {
+      position: relative;
+      right: 0;
+      width: 100%;
+    }
+  }
+}
