@@ -12,12 +12,12 @@
   &__logo {
     width: 160px;
     height: 25px;
-
+    @include hover;
+   
     @media (max-width: 768px) {
       width: 320px;
       height: 50px;
       transform: translate(10%, 50%);
-      transition: 1s;
     }
   }
 
@@ -43,17 +43,9 @@
     text-decoration: none;
     position: relative;
     transition: 1s;
-
-    &--after:hover::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -5px;
-      display: block;
-      height: 5px;
-      background-color: $blue;
-      border-radius: 10%;
+   
+    &--after {
+      @include underline();
     }
     
     &--buy {

@@ -4,3 +4,36 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin underline {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    display: block;
+    height: 5px;
+    background-color: $blue;
+    border-radius: 10%;
+    width: 0;
+  }
+
+  &:hover::after {
+    width: 70%;
+    transition: 1s;
+  }
+}
+
+@mixin hover {
+  &:hover {
+    outline: 3px solid $blue;
+  }
+}
+
+@mixin centre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
