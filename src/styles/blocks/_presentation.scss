@@ -1,59 +1,68 @@
 .presentation {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  @include centre;
+  // grid-template-columns: repeat(2, 1fr);
   padding-left: 73px;
   padding-bottom: 121px;
-  align-items: center;
+ 
 
   &__info {
     position: relative;
-    left: 50px;
-    padding: 9px;
+    margin: auto;
+    // left: 50px;
+    // padding: 9px;
     flex-direction: column;
     display: flex;
-    max-width: 378px;
-    height: 464px;
+    width: 300px;
+    // height: 464px;
     justify-content: flex-end;
-    gap: 27px;
+    gap: 30px;
     align-items: end;
+  }
 
-    &-name {
-      font-family: $Din;
-      font-size: 64px;
-      line-height: 130%;
-      text-transform: uppercase;
-      color: $black;
-      
-      @media (max-width:1440px) {
-        font-size: 48px;
-      }
-
-      @media (max-width:768px) {
-        font-size: 44px;
-      }
-
+  &__info-name {
+    font-family: $Din;
+    font-size: 64px;
+    line-height: 130%;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $black;
+    
+    @media (max-width:1440px) {
+      font-size: 48px;
+      padding: 40px 0;
     }
-    &-text {
-      max-width: 276px;
-      min-width: 250px;
-      line-height: 24px;
+
+    @media (max-width:768px) {
+      font-size: 44px;
     }
+
+  }
+  &__info-text {
+    line-height: 24px;
   }
 
   &__image {
     display: flex;
     overflow: hidden;
+    // position: relative;
+    // right: 20%;
+  
+    @media (max-width:768px) {
+      // transform: translateX(7%);
+      margin-left: 30px;
+    }
 
     &-value {
-      object-fit: cover;
+      object-fit: fill;
+      width: 145%;
       object-position: left;
-      min-width: 135%;
     }
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(1, 1fr);
-    padding-left: 40px;
+    // grid-template-columns: repeat(1, 1fr);
+    flex-direction: column;
+    padding: 0 0 100px;
 
     &__image {
       order: 1;
@@ -61,7 +70,7 @@
 
     &__info {
       order: 2;
-      transform: translateX(7%);
+      // transform: translateX(7%);
       align-items: center;
       text-align: center;
     }

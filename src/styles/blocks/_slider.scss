@@ -1,0 +1,167 @@
+.all {
+  display: none;
+  position: relative;
+  margin: 0 auto;
+  top: -460px;
+  width: 350px;
+  height: 400px;
+
+  @media (max-width:768px) {
+    display: flex;
+  }
+}
+
+.slider {
+
+  &__name {
+    text-transform: uppercase;
+    padding-bottom: 30px;
+    font-size: 30px;
+    line-height: 37px;
+    color: $blue;
+    text-align: start;
+  }
+
+  &__item {
+    padding: 6px;
+    text-align: start;
+  }
+}
+
+#slider {
+  position: relative;
+  text-align: center;
+  top: 250px;
+  margin: 0 auto;
+}
+
+#slider article {
+  width: 33.33%;
+  float: left;
+}
+
+.slides .slider {
+  transition: all 1s cubic-bezier(0.77, 0, 0.17, 1);
+}
+
+#slider .slider {
+  width: 300%;
+}
+
+.overflow {
+  width: 100%;
+  overflow: hidden;
+}
+
+.all input {
+  display: none;
+}
+
+label,
+a {
+  cursor: pointer;
+}
+
+.controls label {
+  transition: opacity 0.2s ease-out;
+}
+
+article .slider__list {
+  width: 100%;
+}
+
+.active label {
+  border-radius: 10px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: #bbb;
+}
+
+.active {
+  position: relative;
+  margin: 35% 40%;
+  text-align: center;
+}
+
+.active label:hover {
+  background: #76c8ff;
+  border-color: #777;
+}
+
+#switch1:checked ~ .controls label:nth-child(3),
+#switch2:checked ~ .controls label:nth-child(1),
+#switch3:checked ~ .controls label:nth-child(2) {
+  background: url("../images/left.png") no-repeat;
+  float: left;
+  position: relative;
+  top: 100px;
+  left: 110px;
+  display: block;
+  height: 20px;
+  width: 68px;
+}
+
+#switch1:checked ~ .controls label:nth-child(2),
+#switch2:checked ~ .controls label:nth-child(3),
+#switch3:checked ~ .controls label:nth-child(1) {
+  background: url("../images/right.png") no-repeat;
+  float: right;
+  position: relative;
+  top: 100px;
+  right: 110px;
+  display: block;
+  height: 20px;
+  width: 68px;
+}
+
+#switch1:checked ~ .slides .slider {
+  margin-left: 0;
+}
+
+#switch2:checked ~ .slides .slider {
+  margin-left: -100%;
+}
+
+#switch3:checked ~ .slides .slider {
+  margin-left: -200%;
+}
+
+.controls {
+  margin-top: -25%;
+  width: 100%;
+  height: 50px;
+}
+
+.active label:nth-child(2)::after {
+  content: "/";
+  background-color: $background;
+  border-color: $background;
+}
+
+.active label:nth-child(3)::after {
+  content: "3";
+  background-color: $background;
+  border-color: $background;
+}
+
+#switch1:checked ~ .active label:nth-child(1)::after {
+  content: "1";
+  height: 20px;
+  background-color: $background;
+  border-color: $background;
+}
+
+#switch2:checked ~ .active label:nth-child(1)::after {
+  content: "2";
+  height: 20px;
+  background-color: $background;
+  border-color: $background;
+}
+
+#switch3:checked ~ .active label:nth-child(1)::after {
+  content: "3";
+  height: 20px;
+  background-color: $background;
+  border-color: $background;
+}

@@ -3,6 +3,14 @@
   grid-template-columns: repeat(4, 1fr);
   padding: 45px 123px;
   gap: 30px;
+
+  @media (max-width:1400px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width:768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
   
   &__text {
     text-align: center;
@@ -18,20 +26,30 @@
     gap: 30px;
     align-items: center;
     margin: 0 auto;
-    
-    &:nth-child(2) .advantages__text {
+
+    @media (max-width:768px) {
+      &:not(:nth-child(3)) {
+        display: none;
+      }
+    }
+
+    &--multiroom .advantages__text {
       padding-top: 30px;
     }
 
-    &:nth-child(3) .advantages__text {
+    &--design .advantages__text {
       padding-top: 30px;
     }
+   
+    &--design {
+      @media (max-width:768px) {
+        padding: 100px 0;
+      }
+    }
   }
-  
+
   &__icon {
     height: 50px;
-    width: 50px;
-    object-fit: cover;
   }
   
   &__name {
@@ -40,13 +58,5 @@
     line-height: 30px;
     text-align: center;
     text-transform: uppercase;
-  }
-
-  @media (max-width:1400px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width:768px) {
-    grid-template-columns: repeat(1, 1fr);
   }
 }

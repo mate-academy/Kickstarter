@@ -1,23 +1,32 @@
 .questions {
-  padding: 30px;
+  padding: 100px 0 150px;
+  margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
 
   @media (max-width:768px) {
-    grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   &__name {
     margin: 0 auto;
-    min-width: 300px;
-    max-width: 500px;
+    width: 450px;
     font-family: $Din;
     font-size: 56px;
     line-height: 72px;
+    font-weight: bold;
     text-transform: uppercase;
 
+    @media (max-width:1440px) {
+      width: 300px;
+    }
+
     @media (max-width:768px) {
+      width: 260px;
+      height: 144px;
       font-size: 37px;
       line-height: 46px;
       transform: translateY(-70%);
@@ -28,7 +37,7 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    perspective: 400px;
+    // perspective: 400px;
   }
 
   &__form {
@@ -39,18 +48,17 @@
 
   &__email {
     width: 70%;
-    height: 40px;
+    height: 48px;
     @include hover;
 
     &::placeholder {
-      font-size: 20px;
       opacity: 0.5;
     }
   }
 
   &__text {
     width: 70%;
-    height: 100px;
+    height: 128px;
     padding: 10px;
     @include hover;
 
