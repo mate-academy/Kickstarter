@@ -3,7 +3,7 @@
   position: relative;
   margin: 0 auto;
   top: -460px;
-  width: 350px;
+  width: 480px;
   height: 400px;
 
   @media (max-width:768px) {
@@ -12,17 +12,19 @@
 }
 
 .slider {
+  transition: all 1s cubic-bezier(0.77, 0, 0.17, 1);
+  width: 300%;
 
   &__name {
     text-transform: uppercase;
     padding-bottom: 30px;
-    font-size: 30px;
-    line-height: 37px;
+    font-size: 2.5rem;
     color: $blue;
     text-align: start;
   }
 
   &__item {
+    font-size: 1.5rem;
     padding: 6px;
     text-align: start;
   }
@@ -38,14 +40,6 @@
 #slider article {
   width: 33.33%;
   float: left;
-}
-
-.slides .slider {
-  transition: all 1s cubic-bezier(0.77, 0, 0.17, 1);
-}
-
-#slider .slider {
-  width: 300%;
 }
 
 .overflow {
@@ -73,14 +67,15 @@ article .slider__list {
 .active label {
   border-radius: 10px;
   display: inline-block;
-  width: 15px;
-  height: 15px;
-  background: #bbb;
+  width: 45px;
+  height: 25px;
+  background: $background;
+  
 }
 
 .active {
   position: relative;
-  margin: 35% 40%;
+  top: 35%;
   text-align: center;
 }
 
@@ -89,30 +84,46 @@ article .slider__list {
   border-color: #777;
 }
 
+.active label:nth-child(2)::after {
+  content: "/";
+  font-size: 32px;
+  opacity: 0.8;
+}
+
+.active label:nth-child(3)::after {
+  content: "3";
+  font-size: 28px;
+  opacity: 0.6;
+}
+
 #switch1:checked ~ .controls label:nth-child(3),
 #switch2:checked ~ .controls label:nth-child(1),
 #switch3:checked ~ .controls label:nth-child(2) {
   background: url("../images/left.png") no-repeat;
+  background-size: cover;
+  background-position: left;
   float: left;
   position: relative;
-  top: 100px;
-  left: 110px;
-  display: block;
-  height: 20px;
-  width: 68px;
+  top: 120px;
+  left: 150px;
+  // display: block;
+  height: 30px;
+  width: 100px;
 }
 
 #switch1:checked ~ .controls label:nth-child(2),
 #switch2:checked ~ .controls label:nth-child(3),
 #switch3:checked ~ .controls label:nth-child(1) {
   background: url("../images/right.png") no-repeat;
+  background-size: cover;
+  background-position: right;
   float: right;
   position: relative;
-  top: 100px;
-  right: 110px;
+  top: 120px;
+  right: 130px;
   display: block;
-  height: 20px;
-  width: 68px;
+  height: 30px;
+  width: 100px;
 }
 
 #switch1:checked ~ .slides .slider {
@@ -133,35 +144,17 @@ article .slider__list {
   height: 50px;
 }
 
-.active label:nth-child(2)::after {
-  content: "/";
-  background-color: $background;
-  border-color: $background;
-}
-
-.active label:nth-child(3)::after {
-  content: "3";
-  background-color: $background;
-  border-color: $background;
-}
-
 #switch1:checked ~ .active label:nth-child(1)::after {
   content: "1";
-  height: 20px;
-  background-color: $background;
-  border-color: $background;
+  font-size: 40px;
 }
 
 #switch2:checked ~ .active label:nth-child(1)::after {
   content: "2";
-  height: 20px;
-  background-color: $background;
-  border-color: $background;
+  font-size: 40px;
 }
 
 #switch3:checked ~ .active label:nth-child(1)::after {
   content: "3";
-  height: 20px;
-  background-color: $background;
-  border-color: $background;
+  font-size: 40px;
 }

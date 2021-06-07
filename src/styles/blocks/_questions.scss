@@ -1,5 +1,5 @@
 .questions {
-  padding: 100px 0 150px;
+  padding: 100px 0 0;
   margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -25,10 +25,10 @@
     }
 
     @media (max-width:768px) {
-      width: 260px;
+      width: 280px;
       height: 144px;
-      font-size: 37px;
-      line-height: 46px;
+      font-size: 3rem;
+      line-height: 56px;
       transform: translateY(-70%);
     }
   }
@@ -37,13 +37,16 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    // perspective: 400px;
   }
 
   &__form {
     @include centre;
     flex-direction: column;
     gap: 30px;
+
+    @media (max-width:768px) {
+      gap: 50px;
+    }
   }
 
   &__email {
@@ -53,6 +56,11 @@
 
     &::placeholder {
       opacity: 0.5;
+    }
+
+    @media (max-width:768px) {
+      height: 56px;
+      width: 80%;
     }
   }
 
@@ -64,6 +72,11 @@
 
     &::placeholder {
       opacity: 0.5;
+    }
+
+    @media (max-width:768px) {
+      height: 220px;
+      width: 80%;
     }
   }
 
@@ -80,5 +93,11 @@
     border: 1px solid $blue;
     color: $white;
     @include button;
+
+    @media (max-width:768px) {
+      left: 10%;
+      width: 140px;
+      height: 60px;
+    }
   }
 }
