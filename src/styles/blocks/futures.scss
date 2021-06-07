@@ -27,13 +27,11 @@
   }
   
   &__title-article {
-    font-size: 3.4rem;
-    line-height: 4rem;
     color: $color-green;
   }
 
   &__box {
-    max-width: 40rem;
+    max-width: 350px;
 
     &--1 {
       position: relative;
@@ -47,6 +45,12 @@
       position: relative;
       left: 10%;
       margin-bottom: 100px;
+      @include respond(tab-land) {
+        margin-bottom: 70px;
+      }
+      @include respond(tab-port) {
+        margin-bottom: 50px;
+      }
       @include respond(phone) {
         display: none;
       }
@@ -64,8 +68,7 @@
 
   &__item {
     margin-bottom: 13px;
-    font-size: 1.6rem;
-    line-height: 1.9rem;
+    font-size: 16px;
     list-style: none;
     list-style-image: url("../images/bullet.svg");
     &:last-child {
@@ -77,8 +80,16 @@
     position: absolute;
     bottom: 0;
     width: 50%;
-    right: 12rem;
+    right: 120px;
     z-index: -1;
+
+    @include respond(tab-land) {
+      right: 40px;
+    }
+
+    @include respond(tab-port) {
+      right: 30px;
+    }
     @include respond(phone) {
       position: relative;
       right: 0;
