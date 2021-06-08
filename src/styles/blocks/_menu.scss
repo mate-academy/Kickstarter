@@ -17,11 +17,11 @@
 
 .menu {
   display: none;
-  transform: translateY(60px);
+  transform: translateY(75px);
   position: absolute;
   top: 0;
   height: 0;
-  width: 100vw;
+  width: 140vw;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -35,23 +35,32 @@
     gap: 10px;
     flex-direction: column;
     position: absolute;
-    transform: translate(280%, -75%);
+    z-index: 3;
+    transform: translate(300%, -85%);
     height: 50px;
     width: 80px;
+    perspective: 500px;
+
+    &:nth-child(2) {
+      transform-origin: 1px center;
+      transition: transform 3s;
+
+    }
   }
 
   &__line {
-    width: 75px;
-    height: 7px;
+    width: 55px;
+    height: 3px;
     background-color: black;
   }
   
   &__link {
     width: 100%;
-    font-size: 60px;
+    font-size: 50px;
     line-height: 100px;
     text-decoration: none;
-    color: rgb(216, 98, 62);
+    color: $black;
+    background-color: rgba($color: $white, $alpha: 0.8);
     overflow: hidden;
 
     &::after {
@@ -77,12 +86,11 @@
   }
 
   &__checkbox {
-    display: none;
+    z-index: 3;
     position: absolute;
-    left: 300px;
-    bottom: 200px;
-    height: 100px;
-    width: 150px;
+    transform: translate(220px,-100px);
+    height: 160px;
+    width: 180px;
     opacity: 0;
   }
 
@@ -93,7 +101,7 @@
   }
 
   &__checkbox:checked ~ &__button > :nth-child(1) {
-    transform: rotate(45deg);
+    transform: rotate(45deg) translateZ(-150px);
     transition: 0.5s;
     transform-origin: 1px 1px;
   }
@@ -105,9 +113,9 @@
   }
 
   &__checkbox:checked ~ &__button > :nth-child(3) {
-    transform: rotate(-45deg);
-    transition: 0.5s;
-    transform-origin: 18px 18px;
+    transform: translateZ(-150px) rotate(-45deg);
+    transition: 1s;
+    transform-origin: 13px 8px;
   }
 
   &__checkbox:not(:checked) ~ &__button > :nth-child(1) {
