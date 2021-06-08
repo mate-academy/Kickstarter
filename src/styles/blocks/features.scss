@@ -1,27 +1,40 @@
 .features {
   width: $desktop-width;
+  max-width: $sensible-width;
   display: grid;
-  background-image: url("../images/fifth_pic.png");
-  background-repeat: no-repeat;
-  background-position: bottom right;
-
   &__list {
     list-style: disc;
   }
 
   &__heading {
+    margin: 0;
     margin-left: 5%;
   }
 
+  &__image {
+    grid-row: 2 / 5;
+    grid-column: 1 / 2;
+    place-self: end end;
+  }
+
   &__point--1 {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
     place-self: center;
   }
 
   &__point--2 {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
     margin-left: 10%;
+    @include tablet {
+      margin: 0;
+    }
   }
 
   &__point--3 {
+    grid-row: 4 / 5;
+    grid-column: 1 / 2;
     margin-left: 25%;
   }
 
@@ -30,5 +43,42 @@
     color: $greenish;
     font-size: 30px;
     text-transform: uppercase;
+  }
+
+  &__slider {
+    display: none;
+  }
+  @include phone {
+    &__heading {
+      margin-left: 0;
+    }
+    &__point:not(:first-of-type) {
+      display: none;
+    }
+    &__slider {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+    }
+    &__image {
+      grid-row: 6/7;
+    }
+    &__pic {
+      width: 100%;
+    }
+    &__arrow--left {
+      color: $footer-color;
+    }
+    &__arrow {
+      box-sizing: border-box;
+      &:hover {
+        border: 1px solid $greenish;
+        cursor: pointer;
+      }
+    }
+    &__total {
+      font-size: 11px;
+      color: $footer-color;
+    }
   }
 }

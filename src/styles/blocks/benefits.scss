@@ -7,16 +7,13 @@
   &__entry {
     flex-basis: 25%;
     margin-right: 30px;
-    &:last-child {
-      margin: 0;
-    }
 
     display: grid;
     grid-template-rows: 50px 100px 1fr;
     align-items: start;
 
     @include tablet {
-      flex-basis: 45%;
+      flex-basis: 40%;
     }
 
     @include phone {
@@ -40,6 +37,11 @@
   @include phone {
     justify-content: center;
     flex-direction: column;
-    margin-top: 96px;
+    &__entry {
+      margin-right: 0;
+      &:not(:first-of-type) {
+        display: none;
+      }
+    }
   }
 }
