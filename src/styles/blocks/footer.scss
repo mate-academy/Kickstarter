@@ -14,18 +14,23 @@
 
   &__logo {
     margin-bottom: 65px;
+    @include respond(phone) {
+      display: none;
+    }
   }
 
   &__socials {
     margin-bottom: 70px;
+    @include respond(phone) {
+      margin-bottom: 23px;
+    }
   }
 
   &__item {
-    padding: 10px;
     text-decoration: none;
 
     &:not(:last-child) {
-      margin-right: 40px;
+      margin-right: 20px;
     }
   }
 
@@ -45,11 +50,20 @@
   &__up {
     position: absolute;
     bottom: 80%;
-    right: 15%;
+    right: 120px;
     transition: transform 0.2s;
 
-    @include respond(phone) {
+    @include respond(tab-land) {
+      right: 40px;
+    }
+  
+    @include respond(tab-port) {
       bottom: 120%;
+      right: 30px;
+    }
+  
+    @include respond(big-desktop) {
+      right: 150px;
     }
 
     &:hover {
