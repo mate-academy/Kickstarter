@@ -1,0 +1,69 @@
+.burger {
+  display: none;
+
+  &__toggle {
+    opacity: 1;
+
+  }
+
+  &__activator {
+    position: relative;
+    display: block;
+    content: "";
+    height: 2px;
+    width: 42px;
+    background-color: #000;
+    z-index: 1;
+    // cursor: pointer;
+
+    &::before {
+      display: block;
+      position: absolute;
+      top: 20px;
+      content: "";
+      width: 42px;
+      height: 2px;
+      background-color: #000;
+    }
+
+    &::after {
+      display: block;
+      position: absolute;
+      content: "";
+      width: 42px;
+      height: 2px;
+      top: 10px;
+      background-color: #000;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    visibility: hidden;
+    background-color: #616161;
+  }
+
+  #burger-toggler:checked > .burger__list{
+    visibility: visible;
+  }
+
+  &__item {
+
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  @media (max-width: 767px) {
+    display: flex;
+    &__list {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      visibility: hidden;
+      top: - 100%;
+    }
+  }
+
+}

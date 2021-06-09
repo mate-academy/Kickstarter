@@ -1,0 +1,50 @@
+.explain {
+  display: grid;
+  grid-template-columns: min-content max-content;
+  grid-template-rows: min-content max-content;
+  grid-template-areas: "title image"
+    "text image";
+
+  gap: 15px;
+
+  width: max-content;
+  margin: 0 auto;
+  margin-bottom: 150px;
+  // border: 1px solid #000;
+  align-items: center;
+  // justify-content: center;
+
+  &__title {
+    grid-area: title;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 83.2px;
+    color: #333;
+
+    @media (max-width: 1023px) {
+      font-size: 48px;
+      line-height: 62.4px;
+    }
+  }
+
+  &__text {
+    grid-area: text;
+    // font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    padding-right: 80px;
+  }
+
+  &__image {
+    grid-area: image;
+    overflow: hidden;
+
+    @media (max-width: 1023px) {
+      width: 80%;
+      transform: translateX(-50px);
+      z-index: -2;
+    }
+  }
+
+}
