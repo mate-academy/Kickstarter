@@ -17,17 +17,23 @@
 
 .menu {
   display: none;
-  transform: translateY(75px);
+  transform: translateY(105px);
   position: absolute;
   top: 0;
   height: 0;
-  width: 140vw;
+  width: 620px;
   flex-direction: column;
   align-items: center;
   text-align: center;
   background-color: yellow;
+  
   @media (max-width:768px) {
     display: flex;
+  }
+
+  @media (max-width:500px) {
+    transform: translateY(75px);
+    width: 320px;
   }
 
   &__button {
@@ -52,37 +58,7 @@
     width: 55px;
     height: 3px;
     background-color: black;
-  }
-  
-  &__link {
-    width: 100%;
-    font-size: 50px;
-    line-height: 100px;
-    text-decoration: none;
-    color: $black;
-    background-color: rgba($color: $white, $alpha: 0.8);
-    overflow: hidden;
-
-    &::after {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 2px;
-      background-color: $black;
-    }
-
-    &:nth-child(odd) {
-      transform: translateX(180%);
-      transition: 1s;
-    }
-    &:nth-child(even) {
-      transform: translateX(-180%);
-      transition: 1s;
-    }
-    &:last-child {
-      transform: translateY(-720%);
-      transition: 1s;
-    }
+    transition: 0.5s ease-in-out;
   }
 
   &__checkbox {
@@ -94,45 +70,45 @@
     opacity: 0;
   }
 
-  &__checkbox:checked ~ &__link {
-    transform: translate(0,0);
+  &__links {
+    width: 500px;
     transition: 2s;
-    overflow: visible;
+    transform: translateX(-300%);
+    background-color: rgba($color: $white, $alpha: 0.8);
+  }
+
+  &__link {
+    font-size: 50px;
+    line-height: 100px;
+    text-decoration: none;
+    color: $black;
+    overflow: hidden;
+    transition: 2s;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: $black;
+    }
+  }
+
+  &__checkbox:checked ~ &__links {
+    transform: translate(0,0);
   }
 
   &__checkbox:checked ~ &__button > :nth-child(1) {
-    transform: rotate(45deg) translateZ(-150px);
-    transition: 0.5s;
-    transform-origin: 1px 1px;
+    transform: rotate(45deg) translateY(20px);
+    transform-origin: center;
   }
 
   &__checkbox:checked ~ &__button > :nth-child(2) {
-    transform-origin: 1px center;
-    transition: 3s;
     transform: translate(-150px,-300px);
   }
 
   &__checkbox:checked ~ &__button > :nth-child(3) {
-    transform: translateZ(-150px) rotate(-45deg);
-    transition: 1s;
-    transform-origin: 13px 8px;
-  }
-
-  &__checkbox:not(:checked) ~ &__button > :nth-child(1) {
-    transform: rotate(0deg);
-    transition: 0.5s;
-    transform-origin: 1px 1px;
-  }
-
-  &__checkbox:not(:checked) ~ &__button > :nth-child(2) {
-    transform: translate(0,0);
-    transition: 2s;
-    transform-origin: 1px 1px;
-  }
-
-  &__checkbox:not(:checked) ~ &__button > :nth-child(3) {
-    transform: rotate(0deg);
-    transition: 0.5s;
-    transform-origin: 1px 1px;
+    transform: rotate(-45deg) translateY(-20px);
+    transform-origin: center;
   }
 }
