@@ -1,8 +1,9 @@
 .burger {
   display: none;
+  position: relative;
 
   &__toggle {
-    opacity: 1;
+    opacity: 0;
 
   }
 
@@ -38,21 +39,30 @@
   }
 
   &__list {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    right: -50%;
     list-style: none;
-    visibility: hidden;
-    background-color: #616161;
+    // visibility: hidden;
+    transform: translateY(-110%);
+    font-size: 50px;
+    height: 100vh;
+    transition-duration: 1s;
+    background-color: rgba(189, 189, 189, 0.9);
+    width: 100vw;
   }
 
-  #burger-toggler:checked > .burger__list{
-    visibility: visible;
-  }
-
-  &__item {
+  &__toggle:checked ~ &__list {
+    transform: translateY(0);
 
   }
 
   &__link {
     text-decoration: none;
+    color: #fff;
   }
 
   @media (max-width: 767px) {
@@ -61,9 +71,11 @@
       position: absolute;
       display: flex;
       flex-direction: column;
-      visibility: hidden;
       top: - 100%;
     }
   }
+
+
+
 
 }

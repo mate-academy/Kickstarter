@@ -6,7 +6,7 @@
     "text image";
 
   gap: 15px;
-
+  overflow: hidden;
   width: max-content;
   margin: 0 auto;
   margin-bottom: 150px;
@@ -26,6 +26,11 @@
       font-size: 48px;
       line-height: 62.4px;
     }
+
+    @media (max-width: 767px) {
+      font-size: 44px;
+      width: 260px;
+    }
   }
 
   &__text {
@@ -34,17 +39,45 @@
     line-height: 24px;
     text-align: left;
     padding-right: 80px;
+
+    @media (max-width: 767px) {
+      align-self: flex-start;
+    }
+
   }
 
   &__image {
     grid-area: image;
-    overflow: hidden;
+    // overflow: hidden;
+    object-fit: contain;
+    object-position: left;
 
     @media (max-width: 1023px) {
       width: 80%;
       transform: translateX(-50px);
       z-index: -2;
     }
+
+    @media (max-width: 767px) {
+      width: 100%;
+      transform: scale(1) translateX(10%);
+      z-index: -2;
+      overflow: hidden;
+
+    }
+
   }
 
+
+  @media (max-width: 767px) {
+    grid-template-columns: 100vw;
+    grid-template-rows: repeat(3, 33.3vh);
+    grid-template-areas: "image"
+      "title"
+      "text";
+    align-content: center;
+    // justify-content: center;
+    justify-items: center;
+
+  }
 }
