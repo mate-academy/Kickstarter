@@ -73,10 +73,15 @@
       align-self: flex-end;
     }
     &__nav-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
       position: absolute;
       margin: 48px 0 0;
-      display: none;
       height: 100vh;
+      width: 100vw;
+      padding: 0;
       top: 0;
       bottom: 0;
       left: 0;
@@ -84,14 +89,18 @@
       z-index: 2;
       cursor: pointer;
       background-color: $c-gray;
-      opacity: 0.8;
+      transition: opacity 1s ease-out;
+    }
+
+    &__nav-item {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
     }
 
     &__checkbox:checked ~ .header__nav-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       padding: 0;
+      opacity: 0.8;
       color: $text-color;
     }
   }
