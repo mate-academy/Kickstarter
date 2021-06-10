@@ -4,7 +4,6 @@
 
   &__toggle {
     opacity: 0;
-
   }
 
   &__activator {
@@ -15,7 +14,7 @@
     width: 42px;
     background-color: #000;
     z-index: 1;
-    // cursor: pointer;
+
 
     &::before {
       display: block;
@@ -46,10 +45,9 @@
     align-items: center;
     right: -50%;
     list-style: none;
-    // visibility: hidden;
     transform: translateY(-110%);
     font-size: 50px;
-    height: 100vh;
+    min-height: 100vh;
     transition-duration: 1s;
     background-color: rgba(189, 189, 189, 0.9);
     width: 100vw;
@@ -57,21 +55,30 @@
 
   &__toggle:checked ~ &__list {
     transform: translateY(0);
+    // position: fixed;
+    // height: 100%;
 
   }
 
   &__link {
     text-decoration: none;
     color: #fff;
+    transition: 1s;
+
+    &:hover {
+      box-shadow: 0 0 6px 0 #e5e5e5;
+    }
   }
+
+
 
   @media (max-width: 767px) {
     display: flex;
     &__list {
-      position: absolute;
+      // position: absolute;
       display: flex;
       flex-direction: column;
-      top: - 100%;
+      // top: - 100%;
     }
   }
 }

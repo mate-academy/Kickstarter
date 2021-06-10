@@ -1,82 +1,40 @@
 .explain {
-  display: grid;
-  grid-template-columns: min-content max-content;
-  grid-template-rows: min-content max-content;
-  grid-template-areas: "title image"
-    "text image";
-
-  gap: 15px;
+  display: flex;
+  justify-content: center;
   overflow: hidden;
-  width: max-content;
-  margin: 0 auto;
+  // margin: 0 auto;
   margin-bottom: 150px;
-  // border: 1px solid #000;
-  align-items: center;
-  // justify-content: center;
 
-  &__title {
-    grid-area: title;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 64px;
-    line-height: 83.2px;
-    color: #333;
+  @media (min-width: 768px) and (max-width: 1360px) {
+    margin-left: 34px;
+  }
 
-    @media (max-width: 1023px) {
-      font-size: 48px;
-      line-height: 62.4px;
-    }
-
-    @media (max-width: 767px) {
-      font-size: 44px;
-      width: 260px;
-    }
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 
   &__text {
-    grid-area: text;
-    // font-size: 16px;
-    line-height: 24px;
-    text-align: left;
-    padding-right: 80px;
 
-    @media (max-width: 767px) {
-      align-self: flex-start;
+    @media (max-width: 768px) {
+      order: 2;
+      align-items: center;
     }
-
   }
 
   &__image {
-    grid-area: image;
-    // overflow: hidden;
-    object-fit: contain;
+    overflow: hidden;
+    object-fit: cover;
     object-position: left;
+    flex-shrink: 1;
 
-    @media (max-width: 1023px) {
-      width: 80%;
-      transform: translateX(-50px);
-      z-index: -2;
-    }
+    @media (max-width: 768px) {
+      order: 1;
+      transform: scale(1.2) translateX(20%) translateY(-7%);
+      z-index: -1;
 
-    @media (max-width: 767px) {
-      width: 100%;
-      transform: scale(1) translateX(10%);
-      z-index: -2;
-      overflow: hidden;
 
     }
 
   }
 
-  @media (max-width: 767px) {
-    grid-template-columns: 100vw;
-    grid-template-rows: repeat(3, 33.3vh);
-    grid-template-areas: "image"
-      "title"
-      "text";
-    align-content: center;
-    // justify-content: center;
-    justify-items: center;
-
-  }
 }
