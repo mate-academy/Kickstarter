@@ -2,24 +2,62 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  position: relative;
+  width: 100%;
+  padding-left: $dekstop-padding;
+  justify-content: center;
+
+  @media (max-width: $tablet) {
+    padding-left: 0;
+  }
 
   &__title {
     @extend %h2;
+    align-self: flex-start;
+    width: 380px;
+    text-align: center;
+
+    @media (max-width: $phone) {
+      align-self: center;
+
+    }
   }
 
   &__block {
 
     &:nth-child(2) {
-      transform: translateX(30%);
+      transform: translateX($transform-basis);
+
+      @media (max-width: $phone) {
+        transform: translateX(0);
+      }
+
     }
 
     &:nth-child(3) {
-      transform: translateX(-90%);
+      transform: translateX(-($transform-basis * 3.5));
     }
 
     &:nth-child(4) {
-      transform: translate(-30%, 30%);
+      transform: translate(-$transform-basis, $transform-basis);
+    }
+
+    &--hidden {
+
+      @media (max-width: $phone) {
+        display: none;
+      }
+    }
+
+    @media (max-width: $tablet) {
+      &:nth-child(3) {
+        transform: translateX(-($transform-basis * 2));
+      }
+
+    }
+
+    @media (max-width: $phone) {
+      transform: translateX(-10%);
     }
   }
 
@@ -32,11 +70,47 @@
     color: #333;
   }
 
+  &__decor {
+    position: absolute;
+    width: 1113px;
+    height: 601px;
+    background-color: #f2f2f2;
+    right: -123px;
+    bottom: -10%;
+    z-index: -2;
+
+    @media (max-width: $tablet) {
+      width: 644px;
+      height: 520px;
+      bottom: 0;
+      right: -30px;
+    }
+
+    @media (max-width: $phone) {
+      @include features-image(0.44);
+      position: relative;
+      width: 100%;
+    }
+  }
+
   &__img {
-    width: 786px;
-    height: 509px;
-    align-self: flex-end;
-    transform: translateY(-125%);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    @include features-image (1);
     z-index: -1;
+    transition: width 0.5s, height 0.5s;
+
+    @media (max-width: $tablet) {
+      @include features-image (0.75);
+    }
+
+    @media (max-width: $phone) {
+      @include features-image (0.44);
+
+      visibility: visible;
+
+    }
+
   }
 }

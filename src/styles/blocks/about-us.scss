@@ -2,29 +2,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 900px;
+  width: 100%;
   margin: 0 auto;
   gap: 30px;
   transition: transform 1s;
 
   @media (min-width:768px) and (max-width:$tablet) {
-    transform: translateX(-30%);
+    transform: translateX(-($transform-basis / 3 * 2));
   }
 
   @media (max-width:$phone) {
     flex-direction: column;
-    padding: 0 30px;
-    width: 100vw;
   }
 
   &__image {
-    width: 582px;
-    height: 388px;
+    @include about-us-image(1);
 
     @media (max-width:$phone) {
-      order: 2;
-      width: 0.41;
-      height: 0.41;
+      @include about-us-image(0.41);
+      transform: translateY(150px);
+
     }
   }
 
@@ -32,16 +29,17 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-
+    width: 100%;
+    flex-shrink: 2;
   }
 
   &__title {
     @extend %h2;
-    transform: translateX(-25%);
-    width: 430px;
+    transform: translateX(-($transform-basis * 0.83));
+    max-width: 430px;
 
     @media (max-width:$phone) {
-      transform: translateX(0);
+      transform: translate(0, -200px);
       text-align: center;
 
     }
@@ -56,6 +54,7 @@
     text-decoration: none;
     font-size: 12px;
     color: #0db2b3;
+    transition: transform 0.5s;
 
     &::after {
       margin-top: 6px;
@@ -64,6 +63,10 @@
       height: 1px;
       width: 54px;
       background-color: #0db2b3;
+    }
+
+    &:hover {
+      transform: scale(1.2) translateX($transform-basis / 3);
     }
   }
 }

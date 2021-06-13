@@ -20,14 +20,14 @@
 }
 
 html {
-  font-family: "Roboto", sans-serif;
+  font-family: "DIN Pro", sans-serif;
   scroll-behavior: smooth;
   color: #333;
+  width: 100vw;
 }
 
 body {
   background: $c-gray;
-  width: 100vw;
   margin: 0;
 }
 
@@ -41,14 +41,32 @@ p {
   display: flex;
   flex-direction: column;
   gap: 150px;
-  width: 100vw;
+  width: 100%;
 
-  @media (min-width:768px) and (max-width: $tablet) {
+  @media (max-width: $tablet) {
     column-gap: 130px;
   }
 
   @media (max-width: $phone) {
     gap: 90px;
 
+  }
+}
+
+.page-content {
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 $dekstop-padding;
+  align-items: center;
+
+  @media (max-width: $tablet) {
+    width: 100%;
+    padding: 0 $tablet-padding;
+  }
+
+  @media (max-width: $phone) {
+    padding: 0 30px;
   }
 }
