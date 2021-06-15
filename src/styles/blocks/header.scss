@@ -1,0 +1,107 @@
+.header {
+  display: flex;
+  width: $desktop-width;
+  max-width: $sensible-width;
+  justify-content: space-between;
+  &__burger {
+    display: flex;
+    align-items: space-between;
+    width: 40%;
+  }
+  &__checkbox {
+    display: none;
+  }
+  &__label {
+    display: none;
+    @include phone {
+      display: block;
+    }
+  }
+
+  &__nav-list {
+    display: none;
+  }
+
+  &__links {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    @include phone {
+      display: none;
+    }
+    padding: 0;
+  }
+
+  &__language-links {
+    display: flex;
+    margin-left: 20px;
+    justify-content: space-around;
+  }
+
+  &__link {
+    @extend %link;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-left: 20px;
+
+    &--active {
+      color: $text-color;
+    }
+
+    &--buy {
+      color: #fff;
+      background-color: $text-color;
+      margin: 0;
+      margin-left: 20px;
+      width: 102px;
+      height: 48px;
+    }
+  }
+  @include phone {
+    &__burger {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__label {
+      display: block;
+      align-self: flex-end;
+    }
+    &__nav-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      position: absolute;
+      margin: 48px 0 0;
+      height: 100vh;
+      width: 100%;
+      padding: 0;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      cursor: pointer;
+      background-color: $c-gray;
+      transition: opacity 1s ease-out;
+    }
+
+    &__nav-item {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+    }
+
+    &__checkbox:checked ~ .header__nav-list {
+      padding: 0;
+      opacity: 0.8;
+      color: $text-color;
+    }
+  }
+}
