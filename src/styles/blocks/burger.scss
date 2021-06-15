@@ -1,7 +1,6 @@
 .burger {
   display: none;
   position: relative;
-
   &__toggle {
     opacity: 0;
   }
@@ -13,7 +12,7 @@
     height: 2px;
     width: 42px;
     background-color: #000;
-    z-index: 1;
+    z-index: 100;
     cursor: initial;
 
     &::before {
@@ -43,25 +42,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 50px;
     right: -50%;
     list-style: none;
     transform: translateY(-($transform-basis * 4));
-    font-size: 50px;
+    font-size: 2.5rem;
     min-height: 100vh;
     width: 100vw;
     transition-duration: 1s;
-    background-color: rgba(189, 189, 189, 0.9);
+    background-color: rgba(189, 189, 189, 1);
+    z-index: 50;
 
   }
 
   &__toggle:checked ~ &__list {
-    transform: translateY(0);
+    transform: translateY(-1%);
   }
 
   &__link {
     text-decoration: none;
     color: #fff;
-    transition: 1s;
 
     &:hover {
       text-decoration: underline;
