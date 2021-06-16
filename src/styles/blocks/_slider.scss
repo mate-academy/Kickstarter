@@ -1,0 +1,159 @@
+.all {
+  display: none;
+  position: relative;
+  margin: 0 auto;
+  top: -460px;
+  width: 480px;
+  height: 400px;
+
+  @media (max-width:$ipad) {
+    display: flex;
+  }
+}
+
+.slider {
+  transition: transform 1s cubic-bezier(0.77, 0, 0.17, 1);
+  width: 300%;
+
+  &__name {
+    text-transform: uppercase;
+    padding-bottom: 30px;
+    font-size: 2.5rem;
+    color: $blue;
+    text-align: start;
+  }
+
+  &__item {
+    font-size: 1.5rem;
+    padding: 6px;
+    text-align: start;
+  }
+}
+
+#slider {
+  position: relative;
+  text-align: center;
+  top: 250px;
+  margin: 0 auto;
+}
+
+#slider article {
+  width: 33.33%;
+  float: left;
+}
+
+.overflow {
+  width: 100%;
+  overflow: hidden;
+}
+
+.all input {
+  display: none;
+}
+
+label,
+a {
+  cursor: pointer;
+}
+
+.controls label {
+  transition: opacity 0.2s ease-out;
+}
+
+article .slider__list {
+  width: 100%;
+}
+
+.active label {
+  border-radius: 10px;
+  display: inline-block;
+  width: 45px;
+  height: 25px;
+  background: $background;
+  
+}
+
+.active {
+  position: relative;
+  top: 35%;
+  text-align: center;
+}
+
+.active label:hover {
+  background: #76c8ff;
+  border-color: #777;
+}
+
+.active label:nth-child(2)::after {
+  content: "/";
+  font-size: 32px;
+  opacity: 0.8;
+}
+
+.active label:nth-child(3)::after {
+  content: "3";
+  font-size: 28px;
+  opacity: 0.6;
+}
+
+#switch1:checked ~ .controls label:nth-child(3),
+#switch2:checked ~ .controls label:nth-child(1),
+#switch3:checked ~ .controls label:nth-child(2) {
+  background: url("../images/left.png") no-repeat;
+  background-size: cover;
+  background-position: left;
+  float: left;
+  position: relative;
+  top: 120px;
+  left: 150px;
+  height: 30px;
+  width: 100px;
+}
+
+#switch1:checked ~ .controls label:nth-child(2),
+#switch2:checked ~ .controls label:nth-child(3),
+#switch3:checked ~ .controls label:nth-child(1) {
+  background: url("../images/right.png") no-repeat;
+  background-size: cover;
+  background-position: right;
+  float: right;
+  position: relative;
+  top: 120px;
+  right: 130px;
+  display: block;
+  height: 30px;
+  width: 100px;
+}
+
+#switch1:checked ~ .slides .slider {
+  transform: translateX(0);
+}
+
+#switch2:checked ~ .slides .slider {
+  transform: translateX(-33.33%);
+}
+
+#switch3:checked ~ .slides .slider {
+  transform: translateX(-66.66%);
+}
+
+.controls {
+  margin-top: -25%;
+  width: 100%;
+  height: 50px;
+}
+
+#switch1:checked ~ .active label:nth-child(1)::after {
+  content: "1";
+  font-size: 40px;
+}
+
+#switch2:checked ~ .active label:nth-child(1)::after {
+  content: "2";
+  font-size: 40px;
+}
+
+#switch3:checked ~ .active label:nth-child(1)::after {
+  content: "3";
+  font-size: 40px;
+}

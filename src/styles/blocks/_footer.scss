@@ -1,0 +1,68 @@
+.footer {
+  @include centre;
+  padding: 50px 0;
+  gap: 30px;
+  flex-direction: column;
+
+  @media (max-width:$ipad) {
+    height: 300px;
+
+    &__icons {
+      display: flex;
+      gap: 40px;
+    }
+
+    &__image {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__icon {
+    @include hover;
+
+    @media (max-width:$ipad) {
+      display: none;
+    }
+  }
+
+  &__link {
+    padding: 20px;
+    transition: transform 1.5s;
+
+    &:hover {
+      background-color: $blue;
+      transform: translateZ(+100%);
+    }
+  }
+
+  &__go-top {
+    padding: 40px;
+    position: fixed;
+    bottom: 8vh;
+    right: 1vw;
+    transition: transform 1s;
+
+    @media (max-width:$ipad) {
+      bottom: 157px;
+      right: 30px;
+    }
+
+    &:hover {
+      transform: rotate(360deg);
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 21px;
+    opacity: 0.5;
+
+    @media (max-width:768px) {
+      width: 340px;
+      font-size: 1.5rem;
+      line-height: 30px;
+      text-align: center;
+    }
+  }
+}
