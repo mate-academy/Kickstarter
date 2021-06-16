@@ -11,9 +11,10 @@
     content: "";
     height: 2px;
     width: 42px;
-    background-color: #000;
+    background-color: $black-color;
     z-index: 100;
     cursor: initial;
+    transition: transform $animation-duration / 2;
 
     &::before {
       display: block;
@@ -22,7 +23,7 @@
       content: "";
       width: 42px;
       height: 2px;
-      background-color: #000;
+      background-color: $black-color;
     }
 
     &::after {
@@ -32,7 +33,7 @@
       width: 42px;
       height: 2px;
       top: 10px;
-      background-color: #000;
+      background-color: $black-color;
     }
   }
 
@@ -42,6 +43,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-transform: uppercase;
     gap: 50px;
     right: -50%;
     list-style: none;
@@ -50,7 +52,7 @@
     min-height: 100vh;
     width: 100vw;
     transition-duration: 1s;
-    background-color: rgba(189, 189, 189, 1);
+    background-color: $grey-color;
     z-index: 50;
 
   }
@@ -59,9 +61,22 @@
     transform: translateY(-1%);
   }
 
+  &__toggle:checked ~ &__btn > &__activator {
+    top: 10px;
+    transform: rotate(45deg);
+  }
+  &__toggle:checked ~ &__btn > &__activator::before {
+    top: 0;
+    transform: rotate(0);
+  }
+  &__toggle:checked ~ &__btn > &__activator::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
   &__link {
     text-decoration: none;
-    color: #fff;
+    color: $white-color;
 
     &:hover {
       text-decoration: underline;
