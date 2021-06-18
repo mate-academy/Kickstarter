@@ -1,40 +1,27 @@
 .burger {
   display: none;
-  position: relative;
+
   &__toggle {
-    opacity: 0;
-  }
+    height: 20px;
+    width: 24px;
+    background-image: url(../images/menu.svg);
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    cursor: pointer;
+    transform: scale(0.8);
+    transition: background-image $animation-duration,
+      transform $animation-duration;
 
-  &__activator {
-    position: relative;
-    display: block;
-    content: "";
-    height: 2px;
-    width: 42px;
-    background-color: $black-color;
-    z-index: 100;
-    cursor: initial;
-    transition: transform $animation-duration / 2;
-
-    &::before {
-      display: block;
-      position: absolute;
-      top: 20px;
-      content: "";
-      width: 42px;
-      height: 2px;
-      background-color: $black-color;
+    &:hover,
+    &:focus {
+      transform: scale(1);
     }
 
-    &::after {
-      display: block;
-      position: absolute;
-      content: "";
-      width: 42px;
-      height: 2px;
-      top: 10px;
-      background-color: $black-color;
+    &--active {
+      background-image: url(../images/cross.svg);
     }
+
   }
 
   &__list {
@@ -45,33 +32,20 @@
     align-items: center;
     text-transform: uppercase;
     gap: 50px;
-    right: -50%;
+    right: 0;
+    top: 0;
     list-style: none;
     transform: translateY(-($transform-basis * 4));
     font-size: 2.5rem;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
     transition-duration: 1s;
     background-color: $grey-color;
-    z-index: 50;
+    z-index: 1;
 
-  }
-
-  &__toggle:checked ~ &__list {
-    transform: translateY(-1%);
-  }
-
-  &__toggle:checked ~ &__btn > &__activator {
-    top: 10px;
-    transform: rotate(45deg);
-  }
-  &__toggle:checked ~ &__btn > &__activator::before {
-    top: 0;
-    transform: rotate(0);
-  }
-  &__toggle:checked ~ &__btn > &__activator::after {
-    top: 0;
-    transform: rotate(90deg);
+    &--active {
+      transform: translateY(0);
+    }
   }
 
   &__link {
