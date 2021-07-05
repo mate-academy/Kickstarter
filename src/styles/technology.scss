@@ -1,0 +1,312 @@
+.technology {
+  position: relative;
+
+  &__title {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    @media (min-width: $tablet-width) {
+      text-align: left;
+      padding-left: 136px;
+    }
+
+    & h2 {
+      padding-bottom: 0;
+    }
+
+    @for $i from 89 through 1 {
+      @media (min-width: $tablet-width + ($full-width - $tablet-width)/89*$i) {
+        & {
+          padding-left: $technology-padding - (89-($i));
+        }
+      }
+    }
+  }
+
+  &__image {
+    height: 362px;
+    width: 625px;
+    background: no-repeat url("/images/scheme.svg");
+    background-position: left;
+    background-size: cover;
+    position: relative;
+    left: -12px;
+    transition: 0.5s;
+
+    @media (min-width: 670px) {
+      left: 50px;
+    }
+
+    @media (min-width: $tablet-width) {
+      left: -12px;
+      height: 701px;
+      width: 1294px;
+      background-size: cover;
+    }
+
+    @media (min-width: 1320px) {
+      left: 90px;
+    }
+  
+    &-button1 {
+      position: absolute;
+      top: 110px;
+      left: 52px;
+
+      @media(min-width: $tablet-width) {
+        top: 223px;
+        left: 98px;
+      }
+    }
+
+    &-button2 {
+      position: absolute;
+      top: 180px;
+      left: 128px;
+      z-index: 3;
+
+      @media(min-width: $tablet-width) {
+        top: 365px;
+        left: 280px;
+      }
+    }
+
+    &-button3 {
+      position: absolute;
+      top: 132px;
+      left: 171px;
+      z-index: 2;
+
+      @media(min-width: $tablet-width) {
+        top: 302px;
+        left: 352px;
+      }
+    }
+
+    &-button4 {
+      position: absolute;
+      top: 54px;
+      left: 181px;
+
+      @media(min-width: $tablet-width) {
+        top: 143px;
+        left: 412px;
+      }
+    }
+
+    &-button5 {
+      position: absolute;
+      top: 209px;
+      left: 249px;
+      z-index: 2;
+
+      @media(min-width: $tablet-width) {
+        top: 426px;
+        left: 514px;
+      }
+    }
+
+    &-button6 {
+      position: absolute;
+      top: 70px;
+      left: 317px;
+
+      @media(min-width: $tablet-width) {
+        top: 179px;
+        left: 651px;
+      }
+    }
+
+    &-button7 {
+      position: absolute;
+      top: 138px;
+      left: 386px;
+
+      @media(min-width: $tablet-width) {
+        top: 327px;
+        left: 789px;
+      }
+    }
+
+    &-button8 {
+      position: absolute;
+      top: 75px;
+      left: 472px;
+      z-index: 2;
+
+      @media(min-width: $tablet-width) {
+        top: 184px;
+        left: 936px;
+      }
+    }
+
+    &-button9 {
+      position: absolute;
+      top: 25px;
+      left: 522px;
+
+      @media(min-width: $tablet-width) {
+        top: 87px;
+        left: 1068px;
+      }
+    }
+
+    &-button10 {
+      position: absolute;
+      top: 105px;
+      left: 568px;
+      z-index: 2;
+
+      @media(min-width: $tablet-width) {
+        top: 221px;
+        left: 1132px;
+      }
+    }
+
+    &-button11 {
+      position: absolute;
+      top: 62px;
+      left: 595px;
+
+      @media(min-width: $tablet-width) {
+        top: 160px;
+        left: 1180px;
+      }
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+
+  @for $i from 1 through 2 {
+
+    &__input-#{$i}:not(:checked) ~ &__label-#{$i} {
+      display: none;
+    }
+
+    &__input-#{$i}:checked ~ &__label-#{$i} {
+      display: inline-block;
+    }
+
+    &__input-#{$i}:checked ~ &__label-pre::before {
+      content: "0#{$i}";
+      position: absolute;
+      top: 18px;
+      left: 22px;
+      font-family: "DIN pro", Helvetica, sans-serif;
+      color: $text-color;
+      pointer-events: none;
+    }
+  }
+
+  &__label {
+
+    &-pre {
+      position: absolute;
+      top: 410px;
+      right: 50%;
+      cursor: pointer;
+      z-index: 3;
+      margin-bottom: 50px;
+
+      @media(min-width: $tablet-width) {
+        top: 700px;
+      }
+    }
+
+    &-nxt {
+      position: absolute;
+      left: 49.5%;
+      margin-left: auto;
+      margin-right: auto;
+      top: 410px;
+      cursor: pointer;
+      z-index: 3;
+
+      @media(min-width: $tablet-width) {
+        top: 700px;
+      }
+
+      &::before {
+        pointer-events: none;
+        display: block;
+        content: "/";
+        position: absolute;
+        top: 22px;
+        font-family: "DIN pro", Helvetica, sans-serif;
+        font-size: 11px;
+        color: $non-active-color;
+      }
+
+      &::after {
+        display: block;
+        content: "02";
+        position: absolute;
+        pointer-events: none;
+        top: 22px;
+        right: 25px;
+        font-family: "DIN pro", Helvetica, sans-serif;
+        font-size: 11px;
+        color: $non-active-color;
+      }
+    }
+    
+    &-1pre {
+      cursor: default;
+    }
+
+    &-2pre {
+      transform: rotate(180deg);
+    }
+
+    &-2nxt {
+      transform: rotate(180deg);
+      cursor: default;
+    }
+  }
+
+  &__input-2:checked ~ &__image {
+    
+    @media(min-width: $min-width) {
+      transform: translateX(-300px);
+    }
+
+    @media(min-width: 500px) {
+      transform: translateX(-120px);
+    }
+
+    @media(min-width: $tablet-width) {
+      transform: translateX(-450px);
+    }
+
+    @media(min-width: 920px) {
+      transform: translateX(-300px);
+    }
+
+    @media(min-width: 1040px) {
+      transform: translateX(-180px);
+    }
+
+    @media(min-width: 1120px) {
+      transform: translateX(-100px);
+    }
+  }
+}
+
+#technology__label {
+
+  &-1pre,
+  &-1nxt,
+  &-2pre,
+  &-2xt {
+    @media(min-width: 610px) and (max-width: 767px) {
+      display: none;
+    }
+
+    @media(min-width: 1220px) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,117 @@
+.video {
+  display: flex;
+  margin-top: 465px;
+  overflow: hidden;
+
+  &__player {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 1440px;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &-round {
+      display: block;
+      position: absolute;
+      width: $small-round-size;
+      height: $small-round-size;
+      border-radius: 50%;
+      border: 1px solid $white;
+      transition: infinite;
+      text-align: center;
+      z-index: 2;
+
+      @media(min-width: $tablet-width) {
+        width: $medium-round-size;
+        height: $medium-round-size;
+        border-radius: 50%;
+        border: 1px solid $white;
+      }
+
+      @media(min-width: $laptop-width) {
+        width: $large-round-size;
+        height: $large-round-size;
+        border-radius: 50%;
+        border: 1px solid $white;
+      }
+
+      &:hover {
+        border: 1px dotted $white;
+        cursor: pointer;
+      }
+    }
+
+    &-load {
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: $small-round-size/2-($small-load-height/2);
+      right: $small-round-size/2-($small-load-width/2);
+      border-top: $small-load-height/2 solid transparent;
+      border-bottom: $small-load-height/2 solid transparent;
+      border-left: $small-load-width solid white;
+      opacity: 0;
+      z-index: -1;
+      transition: 0.3s;
+
+      @media(min-width: $tablet-width) {
+        top: $medium-round-size/2-($medium-load-height/2);
+        right: $medium-round-size/2-($medium-load-width/2);
+        border-top: $medium-load-height/2 solid transparent;
+        border-bottom: $medium-load-height/2 solid transparent;
+        border-left: $medium-load-width solid white;
+      }
+
+      @media(min-width: $laptop-width) {
+        top: $large-round-size/2-($large-load-height/2);
+        right: $large-round-size/2-($large-load-width/2);
+        border-top: $medium-load-height/2 solid transparent;
+        border-bottom: $large-load-height/2 solid transparent;
+        border-left: $large-load-width solid white;
+      }
+    }
+    
+    &-play {
+      display: inline-block;
+      font-size: 14px;
+      font-family: "DIN pro", Helvetica, sans-serif;
+      color: $white;
+      letter-spacing: 2px;
+      line-height: $small-round-size;
+      opacity: 1;
+      transition: 0.3s;
+
+      @media(min-width: $tablet-width) {
+        font-size: 18px;
+        line-height: $medium-round-size;
+      }
+
+      @media(min-width: $laptop-width) {
+        line-height: $large-round-size;
+      }
+    }
+
+    &-round:hover > &-load {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    &-round:hover > &-play {
+      opacity: 0;
+      z-index: 2;
+    }
+  }
+
+  @media(min-width: 768px) {
+    margin-top: 120px;
+  }
+}

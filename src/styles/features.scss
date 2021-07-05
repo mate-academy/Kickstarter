@@ -1,0 +1,277 @@
+.features {
+  display: grid;
+  grid-template-columns: 320px 320px 320px;
+  column-gap: 450px;
+  position: relative;
+
+  @media(min-width: 385px) {
+    padding-left: 70px;
+  }
+
+  @media(min-width: 450px) {
+    padding-left: 100px;
+  }
+
+  @media(min-width: 580px) {
+    padding-left: 150px;
+  }
+
+  @media(min-width: 670px) {
+    padding-left: 200px;
+  }
+
+  @media(min-width: $tablet-width) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 50px 0;
+    padding-left: 35px;
+    position: relative;
+  }
+
+  @media(min-width: 899px) {
+    padding-left: 80px;
+  }
+
+  @media(min-width: 1040px) {
+    padding-left: 150px;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__heading {
+    padding-left: 30px;
+    padding-bottom: 35px;
+
+    @media(min-width: 385px) {
+      padding-left: 70px;
+    }
+
+    @media(min-width: 450px) {
+      padding-left: 100px;
+    }
+
+    @media(min-width: 580px) {
+      padding-left: 150px;
+    }
+
+    @media(min-width: 670px) {
+      padding-left: 200px;
+    }
+
+    @media(min-width: $tablet-width) {
+      padding-left: 75px;
+    }
+
+    @media(min-width: 1040px) {
+      padding-left: 120px;
+    }
+
+    @media(min-width: $laptop-width) {
+      padding-left: 170px;
+    }
+  }
+  
+  &__title {
+    font-family: "DIN pro", Helvetica, sans-serif;
+    font-size: 30px;
+    line-height: 1.25em;
+    font-weight: 500;
+    color: $title-green;
+    padding: 0 30px 15px;
+    text-transform: uppercase;
+
+    @media(min-width: $tablet-width) {
+      padding-left: 35px;
+    }
+  }
+
+  &__list {
+    font-size: 14px;
+    line-height: 1.5em;
+    padding-right: 30px;
+
+    &-item {
+      padding-bottom: 10px;
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__background {
+    display: none;
+
+    @media(min-width: $tablet-width) {
+      display: block;
+      position: absolute;
+      height: 78%;
+      width: 80%;
+      background: $features-background;
+      top: 75px;
+      right: 0;
+      z-index: -2;
+
+      @media(min-width: 1040px) {
+        height: 88%;
+      }
+    }
+  
+    &-image {
+      background: no-repeat url("/images/sound.svg");
+      background-size: cover;
+      position: absolute;
+      right: 0;
+      top: 163px;
+      width: 586px;
+      height: 379px;
+
+      @media(min-width: 899px) {
+        right: 70px;
+      }
+
+      @media(min-width: 1040px) {
+        height: 440px;
+        width: 676px;
+        right: 120px;
+      }
+
+      @media(min-width: $laptop-width) {
+        height: 509px;
+        width: 786px;
+        right: 120px;
+      }
+    }
+  }
+
+  @for $i from 1 through 3 {
+
+    &__input-#{$i}:not(:checked) ~ &__label-#{$i} {
+      display: none;
+    }
+
+    &__input-#{$i}:checked ~ &__label-#{$i} {
+      display: inline-block;
+    }
+
+    &__input-#{$i}:checked ~ &__label-pre::before {
+      content: "0#{$i}";
+      position: absolute;
+      top: 18px;
+      left: 22px;
+      font-family: "DIN pro", Helvetica, sans-serif;
+      color: $text-color;
+      pointer-events: none;
+    }
+
+    &__input-#{$i}:checked ~ &__item-#{$i} {
+      order: 1;
+      opacity: 1;
+      transition: 0.5s;
+    }
+  }
+
+  &__label {
+
+    &-pre {
+      position: absolute;
+      top: 320px;
+      right: 50%;
+      cursor: pointer;
+      z-index: 3;
+      margin-bottom: 50px;
+    }
+
+    &-nxt {
+      position: absolute;
+      left: 49.5%;
+      margin-left: auto;
+      margin-right: auto;
+      top: 320px;
+      cursor: pointer;
+      z-index: 3;
+
+      &::before {
+        pointer-events: none;
+        display: block;
+        content: "/";
+        position: absolute;
+        top: 22px;
+        font-family: "DIN pro", Helvetica, sans-serif;
+        font-size: 11px;
+        color: $non-active-color;
+      }
+
+      &::after {
+        display: block;
+        content: "03";
+        position: absolute;
+        pointer-events: none;
+        top: 22px;
+        right: 25px;
+        font-family: "DIN pro", Helvetica, sans-serif;
+        font-size: 11px;
+        color: $non-active-color;
+      }
+    }
+    
+    &-1pre {
+      cursor: default;
+    }
+
+    &-2pre,
+    &-3pre {
+      transform: rotate(180deg);
+    }
+
+    &-3nxt {
+      transform: rotate(180deg);
+      cursor: default;
+    }
+  }
+
+  &__image {
+    background-color: $features-background;
+    margin-top: 100px;
+    
+    &-item {
+      width: 100%;
+      object-fit: cover;
+      object-position: center center;
+      transition: 0.5s;
+
+      @media(min-width: 385px) {
+        padding-left: 70px;
+        padding-right: 20px;
+      }
+
+      @media(min-width: 450px) {
+        padding-left: 100px;
+        padding-right: 50px;
+      }
+
+      @media(min-width: 580px) {
+        padding-left: 150px;
+        padding-right: 80px;
+      }
+
+      @media(min-width: 670px) {
+        padding-left: 170px;
+        padding-right: 100px;
+      }
+
+      @media(min-width: $tablet-width) {
+        display: none;
+      }
+    }
+  }
+}
+
+@for $i from 1 through 6 {
+  #features__label-#{$i} {
+    @media(min-width: $tablet-width) {
+      display: none;
+    }
+  }
+}

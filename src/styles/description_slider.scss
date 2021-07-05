@@ -1,0 +1,124 @@
+.description {
+  transition: 0.5s;
+
+  @for $i from 1 through 4 {
+    &__input-#{$i}:not(:checked) ~ &__label-#{$i} {
+      display: none;
+    }
+
+    &__input-#{$i}:checked ~ &__label-#{$i} {
+      display: inline-block;
+    }
+
+    &__input-#{$i}:checked ~ &__label-pre::before {
+      content: "0#{$i}";
+      position: absolute;
+      top: 18px;
+      left: 22px;
+      font-family: "DIN pro", Helvetica, sans-serif;
+      color: $text-color;
+      pointer-events: none;
+    }
+
+    &__input-#{$i}:checked ~ &-card#{$i} {
+      opacity: 1;
+      z-index: 2;
+      transform: rotate(360deg);
+      transition: 0.5s;
+    }
+
+    @media (min-width: 768px) {
+      &__input-#{$i} ~ &-card#{$i} {
+        position: static;
+        z-index: 0;
+        animation: none;
+      }
+    }
+  }
+
+  &__label {
+
+    &-pre {
+      position: absolute;
+      top: 332px;
+      right: 50%;
+      cursor: pointer;
+      z-index: 3;
+      margin-bottom: 50px;
+    }
+
+    &-nxt {
+      position: absolute;
+      left: 49.5%;
+      margin-left: auto;
+      margin-right: auto;
+      top: 332px;
+      cursor: pointer;
+      z-index: 3;
+
+      &::before {
+        pointer-events: none;
+        display: block;
+        content: "/";
+        position: absolute;
+        top: 22px;
+        font-family: "DIN pro", Helvetica, sans-serif;
+        font-size: 11px;
+        color: $non-active-color;
+      }
+
+      &::after {
+        display: block;
+        content: "04";
+        position: absolute;
+        pointer-events: none;
+        top: 22px;
+        right: 25px;
+        font-family: "DIN pro", Helvetica, sans-serif;
+        font-size: 11px;
+        color: $non-active-color;
+      }
+    }
+
+    &-1pre {
+      cursor: default;
+    }
+
+    &-2pre,
+    &-3pre,
+    &-4pre {
+      transform: rotate(180deg);
+    }
+
+    &-4nxt {
+      transform: rotate(180deg);
+      cursor: default;
+    }
+  }
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    justify-content: center;
+  }
+
+  @media (min-width: 1050px) {
+    grid-column-gap: 120px;
+  }
+
+  @media (min-width: 1280px) {
+    display: grid;
+    grid-template-columns: repeat(4, 285px);
+    grid-gap: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  @for $i from 1 through 4 {
+    #label-#{$i}pre,
+    #label-#{$i}nxt {
+      display: none;
+    }
+  }
+}
