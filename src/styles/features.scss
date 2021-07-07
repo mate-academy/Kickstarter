@@ -1,0 +1,118 @@
+.features {
+  position: relative;
+  overflow: hidden;
+  padding-top: $normalPaddingY;
+  padding-left: $bodyIndentsX;
+  max-width: $someSectionsMaxContentWidth;
+  margin: 0 auto;
+
+  @media (max-width: $someSectionsTabletBreakPoint) {
+    padding-left: $tabletBodyIndentsX;
+    padding-top: $tabletPaddingY;
+  }
+
+  @media (max-width: $mobileBreakPoint) {
+    padding-top: $mobilePaddingY;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    top: 355px;
+    right: 0;
+
+    display: block;
+    width: 75vw;
+    height: 715px;
+
+    background-color: #f2f2f2;
+
+    @media (max-width: $mobileBreakPoint) {
+      top: 100px;
+      width: 100vw;
+      height: 100%;
+    }
+
+    @media (max-width: $mobileBreakPoint) {
+      top: 45px;
+    }
+  }
+
+  &__container {
+    position: relative;
+    max-width: 800px;
+    margin-top: 24px;
+    margin-left: 100px;
+
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: $someSectionsTabletBreakPoint) {
+      max-width: 700px;
+      margin-top: 51px;
+      margin-left: 50px;
+    }
+
+    @media (max-width: $mobileBreakPoint) {
+      padding-left: $tabletBodyIndentsX;
+      margin-left: 0;
+    }
+  }
+
+  &__feature {
+
+    &--right {
+      align-self: flex-end;
+
+      @media (max-width: $someSectionsTabletBreakPoint) {
+        margin-bottom: 50px;
+      }
+
+      @media (max-width: $mobileBreakPoint) {
+        align-self: flex-start;
+      }
+    }
+
+    &--center {
+      align-self: center;
+      margin-top: 120px;
+
+      @media (max-width: $someSectionsTabletBreakPoint) {
+        margin-top: 70px;
+      }
+
+      @media (max-width: $mobileBreakPoint) {
+        align-self: flex-start;
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    z-index: -1;
+    right: $bodyIndentsX;
+    bottom: 34px;
+
+    width: 50vw;
+    max-width: 786px;
+    height: 33vw;
+    max-height: 509px;
+
+    @media (max-width: $someSectionsTabletBreakPoint) {
+      right: $tabletBodyIndentsX;
+      bottom: 170px;
+      width: 586px;
+      height: 379px;
+    }
+
+    @media (max-width: $mobileBreakPoint) {
+      position: relative;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 65vw;
+      min-height: 222px;
+    }
+  }
+}

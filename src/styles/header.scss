@@ -1,0 +1,97 @@
+.header {
+  $blockName: &;
+  position: relative;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 13px;
+    margin-bottom: 89px;
+
+    @media (max-width: $tabletBreakPoint) {
+      margin-bottom: 100px;
+    }
+
+    @media (max-width: $mobileBreakPoint) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__toggles {
+    @extend %headerLinksStyle;
+    width: 276px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $mobileBreakPoint) {
+      display: none;
+    }
+  }
+
+  &__link {
+
+    &--specs {
+      color: #4f4f4f;
+    }
+
+    &--selected {
+      color: inherit;
+      font-weight: 400;
+    }
+
+    &--no-selected {
+      color: $secondaryColor;
+    }
+
+    &--buy {
+      display: block;
+      text-align: center;
+      font-size: 12px;
+      line-height: $btnHeight;
+      color: #fff;
+      font-weight: 500;
+    }
+  }
+
+  &__buy {
+    width: $btnWidth;
+    height: $btnHeight;
+
+    background-color: $mainColor;
+    @include hover(background-color, $buttonDarkHover);
+  }
+
+  &__mobile {
+    display: none;
+
+    @media (max-width: $mobileBreakPoint) {
+      display: block;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+
+    &:checked ~ #{$blockName}__nav-mobile {
+      display: block;
+    }
+
+    &:checked ~ #{$blockName}__toggler::after {
+      content: "\2716";
+      font-size: 24px;
+      line-height: 0;
+      color: $mainColor;
+      padding: 0 2px;
+    }
+  }
+
+  &__toggler::after {
+    content: url("../images/burger.png");
+    width: 24px;
+    height: 14px;
+    cursor: pointer;
+  }
+}

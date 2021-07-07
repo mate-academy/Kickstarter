@@ -1,0 +1,188 @@
+.technology {
+
+  &__container {
+    max-width: $someSectionsMaxContentWidth;
+    padding-top: $normalPaddingY;
+    margin: 0 auto;
+    position: relative;
+    min-height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+
+    @media (max-width: $tabletBreakPoint) {
+      min-height: 700px;
+      padding-top: $tabletPaddingY;
+    }
+
+    @media (max-width: $mobileBreakPoint) {
+      min-height: 500px;
+      padding-top: $mobilePaddingY;
+    }
+  }
+
+  &__heading {
+    align-self: flex-start;
+    padding: 0 $bodyIndentsX;
+    margin-left: 100px;
+
+    @media (max-width: $mobileBreakPoint) {
+      padding: 0 $tabletBodyIndentsX;
+      margin-left: 0;
+    }
+  }
+
+  &__picture {
+    position: absolute;
+    top: $normalPaddingY + 66px;
+    left: $bodyIndentsX;
+
+    @media (max-width: $tabletBreakPoint) {
+      left: 0;
+    }
+
+    @media (max-width: $mobileBreakPoint) {
+      left: $tabletBodyIndentsX;
+      top: $normalPaddingY;
+    }
+
+    @media (min-width: 1700px) {
+      left: $tabletBodyIndentsX;
+    }
+  }
+
+  &__img {
+    padding-top: 65px;
+    height: 546px;
+    width: 1230px;
+
+    @media (max-width: $mobileBreakPoint) {
+      height: 277px;
+      width: 100%;
+      min-width: 624px;
+      padding-top: 40px;
+    }
+  }
+
+  &__name {
+    display: none;
+  }
+
+  &__button {
+    position: absolute;
+    $buttonSize: 48px;
+    width: $buttonSize;
+    height: $buttonSize;
+
+    background-color: $styleColor;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    @include hover(background-color, $buttonDarkHover);
+    outline: none;
+
+    &::before {
+      content: url("../images/plus.png");
+      $plusSize: 13px;
+      width: $plusSize;
+      height: $plusSize;
+      position: absolute;
+      left: $buttonSize / 2 - $plusSize / 2;
+      top: $buttonSize / 2 - $plusSize / 2;
+    }
+
+    &:hover > .technology__description {
+      position: absolute;
+      top: $buttonSize + 26px;
+      right: $buttonSize / 2;
+      height: 259px;
+      width: 200px;
+      border-bottom: 1px solid $mainColor;
+      border-right: 1px solid $mainColor;
+      display: flex;
+      align-items: flex-end;
+      text-align: left;
+
+      @media (max-width: $tabletBreakPoint) {
+        height: 10vh;
+        width: 100px;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        width: 63px;
+        height: 5px;
+        background-color: $mainColor;
+      }
+    }
+
+    &:hover .technology__name {
+      position: absolute;
+      display: block;
+      max-width: 174px;
+
+      padding-bottom: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    &--1 {
+      top: 40%;
+      left: 8%;
+    }
+
+    &--2 {
+      top: 58%;
+      left: 22%;
+    }
+
+    &--3 {
+      top: 48%;
+      left: 28%;
+    }
+
+    &--4 {
+      top: 24%;
+      left: 32%;
+    }
+
+    &--5 {
+      top: 63%;
+      left: 41%;
+    }
+
+    &--6 {
+      top: 27%;
+      left: 51%;
+    }
+
+    &--7 {
+      top: 50%;
+      left: 62%;
+    }
+
+    &--8 {
+      top: 34%;
+      left: 75%;
+    }
+
+    &--9 {
+      top: 19%;
+      left: 80%;
+    }
+
+    &--10 {
+      top: 39%;
+      left: 88%;
+    }
+
+    &--11 {
+      top: 25%;
+      left: 91%;
+    }
+  }
+}

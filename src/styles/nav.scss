@@ -1,0 +1,43 @@
+.nav {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  background-color: $backgroundColor;
+
+  &__list {
+    margin-top: 100px;
+    height: 76px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: $tabletBreakPoint) {
+      margin-top: 50px;
+      justify-content: space-between;
+    }
+
+    @media (max-width: $mobileBreakPoint) {
+      display: none;
+    }
+  }
+
+  &__link {
+    margin: 0 20px;
+    padding: 10px 15px;
+
+    @extend %headerLinksStyle;
+    color: inherit;
+
+    @include hover(color, $styleColor);
+
+    &--active {
+      font-weight: 500;
+    }
+
+    @media (max-width: $tabletBreakPoint) {
+      margin: 0;
+      padding: 0 10px;
+    }
+  }
+}
