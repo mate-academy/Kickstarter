@@ -1,0 +1,261 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  @media (min-width: 1194px) {
+    width: 1194px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 1194px) {
+    padding-bottom: 49px;
+  }
+
+  &__top {
+    order: 1;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    padding: 28px 30px 0;
+
+    @media (min-width: 720px) {
+      padding: 41px 34px 22px;
+    }
+
+    @media (min-width: 1250px) {
+      padding: 25px 0;
+    }
+  }
+
+  &__link-container {
+    position: absolute;
+    top: 27px;
+    right: 33px;
+    display: none;
+
+    @media (min-width: 720px) {
+      display: flex;
+    }
+
+    @media (min-width: 1250px) {
+      top: 13px;
+      right: 0;
+    }
+  }
+
+  &__link {
+    display: none;
+    align-items: center;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+
+    @media (min-width: 720px) {
+      display: flex;
+    }
+
+    &--specs {
+      width: 70px;
+      font-size: 14px;
+      line-height: 18px;
+      color: #4f4f4f;
+    }
+
+    &--language {
+      color: $fontColor;
+    }
+
+    &--unactive {
+      color: #828282;
+    }
+
+    &--buy {
+      display: flex;
+      justify-content: center;
+      margin-left: 27px;
+      width: 102px;
+      height: 48px;
+      color: #fff;
+      background-color: $fontColor;
+      border: 2px solid $fontColor;
+      transition: color 1s, background-color 0.3s;
+
+      &:hover {
+        color: $fontColor;
+        background-color: #fff;
+      }
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 26px;
+    right: $headerMenuRight;
+    width: 34px;
+    height: 27px;
+    background: url(../images/menu-icon.svg) center no-repeat;
+    cursor: pointer;
+    z-index: 3;
+
+    @media (min-width: 720px) {
+      display: none;
+    }
+  }
+
+  &__main {
+    order: 3;
+    padding: 0 30px;
+    flex-direction: column;
+
+    @media (min-width: 720px) {
+      display: flex;
+      padding-bottom: 112px;
+    }
+
+    @media (min-width: 1250px) {
+      padding: 99px 0;
+    }
+  }
+
+  &__main-title {
+    padding: 40px 0 23px;
+    text-align: center;
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 57px;
+    text-transform: uppercase;
+
+    @media (min-width: 720px) {
+      width: 340px;
+      padding: 137px 0 27px;
+      text-align: left;
+    }
+
+    @media (min-width: 1250px) {
+      width: 378px;
+      padding-top: 81px;
+      font-size: 64px;
+      line-height: 83px;
+    }
+  }
+
+  &__image-container {
+    order: 2;
+
+    @media (min-width: 720px) {
+      position: absolute;
+      top: 175px;
+      left: 285px;
+      width: 100%;
+      z-index: -1;
+    }
+
+    @media (min-width: 1250px) {
+      left: 378px;
+    }
+  }
+
+  &__image {
+    width: 160%;
+
+    @media (min-width: 720px) {
+      width: 100%;
+      max-width: 880px;
+    }
+
+    @media (min-width: 1250px) {
+      max-width: 939px;
+    }
+  }
+
+  &__navbar {
+    position: absolute;
+    top: -265px;
+    width: 100%;
+    padding-top: 20px;
+    background-color: $backgroundColor;
+    z-index: 1;
+    transition: top 0.8s;
+
+    @media (min-width: 720px) {
+      position: static;
+      display: flex;
+      justify-content: center;
+      order: 4;
+    }
+  }
+
+  &__navlist {
+    display: flex;
+    flex-direction: column;
+    padding-right: $headerMenuRight + $headerMenuWidth + 5px;
+
+    @media (min-width: 720px) {
+      flex-direction: row;
+      max-width: 786px;
+    }
+  }
+
+  &__navlink {
+    display: block;
+    margin: 0 auto;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 16px;
+    line-height: 21px;
+    text-transform: uppercase;
+
+    @media (min-width: 720px) {
+      position: sticky;
+      top: 0;
+      padding: 27px 19px 28px;
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+    &--active {
+      font-weight: bold;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__paragraph {
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    @media (min-width: 720px) {
+      width: 250px;
+      text-align: left;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+
+    &:checked ~ .header__navbar {
+      top: 0;
+
+      @media (min-width: 720px) {
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        order: 4;
+      }
+    }
+
+    &:checked + .header__menu {
+      width: $headerMenuWidth;
+      height: 25px;
+      background: url(../images/cross-icon.svg) center no-repeat;
+      z-index: 2;
+    }
+  }
+}
