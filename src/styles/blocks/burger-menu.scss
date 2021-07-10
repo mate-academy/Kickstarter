@@ -1,0 +1,96 @@
+.burger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding-top: 5px;
+  &__wrapper {
+    position: relative;
+    background-color: $background-color;
+    color: $main-color;
+    text-align: center;
+    height: 40px;
+  }
+
+  &__line {
+    position: absolute;
+    top: 8px;
+    right: 10%;
+    width: 35px;
+    height: 2px;
+    background-color: $main-color;
+    transition: all 0.5s ease;
+    
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      top: 18px;
+    }
+    
+    &:nth-of-type(4) {
+      top: 28px;
+    }
+  }
+
+  &__droplist {
+    display: block;
+    position: absolute;
+    max-height: 0;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    font-size: 0;
+    transform: translateY(100%);
+    overflow: hidden;
+    transition: all 0.5s ease;
+  }
+
+  &__menu {
+    display: none;
+    &:checked ~ .burger__droplist {
+      max-height: 500px;
+      font-size: 16px;
+    }
+    
+    &:checked ~ .burger__line:nth-of-type(1),
+    &:checked ~ .burger__line:nth-of-type(4) {
+      display: none;
+    }
+    
+    &:checked ~ .burger__line:nth-of-type(2) {
+      transform: rotate(45deg);
+    }
+    
+    &:checked ~ .burger__line:nth-of-type(3) {
+      transform: rotate(-45deg);
+    }
+  }
+  
+  &__logo {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  &__label {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 40px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  &__link {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    color: $main-color;
+    text-decoration: none;
+    border-top: 1px solid #eee;
+    background-color: #f6f6f6;
+  }
+}
