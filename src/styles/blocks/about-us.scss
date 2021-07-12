@@ -1,0 +1,71 @@
+.about-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  @extend %padding;
+  gap: 30px;
+  transition: transform 1s;
+
+  @media (min-width:768px) and (max-width:$tablet) {
+    transform: translateX(-($transform-basis / 3 * 2));
+  }
+
+  @media (max-width:$phone) {
+    flex-direction: column;
+  }
+
+  &__image {
+    @include about-us-image(1);
+
+    @media (max-width:$phone) {
+      @include about-us-image(0.41);
+      transform: translateY(150px);
+
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    flex-shrink: 2;
+  }
+
+  &__title {
+    @extend %h2;
+    transform: translateX(-($transform-basis * 0.83));
+    max-width: 430px;
+
+    @media (max-width:$phone) {
+      transform: translate(0, -200px);
+      text-align: center;
+    }
+  }
+
+  &__text {
+    flex-shrink: 2;
+  }
+
+  &__more {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 12px;
+    color: $blue-color;
+    transition: transform $animation-duration;
+
+    &::after {
+      margin-top: 6px;
+      display: block;
+      content: "";
+      height: 1px;
+      width: 54px;
+      background-color: $blue-color;
+    }
+
+    &:hover {
+      transform: scale(1.2) translateX($transform-basis / 3);
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.explain {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding-bottom: 150px;
+  width: 100%;
+  position: relative;
+  @extend %padding;
+  padding-right: 0;
+
+  @media (max-width: $phone) {
+    flex-direction: column;
+    padding-right: $phone-padding;
+  }
+
+  &__text {
+
+    @media (max-width: $phone) {
+      order: 2;
+      align-items: center;
+
+    }
+  }
+
+  &__image {
+    overflow: hidden;
+    object-fit: cover;
+    object-position: left;
+    transition: transform $animation-duration;
+
+    @media (max-width: $phone) {
+      order: 1;
+      transform: scale(1.2)
+        translate($transform-basis / 3 * 2 , -($transform-basis / 3));
+      z-index: -1;
+    }
+
+  }
+}

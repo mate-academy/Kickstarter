@@ -1,0 +1,69 @@
+.questions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 100px;
+  @extend %padding;
+
+  @media (max-width:$phone) {
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  &__title {
+    @extend %h2;
+    max-width: 480px;
+
+    @media (max-width: $tablet) {
+      max-width: 360px;
+
+    }
+
+    @media (max-width: $phone) {
+      text-align: left;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    transition: width $animation-duration;
+
+    @media (max-width: 380px) {
+      width: 260px;
+    }
+  }
+
+  &__email {
+    margin-bottom: 19px;
+    height: 48px;
+    padding-left: 10px;
+
+  }
+
+  &__text {
+    padding: 10px;
+    height: 128px;
+    resize: none;
+    margin-bottom: 30px;
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  &__btn {
+    display: block;
+    height: 40px;
+    width: 102px;
+    background-color: $blue-color;
+    color: $white-color;
+    transition: color $animation-duration, background-color $animation-duration;
+
+    &:hover {
+      color: $blue-color;
+      background-color: $white-color;
+      cursor: pointer;
+    }
+  }
+}

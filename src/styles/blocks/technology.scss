@@ -1,0 +1,33 @@
+@import "./review.scss";
+
+.technology {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  @extend %padding;
+
+  &__title {
+    @extend %h2;
+  }
+
+  &__img {
+    margin-bottom: 60px;
+    transition: transform 1s, width 1s, height 1s;
+    max-width: $tech-img-width;
+    max-height: $tech-img-height;
+
+    @media (max-width: $tablet) {
+      transform: translateX(#{$transform-basis});
+    }
+
+    @media (max-width: $phone) {
+      width: $tech-img-width / 2;
+      height: $tech-img-height / 2;
+    }
+  }
+
+}
