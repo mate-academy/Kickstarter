@@ -8,6 +8,16 @@ const navList = document.querySelectorAll('.nav__item');
 const languageEnglish = document.querySelector('.languages__item--en');
 const languageUkraine = document.querySelector('.languages__item--ua');
 
+function makeNotification(type, text) {
+  const notification = document.createElement('div');
+
+  notification.classList.add('notification');
+  notification.classList.add(`notification--${type}`);
+  notification.append(text);
+
+  return notification;
+}
+
 languageEnglish.addEventListener('click', () => {
   languageEnglish.classList.toggle('languages__item--active');
   languageUkraine.classList.toggle('languages__item--active');
@@ -32,6 +42,16 @@ navList.forEach(item => {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
+
+  const notificationSuccess
+  = makeNotification('success', 'Your message was succesfully send!');
+
+  document.body.append(notificationSuccess);
+
   formEmail.value = '';
   formMessage.value = '';
+
+  setTimeout(() => {
+    notificationSuccess.remove();
+  }, 1500);
 });
