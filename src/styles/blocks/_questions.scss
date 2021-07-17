@@ -1,0 +1,114 @@
+.questions {
+  padding: 100px 0 0;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+
+  @media (max-width:768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__name {
+    margin: 0 auto;
+    width: 450px;
+    font-family: $Din;
+    font-size: 56px;
+    line-height: 72px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    @media (max-width:1440px) {
+      width: 300px;
+    }
+
+    @media (max-width:$ipad) {
+      width: 280px;
+      height: 144px;
+      font-size: 3rem;
+      line-height: 56px;
+      transform: translateY(-70%);
+    }
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__form {
+    @include centre;
+    flex-direction: column;
+    gap: 30px;
+
+    @media (max-width:$ipad) {
+      gap: 50px;
+    }
+  }
+
+  &__email {
+    width: 70%;
+    height: 48px;
+    padding-left: 10px;
+    outline: none;
+    border: 1px solid #828282;
+
+    &:hover {
+      border-color: $blue;
+    }
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+
+    @media (max-width:$ipad) {
+      height: 56px;
+      width: 80%;
+    }
+  }
+
+  &__text {
+    width: 70%;
+    height: 128px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #828282;
+
+    &:hover {
+      border-color: $blue;
+    }
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+
+    @media (max-width:$ipad) {
+      height: 220px;
+      width: 80%;
+    }
+  }
+
+  &__button {
+    position: relative;
+    align-self: start;
+    left: 15%;
+    cursor: pointer;
+    width: 102px;
+    height: 48px;
+    font-size: 12px;
+    text-transform: uppercase;
+    background-color: $blue;
+    border: 1px solid $blue;
+    color: $white;
+    @include button;
+
+    @media (max-width:$ipad) {
+      left: 10%;
+      width: 140px;
+      height: 60px;
+    }
+  }
+}

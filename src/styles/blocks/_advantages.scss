@@ -1,0 +1,64 @@
+.advantages {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 70px 50px;
+  // gap: 30px;
+  margin: 0 auto;
+
+  @media (max-width:1400px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+  }
+
+  @media (max-width:$ipad) {
+    display: flex;
+    padding: 50px 0;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 30px;
+    align-items: center;
+    margin: 0 auto;
+
+    @media (max-width:$ipad) {
+      width: 80%;
+      text-align: center;
+      padding-bottom: 70px;
+
+      &:not(:nth-child(3)) {
+        display: none;
+      }
+    }
+
+    &--multiroom .advantages__text {
+      padding-top: 30px;
+    }
+
+    &--design .advantages__text {
+      padding-top: 30px;
+
+      @media (max-width:$ipad) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__icon {
+    height: 50px;
+  }
+  
+  &__name {
+    font-family: $Din;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media (max-width:$ipad) {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+  }
+}

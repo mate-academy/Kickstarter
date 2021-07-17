@@ -1,6 +1,51 @@
-@mixin hover($_property, $_toValue) {
+@mixin transition($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin underline {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    display: block;
+    height: 3px;
+    background-color: $blue;
+    border-radius: 10%;
+    width: 0;
+  }
+
+  &:hover::after {
+    width: 70%;
+    transition: 1s;
+  }
+}
+
+@mixin hover {
+  transition: 1s;
+
+  &:hover {
+    transform: scale(125%);
+  }
+}
+
+@mixin centre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button {
+  transition: 1s;
+
+  &:hover {
+    background-color: $white;
+    color: $blue;
+    outline: 1px solid $blue;
   }
 }

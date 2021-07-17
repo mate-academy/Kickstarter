@@ -1,0 +1,50 @@
+.header {
+  display: flex;
+  height: 48px;
+  align-items: center;
+  padding: 35px 123px 90px;
+  justify-content: space-evenly;
+  perspective: 500px;
+
+  @media (max-width:$ipad) {
+    padding: 38px 30px 150px;
+    display: none;
+  }
+
+  &__logo {
+    width: 160px;
+    height: 25px;
+    @include hover;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+    @media (max-width:$ipad) {
+      display: none;
+    }
+  }
+
+  &__item {
+    padding-left: 37px;
+  }
+  
+  &__link {
+    text-transform: uppercase;
+    position: relative;
+   
+    &--after {
+      @include underline();
+    }
+    
+    &--cta {
+      font-size: 12px;
+      padding: 15px 35px;
+      background-color: $black;
+      color: $white;
+      @include button;
+    }
+  }
+}
