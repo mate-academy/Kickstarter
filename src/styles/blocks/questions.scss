@@ -1,0 +1,77 @@
+.questions {
+  max-width: $narrow-block;
+  height: 273px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+
+  &__heading {
+    max-width: 500px;
+    margin-top: 5px;
+    margin-right: 10px;
+    justify-self: end;
+  }
+
+  &__form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &__email {
+    width: $input-width;
+    height: 48px;
+    padding-left: 30px;
+  }
+
+  &__message {
+    font-family: "Roboto", sans-serif;
+    width: $input-width;
+    height: 128px;
+    padding-left: 30px;
+    padding-top: 16px;
+    resize: none;
+  }
+
+  &__submit {
+    width: 102px;
+    height: 48px;
+    line-height: 48px;
+    color: white;
+    background-color: $greenish;
+    border: 0;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  @include tablet {
+    &__form {
+      width: min-content;
+    }
+    &__email,
+    &__message {
+      max-width: 340px;
+      margin: 0;
+    }
+  }
+
+  @include phone {
+    width: 81.25%;
+    display: block;
+    height: min-content;
+
+    &__heading {
+      font-size: 37px;
+    }
+
+    &__form {
+      width: auto;
+    }
+    &__email,
+    &__message {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+}
