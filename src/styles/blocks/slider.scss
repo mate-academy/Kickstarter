@@ -1,0 +1,44 @@
+.slider {
+  display: none;
+  flex-direction: column;
+  @include flex-center;
+
+  @include on-mobile {
+    display: flex;
+  }
+
+  &__btn {
+    display: inline-flex;
+    @include flex-center;
+    width: 48px;
+    height: 12px;
+    margin-bottom: 4px;
+    background-color: $main-background-color;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: transform $transition-duration;
+
+    &--features {
+      background-color: #f2f2f2;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__elements-count {
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 14px;
+    color: #bdbdbd;
+
+    &--active {
+      font-size: $font-size-normal;
+      line-height: 20px;
+      color: $active-color;
+    }
+  }
+}
