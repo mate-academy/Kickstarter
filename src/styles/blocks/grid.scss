@@ -1,0 +1,54 @@
+.grid {
+  position: relative;
+
+  @include onTablet {
+    display: grid;
+    position: relative;
+    align-items: flex-start;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &__item {
+
+    justify-content: flex-start;
+
+    @include onTablet {
+      @for $start from 1 through 8 {
+        @for $end from $start through 8 {
+          &--tablet-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end+1};
+          }
+
+          &--rows-#{$start}-#{$end} {
+            grid-row: #{$start} / #{$end+1};
+          }
+        }
+      }
+    }
+
+    @include onDesktop {
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--desktop-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end+1};
+          }
+        }
+      }
+    }
+
+    &--overlap-top {
+      z-index: 1;
+    }
+
+    &--background {
+      position: relative;
+      z-index: -2;
+    }
+  }
+}
