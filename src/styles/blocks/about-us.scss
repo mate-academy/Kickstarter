@@ -1,0 +1,149 @@
+.about-us {
+  padding: 0 20px;
+
+  &__container {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr 1fr 20px;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 990px;
+    position: relative;
+    
+    
+
+    @include onMobile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-content: stretch;
+      padding: 0 30px;
+            
+
+      @include onTablet {
+        max-width: auto;
+      }
+    }
+  }
+
+  &__wrap {
+    grid-column: 2 / 8;
+    grid-row: 1 / 3;
+    opacity: 0.9;
+    width: 562px;
+    height: 388px;
+    text-align: center;
+
+    @include onTablet {
+      grid-column: 0 / 3;
+      transform: translateX(-40%);
+    }
+
+    @include onMobile {
+      width: auto;
+      height: auto;
+      order: 1;
+      margin-top: 50px;
+      flex-grow: 0;
+    }
+  }
+
+  &__img {
+
+    @include onTablet {
+      width: 550px;
+      height: 425px;
+      object-fit: cover;
+      object-position: left;
+    }
+  }
+
+  &__title {
+    grid-column: 8 / 13;
+    grid-row: 1;
+    z-index: 1;
+
+    @include onMobile {
+      font-size: 37px;
+      line-height: 55px;
+      order: 0;
+    }
+
+    @include onTablet {
+      grid-column: 6 / 13;
+      position: relative;
+      left: 20px;
+    }
+  }
+  
+  &__description {
+    grid-column: 9 / 13;
+    grid-row: 2;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    color: $colorLight;
+    width: 378px;
+    height: 123px;
+    z-index: 3;
+    
+
+    @include onMobile {
+      font-size: $fontSmall;
+      width: auto;
+      line-height: 21px;
+      margin-top: 30px;
+      order: 1;
+    }
+
+    @include onTablet {
+      grid-column: 7 / 12;
+      max-width: 90%;
+      position: relative;
+      left: 35px;
+    }
+  }
+
+  &__link-container {
+    display: block;
+    grid-column: 9 / 11;
+    grid-row: 3;
+    z-index: 3;
+    height: 23px;
+
+    @include onMobile {
+      order: 1;
+      align-self: flex-start;
+    }
+
+    @include onTablet {
+      grid-column: 7 / 11;
+      position: relative;
+      left: 35px;
+    }
+  
+    
+    &:hover ::after {
+      transform: translatex(20%);
+      text-decoration: none;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #0db2b3;
+    
+    &::after {
+      content: "";
+      display: block;
+      margin-top: 3px;
+      background-color: #0db2b3;
+      height: 3px;
+      width: 52px;
+      transition: transform 0.5s;
+    }
+  }
+}
