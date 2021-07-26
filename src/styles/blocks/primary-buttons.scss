@@ -1,0 +1,48 @@
+.primary-buttons {
+  display: none;
+
+  @include onTablet {
+    display: flex;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  @include onDesktop {
+    display: flex;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__item {
+    width: 102px;
+    height: 48px;
+    line-height: 48px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $black;
+    }
+  }
+
+  &__item--is--active {
+    background-color: $granit;
+  }
+
+  &__link {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: lighter;
+    @include font-settings(14px, 17px);
+    color: $darkGrey;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  &__item--is--active &__link {
+    color: $white;
+  }
+
+  &__item:hover &__link {
+    color: $white;
+  }
+}
