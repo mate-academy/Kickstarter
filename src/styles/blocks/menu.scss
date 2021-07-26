@@ -1,0 +1,56 @@
+.menu {
+  &__list {
+    position: absolute;
+    list-style: none;
+    right: 30px;
+
+    @include onTab {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__icon-label {
+    z-index: 1;
+    position: absolute;
+    right: 30px;
+
+    width: 24px;
+    height: 14px;
+
+    @include onTab {
+      display: none;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: lighter;
+    color: #4f4f4f;
+
+    &--choise {
+      font-weight: normal;
+      color: #333;
+    }
+
+    &--button {
+      width: 102px;
+      height: 40px;
+
+      box-sizing: border-box;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+    }
+  }
+  &__icon {
+    display: none;
+  }
+
+  &__icon:checked ~ &__list {
+    display: none;
+  }
+}

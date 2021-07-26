@@ -1,0 +1,81 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &__content {
+    @include onTab {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  &__photo {
+    padding-top: 20px;
+    object-fit: cover;
+    height: 245px;
+
+    @include onTab {
+      padding-top: 175px;
+      height: 355px;
+    }
+
+    @include onDesktop {
+      padding-top: 150px;
+      height: 464px;
+    }
+  }
+
+  &__info {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+  &__title {
+    padding-top: 40px ;
+    font-family: "DIN Pro Bold", sans-serif;
+    font-size: 44px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 57px;
+
+    @include onTab {
+      padding-top: 204px;
+      max-width: 260px;
+      font-size: 48px;
+      font-weight: bold;
+      text-align: start;
+      line-height: 62px;
+    }
+    @include onDesktop {
+      padding-top: 230px;
+      max-width: 260px;
+      font-size: 62px;
+      font-weight: bold;
+      text-align: start;
+      line-height: 83px;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    padding-top: 23px;
+
+    @include onTab() {
+      max-width: 250px;
+      text-align: justify;
+    }
+
+    @include onDesktop {
+      max-width: 260px;
+    }
+  }
+}
