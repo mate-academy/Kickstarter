@@ -1,0 +1,63 @@
+.header {
+  box-sizing: border-box;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+  }
+}
+
+.bar {
+  line-height: 18px;
+
+  &__lang {
+    color: #828282;
+
+    &--active {
+      font-weight: bold;
+      color: $colorDarkGrey;
+    }
+  }
+
+  &__buy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 102px;
+    height: 48px;
+    background-color: $colorDarkGrey;
+    transition: transform 1s, background-color 1s;
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: $colorBlue;
+    }
+
+    &-link {
+      font-size: 12px;
+      line-height: 15px;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  &--tablet {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 280px;
+    }
+  }
+
+  &--mobile {
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}
