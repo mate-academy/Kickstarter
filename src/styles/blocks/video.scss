@@ -1,8 +1,6 @@
 .video {
-  max-width: 1440px;
   min-height: 590px;
   display: flex;
-  position: relative;
   flex-direction: column;
   text-align: center;
   align-items: center;
@@ -27,7 +25,7 @@
     transition: transform 0.3s linear;
 
     &:hover {
-      color: #0CB2B3;
+      color: #0cb2b3;
       transform: scale(1.06);
       transition: transform 0.3 ease-out;
     }
@@ -44,16 +42,38 @@
       border-radius: 50%;
 
       &:hover {
-        border-color: #0CB2B3;
+        border-color: $color-blue;
         transition: transform 0.3 linear;
       }
     }
   }
 }
 
-
-@media (max-width: 770px) {
+@media (max-width: 1024px) {
   .video {
     min-height: 400px;
-   }
+  }
+}
+
+@media (max-width: 1024px) {
+  .video {
+    width: 100%;
+    min-height: 246px;
+  }
+
+  .video__play {
+    font-size: 0;
+  }
+
+  .video__play::before {
+    position: absolute;
+    display: inline-block;
+    content: "";
+    transform: translate(-50px, -50px);
+    justify-content: center;
+    width: 108px;
+    height: 108px;
+    border: 1px solid #f3f4f5;
+    border-radius: 50%;
+}
 }
