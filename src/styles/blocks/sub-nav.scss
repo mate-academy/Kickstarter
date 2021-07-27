@@ -1,0 +1,47 @@
+.sub-nav {
+  display: none;
+  padding-top: 120px;
+
+  @include onDesktop {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    width: 650px;
+    padding: 28px 0;
+    font-family: "Helvetica Neue", sans-serif;
+    box-sizing: border-box;
+  }
+
+  &__item {
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    
+    transition: border-color 0.3s;
+
+    &:hover {
+      border-color: $black;
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 21px;
+    color: $granit;
+    text-transform: uppercase;
+
+    transition: color 0.3s;
+
+    &--is--active {
+      font-weight: bold;
+      color: $black;
+    }
+  }
+
+  &__item:hover .sub-nav__link {
+    color: $black;
+  }
+}
