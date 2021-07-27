@@ -1,7 +1,13 @@
 .menu {
   display: none;
   background-color: #f6f6f6;
-  z-index: 1;
+  background: linear-gradient(to bottom, rgb(255, 255, 255) 10%, rgba(255, 255, 255, 0));
+  z-index: 2;
+  
+
+  &__content {
+    height: 500px;
+  }
 
   &__nav {
     width: 100%;
@@ -10,20 +16,29 @@
   }
 
   &__top {
-    position: absolute;
-    margin-bottom: 20px;
+    position: relative;
+    margin-bottom: 10px;
+    
   }
 
   &__list {
+    position: relative;
+    bottom: 20px;
     list-style: none;
     padding: 0;
-    justify-content: end;
+    justify-content: center;
+    text-align: center;
   }
 
   &_icon {
+    display: none;
     position: absolute;
-    top: 45px;
+    top: 33px;
     padding-left: 240px;
+
+    &--cross {
+      margin-left: 25px;
+    }
   }
 
   &-nav__link {
@@ -31,7 +46,7 @@
     margin: 0;
     width: max-content;
     padding-bottom: 1px;
-    margin-top: 5px;
+    margin-top: 10px;
     border-bottom: 1px solid transparent;
     transition: border-color 0.3px;
     font-family: "DIN Pro", sans-serif;
@@ -48,13 +63,20 @@
   }
 
   &__logo {
+    position: relative;
+    justify-content: center;
     width: 161px;
     margin: 30px;
+    
   }
 }
 
 @media (max-width: 320px) {
   .menu {
+    display: block;
+  }
+
+  .menu_icon {
     display: block;
   }
 }
