@@ -17,7 +17,7 @@
   }
 
   &__link {
-    padding-bottom: 7px;
+    position: relative;
     font-family: "HelveticaNeue", sans-serif;
     font-weight: 500;
     font-size: 14px;
@@ -26,11 +26,21 @@
     text-transform: uppercase;
     text-decoration: none;
     color: $color-text;
-    transition: border-bottom 0.3s;
-    border-bottom: 1px solid transparent;
 
-    &:hover {
-      border-bottom: 2px solid $color-green;
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: $color-green;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    &:hover::after {
+      transform: translateY(5px);
+      opacity: 1;
     }
   }
 }
