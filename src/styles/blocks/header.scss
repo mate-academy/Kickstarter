@@ -1,4 +1,5 @@
 .header {
+  z-index: 1;
   box-sizing: border-box;
 
   &__content {
@@ -28,11 +29,12 @@
     width: 102px;
     height: 48px;
     background-color: $colorDarkGrey;
-    transition: transform 1s, background-color 1s;
+    transition: transform 1s, background-color 1s, border-radius 1s;
 
     &:hover {
       transform: scale(1.1);
       background-color: $colorBlue;
+      border-radius: 5px;
     }
 
     &-link {
@@ -43,14 +45,27 @@
     }
   }
 
-  &--tablet {
-    display: none;
+  &__content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 75px;
+    right: 15%;
+    left: 0;
+    background-color: #f6f6f6;
+    transition: transform 1s;
+    transform: translateY(-200px);
 
     @include onTablet {
+      position: relative;
+      top: 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 280px;
+      transform: translateY(0);
     }
   }
 
@@ -59,5 +74,14 @@
     @include onTablet {
       display: none;
     }
+  }
+
+  &__toogler {
+    display: none;
+
+    &:checked + .bar__content {
+      transform: translateY(0);
+    }
+
   }
 }
