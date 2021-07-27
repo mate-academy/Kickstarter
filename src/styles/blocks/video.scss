@@ -1,0 +1,82 @@
+.video {
+  position: relative;
+  height: 246px;
+  width: 100%;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    transition: background-color 0.3s;
+  }
+
+  &::before {
+    --play-size: 108px;
+
+    content: "play";
+    position: absolute;
+    z-index: 2;
+    width: var(--play-size);
+    height: var(--play-size);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-top-left-radius: var(--play-size);
+    border-top-right-radius: var(--play-size);
+
+    border-bottom-left-radius: var(--play-size);
+    border-bottom-right-radius: var(--play-size);
+    border: 1px solid $darkWhite;
+
+    font-family: "DIN Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: var(--play-size);
+    text-transform: uppercase;
+    text-align: center;
+    color: $darkWhite;
+
+    @include onTablet {
+      font-size: 20px;
+      --play-size: 190px;
+    }
+
+    @include onDesktop {
+      --play-size: 232px;
+      font-size: 24px;
+    }
+  }
+
+  &:hover::after {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  &:hover::before {
+    content: "";
+
+    background-image: url(../images/icons/triangle.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 14px;
+  }
+
+  @include onTablet {
+    height: 400px;
+  }
+
+  @include onDesktop {
+    height: 590px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
