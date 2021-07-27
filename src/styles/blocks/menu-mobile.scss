@@ -1,19 +1,35 @@
-.menu {
-  display: none;
+.menu-mobile {
+  background-color: $color-white;
+  z-index: 999;
 
-  @include onDesktop {
-    display: block;
-    max-width: 1200px;
+  @include onTablet {
+    display: none;
+  }
+
+  &__content {
+    height: 100vh;
+  }
+
+  &__top-action {
     margin: 0 auto;
+  }
+
+  &__cross {
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/icon/cross.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   &__list {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    gap: 60px;
-    width: 70%;
-    margin: 0 auto;
+    align-items: flex-end;
+    gap: 30px;
+    margin-top: 50px;
   }
 
   &__link {
