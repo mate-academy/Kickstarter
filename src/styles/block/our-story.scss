@@ -1,41 +1,37 @@
 .our-story {
+  position: relative;
   width: 100%;
-  padding-top: 90px;
+  height: 246px;
 
   @include onTablet {
-    padding-top: 130px;
+    height: 400px;
   }
 
   @include onDesktop {
-    padding-top: 150px;
+    height: 590px;
   }
 
-  &__photo {
-    width: 320px;
+  &__video {
+    width: 100%;
     height: 246px;
-    margin: 0 auto;
-    background-image: url("../images/about-us.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-x: center;
+    object-fit: cover;
+    object-position: center;
 
     @include onTablet {
-      width: 768px;
       height: 400px;
     }
 
     @include onDesktop {
-      width: 1440px;
       height: 590px;
     }
   }
 
   &__play {
-    position: relative;
-    top: 50%;
-    left: 50%;
+    position: absolute;
     width: 108px;
     height: 108px;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     border: 1px solid rgba(243, 244, 245, 1);
@@ -73,15 +69,18 @@
     display: none;
 
     @include onDesktop {
-      display: inline-block;
-      margin: 0;
-      width: 100%;
+      display: block;
+      margin: 0 auto;
+      width: 57px;
       height: 232px;
-      text-align: center;
       font-size: 24px;
       line-height: 232px;
-      color: #f3f4f5;
       text-transform: uppercase;
+      color: rgba(243, 244, 245, 1);
+
+      &:hover {
+        display: none;
+      }
     }
   }
 }
