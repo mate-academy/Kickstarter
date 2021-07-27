@@ -1,0 +1,81 @@
+.header {
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      padding-top: 25px;
+      margin-bottom: 100px;
+    }
+
+    @include onDesktop {
+      padding-top: 15px;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__menu {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background-image: url(../images/Menu.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+
+    display: none;
+
+    @include onTablet {
+      display: flex;
+    }
+
+    & > :nth-child(-n + 2) {
+      padding-right: 35px;
+    }
+  }
+  
+  &__specs {
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 200;
+    text-decoration: none;
+    color: #4f4f4f;
+
+    @include onDesktop {
+      line-height: 21px;
+    }
+  }
+
+  &__lang-items {
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 200;
+
+    @include onDesktop {
+      line-height: 21px;
+    }
+  }
+
+  &__lang {
+    font-weight: 200;
+    text-decoration: none;
+    color: #bdbdbd;
+
+    &:target {
+      color: #333;
+    }
+  }
+}
