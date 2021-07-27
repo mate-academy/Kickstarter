@@ -1,0 +1,14 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-content: center;
+  column-gap: 30px;
+
+  @for $start from 1 through 13 {
+    @for $end from $start through 13 {
+      &--#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end};
+      }
+    }
+  }
+}

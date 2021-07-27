@@ -1,7 +1,278 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "./utils/vars";
+@import "./utils/mixins";
+@import "./utils/fonts";
+@import "./utils/reset";
 
-body {
-  background: $c-gray;
+@import "./blocks/page.scss";
+@import "./blocks/grid.scss";
+
+.content {
+  &__header {
+    margin: 0 124px 90px;
+  }
+
+  &__promo {
+    margin: 0 0 120px 124px;
+  }
+
+  &__nav {
+    margin-bottom: 150px;
+  }
+
+  &__benefits {
+    margin: 0 124px 150px;
+  }
+
+  &__presentation {
+    margin-bottom: 150px;
+  }
+}
+
+.header {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 12px;
+  }
+}
+
+.logo {
+  display: inline-block;
+  height: 26px;
+}
+
+.menu {
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+  }
+
+  &__item {
+    list-style: none;
+  }
+
+  &__link {
+    display: inline-block;
+
+    font-family: "Helvetica Neue";
+    font-size: 14px;
+    line-height: 21px;
+    color: #4f4f4f;
+    text-decoration: none;
+
+    &:hover {
+      font-family: "Helvetica Neue";
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 21px;
+      color: #4f4f4f;
+    }
+
+    &--active {
+      font-family: "Helvetica Neue";
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 18px;
+      color: #333;
+    }
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 102px;
+  height: 48px;
+
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+
+  background-color: #333;
+  cursor: pointer;
+
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #333;
+  }
+}
+
+.promo {
+  display: flex;
+  z-index: 1;
+  overflow: hidden;
+
+  &__info {
+    margin: 80px 0 12px;
+  }
+
+  &__title {
+    margin-bottom: 26px;
+    width: min-content;
+
+    font-family: "DIN Pro";
+    font-size: 64px;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: #333;
+  }
+
+  &__text {
+    width: 276px;
+
+    font-family: "Helvetica Neue";
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+  }
+
+  &__photo {
+    margin-left: auto;
+
+    object-fit: none;
+    object-position: right;
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    margin: 0 0 0 284px;
+
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 72px;
+    height: 76px;
+  }
+
+  &__item:nth-child(odd) {
+    width: 172px;
+  }
+
+  &__link {
+    display: inline-block;
+
+    font-family: "Helvetica Neue";
+    font-size: 14px;
+    line-height: 21px;
+    color: #333;
+    text-decoration: none;
+
+    &:hover {
+      font-family: "Helvetica Neue";
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 21px;
+      color: #131313;
+    }
+  }
+}
+
+.benefits {
+  &__item {
+    text-align: center;
+  }
+
+  &__logo {
+    width: 50px;
+    height: 40px;
+
+    margin-bottom: 48px;
+  }
+
+  &__title {
+    height: 60px;
+    
+    margin-bottom: 20px;
+
+    font-family: "DIN Pro";
+    font-size: 24px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: #333;
+  }
+
+  &__text {
+    font-family: "Helvetica Neue";
+    font-size: 14px;
+    line-height: 21px;
+    color: #7c7c7c;
+  }
+}
+
+.presentation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 590px;
+
+  background-image: url(../images/presentation_desktop_photo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  &__button-play {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 232px;
+    height: 232px;
+
+    border: 1px solid #fff;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    &::before {
+      content: "PLAY";
+
+      font-family: "DIN Pro";
+      font-size: 24px;
+      line-height: 18px;
+      color: #f3f4f5;
+    }
+
+    &::after {
+      display: none;
+      content: "";
+
+      width: 30px;
+      height: 40px;
+
+      background-image: url(../images/play.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    &:hover::before {
+      display: none;
+    }
+
+    &:hover::after {
+      display: block;
+    }
+  }
 }
