@@ -1,5 +1,59 @@
 .benefits {
   display: grid;
+  gap: 30px;
+  margin-top: 48px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  border: 1px solid red;
+
+  @include onMobile {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 30px 0;
+  }
+
+  &__item {
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+     
+    @include onMobile {
+      margin-top: 100px;
+    }
+  }
+
+  &__item-none {
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__img {
+    width: 46px;
+    height: 40px;
+  }
+
+  &__title {
+    font-family: "DIN Pro", sans-serif;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-dark-gray;
+
+    @include onMobile {
+      margin-top: 40px;
+    }
+  }
+
+  &__description {
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    color: #7c7c7c;
+
+    @include onMobile {
+      margin-top: 50px;
+    }
+  }
 }

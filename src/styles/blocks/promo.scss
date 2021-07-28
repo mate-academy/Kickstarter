@@ -1,13 +1,25 @@
 .promo {
-  border: 1px solid green;
+  // border: 1px solid green;
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 30px;
   overflow: hidden;
 
+  @include onMobile {
+    display: flex;
+    flex-direction: column;
+    margin: 0 30px;
+  }
+
   &__text {
-    margin: 170px 0 0 30px;
+    margin-top: 170px;
     color: $color-dark-gray;
+
+    @include onMobile {
+      text-align: center;
+      margin: 0;
+      order: 1;
+    }
   }
 
   &__title {
@@ -16,10 +28,14 @@
     font-size: 48px;
     line-height: 130%;
     text-transform: uppercase;
+
+    @include onMobile {
+      margin-top: 40px;
+    }
   }
 
   &__description {
-    border: 1px solid red;
+    font-family: "Helvetica Neue", sans-serif;
     font-size: 16px;
     line-height: 24px;
   }
@@ -27,5 +43,11 @@
   &__img {
     margin-top: 88px;
     overflow: hidden;
+
+    @include onMobile {
+      margin-top: 20px;
+      min-width: 320px;
+      height: 245px;
+    }
   }
 }
