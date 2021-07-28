@@ -23,6 +23,7 @@
   }
   
   &__button {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,38 +42,49 @@
       width: 200px;
       height: 200px;
     }
+
+    &:hover > .video__play-icon {
+      opacity: 1;
+    }
+
+    &:hover > .video__play-text {
+      opacity: 0;
+    }
   }
 
   &__play {
     &-icon {
+      position: absolute;
       height: 24px;
       width: 24px;
       background-image: url(../images/icon/play.svg);
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
-
-      @include onTablet {
-        width: 26px;
-        height: 26px;
-      }
+      opacity: 0;
+      transition: opacity 0.4s;
 
       @include onDesktop {
-        display: none;
+        height: 35px;
+        width: 35px;
       }
     }
 
     &-text {
-      display: none;
       font-family: "DIN Pro", sans-serif;
       font-weight: 500;
-      font-size: 24px;
+      font-size: 14px;
       line-height: 18px;
       color: #f3f4f5;
       text-transform: uppercase;
+      transition: opacity 0.4s;
+
+      @include onTablet {
+        font-size: 18px;
+      }
 
       @include onDesktop {
-        display: block;
+        font-size: 24px;
       }
     }
   }
