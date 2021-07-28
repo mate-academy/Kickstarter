@@ -48,6 +48,9 @@
   &__video {
     position: relative;
     margin-top: 90px;
+    background-image: url(../images/main/main-main.svg);
+
+
 
     @include onTablet {
       margin-top: 130px;
@@ -59,10 +62,16 @@
   
 
     &--video {
+      position: relative;
+      transform: translateX(-100%);
       width: 100%;
-      height: 246px;
+      height: 245px;
       object-fit: cover;
-      object-position: center;
+      z-index: 2;
+
+      &:target {
+        transform: translateX(0);
+      }
 
       
       @include onTablet {
@@ -72,7 +81,56 @@
       @include onDesktop {
         height: 590px;
       }
-   }
+    }
+  
+    &-play {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 108px;
+      height: 108px;
+      top: 50%;
+      left: 50%;
+      border: 1px solid $color-white;
+      border-radius: 50%;
+      background-color: transparent;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      transition: transform 0.3s;
+
+      &:focus {
+        display: none;
+      }
+
+      @include onTablet {
+        height: 190px;
+        width: 190px;
+      }
+
+      &--hover {
+        text-decoration: none;
+
+        &::after {
+          content: 'PLAY';
+          color: $color-white;
+          text-transform: uppercase;
+        }
+        
+        &:hover {
+
+          &::after {
+            content: '';
+          }
+
+          width: 20px;
+          height: 26px;
+          
+          background-image: url(../images/play.svg);
+          background-repeat: no-repeat;
+        }
+      }
+    }
   }
 }
- 
