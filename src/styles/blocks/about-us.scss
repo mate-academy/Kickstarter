@@ -1,0 +1,110 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include onTablet {
+    position: relative;
+  }
+
+  @include onDesktop {
+    transform: translateX(30%);
+  }
+
+  &__video {
+    padding-bottom: 90px;
+    // max-height: 246px;
+  }
+
+  &__title {
+    padding: 0 30px;
+    font-family: "DIN Pro", Helvetica, sans-serif;
+    font-size: 37px;
+    line-height: 55px;
+    font-weight: bold;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: $fontDarkBrown;
+    padding-bottom: 50px;
+
+    @include onTablet {
+      position: absolute;
+      z-index: 1;
+      padding: 0;
+      width: 430px;
+      height: 144px;
+
+      font-size: 56px;
+      line-height: 72px;
+      text-align: start;
+
+      transform: translate(65%, -100%);
+    }
+  }
+
+  &__image {
+    box-sizing: border-box;
+    padding: 0 30px;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      position: relative;
+      box-sizing: border-box;
+      padding: 0;
+
+      width: 623px;
+      height: 416px;
+
+      transform: translateX(-42%);
+    }
+  }
+
+  &__text {
+    padding: 0 30px;
+    color: $fontGrey;
+    font-size: 16px;
+    line-height: 24px;
+
+    margin-bottom: 30px;
+
+    @include onTablet {
+      position: absolute;
+      padding: 0;
+      width: 340px;
+      height: 146px;
+
+      transform: translate(110%, 40%);
+
+    }
+  }
+
+  &__link {
+    position: relative;
+    padding: 0 30px;
+    color: $fontGreen;
+    text-decoration: none;
+
+    @include onTablet {
+      position: absolute;
+      padding: 0;
+      transform: translate(320%, 130px);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 30px;
+      height: 1px;
+      width: 52px;
+      background-color: $fontGreen;
+
+      @include onTablet {
+        padding: 0;
+        transform: translate(-50%, 6px);
+      }
+    }
+  }
+}
