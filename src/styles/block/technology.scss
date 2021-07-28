@@ -79,11 +79,24 @@
     text-align: center;
     color: #333;
 
+    &::before {
+      content: "\201c";
+    }
+
+    &::after {
+      content: "\201d";
+    }
+
     @include onTablet {
       width: 700px;
       height: 144px;
       font-size: 24px;
       line-height: 36px;
+
+      &::before,
+      &::after {
+        content: "";
+      }
     }
 
     @include onDesktop {

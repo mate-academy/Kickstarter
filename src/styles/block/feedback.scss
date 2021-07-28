@@ -1,0 +1,125 @@
+.feedback {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  margin: 0 auto;
+
+  @include onTablet {
+    width: 768px;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  @include onDesktop {
+    width: 1020px;
+    gap: 102px;
+  }
+
+  &__title {
+    width: 260px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    font-family: "DIN Pro", sans-serif;
+    font-size: 37px;
+    line-height: 46px;
+    color: #333;
+
+    @include onTablet {
+      display: inline-block;
+      width: 340px;
+      height: 216px;
+      margin-left: 0;
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    @include onDesktop {
+      width: 480px;
+      height: 143px;
+      line-height: 72px;
+    }
+  }
+
+  &__field {
+    display: block;
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 260px;
+    border: 1px solid rgba(189, 189, 189, 1);
+
+    &::placeholder {
+      height: 17px;
+      padding-left: 30px;
+      font-family: "Helvetica Neue light", sans-serif;
+      font-size: 16px;
+      line-height: 20px;
+      width: 174px;
+      color: rgba(189, 189, 189, 1);
+    }
+
+    @include onTablet {
+      display: inline-block;
+      margin-right: 0;
+      width: 340px;
+    }
+
+    @include onDesktop {
+      width: 438px;
+    }
+
+    &:focus {
+      border: 1px solid #828282;
+    }
+  }
+
+  &__field-email {
+    height: 48px;
+    margin-bottom: 19px;
+  }
+
+  &__field-message {
+    height: 128px;
+    margin-bottom: 30px;
+
+    &::placeholder {
+      padding-top: 16px;
+    }
+
+    @include onTablet {
+      height: 201px;
+    }
+
+    @include onDesktop {
+      height: 128px;
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    margin-left: 0;
+    margin-bottom: 43px;
+    text-align: center;
+    width: 102px;
+    height: 40px;
+    font-size: 12px;
+    line-height: 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: rgba(13, 178, 179, 1);
+    color: rgba(255, 255, 255, 1);
+
+    @include onDesktop {
+      display: block;
+      margin-left: 0;
+      margin-bottom: 107px;
+    }
+
+    &:hover {
+      background-color: rgba(12, 121, 122, 1);
+    }
+
+    &:disabled {
+      background-color: rgba(207, 239, 240, 1);
+    }
+  }
+}
