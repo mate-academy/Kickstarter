@@ -1,23 +1,28 @@
 .nav {
   &__list {
     display: flex;
+    flex-direction: column;
     list-style: none;
     justify-content: space-between;
     max-width: 780px;
     margin: 0 auto;
     padding: 0;
 
-    display: none;
-
     @include onDesktop {
-      display: flex;
+      flex-direction: row;
     }
   }
 
   &__item {
     transition: transform 0.3s;
     &:hover {
-      transform: scale(1.2);
+      transform: translateX(30px);
+    }
+    
+    @include onDesktop {
+      &:hover {
+        transform: scale(1.2);
+      }
     }
   }
 
