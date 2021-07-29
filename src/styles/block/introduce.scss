@@ -1,8 +1,21 @@
 .introduce {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   width: 100%;
-  height: 599px;
+
+  &__back {
+    width: 320px;
+    height: 245px;
+    margin: 0 auto;
+    background-image: url("../images/introduce-photo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include onTablet {
+      display: none;
+    }
+  }
 
   @include onTablet {
     height: 369px;
@@ -16,29 +29,28 @@
   &__text {
     display: flex;
     flex-direction: column;
-    padding-top: 285px;
-    width: 320px;
+    box-sizing: border-box;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
     justify-content: center;
-    background-image: url("../images/introduce-photo.jpg");
-    background-repeat: no-repeat;
-    background-position-x: left;
-    background-size: auto 245px;
         
     @include onTablet {
-      width: 768px;
+      max-width: 900px;
       height: 365px;
       margin: 0 auto;
       padding-top: 0;
       justify-content: start;
-      padding-left: 34px;
-      background-position-x: 285px;
+      background-image: url("../images/introduce-photo.jpg");
+      background-repeat: no-repeat;
+      background-position-y: top;
+      background-position-x: 256px;
       background-size: contain;
     }
 
     @include onDesktop {
-      width: 1317px;
+      max-width: 1198px;
       height: 460px;
-      padding-left: 123px;
       background-position-x: 501px;
       background-size: contain;
     }
@@ -48,7 +60,6 @@
     display: inline-block;
     margin: 0;
     margin-bottom: 23px;
-    height: 171px;
     font-family: "DIN Pro bold", sans-serif;
     font-size: 44px;
     line-height: 57px;
@@ -79,9 +90,6 @@
   &__article {
     display: inline-block;
     margin: 0;
-    padding-left: 30px;
-    width: 260px;
-    height: 120px;
     font-size: 16px;
     line-height: 24px;
     color: #333;
