@@ -22,6 +22,7 @@
     min-height: 210px;
     width: 100%;
     object-fit: cover;
+    transition: box-shadow 0.3s;
 
     @include onTablet {
       width: 50%;
@@ -30,6 +31,9 @@
 
     @include onDesktop {
       width: 100%;
+    }
+    &:hover {
+      box-shadow: 2px 2px 4px $turquoise;
     }
   }
 
@@ -71,7 +75,7 @@
     font-size: 14px;
     line-height: 21px;
     font-weight: 200;
-    color: #7c7c7c;
+    color: $grey;
 
 
     @include onTablet {
@@ -81,11 +85,15 @@
   }
 
   &__link {
-    color: #0db2b3;
+    color: $turquoise;
     font-size: 12px;
     line-height: 15px;
     text-decoration: none;
     text-transform: uppercase;
+
+    &:hover::after {
+      width: 128px;
+    }
 
     &::after {
       position: relative;
@@ -94,7 +102,8 @@
       display: block;
       height: 1px;
       width: 53px;
-      background-color: #0db2b3;
+      background-color: $turquoise;
+      transition: width 0.3s;
     }
   }
 }

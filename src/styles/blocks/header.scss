@@ -23,8 +23,22 @@
     background-position: center;
     background-repeat: no-repeat;
 
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 30%;
+    }
+
     @include onTablet {
       display: none;
+    }
+  }
+
+  &__logo {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2) translateX(10%);
     }
   }
 
@@ -49,11 +63,18 @@
     line-height: 17px;
     font-weight: 200;
     text-decoration: none;
-    color: #4f4f4f;
+    color: $dark-grey;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $granit;
+      font-weight: normal;
+    }
 
     @include onDesktop {
       line-height: 21px;
     }
+
   }
 
   &__lang-items {
@@ -70,9 +91,14 @@
     font-weight: 200;
     text-decoration: none;
     color: #bdbdbd;
+    transition: color 0.3s;
 
     &:target {
-      color: #333;
+      color: $granit;
+    }
+
+    &:hover {
+      color: $granit;
     }
   }
 }
