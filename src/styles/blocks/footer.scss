@@ -1,5 +1,5 @@
 .footer {
-  max-width: 1440px;
+  max-width: 1920px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -8,11 +8,14 @@
   flex-direction: column;
 
   &__arrow {
-    display: block;
-    position: absolute;
-    right: 0;
-    margin-right: 263px;
-    margin-top: 115px;
+    max-width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: start;
+    position: relative;
+    left: 380px;
+    
+    cursor: pointer;
   }
 
   &--container {
@@ -24,16 +27,60 @@
   }
 
   &__socialmedia {
+    display: flex;
     padding-top: 64px;
-    
+    align-items: center;
   }
 
   &__icon {
-    padding-left: 46px;
+    
+    margin-left: 43px;
     cursor: pointer;
 
     &:first-child {
-      padding-left: 0;
+      margin-left: 0;
+    }
+
+    &--facebook {
+      background-image: url("../images/facebook.svg");
+      height: 19px;
+      width: 11px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      transition: 0.3s linear;
+
+      &:hover {
+        transition: 0.3s linear;
+        background-image: url("../images/facebookH.svg");
+      }
+      
+    }
+
+    &--twitter {
+      background-image: url("../images/twitter.svg");
+      height: 17px;
+      width: 22px;
+      background-repeat: no-repeat;
+      transition: 0.3s linear;
+      
+      &:hover {
+        transition: 0.3s linear;
+        background-image: url("../images/twitterH.svg");
+      }
+    }
+
+    &--insta {
+      background-image: url("../images/insta.png");
+      height: 18px;
+      width: 18px;
+      background-repeat: no-repeat;
+      transition: 0.3s linear;
+     
+
+      &:hover {
+        transition: 0.3s linear;
+        background-image: url("../images/instaH.png");
+      }
     }
   }
 
@@ -43,22 +90,22 @@
   }
 }
 
-@media (max-width: 1250px) {
-  .footer__arrow {
-    margin-right: 150px;
-  }
-}
-
 @media (max-width: 770px) {
 
   .footer__arrow {
-    display: block;
-    right: -150px;
+    left: 310px;
     margin-top: 30px;
   }
 
   .footer__copyright {
     font-size: 12px;
     padding: 30px;
+  }
+}
+
+@media (max-width: 320px) {
+  .footer__arrow {
+    left: 100px;
+    padding-bottom: 50px;
   }
 }
