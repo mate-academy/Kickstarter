@@ -1,12 +1,16 @@
 .video {
   position: relative;
   overflow: hidden;
+  background-image: url(../images/video-block.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   &__container {
     width: 100%;
   }
 
-  &__player {
+  &__before-start-player {
     position: absolute;
     bottom: 0;
     top: 0;
@@ -19,6 +23,32 @@
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.3);
+    }
+
+  }
+
+  &__player {
+    position: relative;
+    width: 100%;
+    transition: background-color 0.3s;
+    transform: translateX(-100%);
+    object-fit: fill;
+    z-index: 1;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    @include onTablet {
+      height: 400px;
+    }
+
+    @include onDesktop {
+      height: 590px;
     }
   }
 
@@ -48,6 +78,7 @@
       line-height: 18px;
       color: #f3f4f5;
       text-transform: uppercase;
+      text-decoration: none;
       transition: opacity 0.4s;
       opacity: 0;
 
