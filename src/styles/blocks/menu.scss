@@ -1,66 +1,46 @@
 .menu {
-  z-index: 1;
-  background-color: $colorLightBlue;
+  display: none;
 
-  &__content {
-    box-sizing: border-box;
-    height: 100vh;
-  }
-
-  &__top {
-    margin-bottom: 48px;
+  @include onDesktop {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   &__list {
-    margin: 0 0 48px;
-    padding: 0;
-    list-style: none;
-  }
-
-  &__item {
-    margin-bottom: 24px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    width: 70%;
+    margin: 0 auto;
   }
 
   &__link {
-    display: inline-block;
-    padding-bottom: 8px;
-    border-bottom: 1px solid transparent;
-    font-weight: bold;
-    font-size: 22px;
-    line-height: 22px;
-    color: #fff;
-    text-decoration: none;
-    letter-spacing: 2px;
+    position: relative;
+    font-family: "HelveticaNeue", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+
     text-transform: uppercase;
-    transition: border-color 0.3s;
-
-    &:hover {
-      border-color: #fff;
-    }
-  }
-
-  &__call {
-    display: block;
-    width: max-content;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #fff;
     text-decoration: none;
+    color: $colorText;
 
-    &--phone {
-      margin-bottom: 16px;
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $colorLightBlue;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
     }
 
-    &--action {
-      padding-bottom: 8px;
-      border-bottom: 1px solid #fff;
+    &:hover::after {
+      transform: translateY(5px);
+      opacity: 1;
     }
   }
 }
