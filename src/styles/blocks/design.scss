@@ -1,0 +1,100 @@
+.design {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+
+  @include onTablet {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 0 30px 0 0;
+
+    @include onDesktop {
+      display: grid;
+      padding: 0 20px;
+    }
+  }
+
+  &__image {
+    min-height: 210px;
+    width: 100%;
+    object-fit: cover;
+
+    @include onTablet {
+      width: 50%;
+      min-height: 415px;
+    }
+
+    @include onDesktop {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 50px;
+
+    font-family: "DIN Pro", sans-serif;
+    font-size: 37px;
+    line-height: 55px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      position: absolute;
+      left: 39%;
+      margin-bottom: 30px;
+
+      font-size: 56px;
+      line-height: 72px;
+    }
+
+    @include onDesktop {
+      left: 0;
+      white-space: nowrap;
+      margin-bottom: 0;
+    }
+  }
+
+  &__info {
+    height: min-content;
+    padding-top: 30px;
+
+    @include onTablet {
+      padding-top: 180px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 200;
+    color: #7c7c7c;
+
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    color: #0db2b3;
+    font-size: 12px;
+    line-height: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &::after {
+      position: relative;
+      top: 6px;
+      content: "";
+      display: block;
+      height: 1px;
+      width: 53px;
+      background-color: #0db2b3;
+    }
+  }
+}
