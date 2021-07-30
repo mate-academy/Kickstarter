@@ -85,12 +85,11 @@
     }
 
     @include onDesktop {
-      transform: translate(60vw, 40%);
+      transform: translate(248%, 40%);
     }
   }
 
   &__link {
-    position: relative;
     padding: 0 30px;
     color: $fontGreen;
     text-decoration: none;
@@ -102,7 +101,8 @@
     }
 
     @include onDesktop {
-      transform: translate(60vw, 130px);
+      left: 840px;
+      transform: translateY(130px);
     }
 
     &::after {
@@ -114,11 +114,21 @@
       width: 52px;
       background-color: $fontGreen;
 
+      transition: 0.3s;
+
       @include onTablet {
         padding: 0;
-        transform: translate(-50%, 6px);
+        transform: translate(-30px, 6px);
       }
+    }
+    
+    &:hover::after {
+      width: 110px;
+      height: 2px;
 
+      left: 5px;
+      transition: 0.3s;
+      transform: translate(0, 6px);
     }
   }
 }
