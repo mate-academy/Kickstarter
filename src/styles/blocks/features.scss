@@ -1,0 +1,155 @@
+.features {
+  max-width: 1200px;
+  
+  &__title {
+    font-size: 56px;
+    line-height: 70px;
+
+    
+    @include onTablet {
+
+      display: inline-block;
+      width: 340px;
+      text-align: center;
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    @include onDesktop {
+      width: 378px;
+    }
+  }
+
+  &__description {
+    @include onTablet {
+      position: relative;
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    @include onDesktop {
+      grid-gap: 30px;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    &-sound {
+      @include onTablet {
+        grid-column: 4 / 9;
+        grid-row: 1 / -1;
+      }
+
+      @include onDesktop {
+        grid-column: 6 / 13;
+        grid-row: 1 / -1;
+      }
+    }
+
+    &-connectivity {
+      @include onTablet {
+        grid-column: 1 / 9;
+        grid-row: 2 / 3;
+      }
+      
+      @include onDesktop {
+        grid-column: 2 / 13;
+        grid-row: 2 / 3;
+      }
+    }
+
+    &-app {
+      @include onTablet {
+        grid-column: 3 / 9;
+        grid-row: 3 / 4;
+      }
+
+      @include onDesktop {
+        grid-column: 4 / 13;
+        grid-row: 3 / 4;
+      }
+    }
+
+    &-img {
+      display: flex;
+      justify-content: center;
+      padding-top: 51px;
+
+      @include onTablet {
+        position: absolute;
+        display: block;
+        left: 0;
+        padding: 0 0 0 58px;
+        grid-column: 2 / 9;
+        grid-row: 2 / 4;
+        z-index: -1;
+      }
+
+      @include onDesktop {
+        padding: 0;
+        grid-column: 5 / 13;
+        grid-row: 2 / 4;
+      }
+    }
+  }
+
+  &__image {
+    width: 344px;
+
+    @include onTablet {
+      width: 586px;
+    }
+
+    @include onDesktop {
+      width: 786px;
+    }
+  }
+
+  &__list {
+    padding-top: 20px;
+    list-style-position: inside;
+
+    @include onTablet {
+      padding-top: 25px;
+    }
+
+    @include onDesktop {
+      padding-top: 28px;
+    }
+
+    &-title {
+      padding-top: 50px;
+      font-size: 30px;
+      line-height: 37px;
+      color: #0c797a;
+
+      @include onTablet {
+        font-size: 34px;
+        line-height: 42px;
+      }
+
+      @include onDesktop {
+        line-height: 120%;
+        padding-top: 25px;
+      }
+    }
+  }
+
+  &__item {
+    padding-bottom: 10px;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+
+    @include onTablet {
+      padding-bottom: 13px;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    @include onDesktop {
+      line-height: 24px;
+    }
+  }
+}
