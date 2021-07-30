@@ -10,7 +10,7 @@
   <body class="page__body">
     <header class="header">
       <div class="container">
-        <div class="top-actions">
+        <div class="page__top-actions">
           <a href="/" class="logo">
             <img
               src="images/logo.svg"
@@ -32,9 +32,28 @@
               </a>
             </li>
             <li class="primary-buttons__item">
-              <a href="#" class="primary-buttons__link">
-                en/ua
-              </a>
+              <input
+                type="checkbox"
+                class="primary-buttons__link primary-buttons__link-checkbox"
+                id="language-toggler"
+              >
+
+              <label for="language-toggler"></label>
+              <span
+                class="primary-buttons__item-element primary-buttons__item-element--1"
+              >
+                en
+              </span>
+
+              <span class="primary-buttons__item-element primary-buttons__item-element--2">
+                /
+              </span>
+
+              <span class="primary-buttons__item-element primary-buttons__item-element--3">
+                ua
+              </span>
+              </label>
+              </input>
             </li>
             <li class="primary-buttons__item primary-buttons__item--is--active">
               <a href="#" class="primary-buttons__link">
@@ -46,7 +65,7 @@
 
         <div class="header__content">
           <div class="speaker">
-            <div class="speaker__text">
+            <article class="speaker__text">
               <h1 class="speaker__text-title">
                 Futuristic
                 <br>
@@ -57,46 +76,102 @@
               <p class="speaker__text-paragraph">
                 Luna’s performance is balanced and smooth in all frequency ranges which makes the music both naturally pleasant and distinctly more layered.
               </p>
-            </div>
+            </article>
 
-            <img
-              src="images/header.jpg"
-              alt="speaker"
-              class="speaker__image"
-            >
-            </img>
+            <picture class="speaker__image-wrapper">
+              <source media="(min-width: 768px)" srcset="images/header-desktop.png">
+              <img
+                src="images/header.png"
+                alt="speaker"
+                class="speaker__image"
+              >
+              </img>
+            </picture>
           </div>
         </div>
       </div>
     </header>
 
+    <nav class="menu page__menu" id="menu">
+      <div class="container">
+        <div class="menu__content">
+          <div class="menu__top page__top-actions">
+            <a href="/" class="logo">
+              <img
+                src="images/logo.svg"
+                alt="Kickstarter logo"
+                class="logo__image menu__logo"
+              >
+            </a>
+
+            <a href="#" class="icon icon--close">
+              <span class="icon--close-line"></span>
+              <span class="icon--close-line"></span>
+            </a>
+          </div>
+
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a href="#our-story" class="menu__link">
+                our story
+              </a>
+            </li>
+
+            <li class="menu__item">
+              <a href="#about-us" class="menu__link">
+                about us
+              </a>
+            </li>
+
+            <li class="menu__item">
+              <a href="#technology" class="menu__link">
+                technology
+              </a>
+            </li>
+
+            <li class="menu__item">
+              <a href="#features" class="menu__link">
+                features
+              </a>
+            </li>
+
+            <li class="menu__item">
+              <a href="#get-in-touch" class="menu__link">
+                get in touch
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <nav class="sub-nav">
       <ul class="sub-nav__list">
         <li class="sub-nav__item">
           <a
-            href="#"
+            href="#our-story"
             class="link sub-nav__link sub-nav__link--is--active"
           >
             our story
           </a>
         </li>
         <li class="sub-nav__item">
-          <a href="#" class="link sub-nav__link">
+          <a href="#about-us" class="link sub-nav__link">
             about us
           </a>
         </li>
         <li class="sub-nav__item">
-          <a href="#" class="link sub-nav__link">
+          <a href="#technology" class="link sub-nav__link">
            technology
           </a>
         </li>
         <li class="sub-nav__item">
-          <a href="#" class="link sub-nav__link">
+          <a href="#features" class="link sub-nav__link">
             features
           </a>
         </li>
         <li class="sub-nav__item">
-          <a href="#" class="link sub-nav__link">
+          <a href="#get-in-touch" class="link sub-nav__link">
             get in touch
           </a>
         </li>
@@ -174,19 +249,19 @@
         </div>
       </section>
 
-      <figure class="presentation">
+      <figure class="presentation" id="our-story">
         <img
-          src="./images/video.jpg"
-          alt="video about speaker"
+          src="./images/presentation.jpg"
+          alt="presentation about speaker"
           class="presentation__image"
         >
         <figcaption></figcaption>
       </figure>
 
-      <section class="about-us">
+      <section class="about-us" id="about-us">
         <div class="container">
-          <div class="about-us__content">
-            <h2 class="title about-us__title">
+          <article class="about-us__content">
+            <h2 class="page__title about-us__title">
               designed for the future
             </h2>
 
@@ -208,22 +283,22 @@
                 see more about us
               </a>
             </div>
-          </div>
+          </article>
         </div>
       </section>
 
-      <section class="technology">
+      <section class="technology" id="technology">
         <div class="container">
-          <h2 class="title technology__title">
+          <h2 class="page__title technology__title">
             technology
           </h2>
         </div>
 
         <picture class="technology__image-wrapper">
-          <source media="(min-width: 1280px)" srcset="images/techology-desktop.jpg">
-          <source media="(min-width: 768px)" srcset="images/technology-tablet.jpg">
+          <source media="(min-width: 1280px)" srcset="images/technology-desktop.png">
+          <source media="(min-width: 768px)" srcset="images/technology-tablet.png">
           <img
-            src="images/technology.jpg"
+            src="images/technology.png"
             alt="technology photo"
             class="technology__image"
           >
@@ -258,10 +333,20 @@
         </div>
       </section>
 
-      <section class="questions">
+      <section class="features" id="features">
+        <div class="container">
+          <h2 class="page__title features__title">
+            features
+          </h2>
+
+
+        </div>
+      </section>
+
+      <section class="questions" id="get-in-touch">
         <div class="container">
           <div class="questions__content">
-            <h2 class="title questions__title">
+            <h2 class="page__title questions__title">
               do you have any questions?
             </h2>
 
@@ -292,63 +377,10 @@
       </section>
     </main>
 
-    <nav class="menu page__menu" id="menu">
-      <div class="container">
-        <div class="menu__content">
-          <div class="menu__top top-actions">
-            <a href="/" class="logo">
-              <img
-                src="images/logo.svg"
-                alt="Kickstarter logo"
-                class="logo__image menu__logo"
-              >
-            </a>
-
-            <a href="#" class="icon icon--close">
-              <span class="icon--close-line"></span>
-              <span class="icon--close-line"></span>
-            </a>
-          </div>
-
-          <ul class="menu__list">
-            <li class="menu__item">
-              <a href="#" class="menu__link">
-                our story
-              </a>
-            </li>
-
-            <li class="menu__item">
-              <a href="#about-us" class="menu__link">
-                about us
-              </a>
-            </li>
-
-            <li class="menu__item">
-              <a href="#technology" class="menu__link">
-                technology
-              </a>
-            </li>
-
-            <li class="menu__item">
-              <a href="#features" class="menu__link">
-                features
-              </a>
-            </li>
-
-            <li class="menu__item">
-              <a href="#get-in-touch" class="menu__link">
-                get in touch
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
     <footer class="footer">
       <div class="container">
         <div class="footer__content">
-          <a class="footer__arrow-wrapper">
+          <a href="#" class="footer__arrow-wrapper">
             <img
               src="images/arrow-up.svg"
               alt="arrow up"
@@ -368,9 +400,27 @@
           </a>
 
           <div class="footer__soc-media">
-            <a href="#" class="link footer__icon"></a>
-            <a href="#" class="link footer__icon"></a>
-            <a href="#" class="link footer__icon"></a>
+            <a
+              rel="noopener"
+              target="_blank"
+              href="https://www.facebook.com/"
+              class="link footer__icon"
+            >
+            </a>
+            <a
+              rel="noopener"
+              target="_blank"
+              href="https://twitter.com/"
+              class="link footer__icon"
+            >
+            </a>
+            <a
+              rel="noopener"
+              target="_blank"
+              href="https://instagram.com/"
+              class="link footer__icon"
+            >
+            </a>
           </div>
 
           <p class="footer__text">

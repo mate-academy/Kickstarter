@@ -1,16 +1,12 @@
 .presentation {
   position: relative;
-  height: 246px;
-  width: 100%;
+  @include width-height(100%, 246px);
   cursor: pointer;
 
   &::after {
     content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    @include width-height(100%, 100%);
+    @include position_top_left(absolute, 0, 0);
     z-index: 1;
 
     transition: background-color 0.3s;
@@ -20,12 +16,9 @@
     --play-size: 108px;
 
     content: "play";
-    position: absolute;
+    @include position_top_left(absolute, 50%, 50%);
     z-index: 2;
-    width: var(--play-size);
-    height: var(--play-size);
-    left: 50%;
-    top: 50%;
+    @include width-height(var(--play-size), var(--play-size));
     transform: translate(-50%, -50%);
     border-top-left-radius: var(--play-size);
     border-top-right-radius: var(--play-size);
@@ -35,11 +28,9 @@
     border: 1px solid $darkWhite;
 
     font-family: "DIN Pro", sans-serif;
-    font-size: 14px;
+    @include font-settings(14px, var(--play-size), center);
     font-weight: 500;
-    line-height: var(--play-size);
     text-transform: uppercase;
-    text-align: center;
     color: $darkWhite;
 
     @include onTablet {
@@ -61,9 +52,7 @@
     content: "";
 
     background-image: url(../images/icons/triangle.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 14px;
+    @include background-settings(no-repeat, center, 14px);
   }
 
   @include onTablet {
@@ -75,8 +64,7 @@
   }
 
   &__image {
-    width: 100%;
-    height: 100%;
+    @include width-height(100%, 100%);
     object-fit: cover;
   }
 }

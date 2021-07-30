@@ -7,22 +7,25 @@
   }
 
   @include onDesktop {
-    flex-direction: row;
-    justify-content: space-between;
+    @include flex-settings(row, space-between);
+  }
+
+  &__image-wrapper {
+    margin: 0 -30px;
+    order: 1;
   }
 
   &__image {
+    width: 100%;
     min-height: 245px;
-    margin: -30px;
-    order: 1;
 
     object-fit: cover;
-    object-position: left;
 
     @include onTablet {
       height: 365px;
-      margin: 0;
+      padding-left: 30px;
       order: 2;
+      object-position: left;
     }
 
     @include onDesktop {
@@ -32,9 +35,7 @@
   }
 
   &__text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex-settings(column, unset, center);
     order: 2;
 
     @include onTablet {
@@ -66,7 +67,6 @@
     }
 
     &-paragraph {
-      width: 260px;
       margin-top: 23px;
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 300;

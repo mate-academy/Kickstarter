@@ -1,11 +1,8 @@
 .about-us {
   font-family: "Helvetica Neue", sans-serif;
-  background-color: $white;
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    @include flex-settings(column, unset, flex-start);
     padding-bottom: 10px;
 
     @include onTablet {
@@ -23,12 +20,9 @@
     line-height: 55px;
 
     @include onTablet {
-      position: absolute;
+      @include position_top_left(absolute, unset, 38%);
       width: 430px;
-      left: 286px;
       padding-top: 8px;
-      font-size: 56px;
-      line-height: 72px;
     }
 
     @include onDesktop {
@@ -49,16 +43,14 @@
 
   &__text {
     padding-top: 30px;
-    font-size: 14px;
+    @include font-settings(14px, 21px);
     font-weight: lighter;
-    line-height: 21px;
     color: $grey;
 
     @include onTablet {
       width: 340px;
       padding-top: 170px;
-      font-size: 16px;
-      line-height: 24px;
+      @include font-settings(16px, 24px);
     }
 
     @include onDesktop {
@@ -70,18 +62,15 @@
     position: relative;
     display: block;
     margin-top: 30px;
-    font-size: 12px;
+    @include font-settings(12px, 15px);
     font-weight: 500;
-    line-height: 15px;
     color: $turquoise;
     text-transform: uppercase;
   }
 
   &__link::after {
     content: "";
-    position: absolute;
-    top: 20px;
-    left: 0;
+    @include position_top_left(absolute, 20px, 0);
     width: 53px;
     border-bottom: 1px solid $turquoise;
     box-sizing: border-box;

@@ -1,11 +1,7 @@
 .footer {
-  background-color: $white;
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flex-settings(column, center, center);
     padding-top: 53px;
 
     @include onTablet {
@@ -18,8 +14,7 @@
   }
 
   &__arrow-wrapper {
-    display: flex;
-    justify-content: flex-end;
+    @include flex-settings(unset, flex-end);
     width: 100%;
     cursor: pointer;
   }
@@ -68,34 +63,24 @@
   }
 
   &__icon:first-child {
-    width: 11px;
-    height: 19px;
+    @include width-height(11px, 19px);
     background-image: url(../images/social-media/facebook.svg);
-    background-position: 50%;
-    background-size: contain;
-    background-repeat: no-repeat;
+    @include bg-size_position_repeat(contain, 50%, no-repeat);
 
     transition: background-image 0.3s;
   }
 
   &__icon:nth-child(2) {
-    width: 22px;
-    height: 17px;
+    @include width-height(22px, 17px);
     background-image: url(../images/social-media/twitter.svg);
-    background-position: 50%;
-    background-size: contain;
-    background-repeat: no-repeat;
+    @include bg-size_position_repeat(contain, 50%, no-repeat);
 
     transition: background-image 0.3s;
   }
 
   &__icon:last-child {
-    width: 18px;
-    height: 18px;
     background-image: url(../images/social-media/instagram.svg);
-    background-position: 50%;
-    background-size: contain;
-    background-repeat: no-repeat;
+    @include bg-size_position_repeat(contain, 50%, no-repeat);
 
     transition: background-image 0.3s;
   }
@@ -116,17 +101,14 @@
     width: 260px;
     margin: 23px 0 50px;
     font-family: "Helvetica Neue", sans-serif;
-    font-size: 12px;
+    @include font-settings(12px, 21px, center);
     font-weight: lighter;
-    line-height: 21px;
-    text-align: center;
     color: $lightGrey;
 
     @include onTablet {
       width: 520px;
       margin: 108px 0 50px;
-      font-size: 14px;
-      line-height: 21px;
+      @include font-settings(14px, 21px, center);
     }
   
     @include onDesktop {

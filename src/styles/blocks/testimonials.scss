@@ -1,7 +1,6 @@
 .testimonials {
   height: 340px;
   padding-top: 78px;
-  background-color: $white;
 
   @include onTablet {
     height: 530px;
@@ -12,17 +11,13 @@
   }
 
   &__background {
-    width: 208px;
-    height: 170px;
+    @include width-height(208px, 170px);
 
-    background-image: url(../images/testimonial-background.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    background-image: url(../images/testimonial-background.png);
+    @include bg-size_position_repeat(contain, center, no-repeat);
 
     @include onTablet {
-      width: 235px;
-      height: 190px;
+      @include width-height(235px, 190px);
     }
   }
 
@@ -31,16 +26,13 @@
     bottom: 155px;
     width: 260px;
     font-family: "DIN Pro", sans-serif;
-    font-size: 14px;
+    @include font-settings(14px, 21px, center);
     font-weight: bold;
-    line-height: 21px;
-    text-align: center;
 
     @include onTablet {
       width: 703px;
       bottom: 115px;
-      font-size: 24px;
-      line-height: 36px;
+      @include font-settings(24px, 36px);
       letter-spacing: 0.3px;
     }
 
@@ -51,14 +43,11 @@
   }
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex-settings(column, unset, center);
   }
 
   &__person {
-    display: flex;
-    flex-direction: column;
+    @include flex-settings(column);
     align-self: center;
     position: relative;
     bottom: 110px;
@@ -89,11 +78,9 @@
   &__link {
     padding-top: 20px;
     font-family: "Helvetica Neue", sans-serif;
-    font-size: 16px;
+    @include font-settings(16px, 27px, center);
     font-weight: 500;
-    line-height: 27px;
     color: $granit;
-    text-align: center;
 
     transition: color 0.3s;
 
@@ -105,10 +92,8 @@
   &__position {
     padding-top: 7px;
     font-family: "Helvetica Neue", sans-serif;
-    font-size: 14px;
+    @include font-settings(14px, 17px, center);
     font-weight: lighter;
-    line-height: 17px;
-    text-align: center;
     color: $grey;
   }
 }
