@@ -1,0 +1,83 @@
+.design {
+  display: grid;
+  grid-column: 1fr 1fr;
+  grid-row: 1fr 1fr;
+  grid-template-areas: "img title"
+  "img text";
+  gap: 20px;
+  width: 990px;
+
+  @include onTablet {
+    width: 100%;
+  }
+
+  @include onMobile {
+    display: block;
+    width: 310px;
+    margin: 0 auto;
+  }
+
+  &__block-img {
+    grid-area: img;
+
+    @include onMobile {
+      width: 310px;
+      height: 210px;
+    }
+  }
+
+  &__block-title {
+    transform: translateX(-70px);
+    grid-area: title;
+    font-size: 37px;
+    line-height: 55px;
+    text-align: left;
+    color: #333;
+
+    @include onMobile {
+      margin: 80px 0 40px;
+      transform: translateX(0);
+    }
+  }
+  
+  &__block-description {
+    grid-area: text;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: 12px;
+    color: #7c7c7c;
+
+    @include onMobile {
+      margin: 28px 0 80px;
+    }
+  }
+  
+  &__block-link {
+    font-family: "Helvetica Neue", sans-serif;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #0db2b3;
+
+    @include onMobile {
+      margin-top: 42px;
+    }
+
+    &:hover::after {
+      width: 128px;
+    }
+
+    &::after {
+      position: relative;
+      top: 6px;
+      content: "";
+      display: block;
+      height: 1px;
+      width: 53px;
+      background-color: #0db2b3;
+      transition: width 0.3s;
+    }
+  }
+}

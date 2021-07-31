@@ -1,26 +1,31 @@
 .header {
-  display: flex;
+  display: block;
+  margin: 0 34px;
+
+  @include onMobile {
+    display: none;
+  }
+
+  @include onTablet {
+    margin: 0 34px;
+  }
 
   &__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    @include onMobile {
-      margin: 10px 30px 0;
-    }
   }
 
-  &__menu-opener {
-    display: block;
-    width: 24px;
-    height: 14px;
-    background-image: url(../images/menu.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    border: none;
-  }
+  // &__menu-opener {
+  //   display: block;
+  //   width: 24px;
+  //   height: 14px;
+  //   background-image: url(../images/menu.svg);
+  //   background-repeat: no-repeat;
+  //   background-position: center;
+  //   background-size: cover;
+  //   border: none;
+  // }
 
   &__flex {
     display: flex;
@@ -35,7 +40,9 @@
     line-height: 21px;
     width: 100px;
     height: 48px;
+    margin: 0 12px;
     color: $color-gray;
+    transition-duration: 0.5s;
   }
 
   &__nav-link:hover {

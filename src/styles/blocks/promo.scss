@@ -1,14 +1,17 @@
 .promo {
-  // border: 1px solid green;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 30px;
+  gap: 20px;
   overflow: hidden;
+  margin: 0 auto;
 
   @include onMobile {
     display: flex;
     flex-direction: column;
-    margin: 0 30px;
+    width: 330px;
+  }
+
+  @include onTablet {
   }
 
   &__text {
@@ -23,7 +26,6 @@
   }
 
   &__title {
-    font-family: "DIN Pro", sans-serif;
     font-weight: bold;
     font-size: 48px;
     line-height: 130%;
@@ -41,13 +43,19 @@
   }
 
   &__img {
+    display: block;
     margin-top: 88px;
-    overflow: hidden;
 
     @include onMobile {
-      margin-top: 20px;
-      min-width: 320px;
-      height: 245px;
+      display: none;
+    }
+
+    &--mobile {
+      display: none;
+
+      @include onMobile {
+        display: block;
+      }
     }
   }
 }
