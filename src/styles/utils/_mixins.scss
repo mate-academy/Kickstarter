@@ -1,6 +1,52 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onMobile {
+  @media (max-width: 768px) {
+    @content;
   }
+}
+
+@mixin onTablet {
+  @media (min-width: 769px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin h2-title {
+  font-family: "Din pro", sans-serif;
+  font-size: 56px;
+  line-height: 72px;
+  color: $gray-color;
+  text-transform: uppercase;
+}
+
+@mixin h2-title-mobile {
+  font-family: "Din pro", sans-serif;
+  font-size: 37px;
+  color: $gray-color;
+  text-transform: uppercase;
+}
+
+@mixin flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin small-font {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: $small-font-size;
+}
+
+@mixin middle-font {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: $middle-font-size;
+}
+
+@mixin large-font {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: $large-font-size;
 }

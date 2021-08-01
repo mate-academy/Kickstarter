@@ -1,0 +1,109 @@
+.about-us {
+  &__block {
+    margin: 0 30px;
+
+    @include onTablet {
+      grid-template-rows: 1fr 1fr;
+      margin: 0 30px 0 0;
+    }
+
+    @include onDesktop {
+      grid-template-rows: 1fr 1fr;
+      margin: 0 124px;
+    }
+  }
+
+  &__title {
+    margin: 8px 0 30px;
+
+    @include h2-title;
+
+    @include onMobile {
+      @include h2-title-mobile;
+      line-height: 55px;
+    }
+
+    @include onTablet {
+      grid-row: 1 / 2;
+      z-index: 5;
+    }
+
+    @include onDesktop {
+      grid-row: 1 / 2;
+      z-index: 5;
+    }
+  }
+
+  &__photo {
+    height: 210px;
+    
+    @include onMobile {
+      margin-bottom: 30px;
+    }
+
+    background-image: url(../images/about-us.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      position: absolute;
+      grid-row: 1 / 3;
+      width: 48%;
+      height: 415px;
+    }
+
+    @include onDesktop {
+      grid-row: 1 / 3;
+      width: 100%;
+      height: 388px;
+    }
+  }
+
+  &__discribe {
+    @include onDesktop {
+      grid-row: 2 / 3;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    font-family: "Helvetica Neue", sans-serif;
+    line-height: 24px;
+    color: #7c7c7c;
+  }
+
+  &__link {
+    margin-bottom: 38px;
+
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: $small-font-size;
+    line-height: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #0db2b3;
+
+    &::after {
+      content: "";
+      display: block;
+      margin-top: 6px;
+
+      width: 52px;
+      height: 2px;
+      background-color: #0db2b3;
+
+      transition: width $transition-time;
+    }
+
+    // &:hover {
+    //   &::after {
+    //       width: 126px;
+    //   }
+    // }
+
+    &:hover::after {
+      width: 120px;
+    }
+  }
+}

@@ -1,0 +1,104 @@
+.contact-us {
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1020px;
+
+    margin: 0 auto;
+  
+    @include onMobile {
+      flex-direction: column;
+      @include flex-center;
+    }
+  }
+
+  &__title {
+    @include h2-title;
+
+    @include onMobile {
+      margin-bottom: 30px;
+      font-size: 37px;
+      line-height: 46px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    min-width: 438px;
+
+    @include onTablet {
+      min-width: 340px;
+    }
+
+    @include onMobile {
+      min-width: 100%;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding-left: 32px;
+
+    border: 1px solid #828282;
+    box-sizing: border-box;
+    background-color: transparent;
+
+    @include middle-font;
+    line-height: 19px;
+    color: #828282;
+
+    &--email {
+      height: 48px;
+      margin-bottom: 20px;
+
+      transition: outline $transition-time;
+
+      &:hover {
+        outline: 2px ridge #828282;
+      }
+    }
+
+    &--textarea {
+      height: 112px;
+      margin-bottom: 30px;
+      padding-top: 16px;
+      resize: none;
+
+      transition: outline $transition-time;
+
+      @include onTablet {
+        height: 200px;
+      }
+
+      @include onMobile {
+        height: 128px;
+      }
+
+      &:hover {
+        outline: 2px ridge #828282;
+      }
+    }
+
+    &::placeholder {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      color: #bdbdbd;
+    }
+
+    &:focus {
+      border-color: transparent;
+      outline: 1px solid #0c797a;
+    }
+  }
+
+  &__button {
+    @include onTablet {
+      height: 40px;
+    }
+    background-color: #0db2b3;
+
+    &:hover {
+      background-color: #0c797a;
+    }
+  }
+}
