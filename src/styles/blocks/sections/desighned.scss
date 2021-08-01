@@ -1,32 +1,68 @@
 .desighned {
   
   &-grid {
-    grid-template-rows: auto 1fr 1fr;
+    
+    @include onTablet {
+      grid-template-rows: auto 1fr 1fr;
+    }
 
     &__item-img {
-      grid-row: 1 / span 3;
+      
+      @include onTablet {
+        grid-row: 1 / span 3;
+      }
     }
 
     &__item-title {
-      grid-row: 1 / span 1;
-      margin-bottom: 30px;
+      margin-bottom: 50px;
+
+      @include onSmallScreen {
+        order: -1;
+      }
+
+      @include onTablet {
+        grid-row: 1 / span 1;
+        margin-bottom: 30px;
+      }
     }
 
     &__item-description {
-      grid-row: 2 / span 2;
+
+      @include onTablet {
+        grid-row: 2 / span 2;
+      }
     }
   }
 
   &__main-img-container {
     display: block;
-    height: 388px;
+    overflow: hidden;
+
+    @include onSmallScreen {
+      margin-bottom: 29px;
+      max-height: 412px;
+    }
+  }
+
+  &__main-img {
+    object-fit: cover;
+    object-position: center;
+
+    @include onSmallScreen {
+      width: 100%;
+    }
   }
 
   &__description-content {
     margin: 0 0 30px;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: 21px;
     color: #7c7c7c;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
   &__description-link {

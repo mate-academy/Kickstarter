@@ -1,7 +1,44 @@
 .benefits {
+  &__grid {
+    grid-row-gap: 60px;
+  }
 
-  &-grid {
-    grid-template-rows: 2;
+  &__item-grid--second {
+
+    @include onSmallScreen {
+      display: none;
+    }
+
+    @include onTablet {
+      grid-column: 5 / 9;
+    }
+
+    @include onDesctop {
+      grid-column: 4 / 7;
+    }
+  }
+
+  &__item-grid--first {
+
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
+
+    @include onDesctop {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__item-grid--third {
+    @include onSmallScreen {
+      display: none;
+    }
+  }
+
+  &__item-grid--fourth {
+    @include onSmallScreen {
+      display: none;
+    }
   }
 
   &__card {
@@ -26,11 +63,16 @@
     }
     &-img {
       display: inline-block;
-      width: 50px;
-      height: 44px;
+      width: 58px;
+      height: 46px;
       margin-bottom: 48px;
       object-fit: contain;
       object-position: center;
+
+      @include onTablet {
+        width: 50px;
+        height: 44px;
+      }
     }
   }
 }
