@@ -1,5 +1,5 @@
 .header {
-  z-index: 1;
+  z-index: 2;
   box-sizing: border-box;
 
   &__content {
@@ -7,6 +7,16 @@
     justify-content: space-between;
     align-items: center;
     height: 75px;
+  }
+
+  &__link {
+    &-logo {
+      transition: transform 0.5s;
+    }
+
+    &-logo:hover {
+      transform: scale(1.2);
+    }
   }
 }
 
@@ -44,22 +54,27 @@
   }
 
   &__content {
+    z-index: 1;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
     align-items: center;
-    position: fixed;
+    position: absolute;
     width: 100%;
+    height: 70%;
     top: 75px;
-    right: 15%;
+    right: 0;
     left: 0;
     background-color: #f6f6f6;
     transition: transform 1s;
-    transform: translateY(-200px);
+    transform: translateY(-200%);
 
     @include onTablet {
       position: relative;
       top: 0;
       display: flex;
+      flex-direction: row;
       justify-content: space-between;
       align-items: center;
       width: 280px;
@@ -80,6 +95,37 @@
     &:checked + .bar__content {
       transform: translateY(0);
     }
+  }
 
+  &__mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60%;
+  }
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 99%;
+    height: 100%;
+    text-align: center;
+    
+    &:hover {
+      background: #eefafa;
+      box-shadow: 1px solid #cfeff0;
+    }
   }
 }
