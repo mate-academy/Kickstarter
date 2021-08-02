@@ -69,3 +69,15 @@ button.addEventListener('click', function() {
     button.classList.toggle('active');
   }
 });
+
+button.addEventListener('mouseleave', e => {
+  if (!button.classList.contains('active')) {
+    button.style.opacity = '0';
+  }
+});
+
+button.addEventListener('mouseenter', e => {
+  if (!button.classList.contains('active')) {
+    button.style.opacity = '1';
+  }
+});

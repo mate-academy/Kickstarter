@@ -31,7 +31,7 @@
     box-sizing: border-box;
     min-height: 680px;
     height: 100vh;
-    padding: 13px 0 75px;
+    padding: 13px 0 45px;
 
     @include onSmallScreen {
       padding-bottom: 20px;
@@ -79,12 +79,15 @@
     }
 
     &-specs-link {
+      display: inline-block;
+      padding: 5px 2px;
       color: #4f4f4f;
       text-transform: uppercase;
       text-decoration: none;
 
       &:hover {
         color: #333;
+        text-shadow: #0db2b3 1px 0 2px;
       }
 
       &--visible-tablet {
@@ -103,13 +106,23 @@
 
       &.active-language {
         color: #333;
-
         &::after {
           display: inline;
           content: " /";
+          text-shadow: none;
+        }
+        
+      }
+      @include onTablet {
+
+        display: inline-block;
+        padding: 5px 0;
+
+        &:hover {
+          text-shadow: #0db2b3 1px 0 2px;
         }
       }
-
+      
       &--visible-tablet {
         @include onSmallScreen {
           display: none;
@@ -129,11 +142,23 @@
       background-color: #000;
       cursor: pointer;
       border: none;
+      transition: all 0.3s linear;
 
       &--visible-tablet {
         @include onSmallScreen {
           display: none;
         }
+      }
+      @include onTablet {
+        
+        &:hover {
+          box-shadow: 0 2px 14px rgba(13, 178, 179, 0.46);
+        }
+
+        &:active {
+          box-shadow: 0 10px 0 rgba(23, 80, 80, 0.46);
+        }
+        
       }
     }
   }
