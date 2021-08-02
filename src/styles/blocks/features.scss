@@ -2,7 +2,7 @@
   position: relative;
 
   &__list {
-    list-style-position: inside;
+    padding-left: 20px;
   }
 
   &__title {
@@ -23,11 +23,21 @@
 
     &:last-child {
       margin-bottom: 0;
+
+      @include onTablet {
+        list-style: none;
+      }
+    }
+
+    &--blank {
+      @include mobileOnly {
+        display: none;
+      }
     }
   }
 
   &__img {
-    width: 90%;
+    width: 75%;
   }
 
   &__feature {
@@ -36,17 +46,12 @@
     background-color: $bg-color;
 
     @include onTablet {
-      margin-bottom: 70px;
       background-color: transparent;
 
       &:nth-child(4) {
         height: fit-content;
         margin-bottom: 0;
       }
-    }
-
-    @include onDesktop {
-      margin-bottom: 100px;
     }
 
     &:nth-child(3),
