@@ -1,13 +1,23 @@
 .header {
   display: block;
   margin: 0 34px;
-
-  @include onMobile {
-    display: none;
-  }
+  z-index: 5;
+  position: relative;
 
   @include onTablet {
     margin: 0 34px;
+  }
+
+  &__menu {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    cursor: pointer;
+
+    @include onMobile {
+      display: block;
+    }
   }
 
   &__nav {
@@ -16,19 +26,12 @@
     align-items: center;
   }
 
-  // &__menu-opener {
-  //   display: block;
-  //   width: 24px;
-  //   height: 14px;
-  //   background-image: url(../images/menu.svg);
-  //   background-repeat: no-repeat;
-  //   background-position: center;
-  //   background-size: cover;
-  //   border: none;
-  // }
-
   &__flex {
     display: flex;
+
+    @include onMobile {
+      display: none;
+    }
   }
 
   &__nav-link,
