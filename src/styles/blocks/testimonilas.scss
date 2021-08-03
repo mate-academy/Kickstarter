@@ -1,11 +1,13 @@
 .testimonials {
   position: relative;
   margin-top: 130px;
+  width: 100%;
+  align-items: center;
 
   &__container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    max-width: 560px;
     justify-content: center;
     align-items: center;
     z-index: 0;
@@ -51,27 +53,37 @@
   }
 
   @include onSmall {
+    &__container {
+      max-width: 1024px;
+    }
+
     &__text-box {
       width: 92%;
       height: 160px;
+      margin: 0 auto;
     }
 
     &__text {
+      width: 700px;
       font-family: DIN Pro, Arial, sans-serif;
       font-size: 24px;
       line-height: 36px;
       text-align: center;
       color: #333;
+      margin: 0 auto;
     }
 
     &__image {
-      //margin-top: 40px;
       transform: none;
     }
   }
 
   @include onLarge {
-    margin: 130px 327px 0;
+    margin-top: 130px;
+
+    &__container {
+      max-width: 1280px;
+    }
 
     &__image {
       transform: none;
