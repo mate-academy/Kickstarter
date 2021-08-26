@@ -38,8 +38,12 @@
     width: 24px;
     height: 14px;
     background-image: url(../images/mobile-menu-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     cursor: pointer;
     z-index: 3;
+    transition: background-image 0.3s;
   
     @include on-mobile {
       display: block;
@@ -48,6 +52,10 @@
   
   &__mobile-nav-toggler {
     display: none;
+
+    &:checked + label {
+      background-image: url(../images/close.png);
+    }
   
     &:checked ~ .mobile-nav {
       display: block;
