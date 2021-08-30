@@ -5,3 +5,81 @@
 body {
   background: $c-gray;
 }
+
+a {
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30px;
+
+  @include onTablet {
+    margin: 0 34px;
+  }
+
+  @include onDesktop {
+    margin: 0 120px;
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+  }
+
+  &__item {
+    text-transform: uppercase;
+    margin-right: 20px;
+    
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  &-butt {
+    display: inline-block;
+    color: #fff;
+    padding: 16px 32px;
+    background-color: #333;
+  }
+}
+
+.lang {
+  visibility: hidden;
+  text-transform: uppercase;
+  text-align: center;
+  &-en {
+    &::before {
+      content: "en";
+      visibility: visible;
+    }
+  }
+  &-ua {
+    &::before {
+      content: "ua";
+      visibility: visible;
+      color: #bdbdbd;
+    }
+  }
+}
+
+.logo {
+  height: 24px;
+  width: 160px;
+  background-image: url("../images/logo.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
