@@ -12,6 +12,25 @@
     background-image: url("../images/logo.svg");
   }
 
+  &__link {
+    font-size: 14px;
+    line-height: 17px;
+    color: $c-inactive-svg;
+    text-decoration: none;
+  }
+
+  &__choose-lang {
+    visibility: hidden;
+  }
+
+  &__label {
+    font-size: 14px;
+    line-height: 18px;
+    color: $c-label-color;
+    
+    @include scale;
+  }
+
   &__menu {
     display: inline-block;
     height: 14px;
@@ -21,6 +40,10 @@
     border: none;
 
     background-image: url("../images/menu.svg");
+
+    @include onTablet {
+      display: none;
+    }
   }
 
   &__image {
@@ -36,7 +59,7 @@
     text-align: center;
     text-transform: uppercase;
     line-height: 130%;
-    color: #333;
+    color: $c-dark-text;
   }
 
   &__text {
@@ -45,4 +68,9 @@
     line-height: 24px;
     text-align: center;
   }
+}
+
+#lang-en:checked ~ .container .header__label--en,
+#lang-ua:checked ~ .container .header__label--ua {
+  color: $c-dark-text;
 }
