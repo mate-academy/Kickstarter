@@ -1,9 +1,37 @@
 .design {
+  &__content {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, auto);
+      gap: 0 20px;
+      justify-items: flex-start;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    @include onTablet {
+      position: relative;
+      left: -90px;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+  }
+
   &__image {
     display: block;
     height: 100%;
     width: 100%;
     margin: 50px auto 30px;
+
+    @include onTablet {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 4;
+      margin: 0;
+    }
   }
 
   &__link {
