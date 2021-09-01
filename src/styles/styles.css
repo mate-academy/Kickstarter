@@ -66,6 +66,7 @@ h1 {
   max-width: 1200px;
 }
 .container--header {
+  position: relative;
   padding-top: 28px;
 }
 @media (min-width: 768px) {
@@ -111,11 +112,14 @@ h1 {
   line-height: 17px;
   color: #4f4f4f;
   text-decoration: none;
-  transition: color 0.4s, transform 0.4s;
+  transition: color 0.4s;
+  transition: transform 0.4s;
 }
 .header__link:hover {
   transform: scale(1.2);
   cursor: pointer;
+}
+.header__link:hover {
   color: #131313;
 }
 .header__list {
@@ -164,11 +168,16 @@ h1 {
   margin: 0;
   border: none;
   background-image: url("../images/menu.svg");
+  transition: transform 0.4s;
 }
 @media (min-width: 768px) {
   .header__menu {
     display: none;
   }
+}
+.header__menu:hover {
+  transform: scale(1.2);
+  cursor: pointer;
 }
 .header__content {
   display: flex;
@@ -242,10 +251,67 @@ h1 {
   line-height: 24px;
   text-align: center;
 }
+.header__menu-input {
+  display: none;
+}
 
 #lang-en:checked ~ .container .header__label--en,
 #lang-ua:checked ~ .container .header__label--ua {
   color: #333;
+}
+
+.nav {
+  position: absolute;
+  left: -100%;
+  background-color: #f7f7f7;
+  transition: left 0.4s;
+}
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav__item {
+  margin-bottom: 36px;
+}
+.nav__link {
+  display: block;
+  font-size: 24px;
+  text-decoration: none;
+  color: #7c7c7c;
+  transition: transform 0.4s, color 0.4s;
+}
+.nav__link:hover {
+  transform: scale(1.2);
+  color: #333;
+}
+.nav__link--close {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  display: block;
+  height: 18px;
+  width: 18px;
+  background-image: url("../images/close-menu.png");
+  cursor: pointer;
+}
+
+#menu-close:checked ~ .container .nav {
+  left: -100%;
+}
+
+#menu-open:checked ~ .container .header__menu {
+  display: none;
+}
+
+#menu-open:checked ~ .container .nav {
+  left: 0;
 }
 
 .advantages__nav {
@@ -266,11 +332,14 @@ h1 {
   display: block;
   text-decoration: none;
   color: #333;
-  transition: color 0.4s, transform 0.4s;
+  transition: color 0.4s;
+  transition: transform 0.4s;
 }
 .advantages__link:hover {
   transform: scale(1.2);
   cursor: pointer;
+}
+.advantages__link:hover {
   color: #131313;
 }
 @media (min-width: 768px) {
@@ -571,6 +640,7 @@ h1 {
   margin-bottom: 20px;
   padding: 16px 30px;
   border: 1px solid #828282;
+  font-family: Helvetica, sans-serif;
 }
 .questions__area::placeholder {
   font-family: Helvetica, sans-serif;
@@ -594,6 +664,9 @@ h1 {
   background-color: #0c797a;
 }
 
+.footer {
+  padding-bottom: 50px;
+}
 .footer__list {
   display: flex;
   justify-content: center;
@@ -627,7 +700,8 @@ h1 {
 }
 .footer__icon {
   fill: #4f4f4f;
-  transition: fill 0.4s, transform 0.4s;
+  transition: fill 0.4s;
+  transition: transform 0.4s;
 }
 .footer__icon:hover {
   transform: scale(1.2);
