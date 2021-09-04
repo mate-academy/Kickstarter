@@ -3,64 +3,20 @@
   @include width-height(100%, 246px);
   cursor: pointer;
 
-  &::after {
-    content: "";
-    @include width-height(100%, 100%);
-    @include position_top_left(absolute, 0, 0);
-    z-index: 1;
-
-    transition: background-color 0.3s;
-  }
-
-  &::before {
-    --play-size: 108px;
-
-    content: "play";
-    @include position_top_left(absolute, 50%, 50%);
-    z-index: 2;
-    @include width-height(var(--play-size), var(--play-size));
-    transform: translate(-50%, -50%);
-    border-top-left-radius: var(--play-size);
-    border-top-right-radius: var(--play-size);
-
-    border-bottom-left-radius: var(--play-size);
-    border-bottom-right-radius: var(--play-size);
-    border: 1px solid $darkWhite;
-
-    font-family: "DIN Pro", sans-serif;
-    @include font-settings(14px, var(--play-size), center);
-    font-weight: 500;
-    text-transform: uppercase;
-    color: $darkWhite;
-
-    @include onTablet {
-      font-size: 20px;
-      --play-size: 190px;
-    }
-
-    @include onDesktop {
-      --play-size: 232px;
-      font-size: 24px;
-    }
-  }
-
-  &:hover::after {
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-
-  &:hover::before {
-    content: "";
-
-    background-image: url(../images/icons/triangle.svg);
-    @include background-settings(no-repeat, center, 14px);
-  }
-
   @include onTablet {
     height: 400px;
   }
 
   @include onDesktop {
     height: 590px;
+  }
+
+  &__video {
+    width: 100%;
+    min-height: 250px;
+    max-height: 590px;
+    object-fit: cover;
+    object-position: center;
   }
 
   &__image {

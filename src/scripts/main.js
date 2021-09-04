@@ -9,3 +9,9 @@ subNavButtons.forEach(button => {
     this.classList.add('sub-nav__link--is--active');
   });
 });
+
+const video = document.querySelector('.presentation');
+
+video.addEventListener('click', function() {
+  this.paused ? this.play() : this.pause();
+});
