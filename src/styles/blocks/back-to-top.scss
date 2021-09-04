@@ -1,0 +1,33 @@
+.back-to-top {
+  position: absolute;
+  top: $scroll-length;
+  // right: 3em;
+  right: $back-to-top-right;
+  bottom: -$back-to-top-bottom;
+  pointer-events: none; // disable interaction with container element
+  transition: all 0.3s;
+
+  @include onTablet {
+    $back-to-top-right: 50px; // change var on media
+    $back-to-top-bottom: 80px;
+    right: 50px;
+  }
+
+  @include onDesktop {
+    right: 120px;
+  }
+
+  &__link {
+    display: inline-block;
+    // position: fixed; // `fixed` is fallback when `sticky` not supported
+    position: sticky;
+    top: calc(100vh - #{$back-to-top-bottom});
+    pointer-events: all;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.25);
+    }
+
+  }
+}
