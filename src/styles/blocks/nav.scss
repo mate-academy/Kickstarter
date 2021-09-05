@@ -2,12 +2,27 @@
   display: flex;
   justify-content: center;
 
+  @include onMobile {
+    justify-content: start;
+  }
+
   &__list {
     display: flex;
     justify-content: space-between;
     width: 786px;
     @include onMobile {
       flex-direction: column;
+      width: unset;
+    }
+  }
+
+  &__item {
+    @include onMobile {
+      margin-bottom: 30px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
