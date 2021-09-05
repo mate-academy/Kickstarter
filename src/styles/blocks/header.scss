@@ -1,166 +1,152 @@
 .header {
-  &__nav {
+  --container-padding: 30px;
+  &__top {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 28px 0 22px;
+    @include onTablet {
+      padding-bottom: 100px;
+    }
   }
 
-  &__tabl-desk-content {
+  &__menu-link {
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__links {
     display: none;
 
     @include onTablet {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 28px;
+      width: 251px;
+      color: $c-label-color;
     }
   }
 
-  &__link {
-    font-size: 14px;
-    line-height: 17px;
-    color: $c-inactive-svg;
-    text-decoration: none;
-    transition: color 0.4s;
-
-    @include scale;
-
-    &:hover {
-      color: $c-arrowup-color;
-    }
-  }
-
-  &__list {
+  &__languages {
     display: flex;
-    align-items: center;
-    list-style: none;
-  }
-
-  &__item {
-    margin-right: 3px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &__choose-lang {
-    position: absolute;
-    visibility: hidden;
-  }
-
-  &__label {
-    display: block;
+    justify-content: space-between;
+    width: 52px;
     font-size: 14px;
     line-height: 18px;
-    color: $c-label-color;
-
-    @include scale;
   }
 
-  &__buy-btn {
-    height: 48px;
+  &__buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 102px;
+    height: 48px;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
     background-color: $c-dark-text;
+    text-align: center;
     color: $c-white;
-    border: none;
-    transition: background-color 0.4s;
-    cursor: pointer;
-
-    &:hover {
-      background-color: $c-arrowup-color;
-    }
-  }
-
-  &__menu {
-    display: inline-block;
-    height: 14px;
-    width: 24px;
-    padding: 0;
-    margin: 0;
-    border: none;
-
-    background-image: url("../images/menu.svg");
-
-    @include onTablet {
-      display: none;
-    }
-
     @include scale;
   }
 
-  &__content {
+  &__main {
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-top: 30px;
-
     @include onTablet {
-      flex-direction: row;
-      margin-top: 136px;
-    }
-  }
+      flex-direction: row-reverse;
 
-  &__image {
-    display: block;
-    height: auto;
-    width: 100%;
-    min-width: 260px;
-    margin: 0 auto;
-
-    @include onTablet {
-      width: 65%;
+      margin-bottom: 132px;
     }
 
     @include onDesktop {
-      max-width: 800px;
+      margin-bottom: 121px;
     }
   }
 
-  &__product-description {
-    @include onMobile {
-      order: 2;
-    }
+  &__image-container {
+    width: 100%;
+    padding-bottom: 75%;
+    margin-bottom: 40px;
+    background-image: url("../images/headsets_mobile.png");
+    background-position: center left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
     @include onTablet {
-      max-width: 280px;
+      position: relative;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      height: 365px;
+      background-image: url("../images/header-img-tablet.png");
     }
+
     @include onDesktop {
-      max-width: 380px;
+      height: 464px;
+      background-image: url("../images/header-img-desktop.png");
+    }
+  }
+
+  &__text-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 $container-padding-mob 100px;
+
+    @include onTablet {
+      text-align: left;
+      padding: 0 0 0 $container-padding-tab;
+    }
+
+    @include onDesktop {
+      padding-left: $container-padding-desk;
     }
   }
 
   &__title {
+    @include onMobile {
+      padding: 0 var(--container-padding);
+    }
     margin-bottom: 24px;
-    font-size: 44px;
+    font-family: "DIN Pro", sans-serif;
     font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
+    font-size: 44px;
     line-height: 130%;
-    color: $c-dark-text;
+    text-transform: uppercase;
 
     @include onTablet {
+      margin: 28px 0 34px;
+      max-width: 340px;
       font-size: 48px;
-      margin-bottom: 34px;
     }
 
     @include onDesktop {
+      max-width: 378px;
       font-size: 64px;
+      margin: 80px 0 27px;
     }
   }
 
   &__text {
-    font-family: Helvetica, sans-serif;
-    font-size: 16px;
-    line-height: 24px;
-    text-align: center;
+    @include onMobile {
+      padding: 0 var(--container-padding);
+    }
+
+    @include onTablet {
+      max-width: 250px;
+    }
+
+    @include onDesktop {
+      max-width: 276px;
+    }
   }
 
-  &__menu-input {
+  &__nav {
     display: none;
+    @include onDesktop {
+      display: flex;
+    }
   }
-}
-
-#lang-en:checked ~ .container .header__label--en,
-#lang-ua:checked ~ .container .header__label--ua {
-  color: $c-dark-text;
 }
