@@ -1,0 +1,92 @@
+.presentation {
+  @include tablet {
+    @include grid;
+  }
+  justify-content: center;
+
+
+  &__block-photo {
+    position: relative;
+    order: 1;
+    width: 100vw;
+    margin-left: -$container-padding-mobile;
+    margin-right: -$container-padding-mobile;
+    margin-bottom: 40px;
+    overflow: hidden;
+
+    @include tablet {
+      margin-left: -$gap-columns-on-tablet;
+      margin-right: 0;
+      width: auto;
+      grid-column: -1 / -6;
+    }
+
+    @include desktop {
+      grid-column: -1 / -10;
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      padding-bottom: 75%;
+
+      @include tablet {
+        padding-bottom: 50%;
+      }
+    }
+  }
+
+
+  &__photo {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    top: -25%;
+    left: -15%;
+    right: -40%;
+    bottom: 40%;
+
+    @include tablet {
+
+    }
+
+  }
+
+  &__block-text {
+    grid-column: 1 / 4;
+
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin-right: -$gap-columns-on-tablet;
+      z-index: 1;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: DIN Pro;
+    font-size: 44px;
+    line-height: 130%;
+    text-align: center;
+    text-transform: uppercase;
+    color: $main-color;
+    margin-bottom: 24px;
+
+    @include tablet {
+      font-size: 48px;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: $main-color;
+  }
+}
