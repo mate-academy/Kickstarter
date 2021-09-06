@@ -1,0 +1,176 @@
+.features {
+  box-sizing: border-box;
+  position: relative;
+  background-color: #f2f2f2;
+
+  @include onTablet {
+    background-color: inherit;
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      display: grid;
+      grid-template-rows: max-content max-content max-content max-content;
+    }
+  }
+
+  &__title {
+    margin: 45px 30px 51px;
+    font-family: "DIN Pro";
+    font-size: 37px;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: $colorBrown;
+
+    @include onTablet {
+      margin: 0 34px 50px;
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__box-list {
+
+    &--1 {
+      @include onTablet {
+        margin-left: 304px;
+        margin-bottom: 50px;
+      }
+    }
+
+    &--2 {
+      margin-bottom: 70px;
+      margin: 34px;
+
+      @include onMobile {
+        display: none;
+      }
+    }
+
+    &--3 {
+      margin-left: 204px;
+
+      @include onMobile {
+        display: none;
+      }
+    }
+  }
+
+  &__subtitle {
+    margin: 0 30px 20px;
+    font-family: "DIN Pro";
+    font-size: 30px;
+    line-height: 37px;
+    text-transform: uppercase;
+    color: #0c797a;
+
+    @include onTablet {
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    margin: 0 30px 0;
+    padding: 0;
+  }
+
+  &__item {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 21px;
+    color: $colorBrown;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+
+  &__toggler-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 51px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__toggler-num-box {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__toggler-num {
+    content: "/";
+    display: block;
+    font-family: "DIN Pro";
+    font-size: 11px;
+    line-height: 14px;
+    color: #bdbdbd;
+
+    &::before {
+      content: "01";
+      font-family: "DIN Pro";
+      font-size: 16px;
+      line-height: 20px;
+      color: $colorBrown;
+    }
+
+    &::after {
+      content: "02";
+    }
+  }
+
+  &__background {
+    @include onTablet {
+      position: absolute;
+      right: 0;
+      bottom: 10%;
+      width: 86%;
+      height: 65%;
+      background-color: #f2f2f2;
+      z-index: -2;
+    }
+  }
+
+  &__box-img {
+    margin-left: -85px;
+    overflow: hidden;
+    
+    @include onTablet {
+      position: absolute;
+      bottom: 17%;
+      right: 5%;
+      margin-left: 0;
+      z-index: -1;
+    }
+  }
+
+  &__img {
+    position: relative;
+    left: 23%;
+    display: block;
+    width: 100%;
+    max-width: 450px;
+
+    @include onTablet {
+      max-width: 650px;
+      width: 650px;
+    }
+  }
+}

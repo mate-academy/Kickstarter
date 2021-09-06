@@ -1,0 +1,199 @@
+.header {
+  box-sizing: border-box;
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 27px;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &--logo {
+      width: 161px;
+      height: 26px;
+      margin-left: 30px;
+      background-image: url(../images/logo.svg);
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(130%);
+      }
+
+      @include onTablet {
+        margin-left: 34px;
+      }
+    }
+
+    &--menu-opener {
+      width: 24px;
+      height: 14px;
+      margin-right: 30px;
+      background-image: url(../images/menu.svg);
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+      margin-top: 100px;
+      margin-left: 34px;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__photo-box {
+    overflow: hidden;
+    max-width: 650px;
+
+    @include onTablet {
+      max-width: none;
+    }
+  }
+
+  &__photo {
+    width: 160%;
+    
+    @include onTablet {
+      width: 739px;
+    }
+  }
+
+  &__text-box {
+    margin: 0 auto;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin: 0;
+    }
+  }
+
+  &__title {
+    display: block;
+    font-family: "DIN Pro";
+    margin: 0 0 23px;
+    font-size: 44px;
+    line-height: 130%;
+    text-align: center;
+    text-transform: uppercase;
+    color: $colorBrown;
+
+    @include onTablet {
+      margin-bottom: 34px;
+      font-size: 48px;
+      text-align: left;
+    }
+  }
+
+  &__description {
+    display: block;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: $colorBrown;
+
+    @include onTablet {
+      margin: 0;
+      text-align: left;
+    }
+  }
+
+  &__menu-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 76px;
+    padding: 0 80px;
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    padding: 25px 20px;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $colorBrown;
+    text-decoration: none;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(150%);
+    }
+  }
+}
+
+.spec-box {
+  display: none;
+
+  @include onTablet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 34px;
+  
+    &__specs {
+      font-size: 14px;
+      line-height: 18px;
+      color: #4f4f4f;
+      text-decoration: none;
+    }
+  
+    &__language {
+      margin: 0 3px;
+      font-size: 14px;
+      line-height: 18px;
+      color: $colorBrown;
+
+      &::before {
+        content: "EN";
+        margin-left: 27px;
+      }
+
+      &::after {
+        content: "UA";
+        margin-right: 27px;
+        font-size: 14px;
+        line-height: 18px;
+        color: #828282;
+      }
+    }
+
+    &__buy {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 102px;
+      height: 48px;
+      font-size: 12px;
+      line-height: 15px;
+      text-align: center;
+      text-transform: uppercase;
+      background-color: $colorBrown;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}

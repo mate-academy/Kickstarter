@@ -1,0 +1,109 @@
+.questions {
+  box-sizing: border-box;
+  padding: 45px 30px 43px;
+
+  @include onTablet {
+    padding: 130px 34px 25px;
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    @include onTablet {
+      grid-template-columns: max-content 1fr;
+      display: grid;
+      gap: 20px;
+    }
+  }
+
+  &__title {
+    font-family: "DIN Pro";
+    text-transform: uppercase;
+    color: $colorBrown;
+
+    &--mobile {
+      margin-bottom: 30px;
+      font-size: 37px;
+      line-height: 46px;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      font-size: 56px;
+      line-height: 70px;
+
+      @include onMobile {
+        display: none;
+      }
+    }
+  }
+
+  &__forms {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__email {
+    padding-top: 15px;
+    padding-right: 56px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    border: 1px solid #828282;
+    background-color: inherit;
+
+    &::placeholder {
+      font-size: 16px;
+      line-height: 19px;
+      color: #bdbdbd;
+    }
+
+    @include onTablet {
+      margin-bottom: 19px;
+      padding-right: 146px;
+    }
+  }
+
+  &__message {
+    padding-top: 15px;
+    padding-right: 56px;
+    padding-bottom: 95px;
+    padding-left: 30px;
+    border: 1px solid #828282;
+    background-color: inherit;
+    resize: none;
+
+    &::placeholder {
+      font-family: "Europa-Grot";
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 19px;
+      color: #bdbdbd;
+    }
+
+    @include onTablet {
+      padding-right: 146px;
+      padding-bottom: 166px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 40px;
+    margin-top: 30px;
+    background-color: #0db2b3;
+    border: none;
+    font-size: 12px;
+    line-height: 15px;
+    color: #fff;
+    cursor: pointer;
+  }
+}
