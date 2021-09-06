@@ -1,0 +1,115 @@
+.footer {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
+  column-gap: 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(8, 1fr);
+  }
+   
+  @include onMobile {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__item--1 {
+    grid-column: 6 / 8;
+    grid-row: 1 / 1;
+
+    @include onTablet {
+      grid-column: 4 / 6;
+    }
+     
+    @include onMobile {
+      display: none;
+    }
+  }
+  
+  &__item--2 {
+    grid-column: 6 / 8;
+    grid-row: 2 / 2;
+
+    @include onTablet {
+      grid-column: 4 / 6;
+    }
+     
+    @include onMobile {
+      grid-column: 2 / 4;
+    }
+  }
+
+  &__item--3 {
+    grid-column: 4 / 10;
+    grid-row: 3 / 3;
+    align-self: end;
+
+    @include onTablet {
+      grid-column: 2 / 8;
+    }
+     
+    @include onMobile {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__item--4 {
+    grid-column: 11 / 12;
+    grid-row: 1 / 1;
+
+    @include onTablet {
+      grid-column: 8 / 9;
+      justify-self: end;
+    }
+
+    @include onMobile {
+      grid-column: 4 / 5;
+      justify-self: end;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 33px;
+    width: 48px;
+    height: 48px;
+  }
+
+  &__link {
+    width: 12px;
+    height: 12px;
+  }
+
+  &__img {
+    width: 20px;
+    height: 24px;
+    
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__copyright {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $light_gray;
+  }
+
+  &__button {
+    margin-top: 10px;
+    transition: 0.3s;
+
+    &:hover {
+      transform: translateY(-20%);
+    }
+  }
+}
