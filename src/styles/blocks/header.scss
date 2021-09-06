@@ -1,6 +1,15 @@
 .header {
   --container-padding: 30px;
-  padding-bottom: 45px;
+  @include onMobile {
+    padding-bottom: 100px;
+  }
+  @include onTablet {
+    padding-bottom: 128px;
+  }
+  @include onDesktop {
+    padding-bottom: 45px;
+  }
+  
   &__mobile-menu {
     position: fixed;
     top: 0;
@@ -63,10 +72,9 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    
     @include onTablet {
       flex-direction: row-reverse;
-
-      margin-bottom: 132px;
     }
 
     @include onDesktop {
@@ -80,19 +88,16 @@
     margin-bottom: 40px;
     background-image: url("../images/headsets_mobile.png");
     background-position: center left;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     z-index: -1;
     @include onTablet {
-      position: relative;
       padding-bottom: 0;
       margin-bottom: 0;
-      height: 365px;
       background-image: url("../images/header-img-tablet.png");
     }
 
     @include onDesktop {
-      height: 464px;
       background-image: url("../images/header-img-desktop.png");
     }
   }
@@ -101,8 +106,9 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 0 $container-padding-mob 100px;
-
+    @include onMobile {
+      padding: 0 $container-padding-mob 0;
+    }
     @include onTablet {
       text-align: left;
       padding: 0 0 0 $container-padding-tab;
@@ -135,10 +141,6 @@
   }
 
   &__text {
-    @include onMobile {
-      padding: 0 var(--container-padding);
-    }
-
     @include onTablet {
       max-width: 250px;
     }
