@@ -1,0 +1,54 @@
+.technology {
+  @include tablet {
+    @include grid;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: DIN Pro, sans-serif;
+    font-size: 37px;
+    line-height: 46px;
+    text-transform: uppercase;
+    color: $main-color;
+    margin-bottom: 40px;
+
+    @include tablet {
+      margin-bottom: 0;
+      grid-column: 2 / 9;
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__block-image {
+    position: relative;
+    margin: 0 #{-$container-padding-mobile};
+    box-sizing: border-box;
+    overflow: hidden;
+
+    @include tablet {
+      grid-column: 1 / 9;
+      margin: 0 #{-$container-padding-tablet};
+    }
+
+    @include desktop {
+      grid-column: 1 / 13;
+    }
+  }
+
+  &__image {
+    height: 360px;
+    object-position: left;
+    object-fit: cover;
+    transform: matrix(0.99, -0.14, 0.14, 0.99, 0, 0);
+    left: 0;
+
+    @include tablet {
+      height: 700px;
+    }
+
+    @include desktop {
+      transform: rotate(-7.85deg);
+    }
+  }
+}
