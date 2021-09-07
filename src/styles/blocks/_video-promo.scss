@@ -1,0 +1,78 @@
+.video-promo {
+  position: relative;
+  &__image {
+    width: 100%;
+  }
+
+  &__butt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    border: 1px solid #f3f4f5;
+    margin: 0 auto;
+    cursor: pointer;
+
+    width: 108px;
+    height: 108px;
+    transform: translate(-55%, -50%);
+    
+    transition: all 0.3s linear;
+
+    @include onTablet {
+      width: 190px;
+      height: 190px;
+    }
+
+    @include onDesktop {
+      width: 232px;
+      height: 232px;
+    }
+
+    &::after {
+      content: "Play";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-transform: uppercase;
+      font-family: "DIN Pro", sans-serif;
+      font-size: 14px;
+      color: #f3f4f5;
+
+      @include onTablet {
+        font-size: 18px;
+      }
+  
+      @include onDesktop {
+        font-size: 24px;
+      }
+    }
+
+    &:hover {
+      background-color: #f3f4f522;
+
+      &::after {
+        content: "";
+        height: 14px;
+        width: 14px;
+        background-image: url(../images/play.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        
+        @include onTablet {
+          height: 20px;
+          width: 20px;
+        }
+
+        @include onDesktop {
+          height: 26px;
+          width: 26px;
+        }
+      }
+
+    }
+  }
+
+}
