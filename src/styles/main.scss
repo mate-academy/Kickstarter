@@ -1,23 +1,228 @@
 @import "utils";
 @import "fonts";
-@import "typography";
-
-@import "./blocks/page.scss";
-@import "./blocks/container.scss";
-@import "./blocks/logo.scss";
-@import "./blocks/icon.scss";
-@import "./blocks/header.scss";
-@import "./blocks/nav.scss";
-@import "./blocks/anvantages.scss";
-@import "./blocks/our-story.scss";
-@import "./blocks/design.scss";
-@import "./blocks/technology.scss";
-@import "./blocks/features.scss";
-@import "./blocks/questions.scss";
-@import "./blocks/footer.scss";
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-color: #f7f7f7;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.header {
+  min-width: 320px;
+  padding: 13px 123px 150px;
+
+  &__container {
+    display: block;
+    width: 320px;
+    height: 245px;
+    margin-bottom: 40px;
+    background-image: url(../images/headsets_mobile.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onTablet {
+      width: 410px;
+      height: 365px;
+      background-image: url(../images/header-img-tablet.png);
+    }
+    @include onDesktop {
+      width: 830px;
+      height: 464px;
+      background-image: url(../images/header-img-desktop.png);
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+
+    @include onTablet {
+      flex-direction: row;
+      flex-wrap: wrap-reverse;
+    }
+
+    @include onDesktop {
+      flex-direction: row;
+      flex-wrap: wrap-reverse;
+      align-items: space-between;
+    }
+  }
+
+  &__article {
+
+    &--part-1 {
+      max-width: 380px;
+      font-size: 44px;
+      text-align: center;
+      text-transform: uppercase;
+      color: $mainColor;
+      margin: 0 $mobileIndent 22px $mobileIndent;
+
+      @include onTablet {
+        margin: 0 34px 34px;
+        text-align: left;
+      }
+    }
+
+    &--part-2 {
+      max-width: 280px;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: $mainColor;
+      margin: 0 $mobileIndent 100px $mobileIndent;
+
+      @include onTablet {
+        margin: 0 39px 126px;
+        text-align: left;
+      }
+    }
+  }
+
+  &__navigation--desktop {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__content--desk-tabl {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 0;
+    padding-bottom: 72px;
+  }
+
+  &__item {
+    text-align: center;
+    position: relative;
+    color: #333;
+    list-style: none;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  &__link {
+    color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+}
+
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  background-size: contain;
+  align-items: center;
+  width: 320px;
+  height: 76px;
+}
+
+.icon {
+  &__pin {
+    width: 160px;
+    height: 26px;
+    margin: 28px 75px 22px $mobileIndent;
+  }
+
+  &__menu--mobile {
+    background-image: url(../images/menu.svg);
+    width: 24px;
+    height: 14px;
+    background-repeat: no-repeat;
+    margin: $mobileIndent 15px $mobileIndent;
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}
+
+.systems {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    padding-bottom: 130px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+    padding-bottom: 150px;
+  }
+
+  &__part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+
+  &__wrap {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 46px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 46px;
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $mainColor;
+    padding-bottom: 50px;
+    max-width: 276px;
+
+    &--small {
+      padding-bottom: 20px;
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #7c7c7c;
+    max-width: 276px;
+  }
 }
