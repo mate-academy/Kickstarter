@@ -7,6 +7,12 @@
     background-color: inherit;
   }
 
+  @include onNotebook {
+    margin: 0 auto;
+    width: calc(100% - 246px);
+    max-width: 1440px;
+  }
+
   &__box {
     display: flex;
     flex-direction: column;
@@ -14,6 +20,10 @@
     @include onTablet {
       display: grid;
       grid-template-rows: max-content max-content max-content max-content;
+    }
+
+    @include onNotebook {
+      margin: 0 auto;
     }
   }
 
@@ -30,6 +40,12 @@
       font-size: 56px;
       line-height: 70px;
     }
+
+    @include onNotebook {
+      width: calc(100% - 246px);
+      max-width: 1440px;
+      margin: 0 auto 24px;
+    }
   }
 
   &__box-list {
@@ -38,6 +54,11 @@
       @include onTablet {
         margin-left: 304px;
         margin-bottom: 50px;
+      }
+
+      @include onNotebook {
+        margin-left: 43%;
+        margin-bottom: 0;
       }
     }
 
@@ -48,6 +69,10 @@
       @include onMobile {
         display: none;
       }
+
+      @include onNotebook {
+        margin-left: 10%;
+      }
     }
 
     &--3 {
@@ -55,6 +80,11 @@
 
       @include onMobile {
         display: none;
+      }
+
+      @include onNotebook {
+        margin-left: 23%;
+        margin-bottom: 121px;
       }
     }
   }
@@ -146,6 +176,12 @@
       background-color: #f2f2f2;
       z-index: -2;
     }
+
+    @include onNotebook {
+      width: 80%;
+      bottom: 15%;
+      height: 66%;
+    }
   }
 
   &__box-img {
@@ -159,6 +195,11 @@
       margin-left: 0;
       z-index: -1;
     }
+
+    @include onNotebook {
+      width: 786px;
+      right: 9%;
+    }
   }
 
   &__img {
@@ -171,6 +212,11 @@
     @include onTablet {
       max-width: 650px;
       width: 650px;
+    }
+
+    @include onNotebook {
+      max-width: 786px;
+      width: 786px;
     }
   }
 }

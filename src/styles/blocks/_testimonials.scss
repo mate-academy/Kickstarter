@@ -5,6 +5,12 @@
     margin: 40px 34px 130px;
   }
 
+  @include onNotebook {
+    width: calc(100% - 246px);
+    max-width: 1440px;
+    margin: 62px auto 150px;
+  }
+
   &__box {
     position: relative;
     display: flex;
@@ -29,28 +35,26 @@
   }
 
   &__citation {
+    width: 260px;
+    margin: 12px auto 40px;
     font-family: "DIN Pro", sans-serif;
+    font-size: 14px;
+    line-height: 21px;
     text-align: center;
     color: $colorBrown;
 
-    &--mobile {
-      margin: 12px auto 40px;
-      font-size: 14px;
-      line-height: 21px;
-
-      @include onTablet {
-        display: none;
-      }
+    @include onTablet {
+      width: 700px;
+      margin: 73px auto 30px;
+      font-size: 24px;
+      line-height: 36px;
     }
 
-    &--tablet {
-      margin: 73px auto 30px;
+    @include onNotebook {
+      width: 745px;
+      margin: 53px auto 30px;
       font-size: 23px;
       line-height: 36px;
-
-      @include onMobile {
-        display: none;
-      }
     }
   }
 

@@ -9,7 +9,15 @@
     background-repeat: no-repeat;
     background-size: contain;
 
+    @include onNotebook {
+      width: calc(100% - 246px);
+      max-width: 1440px;
+      padding: 0;
+      margin: 13px auto 0;
+    }
+
     &--logo {
+      display: block;
       width: 161px;
       height: 26px;
       margin-left: 30px;
@@ -22,6 +30,10 @@
 
       @include onTablet {
         margin-left: 34px;
+      }
+
+      @include onNotebook {
+        margin: 0;
       }
     }
 
@@ -45,13 +57,28 @@
       margin-left: 34px;
       margin-bottom: 50px;
     }
+
+    @include onNotebook {
+      justify-content: space-between;
+      width: calc(100% - 246px);
+      max-width: 1440px;
+      margin: 180px auto 132px;
+  
+    }
   }
 
   &__photo-box {
     overflow: hidden;
-    max-width: 650px;
+    
+    @include onMobile {
+      max-width: 650px;
+    }
 
     @include onTablet {
+      max-width: none;
+    }
+
+    @include onNotebook {
       max-width: none;
     }
   }
@@ -61,6 +88,10 @@
     
     @include onTablet {
       width: 739px;
+    }
+
+    @include onNotebook {
+      width: 939px;
     }
   }
 
@@ -90,10 +121,17 @@
       font-size: 48px;
       text-align: left;
     }
+
+    @include onNotebook {
+      margin-bottom: 27px;
+      font-size: 64px;
+      line-height: 130%;
+    }
   }
 
   &__description {
     display: block;
+    width: 230px;
     margin: 0 auto;
     font-size: 16px;
     line-height: 24px;
@@ -101,8 +139,15 @@
     color: $colorBrown;
 
     @include onTablet {
-      margin: 0;
+      width: 220px;
       text-align: left;
+      margin: 0;
+    }
+
+    @include onNotebook {
+      width: 250px;
+      text-align: left;
+      margin: 0;
     }
   }
 
@@ -115,6 +160,10 @@
 
     @include onMobile {
       display: none;
+    }
+
+    @include onNotebook {
+      padding: 0;
     }
   }
 
@@ -131,7 +180,7 @@
   }
 
   &__link {
-    padding: 25px 20px;
+    padding: 25px 15px;
     font-size: 14px;
     line-height: 21px;
     text-align: center;
@@ -153,47 +202,51 @@
     justify-content: space-between;
     align-items: center;
     margin-right: 34px;
+  }
+
+  @include onNotebook {
+    margin: 0;
+  }
   
-    &__specs {
+  &__specs {
+    font-size: 14px;
+    line-height: 18px;
+    color: #4f4f4f;
+    text-decoration: none;
+  }
+
+  &__language {
+    margin: 0 3px;
+    font-size: 14px;
+    line-height: 18px;
+    color: $colorBrown;
+
+    &::before {
+      content: "EN";
+      margin-left: 27px;
+    }
+
+    &::after {
+      content: "UA";
+      margin-right: 27px;
       font-size: 14px;
       line-height: 18px;
-      color: #4f4f4f;
-      text-decoration: none;
+      color: #828282;
     }
-  
-    &__language {
-      margin: 0 3px;
-      font-size: 14px;
-      line-height: 18px;
-      color: $colorBrown;
+  }
 
-      &::before {
-        content: "EN";
-        margin-left: 27px;
-      }
-
-      &::after {
-        content: "UA";
-        margin-right: 27px;
-        font-size: 14px;
-        line-height: 18px;
-        color: #828282;
-      }
-    }
-
-    &__buy {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 102px;
-      height: 48px;
-      font-size: 12px;
-      line-height: 15px;
-      text-align: center;
-      text-transform: uppercase;
-      background-color: $colorBrown;
-      color: #fff;
-      text-decoration: none;
-    }
+  &__buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 48px;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: $colorBrown;
+    color: #fff;
+    text-decoration: none;
   }
 }

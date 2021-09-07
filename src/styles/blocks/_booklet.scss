@@ -6,6 +6,11 @@
     margin: 0 auto;
   }
 
+  @include onNotebook {
+    width: calc(100% - 246px);
+    max-width: 1440px;
+  }
+
   &__card {
     @include onTablet {
       display: grid;
@@ -15,12 +20,23 @@
       margin: 127px 34px 130px;
       padding-top: 2px;
     }
+
+    @include onNotebook {
+      display: flex;
+      justify-content: space-between;
+      margin: 47px 0 150px;
+      column-gap: 0;
+    }
   }
 
   &__box {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    @include onNotebook {
+      width: 276px;
+    }
     
     &--2 {
       @include onMobile {
@@ -98,32 +114,56 @@
     @include onTablet {
       margin-bottom: 20px;
     }
+
+    &--1 {
+      @include onNotebook {
+        margin-bottom: 50px;
+      }
+    }
+
+    &--2 {
+      @include onNotebook {
+        margin-bottom: 20px;
+      }
+    }
+
+    &--3 {
+      @include onNotebook {
+        margin-bottom: 50px;
+      }
+    }
+
+    &--4 {
+      @include onNotebook {
+        margin-bottom: 20px;
+      }
+    }
   }
 
   &__text {
+    width: 230px;
     font-size: 14px;
     line-height: 21px;
     text-align: center;
     color: #7c7c7c;
-    margin-bottom: 90px;
 
     @include onTablet {
-      margin-bottom: 0;
+      width: 295px;
     }
 
-    &--mobile-desktop {
+    @include onNotebook {
+      width: 230px;
+    }
+
+    &--multiroom {
+      width: 230px;
+
       @include onTablet {
-        display: none;
-      }
-    }
-
-    &--tablet {
-      @include onMobile {
-        display: none;
+        width: 295px;
       }
 
       @include onNotebook {
-        display: none;
+        width: 240px;
       }
     }
   }
@@ -139,6 +179,11 @@
 
     @include onTablet {
       max-width: 1279px;
+      margin: 0;
+    }
+
+    @include onNotebook {
+      max-width: 1440px;
       margin: 0;
     }
   }
@@ -159,6 +204,11 @@
       width: 190px;
       height: 190px;
     }
+
+    @include onNotebook {
+      width: 232px;
+      height: 232px;
+    }
   }
 
   &__video-play {
@@ -170,6 +220,11 @@
     @include onTablet {
       width: 25px;
       height: 25px;
+    }
+
+    @include onNotebook {
+      width: 50px;
+      height: 50px;
     }
   }
 }

@@ -19,6 +19,13 @@
     margin-left: 0;
   }
 
+  @include onNotebook {
+    width: calc(100% - 246px);
+    max-width: 1440px;
+    margin: 150px auto;
+    column-gap: 30px;
+  }
+
   &__title {
     margin: 0 0 50px;
     font-family: "DIN Pro", sans-serif;
@@ -33,6 +40,10 @@
       margin-left: -91px;
       font-size: 56px;
       line-height: 72px;
+    }
+
+    @include onNotebook {
+      margin-left: -100px;
     }
   }
 
@@ -53,28 +64,23 @@
   }
 
   &__text {
+    width: 230px;
     margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 21px;
     color: #7c7c7c;
 
-    &--mobile {
-      font-size: 14px;
-      line-height: 21px;
-
-      @include onTablet {
-        display: none;
-      }
-    }
-
-    &--tablet {
+    @include onTablet {
       grid-column: 2 / 3;
       grid-row: 2 / 3;
+      width: 300px;
       margin: 0;
       font-size: 16px;
       line-height: 24px;
+    }
 
-      @include onMobile {
-        display: none;
-      }
+    @include onNotebook {
+      width: 330px;
     }
   }
 

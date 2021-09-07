@@ -6,7 +6,15 @@
     padding: 0 34px 50px;
   }
 
+  @include onNotebook {
+    width: calc(100% - 246px);
+    max-width: 1440px;
+    padding: 0;
+    margin: 0 auto 50px;
+  }
+
   &__box {
+    position: relative;
     display: flex;
     flex-direction: column;
   }
@@ -28,6 +36,11 @@
 
     @include onTablet {
       margin-bottom: 9px;
+    }
+
+    @include onNotebook {
+      position: absolute;
+      left: 85%;
     }
   }
 
@@ -90,24 +103,16 @@
   }
 
   &__terms {
+    width: 230px;
+    margin: 0 auto;
+    font-size: 12px;
     line-height: 21px;
     text-align: center;
     color: #bdbdbd;
 
-    &--mobile {
-      font-size: 12px;
-
-      @include onTablet {
-        display: none;
-      }
-    }
-
-    &--tablet {
+    @include onTablet {
+      width: 520px;
       font-size: 14px;
-
-      @include onMobile {
-        display: none;
-      }
     }
   }
 }

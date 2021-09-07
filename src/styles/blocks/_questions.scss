@@ -6,46 +6,59 @@
     padding: 130px 34px 25px;
   }
 
+  @include onNotebook {
+    width: calc(100% - 246px);
+    padding: 0;
+    margin: 180px auto 107px;
+  }
+
   &__box {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     
     @include onTablet {
-      grid-template-columns: max-content 1fr;
+      grid-template-columns: max-content max-content;
       display: grid;
       gap: 20px;
+    }
+
+    @include onNotebook {
+      gap: 102px;
     }
   }
 
   &__title {
+    margin-bottom: 30px;
     font-family: "DIN Pro", sans-serif;
+    font-size: 37px;
+    line-height: 46px;
     text-transform: uppercase;
     color: $colorBrown;
 
-    &--mobile {
-      margin-bottom: 30px;
-      font-size: 37px;
-      line-height: 46px;
-
-      @include onTablet {
-        display: none;
-      }
-    }
-
-    &--tablet {
+    @include onTablet {
+      width: 340px;
       font-size: 56px;
       line-height: 70px;
+    }
 
-      @include onMobile {
-        display: none;
-      }
+    @include onNotebook {
+      width: 480px;
+      line-height: 70px;
     }
   }
 
   &__forms {
     display: flex;
     flex-direction: column;
+
+    @include onTablet {
+      width: 340px;
+    }
+    
+    @include onNotebook {
+      width: 438px;
+    }
   }
 
   &__email {
@@ -66,6 +79,11 @@
     @include onTablet {
       margin-bottom: 19px;
       padding-right: 146px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 15px;
+      padding-right: 234px;
     }
   }
 
@@ -90,6 +108,11 @@
       padding-right: 146px;
       padding-bottom: 166px;
     }
+
+    @include onNotebook {
+      padding-right: 234px;
+      padding-bottom: 93px;
+    }
   }
 
   &__link {
@@ -105,5 +128,9 @@
     line-height: 15px;
     color: #fff;
     cursor: pointer;
+
+    @include onNotebook {
+      height: 48px;
+    }
   }
 }
