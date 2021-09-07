@@ -1,0 +1,44 @@
+.our-story {
+  @include grid;
+
+  &__story {
+    grid-column: 1 / 5;
+
+    @media (max-width: $min-width-tablet) {
+      &:nth-child(n + 2) {
+        display: none;
+      }
+    }
+
+    @include tablet {
+      margin-bottom: 60px;
+      &:nth-child(2n + 1) {
+        grid-column: 1 / 5;
+      }
+
+      &:nth-child(2n) {
+        grid-column: 5 / 9;
+      }
+    }
+
+    @include desktop {
+      &:nth-child(4n + 1) {
+        grid-column: 1 / 4;
+      }
+      
+      &:nth-child(4n + 2) {
+        grid-column: 4 / 7;
+      }
+  
+      &:nth-child(4n + 3) {
+        grid-column: 7 / 10;
+      }
+  
+      &:nth-child(4n) {
+        grid-column: 10 / 13;
+      }
+    }
+    
+
+  }
+}
