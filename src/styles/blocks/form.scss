@@ -1,0 +1,75 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  @include onMobile {
+    width: 260px;
+    margin: 0 auto;
+  }
+  @include onTablet {
+    width: 340px;
+  }
+
+  @include onDesktop {
+    width: 438px;
+  }
+
+  &__input-name {
+    @include formGeneralStyles;
+    height: 48px;
+    padding-left: $form-padding-left;
+    margin-bottom: 20px;
+    &::placeholder {
+      color: $c-items-count;
+    }
+
+    &:active {
+      border-color: $c-label-color;
+    }
+
+    &:valid {
+      border-color: $c-dark-green;
+    }
+  }
+  &__message {
+    width: 100%;
+    padding: 16px 0 0 $form-padding-left;
+    margin-bottom: 30px;
+    resize: none;
+    @include formGeneralStyles;
+    @include onMobile {
+      height: 128px;
+    }
+    @include onTablet {
+      height: 200px;
+    }
+    @include onDesktop {
+      height: 128px;
+    }
+
+    &::placeholder {
+      color: $c-items-count;
+    }
+
+    &:active {
+      border-color: $c-label-color;
+    }
+
+    &:valid {
+      border-color: $c-dark-green;
+    }
+  }
+
+  &__button {
+    width: max-content;
+    padding: 12px 34px 13px;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    color: $c-white;
+    background-color: $c-green;
+    border: 1px solid transparent;
+    &:hover {
+      background-color: $c-dark-green;
+    }
+  }
+}
