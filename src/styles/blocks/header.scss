@@ -9,7 +9,11 @@
   @include onDesktop {
     padding-bottom: 45px;
   }
-  
+
+  &__logo-link {
+    @include scale;
+  }
+
   &__mobile-menu {
     position: fixed;
     top: 0;
@@ -41,8 +45,12 @@
       justify-content: space-between;
       align-items: center;
       width: 251px;
-      color: $c-label-color;
     }
+  }
+
+  &__specs {
+    color: $c-inactive-svg;
+    @include scale;
   }
 
   &__languages {
@@ -51,6 +59,14 @@
     width: 52px;
     font-size: 14px;
     line-height: 18px;
+  }
+
+  &__ua {
+    color: $c-items-count;
+  }
+
+  &__en {
+    color: $c-arrowup-color;
   }
 
   &__buy {
@@ -65,14 +81,16 @@
     background-color: $c-dark-text;
     text-align: center;
     color: $c-white;
-    @include scale;
+    &:hover {
+      background-color: $c-arrowup-color;
+    }
   }
 
   &__main {
     position: relative;
     display: flex;
     flex-direction: column;
-    
+
     @include onTablet {
       flex-direction: row-reverse;
     }
