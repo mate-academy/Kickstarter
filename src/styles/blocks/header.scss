@@ -1,0 +1,196 @@
+.header {
+  display: block;
+  width: 100%;
+
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+
+    @include header-top-padding;
+
+    &__logo {
+      width: 161px;
+      height: 26px;
+
+      align-self: center;
+    }
+
+    &__block {
+      display: flex;
+      column-gap: 37px;
+
+      align-items: center;
+    }
+
+    &__specs {
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 14px;
+      font-weight: lighter;
+
+      text-transform: uppercase;
+
+      color: #4f4f4f;
+
+      cursor: pointer;
+
+    }
+
+    &__languages {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 3px;
+
+      &-en {
+        @extend %p-language-en;
+
+        cursor: pointer;
+      }
+
+      &-slash {
+        @extend %p-language-en;
+      }
+
+      &-ua {
+        @extend %p-language-ua;
+
+        cursor: pointer;
+      }
+    }
+
+    &__button {
+      width: 102px;
+      height: 48px;
+
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 12px;
+      line-height: 48px;
+
+      text-align: center;
+      text-transform: uppercase;
+
+      background: $main-text-color;
+      color: #fff;
+
+      transition: background-color 0.3s linear;
+
+      &:hover {
+        background: $secondary-text-color;
+      }
+    }
+  }
+
+  &-content {
+    display: flex;
+    justify-content: space-between;
+
+    @include header-content-padding;
+
+    overflow: hidden;
+
+    &__text {
+      padding-top: 81px;
+    }
+
+    &__main-text {
+      width: 378px;
+      @extend %h1;
+      margin-bottom: 27px;
+    }
+
+    &__p-text {
+      width: 276px;
+      @extend %p-header;
+    }
+
+    &__picture {
+      display: block;
+      width: 90vw;
+
+      overflow: hidden;
+
+      object-position: left;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    margin-bottom: 100px;
+    &-top {
+      @include header-top-padding-tablet;
+    }
+
+    &-content {
+      @include header-content-padding-tablet;
+
+      &__main-text {
+        position: relative;
+        z-index: 1;
+
+        width: 340px;
+        margin-right: -80px;
+
+        font-size: 48px;
+      }
+
+      &__picture {
+        margin-top: 50px;
+        width: 739px;
+      }
+
+      &__p-text {
+        width: 250px;
+        height: 120px;
+      }
+    }
+  }
+}
+
+@media (max-width: 779px) {
+  .header {
+
+    &-top {
+      @include header-top-padding-mobile;
+
+      &__block {
+        display: none;
+      }
+
+    }
+
+    &-content {
+      flex-direction: column;
+      padding: 0;
+
+      &__text {
+        order: 1;
+        margin: auto;
+        padding-top: 40px;
+      }
+
+      &__picture {
+        width: 140vw;
+        height: 100%;
+
+        margin-top: 0;
+      }
+
+      &__main-text {
+        width: 340px;
+        margin: auto;
+        margin-bottom: 23px;
+
+        font-size: 48px;
+        text-align: center;
+      }
+
+      &__p-text {
+        width: 260px;
+        text-align: center;
+        margin: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+.technology {
+  display: flex;
+  flex-direction: column;
+  @include technology-padding;
+
+  &__title {
+    margin-left: 136px;
+    margin-bottom: 20px;
+    @extend %h2-lh-70;
+  }
+
+  &__picture {
+    display: block;
+    height: 100%;
+    width: 100%;
+
+    object-position: left;
+    object-fit: cover;
+  }
+
+  &__container {
+    margin: auto;
+    margin-bottom: 2px;
+
+    width: 233px;
+    height: 189.79px;
+
+    @include presentation-img;
+    background-image: url("../images/Vector.svg");
+
+    &-text {
+      position: relative;
+      left: 50%;
+      bottom: -50px;
+      transform: translateX(-50%);
+
+      width: 786px;
+
+      @extend %p-Technology-article;
+    }
+  }
+
+  &__card {
+
+    &-photo {
+      display: block;
+      margin: auto;
+      margin-bottom: 20px;
+
+      width: 62px;
+      height: 62px;
+    }
+
+    &-fullname {
+      margin: 5px;
+      @extend %p-Technology-fullname;
+    }
+
+    &-position {
+      @extend %p-Technology-position;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .technology {
+    @include technology-padding-tablet;
+    overflow: hidden;
+
+    &__title {
+      margin: auto;
+      margin-bottom: 20px;
+
+      font-size: 37px;
+      line-height: 46px;
+    }
+
+    &__picture {
+      width: 1230.99px;
+      object-position: left;
+      overflow: hidden;
+    }
+
+    &__container {
+      width: 233px;
+  
+      &-text {
+        width: 90vw;
+        bottom: -30px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .technology {
+    padding: 0;
+    padding-bottom: 90px;
+
+    &__picture {
+      width: 625px;
+      object-position: left;
+      overflow: hidden;
+    }
+
+    &__container {
+      margin: auto;
+      margin-bottom: 2px;
+  
+      width: 208px;
+  
+      &-text {
+        position: relative;
+        bottom: -10px;
+        width: 260px;
+
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+  }
+}

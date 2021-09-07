@@ -1,0 +1,103 @@
+.presentation {
+  position: relative;
+
+  &__img {
+    width: 100%;
+    height: 590px;
+
+    background-image: url("../images/presentation.webp");
+    background-size: cover;
+    @include presentation-img;
+  }
+
+  &__play {
+    cursor: pointer;
+
+    &-text {
+      position: absolute;
+      @include position-absolut-center;
+
+      opacity: 1;
+
+      @extend %p-Presentation;
+    }
+
+    &-icon {
+      position: absolute;
+      @include position-absolut-center;
+
+      opacity: 0;
+
+      @extend %p-Presentation;
+    }
+
+    &-circle {
+      position: absolute;
+      @include position-absolut-center;
+
+      width: 232px;
+      height: 232px;
+
+      border: 1px solid #f3f4f5;
+      border-radius: 50%;
+    }
+
+    &:hover &-text {
+      opacity: 0;
+    }
+
+    &:hover &-icon {
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .presentation {
+    &__img {
+      height: 400px;
+    }
+
+    &__play {
+
+      &-text {
+        font-size: 25px;
+      }
+
+      &-icon {
+        width: 20px;
+        height: 25px;
+      }
+
+      &-circle {
+        width: 190px;
+        height: 190px;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .presentation {
+    &__img {
+      height: 246px;
+    }
+
+    &__play {
+
+      &-text {
+        font-size: 18px;
+      }
+
+      &-icon {
+        width: 14px;
+        height: 18px;
+      }
+
+      &-circle {
+        width: 108px;
+        height: 108px;
+      }
+    }
+  }
+}
