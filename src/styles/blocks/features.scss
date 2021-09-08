@@ -1,0 +1,135 @@
+.features {
+  position: relative;
+  padding: 45px 0;
+  @include tablet {
+    @include grid;
+  }
+
+  @include desktop {
+    grid-template-rows: repeat(4, auto);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: #f2f2f2;
+    top: 0;
+    right: -$container-padding-mobile;
+    left: -$container-padding-mobile;
+    bottom: 0;
+    z-index: -1;
+
+    @include tablet {
+      top: 25%;
+      left: 10%;
+      bottom: 15%;
+    }
+
+    @include desktop {
+      left: 15%;
+      bottom: 10%;
+    }
+  }
+  
+  &__title {
+    margin: 0;
+    font-family: DIN Pro, sans-serif;
+    font-size: 37px;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: $main-color;
+    margin-bottom: 52px;
+
+    @include tablet {
+      grid-column: 1 / 5;
+      justify-self: center;
+      order: -2;
+    }
+
+    @include desktop {
+      grid-row: 1;
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__sound {
+    @include tablet {
+      grid-column: 4 / 8;
+      margin-bottom: 50px;
+      order: -2;
+      z-index: 1;
+    }
+
+    @include desktop {
+      grid-column: 6 / 10;
+      grid-row: 2;
+    }
+  }
+
+  &__connectivity {
+    @include tablet {
+      grid-column: 1 / 5;
+      margin-bottom: 70px;
+      order: -2;
+      z-index: 1;
+    }
+
+    @include desktop {
+      grid-column: 2 / 6;
+      grid-row: 3;
+    }
+  }
+
+  &__app {
+    @include tablet {
+      grid-column: 3 / 7;
+      z-index: 1;
+    }
+
+    @include desktop {
+      grid-column: 4 / 7;
+    }
+  }
+
+  &__block-img {
+    position: relative;
+    height: 220px;
+    margin: 0 -$container-padding-mobile;
+    overflow: hidden;
+
+    @include tablet {
+      grid-column: 5 / 9;
+      order: -1;
+      margin-right: -$container-padding-tablet;
+      margin-left: -$width-columns-on-tablet - $gap-columns-on-tablet;
+      height: 380px;
+      z-index: 0;
+    }
+
+    @include desktop {
+      height: 500px;
+      position: absolute;
+      top: 400px;
+      z-index: 0;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    right: -75px;
+    bottom: 0;
+    height: 220px;
+
+    @include tablet {
+      height: 380px;
+    }
+
+    @include desktop {
+      height: 500px;
+      z-index: 2;
+      position: relative;
+    }
+  }
+}
