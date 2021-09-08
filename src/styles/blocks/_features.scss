@@ -13,20 +13,6 @@
     max-width: 1440px;
   }
 
-  &__box {
-    display: flex;
-    flex-direction: column;
-
-    @include onTablet {
-      display: grid;
-      grid-template-rows: max-content max-content max-content max-content;
-    }
-
-    @include onNotebook {
-      margin: 0 auto;
-    }
-  }
-
   &__title {
     margin: 45px 30px 51px;
     font-family: "DIN Pro", sans-serif;
@@ -48,7 +34,28 @@
     }
   }
 
+  &__box {
+    display: flex;
+    transform: translateX(-0%);
+    transition: transform 0.3s;
+
+    @include onTablet {
+      display: grid;
+      grid-template-rows: max-content max-content max-content max-content;
+    }
+
+    @include onNotebook {
+      margin: 0 auto;
+    }
+  }
+
+  &__wrapper {
+    overflow: hidden;
+  }
+
   &__box-list {
+    flex-shrink: 0;
+    width: 100%;
 
     &--1 {
       @include onTablet {
@@ -63,11 +70,9 @@
     }
 
     &--2 {
-      margin: 34px;
-      margin-bottom: 70px;
-
-      @include onMobile {
-        display: none;
+      @include onTablet {
+        margin: 34px;
+        margin-bottom: 70px;
       }
 
       @include onNotebook {
@@ -76,10 +81,8 @@
     }
 
     &--3 {
-      margin-left: 204px;
-
-      @include onMobile {
-        display: none;
+      @include onTablet {
+        margin-left: 204px;
       }
 
       @include onNotebook {
@@ -125,44 +128,77 @@
     }
   }
 
-  &__toggler-box {
+  &__toggler {
     display: flex;
     justify-content: center;
-    margin-top: 51px;
+    margin-top: 50px;
+    margin-bottom: 15px;
 
     @include onTablet {
       display: none;
     }
   }
 
-  &__toggler-num-box {
+  &__button {
+    display: block;
+    width: 48px;
+    height: 13px;
+    border: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  
+    @include onTablet {
+      display: none;
+    }
+  
+    &--prev {
+      background-image: url(../images/toggler-right.svg);
+      transform: rotate(180deg);
+    }
+  
+    &--next {
+      background-image: url(../images/toggler-right.svg);
+    }
+  }
+
+  &__toggler-number {
     display: flex;
     justify-content: center;
-    margin: 8px 0;
+    align-items: center;
+    margin: 15px 0 8px;
 
     @include onTablet {
       display: none;
     }
   }
 
-  &__toggler-num {
-    content: "/";
+  &__toggler-number-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__toggler-number-count {
     display: block;
     font-family: "DIN Pro", sans-serif;
-    font-size: 11px;
-    line-height: 14px;
-    color: #bdbdbd;
+    font-size: 16px;
+    line-height: 20px;
+    color: $colorBrown;
 
-    &::before {
-      content: "01";
+    &--slash {
+      margin: 0 4px;
+      padding-top: 3px;
       font-family: "DIN Pro", sans-serif;
-      font-size: 16px;
-      line-height: 20px;
-      color: $colorBrown;
+      font-size: 11px;
+      line-height: 14px;
+      color: #bdbdbd;
     }
-
-    &::after {
-      content: "02";
+  
+    &--03 {
+      padding-top: 4px;
+      font-size: 11px;
+      line-height: 14px;
+      color: #bdbdbd;
     }
   }
 

@@ -11,7 +11,19 @@
     max-width: 1440px;
   }
 
+  &__wrapper {
+    overflow: hidden;
+
+    @include onTablet {
+      overflow: visible;
+    }
+  }
+
   &__card {
+    display: flex;
+    transform: translateX(-0%);
+    transition: transform 0.3s;
+
     @include onTablet {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -33,27 +45,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    margin-bottom: 40px;
+    flex-shrink: 0;
     
     @include onNotebook {
       width: 276px;
-    }
-    
-    &--2 {
-      @include onMobile {
-        display: none;
-      }
-    }
-
-    &--3 {
-      @include onMobile {
-        display: none;
-      }
-    }
-
-    &--4 {
-      @include onMobile {
-        display: none;
-      }
     }
   }
 
@@ -65,12 +62,12 @@
     transition: transform 0.3s;
 
     &:hover {
-      transform: scale(170%);
+      transform: scale(120%);
     }
 
     &--1 {
-      width: 58px;
-      height: 46px;
+      width: 50px;
+      height: 39px;
       background-image: url(../images/bullet1.svg);
 
       @include onTablet {
@@ -83,22 +80,34 @@
     &--2 {
       width: 46px;
       height: 39px;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
       background-image: url(../images/speaker.svg);
+
+      @include onTablet {
+        margin-bottom: 50px;
+      }
     }
 
     &--3 {
       width: 46px;
       height: 35px;
-      margin-bottom: 58px;
+      margin-bottom: 40px;
       background-image: url(../images/wi-fi.svg);
+
+      @include onTablet {
+        margin-bottom: 54px;
+      }
     }
 
     &--4 {
       width: 44px;
       height: 43px;
-      margin-bottom: 50px;
+      margin-bottom: 32px;
       background-image: url(../images/light-system.svg);
+
+      @include onTablet {
+        margin-bottom: 47px;
+      }
     }
   }
 
@@ -109,40 +118,42 @@
     text-align: center;
     text-transform: uppercase;
     color: $colorBrown;
-    margin-bottom: 50px;
-
-    @include onTablet {
-      margin-bottom: 20px;
-    }
 
     &--1 {
+      margin-bottom: 50px;
+
+      @include onTablet {
+        margin-bottom: 20px;
+      }
+
       @include onNotebook {
         margin-bottom: 50px;
       }
     }
 
     &--2 {
-      @include onNotebook {
-        margin-bottom: 20px;
-      }
+      margin-bottom: 20px;
     }
 
     &--3 {
+      margin-bottom: 50px;
+
+      @include onTablet {
+        margin-bottom: 20px;
+      }
+
       @include onNotebook {
         margin-bottom: 50px;
       }
     }
 
     &--4 {
-      @include onNotebook {
-        margin-bottom: 20px;
-      }
+      margin-bottom: 20px;
     }
   }
 
   &__text {
     width: 230px;
-    margin-bottom: 90px;
     font-size: 14px;
     line-height: 21px;
     text-align: center;
@@ -169,6 +180,79 @@
     }
   }
 
+  &__toggler {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__button {
+    display: block;
+    width: 48px;
+    height: 13px;
+    border: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  
+    @include onTablet {
+      display: none;
+    }
+  
+    &--prev {
+      background-image: url(../images/toggler-right.svg);
+      transform: rotate(180deg);
+    }
+  
+    &--next {
+      background-image: url(../images/toggler-right.svg);
+    }
+  }
+
+  &__toggler-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0 40px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__toggler-number-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__toggler-number-count {
+    display: block;
+    font-family: "DIN Pro", sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    color: $colorBrown;
+
+    &--slash {
+      margin: 0 4px;
+      padding-top: 3px;
+      font-family: "DIN Pro", sans-serif;
+      font-size: 11px;
+      line-height: 14px;
+      color: #bdbdbd;
+    }
+  
+    &--04 {
+      padding-top: 4px;
+      font-size: 11px;
+      line-height: 14px;
+      color: #bdbdbd;
+    }
+  }
+
   &__video-box {
     position: relative;
     display: flex;
@@ -192,40 +276,6 @@
     @include onNotebook {
       height: 600px;
       margin: 0;
-    }
-  }
-
-  &__video-ellipse {
-    position: absolute;
-    width: 108px;
-    height: 108px;
-    z-index: 2;
-
-    @include onTablet {
-      width: 190px;
-      height: 190px;
-    }
-
-    @include onNotebook {
-      width: 232px;
-      height: 232px;
-    }
-  }
-
-  &__video-play {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    z-index: 3;
-
-    @include onTablet {
-      width: 25px;
-      height: 25px;
-    }
-
-    @include onNotebook {
-      width: 50px;
-      height: 50px;
     }
   }
 }

@@ -10,11 +10,13 @@
       type="image/x-icon"
     >
     <link rel="stylesheet" href="./styles/main.scss">
+    <script src="./scripts/features-toggler.js" defer></script>
+    <script src="./scripts/booklet-toggler.js" defer></script>
   </head>
   <body class="page__body">
     <header class="header">
       <div class="header__menu">
-        <a href="#" class="header__menu header__menu--logo"></a>
+        <a href="#" class="logo logo--header"></a>
         <a href="#menu" class="header__menu header__menu--menu-opener"></a>
         <div class="spec-box">
           <a href="#" class="spec-box__specs">
@@ -115,42 +117,64 @@
     </header>
     <main class="main-box">
       <section class="booklet">
-        <div class="booklet__card">
-          <div class="booklet__box booklet__box--1">
-            <div class="booklet__img booklet__img--1"></div>
-            <h3 class="booklet__title booklet__title--1">
-              Futuristic Design
-            </h3>
-            <p class="booklet__text">
-              To give Luna a truly flawless look, we specifically picked aircraft grade aluminum as its material and adopted both three-dimensional stretch-bending technology and a high precision cold forging technique.
-            </p>
+        <div class="booklet__wrapper">
+          <div class="booklet__card">
+            <div class="booklet__box booklet__box--1">
+              <div class="booklet__img booklet__img--1"></div>
+              <h3 class="booklet__title booklet__title--1">
+                Futuristic Design
+              </h3>
+              <p class="booklet__text">
+                To give Luna a truly flawless look, we specifically picked aircraft grade aluminum as its material and adopted both three-dimensional stretch-bending technology and a high precision cold forging technique.
+              </p>
+            </div>
+            <div class="booklet__box booklet__box--2">
+              <div class="booklet__img booklet__img--2"></div>
+              <h3 class="booklet__title booklet__title--2">
+                Tweeter Speaker System
+              </h3>
+              <p class="booklet__text">
+                To deliver a more layered sound performance better than a sole full-range speaker, our team equipped Luna with one more tweeter speaker responsible for high-frequency sound independently.
+              </p>
+            </div>
+            <div class="booklet__box booklet__box--3">
+              <div class="booklet__img booklet__img--3"></div>
+              <h3 class="booklet__title booklet__title--3">
+                Multiroom System
+              </h3>
+              <p class="booklet__text booklet__text--multiroom">
+                Luna is natively compatible with your home Wi-Fi. Set up multiple speakers in different rooms to expand your music experience into the entire house.
+              </p>
+            </div>
+            <div class="booklet__box booklet__box--4">
+              <div class="booklet__img booklet__img--4"></div>
+              <h3 class="booklet__title booklet__title--4">
+                Intuitive Lighting System
+              </h3>
+              <p class="booklet__text">
+                An intuitive user interface allows you to adjust the hue and saturation of color for lighting that fits any mood and situation.
+              </p>
+            </div>
           </div>
-          <div class="booklet__box booklet__box--2">
-            <div class="booklet__img booklet__img--2"></div>
-            <h3 class="booklet__title booklet__title--2">
-              Tweeter Speaker System
-            </h3>
-            <p class="booklet__text">
-              To deliver a more layered sound performance better than a sole full-range speaker, our team equipped Luna with one more tweeter speaker responsible for high-frequency sound independently.
-            </p>
-          </div>
-          <div class="booklet__box booklet__box--3">
-            <div class="booklet__img booklet__img--3"></div>
-            <h3 class="booklet__title booklet__title--3">
-              Multiroom System
-            </h3>
-            <p class="booklet__text booklet__text--multiroom">
-              Luna is natively compatible with your home Wi-Fi. Set up multiple speakers in different rooms to expand your music experience into the entire house.
-            </p>
-          </div>
-          <div class="booklet__box booklet__box--4">
-            <div class="booklet__img booklet__img--4"></div>
-            <h3 class="booklet__title booklet__title--4">
-              Intuitive Lighting System
-            </h3>
-            <p class="booklet__text">
-              An intuitive user interface allows you to adjust the hue and saturation of color for lighting that fits any mood and situation.
-            </p>
+        </div>
+        <div class="booklet__toggler">
+          <button type="button" class="booklet__button booklet__button--prev"></button>
+          <button type="button" class="booklet__button booklet__button--next"></button>
+        </div>
+        <div class="booklet__toggler-number">
+          <div class="booklet__toggler-number-box">
+            <span class="booklet__toggler-number-count booklet__toggler-number-count--0">
+              0
+            </span>
+            <span class="booklet__toggler-number-count booklet__toggler-number-count--1">
+              1
+            </span>
+            <span class="booklet__toggler-number-count booklet__toggler-number-count--slash">
+              /
+            </span>
+            <span class="booklet__toggler-number-count booklet__toggler-number-count--04">
+              04
+            </span>
           </div>
         </div>
         <div class="booklet__video-box">
@@ -161,21 +185,6 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
          ></iframe>
-          <!-- <img
-            src="./images/product-video.png"
-            alt="CrazyBaby"
-            class="booklet__video"
-          >
-          <img
-            src="./images/Ellipse-video.svg"
-            alt="Ellipse"
-            class="booklet__video-ellipse"
-          >
-          <img
-            src="./images/play-video.svg"
-            alt="play"
-            class="booklet__video-play"
-          > -->
         </div>
       </section>
       <section class="futureDesigned">
@@ -192,7 +201,11 @@
         <p class="futureDesigned__text">
           In 2014, a group of geeky industrial designers, engineering veterans and acoustic experts formed crazybaby. This is a bunch of passionate people who are crazy enough to think they can challenge the industry with disruptive audio products.
         </p>
-        <a href="#about-us" class="futureDesigned__link">
+        <a
+          href="https://www.crazybaby.com/"
+          target="blank"
+          class="futureDesigned__link"
+        >
           See more about us
         </a>
       </section>
@@ -234,102 +247,109 @@
         </div>
       </section>
       <section class="features">
-        <div class="features__box">
-          <h2 class="features__title">
-            Features
-          </h2>
-          <div class="features__box-list features__box-list--1">
-            <h3 class="features__subtitle">
-              Sound & Music
-            </h3>
-            <ul class="features__list">
-              <li class="features__item">
-                Feel-in-chest Base Power
-              </li>
-              <li class="features__item">
-                Lossless Digital Audio Transmission
-              </li>
-              <li class="features__item">
-                Easy & Stable Stereo Pairing
-              </li>
-              <li class="features__item">
-                Crisp and Clear High Frequency Sound
-              </li>
-              <li class="features__item">
-                Streams from Cloud Music and Local Library
-              </li>
-              <li class="features__item">
-                Auto Music Playback from Last Song Stopped
-              </li>
-            </ul>
-          </div>
-          <div class="features__box-list features__box-list--2">
-            <h3 class="features__subtitle">
-              Connectivity
-            </h3>
-            <ul class="features__list">
-              <li class="features__item">
-                Hands Free Wireless Audio
-              </li>
-              <li class="features__item">
-                Bluetooth 4.0 LE
-              </li>
-              <li class="features__item">
-                Wi-Fi 2.4 GHz (802.11 b/g/n)
-              </li>
-              <li class="features__item">
-                Smart Multiroom System Set Up
-              </li>
-              <li class="features__item">
-                Party Mode with 6.0 Units and above
-              </li>
-              <li class="features__item">
-                Powerful MESHNET Multi Speaker Network
-              </li>
-            </ul>
-          </div>
-          <div class="features__box-list features__box-list--3">
-            <h3 class="features__subtitle">
-              App Features
-            </h3>
-            <ul class="features__list">
-              <li class="features__item">
-                Customize Music Schedule
-              </li>
-              <li class="features__item">
-                Wake Up with Favorite Songs
-              </li>
-              <li class="features__item">
-                Home Detection Auto Wake Up
-              </li>
-              <li class="features__item">
-                Color Wheel & Saturation Change
-              </li>
-            </ul>
-          </div>
-          <div class="features__toggler-box">
-            <div class="features__toggler features__toggler--1">
-              <img src="./images/toggler-left.svg" alt="toggler-left">
+        <h2 class="features__title">
+          Features
+        </h2>
+        <div class="features__wrapper" id="features">
+          <div class="features__box">
+            <div class="features__box-list features__box-list--1">
+              <h3 class="features__subtitle">
+                Sound & Music
+              </h3>
+              <ul class="features__list">
+                <li class="features__item">
+                  Feel-in-chest Base Power
+                </li>
+                <li class="features__item">
+                  Lossless Digital Audio Transmission
+                </li>
+                <li class="features__item">
+                  Easy & Stable Stereo Pairing
+                </li>
+                <li class="features__item">
+                  Crisp and Clear High Frequency Sound
+                </li>
+                <li class="features__item">
+                  Streams from Cloud Music and Local Library
+                </li>
+                <li class="features__item">
+                  Auto Music Playback from Last Song Stopped
+                </li>
+              </ul>
             </div>
-            <div class="features__toggler features__toggler--2">
-              <img src="./images/toggler-right.svg" alt="toggler-right">
+            <div class="features__box-list features__box-list--2">
+              <h3 class="features__subtitle">
+                Connectivity
+              </h3>
+              <ul class="features__list">
+                <li class="features__item">
+                  Hands Free Wireless Audio
+                </li>
+                <li class="features__item">
+                  Bluetooth 4.0 LE
+                </li>
+                <li class="features__item">
+                  Wi-Fi 2.4 GHz (802.11 b/g/n)
+                </li>
+                <li class="features__item">
+                  Smart Multiroom System Set Up
+                </li>
+                <li class="features__item">
+                  Party Mode with 6.0 Units and above
+                </li>
+                <li class="features__item">
+                  Powerful MESHNET Multi Speaker Network
+                </li>
+              </ul>
+            </div>
+            <div class="features__box-list features__box-list--3">
+              <h3 class="features__subtitle">
+                App Features
+              </h3>
+              <ul class="features__list">
+                <li class="features__item">
+                  Customize Music Schedule
+                </li>
+                <li class="features__item">
+                  Wake Up with Favorite Songs
+                </li>
+                <li class="features__item">
+                  Home Detection Auto Wake Up
+                </li>
+                <li class="features__item">
+                  Color Wheel & Saturation Change
+                </li>
+              </ul>
             </div>
           </div>
-          <div class="features__toggler-num-box">
-            <div>
-              <div class="features__toggler-num">
-                /
-              </div>
-            </div>
+        </div>
+        <div class="features__toggler">
+          <button type="button" class="features__button features__button--prev"></button>
+          <button type="button" class="features__button features__button--next"></button>
+        </div>
+        <div class="features__toggler-number">
+          <div class="features__toggler-number-box">
+            <span class="features__toggler-number-count features__toggler-number-count--0">
+              0
+            </span>
+            <span class="features__toggler-number-count features__toggler-number-count--1">
+              1
+            </span>
+            <span class="features__toggler-number-count features__toggler-number-count--slash">
+              /
+            </span>
+            <span class="features__toggler-number-count features__toggler-number-count--03">
+              03
+            </span>
           </div>
-          <div class="features__background"></div>
-          <div class="features__box-img">
-            <img
-              src="./images/features-column.jpg"
-              alt="CrazyBaby"
-              class="features__img"
-            >
-          </div>
+        </div>
+        <div class="features__background"></div>
+        <div class="features__box-img">
+          <img
+            src="./images/features-column.jpg"
+            alt="CrazyBaby"
+            class="features__img"
+          >
         </div>
       </section>
       <section class="questions">
@@ -365,7 +385,7 @@
     <footer class="footer">
       <div class="footer__box">
         <a href="#" class="footer__arrow-up"></a>
-        <a href="#" class="footer__logo"></a>
+        <a href="#" class="logo logo--footer"></a>
         <div class="footer__link-box">
           <a
             href="https://m.facebook.com/"
