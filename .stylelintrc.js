@@ -6,7 +6,5 @@ module.exports = {
   plugins: [
     "stylelint-scss"
   ],
-  rules: {
-    "length-zero-no-unit": null
-  }
+  rules: {}
 };
