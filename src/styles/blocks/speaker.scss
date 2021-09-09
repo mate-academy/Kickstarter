@@ -1,0 +1,87 @@
+.speaker {
+  @include flex-settings(column);
+  margin-top: 22px;
+
+  @include onTablet {
+    flex-direction: row;
+  }
+
+  @include onDesktop {
+    @include flex-settings(row, space-between);
+  }
+
+  &__image-wrapper {
+    margin: 0 -30px;
+    order: 1;
+  }
+
+  &__image {
+    width: 100%;
+    min-height: 245px;
+
+    object-fit: cover;
+
+    @include onTablet {
+      height: 365px;
+      padding-left: 30px;
+      order: 2;
+      object-position: left;
+    }
+
+    @include onDesktop {
+      height: 464px;
+      order: 2;
+    }
+  }
+
+  &__text {
+    @include flex-settings(column, unset, center);
+    order: 2;
+
+    @include onTablet {
+      order: 1;
+    }
+
+    @include onDesktop {
+      align-items: flex-start;
+      margin-top: 40px;
+      order: 1;
+    }
+
+    &-title {
+      position: relative;
+      margin-top: 40px;
+      font-weight: 900;
+      @include font-settings(44px, 57px, center);
+      text-transform: uppercase;
+  
+      @include onTablet {
+        z-index: 1;
+        @include font-settings(48px, 62px, start);
+      }
+  
+      @include onDesktop {
+        padding-right: 25px;
+        @include font-settings(64px, 83px, start);
+      }
+    }
+
+    &-paragraph {
+      margin-top: 23px;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 300;
+      @include font-settings(16px, 24px, center);
+
+      @include onTablet {
+        width: 250px;
+        margin-top: 34px;
+        text-align: start;
+      }
+  
+      @include onDesktop {
+        width: 276px;
+        text-align: start;
+      }
+    }
+  }
+}

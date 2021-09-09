@@ -1,0 +1,182 @@
+.features {
+  position: relative;
+  padding-top: 45px;
+  background-color: #f2f2f2;
+
+  &__title {
+
+    @include onTablet {
+      transform: translate(-35%, -220%);
+    }
+
+    @include onDesktop {
+      transform: translate(-128%, -220%);
+    }
+  }
+
+  @include onTablet {
+    padding: 140px 0 180px;
+    background-color: $light;
+  }
+
+  &__content {
+    @include flex-settings(column, unset, center);
+  }
+
+  &__text {
+
+    @include onTablet {
+      position: absolute;
+      z-index: 1;
+    }
+  }
+
+  &__text--1 {
+
+    @include onTablet {
+      @include position_top_left(absolute, 5%, 52%);
+    }
+
+    @include onDesktop {
+      @include position_top_left(absolute, 5%, 45%);
+    }
+  }
+
+  &__text--2 {
+
+    @include onTablet {
+      @include position_top_left(absolute, 37%, 6%);
+    }
+
+    @include onDesktop {
+      @include position_top_left(absolute, 30%, 15%);
+    }
+  }
+
+  &__text--3 {
+
+    @include onTablet {
+      @include position_top_left(absolute, 67%, 35%);
+    }
+
+    @include onDesktop {
+      @include position_top_left(absolute, 63%, 30%);
+    }
+  }
+
+  &__sound ~ &__sound {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__sound-title {
+    padding-top: 50px;
+    font-family: "DIN Pro", sans-serif;
+    @include font-settings(30px, 37px);
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $green;
+    
+    @include onTablet {
+      @include font-settings(34px, 42px);
+    }
+  }
+
+  &__sound-list {
+    padding: 20px 0 0 18px;
+
+    @include onTablet {
+      padding: 38px 0;
+    }
+  }
+
+  &__sound-item {
+    font-family: "Helvetica Neue", sans-serif;
+    @include font-settings(14px, 21px);
+    font-weight: 300;
+    color: $granit;
+
+    @include onTablet {
+      @include font-settings(16px, 19px);
+    }
+  }
+
+  &__sound-item:not(:last-child) {
+    padding-bottom: 10px;
+  }
+
+  &__sound-item::before {
+    content: "";
+    display: block;
+    @include position_top_left(relative, 10px, -14px);
+    @include width-height(4px, 4px);
+    border-radius: 50%;
+    background-color: $black;
+  }
+
+  &__slider {
+    @include flex-settings(column, unset, center);
+    padding-top: 50px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__slider-image {
+    cursor: pointer;
+  }
+
+  &__slider-counter {
+    @include flex-settings(row, unset, center);
+    padding-top: 10px;
+    font-family: "DIN Pro", sans-serif;
+  }
+
+  &__slider-start-number {
+    @include font-settings(16px, 20px);
+    font-weight: 500;
+  }
+
+  &__slider-divider {
+    padding: 0 4px;
+  }
+
+  &__slider-divider,
+  &__slider-last-number {
+    @include font-settings(11px, 14px);
+    color: $lightGrey;
+  }
+
+  &__background-wrapper {
+    @include flex-settings(row, flex-end);
+  }
+
+  &__background-color {
+    @include flex-settings(row, flex-end);
+    
+    @include onTablet {
+      @include width-height(645px, 620px);
+      background: #f2f2f2;
+    }
+
+    @include onDesktop {
+      @include width-height(1113px, 701px);
+    }
+  }
+
+  &__background {
+    @include width-height(345px, 220px);
+    padding-top: 10px;
+    background-image: url(../images/features.png);
+    @include bg-size_position_repeat(contain, center, no-repeat);
+
+    @include onTablet {
+      @include width-height(586px, 380px);
+      transform: translateY(45%);
+    }
+  }
+}

@@ -1,0 +1,104 @@
+.questions {
+
+  &__content {
+    @include flex-settings(column);
+    padding-top: 45px;
+
+    @include onTablet {
+      @include flex-settings(row, space-around);
+    }
+
+    @include onDesktop {
+      padding-top: 170px;
+    }
+  }
+
+  &__title {
+    line-height: 46px;
+
+    @include onTablet {
+      width: 340px;
+      padding-top: 30px;
+    }
+
+    @include onDesktop {
+      width: 480px;
+      padding-top: 30px;
+      line-height: 72px;
+    }
+  }
+
+  &__form {
+    padding-top: 30px;
+
+    @include onTablet {
+      min-width: 340px;
+    }
+
+    @include onDesktop {
+      width: 438px;
+    }
+  }
+
+  &__field {
+    display: block;
+    @include width-height(100%, 48px);
+    padding: 16px 30px;
+    box-sizing: border-box;
+    border: 1px solid #828282;
+    font-family: "Helvetica Neue", sans-serif;
+    @include font-settings(16px, 24px);
+    font-weight: lighter;
+    color: $granit;
+
+    transition: border-color 0.3s;
+
+    &::placeholder {
+      @include font-settings(16px, 19px);
+      font-weight: 300;
+      color: $lightGrey;
+    }
+
+    &:first-child {
+      margin: 0 0 19px;
+    }
+
+    &:hover {
+      border-color: $black;
+    }
+
+    &:focus {
+      border-color: $turquoise;
+      outline: none;
+    }
+  }
+
+  &__button {
+    @include width-height(102px, 48px);
+    margin-top: 30px;
+    background-color: $turquoise;
+    padding: 13px 35px;
+    color: $white;
+    border: none;
+    cursor: pointer;
+
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $green;
+    }
+  }
+
+  &--textarea {
+    height: 128px;
+    resize: none;
+  
+    @include onTablet {
+      height: 201px;
+    }
+  
+    @include onDesktop {
+      height: 128px;
+    }
+  }
+}

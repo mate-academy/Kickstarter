@@ -1,0 +1,47 @@
+.sub-nav {
+  display: none;
+  padding-top: 120px;
+
+  @include onDesktop {
+    @include flex-settings(row, center);
+  }
+
+  &__list {
+    @include flex-settings(row, space-between);
+    width: 650px;
+    padding: 28px 0;
+    font-family: "Helvetica Neue", sans-serif;
+    box-sizing: border-box;
+  }
+
+  &__item {
+    box-sizing: border-box;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    
+    transition: border-color 0.3s;
+
+    &:hover {
+      border-color: $black;
+    }
+  }
+
+  &__link {
+    display: block;
+    height: 100%;
+    @include font-settings(14px, 21px);
+    color: $granit;
+    text-transform: uppercase;
+
+    transition: color 0.3s;
+
+    &--is--active {
+      font-weight: bold;
+      color: $black;
+    }
+  }
+
+  &__item:hover .sub-nav__link {
+    color: $black;
+  }
+}

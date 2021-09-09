@@ -1,0 +1,81 @@
+.benefits {
+  padding-top: 101px;
+
+  @include onTablet {
+    padding-top: 128px;
+  }
+
+  @include onDesktop {
+    padding-top: 46px;
+  }
+
+  &__content {
+    @include flex-settings(column, space-around);
+    padding-bottom: 30px;
+
+    @include onTablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding-bottom: 70px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 110px;
+    }
+  }
+
+  &__block {
+    @include flex-settings(column, unset, center);
+    padding-bottom: 60px;
+
+    @include onTablet {
+      flex-basis: 50%;
+    }
+
+    @include onDesktop {
+      flex-basis: 276px;
+    }
+  }
+
+  &__icon {
+    width: 50px;
+    height: 40px;
+  }
+
+  &__title {
+    padding-top: 40px;
+    font-family: "DIN Pro", sans-serif;
+    @include font-settings(24px, 30px, center);
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $granit;
+
+    @include onTablet {
+      padding-top: 50px;
+    }
+  }
+
+  &__text {
+    padding-top: 50px;
+    font-family: "Helvetica Neue", sans-serif;
+    @include font-settings(14px, 21px, center);
+    font-weight: lighter;
+    color: $grey;
+
+    @include onTablet {
+      padding-top: 20px;
+    }
+  }
+
+  &__block:nth-child(odd) &__text {
+    @include onDesktop {
+      padding-top: 50px;
+    }
+  }
+
+  &__block:nth-child(n+2) {
+    @include onTablet {
+      display: flex;
+    }
+  }
+}

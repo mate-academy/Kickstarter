@@ -1,0 +1,49 @@
+.icon {
+  @include flex-settings(column);
+  width: 24px;
+  overflow: hidden;
+
+  @include onTablet {
+    display: none;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__line {
+    display: inline-block;
+    height: 3px;
+    margin-bottom: 3px;
+    background-color: $black;
+
+    transition: transform 0.3s;
+  }
+
+  &--menu:hover :nth-child(2) {
+    transform: translateX(10px);
+  }
+
+  &--close {
+    @include width-height(24px, 30px);
+    overflow: visible;
+
+    &-line {
+      position: relative;
+      display: inline-block;
+      height: 3px;
+      margin-bottom: 0;
+      background-color: $white;
+    }
+
+    &-line:first-child {
+      top: 14px;
+      transform: rotate(45deg);
+    }
+
+    &-line:last-child {
+      top: 11px;
+      transform: rotate(315deg);
+    }
+  }
+}

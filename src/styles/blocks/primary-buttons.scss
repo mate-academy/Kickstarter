@@ -1,0 +1,95 @@
+.primary-buttons {
+  display: none;
+  position: relative;
+
+  @include onTablet {
+    display: flex;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  @include onDesktop {
+    display: flex;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__item {
+    @include width-height(102px, 48px);
+    line-height: 48px;
+    cursor: pointer;
+
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $black;
+    }
+  }
+
+  &__item--is--active {
+    background-color: $granit;
+  }
+
+  &__item-element {
+    font-family: "Helvetica Neue", sans-serif;
+    @include font-settings(14px, 17px);
+
+    transition: color 0.3s, font-weight 0.3s;
+  }
+
+  &__item-element--1 {
+    font-weight: 900;
+    color: $granit;
+  }
+
+  &__link-checkbox {
+    @include position_top_left(absolute, unset, 32%);
+    @include width-height(102px, 44px);
+    cursor: pointer;
+    opacity: 0;
+  }
+
+  &__link:checked ~ &__item-element--1 {
+    font-weight: lighter;
+    color: $lightGrey;
+  }
+
+  &__item-element--2 {
+    font-weight: 900;
+    color: $granit;
+  }
+
+  &__item-element--3 {
+    font-weight: lighter;
+    color: $lightGrey;
+  }
+
+  &__link:checked ~ &__item-element--3 {
+    font-weight: 900;
+    color: $granit;
+  }
+
+  &__link {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: lighter;
+    @include font-settings(14px, 17px);
+    color: $darkGrey;
+    text-decoration: none;
+
+    transition: color 0.3s;
+  }
+
+  &__link--buy {
+    display: block;
+    height: 100%;
+    line-height: 51px;
+  }
+
+  &__item--is--active &__link {
+    color: $white;
+  }
+
+  &__item:hover &__link {
+    color: $white;
+  }
+}

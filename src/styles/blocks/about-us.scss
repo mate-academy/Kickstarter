@@ -1,0 +1,113 @@
+.about-us {
+  font-family: "Helvetica Neue", sans-serif;
+
+  &__content {
+    @include flex-settings(column, unset, flex-start);
+    padding-bottom: 10px;
+
+    @include onTablet {
+      flex-direction: row;
+      padding-top: 130px;
+    }
+
+    @include onDesktop {
+      padding-top: 150px;
+    }
+  }
+
+  &__title {
+    padding-top: 90px;
+    line-height: 55px;
+
+    @include onTablet {
+      @include position_top_left(absolute, unset, 38%);
+      width: 430px;
+      padding-top: 8px;
+    }
+
+    @include onDesktop {
+      left: 700px;
+      padding-top: 5px;
+    }
+  }
+
+  &__text-wrapper {
+    @include onTablet {
+      padding-left: 20px;
+    }
+
+    @include onDesktop {
+      padding-left: 30px;
+    }
+  }
+
+  &__text {
+    padding-top: 30px;
+    @include font-settings(14px, 21px);
+    font-weight: lighter;
+    color: $grey;
+
+    @include onTablet {
+      width: 340px;
+      padding-top: 170px;
+      @include font-settings(16px, 24px);
+    }
+
+    @include onDesktop {
+      padding-top: 170px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    margin-top: 30px;
+    @include font-settings(12px, 15px);
+    font-weight: 500;
+    color: $turquoise;
+    text-transform: uppercase;
+  }
+
+  &__link::after {
+    content: "";
+    @include position_top_left(absolute, 20px, 0);
+    width: 53px;
+    border-bottom: 1px solid $turquoise;
+    box-sizing: border-box;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+
+    transition: width 0.3s;
+  }
+
+  &__link:hover::after {
+    width: 128px;
+  }
+
+  &__image-container {
+    width: 100%;
+    padding-top: 50px;
+
+    @include onTablet {
+      margin-left: -34px;
+      padding-top: 0;
+    }
+
+    @include onDesktop {
+      margin-left: 0;
+      padding-left: 100px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 210px;
+
+    @include onTablet {
+      height: 415px;
+    }
+
+    @include onDesktop {
+      height: 388px;
+    }
+  }
+}

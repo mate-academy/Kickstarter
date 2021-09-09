@@ -1,0 +1,99 @@
+.testimonials {
+  height: 340px;
+  padding-top: 78px;
+
+  @include onTablet {
+    height: 530px;
+  }
+
+  @include onDesktop {
+    padding-top: 62px;
+  }
+
+  &__background {
+    @include width-height(208px, 170px);
+
+    background-image: url(../images/testimonial-background.png);
+    @include bg-size_position_repeat(contain, center, no-repeat);
+
+    @include onTablet {
+      @include width-height(235px, 190px);
+    }
+  }
+
+  &__text {
+    position: relative;
+    bottom: 155px;
+    width: 260px;
+    font-family: "DIN Pro", sans-serif;
+    @include font-settings(14px, 21px, center);
+    font-weight: bold;
+
+    @include onTablet {
+      width: 703px;
+      bottom: 115px;
+      @include font-settings(24px, 36px);
+      letter-spacing: 0.3px;
+    }
+
+    @include onDesktop {
+      width: 800px;
+      bottom: 135px;
+    }
+  }
+
+  &__content {
+    @include flex-settings(column, unset, center);
+  }
+
+  &__person {
+    @include flex-settings(column);
+    align-self: center;
+    position: relative;
+    bottom: 110px;
+
+    @include onTablet {
+      padding-top: 30px;
+    }
+
+    @include onDesktop {
+      padding-top: 5px;
+    }
+  }
+
+  &__avatar {
+    display: block;
+    width: 62px;
+    margin: 0 auto;
+    border-radius: 50%;
+    cursor: pointer;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+
+  &__link {
+    padding-top: 20px;
+    font-family: "Helvetica Neue", sans-serif;
+    @include font-settings(16px, 27px, center);
+    font-weight: 500;
+    color: $granit;
+
+    transition: color 0.3s;
+
+    &:hover {
+      color: $lagoon;
+    }
+  }
+
+  &__position {
+    padding-top: 7px;
+    font-family: "Helvetica Neue", sans-serif;
+    @include font-settings(14px, 17px, center);
+    font-weight: lighter;
+    color: $grey;
+  }
+}

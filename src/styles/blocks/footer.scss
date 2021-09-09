@@ -1,0 +1,123 @@
+.footer {
+
+  &__content {
+    @include flex-settings(column, center, center);
+    padding-top: 53px;
+
+    @include onTablet {
+      padding-top: 25px;
+    }
+
+    @include onDesktop {
+      padding-top: 107px;
+    }
+  }
+
+  &__arrow-wrapper {
+    @include flex-settings(unset, flex-end);
+    width: 100%;
+    cursor: pointer;
+  }
+
+  &__arrow {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+
+    @include onTablet {
+      position: relative;
+      right: 14px;
+    }
+  
+    @include onDesktop {
+      top: 40px;
+      right: 68px;
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      padding-top: 10px;
+    }
+  
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__soc-media {
+    padding-top: 24px;
+
+    @include onTablet {
+      padding-top: 64px;
+    }
+  }
+
+  &__icon {
+    padding-right: 46px;
+  }
+
+  &__icon:first-child {
+    @include width-height(11px, 19px);
+    background-image: url(../images/social-media/facebook.svg);
+    @include bg-size_position_repeat(contain, 50%, no-repeat);
+
+    transition: background-image 0.3s;
+  }
+
+  &__icon:nth-child(2) {
+    @include width-height(22px, 17px);
+    background-image: url(../images/social-media/twitter.svg);
+    @include bg-size_position_repeat(contain, 50%, no-repeat);
+
+    transition: background-image 0.3s;
+  }
+
+  &__icon:last-child {
+    background-image: url(../images/social-media/instagram.svg);
+    @include bg-size_position_repeat(contain, 50%, no-repeat);
+
+    transition: background-image 0.3s;
+  }
+
+  &__icon:first-child:hover {
+    background-image: url(../images/social-media/facebook-color.svg);
+  }
+
+  &__icon:nth-child(2):hover {
+    background-image: url(../images/social-media/twitter-color.svg);
+  }
+
+  &__icon:last-child:hover {
+    background-image: url(../images/social-media/instagram-color.svg);
+  }
+
+  &__text {
+    width: 260px;
+    margin: 23px 0 50px;
+    font-family: "Helvetica Neue", sans-serif;
+    @include font-settings(12px, 21px, center);
+    font-weight: lighter;
+    color: $lightGrey;
+
+    @include onTablet {
+      width: 520px;
+      margin: 108px 0 50px;
+      @include font-settings(14px, 21px, center);
+    }
+  
+    @include onDesktop {
+      width: 582px;
+      margin: 72px 0 50px;
+    }
+  }
+}
+
+.link {
+  text-decoration: none;
+}
