@@ -1,7 +1,8 @@
 'use strict';
 
 const list = document.querySelector('.slider-list');
-// const counter = document.querySelector('.counter');
+const counter = document.querySelector('.features__counter-this');
+const countItem = document.querySelector('.features__counter-all');
 const prev = document.querySelector('.button--prev');
 const next = document.querySelector('.button--next');
 
@@ -39,7 +40,8 @@ function move(shift) {
   position = (position + count) % count;
 
   // Записывает текст в элемент
-  // counter.textContent = `Current position is ${position + 1}`;
+  counter.textContent = `${position + 1}`;
+  countItem.textContent = ` / ${count}`;
 
   // Меняем стили списка
   // transform: translateX(-100%); // 0, -200%, -300%
