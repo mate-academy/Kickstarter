@@ -92,6 +92,7 @@
     text-transform: uppercase;
     color: #0db2b3;
     text-decoration: none;
+    
 
     @include onTablet {
       grid-column: 2 / 3;
@@ -99,14 +100,18 @@
       margin: 0;
     }
 
-    &:hover:after {
+    &::after {
       content: "";
       position: absolute;
       left: 0;
       bottom: 0;
-      width: 53px;
-      border-bottom: 1px solid #0db2b3;
-      transform: matrix(1, 0, 0, -1, 0, 0);
+      width: 0;
+      border-bottom: 2px solid #0db2b3;
+      transition: width, 0.3s;
+    }
+
+    &:hover::after {
+      width: 124px;
     }
   }
 }
