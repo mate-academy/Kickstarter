@@ -1,0 +1,65 @@
+.header {
+
+  &__top-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 13px;
+  
+    @include on-tablet {
+      margin-top: 27px;
+    }
+  
+    font-size: $font-size-small;
+  
+    &-right {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+  
+      @include on-mobile {
+        display: none;
+      }
+    }
+  
+    &-link {
+      line-height: 18px;
+      color: $link-main-color;
+  
+      &--active {
+        color: $active-color;
+        font-weight: 700;
+      }
+    }
+  }
+  
+  &__mobile-nav-icon {
+    display: none;
+    width: 24px;
+    height: 14px;
+    background-image: url(../images/mobile-menu-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    z-index: 3;
+    transition: background-image 0.3s;
+  
+    @include on-mobile {
+      display: block;
+    }
+  }
+  
+  &__mobile-nav-toggler {
+    display: none;
+
+    &:checked + label {
+      background-image: url(../images/close.png);
+    }
+  
+    &:checked ~ .mobile-nav {
+      display: block;
+      top: 0;
+    }
+  }
+}

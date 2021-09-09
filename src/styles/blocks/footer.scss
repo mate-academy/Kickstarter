@@ -1,0 +1,99 @@
+.footer {
+  position: relative;
+
+  &__arrow-up {
+    position: absolute;
+    top: 0;
+    right: 15%;
+    display: block;
+    width: 24px;
+    height: 20px;
+    background-image: url(../images/arrow-up.svg);
+    background-size: contain;
+    @include background-center;
+    transition: transform $transition-duration;
+
+    &:hover {
+      transform: scale(1.4);
+    }
+
+    @include on-tablet {
+      right: 10%;
+    }
+
+    @include on-mobile {
+      top: -80px;
+      right: 5%;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: min-content;
+    margin: 0 auto 64px;
+
+    @include on-mobile {
+      display: none;
+    }
+  }
+
+  &__icons-container {
+    display: flex;
+    @include flex-center;
+    gap: 43px;
+    margin-bottom: 71px;
+
+    @include on-mobile {
+      margin-bottom: 23px;
+    }
+  }
+
+  &__icon {
+    background-size: contain;
+    @include background-center;
+    transition: background-image $transition-duration;
+
+    &--facebook {
+      width: 11px;
+      height: 19px;
+      background-image: url(../images/facebook.svg);
+
+      &:hover {
+        background-image: url(../images/facebook-hover.svg);
+      }
+    }
+
+    &--twitter {
+      width: 22px;
+      height: 17px;
+      background-image: url(../images/twitter.svg);
+
+      &:hover {
+        background-image: url(../images/twitter-hover.svg);
+      }
+    }
+
+    &--instagram {
+      width: 18px;
+      height: 18px;
+      background-image: url(../images/instagram.svg);
+
+      &:hover {
+        background-image: url(../images/instagram-hover.svg);
+      }
+    }
+  }
+
+  &__copyright {
+    margin-bottom: 50px;
+    font-size: $font-size-small;
+    color: #bdbdbd;
+    text-align: center;
+
+    @include on-mobile {
+      font-size: $font-size-extra-small;
+    }
+  }
+}

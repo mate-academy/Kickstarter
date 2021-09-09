@@ -1,0 +1,61 @@
+.testimonials {
+  position: relative;
+  &__quotes-image {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
+    width: 233px;
+    height: 190px;
+    background-image: url(../images/quotes.svg);
+    background-size: contain;
+    @include background-center;
+    z-index: -1;
+
+    @include on-mobile {
+      width: 208px;
+      height: 171px;
+      bottom: 60%;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    @include flex-center;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    font-size: 24px;
+    line-height: 36px;
+    text-transform: none;
+
+    @include on-mobile {
+      font-size: $font-size-small;
+      line-height: 21px;
+    }
+  }
+
+  &__author-photo {
+    margin-bottom: 20px;
+    transition: transform $transition-duration;
+
+    &:hover {
+      transform: scale(1.8);
+    }
+  }
+
+  &__author-name {
+    margin-bottom: 5px;
+    font-size: $font-size-normal;
+    line-height: 27px;
+  }
+
+  &__author-role {
+    font-size: $font-size-small;
+    line-height: 120%;
+    color: $color-grey;
+  }
+}
