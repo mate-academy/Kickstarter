@@ -1,15 +1,22 @@
 .menu {
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  padding-top: 27px;
   background-color: $colorBrown;
   z-index: 4;
+  overflow-y: auto;
 
   &__content {
+    margin-bottom: 40px;
+  }
+
+  &__closer-wrapper {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    width: 100%;
-    height: 100vh;
-    padding-top: 27px;
+    justify-content: flex-end;
   }
 
   &__closer {
@@ -57,5 +64,69 @@
 
   @include onTablet {
     display: none;
+  }
+
+  &__spec-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 30px 27px;
+  }
+
+  &__specs {
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+    color: #f7f7f7;
+    transition: color 0.3s;
+    
+    &:hover {
+      color: #0db2b3;
+    }
+  }
+
+  &__language {
+    font-size: 14px;
+    line-height: 18px;
+    color: #f7f7f7;
+    transition: color 0.3s;
+    cursor: pointer;
+
+    &--slash {
+      margin: 0 3px;
+    }
+
+    &--en {
+      &:hover {
+        color: #0db2b3;
+      }
+    }
+
+    &--ua {
+      &:hover {
+        color: #0db2b3;
+      }
+    }
+  }
+
+  &__buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 48px;
+    margin: 0 auto;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: $colorWhite;
+    color: $colorBrown;
+    text-decoration: none;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #0db2b3;
+    }
   }
 }
