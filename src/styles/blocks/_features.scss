@@ -14,15 +14,15 @@
   }
 
   &__title {
-    margin: 45px 30px 51px;
-    font-family: "DIN Pro", sans-serif;
+    margin: 45px $verticalMarginMobile 51px;
+    font-family: $Din-pro;
     font-size: 37px;
     line-height: 60px;
     text-transform: uppercase;
     color: $colorBrown;
 
     @include onTablet {
-      margin: 0 34px 50px;
+      margin: 0 $verticalMarginTablet 50px;
       font-size: 56px;
       line-height: 70px;
     }
@@ -93,8 +93,9 @@
   }
 
   &__subtitle {
-    margin: 0 30px 20px;
-    font-family: "DIN Pro", sans-serif;
+    position: relative;
+    margin: 0 $verticalMarginMobile 20px;
+    font-family: $Din-pro;
     font-size: 30px;
     line-height: 37px;
     text-transform: uppercase;
@@ -103,6 +104,20 @@
     @include onTablet {
       font-size: 34px;
       line-height: 42px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      border-bottom: 1px solid #0c797a;
+      transition: width, 0.3s;
+    }
+
+    &:hover::after {
+      width: 150px;
     }
   }
 
@@ -181,7 +196,7 @@
 
   &__toggler-number-count {
     display: block;
-    font-family: "DIN Pro", sans-serif;
+    font-family: $Din-pro;
     font-size: 16px;
     line-height: 20px;
     color: $colorBrown;
@@ -189,7 +204,7 @@
     &--slash {
       margin: 0 4px;
       padding-top: 3px;
-      font-family: "DIN Pro", sans-serif;
+      font-family: $Din-pro;
       font-size: 11px;
       line-height: 14px;
       color: #bdbdbd;
