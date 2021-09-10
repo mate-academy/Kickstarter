@@ -6,6 +6,8 @@ const countItem = document.querySelector('.features__counter-all');
 const prev = document.querySelector('.button--prev');
 const next = document.querySelector('.button--next');
 
+const videoButton = document.querySelector('.video-promo__butt');
+
 let position = 0;
 
 move(0);
@@ -47,3 +49,11 @@ function move(shift) {
   // transform: translateX(-100%); // 0, -200%, -300%
   list.style.transform = `translateX(${-position * 107}%)`;
 }
+
+function viewVideo() {
+  document.getElementById('video').style.display = 'block';
+};
+
+videoButton.addEventListener('click', function() {
+  viewVideo();
+});
