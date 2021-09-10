@@ -1,10 +1,49 @@
 .speaker {
+  position: relative;
+  overflow: hidden;
 
-  // &__image {
-  // }
+  &__photo {
+    width: 100%;
+
+    @include onTablet {
+      position: absolute;
+      z-index: -1;
+      right: 20%;
+      bottom: 0%;
+      width: 50%;
+      height: 100%;
+    }
+
+    @media (min-width: 950px) {
+      right: 10%;
+    }
+
+    @include onDesktop {
+      left: 35%;
+      bottom: -10%;
+    }
+
+    &-image {
+      height: 100%;
+    
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
+      @include onTablet {
+        position: absolute;
+        height: 100%;
+        left: 20%;
+        bottom: 5%;
+      }
+
+      @include onDesktop {
+        bottom: 20%;
+      }
+    }
+  }
 
   &__title {
-    
     font-family: "DIN Pro Bold", sans-serif;
     margin-bottom: 23px;
     font-weight: bold;
