@@ -4,6 +4,9 @@ const list = document.querySelector('.slider__items');
 const prev = document.querySelector('.slider__button--prev');
 const next = document.querySelector('.slider__button--next');
 const curCount = document.querySelector('.slider__current');
+const body = document.querySelector('.page__body');
+const menuOpener = document.querySelector('.header__menu-link');
+const menuCloser = document.querySelector('.mobile-menu__cross-link');
 let position = 0;
 
 function move(shift) {
@@ -21,4 +24,12 @@ next.addEventListener('click', () => {
 
 prev.addEventListener('click', () => {
   move(-1);
+});
+
+menuOpener.addEventListener('click', () => {
+  body.classList.add('page__body--with-menu');
+});
+
+menuCloser.addEventListener('click', () => {
+  body.classList.remove('page__body--with-menu');
 });

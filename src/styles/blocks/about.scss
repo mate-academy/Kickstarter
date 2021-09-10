@@ -36,11 +36,12 @@
 
   &__title {
     position: absolute;
-    font-family: "DIN Pro", sans-serif;
-    font-weight: bold;
-    font-size: 37px;
-    line-height: 55px;
-    letter-spacing: -2px; // not necessary with "DIN pro" font
+    @include DIN-pro ("Bold", 37px, 55px);
+    // font-family: "DIN Pro", sans-serif;
+    // font-weight: bold;
+    // font-size: 37px;
+    // line-height: 55px;
+    // letter-spacing: -2px; // not necessary with "DIN pro" font
     width: 270px;
     @include onMobile {
       top: 0;
@@ -48,11 +49,14 @@
 
     @include onTablet {
       top: 12px;
-      right: 172px;
+      right: 34px;
+      width: 430px;
+      font-size: 56px;
+      line-height: 72px;
     }
 
     @include onDesktop {
-      right: 176px;
+      right: 38px;
     }
   }
 
@@ -69,9 +73,12 @@
 
   &__text {
     margin-bottom: 30px;
-    font-size: 14px;
-    line-height: 21px;
     color: $c-regular-text;
+
+    @include onMobile {
+      font-size: 14px;
+      line-height: 21px;
+    }
 
     @include onTablet {
       padding: 182px 0 0;
@@ -87,8 +94,7 @@
     position: relative;
     width: 130px;
     padding-bottom: 7px;
-    font-size: 12px;
-    line-height: 15px;
+    @include Helvetica-Neue ("Medium", 12px, 15px);
     text-transform: uppercase;
     color: $c-green;
 

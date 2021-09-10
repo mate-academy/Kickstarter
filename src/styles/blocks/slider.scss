@@ -41,25 +41,30 @@
     background-repeat: no-repeat;
     background-position: center;
     background-color: transparent;
-    @include scale;
+ 
     &--prev {
-      background-image: url("../images/button-left.svg");
+      background-image: url("../images/button-right.svg");
+      transform: rotate(180deg);
+      &:hover {
+        background-image: url("../images/button-right-hover.svg");
+      }
     }
 
     &--next {
       background-image: url("../images/button-right.svg");
+
+      &:hover {
+        background-image: url("../images/button-right-hover.svg");
+      }
     }
   }
 
   &__count {
+    @include DIN-pro ("Medium", 11px, 14px);
     text-align: center;
-    font-size: 11px;
-    line-height: 14px;
     color: $c-items-count;
   }
   .slider__current {
-    font-family: "DIN pro", sans-serif;
-    font-weight: bold;
     font-size: 16px;
     line-height: 20px;
     color: $c-dark-text;
