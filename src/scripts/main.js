@@ -51,7 +51,10 @@ function move(shift) {
 }
 
 function viewVideo() {
-  document.getElementById('video').style.display = 'block';
+  const a = document.getElementById('video');
+
+  a.style.display = 'block';
+  a.src += '&autoplay=1';
 };
 
 videoButton.addEventListener('click', function() {
