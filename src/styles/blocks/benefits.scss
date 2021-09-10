@@ -1,8 +1,7 @@
 .benefits {
-  &__cards {
-    margin-bottom: 45px;
-  }
+  
   &__wrapper {
+    margin-bottom: 90px;
     padding: 0 30px;
   }
 
@@ -10,29 +9,49 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+
+    &--2,
+    &--3,
+    &--4 {
+      display: none;
+    }
   }
+
   &__img {
-    width: 58px;
-    height: 46px;
     margin-bottom: 40px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+
+    transition: transform 0.3s;
+
+    &--1 {
+      width: 58px;
+      height: 46px;
+      background-image: url(../images/compass.svg);
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
   }
 
   &__title {
     font-family: "DIN Pro Medium", sans-serif;
     text-transform: uppercase;
     font-size: 24px;
+    line-height: 30px;
     text-align: center;
     margin-bottom: 50px;
   }
 
   &__paragraph {
     width: 260px;
-    line-height: $l-h-21;
     margin: 0 auto;
+    font-size: $f-s-14;
+    line-height: $l-h-21;
     text-align: center;
     color: $f-c-secondary;
-    font-size: $f-s-14;
   }
 
   &__toggler {
@@ -42,7 +61,6 @@
   }
 
   &__button {
-    
     @extend %toggler-button;
 
     &--prev {
@@ -92,5 +110,85 @@
     height: 246px;
     margin-bottom: 90px;
     border: none;
+  }
+
+  @include onTablet {
+
+    &__wrapper {
+      margin-bottom: 130px;
+    }
+
+    &__cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: center;
+      gap: 60px 20px;
+    }
+
+    &__card {
+
+      &--1,
+      &--2,
+      &--3,
+      &--4 {
+        display: flex;
+      }
+    }
+
+    &__img {
+      
+      &--1 {
+        width: 50px;
+        height: 40px;
+        margin-bottom: 50px;
+      }
+
+      &--2 {
+        width: 46px;
+        height: 40px;
+        background-image: url(../images/volume.svg);
+        margin-bottom: 50px;
+      }
+
+      &--3 {
+        width: 46px;
+        height: 36px;
+        background-image: url(../images/aerial.svg);
+        margin-bottom: 58px;
+      }
+
+      &--4 {
+        width: 44px;
+        height: 44px;
+        background-image: url(../images/light.svg);
+        margin-bottom: 51px;
+      }
+
+      &--2,
+      &--3,
+      &--4 {
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    &__title {
+      margin-bottom: 20px;
+    }
+
+    &__paragraph {
+      width: unset;
+      margin: 0;
+    }
+
+    &__video-frame {
+      height: 400px;
+    }
+  }
+
+  &__toggler,
+  &__toggler-counter {
+    display: none;
   }
 }
