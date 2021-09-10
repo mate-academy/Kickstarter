@@ -7,6 +7,8 @@ const curCount = document.querySelector('.slider__current');
 const body = document.querySelector('.page__body');
 const menuOpener = document.querySelector('.header__menu-link');
 const menuCloser = document.querySelector('.mobile-menu__cross-link');
+const closeLinks = document.querySelectorAll('.nav__link');
+
 let position = 0;
 
 function move(shift) {
@@ -33,3 +35,9 @@ menuOpener.addEventListener('click', () => {
 menuCloser.addEventListener('click', () => {
   body.classList.remove('page__body--with-menu');
 });
+
+for (let i = 0; i < closeLinks.length; i++) {
+  closeLinks[i].addEventListener('click', () => {
+    body.classList.remove('page__body--with-menu');
+  });
+}
