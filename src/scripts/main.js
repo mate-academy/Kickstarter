@@ -5,6 +5,7 @@ const body = document.querySelector('.page__body');
 const menuOpener = document.querySelector('.header__burger');
 const menu = document.querySelectorAll('.nav__link--mobile');
 const cross = document.querySelector('.menu__cross');
+const buy = document.querySelector('.menu__buy');
 const lang = document.querySelectorAll('.languages__country');
 
 menuOpener.addEventListener('click', () => {
@@ -12,6 +13,10 @@ menuOpener.addEventListener('click', () => {
 });
 
 cross.addEventListener('click', () => {
+  body.classList.remove('page__body--with-menu');
+});
+
+buy.addEventListener('click', () => {
   body.classList.remove('page__body--with-menu');
 });
 
@@ -122,8 +127,6 @@ const video = document.querySelector('.video__play');
 const imageVideo = document.querySelector('.video__image');
 
 let triggerVideo = false;
-
-
 
 buttonVideo.addEventListener('click', () => {
   triggerVideo = !triggerVideo;
