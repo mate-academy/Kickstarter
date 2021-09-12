@@ -1,15 +1,26 @@
 .our-story {
-  @include grid;
-  justify-items: center;
+
+  &__wrapper {
+    display: flex;
+    max-width: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 16px;
+    transform: translateX(0);
+
+    @include tablet {
+      @include grid;
+      justify-items: center;
+      max-width: $min-width-desktop;
+      margin-bottom: 0;
+    }
+  }
 
   &__story {
-    grid-column: 1 / 5;
-
-    @media (max-width: $min-width-tablet) {
-      &:nth-child(n + 2) {
-        display: none;
-      }
-    }
+    width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    transition-duration: 0.3s;
 
     @include tablet {
       margin-bottom: 60px;
@@ -39,7 +50,36 @@
         grid-column: 10 / 13;
       }
     }
-    
+  }
 
+  @media (max-width: $min-width-tablet) {
+    &__buttons {
+      display: flex;
+      justify-content: center;
+    }
+  
+    &__left {
+      width: 60px;
+      height: 16px;
+      background-image: url(../images/left.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+  
+      &--active {
+        background-image: url(../images/left-active.svg);
+      }
+    }
+  
+    &__right {
+      width: 60px;
+      height: 16px;
+      background-image: url(../images/right.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+  
+      &--active {
+        background-image: url(../images/right-active.svg);
+      }
+    }
   }
 }
