@@ -1,24 +1,46 @@
 .features {
-  background-color: $bgc-grey;
+  background-color: $bgc-secondary;
+  position: relative;
 
   &__title {
-    padding: 45px 30px 51px;
+    padding: 45px 30px 50px;
     font-family: "DIN Pro Bold", sans-serif;
     font-size: 37px;
     line-height: 60px;
   }
 
+  &__wrapper {
+    overflow: hidden;
+  }
+
+  &__content-box--1 {
+    margin: 0 30px;
+  }
+  &__content-box--2,
+  &__content-box--3 {
+    display: none;
+  }
+
   &__subtitle {
-    margin: 0 30px 20px;
+    margin-bottom: 20px;
     font-family: "DIN Pro Medium", sans-serif;
     font-size: 30px;
     text-transform: uppercase;
     line-height: 37.2px;
     color: #0c797a;
+
+    &::after {
+      @extend %pseudo-underline;
+      background-color: #0c797a;
+    }
+
+    &:hover:after {
+      width: 255px;
+    }
   }
 
   &__list {
-    margin: 0 30px;
+    padding-left: 6px;
   }
 
   &__item {
@@ -38,7 +60,6 @@
   }
 
   &__button {
-    
     @extend %toggler-button;
 
     &--prev {
@@ -91,6 +112,90 @@
     display: block;
     position: relative;
     left: 25%;
+    width: 100%;
     max-width: 400px;
+  }
+
+  @include onTablet {
+    & {
+      background-color: inherit;
+
+      &__title {
+        margin: 0 0 0 35px;
+        font-size: 57px;
+        line-height: 60px;
+      }
+
+      &__content-box-list {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      &__subtitle {
+        margin-bottom: 38px;
+        font-size: 34px;
+        line-height: 42px;
+      }
+
+      &__content-box {
+        width: 100%;
+        &--1 {
+          margin: 0 0 50px 318px;
+        }
+        &--2 {
+          display: block;
+          margin: 0 0 70px 50px;
+
+          & > .features__subtitle {
+            &:hover:after {
+              width: 228px;
+            }
+          }
+        }
+        &--3 {
+          display: block;
+          margin-left: 214px;
+
+          & > .features__subtitle {
+            &:hover:after {
+              width: 235px;
+            }
+          }
+        }
+      }
+
+      &__item {
+        font-size: $f-s-16;
+        line-height: $l-h-19;
+      }
+
+      &__toggler,
+      &__toggler-counter {
+        display: none;
+      }
+
+      &__background {
+        width: 86%;
+        height: 63%;
+        background-color: $bgc-secondary;
+        position: absolute;
+        right: 0;
+        bottom: 9%;
+        z-index: -2;
+      }
+
+      &__img-box {
+        position: absolute;
+        bottom: 17%;
+        right: 0;
+        margin-left: 0;
+        z-index: -1;
+      }
+
+      &__img {
+        max-width: 586px;
+        left: 2%;
+      }
+    }
   }
 }

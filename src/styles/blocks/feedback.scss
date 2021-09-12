@@ -4,6 +4,7 @@
   &__wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
 
   &__title {
@@ -40,8 +41,9 @@
   }
 
   &__message {
+    height: 128px;
     margin-bottom: 30px;
-    padding: 16px 56px 95px 30px;
+    padding: 16px 0 0 30px;
     border: 1px solid $light-grey;
     background-color: inherit;
     outline-style: none;
@@ -77,6 +79,32 @@
       background-color: inherit;
       color: $accent-c;
       border-color: $accent-c;
+    }
+  }
+
+  @include onTablet {
+    & {
+      padding: 130px 34px 26px;
+
+      &__wrapper {
+        display: grid;
+        grid-template-columns: fit-content(100%) fit-content(100%);
+        column-gap: 20px;
+      }
+
+      &__title {
+        width: 340px;
+        font-size: 56px;
+        line-height: 70px;
+      }
+
+      &__form {
+        width: 340px;
+      }
+
+      &__message {
+        height: 201px;
+      }
     }
   }
 }
