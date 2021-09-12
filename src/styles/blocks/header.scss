@@ -13,6 +13,12 @@
         display: flex;
       }
     }
+    .grid:first-child {
+      @include onTelephone {
+        height: 72px;
+        flex-direction: row;
+      }
+    }
     @include onTablet {
       margin-bottom: 100px;
     }
@@ -62,6 +68,10 @@
     line-height: 130%;
     text-transform: uppercase;
     color: $mainColor;
+    @include onTelephone {
+      text-align: center;
+      margin-bottom: 22px;
+    }
     @include onTablet {
       margin-bottom: 34px;
       font-size: 48px;
@@ -76,6 +86,9 @@
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 11px;
+    @include onTelephone {
+      text-align: center;
+    }
     @include onTablet {
       width: 250px;
     }
@@ -85,14 +98,26 @@
   }
 
   &__content {
-    margin-bottom: 120px;
+    @include onTelephone {
+      margin-bottom: 100px;
+    }
+    @include onTablet {
+      margin-bottom: 130px;
+    }
+    @include onDesktop {
+      margin-bottom: 120px;
+    }
   }
 
   &__img {
+    order: 1;
+    @include onTelephone {
+      order: -1;
+      margin-bottom: 40px;
+    }
     @include onTablet {
       overflow: hidden;
     }
-    order: 1;
   }
 
   &__main-img {

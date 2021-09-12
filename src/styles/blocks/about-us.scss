@@ -2,6 +2,9 @@
   display: flex;
   &__headline {
     margin-bottom: 30px;
+    @include onTelephone {
+      order: -1;
+    }
   }
   &__bg-img {
     position: absolute;
@@ -9,6 +12,11 @@
     background-repeat: no-repeat;
     object-fit: cover;
     background-origin: border-box;
+    @include onTelephone {
+      position: static;
+      min-width: 260px;
+      min-height: 210px;
+    }
     @include onTablet {
       width: 623px;
       height: 415px;
@@ -23,13 +31,43 @@
   &__wrap {
     z-index: -1;
     width: 374px;
+    @include onTelephone {
+      width: 100%;
+    }
   }
   &__subscript {
     font-size: 16px;
     line-height: 24px;
     font-weight: 200;
     color: $subscriptColor;
-
     margin-bottom: 30px;
+
+    @include onTelephone {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__see-more {
+    color: $externalLinkColor;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 127px;
+    &::after {
+      display: block;
+      content: "";
+      height: 4px;
+      width: 53px;
+      border-bottom: 1px solid $externalLinkColor;
+      transition: 0.3s;
+    }
+    &:hover:after {
+
+      width: 100%;
+    }
+
   }
 }
