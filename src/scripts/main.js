@@ -114,3 +114,27 @@ rightFeature.addEventListener('click', () => {
 leftFeature.addEventListener('click', () => {
   moveFeature(-1);
 });
+
+// video
+
+const buttonVideo = document.querySelector('.video__button-icon');
+const video = document.querySelector('.video__play');
+const imageVideo = document.querySelector('.video__image');
+
+let triggerVideo = false;
+
+
+
+buttonVideo.addEventListener('click', () => {
+  triggerVideo = !triggerVideo;
+
+  if (triggerVideo) {
+    imageVideo.classList.add('video__image--invisible');
+    buttonVideo.classList.add('video__button-icon--stop');
+    video.play();
+  } else {
+    imageVideo.classList.remove('video__image--invisible');
+    buttonVideo.classList.remove('video__button-icon--stop');
+    video.pause();
+  }
+});

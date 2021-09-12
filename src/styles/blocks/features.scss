@@ -1,6 +1,7 @@
 .features {
   position: relative;
   padding: 45px 0;
+
   @include tablet {
     @include grid;
   }
@@ -12,12 +13,12 @@
   &::after {
     content: "";
     position: absolute;
-    background-color: #f2f2f2;
     top: 0;
     right: -$container-padding-mobile;
     left: -$container-padding-mobile;
     bottom: 0;
     z-index: -1;
+    background-color: #f2f2f2;
 
     @include tablet {
       top: 25%;
@@ -32,13 +33,12 @@
   }
   
   &__title {
-    margin: 0;
+    margin: 0 0 52px;
     font-family: DIN Pro, sans-serif;
     font-size: 37px;
     line-height: 60px;
     text-transform: uppercase;
     color: $main-color;
-    margin-bottom: 52px;
 
     @include tablet {
       grid-column: 1 / 5;
@@ -55,9 +55,9 @@
   &__wrapper {
     @media (max-width: $min-width-tablet) {
       display: flex;
+      overflow: hidden;
       max-width: 300px;
       margin: 0 auto;
-      overflow: hidden;
     }
 
     @include tablet {
@@ -72,16 +72,16 @@
 
   &__sound {
     @media (max-width: $min-width-tablet) {
-      width: 100%;
-      box-sizing: border-box;
       flex-shrink: 0;
       transition-duration: 0.3s;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     @include tablet {
       grid-column: 4 / 8;
-      margin-bottom: 50px;
       z-index: 1;
+      margin-bottom: 50px;
     }
 
     @include desktop {
@@ -91,16 +91,16 @@
 
   &__connectivity {
     @media (max-width: $min-width-tablet) {
-      width: 100%;
-      box-sizing: border-box;
       flex-shrink: 0;
       transition-duration: 0.3s;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     @include tablet {
       grid-column: 1 / 5;
-      margin-bottom: 70px;
       z-index: 1;
+      margin-bottom: 70px;
     }
 
     @include desktop {
@@ -110,10 +110,10 @@
 
   &__app {
     @media (max-width: $min-width-tablet) {
-      width: 100%;
-      box-sizing: border-box;
       flex-shrink: 0;
       transition-duration: 0.3s;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     @include tablet {
@@ -134,26 +134,26 @@
     }
   
     &__left {
+      z-index: 1;
       width: 60px;
       height: 16px;
       background-image: url(../images/left.svg);
       background-size: cover;
       background-repeat: no-repeat;
-      z-index: 1;
-  
+
       &--active {
         background-image: url(../images/left-active.svg);
       }
     }
-  
+
     &__right {
+      z-index: 1;
       width: 60px;
       height: 16px;
       background-image: url(../images/right.svg);
       background-size: cover;
       background-repeat: no-repeat;
-      z-index: 1;
-  
+
       &--active {
         background-image: url(../images/right-active.svg);
       }
@@ -162,25 +162,24 @@
 
   &__block-img {
     position: relative;
+    overflow: hidden;
     height: 220px;
     margin: 0 -$container-padding-mobile;
-    overflow: hidden;
-    
 
     @include tablet {
       position: absolute;
       top: 375px;
+      z-index: 0;
       width: 100%;
       height: 380px;
-      z-index: 0;
     }
 
     @include desktop {
-      height: 500px;
       top: 400px;
-      width: auto;
       right: 0;
       z-index: 0;
+      height: 500px;
+      width: auto;
     }
   }
 
@@ -189,17 +188,17 @@
     top: 0;
     right: -75px;
     bottom: 0;
-    height: 220px;
     animation: sound 0.5s linear infinite ;
+    height: 220px;
 
     @include tablet {
       height: 380px;
     }
 
     @include desktop {
-      height: 500px;
-      z-index: 2;
       position: relative;
+      z-index: 2;
+      height: 500px;
     }
   }
 }

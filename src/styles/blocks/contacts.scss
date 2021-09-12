@@ -4,19 +4,18 @@
   }
 
   &__title {
-    margin: 0;
+    margin: 0 0 30px;
     font-family: DIN Pro, sans-serif;
     font-size: 37px;
     line-height: 46px;
     text-transform: uppercase;
     color: $main-color;
-    margin-bottom: 30px;
 
     @include tablet {
       grid-column: 1 / 5;
+      margin-bottom: 0;
       font-size: 56px;
       line-height: 70px;
-      margin-bottom: 0;
     }
 
     @include desktop {
@@ -42,9 +41,9 @@
 
   &__email {
     padding: 16px 30px;
+    margin-bottom: 20px;
     border: 1px solid #828282;
     box-sizing: border-box;
-    margin-bottom: 20px;
     background-color: #f7f7f7;
 
     &::placeholder {
@@ -56,13 +55,13 @@
 
   &__textarea {
     height: 128px;
-    font-family: inherit;
+    margin-bottom: 30px;
     padding: 16px 30px;
-    border: 1px solid #828282;
     box-sizing: border-box;
     background-color: #f7f7f7;
+    font-family: inherit;
+    border: 1px solid #828282;
     resize: none;
-    margin-bottom: 30px;
 
     &::placeholder {
       font-size: 16px;
@@ -72,15 +71,24 @@
   }
 
   &__button {
+    transition-duration: 0.3s;
     width: 100px;
     height: 40px;
+    border: none;
+    border-radius: 0;
+    background-color: $form-field-button-color;
     font-family: inherit;
     text-transform: uppercase;
-    border-radius: 0;
     font-size: 12px;
     line-height: 15px;
     color: #fff;
-    background-color: $form-field-button-color;
-    border: none;
+
+    &:hover {
+      box-shadow: 0 4px 10px $form-field-button-color;
+    }
+
+    &:active {
+      box-shadow: 0 1px 10px $form-field-button-color;
+    }
   }
 }

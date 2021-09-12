@@ -2,30 +2,17 @@
   display: grid;
   grid-template-columns: repeat($columns-on-mobile,
   $width-columns-on-mobile);
-
   column-gap: $gap-columns-on-mobile;
 
   @include tablet {
     grid-template-columns: repeat($columns-on-tablet,
     $width-columns-on-tablet);
-
     column-gap: $gap-columns-on-tablet;
   }
 
   @include desktop {
     grid-template-columns: repeat($columns-on-desktop,
     $width-columns-on-desktop);
-    
     column-gap: $gap-columns-on-desktop;
-  }
-
-  &__item {
-    @for $start from 1 through 12 {
-      @for $end from $start through 12 {
-        &--#{$start}--#{$end} {
-          grid-column: #{$start} / #{$end + 1};
-        }
-      }
-    }
   }
 }
