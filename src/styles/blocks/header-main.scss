@@ -6,6 +6,7 @@
   }
 
   &__box-img {
+    max-width: 640px;
     overflow: hidden;
   }
 
@@ -35,12 +36,14 @@
     & {
       display: flex;
       flex-direction: row-reverse;
-      margin-top: 100px;
-      margin-left: 34px;
-      margin-bottom: 128px;
+      margin: 100px 0 131px 34px;
+
+      &__box-img {
+        max-width: none;
+      }
 
       &__img {
-        width: 740px;
+        width: 739px;
       }
 
       &__wrapper {
@@ -62,6 +65,30 @@
         width: 240px;
         margin: 0;
         text-align: left;
+      }
+    }
+  }
+
+  @include onDesktop {
+    & {
+
+      width: calc(100% - (#{$header-mr-desk * 2}));
+      max-width: 1440px;
+      margin: 89px auto 121px;
+      justify-content: space-between;
+
+      &__img {
+        width: 939px;
+      }
+
+      &__title {
+        margin-bottom: 27px;
+        font-size: 64px;
+        line-height: 130%;
+      }
+
+      &__paragraph {
+        width: 276px;
       }
     }
   }

@@ -1,8 +1,7 @@
 .benefits {
   
   &__wrapper {
-    margin-bottom: 90px;
-    padding: 0 30px;
+    margin: 0 30px 90px;
   }
 
   &__card {
@@ -118,7 +117,7 @@
   @include onTablet {
 
     &__wrapper {
-      margin-bottom: 130px;
+      margin: 0 34px 130px;
     }
 
     &__cards {
@@ -181,7 +180,7 @@
     }
 
     &__paragraph {
-      width: unset;
+      width: 340px;
       margin: 0;
     }
 
@@ -197,5 +196,48 @@
   &__toggler,
   &__toggler-counter {
     display: none;
+  }
+
+  @include onDesktop {
+    & {
+
+      &__wrapper {
+        width: calc(100% - (#{$header-mr-desk * 2}));
+        max-width: 1440px;
+        margin: 45px auto 150px;
+      }
+
+      &__cards {
+        grid-template-columns: repeat(4, 1fr);
+        justify-content: center;
+        gap: 30px;
+      }
+
+      &__img {
+      
+        &--3 {
+          margin-bottom: 54px;
+        }
+        &--4 {
+          margin-bottom: 46px;
+        }
+      }
+
+      &__title {
+        margin-bottom: 50px;
+      }
+
+      &__paragraph {
+        width: unset;
+        max-width: 276px;
+      }
+
+      &__video {
+        margin-bottom: 150px;
+      }
+      &__video-frame {
+        height: 590px;
+      }
+    }
   }
 }
