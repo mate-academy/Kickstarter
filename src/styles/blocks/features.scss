@@ -1,3 +1,126 @@
 .features {
-  content: "";
+  position: relative;
+  margin-bottom: 350px;
+  &__headline {
+
+    text-align: center;
+    margin-bottom: 24px;
+
+    @include onTelephone {
+      margin-top: 45px;
+
+      font-size: 37px;
+      line-height: 60px;
+      
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    background-color: #f2f2f2;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+    
+    @include onTelephone {
+      height: 800px;
+      left: 0;
+      top: 0;
+
+    }
+    @include onTablet {
+      height: 540px;
+      top: 220px;
+      left: 91px;
+    }
+    @include onDesktop {
+      height: 596px;
+      top: 210px;
+      left: 200px;
+
+    }
+  }
+
+  &__img {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    @include onTelephone {
+      height: 222px;
+      top: 0;
+    }
+    @include onTablet {
+      height: 379px;
+
+    }
+    @include onDesktop {
+      height: 500px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    right: 0;
+    @include onTelephone {
+      height: 222px;
+      bottom: 45px;
+    }
+    @include onTablet {
+      height: 379px;
+      top: 163px;
+    }
+    @include onDesktop {
+      height: 500px;
+      top: 176px;
+    }
+  }
+  &__buttons {
+    display: none;
+
+    @include onTelephone {
+      display: flex;
+      flex-direction: row;
+      justify-items: center;
+      justify-content: center;
+    }
+
+  }
+
+  &__next {
+    background-color: transparent;
+    height: 13px;
+    width: 48px;
+    border: none;
+    background-image: url(/images/slider-right.svg);
+    background-repeat: no-repeat;
+  }
+
+  &__prev {
+    background-color: transparent;
+    height: 13px;
+    width: 48px;
+    border: none;
+    background-repeat: no-repeat;
+    background-image: url(/images/slider-left.svg);
+  }
+
+  &__slider {
+    @include onTelephone {
+      max-width: 260px;
+      overflow: hidden;
+    }
+
+  }
+
+  &__wrapper {
+    
+    transition: 0.3s;
+
+    @include onTelephone {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+  }
 }
