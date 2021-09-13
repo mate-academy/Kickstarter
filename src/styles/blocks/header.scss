@@ -1,0 +1,178 @@
+.header {
+  padding: 27px 34px 90px;
+
+  @include onTablet {
+    padding: 27px 34px 130px 40px;
+  }
+
+  @include onDesktop {
+    padding: 13px 123px 150px;
+  }
+
+  &__container {
+    display: block;
+    width: 320px;
+    height: 245px;
+    margin-bottom: 40px;
+    background-image: url(../images/headsets_mobile.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: all 1s;
+
+    @include onTablet {
+      width: 580px;
+      // height: 464px;
+      margin-bottom: 130px;
+      background-image: url(../images/header-img-desktop.png);
+    }
+    @include onDesktop {
+      min-width: 890px;
+      height: 464px;
+      margin-bottom: 120px;
+      background-image: url(../images/header-img-desktop.png);
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    @include onDesktop {
+      justify-content: flex-start;
+      flex-direction: row;
+    }
+  }
+
+  &__article {
+    
+    &--part-1 {
+      font-family: "DIN Pro", sans-serif;
+      max-width: 380px;
+      font-size: 44px;
+      text-align: center;
+      text-transform: uppercase;
+      color: $mainColor;
+      padding-bottom: 23px;
+
+      @include onTablet {
+        font-size: 48px;
+        text-align: left;
+      }
+
+      @include onDesktop {
+        font-size: 64px;
+      }
+    }
+
+    &--part-2 {
+      max-width: 280px;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: $mainColor;
+      padding-bottom: 100px;
+
+      @include onTablet {
+        text-align: left;
+      }
+    }
+  }
+
+  &__content--desk-tabl {
+    display: none;
+    
+
+    @include onTablet {
+      display: block;
+
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__item {
+    transition: all 0.8s;
+
+    &--specs {
+      font-size: 14px;
+      line-height: 21px;
+      color: #4f4f4f;
+      padding-right: 25px;
+
+      &:hover {
+        color: $lightGreenColor;
+      }
+    }
+
+    &--en {
+      font-size: 14px;
+      line-height: 18px;
+      color: $mainColor;
+
+      &:hover {
+        color: $lightGreenColor;
+      }
+    }
+
+    &--ua {
+      font-size: 14px;
+      line-height: 18px;
+      color: $silverTintColor;
+      padding-right: 37px;
+
+      &:hover {
+        color: $lightGreenColor;
+      }
+    }
+  }
+
+  &__button--buy {
+    width: 102px;
+    height: 48px;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $whiteColor;
+    background-color: $mainColor;
+    cursor: pointer;
+    border: 1px solid $mainColor;
+
+    transition: all 0.8s;
+
+    &:hover {
+      color: $mainColor;
+      border-color: $mainColor;
+      background-color: $whiteColor;
+      box-shadow: 0 5px 12px rgba(27, 31, 36, 0.46);
+    }
+  }
+
+  &__navigation--desktop {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__navigation {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    background-color: #c0c0c0;
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 24px 0;
+    overflow-y: auto;
+  
+    @include onTablet {
+      display: none;
+    }
+  }
+}

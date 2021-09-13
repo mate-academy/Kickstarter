@@ -1,0 +1,246 @@
+.features {
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 45px;
+  background-color: #f3f3f3;
+  transition: all 0.8s;
+
+  @include onTablet {
+    background-color: transparent;
+    margin-bottom: 100px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 150px;
+  }
+
+  &__title {
+    padding: 0 80px 50px 0;
+    font-family: "DIN Pro", sans-serif;
+    font-weight: bold;
+    font-size: 37px;
+    line-height: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $mainColor;
+
+    @include onTablet {
+      font-size: $titleDeskSize;
+      line-height: 70px;
+      padding: 0 392px 50px 35px;
+    }
+
+    @include onDesktop {
+      padding: 0 938px 24px 123px;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    background-color: $backgroundColor;
+    z-index: -1;
+    width: 100%;
+  
+
+    @include onTablet {
+      background-color: $backgroundColor;
+      margin-top: 140px;
+      right: 0;
+      width: 644px;
+      height: 620px;
+    }
+
+    @include onDesktop {
+      background-color: $backgroundColor;
+      margin-top: 130px;
+      right: 0;
+      width: 1113px;
+      height: 701px;
+    }
+  }
+
+  &__wrap {
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    // padding: 0 30px 50px 30px;
+    overflow: hidden;
+
+    @include onTablet {
+      display: grid;
+      grid-template-rows: auto auto auto auto;
+    }
+
+    @include onDesktop {
+      margin: 0 auto;
+    }
+  }
+
+  &__text {
+    padding-bottom: 20px;
+    font-family: "DIN Pro", sans-serif;
+    font-style: normal;
+    font-size: 34px;
+    line-height: 42px;
+    text-transform: uppercase;
+    color: $mediumGreenColor;
+
+    @include onTablet {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__component {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 19px;
+    padding-bottom: 10px;
+    color: $mainColor;
+    transition: transform 0.8s;
+
+    @include onTablet {
+      &:hover {
+        transform: scale(1.2);
+        color: $mediumGreenColor;
+      }
+    }
+  }
+
+  &__slider {
+    display: flex;
+    transition: transform 0.8s;
+
+    @include onTablet {
+      display: grid;
+      width: 0;
+    }
+  }
+
+  &__inner {
+    overflow: hidden;
+  }
+
+  &__toggler {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 15px;
+
+    @include onTablet {
+      margin: 0;
+    }
+  }
+
+  &__button {
+    display: block;
+    width: 48px;
+    height: 14px;
+    border: none;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    transition: transform 0.8s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+    
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--right {
+      background-image: url(../images/button-left.svg);
+    }
+
+    &--left {
+      background-image: url(../images/button-right.svg);
+    }
+  }
+
+  &__count {
+    display: flex;
+    justify-content: center;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &--number2 {
+      color: $silverTintColor;
+    }
+  }
+
+  &__item {
+    flex-shrink: 0;
+    padding: 0 20px;
+    width: 100%;
+
+    &--1 {
+      @include onTablet {
+        margin-left: 304px;
+        padding-bottom: 30px;
+      }
+
+      @include onDesktop {
+        margin-left: 630px;
+        padding-bottom: 30px;
+      }
+    }
+
+    &--2 {
+      @include onTablet {
+        margin-left: 45px;
+        padding-bottom: 70px;
+      }
+  
+      @include onDesktop {
+        margin-left: 225px;
+        padding-bottom: 120px;
+      }
+    }
+
+    &--3 {
+      @include onTablet {
+        margin-left: 214px;
+        // padding-bottom: 120px;
+      }
+
+      @include onDesktop {
+        margin-left: 428px;
+        // padding-bottom: 200px;
+      }
+    }
+  }
+
+  &__image {
+    background-image: url(../images/sound_music_mobile.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%;
+    margin: 0 auto;
+    width: 100%;
+    height: 222px;
+
+    @include onTablet {
+      background-image: url(../images/features-image.png);
+      position: absolute;
+      width: 60%;
+      height: 380px;
+      top: 320px;
+      right: 0;
+      z-index: -1;
+    }
+
+    @include onDesktop {
+      width: 780px;
+      height: 509px;
+      top: 306px;
+      right: 0;
+    }
+  }
+}

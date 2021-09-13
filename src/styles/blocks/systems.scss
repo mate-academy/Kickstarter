@@ -1,0 +1,85 @@
+.systems {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+  }
+
+  &__part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+
+    @include onTablet {
+      margin-bottom: 78px;
+    }
+
+    @include onDesktop {
+      margin: 0;
+    }
+
+    &--multiroom {
+
+      @include onTablet {
+        margin: 0;
+      }
+    }
+
+    &--intitive {
+      @include onTablet {
+        margin: 0;
+      }
+    }
+  }
+
+  &__wrap {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 46px;
+    white-space: nowrap;
+  }
+
+  &__image {
+    width: 100%;
+    height: 46px;
+    transition: transform 0.4s;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
+  &__title {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $mainColor;
+    padding-bottom: 50px;
+    max-width: 276px;
+
+    &--small {
+      padding-bottom: 20px;
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $mediumSilverColor;
+    // max-width: 276px;
+  }
+}
