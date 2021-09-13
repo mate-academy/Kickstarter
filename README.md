@@ -38,4 +38,3 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Uj
 > To update you PR repeat steps 7-11
 
 --> [CHECKLIST](https://github.com/mate-academy/Kickstarter/blob/master/Checklist.md)
-
