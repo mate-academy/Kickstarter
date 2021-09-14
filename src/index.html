@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crazybaby | Wireless speaker</title>
     <link rel="icon" href="./images/logo-cut.png">
-    <!-- <link rel="stylesheet" href="./styles/normalize.css"> -->
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
 
@@ -95,23 +94,47 @@
             </a>
           </div>
 
-          <nav class="nav nav--mobile">
-            <a href="#presentation" class="nav__link">our story</a>
-            <a href="#about-us" class="nav__link">about us</a>
-            <a href="#technology" class="nav__link">technology</a>
-            <a href="#features" class="nav__link">features</a>
-            <a href="#questions" class="nav__link">get in touch</a>
+          <nav class="nav">
+            <ul class="nav__list nav__list--mobile">
+              <li class="nav__list-item">
+                <a href="#presentation" class="nav__link">our story</a>
+              </li>
+              <li class="nav__list-item">
+                <a href="#about-us" class="nav__link">about us</a>
+              </li>
+              <li class="nav__list-item">
+                <a href="#technology" class="nav__link">technology</a>
+              </li>
+              <li class="nav__list-item">
+                <a href="#features" class="nav__link">features</a>
+              </li>
+              <li class="nav__list-item">
+                <a href="#questions" class="nav__link">get in touch</a>
+              </li>
+            </ul>
           </nav>
         </div>
       </div>
     </div>
 
-    <nav class="nav nav--desktop">
-      <a href="#presentation" class="nav__link">our story</a>
-      <a href="#about-us" class="nav__link">about us</a>
-      <a href="#technology" class="nav__link">technology</a>
-      <a href="#features" class="nav__link">features</a>
-      <a href="#questions" class="nav__link">get in touch</a>
+    <nav class="nav">
+      <ul class="nav__list nav__list--tablet">
+        <li class="nav__list-item">
+          <a href="#presentation" class="nav__link">our story</a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#about-us" class="nav__link">about us</a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#technology" class="nav__link">technology</a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#features" class="nav__link">features</a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#questions" class="nav__link">get in touch</a>
+        </li>
+      </ul>
     </nav>
 
     <main class="page__main">
@@ -119,9 +142,9 @@
         <div class="container">
           <div class="benefits__content">
 
-            <div class="grid grid--benefits benefits__mobile-hide">
+            <div class="grid grid--benefits">
               <div class="grid__item">
-                <div class="benefits__block">
+                <div class="benefits__block benefits__block--mobile-margin">
                   <img
                     src="./images/benefits-icon-1.svg"
                     alt="benefits-icon-Futuristic-Design"
@@ -133,7 +156,7 @@
               </div>
 
               <div class="grid__item">
-                <div class="benefits__block">
+                <div class="benefits__block benefits__block--mobile-margin">
                   <img
                     src="./images/benefits-icon-2.svg"
                     alt="benefits-icon-Tweeter-Speaker-System"
@@ -145,7 +168,7 @@
               </div>
 
               <div class="grid__item">
-                <div class="benefits__block">
+                <div class="benefits__block benefits__block--mobile-margin">
                   <img
                     src="./images/benefits-icon-3.svg"
                     alt="benefits-icon-Multiroom-System"
@@ -157,7 +180,7 @@
               </div>
 
               <div class="grid__item">
-                <div class="benefits__block ">
+                <div class="benefits__block benefits__block--mobile-margin">
                   <img
                     src="./images/benefits-icon-4.svg"
                     alt="benefits-icon-Intuitive-Lighting-System"
@@ -175,7 +198,18 @@
 
       <section class="page__section presentation" id="presentation">
         <div class="presentation__background-container">
-          <img
+          <video
+            class="presentation__background"
+            src="./images/intro.mp4"
+            poster="./images/presentation-background-768w.jpg"
+            controls="">
+          </video>
+
+          <!-- Second way to do that with iframe (YouTube) -->
+          <!-- <iframe width="1366" height="657" src="https://www.youtube.com/embed/VjVSYsMzmEU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+          <!--Third way to do that with link, image and animation -->
+          <!-- <img
             srcset="./images/presentation-background-320w.jpg 320w,
                     ./images/presentation-background-768w.jpg 768w,
                     ./images/presentation-background-1440w.jpg 1440w"
@@ -183,7 +217,6 @@
             alt="presentation-background-image"
             class="presentation__background"
           >
-
           <div class="presentation__play">
             <a
               href="https://www.youtube.com/watch?v=T3psVSj1YC8"
@@ -197,7 +230,7 @@
               >
               <span class="presentation__play-text">PLAY</span>
             </a>
-          </div>
+          </div> -->
         </div>
       </section>
 
@@ -291,7 +324,7 @@
 
       <section class="page__section features" id="features">
         <div class="container">
-          <div class="grid grid--tablet features__block-margin-setter features__mobile-hide">
+          <div class="grid grid--tablet features__block-margin-setter">
             <div class="grid__item grid__item--1-4 grid__item--row-1-2">
               <h2 class="page__section-title features__title">
                 features
@@ -314,21 +347,8 @@
               </article>
             </div>
 
-            <div class="grid__item grid__item--tablet-3-8 grid__item--desktop-5-12 grid__item--row-3-5 grid__item--z-index_-2">
-              <div class="features__image-container">
-                <img
-                  srcset="./images/features-image-320w.jpg 320w,
-                          ./images/features-image-586w.jpg 586w,
-                          ./images/features-image-786w.jpg 786w"
-                  src="./images/features-image-786w.jpg"
-                  alt="features__image-dynamic"
-                  class="features__image"
-                >
-              </div>
-            </div>
-
             <div class="grid__item grid__item--tablet-1-4 grid__item--desktop-2-5 grid__item--row-3-4">
-              <article class="features__block">
+              <article class="features__block features__block--mobile-hide">
                 <ul class="features__list">
                   <h3 class="features__subtitle">
                     Connectivity
@@ -344,7 +364,7 @@
             </div>
 
             <div class="grid__item grid__item--tablet-3-6 grid__item--desktop-4-6 grid__item--row-4-5">
-              <article class="features__block">
+              <article class="features__block features__block--mobile-hide">
                 <ul class="features__list">
                   <h3 class="features__subtitle">
                     App Features
@@ -355,6 +375,42 @@
                   <li class="features__list-item">Color Wheel & Saturation Change</li>
                 </ul>
               </article>
+            </div>
+
+            <div class="features__toggler-container">
+              <div class="features__toggler">
+                <button type="button" class="features__button features__button--prev"></button>
+                <button type="button" class="features__button features__button--next"></button>
+              </div>
+              <div class="features__toggler-number">
+                <div class="features__toggler-number-box">
+                  <span class="features__toggler-number-count features__toggler-number-count--0">
+                    0
+                  </span>
+                  <span class="features__toggler-number-count features__toggler-number-count--1">
+                    1
+                  </span>
+                  <span class="features__toggler-number-count features__toggler-number-count--slash">
+                    /
+                  </span>
+                  <span class="features__toggler-number-count features__toggler-number-count--04">
+                    03
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid__item grid__item--tablet-3-8 grid__item--desktop-5-12 grid__item--row-3-5 grid__item--z-index_-2">
+              <div class="features__image-container">
+                <img
+                  srcset="./images/features-image-320w.jpg 320w,
+                          ./images/features-image-586w.jpg 586w,
+                          ./images/features-image-786w.jpg 786w"
+                  src="./images/features-image-786w.jpg"
+                  alt="features__image-dynamic"
+                  class="features__image"
+                >
+              </div>
             </div>
 
           </div>
@@ -422,14 +478,26 @@
           </div>
 
           <div class="footer__socials footer__socials--margin">
-            <a href="http://twitter.com" target="blank">
-              <img src="./images/footer-fb-logo.png" alt="our-facebook">
+            <a href="http://m.facebook.com" target="blank">
+              <img
+                src="./images/footer-fb-logo.png"
+                alt="our-facebook"
+                class="footer__icon"
+              >
             </a>
             <a href="http://twitter.com" target="blank">
-              <img src="./images/footer-tweeter-logo.png" alt="our-tweeter">
+              <img
+                src="./images/footer-tweeter-logo.png"
+                alt="our-tweeter"
+                class="footer__icon"
+              >
             </a>
             <a href="http://instagram.com" target="blank">
-              <img src="./images/footer-insta-logo.png" alt="our-instagram">
+              <img
+                src="./images/footer-insta-logo.png"
+                alt="our-instagram"
+                class="footer__icon"
+              >
             </a>
           </div>
         </div>
@@ -445,6 +513,7 @@
       </div>
     </footer>
 
+    <script type="text/javascript" src="scripts/features-toggler.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>
