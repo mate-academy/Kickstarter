@@ -1,0 +1,176 @@
+.features {
+
+  &__container {
+    padding: 0 120px;
+    
+    @include onTablet {
+      padding: 0 35px;
+    }
+    
+    @include onMobile {
+      padding: 35px 30px;
+      background-color: #f2f2f2;
+    }
+  }
+
+  &__title {
+    padding-top: 10px;
+
+  }
+
+  &__items-box {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(3, 250px);
+    
+
+    @include onTablet {
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(3, minmax(200px, 250px));
+    }
+
+    @include onMobile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: flex-start;
+      margin: 0 auto;
+      padding-left: 20px;
+    }
+  }
+
+  &__item {
+
+    &--1 {
+      grid-column: 5 / 9;
+      grid-row: 1;
+      z-index: 1;
+      
+
+      @include onTablet {
+        grid-column: 4 / 9;
+        margin-top: 50px;
+        min-width: 300px;
+      }
+    }
+
+    &--2 {
+      grid-column: 1 / 5;
+      grid-row: 2;
+      z-index: 1;
+
+      @include onTablet {
+        grid-column: 1 / 6;
+        margin-top: 20px;
+      }
+
+      @include onMobile {
+        display: none;
+      }
+    }
+
+    &--3 {
+      grid-column: 4 / 7;
+      grid-row: 3;
+      margin-top: 150px;
+      z-index: 1;
+      max-height: 200px;
+      
+      @include onTablet {
+        grid-column: 3 / 7;
+        margin-top: 100px;
+      }
+
+      @include onMobile {
+        display: none;
+      }
+    }
+  }
+
+  &__img {
+    grid-column: 3 / 13;
+    grid-row: 1 / 4;
+    position: relative;
+    top: 105px;
+    z-index: 0;
+    width: 100vw;
+    height: 700px;
+    background-color: #f2f2f2;
+    
+    padding-right: 20px;
+
+    @include onTablet {
+      height: 600px;
+      top: 145px;
+    }
+
+    @include onMobile {
+      top: 0;
+      overflow: hidden;
+      height: auto;
+    }
+
+    
+    &-item {
+      position: relative;
+      top: 190px;
+      right: -70px;
+      max-width: 65%;
+
+      @include onTablet {
+        width: 1200px;
+      }
+
+      @include onMobile {
+        right: -90px;
+        top: 0;
+        max-width: 70%;
+      }
+    }
+  }
+
+  &__item-title {
+
+    font-family: DIN Pro, Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #0c797a;
+    margin-left: 10px;
+    margin-bottom: 44px;
+
+    @include onTablet {
+      margin-bottom: 38px;
+    }
+    @include onMobile {
+      max-width: 265px;
+      margin-left: 0;
+      margin-top: 30px;
+    }
+  }
+
+  &__advantages-list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  &__item-advantage {
+    font-size: $fontBig;
+    line-height: 24px;
+    list-style-type: disc;
+  
+    @include onTablet {
+      line-height: 19px;
+    }
+
+    @include onMobile {
+      font-size: $fontSmall;
+      line-height: 21px;
+    }
+  }
+
+  &__slider {
+    margin-top: 50px;
+  }
+}

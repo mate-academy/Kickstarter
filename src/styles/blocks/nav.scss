@@ -1,0 +1,63 @@
+.nav {
+
+  &__list {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    margin-right: 150px;
+
+    @include onMobile {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 30px;
+      color: #fff;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    transition: all 0.2s;
+
+    &:hover {
+      transform: scale(1.02);
+      color: $colorFeaturesTitle;
+    }
+
+    &--close {
+      width: 55px;
+
+      @include noMobile {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    font-size: $fontSmall;
+    line-height: 21px;
+    text-decoration: none;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    color: $colorMain;
+
+    &--close {
+      border: 1px solid #259289;
+      box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+    }
+
+    @include onMobile {
+      color: #fff;
+      font-size: 20px;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+      color: #000;
+    }
+  }
+}
