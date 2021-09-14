@@ -7,13 +7,13 @@ const button = document.getElementById('playpause');
 let intFrameWidth = window.innerWidth;
 
 if (!button.classList.contains('active')) {
-  if (intFrameWidth < 800) {
+  if (intFrameWidth < 768) {
     button.innerHTML = '<p class="video-pause"></p>';
   } else {
     button.innerHTML = 'Pause';
   }
 } else {
-  if (intFrameWidth < 800) {
+  if (intFrameWidth < 768) {
     button.innerHTML = '<p class="video-play"></p>';
   } else {
     button.innerHTML = 'Play';
@@ -24,13 +24,13 @@ window.addEventListener('resize', function(event) {
   intFrameWidth = window.innerWidth;
 
   if (!button.classList.contains('active')) {
-    if (intFrameWidth < 800) {
+    if (intFrameWidth < 768) {
       button.innerHTML = '<p class="video-pause"></p>';
     } else {
       button.innerHTML = 'Pause';
     }
   } else {
-    if (intFrameWidth < 800) {
+    if (intFrameWidth < 768) {
       button.innerHTML = '<p class="video-play"></p>';
     } else {
       button.innerHTML = 'Play';
@@ -42,7 +42,7 @@ button.addEventListener('click', function() {
   if (button.classList.contains('active')) {
     ctrlVideo.play();
 
-    if (intFrameWidth < 800) {
+    if (intFrameWidth < 768) {
       button.innerHTML = '<p class="video-pause"></p>';
     } else {
       button.innerHTML = 'Pause';
@@ -51,7 +51,7 @@ button.addEventListener('click', function() {
   } else {
     ctrlVideo.pause();
 
-    if (intFrameWidth < 800) {
+    if (intFrameWidth < 768) {
       button.innerHTML = '<p class="video-play"></p>';
     } else {
       button.innerHTML = 'Play';
