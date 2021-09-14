@@ -1,5 +1,5 @@
 .presentation {
-  &__background {
+  &__video {
     width: 100%;
     height: 256px;
     object-fit: cover;
@@ -14,25 +14,35 @@
     }
   }
 
-  &__background-container {
+  &__video-container {
     box-sizing: border-box;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
-  &__play {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+  &__button {
     position: absolute;
-    border: 1px solid #fff;
-    border-radius: 50%;
-
+    z-index: 1;
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     width: 108px;
     height: 108px;
+    border: 1px solid #f3f4f5;
+    border-radius: 50%;
+    font-family: "DIN Pro", sans-serif;
+    font-size: 24px;
+    line-height: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #f3f4f5;
+    transition: all 0.3s linear;
+    pointer-events: all;
+    cursor: pointer;
 
     @include onTablet {
       width: 190px;
@@ -44,38 +54,21 @@
       height: 232px;
     }
 
-    &-link {
-      text-decoration: none;
-      transition: all 0.3s;
-
-      &:hover {
-        transform: scale(1.5) translate(5%, 5%);
-      }
-    }
-
-    &-text {
-      display: none;
-      font-family: "DIN Pro", sans-serif;
-      font-size: 24px;
-      color: #f3f4f5;
-
-      @include onDesktop {
-        display: block;
-      }
-    }
-
-    &-triangle {
-      width: 14px;
-      height: 18px;
-
-      @include onTablet {
-        width: 21px;
-        height: 25px;
-      }
-
-      @include onDesktop {
-        display: none;
-      }
+    &:hover {
+      background-color: #ffffff30;
     }
   }
+}
+
+/* buttons on mobile on js click */
+// can do another image for pause
+
+.video-pause,
+.video-play {
+  display: block;
+  width: 14px;
+  height: 18px;
+  background-image: url("../images/presentation-play-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
