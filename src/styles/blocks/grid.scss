@@ -9,6 +9,10 @@
     column-gap: 30px;
   }
 
+  &--row-gap-60 {
+    row-gap: 60px;
+  }
+
   &--desktop-and-tablet {
     display: flex;
     flex-direction: column;
@@ -26,6 +30,7 @@
   
 
   &__item {
+
     @for $start from 1 through 12 {
       @for $end from $start through 12 {
         &--tablet-#{$start}-#{$end} {
@@ -33,7 +38,11 @@
             grid-column: #{$start} / #{$end + 1};
           }
         }
+      }
+    }
 
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
         &--desktop-#{$start}-#{$end} {
           @include onDesktop {
             grid-column: #{$start} / #{$end + 1};
@@ -41,5 +50,6 @@
         }
       }
     }
+
   }
 }
