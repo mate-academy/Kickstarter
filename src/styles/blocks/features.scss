@@ -4,19 +4,41 @@
     background: #f2f2f2;
     padding: 45px 0;
   }
-  
 
-  &__box {
-    margin-top: 50px;
-    display: none;
-
-    &:first-child {
-      display: block;
-    }
+  &__container {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 $page-padding-mobile;
 
     @include onTablet {
-      display: block;
+      padding-left: $page-padding-tablet;
     }
+
+    @include onDesktop {
+      padding-left: $page-padding-desktop;
+    }
+  }
+  
+  &__bagckground {
+    position: absolute;
+    z-index: -1;
+    width: 90%;
+    height: 75%;
+    right: 0;
+    top: 20%;
+  }
+
+  &__box {
+    margin-top: 24px;
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__box--visible {
+    display: flex;
+    flex-direction: column;
   }
 
   &__togler {
@@ -33,11 +55,11 @@
     min-height: 224px;
     width: 100%;
     object-fit: cover;
-    object-position: left;
+    object-position: center;
 
     @include onTablet {
       margin-top: 0;
-      min-height: 380px;
+      min-height: 385px;
     }
 
     @include onDesktop {
