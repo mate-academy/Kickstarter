@@ -50,18 +50,29 @@
   }
 
   &__link {
+    position: relative;
+    display: flex;
+    width: max-content;
     font-family: "Helvetica Neue Regular", sans-serif;
     font-size: 12px;
     line-height: 15px;
+    height: 22px;
     text-transform: uppercase;
     color: #0db2b3;
 
     &:after {
       content: "";
-      display: block;
+      position: absolute;
       width: 50%;
+      bottom: 0;
       height: 1px;
-      color: #0db2b3;
+      background-color: #0db2b3;
+
+      transition: width $transition-duration;
+    }
+
+    &:hover::after {
+      width: 100%;
     }
   }
 }
