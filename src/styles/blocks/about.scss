@@ -61,6 +61,8 @@
   &__link {
     position: relative;
     margin-top: 30px;
+    display: flex;
+    width: max-content;
     text-decoration: none;
     font-family: Helvetica Neue, sans-serif;
     font-size: 12px;
@@ -72,7 +74,16 @@
     &::after {
       content: "";
       position: absolute;
+      width: 50%;
+      bottom: 0;
+      height: 1px;
+      background-color: #0db2b3;
 
+      transition: width $animation-time;
+    }
+
+    &:hover::after {
+      width: 100%;
     }
 
   }
