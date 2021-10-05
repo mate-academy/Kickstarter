@@ -1,0 +1,57 @@
+.menu-slider {
+  padding-top: 30px;
+  background-image: linear-gradient(150deg, $light-grey, $grey);
+  border-bottom: 3px solid $black;
+  border-bottom-left-radius: 20px;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+
+  &__cross {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background-image: url(../images/cross.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: rotate(360deg);
+    }
+  }
+
+  &__lang-items {
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 200;
+
+    @include onDesktop {
+      line-height: 21px;
+    }
+  }
+
+  &__lang {
+    font-weight: 200;
+    text-decoration: none;
+    color: $grey;
+    transition: color 0.3s;
+
+    &:target {
+      color: $granit;
+    }
+
+    &:hover {
+      color: $granit;
+    }
+  }
+}

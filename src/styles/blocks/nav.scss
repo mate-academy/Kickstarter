@@ -1,0 +1,39 @@
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    justify-content: space-between;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0;
+
+    @include onDesktop {
+      flex-direction: row;
+    }
+  }
+
+  &__item {
+    width: min-content;
+    transition: transform 0.3s;
+    &:hover {
+      transform: translateX(30px);
+    }
+    
+    @include onDesktop {
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__link {
+    white-space: nowrap;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 21px;
+    color: $granit;
+  }
+}
