@@ -1,0 +1,55 @@
+.nav {
+  &__list {
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+    line-height: 21px;
+
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+      line-height: 30px;
+    }
+  
+    &--tablet {
+      display: none;
+  
+      @include onTablet {
+        display: flex;
+        flex-direction: row;
+        width: max-content;
+        margin: 0 auto;
+        margin-bottom: 50px;
+      }
+    }
+  }
+
+  &__list-item {
+    padding: 25px 0;
+
+    @include onTablet {
+      padding: 0;
+    }
+  }
+
+  &__link {
+    padding: 25px 30px;
+    transition: color 0.3s;
+
+    font-family: "Helvetica", sans-serif;
+    color: rgb(51, 51, 51);
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+
+    &:hover {
+      color: $color-light-blue;
+    }
+    
+    &:active {
+      color: rgba(19, 19, 19, 1);
+      font-weight: 600;
+    }
+  }
+}

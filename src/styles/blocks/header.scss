@@ -1,0 +1,106 @@
+.header {
+
+  &__content {
+    padding-top: $header-padding-top;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      margin-bottom: 100px; /* margin bottom header__top */
+    }
+
+    &-nav {
+      display: none;
+
+      &--mobile {
+        width: 24px;
+
+        @include onTablet {
+          display: none;
+        }
+      }
+
+      @include onTablet {
+        display: flex;
+        align-items: center;
+  
+        & > :not(:last-child) {
+          margin-right: 32px;
+        }
+      }
+
+      &-link {
+        font-family: "Helvetica", sans-serif;
+        color: #828282;
+        text-decoration: none;
+
+        &--specs {
+          text-transform: uppercase;
+          color: #4f4f4f;
+        }
+
+        &--active {
+          color: $color-dark-text;
+        }
+      }
+    }
+  }
+
+  &__middle {
+    margin-bottom: 120px;
+  }
+
+  &__title {
+    font-family: "DIN Pro", sans-serif;
+    font-weight: bold;
+    font-size: 44px;
+    line-height: 130%;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    
+    &--container {
+      margin: 40px 0 24px;
+    }
+
+    @include onTablet {
+      font-size: 48px;
+      text-align: left;
+      margin: 30px 0 34px;
+    }
+
+    @include onDesktop {
+      font-size: 64px;
+      text-align: left;
+      margin: 40px 0 27px;
+    }
+  }
+
+  &__description {
+    font-family: "Helvetica", sans-serif;
+    font-weight: normal;
+    text-align: center;
+    margin: 0;
+
+    @include onTablet {
+      text-align: left;
+    }
+  }
+
+  &__image {
+    display: block;
+    object-fit: contain;
+    object-position: center;
+    height: 100%;
+    max-height: 400px;
+    width: 100%;
+
+    @include onDesktop {
+      max-height: 450px;
+    }
+  }
+}

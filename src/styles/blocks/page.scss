@@ -1,0 +1,66 @@
+p,
+h1,
+h2,
+h3,
+ul {
+  margin: 0;
+}
+
+.page {
+  font-family: "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 27px;
+  color: $color-dark-text;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    background-color: $color-grey-background;
+    margin: 0;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    transition: all 0.3s;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+
+  &__main {
+    position: relative; // to absolutely position the back-to-top button
+  }
+
+  &__section {
+    margin-bottom: 90px;
+
+    @include onTablet {
+      margin-bottom: 130px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 150px;
+    }
+
+    &-title {
+      font-family: "DIN Pro", sans-serif;
+      font-weight: 700;
+      color: #333;
+      font-size: 37px;
+      line-height: 130%;
+      text-transform: uppercase;
+
+      @include onTablet {
+        font-size: 56px;
+        line-height: 130%;
+      }
+    }
+  }
+}
