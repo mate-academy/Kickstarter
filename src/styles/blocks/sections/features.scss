@@ -1,0 +1,213 @@
+.features {
+  background-color: #f7f7f7;
+  
+  @include onSmallScreen {
+    padding: 45px 30px;
+  }
+
+  @include onTablet {
+    background-color: #f7f7f7;
+  }
+  &__grid {
+    justify-items: center;
+    grid-template-rows: 3;
+
+    @include onTablet {
+      justify-items: none;
+    }
+  }
+
+  &__content--second-container {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+  &__content--third-container {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+  &__container-for-backgraund {
+    position: relative;
+  }
+
+  &__background-block {
+    position: absolute;
+    
+    background-color: #f2f2f2;
+    background-image: url(../images/section-features/features-bg-small-img.png);
+    
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      width: 85.5%;
+      right: 0;
+      top: 22%;
+      bottom: 14%;
+      background-image: url(../images/section-features/features-bg-middle-img.png);
+      background-position: bottom 78px right 0;
+    }
+
+    @include onTablet-features {
+      background-position: bottom 78px right 40%;
+    }
+    @include onDesctop {
+      width: 77.5%;
+      right: 0;
+      top: 21%;
+      bottom: 2%;
+      background-image: url(../images/section-features/features-bg-large-img.png);
+      background-position: bottom 16px right 123px;
+    }
+  }
+
+  &__content-block {
+    position: relative;
+  }
+
+  &__title {
+    margin-bottom: 51px;
+
+    @include onTablet {
+      margin-left: 70px;
+    }
+
+    @include onDesctop {
+      margin-bottom: 24px;
+      margin-left: 0;
+    }
+    
+  }
+
+  &__subtitle {
+    margin: 0 0 20px;
+    font-family: "DIN Pro", serif;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 41px;
+    text-transform: uppercase;
+    color: #0c797a;
+
+    @include onTablet {
+      margin: 0 0 25px 10px;
+      text-align: left;
+    }
+  }
+
+  &__list {
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    padding: 0;
+
+    &--first {
+      @include onDesctop {
+        margin-bottom: 0;
+      }
+    }
+    &--second {
+      
+      @include onTablet {
+        
+        margin-bottom: 70px;
+      }
+      @include onDesctop {
+        margin-bottom: 121px;
+      }
+    }
+
+    &--third {
+      
+      @include onTablet {
+        
+        margin-bottom: 0;
+      }
+      
+    }
+    
+  }
+
+  &__list-item {
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 13px;
+    list-style-position: inside;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onSmallScreen {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__img-container {
+    display: block;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__slider-controllers {
+   
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__slider-link {
+    display: inline-block;
+
+    &--left {
+      transform: translateX(6px);
+    }
+
+    &--right {
+      transform: translateX(-6px);
+    }
+  }
+
+  &__slider-numbers {
+    text-align: center;
+  }
+  &__slider-number {
+
+    display: inline-block;
+    text-decoration: none;
+    padding: 0 6px;
+    
+
+    &--active {
+      font-family: "DIN Pro", serif;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    &--not-active {
+      position: relative;
+      font-family: "DIN Pro", serif;
+      font-size: 11px;
+      line-height: 14px;
+      color: #bdbdbd;
+
+      &::before {
+        content: "/";
+        position: absolute;
+        left: -4px;
+        font-size: 11px;
+        line-height: 14px;
+        color: #bdbdbd;
+      }
+    }
+  }
+}

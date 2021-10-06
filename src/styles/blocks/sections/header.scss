@@ -1,0 +1,208 @@
+.header {
+
+  @include onSmallScreen {
+    margin-bottom: 80px;
+  }
+
+  &__grid {
+    align-items: center;
+
+    &--middle {
+      grid-template-rows: 2;
+
+      @include onSmallScreen {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__menu-burger {
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    min-height: 680px;
+    height: 100vh;
+    padding: 13px 0 45px;
+
+    @include onSmallScreen {
+      padding-bottom: 20px;
+      display: block;
+    }
+    
+    &-top {
+      padding: 0 30px;
+      
+      @include onDesctop {
+        padding: 0;
+      }
+    }
+
+    &-middle {
+      overflow: hidden;
+
+      @include onTablet {
+        padding: 0 0 0 30px;
+      }
+      @include onDesctop {
+        padding: 0;
+      }
+    }
+
+    &-bottom {
+      
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &__top {
+
+    &-menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include onSmallScreen {
+        display: block;
+        justify-self: end;
+      }
+    }
+
+    &-specs-link {
+      display: inline-block;
+      padding: 5px 2px;
+      color: #4f4f4f;
+      text-transform: uppercase;
+      text-decoration: none;
+
+      &:hover {
+        color: #333;
+        text-shadow: #0db2b3 1px 0 2px;
+      }
+
+      &--visible-tablet {
+        @include onSmallScreen {
+          display: none;
+        }
+      }
+    }
+
+    &-lenguage-link {
+      font-size: 14px;
+      line-height: 18px;
+      color: #bdbdbd;
+      text-transform: uppercase;
+      text-decoration: none;
+
+      &.active-language {
+        color: #333;
+        &::after {
+          display: inline;
+          content: " /";
+          text-shadow: none;
+        }
+        
+      }
+      @include onTablet {
+
+        display: inline-block;
+        padding: 5px 0;
+
+        &:hover {
+          text-shadow: #0db2b3 1px 0 2px;
+        }
+      }
+      
+      &--visible-tablet {
+        @include onSmallScreen {
+          display: none;
+        }
+      }
+
+    }
+
+    &-button-action {
+      display: inline-block;
+      padding: 16px 38px;
+      box-sizing: border-box;
+      font-size: 12px;
+      line-height: 15px;
+      color: #fff;
+      text-transform: uppercase;
+      background-color: #000;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: all 0.3s linear;
+
+      &--visible-tablet {
+        @include onSmallScreen {
+          display: none;
+        }
+      }
+      @include onTablet {
+        
+        &:hover {
+          box-shadow: 0 2px 14px rgba(13, 178, 179, 0.46);
+        }
+
+        &:active {
+          box-shadow: 0 10px 0 rgba(23, 80, 80, 0.46);
+        }
+        
+      }
+    }
+  }
+
+  &__middle {
+    
+    &-description {
+      margin: 0;
+      font-size: 16px;
+      line-height: 24px;
+      grid-row: 2 /span 1;
+      z-index: 1;
+
+      @include onSmallScreen {
+        text-align: center;
+        padding: 0 30px;
+      }
+
+      @include onTablet {
+        padding: 0;
+      }
+    }
+
+    &-title {
+      grid-row: 1 /span 1;
+      z-index: 1;
+    }
+
+    &-img {
+      grid-row: 1 /span 2;
+
+      @include onSmallScreen {
+        order: -1;
+        margin-bottom: 40px;
+      }
+
+      @include onTablet {
+        justify-self: center;
+      }
+
+      @include onDesctop {
+        justify-self: start;
+      }
+    }
+  }
+}
