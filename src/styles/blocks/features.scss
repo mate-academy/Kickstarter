@@ -1,0 +1,98 @@
+.features {
+  position: relative;
+  padding: 45px 0;
+  background-color: #f2f2f2;
+  overflow: hidden;
+
+  @include onTablet {
+    background-color: $color-bckgd;
+  }
+ 
+  &__feature {
+    &:nth-child(n+2) {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &__sub-title {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-family: "DIN Pro", sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 37px;
+    text-transform: uppercase;
+
+    color: $color-dark-green;
+  }
+
+  &__list {
+    list-style: inside;
+  }
+
+  &__item {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 21px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__switch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto;
+    width: 60px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__counter {
+    margin-top: 10px;
+    font-family: "DIN Pro", sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 14px;
+    color: #bdbdbd;
+
+    &-current {
+      font-size: 16px;
+      line-height: 20px;
+      color: $color-text;
+    }
+  }
+  
+  &__photo {
+    @include onTablet {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      width: 70%;
+      height: 60%;
+      right: 0;
+      top: 25%;
+      z-index: 1;
+      background-color: #f2f2f2;
+    }
+  }
+
+  &__image {
+    width: 110%;
+
+    @include onTablet {
+      width: 100%;
+      height: 80%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+}
