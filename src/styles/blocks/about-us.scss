@@ -1,0 +1,137 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @include onTablet {
+    position: relative;
+  }
+
+  &__video {
+    padding-bottom: 90px;
+  }
+
+  &__title {
+    padding: 0 30px;
+    font-family: "DIN Pro", Helvetica, sans-serif;
+    font-size: 37px;
+    line-height: 55px;
+    font-weight: bold;
+
+    text-align: start;
+    text-transform: uppercase;
+
+    color: $fontDarkBrown;
+    padding-bottom: 50px;
+
+    @include onTablet {
+      position: absolute;
+      z-index: 1;
+      padding: 0;
+      width: 430px;
+      height: 144px;
+
+      font-size: 56px;
+      line-height: 72px;
+      text-align: start;
+
+      transform: translate(65%, -100%);
+    }
+
+    @include onDesktop {
+      transform: translate(170%, -100%);
+    }
+
+  }
+
+  &__image {
+    box-sizing: border-box;
+    padding: 0 30px;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      position: relative;
+      box-sizing: border-box;
+      padding: 0;
+
+      width: 623px;
+      height: 416px;
+
+      transform: translateX(-42%);
+    }
+
+    @include onDesktop {
+      transform: translateX(30%);
+    }
+
+  }
+
+  &__text {
+    padding: 0 30px;
+    color: $fontGrey;
+    font-size: 16px;
+    line-height: 24px;
+
+    margin-bottom: 30px;
+
+    @include onTablet {
+      position: absolute;
+      padding: 0;
+      width: 340px;
+      height: 146px;
+
+      transform: translate(110%, 40%);
+
+    }
+
+    @include onDesktop {
+      transform: translate(248%, 40%);
+    }
+  }
+
+  &__link {
+    padding: 0 30px;
+    color: $fontGreen;
+    text-decoration: none;
+
+    @include onTablet {
+      position: absolute;
+      padding: 0;
+      transform: translate(320%, 130px);
+    }
+
+    @include onDesktop {
+      left: 840px;
+      transform: translateY(130px);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 30px;
+      height: 1px;
+      width: 52px;
+      background-color: $fontGreen;
+
+      transition: 0.3s;
+
+      @include onTablet {
+        padding: 0;
+        transform: translate(-30px, 6px);
+      }
+    }
+    
+    &:hover::after {
+      width: 110px;
+      height: 2px;
+
+      left: 5px;
+      transition: 0.3s;
+      transform: translate(0, 6px);
+    }
+  }
+}

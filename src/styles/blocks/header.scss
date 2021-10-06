@@ -1,0 +1,134 @@
+.header {
+  overflow: hidden;
+  max-width: 1200px;
+
+  @include onDesktop {
+    padding: 0 124px;
+    margin: 0 auto;
+    position: relative;
+    transform: translateX(2%);
+    // display: flex;
+  }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 34px 22px;
+  }
+
+  &__buttons {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+
+    color: #828282;
+    text-decoration: none;
+
+    &--active {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 18px;
+    }
+
+  }
+
+  &__button--buy {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 102px;
+    height: 48px;
+    background-color: $fontDarkBrown;
+    color: #fff;
+
+    text-decoration: none;
+  }
+
+  &__menu-icon {
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__content {
+    display: grid;
+
+    @include onTablet {
+      align-items: center;
+      grid-template-columns: minmax(240px, 285px) minmax(460px, 600px);
+    }
+  }
+
+  &__content-image {
+    overflow: hidden;
+    width: 100%;
+    max-height: 468px;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      position: relative;
+      bottom: 10px;
+      left: -10%;
+    }
+
+    @include onDesktop {
+      left: -20%;
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+    font-family: "DIN Pro", sans-serif;
+    font-weight: 1000;
+    font-size: 44px;
+    line-height: 130%;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: $fontDarkBrown;
+
+    @include onTablet {
+      text-align: start;
+      margin-bottom: 34px;
+    }
+
+    @include onDesktop {
+      padding-top: 100px;
+    }
+
+  }
+
+  &__content-text {
+    position: relative;
+    z-index: 1;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: $fontDarkBrown;
+    padding-bottom: 30px;
+
+    @include onTablet {
+      width: 250px;
+      height: 120px;
+      text-align: start;
+    }
+
+    @include onDesktop {
+      width: 276px;
+      height: 96px;
+    }
+  }
+}
