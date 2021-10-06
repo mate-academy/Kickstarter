@@ -1,6 +1,46 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onMobile {
+  @media (min-width: 1px) and (max-width: 767px) {
+    @content;
   }
+}
+
+@mixin onTablet {
+  @media (min-width: 767px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin scale {
+  transition: transform 0.4s;
+
+  &:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+}
+
+@mixin formGeneralStyles {
+  font-family: "Helvetica Neue Roman", sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  border: 1px solid $c-items-count;
+  background-color: $c-background-body;
+}
+
+@mixin DIN-pro($weight, $size, $line) {
+  font-family: "DIN pro #{$weight}", sans-serif;
+  font-size: $size;
+  line-height: $line;
+}
+
+@mixin Helvetica-Neue($weight, $size, $line) {
+  font-family: "Helvetica Neue #{$weight}", sans-serif;
+  font-size: $size;
+  line-height: $line;
 }

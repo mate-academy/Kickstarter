@@ -1,0 +1,63 @@
+.quote {
+  text-align: center;
+  @include onDesktop {
+    margin: 0 auto;
+    max-width: 786px;
+  }
+  &__text {
+    position: relative;
+    @include DIN-pro ("Bold", 14px, 150%);
+    @include onMobile {
+      padding-bottom: 40px;
+    }
+    @include onTablet {
+      font-size: 24px;
+      padding-bottom: 40px;
+    }
+    @include onDesktop {
+      padding-bottom: 30px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background-image: url("../images/quotes.svg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: -1;
+      @include onMobile {
+        width: 208px;
+        height: 171px;
+        top: -13px;
+      }
+      @include onTablet {
+        width: 233px;
+        height: 188px;
+        top: -75px;
+      }
+      @include onDesktop {
+        top: -53px;
+      }
+    }
+  }
+  &__image {
+    width: 62px;
+    height: 62px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    @include scale;
+  }
+
+  &__name {
+    @include Helvetica-Neue ("Medium", 16px, 27px);
+  }
+
+  &__post {
+    font-size: 14px;
+    line-height: 120%;
+    padding-bottom: 8px;
+    color: $c-regular-text;
+  }
+}

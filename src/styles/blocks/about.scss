@@ -1,0 +1,117 @@
+.about {
+  padding-bottom: 90px;
+
+  @include onTablet {
+    padding-bottom: 130px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 150px;
+  }
+
+  &__wrapper {
+    position: relative;
+
+    @include onMobile {
+      padding-top: 160px;
+    }
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__image-container {
+    width: 100%;
+    background-image: url("../images/future.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onMobile {
+      padding-bottom: 81%;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    @include DIN-pro ("Bold", 37px, 55px);
+    // font-family: "DIN Pro", sans-serif;
+    // font-weight: bold;
+    // font-size: 37px;
+    // line-height: 55px;
+    // letter-spacing: -2px; // not necessary with "DIN pro" font
+    width: 270px;
+    @include onMobile {
+      top: 0;
+    }
+
+    @include onTablet {
+      top: 12px;
+      right: 34px;
+      width: 430px;
+      font-size: 56px;
+      line-height: 72px;
+    }
+
+    @include onDesktop {
+      right: 38px;
+    }
+  }
+
+  &__text-wrapper {
+    @include onTablet {
+      padding: 0 $container-padding-tab 0 20px;
+      margin-bottom: 35px;
+    }
+
+    @include onDesktop {
+      padding-right: 0;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    color: $c-regular-text;
+
+    @include onMobile {
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+    @include onTablet {
+      padding: 182px 0 0;
+      width: 340px;
+    }
+
+    @include onDesktop {
+      width: 378px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    width: 130px;
+    padding-bottom: 7px;
+    @include Helvetica-Neue ("Medium", 12px, 15px);
+    text-transform: uppercase;
+    color: $c-green;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 5;
+      width: 53px;
+      height: 1px;
+      background-color: $c-green;
+      transition: width, 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

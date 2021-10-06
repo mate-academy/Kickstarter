@@ -1,0 +1,176 @@
+.header {
+  --container-padding: 30px;
+  @include onMobile {
+    padding-bottom: 100px;
+  }
+  @include onTablet {
+    padding-bottom: 128px;
+  }
+  @include onDesktop {
+    padding-bottom: 45px;
+  }
+
+  &__logo-link {
+    @include scale;
+  }
+
+  &__mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 0 22px;
+    @include onTablet {
+      padding-bottom: 100px;
+    }
+  }
+
+  &__menu-link {
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__links {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 251px;
+    }
+  }
+
+  &__specs {
+    font-size: 14px;
+    color: $c-inactive-svg;
+    @include scale;
+    @include onTablet {
+      line-height: 17px;
+    }
+    @include onDesktop {
+      line-height: 21px;
+    }
+  }
+
+  &__languages {
+    display: flex;
+    justify-content: space-between;
+    width: 52px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  &__ua {
+    color: $c-items-count;
+  }
+
+  &__en {
+    color: $c-arrowup-color;
+  }
+
+  &__buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 48px;
+    @include Helvetica-Neue ("Medium", 12px, 15px);
+    text-transform: uppercase;
+    background-color: $c-dark-text;
+    text-align: center;
+    color: $c-white;
+    &:hover {
+      background-color: $c-arrowup-color;
+    }
+  }
+
+  &__main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      flex-direction: row-reverse;
+    }
+
+    @include onDesktop {
+      margin-bottom: 121px;
+    }
+  }
+
+  &__image-container {
+    width: 100%;
+    padding-bottom: 75%;
+    margin-bottom: 40px;
+    background-image: url("../images/headsets_mobile.png");
+    background-position: center left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+    @include onTablet {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      background-image: url("../images/header-img-tablet.png");
+    }
+
+    @include onDesktop {
+      background-image: url("../images/header-img-desktop.png");
+    }
+  }
+
+  &__text-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    @include onMobile {
+      padding: 0 $container-padding-mob 0;
+    }
+    @include onTablet {
+      text-align: left;
+    }
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    @include DIN-pro ("Black", 44px, 130%);
+    text-transform: uppercase;
+
+    @include onTablet {
+      max-width: 340px;
+      margin: 28px 0 34px;
+      font-size: 48px;
+    }
+
+    @include onDesktop {
+      max-width: 378px;
+      font-size: 64px;
+      margin: 80px 0 27px;
+    }
+  }
+
+  &__text {
+    @include onTablet {
+      max-width: 250px;
+    }
+
+    @include onDesktop {
+      max-width: 276px;
+    }
+  }
+
+  &__nav {
+    display: none;
+    @include onDesktop {
+      display: flex;
+      height: 72px;
+    }
+  }
+}

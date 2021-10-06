@@ -1,0 +1,150 @@
+.features {
+  // position: relative;
+  @include onMobile {
+    padding: 45px 0;
+    margin-bottom: 45px;
+  }
+  @include onTablet {
+    margin-bottom: 130px;
+  }
+  @include onDesktop {
+    margin-bottom: 180px;
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__grid {
+    @include onMobile {
+      display: none;
+    }
+  }
+  &__title {
+    @include DIN-pro ("Bold", 37px, 60px);
+    text-transform: uppercase;
+    @include onMobile {
+      padding-bottom: 50px;
+    }
+    @include onTablet {
+      width: 340px;
+      padding-bottom: 50px;
+      text-align: center;
+      font-size: 56px;
+      line-height: 70px;
+    }
+    @include onDesktop {
+      width: 378px;
+    }
+  }
+
+  &__item {
+    @include onMobile {
+      width: 260px;
+      margin: 0 auto;
+    }
+
+    @include onTablet {
+      &--1 {
+        padding-bottom: 50px;
+      }
+      &--2 {
+        padding-bottom: 70px;
+      }
+    }
+
+    @include onDesktop {
+      &--1 {
+        padding-bottom: 0;
+      }
+      &--2 {
+        padding-bottom: 120px;
+      }
+    }
+  }
+
+  &__subtitle {
+    @include DIN-pro ("Medium", 30px, 37px);
+    text-transform: uppercase;
+    color: $c-dark-green;
+    @include onMobile {
+      padding-bottom: 20px;
+    }
+
+    @include onTablet {
+      font-size: 34px;
+      line-height: 42px;
+      padding-bottom: 38px;
+    }
+  }
+
+  &__list {
+    list-style: initial;
+  }
+
+  &__record {
+    @include onMobile {
+      font-size: 14px;
+      line-height: 21px;
+      margin-bottom: 10px;
+    }
+
+    @include onTablet {
+      line-height: 19px;
+      margin-bottom: 13px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__background {
+    position: absolute;
+    background-color: $c-background-features;
+    z-index: -2;
+    @include onMobile {
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+    @include onTablet {
+      top: 232px;
+      bottom: 90px;
+      left: 124px;
+      right: 0;
+    }
+    @include onDesktop {
+      top: 218px;
+      bottom: 20px;
+      left: 312px;
+      right: 0;
+    }
+  }
+
+  &__image {
+    background-image: url("../images/features-image.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    @include onMobile {
+      margin: 0 auto;
+      width: 100%;
+      height: 222px;
+    }
+    @include onTablet {
+      position: absolute;
+      top: 404px;
+      bottom: 169px;
+      left: 182px;
+      right: 0;
+      z-index: -1;
+    }
+    @include onDesktop {
+      top: 386px;
+      bottom: 36px;
+      left: 531px;
+      right: 123px;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.mobile-menu {
+  @include onTablet {
+    display: none;
+  }
+  min-height: 100vh;
+  transform: translateY(-100%);
+  background-color: $c-white;
+
+  &:target {
+    z-index: 2;
+    transition: transform, 0.3s;
+    transform: translateY(0);
+  }
+
+  &__top {
+    display: flex;
+    justify-content: flex-end;
+    padding: 30px 0;
+  }
+
+  &__cross {
+    width: 18px;
+    height: 18px;
+  }
+}

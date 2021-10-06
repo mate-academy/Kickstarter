@@ -1,0 +1,51 @@
+.nav {
+  display: flex;
+  justify-content: center;
+
+  @include onMobile {
+    justify-content: start;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 786px;
+    @include onMobile {
+      flex-direction: column;
+      align-items: start;
+      width: unset;
+    }
+  }
+
+  &__item {
+    @include onMobile {
+      margin-bottom: 28px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 21px;
+    transition: color 0.4s, transform 0.4s;
+    color: $c-dark-text;
+
+    @include onMobile {
+      padding: 0;
+    }
+
+    @include onDesktop {
+      padding: 28px 0;
+    }
+
+    &:hover {
+      color: $c-arrowup-color;
+      transform: scale(1.2);
+    }
+  }
+}
