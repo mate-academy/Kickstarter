@@ -1,7 +1,159 @@
 @import "utils";
-@import "fonts";
+@import "./utils/mixins";
+@import "../fonts/fonts";
 @import "typography";
+@import "./utils/grid.scss";
 
 body {
-  background: $c-gray;
+  margin: 0 auto;
+  background: #f7f7f7;
+  max-width: 1280px;
+  font-size: 16px;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.menu {
+  padding: 0 30px;
+  height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include onTablet {
+    height: 49px;
+    padding: 27px 33px 0;
+  }
+
+  &__icon {
+    display: block;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  // .header__img
+
+  &__img {
+    cursor: pointer;
+  }
+
+  // .menu__buy-button
+
+  .buy-button {
+    text-transform: uppercase;
+    background-color: #333;
+    cursor: pointer;
+    border: none;
+    width: 102px;
+    height: 48px;
+    color: #fff;
+  }
+
+  .header-buttons {
+    display: none;
+    @include onTablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .header-button {
+    @include buttonOnHeader;
+
+    &__leng {
+      @include buttonOnHeader;
+      color: #828282;
+
+      &:first-child {
+        color: #333;
+      }
+    }
+  }
+
+  // .menu__language
+
+  &__language {
+    // display: none;
+    padding-right: 27px;
+  }
+
+  // .menu__specs
+
+  &__specs {
+    width: 70px;
+    // display: none;
+  }
+}
+
+.icon-img {
+  display: block;
+  width: 24px;
+  padding-bottom: 100%;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(../images/Header/Menu.svg);
+}
+
+.intro {
+  margin-top: 100px;
+
+  &__speaker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__speaker-img {
+    width: 100%;
+    min-height: 245px;
+    object-fit: cover;
+    object-position: left;
+  
+    @include onTablet {
+      min-height: 365px;
+    }
+
+    @include onDesktop {
+      min-height: 464px;
+    }
+  }
+
+  &__h1 {
+    color: #333;
+    margin: 80 0 0;
+    font-family: "DIN Pro", Helvetica, sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 44px;
+    line-height: 130%;
+    text-align: center;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 48px;
+    }
+
+    @include onDesktop {
+      text-align: left;
+      font-size: 64px;
+    }
+  }
+
+  &__text {
+    margin: 23px 0 0;
+    line-height: 150%;
+    text-align: center;
+
+    @include onTablet {
+      margin: 34px 0 0;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      margin: 27px 0 0;
+    }
+  }
 }
