@@ -1,0 +1,163 @@
+.questions {
+  box-sizing: border-box;
+  padding: 45px 30px 43px;
+
+  @include onTablet {
+    padding: 130px 34px 25px;
+  }
+
+  @include onNotebook {
+    width: calc(100% - 246px);
+    padding: 0;
+    margin: 180px auto 107px;
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    @include onTablet {
+      grid-template-columns: max-content max-content;
+      display: grid;
+      gap: 20px;
+    }
+
+    @include onNotebook {
+      gap: 102px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    font-family: $Din-pro;
+    font-size: 37px;
+    line-height: 46px;
+    text-transform: uppercase;
+    color: $colorBrown;
+
+    @include onTablet {
+      width: 340px;
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    @include onNotebook {
+      width: 480px;
+      line-height: 70px;
+    }
+  }
+
+  &__forms {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      width: 340px;
+    }
+    
+    @include onNotebook {
+      width: 438px;
+    }
+  }
+
+  &__email {
+    padding-top: 15px;
+    padding-right: 56px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    border: 1px solid #bdbdbd;
+    background-color: inherit;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+      font-size: 16px;
+      line-height: 19px;
+      color: #bdbdbd;
+    }
+
+    @include onTablet {
+      margin-bottom: 19px;
+      padding-right: 146px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 15px;
+      padding-right: 234px;
+    }
+
+    &:hover {
+      border-color: #828282;
+    }
+
+    &:focus {
+      border-color: $colorBrown;
+      outline: none;
+    }
+  }
+
+  &__message {
+    padding-top: 15px;
+    padding-right: 56px;
+    padding-bottom: 95px;
+    padding-left: 30px;
+    border: 1px solid #bdbdbd;
+    background-color: inherit;
+    transition: border-color 0.2s;
+    resize: none;
+
+    &::placeholder {
+      font-family: "Europa-Grot", sans-serif;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 19px;
+      color: #bdbdbd;
+    }
+
+    @include onTablet {
+      padding-right: 146px;
+      padding-bottom: 166px;
+    }
+
+    @include onNotebook {
+      padding-right: 234px;
+      padding-bottom: 93px;
+    }
+
+    &:hover {
+      border-color: #828282;
+    }
+
+    &:focus {
+      border-color: $colorBrown;
+      outline: none;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 40px;
+    margin-top: 30px;
+    border: 1px solid transparent;
+    background-color: #0db2b3;
+    font-size: 12px;
+    line-height: 15px;
+    color: #fff;
+    transition: background-color 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $colorWhite;
+      border-color: #0db2b3;
+      color: #0db2b3;
+    }
+
+    @include onNotebook {
+      height: 48px;
+    }
+  }
+}

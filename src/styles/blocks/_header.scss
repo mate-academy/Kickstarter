@@ -1,0 +1,174 @@
+.header {
+  box-sizing: border-box;
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 27px;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onNotebook {
+      width: calc(100% - 246px);
+      max-width: 1440px;
+      padding: 0;
+      margin: 13px auto 0;
+    }
+
+    &--menu-opener {
+      width: 24px;
+      height: 24px;
+      margin-right: $verticalMarginMobile;
+      background-image: url(../images/menu.svg);
+      background-size: contain;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+      margin-top: 100px;
+      margin-left: $verticalMarginTablet;
+      margin-bottom: 50px;
+    }
+
+    @include onNotebook {
+      justify-content: space-between;
+      width: calc(100% - 246px);
+      max-width: 1440px;
+      margin: 89px auto 132px;
+    }
+  }
+
+  &__photo-box {
+    overflow: hidden;
+    
+    @include onMobile {
+      max-width: 650px;
+    }
+
+    @include onTablet {
+      max-width: none;
+    }
+
+    @include onNotebook {
+      max-width: none;
+    }
+  }
+
+  &__photo {
+    width: 160%;
+    
+    @include onTablet {
+      width: 739px;
+    }
+
+    @include onNotebook {
+      width: 939px;
+    }
+  }
+
+  &__text-box {
+    margin: 0 auto;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin: 0;
+    }
+  }
+
+  &__title {
+    display: block;
+    font-family: $Din-pro;
+    margin: 0 0 23px;
+    font-size: 44px;
+    line-height: 130%;
+    text-align: center;
+    text-transform: uppercase;
+    color: $colorBrown;
+
+    @include onTablet {
+      margin-bottom: 34px;
+      font-size: 48px;
+      text-align: left;
+    }
+
+    @include onNotebook {
+      margin-bottom: 27px;
+      font-size: 64px;
+      line-height: 130%;
+    }
+  }
+
+  &__description {
+    display: block;
+    width: 230px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: $colorBrown;
+
+    @include onTablet {
+      width: 220px;
+      text-align: left;
+      margin: 0;
+    }
+
+    @include onNotebook {
+      width: 250px;
+      text-align: left;
+      margin: 0;
+    }
+  }
+
+  &__menu-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 76px;
+    padding: 0 80px;
+
+    @include onMobile {
+      display: none;
+    }
+
+    @include onNotebook {
+      padding: 0;
+    }
+  }
+
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    padding: 25px 15px;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $colorBrown;
+    text-decoration: none;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(120%);
+    }
+  }
+}

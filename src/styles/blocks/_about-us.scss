@@ -1,0 +1,117 @@
+.about-us {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 90px $verticalMarginMobile;
+  overflow: hidden;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr 1fr 10%;
+    row-gap: 30px;
+    column-gap: 20px;
+    margin-top: 130px;
+    margin-right: $verticalMarginTablet;
+    margin-bottom: 130px;
+    margin-left: 0;
+  }
+
+  @include onNotebook {
+    width: calc(100% - 246px);
+    max-width: 1440px;
+    margin: 150px auto;
+    column-gap: 30px;
+  }
+
+  &__title {
+    margin: 0 0 50px;
+    font-family: $Din-pro;
+    font-size: 37px;
+    line-height: 55px;
+    color: $colorBrown;
+
+    @include onTablet {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      margin-bottom: 0;
+      margin-left: -91px;
+      font-size: 56px;
+      line-height: 72px;
+    }
+
+    @include onNotebook {
+      margin-left: -100px;
+    }
+  }
+
+  &__img {
+    width: 90%;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      position: relative;
+      left: 0;
+      grid-column: 1 / 2;
+      grid-row: 1 / 4;
+      justify-self: right;
+      width: 623px;
+      margin: 0;
+      z-index: -1;
+    }
+  }
+
+  &__text {
+    width: 230px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 21px;
+    color: #7c7c7c;
+
+    @include onTablet {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      width: 300px;
+      margin: 0;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @include onNotebook {
+      width: 330px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    padding-bottom: 8px;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #0db2b3;
+    text-decoration: none;
+    
+
+    @include onTablet {
+      grid-column: 2 / 3;
+      grid-row: 3 / 4;
+      margin: 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      border-bottom: 1px solid #0db2b3;
+      transition: width, 0.3s;
+    }
+
+    &:hover::after {
+      width: 124px;
+    }
+  }
+}

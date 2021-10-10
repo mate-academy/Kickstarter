@@ -1,0 +1,71 @@
+.technology {
+  box-sizing: border-box;
+  margin-top: 90px;
+
+  @include onTablet {
+    margin: 0;
+  }
+
+  @include onNotebook {
+    width: calc(100% - 246px);
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include onNotebook {
+      display: flex;
+      justify-content: center;
+      width: 1200px;
+    }
+  }
+
+  &__title {
+    margin: 0 $verticalMarginMobile;
+    font-family: $Din-pro;
+    font-size: 37px;
+    line-height: 46px;
+    text-transform: uppercase;
+    color: $colorBrown;
+
+    @include onTablet {
+      margin: 0 136px;
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    @include onNotebook {
+      display: block;
+      width: calc(100% - 246px);
+      margin: 0 auto 50px;
+    }
+  }
+
+  &__box-img {
+    overflow: hidden;
+
+    @include onNotebook {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 200%;
+    transform: matrix(0.99, -0.14, 0.14, 0.99, 0, 0);
+
+    @include onTablet {
+      width: 160%;
+      margin: 0;
+    }
+
+    @include onNotebook {
+      width: 1230px;
+    }
+  }
+}

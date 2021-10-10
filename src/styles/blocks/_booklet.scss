@@ -1,0 +1,282 @@
+.booklet {
+  box-sizing: border-box;
+  margin: 100px $verticalMarginMobile 90px;
+
+  @include onTablet {
+    margin: 50px $verticalMarginTablet 130px;
+  }
+
+  @include onNotebook {
+    width: calc(100% - 246px);
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  &__wrapper {
+    overflow: hidden;
+
+    @include onTablet {
+      overflow: visible;
+    }
+  }
+
+  &__card {
+    display: flex;
+    transform: translateX(-0%);
+    transition: transform 0.3s;
+
+    @include onTablet {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+      row-gap: 60px;
+      margin: 0 auto 130px;
+      padding-top: 2px;
+    }
+
+    @include onNotebook {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(4, 1fr);
+      margin: 47px 0 150px;
+      column-gap: 30px;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onMobile {
+      width: 100%;
+      flex-shrink: 0;
+    }
+  }
+
+  &__img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 30px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(120%);
+    }
+
+    &--1 {
+      width: 50px;
+      height: 39px;
+      background-image: url(../images/bullet1.svg);
+
+      @include onTablet {
+        width: 50px;
+        height: 39px;
+        margin-bottom: 50px;
+      }
+    }
+
+    &--2 {
+      width: 46px;
+      height: 39px;
+      margin-bottom: 30px;
+      background-image: url(../images/speaker.svg);
+
+      @include onTablet {
+        margin-bottom: 50px;
+      }
+    }
+
+    &--3 {
+      width: 46px;
+      height: 35px;
+      margin-bottom: 30px;
+      background-image: url(../images/wi-fi.svg);
+
+      @include onTablet {
+        margin-bottom: 54px;
+      }
+    }
+
+    &--4 {
+      width: 44px;
+      height: 43px;
+      margin-bottom: 22px;
+      background-image: url(../images/light-system.svg);
+
+      @include onTablet {
+        margin-bottom: 47px;
+      }
+    }
+  }
+
+  &__title {
+    font-family: $Din-pro;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $colorBrown;
+
+    &--1 {
+      margin-bottom: 30px;
+
+      @include onTablet {
+        margin-bottom: 20px;
+      }
+
+      @include onNotebook {
+        margin-bottom: 30px;
+      }
+    }
+
+    &--2 {
+      margin-bottom: 30px;
+
+      @include onTablet {
+        margin-bottom: 20px;
+      }
+
+      @include onNotebook {
+        margin-bottom: 30px;
+      }
+    }
+
+    &--3 {
+      margin-bottom: 30px;
+
+      @include onTablet {
+        margin-bottom: 20px;
+      }
+
+      @include onNotebook {
+        margin-bottom: 30px;
+      }
+    }
+
+    &--4 {
+      margin-bottom: 30px;
+
+      @include onTablet {
+        margin-bottom: 20px;
+      }
+
+      @include onNotebook {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #7c7c7c;
+    white-space: normal;
+  }
+
+  &__toggler {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__button {
+    display: block;
+    width: 48px;
+    height: 13px;
+    border: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &--prev {
+      background-image: url(../images/toggler-right.svg);
+      transform: rotate(180deg);
+    }
+
+    &--next {
+      background-image: url(../images/toggler-right.svg);
+    }
+  }
+
+  &__toggler-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0 40px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__toggler-number-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__toggler-number-count {
+    display: block;
+    font-family: $Din-pro;
+    font-size: 16px;
+    line-height: 20px;
+    color: $colorBrown;
+
+    &--slash {
+      margin: 0 4px;
+      padding-top: 3px;
+      font-family: $Din-pro;
+      font-size: 11px;
+      line-height: 14px;
+      color: #bdbdbd;
+    }
+
+    &--04 {
+      padding-top: 4px;
+      font-size: 11px;
+      line-height: 14px;
+      color: #bdbdbd;
+    }
+  }
+
+  &__video-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    @include onMobile {
+      margin: 0 -#{$verticalMarginMobile};
+    }
+  }
+
+  &__video {
+    width: 100%;
+    height: 250px;
+    border: none;
+    background-position: center;
+    z-index: 1;
+
+    @include onTablet {
+      height: 400px;
+      margin: 0;
+    }
+
+    @include onNotebook {
+      height: 600px;
+      margin: 0;
+    }
+  }
+}

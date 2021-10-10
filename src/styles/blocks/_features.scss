@@ -1,0 +1,274 @@
+.features {
+  box-sizing: border-box;
+  position: relative;
+  background-color: #f2f2f2;
+
+  @include onTablet {
+    background-color: inherit;
+  }
+
+  @include onNotebook {
+    margin: 0 auto;
+    width: calc(100% - 246px);
+    max-width: 1440px;
+  }
+
+  &__title {
+    margin: 45px $verticalMarginMobile 51px;
+    font-family: $Din-pro;
+    font-size: 37px;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: $colorBrown;
+
+    @include onTablet {
+      margin: 0 $verticalMarginTablet 50px;
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    @include onNotebook {
+      width: calc(100% - 246px);
+      max-width: 1440px;
+      margin: 0 auto 24px;
+    }
+  }
+
+  &__box {
+    display: flex;
+    transform: translateX(-0%);
+    transition: transform 0.3s;
+
+    @include onTablet {
+      display: grid;
+      grid-template-rows: max-content max-content max-content max-content;
+    }
+
+    @include onNotebook {
+      margin: 0 auto;
+    }
+  }
+
+  &__wrapper {
+    overflow: hidden;
+  }
+
+  &__box-list {
+    flex-shrink: 0;
+    width: 100%;
+
+    &--1 {
+      @include onTablet {
+        margin-left: 304px;
+        margin-bottom: 50px;
+      }
+
+      @include onNotebook {
+        margin-left: 43%;
+        margin-bottom: 0;
+      }
+    }
+
+    &--2 {
+      @include onTablet {
+        margin: 34px;
+        margin-bottom: 70px;
+      }
+
+      @include onNotebook {
+        margin-left: 10%;
+      }
+    }
+
+    &--3 {
+      @include onTablet {
+        margin-left: 204px;
+      }
+
+      @include onNotebook {
+        margin-left: 23%;
+        margin-bottom: 121px;
+      }
+    }
+  }
+
+  &__subtitle {
+    position: relative;
+    margin: 0 $verticalMarginMobile 20px;
+    font-family: $Din-pro;
+    font-size: 30px;
+    line-height: 37px;
+    text-transform: uppercase;
+    color: #0c797a;
+
+    @include onTablet {
+      font-size: 34px;
+      line-height: 42px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      border-bottom: 1px solid #0c797a;
+      transition: width, 0.3s;
+    }
+
+    &:hover::after {
+      width: 150px;
+    }
+  }
+
+  &__list {
+    margin: 0 30px;
+    padding: 0;
+  }
+
+  &__item {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 21px;
+    color: $colorBrown;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+
+  &__toggler {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 15px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__button {
+    display: block;
+    width: 48px;
+    height: 13px;
+    border: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  
+    @include onTablet {
+      display: none;
+    }
+  
+    &--prev {
+      background-image: url(../images/toggler-right.svg);
+      transform: rotate(180deg);
+    }
+  
+    &--next {
+      background-image: url(../images/toggler-right.svg);
+    }
+  }
+
+  &__toggler-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0 8px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__toggler-number-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__toggler-number-count {
+    display: block;
+    font-family: $Din-pro;
+    font-size: 16px;
+    line-height: 20px;
+    color: $colorBrown;
+
+    &--slash {
+      margin: 0 4px;
+      padding-top: 3px;
+      font-family: $Din-pro;
+      font-size: 11px;
+      line-height: 14px;
+      color: #bdbdbd;
+    }
+  
+    &--03 {
+      padding-top: 4px;
+      font-size: 11px;
+      line-height: 14px;
+      color: #bdbdbd;
+    }
+  }
+
+  &__background {
+    @include onTablet {
+      position: absolute;
+      right: 0;
+      bottom: 10%;
+      width: 86%;
+      height: 65%;
+      background-color: #f2f2f2;
+      z-index: -2;
+    }
+
+    @include onNotebook {
+      width: 80%;
+      bottom: 15%;
+      height: 66%;
+    }
+  }
+
+  &__box-img {
+    margin-left: -85px;
+    overflow: hidden;
+    
+    @include onTablet {
+      position: absolute;
+      bottom: 17%;
+      right: 5%;
+      margin-left: 0;
+      z-index: -1;
+    }
+
+    @include onNotebook {
+      width: 786px;
+      right: 9%;
+    }
+  }
+
+  &__img {
+    position: relative;
+    left: 23%;
+    display: block;
+    width: 100%;
+    max-width: 450px;
+
+    @include onTablet {
+      max-width: 650px;
+      width: 650px;
+    }
+
+    @include onNotebook {
+      max-width: 786px;
+      width: 786px;
+    }
+  }
+}
