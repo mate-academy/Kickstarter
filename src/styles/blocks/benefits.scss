@@ -1,0 +1,29 @@
+.benefits {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  row-gap: 70px;
+  width: 100%;
+  @include onTelephone {
+    justify-content: center;
+    align-items: center;
+  }
+  &__wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:not(:first-child) {
+      @include onTelephone {
+        display: none;
+      }
+    }
+    @include onTablet {
+      flex-basis: 50%;
+    }
+    
+    @include onDesktop {
+      flex-basis: 25%;
+    }
+  }
+}

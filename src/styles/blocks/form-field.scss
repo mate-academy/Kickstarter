@@ -1,0 +1,41 @@
+.form-field {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  @include onDesktop {
+    margin-left: -30px;
+    width: 438px;
+  }
+  padding: 14px 30px;
+  font-weight: normal;
+  color: #000;
+
+  background: #fff;
+  border: 1px solid #828282;
+
+  &::placeholder {
+    font-size: 16px;
+    line-height: 20px;
+    color: #8f99a8;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &--textarea {
+    height: 200px;
+    resize: none;
+    font-family: inherit;
+  }
+
+  &--email {
+    &:valid {
+      border-color: #0c797a;
+    }
+
+    &:not(:placeholder-shown):invalid {
+      border-color: #eb5757;
+    }
+  }
+}
