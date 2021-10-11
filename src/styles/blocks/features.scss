@@ -1,0 +1,142 @@
+.features {
+  background-color: #f2f2f2;
+  margin-top: 45px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8,1fr);
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12,1fr);
+      align-items: start;
+      column-gap: 30px;
+    }
+  }
+
+  &__sound-music {
+    @include onTablet {
+      grid-column: 4 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / -1;
+    }
+  }
+
+  &__connectivity {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      position: relative;
+      grid-column: 1 / 5;
+      grid-row: 2;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+
+  &__app-features {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      grid-column: 3 / 6;
+    }
+
+    @include onDesktop {
+      position: relative;
+      top: 60%;
+      grid-column: 4 / 7;
+      grid-row: 2;
+    }
+  }
+
+  &__title {
+    margin: 45px 0 0 0;
+  }
+
+  &__h3 {
+    margin: 51px 30px 10px 0;
+    font-family: $DinPro;
+    font-size: 30px;
+    line-height: 37px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #0C797A;
+
+    @include onTablet {
+      font-size: 34px;
+      line-height: 42px;
+      grid-column: 6 / -1;
+    }
+  }
+
+  &__ul {
+    margin: 10px 30px 10px 20px;
+  }
+
+  &__li {
+    margin-top: 10px;
+    font-family: $Helvetica;
+    font-size: 14px;
+    line-height: 21px;
+    color: #333333;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+
+  &__arrows {
+    margin: 50px auto 0;
+    height: 114px;
+    width: 113px;
+    
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__position {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      grid-column: 3 / -1;
+      grid-row: 2;
+    }
+  }
+
+  &__dynamic {
+    min-height: 277px;
+    margin-bottom: 45px;
+    width: 100vw;
+    object-fit: cover;
+    object-position: left;
+
+    @include onTablet {
+      height: 380px;
+      width: 586px;
+    }
+
+    @include onDesktop {
+      height: 509px;
+      width: 786px;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+@import "../utils/mixins";
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  scroll-behavior: smooth;
+  &__menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    transform: translateX(100%);
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+}
+
+body {
+  margin: 0 auto;
+  background-color: #f7f7f7;
+  color: #333;
+  max-width: 1280px;
+  font-size: 16px;
+  font-family: $Helvetica;
+}
+
+.main {
+  margin-top: 100px;
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      margin-top: 130px;
+    }
+
+    @include onDesktop {
+      margin-top: 73px;
+    }
+
+    padding: 0 30px;
+  }
+
+  &__section-title {
+    text-align: left;
+    font-family: $DinPro;
+    text-transform: uppercase;
+    font-size: 37px;
+    margin: 89px 0 50px;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 56px;
+    }
+  }
+}

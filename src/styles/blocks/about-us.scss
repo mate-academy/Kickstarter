@@ -1,0 +1,94 @@
+.about-us {
+  @include onTablet {
+    padding-left: 0;
+  }
+  
+  &__container {
+    display: block;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8,1fr);
+      column-gap: 20px;
+      align-items: start;
+    }
+
+    @include onDesktop {
+      margin-top: 100px;
+    }
+  }
+
+  &__title {
+    @include onTablet {
+      display: inline-block;
+      white-space: nowrap;
+      font-size: 56px;
+      text-align: left;
+      grid-column: 5 / -1;
+      margin: 0;
+      grid-row: 1 / 1;
+      position: relative;
+      right: 25%;
+    }
+  }
+
+  &__img {
+    width: 100%;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+
+      min-height: 415px;
+      width: 100%;
+      object-fit: cover;
+      object-position: right;
+    }
+  }
+
+  &__p {
+    font-family: $Helvetica;
+    text-align: justify;
+    line-height: 21px;
+    margin-top: 29px;
+    color: #7c7c7c;
+
+    @include onTablet {
+      font-size: 16px;
+      position: relative;
+      top: 140px;
+      grid-column: 5 / -1;
+      grid-row: 1 / 1;
+      align-items: end;
+    }
+  }
+
+  &__link {
+    margin-top: 30px;
+    font-weight: 500;
+    font-family: $Helvetica;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 15px;
+    letter-spacing: 1px;
+    color: #0db2b3;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 73px;
+      margin-top: 6px;
+      background-color: #0db2b3;
+      transform: matrix(1, 0, 0, -1, 0, 0);
+    }
+
+    @include onTablet {
+      grid-column: 5 / -1;
+      grid-row: 1 / 1;
+
+      position: relative;
+      top: 280px;
+
+    }
+  }
+}
