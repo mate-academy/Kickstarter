@@ -1,0 +1,40 @@
+.page {
+  font-family: "HelveticaNeue", sans-serif;
+  font-weight: normal;
+  color: $colorText;
+  scroll-behavior: smooth;
+
+  &__body {
+    background-color: $colorBackground;
+  }
+
+  &__menu-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: 90px;
+
+    &:nth-last-child(2) {
+      margin-bottom: 40px;
+
+      @include onTablet {
+        margin-bottom: 80px;
+      }
+    }
+
+    @include onTablet {
+      margin-bottom: 130px;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+.video {
+  position: relative;
+  overflow: hidden;
+  background-image: url(../images/video-block.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__container {
+    width: 100%;
+  }
+
+  &__before-start-player {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+  }
+
+  &__player {
+    position: relative;
+    width: 100%;
+    transition: background-color 0.3s;
+    transform: translateX(-100%);
+    object-fit: fill;
+    z-index: 1;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    @include onTablet {
+      height: 400px;
+    }
+
+    @include onDesktop {
+      height: 590px;
+    }
+  }
+
+  &__play {
+    &-icon {
+      position: absolute;
+      height: 24px;
+      width: 24px;
+      background-image: url(../images/video-play.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 1;
+      transition: opacity 0.4s;
+
+      @include onDesktop {
+        opacity: 0;
+        height: 35px;
+        width: 35px;
+      }
+    }
+
+    &-text {
+      font-family: "DIN Pro", sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      color: #f3f4f5;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: opacity 0.4s;
+      opacity: 0;
+
+      @include onTablet {
+        font-size: 18px;
+      }
+
+      @include onDesktop {
+        opacity: 1;
+        font-size: 24px;
+      }
+    }
+  }
+
+  &__button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #f3f4f5;
+    border-radius: 50%;
+    cursor: pointer;
+
+    @include onTablet {
+      width: 150px;
+      height: 150px;
+    }
+
+    @include onDesktop {
+      width: 200px;
+      height: 200px;
+    }
+
+    &:hover > .video__play-icon {
+      opacity: 1;
+    }
+
+    &:hover > .video__play-text {
+      opacity: 0;
+    }
+  }
+}
