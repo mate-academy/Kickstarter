@@ -1,0 +1,142 @@
+.features {
+  background-color: $c-background-features;
+
+  &__title-text {
+    margin-bottom: 50px;
+  }
+
+  &__feature {
+    @include onMobile {
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+
+  &__content {
+    @include onMobile {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(3, auto);
+      gap: 0 20px;
+      justify-items: center;
+      align-items: center;
+    }
+  }
+
+  &__card {
+    position: relative;
+    z-index: 2;
+
+    &--1 {
+      grid-column-start: 5;
+      grid-column-end: 10;
+      grid-row-start: 1;
+      grid-row-end: 2;
+    }
+
+    &--2 {
+      grid-column-start: 1;
+      grid-column-end: 5;
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
+
+    &--3 {
+      @include onTablet {
+        top: -40px;
+      }
+      grid-column-start: 4;
+      grid-column-end: 8;
+      grid-row-start: 3;
+      grid-row-end: 4;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 30px;
+    line-height: 37px;
+    text-transform: uppercase;
+    color: $c-dark-green;
+  }
+
+  &__list {
+    margin-left: 20px;
+  }
+
+  &__item {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__slider-controllers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__slider-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  &__button {
+    display: block;
+    box-sizing: content-box;
+    height: 14px;
+    width: 48px;
+    padding: 4px;
+    background-color: $c-background-features;
+    border: none;
+    cursor: pointer;
+
+    &--left {
+      background-image: url(../images/button-left.svg);
+    }
+    &--right {
+      background-image: url(../images/button-right.svg);
+    }
+  }
+
+  &__current-item {
+    font-size: 16px;
+    line-height: 20px;
+    color: $c-dark-text;
+  }
+
+  &__iems-count {
+    font-size: 11px;
+    line-height: 14px;
+    color: $c-items-count;
+  }
+
+  &__image {
+    display: block;
+    height: auto;
+    width: 100%;
+    margin: 10px auto 0;
+
+    @include onTablet {
+      grid-column-start: 3;
+      grid-column-end: 12;
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
+  }
+}

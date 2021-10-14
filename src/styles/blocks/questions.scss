@@ -1,0 +1,58 @@
+.questions {
+  &__content {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 20px;
+      justify-items: center;
+    }
+  }
+
+  &__title {
+    max-width: 340px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    width: 100%;
+
+    @include onTablet {
+      margin: 0;
+    }
+  }
+
+  &__area {
+    height: 48px;
+    margin-bottom: 20px;
+    padding: 16px 30px;
+    border: 1px solid $c-label-color;
+    font-family: Helvetica, sans-serif;
+
+    &::placeholder {
+      font-family: Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 19px;
+      color: $c-items-count;
+    }
+
+    &:nth-child(2) {
+      height: 128px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__button {
+    height: 48px;
+    width: 102px;
+    color: $c-white;
+    background-color: $c-green;
+    border: none;
+    transition: background-color 0.4s;
+
+    &:hover {
+      background-color: $c-dark-green;
+    }
+  }
+}

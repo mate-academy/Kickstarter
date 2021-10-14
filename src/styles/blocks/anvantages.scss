@@ -1,0 +1,79 @@
+.advantages {
+  &__nav {
+    display: none;
+    margin-bottom: 48px;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: $c-dark-text;
+    transition: color 0.4s;
+
+    @include scale;
+
+    &:hover {
+      color: $c-arrowup-color;
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 50px 20px;
+    }
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__feature {
+    margin-bottom: 90px;
+
+    @include onTablet {
+      margin: 0;
+    }
+  }
+
+  &__image {
+    display: block;
+    margin: 0 auto 40px;
+  }
+
+  &__feature-title {
+    font-size: 24px;
+    line-height: 30px;
+    color: $c-dark-text;
+    text-align: center;
+    text-transform: uppercase;
+
+    &--1 {
+      margin-bottom: 20px;
+
+      @include onDesktop {
+        margin-bottom: 50px;
+      }
+    }
+
+    &--2 {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__text {
+    text-align: center;
+  }
+}

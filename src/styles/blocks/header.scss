@@ -1,0 +1,166 @@
+.header {
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__tabl-desk-content {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 17px;
+    color: $c-inactive-svg;
+    text-decoration: none;
+    transition: color 0.4s;
+
+    @include scale;
+
+    &:hover {
+      color: $c-arrowup-color;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+  }
+
+  &__item {
+    margin-right: 3px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__choose-lang {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  &__label {
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    color: $c-label-color;
+
+    @include scale;
+  }
+
+  &__buy-btn {
+    height: 48px;
+    width: 102px;
+    background-color: $c-dark-text;
+    color: $c-white;
+    border: none;
+    transition: background-color 0.4s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $c-arrowup-color;
+    }
+  }
+
+  &__menu {
+    display: inline-block;
+    height: 14px;
+    width: 24px;
+    padding: 0;
+    margin: 0;
+    border: none;
+
+    background-image: url("../images/menu.svg");
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include scale;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+
+    @include onTablet {
+      flex-direction: row;
+      margin-top: 136px;
+    }
+  }
+
+  &__image {
+    display: block;
+    height: auto;
+    width: 100%;
+    min-width: 260px;
+    margin: 0 auto;
+
+    @include onTablet {
+      width: 65%;
+    }
+
+    @include onDesktop {
+      max-width: 800px;
+    }
+  }
+
+  &__product-description {
+    @include onMobile {
+      order: 2;
+    }
+    @include onTablet {
+      max-width: 280px;
+    }
+    @include onDesktop {
+      max-width: 380px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    font-size: 44px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 130%;
+    color: $c-dark-text;
+
+    @include onTablet {
+      font-size: 48px;
+      margin-bottom: 34px;
+    }
+
+    @include onDesktop {
+      font-size: 64px;
+    }
+  }
+
+  &__text {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  &__menu-input {
+    display: none;
+  }
+}
+
+#lang-en:checked ~ .container .header__label--en,
+#lang-ua:checked ~ .container .header__label--ua {
+  color: $c-dark-text;
+}
