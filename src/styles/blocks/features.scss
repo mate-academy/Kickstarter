@@ -1,0 +1,111 @@
+.features {
+  position: relative;
+  padding-top: 90px;
+
+  &__one,
+  &__two,
+  &__three {
+    padding-top: 50px;
+
+    @include onDesktop {
+      padding-top: 100px;
+    }
+  }
+
+  @include onMobile {
+    &__two,
+    &__three {
+      display: none;
+    }
+  }
+
+  &__title {
+    text-align: start;
+    font-size: 37px;
+    line-height: 60px;
+
+    @include onTab {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__name {
+    font-size: 30px;
+    line-height: 37px;
+    text-align: start;
+    color: #0c797a;
+
+    @include onTab {
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    padding-top: 10px;
+  }
+
+  &__item {
+    padding-top: 10px;
+    line-height: 21px;
+
+    @include onTab {
+      font-size: 16px;
+    }
+  }
+
+  &__photos {
+    padding-top: 10px;
+    overflow: hidden;
+
+    @include onTab {
+      z-index: -1;
+      position: absolute;
+      width: 60%;
+      left: 30%;
+      top: 50%;
+    }
+
+    @include onDesktop {
+      width: 50%;
+      left: 35%;
+      top: 40%;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+  }
+
+  &__button {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    @include onTab {
+      display: none;
+    }
+  }
+
+  &__switch {
+    display: flex;
+    justify-content: center;
+
+    @include onTab {
+      display: none;
+    }
+  }
+
+  &__count {
+    font-family: "DIN Pro Medium", sans-serif;
+    font-size: 11px;
+    line-height: 14px;
+    color: #bdbdbd;
+
+    &--active {
+      font-size: 16px;
+      line-height: 20px;
+      color: #333;
+    }
+  }
+}
