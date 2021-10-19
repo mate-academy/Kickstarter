@@ -1,0 +1,74 @@
+.promo {
+  display: flex;
+  overflow: hidden;
+
+  @include onMobile {
+    flex-direction: column-reverse;
+    @include flex-center;
+  }
+
+  &__info {
+    @include onMobile {
+      text-align: center;
+      margin: 0 30px;
+    }
+
+    @include onTablet {
+      margin: 30px 0 0;
+      padding-left: 5px;
+    }
+
+    @include onDesktop {
+      margin: 80px 0 12px;
+    }
+  }
+
+  &__title {
+    width: min-content;
+    margin-bottom: 26px;
+
+    font-family: Dinpro, sans-serif;
+    font-size: 64px;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: $gray-color;
+
+    @include onTablet {
+      font-size: 48px;
+      margin-bottom: 34px;
+    }
+
+    @include onMobile {
+      width: 100%;
+      font-size: 44px;
+      margin-bottom: 22px;
+    }
+  }
+
+  &__text {
+    min-width: 260px;
+
+    @include middle-font;
+    line-height: 24px;
+    color: $gray-color;
+
+    @include onMobile {
+      min-width: none;
+    }
+  }
+
+  &__photo {
+    position: relative;
+
+    @include onTablet {
+      height: 365px;
+    }
+
+    @include onMobile {
+      right: -90px;
+      height: 245px;
+      min-width: 320px;
+      margin-bottom: 40px;
+    }
+  }
+}
