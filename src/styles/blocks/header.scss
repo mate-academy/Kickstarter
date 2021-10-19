@@ -1,0 +1,33 @@
+.header {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 76px;
+
+    &-right-menu {
+      @include onMobile {
+        display: none;
+      }
+    }
+  }
+  
+  &__mobile-nav-link {
+    display: none;
+
+    @include onMobile {
+      display: flex;
+      @include flex-center;
+
+      width: 24px;
+      height: 14px;
+
+      transition: transform $transition-time;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
