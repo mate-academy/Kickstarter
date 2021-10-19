@@ -1,0 +1,130 @@
+.header {
+  z-index: 2;
+  box-sizing: border-box;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+  }
+
+  &__link {
+    &-logo {
+      transition: transform 0.5s;
+    }
+
+    &-logo:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.bar {
+  line-height: 18px;
+
+  &__lang {
+    color: #828282;
+
+    &--active {
+      font-weight: bold;
+      color: $colorDarkGrey;
+    }
+  }
+
+  &__buy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 102px;
+    height: 48px;
+    background-color: $colorDarkGrey;
+    transition: background-color 1s;
+
+    &:hover {
+      background-color: #131313;
+    }
+
+    &-link {
+      font-size: 12px;
+      line-height: 15px;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  &__content {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 70%;
+    top: 75px;
+    right: 0;
+    left: 0;
+    background-color: #f6f6f6;
+    transition: transform 1s;
+    transform: translateY(-200%);
+
+    @include onTablet {
+      position: relative;
+      top: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 280px;
+      transform: translateY(0);
+    }
+  }
+
+  &--mobile {
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__toogler {
+    display: none;
+
+    &:checked + .bar__content {
+      transform: translateY(0);
+    }
+  }
+
+  &__mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60%;
+  }
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 99%;
+    height: 100%;
+    text-align: center;
+    
+    &:hover {
+      background: #eefafa;
+    }
+  }
+}

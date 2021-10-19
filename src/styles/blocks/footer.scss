@@ -1,0 +1,119 @@
+.page__footer {
+  position: relative;
+  margin-top: 43px;
+
+  @include onTablet {
+    margin-top: 25px;
+  }
+
+  @include onDesktop {
+    margin-top: 107px;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__logo {
+    display: none;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include onTablet {
+      display: block;
+      width: 161px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    padding-top: 59px;
+
+    @include onTablet {
+      padding-top: 64px;
+    }
+  }
+
+  &__link {
+    box-sizing: border-box;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 46px;
+    transition: transform 0.5s, background-image 0.3s;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &-facebook {
+      width: 11px;
+      background-image: url(../images/footer/facebook.svg);
+    
+      &:hover {
+        transform: scale(1.2);
+        background-image: url(../images/footer/facebook_hover.svg);
+      }
+    }
+
+    &-twitter {
+      width: 22px;
+      background-image: url(../images/footer/twitter.svg);
+    
+      &:hover {
+        transform: scale(1.2);
+        background-image: url(../images/footer/twitter_hover.svg);
+      }
+    }
+
+    &-instagram {
+      width: 18px;
+      background-image: url(../images/footer/instagram.svg);
+      
+      &:hover {
+        transform: scale(1.2);
+        background-image: url(../images/footer/instagram_hover.svg);
+      }
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include onTablet {
+      right: 48px - $contentPaddingTablet;
+    }
+
+    @include onDesktop {
+      right: 263px - $contentPaddingDesktop;
+    }
+  }
+
+  &__text {
+    padding: 23px 0 50px;
+    font-size: 12px;
+    line-height: 21px;
+    text-align: center;
+    color: #bdbdbd;
+
+    @include onTablet {
+      padding-top: 108px;
+    }
+
+    @include onDesktop {
+      padding-top: 71px;
+    }
+  }
+}
