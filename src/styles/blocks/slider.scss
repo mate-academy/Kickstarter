@@ -1,0 +1,50 @@
+.slider {
+  display: none;
+
+  @include onMobile {
+    display: flex;
+    flex-direction: column;
+    @include flex-center;
+  }
+
+  &__buttons {
+    background-color: #f2f2f2;
+  }
+
+  &__button {
+    display: inline-flex;
+    @include flex-center;
+    width: 48px;
+    height: 12px;
+    margin-bottom: 4px;
+
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: #f2f2f2;
+    transition: transform $transition-time;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__count {
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 14px;
+    color: #bdbdbd;
+
+    &--current {
+      font-size: $middle-font-size;
+      line-height: 20px;
+      color: $gray-color;
+    }
+  }
+
+  &__test {
+    width: 100px;
+    height: 50px;
+  }
+}
