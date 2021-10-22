@@ -1,0 +1,140 @@
+.our-story {
+  &__content {
+    display: grid;
+    grid-template-rows: 90px 70px 120px;
+    justify-items: center;
+    align-items: center;
+
+    &:nth-child(n+2) {
+      display: none;
+    }
+
+    @include onTablet {
+      &:nth-child(n+2) {
+        display: grid;
+      }
+    }
+  }
+  
+  &__content-img {
+    width: 58px;
+    height: 46px;
+    
+    @include onTablet {
+      width: 50px;
+      height: 40px;
+    }
+
+  }
+
+  &__content-title {
+    font-size: 24px;
+    line-height: 30px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__content-text {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $color-grey-text;
+
+    @include onTablet {
+      align-self: start;
+    }
+  }
+
+  &__video {
+    position: relative;
+    margin-top: 90px;
+    background-image: url(../images/main/main-main.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+    @include onTablet {
+      margin-top: 130px;
+    }
+
+    @include onDesktop {
+      margin-top: 170px;
+    }
+  
+
+    &--video {
+      position: relative;
+      transform: translateX(-100%);
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+      z-index: 2;
+
+      &:target {
+        transform: translateX(0);
+      }
+
+      
+      @include onTablet {
+        height: 400px;
+      }
+
+      @include onDesktop {
+        height: 590px;
+      }
+    }
+  
+    &-play {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 108px;
+      height: 108px;
+      top: 50%;
+      left: 50%;
+      border: 1px solid $color-white;
+      border-radius: 50%;
+      background-color: transparent;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      transition: transform 0.3s;
+
+      &:focus {
+        display: none;
+      }
+
+      @include onTablet {
+        height: 190px;
+        width: 190px;
+      }
+
+      &--hover {
+        text-decoration: none;
+        
+
+        &::after {
+          content: 'PLAY';
+          padding: 40px;
+          color: $color-white;
+          text-transform: uppercase;
+        }
+        
+        &:hover {
+
+          &::after {
+            content: '';
+          }
+
+          width: 20px;
+          height: 26px;
+          
+          background-image: url(../images/play.svg);
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+}

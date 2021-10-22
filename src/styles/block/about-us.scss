@@ -1,0 +1,99 @@
+.about-us {
+  display: grid;
+  
+  &__content {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    line-height: 55px;  
+    margin: 89px 30px 50px;
+
+    @include onTablet {
+      z-index: 1;
+      order: 1;
+      margin: 138px 0 30px;
+      line-height: 72px;
+
+    }
+
+    @include onDesktop {
+      margin: 158px 0 30px;
+    }
+  }
+
+  &__img-picture {
+    height: 210px;
+    margin: 0 30px 29px;
+
+    background-image: url(../images/main/aboutus.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      position: absolute;
+      order: 0;
+      padding: 0;
+      margin-left: 0;
+      height: 415px;
+      width: 50%;
+      margin-top: 130px;
+    }
+
+    @include onDesktop {
+      width: 582px;
+      height: 388px;
+      margin-top: 150px;
+  
+    }
+  }
+
+  &__text {
+    margin: 0 30px 30px;
+    font-size: 14px;
+    line-height: 21px;
+    color: $color-grey-text;
+    align-self: flex-start;
+
+    @include onTablet {
+      order: 1;
+      z-index: 1;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    margin-left: 30px;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $color-blue-link;
+    text-decoration: none;
+    
+
+    &::after {
+      content: "";
+      display: block;
+      box-sizing: border-box;
+      width: 53px;
+      height: 1px;
+      margin-top: 6px;
+      color: $color-blue-link;
+      border: 1px solid $color-blue-link;
+      transition: width 500ms;
+      
+    }
+
+    &:hover {
+      &::after {
+        width: 128px;
+      }
+    }
+    @include onTablet {
+      order: 1;
+    }
+  }
+}
