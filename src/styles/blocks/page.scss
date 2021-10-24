@@ -1,0 +1,188 @@
+.page {
+  scroll-behavior: smooth;
+
+  background-color: color(color-bg);
+
+  &__typography--style-1 {
+    font-family: $font-stack-main;
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 84px;
+  }
+
+  &__typography--style-2 {
+    font-family: $font-stack-main;
+    font-size: 72px;
+    font-weight: 500;
+    line-height: 128px;
+  }
+
+  &__typography--h1 {
+    font-family: $font-stack-main;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 84px;
+  }
+
+  &__typography--h2 {
+    font-family: $font-stack-main;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 72px;
+  }
+
+  &__typography--h3 {
+    font-family: $font-stack-main;
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 46px;
+  }
+
+  &__typography--h4 {
+    font-family: $font-stack-main;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+  }
+
+  &__typography--text-1 {
+    font-family: $font-stack-secondary;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  &__typography--text-2 {
+    font-family: $font-stack-secondary;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+  }
+
+  &__typography--text-3 {
+    font-family: $font-stack-secondary;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 21px;
+  }
+
+  &__typography--btn {
+    font-family: $font-stack-secondary;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 21px;
+  }
+
+  &__typography--section-title {
+    font-family: $font-stack-main;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 72px;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include onMobile {
+      font-size: 38px;
+      line-height: 46px;
+    }
+  }
+
+  &__body {
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__header {
+    margin-bottom: 120px;
+  }
+
+  &__side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    transform: translateX(100%);
+
+    transition: transform $animation-duration ease-in-out;
+
+    height: 100%;
+
+    background-color: color(color-bg);
+
+    &--show {
+      transform: translateX(0);
+    }
+  }
+
+  &__header-nav {
+    padding-top: 14px;
+    margin-bottom: 170px;
+
+    @include onMobile {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+
+      margin-bottom: 0;
+      padding: 0 20px;
+
+      background-color: color(color-bg);
+    }
+  }
+
+  &__nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    margin-bottom: 44px;
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__section {
+    margin-bottom: $section-margin;
+
+    @include onMobile {
+      margin-bottom: 100px;
+    }
+
+    &--position-relative {
+      position: relative;
+    }
+
+    &--overflow-hidden {
+      overflow: hidden;
+    }
+
+    &--margin--small {
+      margin-bottom: $section-margin / 2;
+    }
+  }
+
+  &__footer {
+    padding-bottom: 50px;
+  }
+
+  &__scrollup {
+    position: fixed;
+    right: 40px;
+    bottom: 60px;
+    z-index: 2;
+
+    transform: translateY(500%);
+
+    transition: transform $animation-duration;
+
+    &--show {
+      transform: translateY(0);
+    }
+  }
+}
