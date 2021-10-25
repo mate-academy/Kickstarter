@@ -1,17 +1,47 @@
 .footer {
   margin: 108px 0 0;
 
+  @include mobile {
+    margin: 43px 0 0;
+  }
+
   &__container {
     padding: 0 249px 50px 429px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @include mobile {
+      display: block;
+      padding: 0 16px 50px 30px;
+    }
+
+    @include tablet {
+      padding: 0 34px 50px 124px;
+    }
+  }
+
+  &__logo {
+    @include mobile {
+      display: none;
+    }
   }
 
   &__arrow {
     position: relative;
     left: 350px;
+
+    @include mobile {
+      position: unset;
+      display: flex;
+      flex-direction: row-reverse;
+      padding-right: 30px;
+    }
+
+    @include tablet {
+      padding-right: 48px;
+    }
   }
 
   &__social-media {
@@ -19,6 +49,10 @@
     display: flex;
     justify-content: center;
     gap: 45px;
+
+    @include tablet {
+      margin: 50px 0 0;
+    }
 
     &--facebook:hover {
       fill: blue;
@@ -40,5 +74,11 @@
     line-height: 21px;
 
     color: #bdbdbd;
+
+    @include mobile {
+      width: 260px;
+      font-size: 12px;
+      text-align: center;
+    }
   }
 }

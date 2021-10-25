@@ -1,4 +1,8 @@
 .technology {
+  @include mobile {
+    display: block;
+  }
+
   &__title {
     padding: 0 0 0 225px;
     margin: 0;
@@ -6,6 +10,18 @@
     font-size: 56px;
     line-height: 70px;
     text-transform: uppercase;
+
+    @include mobile {
+      text-align: center;
+      font-size: 37px;
+      line-height: 46px;
+      padding: 0;
+      margin-bottom: 40px;
+    }
+
+    @include tablet {
+      padding: 0 0 0 136px;
+    }
   }
 
   &__image {
@@ -13,5 +29,11 @@
     height: 546px;
     padding: 0;
     transform: rotate(-7.85deg);
+    object-position: center;
+    object-fit: cover;
+
+    @include mobile {
+      height: 277px;
+    }
   }
 }
