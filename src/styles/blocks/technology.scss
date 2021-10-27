@@ -1,11 +1,18 @@
 .technology {
+  overflow-y: hidden;
+
   @include mobile {
     display: block;
+    overflow-x: scroll;
+  }
+
+  @include tablet {
+    overflow-x: scroll;
   }
 
   &__title {
     padding: 0 0 0 225px;
-    margin: 0;
+    margin: 0 0 66px;
     font-family: DinPro;
     font-size: 56px;
     line-height: 70px;
@@ -21,11 +28,12 @@
 
     @include tablet {
       padding: 0 0 0 136px;
+      margin-bottom: 66px;
     }
   }
 
   &__image {
-    width: 100%;
+    width: 1230px;
     height: 546px;
     padding: 0;
     transform: rotate(-7.85deg);
@@ -33,7 +41,15 @@
     object-fit: cover;
 
     @include mobile {
+      width: 625px;
       height: 277px;
+      transform: matrix(0.99, -0.14, 0.14, 0.99, 0, 0);
+    }
+
+    @include tablet {
+      padding: 0;
+      transform: matrix(0.99, -0.14, 0.14, 0.99, 0, 0);
+      width: 1231px;
     }
   }
 }
