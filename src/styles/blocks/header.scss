@@ -1,0 +1,169 @@
+.header {
+  overflow: hidden;
+
+  &__content {
+    padding-top: 28px;
+
+    @include onTablet {
+      padding-top: 40px;
+    }
+  }
+
+  &__top {
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__bottom {
+    display: grid;
+
+    @include onTablet {
+      align-items: center;
+      grid-template-columns: minmax(240px, 285px) minmax(460px, 600px);
+    }
+  }
+
+  &__img {
+    width: 160%;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      order: 1;
+      margin-bottom: 0;
+    }
+  }
+
+  &__icon {
+    display: block;
+    height: 26px;
+    width: 26px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &--menu {
+      background-image: url(../images/menu.svg);
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+
+    &--menu-close {
+      background-image: url(../images/close.svg);
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+  }
+
+  &__buttons {
+    display: none;
+
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+  }
+
+  &__button {
+    font-size: 14px;
+    line-height: 21px;
+    color: $fontDarkGrey;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:target {
+      color: $fontDarkBrown;
+    }
+
+    &:hover {
+      font-weight: 700;
+    }
+
+    &--buy {
+      --button-size: 48px;
+
+      line-height: var(--button-size);
+      height: var(--button-size);
+      width: 100px;
+      color: #fff;
+      background-color: $fontDarkBrown;
+
+      &:hover {
+        background-color: #131313;
+        font-weight: normal;
+      }
+    }
+  }
+
+  &__flex-wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__about {
+    text-align: center;
+    z-index: 1;
+
+    @include onTablet {
+      text-align: left;
+    }
+  }
+
+  &__title {
+    font-size: 48px;
+    font-weight: bolder;
+    line-height: 130%;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 36px;
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(100%);
+    background-color: $bg-color;
+    z-index: 5;
+
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+  }
+}

@@ -1,0 +1,83 @@
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 24px;
+  column-gap: 40px;
+
+  padding-bottom: 50px;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__btn {
+    position: relative;
+    height: 1px;
+    width: 48px;
+    background-color: #333;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0c797a;
+    }
+
+    &--next {
+      margin-top: 26px;
+
+      &::before {
+        position: absolute;
+        content: "";
+        height: 24px;
+        top: -24px;
+        right: 0;
+        width: 1px;
+        background-color: #333;
+        transform: rotate(-60deg);
+        transform-origin: bottom right;
+      }
+
+      &:hover {
+        &::before {
+          background-color: #0c797a;
+        }
+      }
+    }
+
+    &--prev {
+      background-color: #bdbdbd;
+
+      &::before {
+        position: absolute;
+        content: "";
+        height: 24px;
+        top: -24px;
+        left: 0;
+        width: 1px;
+        background-color: #bdbdbd;
+        transform: rotate(-240deg);
+        transform-origin: bottom left;
+      }
+    }
+  }
+
+  &__text {
+    font-family: "DIN Pro", sans-serif;
+    font-size: 11px;
+    line-height: 14px;
+    color: #bdbdbd;
+
+    &--current {
+      font-size: 16px;
+      line-height: 20px;
+      color: #333;
+    }
+  }
+
+}
