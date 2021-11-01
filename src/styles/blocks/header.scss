@@ -1,38 +1,221 @@
+html {
+  background-color: #f7f7f7;
+  scroll-behavior: smooth;
+}
+
+.page {
+  &__section {
+    margin-bottom: 44px;
+  }
+}
+
 .header {
+
+  &__icon {
+    transition: transform $duration;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
   &__content {
-    width: calc(100% - 60px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 28px;
-    margin: auto;
-  }
 
-  &__crazy {
-    width: auto;
-    height: 29px;
+    margin-bottom: 22px;
+
+    @include onTablet {
+      margin-bottom: 100px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 88px;
+      padding-top: 12px;
+    }
   }
 
   &__button {
     display: block;
     width: 24px;
     height: 14px;
-    background: center / contain no-repeat url("../images/burger.svg") ;
+    background: center / contain no-repeat url("../images/burger.svg");
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 0 30px;
+
+    @include onTablet {
+      padding: 0 36px;
+      z-index: 1;
+    }
+
+    &-icon {
+      overflow: hidden;
+      margin-bottom: 40px;
+
+      @include onTablet {
+        margin-top: -25px;
+        margin-left: -80px;
+        max-width: none;
+      }
+
+      @include onDesktop {
+        margin-left: -20px;
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__main {
+    margin-bottom: 50px;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+
+    &-wrapper {
+      margin-right: -200px;
+    }
+
+    &-content {
+      &--futuristic {
+        margin-bottom: 24px;
+        color: $c-hard-gray;
+        font-family: DIN Pro, sans-serif;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 44px;
+        text-align: center;
+        vertical-align: top;
+        line-height: 58px;
+
+        @include onTablet {
+          font-size: 48px;
+          line-height: 64px;
+          width: 340px;
+          text-align: left;
+          margin-bottom: 36px;
+        }
+
+        @include onDesktop {
+          padding-top: 80px;
+          font-size: 64px;
+          line-height: 84px;
+          width: 380px;
+          text-align: left;
+          margin-bottom: 28px;
+        }
+      }
+
+      &--luna {
+        font-family: Helvetica Neue, sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        color: $c-hard-gray;
+
+        @include onTablet {
+          margin-left: 5px;
+          text-align: left;
+          width: 250px;
+        }
+
+        @include onDesktop {
+          text-align: left;
+          width: 276px;
+        }
+      }
+    }
+
+    &-icon {
+      width: 160%;
+
+      @include onTablet {
+        width: 740px;
+      }
+
+      @media (min-width: 1000px) {
+        width: 850px;
+      }
+
+      @include onDesktop {
+        width: 1000px;
+      }
+    }
   }
 }
 
-.main {
-  &__content {
-    justify-content: center;
-  }
-  &__logo {
-    width: 160%;
-    margin-bottom: 40px;
+.menu {
+  &__list {
+    align-items: center;
+    display: none;
+
+    @include onTablet {
+      display: flex;
+    }
   }
 
-  &__futuristic {
-    font-size: 44px;
-    text-align: center;
-    vertical-align: top;
+  &__item {
+    font-family: Helvetica Neue, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    &--specs {
+      color: $c-medium-gray;
+    }
+    &--en {
+      font-weight: bold;
+      color: $c-hard-gray;
+    }
+
+    &--ua {
+      color: $c-lite-gray;
+
+      &:hover {
+        font-weight: 700;
+        color: $c-black;
+      }
+    }
   }
+
+  &__item:not(:last-child) {
+    padding-right: 28px;
+  }
+
+  &__buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 102px;
+    height: 48px;
+
+    background-color: $c-hard-gray;
+
+    font-size: 12px;
+    color: $c-white;
+
+    text-transform: uppercase;
+
+    transition: background-color $duration;
+
+    &:hover {
+      background-color: $c-black;
+    }
+  }
+}
+
+.page__body--with-menu {
+  overflow: hidden;
 }

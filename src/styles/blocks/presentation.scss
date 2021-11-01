@@ -1,0 +1,67 @@
+.presentation {
+  &__video {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  &__wrapper {
+    position: relative;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      overflow: hidden;
+      height: 500px;
+      margin-bottom: 100px;
+    }
+
+    @include onDesktop {
+      overflow: hidden;
+      height: 800px;
+      margin-bottom: 130px;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 108px;
+    height: 108px;
+    border: none;
+    z-index: 1;
+    transition-duration: $duration;
+
+    @include onTablet {
+      width: 190px;
+      height: 190px;
+    }
+
+    @include onDesktop {
+      width: 232px;
+      height: 232px;
+    }
+
+    &-play {
+      background: center / contain no-repeat url("../images/button_play.svg");
+
+      &:hover {
+        background: center / contain no-repeat url("../images/button_play-hover.svg");
+      }
+
+      &:active {
+        display: none;
+      }
+    }
+
+    &-pause {
+      background-color: transparent;
+
+      &:hover {
+        background: center / contain no-repeat url("../images/button_pause.svg");
+      }
+    }
+  }
+}
