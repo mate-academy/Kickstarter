@@ -1,6 +1,6 @@
 **KICKSTARTER LANDING PAGE**
 
-This is a landing page for Kickstarter, includes following blocks: header, about us, benefits, presentation, technology, testimonilas, features, contacts, questions and footer.
+This is a landing page for Kickstarter, includes following blocks: header, about us, benefits, presentation, technology, testimonilas, features, questions and footer.
 
 - [MOCKUP](https://www.figma.com/file/Ujp7bCFuvuJlkn8TSbQPSZ/%E2%84%9611-(kickstarter)?node-id=0%3A1)
 
