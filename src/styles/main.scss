@@ -1,7 +1,76 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "./utils/reset.scss";
+@import "./utils/variables";
+@import "./utils/mixins";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import "./utils/extends";
+@import "./typography";
+@import "./fonts";
 
-body {
-  background: $c-gray;
+@import "./header.scss";
+@import "./navigation.scss";
+@import "./icon.scss";
+@import "./top-actions.scss";
+@import "./benefits.scss";
+@import "./presentation.scss";
+@import "./about.scss";
+@import "./technology.scss";
+
+.page__body {
+  background-color: #f7f7f7;
+  // max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container {
+  padding: 0 30px;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  @include onTablet {
+    padding: 0 36px;
+  }
+
+  @include onDesktop {
+    padding: 0;
+  }
+}
+
+.image-wrapper {
+  overflow: hidden;
+
+  @include onTablet {
+    margin-left: -90px;
+    margin-top: -25px;
+  }
+
+  @include onDesktop {
+    margin-left: 0;
+  }
+}
+
+.logo {
+  height: 28px;
+}
+
+.icon {
+  display: block;
+  width: 24px;
+  height: 14px;
+  background: url(../images/icon-menu.svg);
+
+  @include onTablet {
+    display: none;
+  }
+}
+
+.icon__wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.icon--close {
+  display: block;
+  width: 24px;
+  height: 14px;
+  background: url(../images/icon-menu.svg);
 }
