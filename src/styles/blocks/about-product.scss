@@ -1,0 +1,142 @@
+.about-product {
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(12,72px);
+    grid-template-rows: repeat(3,165px);
+    column-gap: 30px;
+    max-width: $contentMaxWidth;
+    margin: 0 auto;
+    padding-bottom: 120px;
+
+    @include onIpad {
+      grid-template-columns: repeat(12,68px);
+      padding-bottom: 40px;
+    }
+
+    @include onIphone11Pro {
+      grid-template-columns: repeat(4, 75px);
+      grid-template-rows: 160px 200px 170px 50px;
+      column-gap: 0;
+      justify-content: center;
+      padding-bottom: 60px;
+    }
+  }
+
+  &__design-sketch {
+    z-index: -1;
+    grid-column: 2/7;
+
+    @include onIpad {
+      grid-column: 1/4;
+      margin-left: -100px;
+    }
+
+    @include onIphone11Pro {
+      width: 259px;
+      height: 210px;
+      grid-column: 1/5;
+      margin-left: 0;
+      justify-self: center;
+    }
+  }
+
+  &__title {
+    grid-column: 7 / 12;
+    grid-row: 1;
+    margin-top: 0;
+
+    font-family: "Barlow", sans-serif;
+    color: $granit;
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 72px;
+    text-transform: uppercase;
+
+    @include onIpad {
+      grid-column: 5/9;
+      font-size: 48px;
+    }
+
+    @include onIphone11Pro {
+      grid-column: 1/5;
+      grid-row: 1;
+
+      font-size: 37px;
+      line-height: 55px;
+      text-align: center;
+    }
+  }
+
+  &__about-us {
+    grid-column: 8 / 12;
+    grid-row: 2;
+
+    font-family: "Roboto", sans-serif;
+    color: $grey;
+    font-size: 16px;
+    line-height: 24px;
+
+    @include onIpad {
+      grid-column: 6/9;
+      font-size: 12px;
+    }
+
+    @include onIphone11Pro {
+      grid-column: 1/5;
+      grid-row: 3;
+      text-align: center;
+      align-self: center;
+
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__see-more-link {
+    grid-column: 8/ 10;
+    grid-row: 3;
+
+    @extend %aboutUsLinks;
+
+    @include onIpad {
+      grid-column: 6/8;
+      font-size: 12px;
+    }
+
+    @include onIphone11Pro {
+      grid-column: 2/3;
+      grid-row: 4;
+    }
+  }
+
+  &__about-us-link {
+    grid-column: 9 / 11;
+    grid-row: 3;
+
+    @extend %aboutUsLinks;
+
+    @include onIpad {
+      grid-column: 7/9;
+
+      font-size: 12px;
+    }
+
+    @include onIphone11Pro {
+      grid-column: 3/5;
+      grid-row: 4;
+    }
+  }
+
+  &__see-more-link:hover::after,
+  &__about-us-link:hover::after {
+    @extend %aboutUsLinksHover;
+
+    @include onIphone11Pro {
+      width: 53px;
+      height: 1px;
+      top: 45%;
+    }
+  }
+
+}

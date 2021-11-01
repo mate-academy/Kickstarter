@@ -1,0 +1,124 @@
+.nav {
+
+  &__side-menu--no-scroll {
+    overflow: hidden;
+  }
+
+  &__wrapper-main {
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    padding-bottom: 50px;
+
+    @include onIpad {
+      gap: 20px;
+      padding-bottom: 0;
+    }
+
+    @include onIphone11Pro {
+      display: none;
+
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__wrapper-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    padding-bottom: 100px;
+
+    @include onIpad {
+      gap: 20px;
+    }
+
+    @include onIphone11Pro {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__side-menu {
+    background-color: #929aa1;
+
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+    z-index: 1;
+
+    @include onIphone11Pro {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    &:target {
+      transform: translateX(0);
+    }
+
+  }
+
+  &__top-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    grid-column: 11/12;
+
+    font-size: 14px;
+    line-height: 21px;
+    color: $lightGrey;
+
+    @include onIphone11Pro {
+      justify-content: center;
+      padding-bottom: 100px;
+    }
+
+  }
+
+  &__specs-link {
+    color: $lightGrey;
+  }
+
+  &__option-lang-en:hover,
+  &__option-lang-ua:hover,
+  &__specs-link:hover {
+    cursor: pointer;
+    color: $granit;
+  }
+
+  &__link {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    color: $granit;
+    line-height: 21px;
+    text-transform: uppercase;
+
+    transition: 0.3s;
+  }
+
+  &__buy-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 48px;
+
+    background-color: $granit;
+    font-size: 12px;
+    line-height: 15px;
+    color: $white;
+  }
+
+  &__link:hover {
+    color: $black;
+
+    @include onIphone11Pro {
+      text-decoration: underline;
+    }
+  }
+  
+}

@@ -1,0 +1,107 @@
+.contact-us {
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 100px);
+    grid-template-rows: 300px;
+    column-gap: 30px;
+    max-width: $contentMaxWidth;
+    margin: 0 auto;
+    padding-bottom: 100px;
+
+    @include onIpad {
+      grid-template-columns: repeat(2,340px);
+      padding-left: 30px;
+    }
+
+    @include onIphone11Pro {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    grid-column: 2/7;
+    margin-top: 0;
+
+    font-family: "Barlow", sans-serif;
+    color: $granit;
+    font-size: 56px;
+    line-height: 72px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    @include onIpad {
+      grid-column: 1;
+    }
+
+    @include onIphone11Pro {
+      font-size: 37px;
+      line-height: 46px;
+    }
+  }
+
+  &__fields-and-button {
+    grid-column: 7;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__email {
+    width: 438px;
+    height: 48px;
+    padding-left: 20px;
+
+    @include onIpad {
+      width: 340px;
+      height: 48px;
+    }
+
+    @include onIphone11Pro {
+      width: 260px;
+      height: 48px;
+    }
+  }
+
+  &__textarea {
+    width: 438px;
+    height: 128px;
+    padding: 10px 0 10px 20px;
+
+    resize: none;
+
+    @include onIpad {
+      width: 340px;
+      height: 201px;
+    }
+
+    @include onIphone11Pro {
+      width: 260px;
+      height: 128px;
+    }
+  }
+
+  &__email::placeholder,
+  &__textarea::placeholder {
+    font-family: "Roboto", sans-serif;
+    color: $lightGrey;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  &__send-button {
+    width: 102px;
+    height: 48px;
+
+    border: none;
+
+    background-color: $turquoise;
+    font-family: "Roboto", sans-serif;
+    color: $white;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+  }
+
+}
