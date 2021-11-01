@@ -1,0 +1,79 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    background-color: $c-white;
+    display: flex;
+    flex-direction: column;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__header {
+    @include onTablet {
+      margin-top: 24px;
+    }
+  
+    @include onDesktop {
+      margin-top: 12px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(100%);
+
+    transition: transform $transition-duration;
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: 90px;
+
+    @include onTablet {
+      margin-bottom: 130px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 150px;
+    }
+
+    &--last {
+      @include onTablet {
+        margin: 130px 0 60px;
+      }
+
+      @include onDesktop {
+        margin: 180px 0 106px;
+      }
+      
+    }
+  }
+
+  &__section-title {
+    font-family: "Din Pro Bold", sans-serif;
+    font-size: 37px;
+    // line-height: 55px;
+    text-transform: uppercase;
+    color: #333;
+
+    @include onTablet {
+      font-size: 56px;
+    }
+
+    
+  }
+
+  &__footer {
+    margin: 0 0 50px;
+  }
+}

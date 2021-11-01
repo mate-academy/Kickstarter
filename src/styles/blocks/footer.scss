@@ -1,0 +1,59 @@
+.footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 140px;
+
+  @include onTablet {
+    height: 270px;
+  }
+
+  @include onDesktop {
+    height: 200px;
+  }
+
+  &__logo {
+    display: none;
+    margin: 0 auto;
+
+    @include onTablet {
+      display: block;
+
+      @include hover(transform, scale(1.2));
+    }
+  }
+
+  &__icon-container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    & :nth-child(n) {
+      margin-right: 46px;
+    }
+
+    & :last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 0;
+
+    font-family: "Helvetica Neue Regular", sans-serif;
+    font-size: 12px;
+    line-height: 21px;
+    text-align: center;
+    color: #bdbdbd;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+}

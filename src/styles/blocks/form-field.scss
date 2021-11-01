@@ -1,0 +1,35 @@
+.form-field {
+  font-family: "Helvetica Neue Regular", sans-serif;
+  padding: 16px 30px;
+  border: 1px solid #828282;
+  width: 100%;
+  background-color: $c-white;
+  color: #333;
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  &::placeholder {
+    font-family: "Helvetica Neue Regular", sans-serif;
+    font-size: 16px;
+    color: #bdbdbd;
+  }
+
+  &--textarea {
+    --textare--height: 128px;
+    height: var(--textare--height);
+    font-family: inherit;
+    resize: none;
+
+    @include onTablet {
+      height: 200px;
+    }
+
+    @include onDesktop {
+      height: var(--textare--height);
+    }
+  }
+}
