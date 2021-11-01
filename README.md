@@ -19,14 +19,13 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Uj
 
 ## Checklist for preparing a portfolio project for HR review
 
-1. Don’t forget to add a title for the whole web page (it could be the name of your landing)
-2. A landing page is implemented strictly according to the design in Figma
+
 4. Links in the header and footer menus should lead to the corresponding blocks of the landing page
 5. The speed of animations is the same throughout the landing page (for example, increasing when hovering or moving blocks when scrolling)
 6. Placeholders in the forms suggest what to enter, and if there is a validation of the form, then it is clear in what format to enter the phone number
 7. Make sure everything looks neat on mobile and without horizontal scrolling
 8. Add favicon
-9. Add a smooth scroll for the whole page
+
 10. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded
 11. The video should work. If it is not working, it can confuse the recruiter/user, because then it is not clear why it is on the landing page.
 12. After clicking the menu buttons, the landing page should scroll exactly to the beginning of the desired block (exactly where its section begins)
@@ -56,7 +55,7 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Uj
 11. `git push origin develop` - to send you code for PR
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/Kickstarter/)
+  [DEMO LINK](https://veronika-korona.github.io/Kickstarter/)
 14. Copy `DEMO LINK` to the PR description
 
 > To update you PR repeat steps 7-11
