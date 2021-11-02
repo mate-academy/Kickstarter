@@ -1,27 +1,24 @@
 .contact-us {
 
   &__wrapper {
-    display: grid;
-    grid-template-columns: repeat(12, 100px);
-    grid-template-rows: 300px;
-    column-gap: 30px;
-    max-width: $contentMaxWidth;
-    margin: 0 auto;
+    display: flex;
     padding-bottom: 100px;
 
-    @include onIpad {
-      grid-template-columns: repeat(2,340px);
-      padding-left: 30px;
+    gap: 30px;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
     }
 
-    @include onIphone11Pro {
+    @include onMobile {
       display: flex;
       flex-direction: column;
     }
   }
 
   &__title {
-    grid-column: 2/7;
+    grid-column: 1/6;
     margin-top: 0;
 
     font-family: "Barlow", sans-serif;
@@ -31,18 +28,17 @@
     font-weight: bold;
     text-transform: uppercase;
 
-    @include onIpad {
+    @include onTablet {
       grid-column: 1;
     }
 
-    @include onIphone11Pro {
+    @include onMobile {
       font-size: 37px;
       line-height: 46px;
     }
   }
 
   &__fields-and-button {
-    grid-column: 7;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -53,12 +49,12 @@
     height: 48px;
     padding-left: 20px;
 
-    @include onIpad {
+    @include onTablet {
       width: 340px;
       height: 48px;
     }
 
-    @include onIphone11Pro {
+    @include onMobile {
       width: 260px;
       height: 48px;
     }
@@ -71,12 +67,12 @@
 
     resize: none;
 
-    @include onIpad {
+    @include onTablet {
       width: 340px;
       height: 201px;
     }
 
-    @include onIphone11Pro {
+    @include onMobile {
       width: 260px;
       height: 128px;
     }

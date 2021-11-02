@@ -10,12 +10,17 @@
     gap: 90px;
     padding-bottom: 50px;
 
-    @include onIpad {
+    @include onTablet {
       gap: 20px;
       padding-bottom: 0;
+
+      display: none;
+
+      flex-direction: column;
+      align-items: center;
     }
 
-    @include onIphone11Pro {
+    @include onMobile {
       display: none;
 
       flex-direction: column;
@@ -29,11 +34,14 @@
     gap: 90px;
     padding-bottom: 100px;
 
-    @include onIpad {
+    @include onTablet {
       gap: 20px;
+
+      flex-direction: column;
+      align-items: center;
     }
 
-    @include onIphone11Pro {
+    @include onMobile {
       flex-direction: column;
       align-items: center;
     }
@@ -42,11 +50,20 @@
   &__side-menu {
     background-color: #929aa1;
 
-    transform: translateX(-100%);
+    transform: translateX(-150%);
     transition: transform 0.5s;
     z-index: 1;
 
-    @include onIphone11Pro {
+    @include onTablet {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    @include onMobile {
       position: fixed;
       top: 0;
       left: 0;
@@ -72,9 +89,16 @@
     line-height: 21px;
     color: $lightGrey;
 
-    @include onIphone11Pro {
+    @include onTablet {
       justify-content: center;
       padding-bottom: 100px;
+      padding-top: 20px;
+    }
+
+    @include onMobile {
+      justify-content: center;
+      padding-bottom: 100px;
+      padding-top: 20px;
     }
 
   }
@@ -92,12 +116,19 @@
 
   &__link {
     font-family: "Roboto", sans-serif;
-    font-size: 14px;
+    font-size: 21px;
     color: $granit;
     line-height: 21px;
     text-transform: uppercase;
+    text-shadow: 1px 1px;
 
     transition: 0.3s;
+
+    @include onTablet {
+      font-size: 25px;
+      padding: 20px;
+      text-shadow: 1px 1px;
+    }
   }
 
   &__buy-link {
@@ -116,7 +147,7 @@
   &__link:hover {
     color: $black;
 
-    @include onIphone11Pro {
+    @include onMobile {
       text-decoration: underline;
     }
   }

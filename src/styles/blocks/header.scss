@@ -1,28 +1,26 @@
 .header {
   &__wrapper {
-    display: grid;
-    grid-template-columns: repeat(12);
-    max-width: $contentMaxWidth;
-    margin: 15px auto;
-    padding: 0 20px 180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+
+    padding-top: 20px;
+    padding-bottom: 140px;
 
     font-family: "Roboto", sans-serif;
 
-    @include onIpad {
-      padding-bottom: 75px;
+    @include onTablet {
+      padding-bottom: 20px;
     }
-
+ 
   }
 
-  &__logo {
-    grid-column: 1/3;
-    padding-top: 10px;
-  }
-
-  @include onIphone11Pro {
+  @include onTablet {
     &__mobile-menu {
-      grid-column: 5;
-      width: 100%;
+      display: flex;
+      width: 24px;
+      height: 14px;
       background: url(../images/menu.png) no-repeat center;
     }
   }
@@ -42,7 +40,7 @@
     line-height: 21px;
     color: $lightGrey;
 
-    @include onIphone11Pro {
+    @include onTablet {
       display: none;
     }
 

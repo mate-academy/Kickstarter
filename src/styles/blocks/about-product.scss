@@ -2,19 +2,17 @@
 
   &__wrapper {
     display: grid;
-    grid-template-columns: repeat(12,72px);
+    grid-template-columns: repeat(10,72px);
     grid-template-rows: repeat(3,165px);
     column-gap: 30px;
-    max-width: $contentMaxWidth;
-    margin: 0 auto;
     padding-bottom: 120px;
 
-    @include onIpad {
+    @include onTablet {
       grid-template-columns: repeat(12,68px);
       padding-bottom: 40px;
     }
 
-    @include onIphone11Pro {
+    @include onMobile {
       grid-template-columns: repeat(4, 75px);
       grid-template-rows: 160px 200px 170px 50px;
       column-gap: 0;
@@ -25,14 +23,14 @@
 
   &__design-sketch {
     z-index: -1;
-    grid-column: 2/7;
+    grid-column: 1/2;
 
-    @include onIpad {
+    @include onTablet {
       grid-column: 1/4;
-      margin-left: -100px;
+      margin-left: -300px;
     }
 
-    @include onIphone11Pro {
+    @include onMobile {
       width: 259px;
       height: 210px;
       grid-column: 1/5;
@@ -42,7 +40,7 @@
   }
 
   &__title {
-    grid-column: 7 / 12;
+    grid-column: 6/ 10;
     grid-row: 1;
     margin-top: 0;
 
@@ -53,12 +51,12 @@
     line-height: 72px;
     text-transform: uppercase;
 
-    @include onIpad {
-      grid-column: 5/9;
+    @include onTablet {
+      grid-column: 4/8;
       font-size: 48px;
     }
 
-    @include onIphone11Pro {
+    @include onMobile {
       grid-column: 1/5;
       grid-row: 1;
 
@@ -69,20 +67,20 @@
   }
 
   &__about-us {
-    grid-column: 8 / 12;
+    grid-column: 7 / 11;
     grid-row: 2;
 
     font-family: "Roboto", sans-serif;
-    color: $grey;
+    color: $black;
     font-size: 16px;
     line-height: 24px;
 
-    @include onIpad {
-      grid-column: 6/9;
+    @include onTablet {
+      grid-column: 4/8;
       font-size: 12px;
     }
 
-    @include onIphone11Pro {
+    @include onMobile {
       grid-column: 1/5;
       grid-row: 3;
       text-align: center;
@@ -94,35 +92,35 @@
   }
 
   &__see-more-link {
-    grid-column: 8/ 10;
+    grid-column: 7/ 9;
     grid-row: 3;
 
     @extend %aboutUsLinks;
 
-    @include onIpad {
-      grid-column: 6/8;
+    @include onTablet {
+      grid-column: 4/6;
       font-size: 12px;
     }
 
-    @include onIphone11Pro {
+    @include onMobile {
       grid-column: 2/3;
       grid-row: 4;
     }
   }
 
   &__about-us-link {
-    grid-column: 9 / 11;
+    grid-column: 8 / 10;
     grid-row: 3;
 
     @extend %aboutUsLinks;
 
-    @include onIpad {
-      grid-column: 7/9;
+    @include onTablet {
+      grid-column: 5/7;
 
       font-size: 12px;
     }
 
-    @include onIphone11Pro {
+    @include onMobile {
       grid-column: 3/5;
       grid-row: 4;
     }
@@ -132,7 +130,7 @@
   &__about-us-link:hover::after {
     @extend %aboutUsLinksHover;
 
-    @include onIphone11Pro {
+    @include onMobile {
       width: 53px;
       height: 1px;
       top: 45%;
