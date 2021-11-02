@@ -1,9 +1,41 @@
 .about-us {
-  &__title {
-    margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+
+  @include onTablet {
+    gap: 20px;
+  }
+
+  @include onDesktop {
+    gap: 30px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
 
     @include onMobile {
-      margin-bottom: 50px;
+      margin: 0 auto;
+    }
+
+    @include onTablet {
+      transform: translateX(-17%);
+      max-width: max-content;
+    }
+  }
+
+  &__title {
+    margin-bottom: 50px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+      transform: translateX(-25%);
+      width: 430px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+      transform: translateX(-25%);
     }
   }
 
@@ -15,33 +47,49 @@
     object-position: center;
 
     @include onTablet {
-      width: 624px;
-      height: 416px;
+      width: 56%;
+      height: auto;
+      transform: translateX(-20%);
       margin-bottom: 0;
     }
 
     @include onDesktop {
+      width: 582px;
       height: 388px;
       margin-bottom: 0;
+    }
+
+    &-mobile {
+      @include onTablet {
+        display: none;
+      }
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &-desktop {
+      @include onMobile {
+        display: none;
+      }
     }
   }
 
   &__text {
     margin-bottom: 30px;
+    max-width: 378px;
     font-family: "Helvetica Neue", sans-serif;
     font-size: 14px;
     line-height: 21px;
 
     color: $c-gray;
 
-    @include onDesktop {
-      margin-left: 100px;
+    @include onTablet {
+      max-width: 300px;
     }
   }
 
   &__link {
-    // position: absolute;
-    margin-left: 100px;
     font-family: "Helvetica Neue", sans-serif;
     font-size: 12px;
     line-height: 15px;
