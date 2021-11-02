@@ -1,0 +1,94 @@
+.questions {
+  display: flex;
+  flex-direction: column;
+
+  @include onTablet {
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  @include onDesktop {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  &__title {
+    max-width: 260px;
+
+    @include onTablet {
+      max-width: 340px;
+    }
+
+    @include onDesktop {
+      max-width: 480px;
+    }
+    
+    
+    @include onMobile {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__forms {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__form {
+    width: calc(100% - 30px);
+    padding-left: 30px;
+    border: 2px solid $c-border-form;
+    outline: none;
+
+    @include onTablet {
+      width: 310px;
+    }
+
+    @include onDesktop {
+      width: 408px;
+    }
+
+    &::placeholder {
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 16px;
+      line-height: 19px;
+      color: $c-gray-light;
+
+    }
+  }
+
+  &__email {
+    height: 48px;
+    margin-bottom: 19px;
+  }
+
+  &__message {
+    height: 128px;
+    padding-top: 15px;
+    margin-bottom: 30px;
+    resize: none;
+
+    @include onTablet {
+      height: 176px;
+    }
+  }
+
+  &__button {
+    width: 102px;
+    height: 40px;
+    background-color: $c-green-button;
+    border: none;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: $c-white;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $c-green;
+    }
+  }
+}
