@@ -7,6 +7,12 @@
     column-gap: 30px;
     padding-bottom: 120px;
 
+    @media (max-width: 690px) {
+      display: flex;
+      flex-direction: column;
+      
+    }
+
     @include onTablet {
       grid-template-columns: repeat(12,68px);
       padding-bottom: 40px;
@@ -25,9 +31,17 @@
     z-index: -1;
     grid-column: 1/2;
 
+    @media (max-width: 690px) {
+      margin: 0;
+    }
+
+    @media (max-width: 1020px) {
+      margin-left: -300px;
+    }
+
     @include onTablet {
       grid-column: 1/4;
-      margin-left: -300px;
+      margin-left: -350px;
     }
 
     @include onMobile {
@@ -50,6 +64,10 @@
     font-size: 56px;
     line-height: 72px;
     text-transform: uppercase;
+
+    @media (max-width: 1020px) {
+      grid-column: 4/8;
+    }
 
     @include onTablet {
       grid-column: 4/8;
@@ -75,6 +93,10 @@
     font-size: 16px;
     line-height: 24px;
 
+    @media (max-width: 1020px) {
+      grid-column: 4/8;
+    }
+
     @include onTablet {
       grid-column: 4/8;
       font-size: 12px;
@@ -97,6 +119,10 @@
 
     @extend %aboutUsLinks;
 
+    @media (max-width: 1020px) {
+      grid-column: 4/6;
+    }
+
     @include onTablet {
       grid-column: 4/6;
       font-size: 12px;
@@ -114,6 +140,10 @@
 
     @extend %aboutUsLinks;
 
+    @media (max-width: 1020px) {
+      grid-column: 5/7;
+    }
+
     @include onTablet {
       grid-column: 5/7;
 
@@ -129,6 +159,10 @@
   &__see-more-link:hover::after,
   &__about-us-link:hover::after {
     @extend %aboutUsLinksHover;
+
+    @media (max-width: 690px) {
+      top: 80%;
+    }
 
     @include onMobile {
       width: 53px;
