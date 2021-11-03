@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   column-gap: 20px;
 
   @include tablet {
@@ -13,18 +13,16 @@
     column-gap: 30px;
   }
 
-  &--tablet {
-    display: block;
+  &--desktop {
 
-    @include tablet {
+    @include onDesktop {
       display: grid;
     }
   }
 
-  &--desktop {
-    display: block;
+  &--tablet {
 
-    @include onDesktop {
+    @include tablet {
       display: grid;
     }
   }
@@ -36,7 +34,7 @@
           grid-column: #{$start} / #{$end + 1};
         }
 
-        &--tablet {
+        &--tablet-#{$start}-#{$end} {
           @include tablet {
             grid-column: #{$start} / #{$end + 1};
           }
@@ -47,6 +45,7 @@
             grid-column: #{$start} / #{$end + 1};
           }
         }
+      
       }
     }
   }

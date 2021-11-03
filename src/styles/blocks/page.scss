@@ -1,5 +1,5 @@
 .page {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #333;
@@ -10,6 +10,25 @@
 
   &__body {
     margin: 0 auto;
+
+    &--with-side-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    transform: translateX(-100%);
+    transition: transform $transition-duration;
+
+    &:target {
+      transform: translateX(0);
+    }
   }
 
   &__section {
@@ -20,7 +39,31 @@
     }
 
     @include onDesktop {
-      margin-bottom: 0;
+      margin-bottom: 150px;
+    }
+
+    &--technology {
+      margin-bottom: 90px;
+
+      @include tablet {
+        margin-bottom: 116px;
+      }
+  
+      @include onDesktop {
+        margin-bottom: 116px;
+      }
+    }
+
+    &--last {
+      margin-bottom: 100px;
+
+      @include tablet {
+        margin-bottom: 60px;
+      }
+      
+      @include onDesktop {
+        margin-bottom: 108px;
+      }
     }
   }
 }

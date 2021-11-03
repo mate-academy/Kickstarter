@@ -1,11 +1,13 @@
 .benefits {
+  box-sizing: border-box;
+
   &__photo-container {
     display: flex;
     justify-content: center;
-    min-height: 46px;
   }
 
   &__photo {
+    min-height: 46px;
     align-items: center;
     margin-bottom: 40px;
 
@@ -15,7 +17,7 @@
   }
 
   &__title {
-    font-family: DIN Pro, sans-serif;
+    font-family: "DIN Pro Medium", sans-serif;
     font-weight: 500;
     font-size: 24px;
     line-height: 30px;
@@ -35,8 +37,26 @@
   }
 
   &__descriptions {
+    box-sizing: border-box;
     line-height: 21px;
     text-align: center;
     color: #7c7c7c;
+  }
+
+  &__item {
+    margin-bottom: 40px;
+    transition: box-shadow $transition-duration;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      box-shadow: 0 2px 14px #0db2b3;
+    }
   }
 }
