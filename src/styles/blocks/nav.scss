@@ -16,6 +16,10 @@
       gap: 20px;
     }
 
+    @media (min-width: 769px) {
+      padding-bottom: 100px;
+    }
+
     @include onTablet {
       gap: 20px;
       padding-bottom: 0;
@@ -60,13 +64,17 @@
     transition: transform $transitionDuration;
     z-index: 1;
 
+    @media (min-width: 769px) {
+      display: none;
+    }
+
     @include onTablet {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      height: 100vh;
-      width: 100vw;
+      width: 100%;
+      height: 100%;
     }
 
     @include onMobile {
@@ -74,8 +82,8 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 100vh;
-      width: 100vw;
+      width: 100%;
+      height: 100%;
     }
 
     &:target {
@@ -101,9 +109,14 @@
       padding-top: 20px;
     }
 
+    @media (max-height: 390px) and (orientation: landscape) {
+      font-size: 12px;
+      padding-bottom: 20px;
+    }
+
     @include onMobile {
       justify-content: center;
-      padding-bottom: 100px;
+      padding-bottom: 50px;
       padding-top: 20px;
     }
 
@@ -111,6 +124,12 @@
 
   &__specs-link {
     color: $lightGrey;
+  }
+
+  &__option-lang-en,
+  &__option-lang-ua,
+  &__specs-link {
+    transition: color, $transitionDuration;
   }
 
   &__option-lang-en:hover,
@@ -128,12 +147,19 @@
     text-transform: uppercase;
     text-shadow: 1px 1px;
 
-    transition: $transitionDuration;
+    transition: color, $transitionDuration;
 
     @include onTablet {
       font-size: 25px;
       padding: 20px;
       text-shadow: 1px 1px;
+    }
+  }
+
+  &__wrapper-mobile > &__link {
+    @media (max-height: 600px) and (orientation: landscape) {
+      font-size: 18px;
+      padding: 0;
     }
   }
 
@@ -148,6 +174,18 @@
     font-size: 12px;
     line-height: 15px;
     color: $white;
+
+    transition: color, $transitionDuration;
+
+    @media (max-height: 390px) and (orientation: landscape) {
+      width: 80px;
+      height: 35px;
+      font-size: 10px;
+    }
+  }
+
+  &__buy-link:hover {
+    color: $lightGrey;
   }
 
   &__link:hover {
