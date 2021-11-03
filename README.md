@@ -16,4 +16,5 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Uj
 1. Implement `Questions` block
 1. Implement the footer.
 
-- [DEMO LINK](https://dmtrhrytsak.github.io/Kickstarter/)
+# LIVE VERSION
+[DEMO LINK](https://dmtrhrytsak.github.io/Kickstarter/)
