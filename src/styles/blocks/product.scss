@@ -1,20 +1,29 @@
 .product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  @include onTablet {
+    flex-direction: row;
+  }
 
   &__image {
-    height: 245px;
-    padding-bottom: 50px;
-    position: relative;
-    left: 60px;
+    display: block;
+    width: 100%;
+    min-height: 200px;
+    background: left / cover no-repeat url(../images/product-1.png);
 
     @include onTablet {
-      height: 366px;
-      order: 1;
-      left: 0;
+      position: absolute;
+      width: 60%;
+      height: 350px;
+      left: 40%;
+      z-index: -1;
     }
 
     @include onDesktop {
       height: 464px;
-      left: 50px;
     }
   }
 
@@ -24,11 +33,12 @@
     line-height: 130%;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    padding: 40px 0 20px;
 
     @include onTablet {
       font-size: 48px;
       text-align: left;
+      padding: 0 0 34px;
     }
 
     @include onDesktop {
