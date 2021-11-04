@@ -11,6 +11,10 @@
   &:target {
     transform: translateX(0);
   }
+
+  @include onTablet {
+    display: none;
+  }
 }
 
 .nav {
@@ -18,7 +22,9 @@
 
   &__content {
     height: 100vh;
+
     box-sizing: border-box;
+
     padding-top: 38px;
     gap: 20px;
     justify-content: center;
@@ -32,11 +38,11 @@
       top: 0;
       height: 77px;
 
+      z-index: 998;
+
       display: block;
 
       margin-bottom: 44px;
-
-      z-index: 998;
 
       background: rgba(247, 247, 247, 90%);
       backdrop-filter: blur(2px);
@@ -57,12 +63,13 @@
     }
 
     &-menu {
+      transition: color $duration;
+
       font-family: Helvetica Neue, sans-serif;
       text-transform: uppercase;
       font-size: 14px;
       line-height: 21px;
       color: $c-hard-gray;
-      transition: color $duration;
 
       &--1 {
         font-weight: bold;
@@ -80,6 +87,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
     height: 100%;
 
     &-menu {
@@ -91,14 +99,18 @@
 
   &__item {
     display: inline-block;
+
+    transition: 0.3s;
+
+    padding: 28px 0;
+
     font-family: "DIN Pro", sans-serif;
     font-size: 24px;
     line-height: 30px;
     text-transform: uppercase;
     color: #828282;
-    padding: 28px 0;
+
     border-bottom: 1px solid transparent;
-    transition: 0.3s;
 
     &:first-child {
       padding-top: 60px;

@@ -2,8 +2,8 @@
   @include onTablet {
     display: flex;
     flex-direction: row-reverse;
-    gap: 30px;
     justify-content: center;
+    gap: 30px;
   }
 
   &__wrap {
@@ -12,9 +12,9 @@
   }
 
   &__wrapper {
-    max-width: 1200px;
     margin: 0 auto 90px;
     padding: 0 30px;
+    max-width: 1200px;
 
     @include onTablet {
       padding: 0 36px 0 0;
@@ -27,20 +27,21 @@
   }
 
   &__title {
+    margin-bottom: 50px;
 
     font-family: DIN Pro, sans-serif;
     font-size: 37px;
     line-height: 55px;
     color: $c-hard-gray;
-    margin-bottom: 50px;
 
     @include onTablet {
+      z-index: 1;
+
       font-weight: 600;
       font-size: 56px;
       line-height: 72px;
       margin-bottom: 30px;
       margin-left: -100px;
-      z-index: 1;
     }
 
     @include onDesktop {
@@ -49,10 +50,10 @@
   }
 
   &__img {
-
     &-wrapper {
       @include onTablet {
         overflow: hidden;
+
         max-height: 390px;
       }
     }
@@ -86,14 +87,16 @@
   }
 
   &__text {
+    margin-bottom: 30px;
+
     font-family: Helvetica Neue, sans-serif;
     font-size: 14px;
     line-height: 21px;
     color: #7c7c7c;
-    margin-bottom: 30px;
 
     @include onTablet {
       max-width: 400px;
+
       font-size: 16px;
       line-height: 24px;
     }
@@ -109,6 +112,7 @@
     &::after {
       content: "";
 
+      transform: matrix(1, 0, 0, -1, 0, 0);
       transition: width $duration;
 
       display: block;
@@ -116,7 +120,6 @@
       height: 1px;
       width: 53px;
       background-color: $c-green;
-      transform: matrix(1, 0, 0, -1, 0, 0);
     }
 
     &:hover::after {
