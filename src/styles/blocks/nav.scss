@@ -1,5 +1,7 @@
 .nav {
+  box-sizing: border-box;
   display: none;
+  background-color: $c-background;
 
   @include tablet {
     display: none;
@@ -13,21 +15,18 @@
     display: flex;
     list-style: none;
     justify-content: center;
-    padding: 28px 0;
+    align-items: center;
+    gap: 32px;
+    padding: 0;
     margin: 0;
-    margin-bottom: 0;
   }
 
   &__item {
-    margin-right: 30px;
-
-    &:last-child {
-      margin-right: 0;
-    }
+    padding: 28px 0;
+    width: 10%;
   }
 
   &__link {
-    display: inline-block;
     font-family: "Helvetica Neue Light", sans-serif;
     font-weight: 300;
     text-decoration: none;
@@ -36,9 +35,10 @@
     text-align: center;
     text-transform: uppercase;
 
+    transition: color $transition-duration;
+
     &:hover {
       font-family: "Helvetica Neue Medium", sans-serif;
-      font-weight: 500;
       color: $c-dark-grey;
     }
   }
