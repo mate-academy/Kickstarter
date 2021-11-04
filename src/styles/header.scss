@@ -1,4 +1,30 @@
 .header {
+  position: relative;
+
+  &__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $page-color;
+
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    z-index: 20;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__wrapper {
+    margin: 0 auto;
+    padding: 30px 0;
+    max-width: 1200px;
+  }
+  
   &__content {
     padding-top: 30px;
 
@@ -11,7 +37,7 @@
     @include onTablet {
       display: flex;
       flex-direction: row-reverse;
-      padding: 100px 0;
+      padding-top: 100px;
     }
 
     @include onDesktop {
@@ -25,6 +51,8 @@
   
     @include onTablet {
       width: 740px;
+
+      animation: fade 1s 1, show 1s 1;
     }
 
     @include onDesktop {
@@ -36,46 +64,60 @@
     @include onTablet {
       padding-top: 28px;
       height: 370px;
+
+      animation: move 1s 1, show 1s 1;
     }
   }
 
   &__title {
     padding-top: 40px;
+    text-align: center;
     font-family: "DIN pro", sans-serif;
     font-size: 44px;
     font-weight: 800;
     line-height: 130%;
-    text-align: center;
     text-transform: uppercase;
-    color: #333;
+    color: $main-color;
   
     @include onTablet {
       padding: 0;
-      font-size: 48px;
       text-align: left;
       width: 340px;
+      font-size: 48px;
     }
 
     @include onDesktop {
-      font-size: 64px;
       width: 380px;
+      font-size: 64px;
     }
   }
   
   &__article {
     padding-top: 24px;
+    text-align: center;
     font-family: "Helvetica Neue", sans-serif;
     font-weight: bold;
     font-size: 16px;
     line-height: 24px;
-    text-align: center;
-    color: #333;
+    color: $main-color;
   
     @include onTablet {
-      padding: 24px 0 0 4px;
+      padding: 32px 0 0 4px;
       width: 250px;
-      padding-top: 32px;
       text-align: left;
     }
+  }
+}
+
+.image-wrapper {
+  overflow: hidden;
+
+  @include onTablet {
+    margin-left: -90px;
+    margin-top: -25px;
+  }
+
+  @include onDesktop {
+    margin-left: 0;
   }
 }

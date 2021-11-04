@@ -1,15 +1,68 @@
+.questions__word {
+  transition: color 0.3s;
+}
+
 .questions {
-  display: flex;
-  flex-direction: column;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    
+
+    &:hover {
+      .questions__word {
+        color: $button-color;
+      }
+    }
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      margin-top: 140px;
+      max-width: 700px;
+    }
+
+    @include onDesktop {
+      margin-top: 188px;
+      max-width: 1200px;
+    }
+  }
 
   &__title {
     margin-top: 44px;
-    font-family: DIN Pro, sans-serif;
+    width: 260px;
+    font-family: $title-font, sans-serif;
     font-size: 37px;
     line-height: 46px;
     font-weight: 600;
     text-transform: uppercase;
-    color: #333;
+    color: $main-color;
+
+    @include onTablet {
+      margin: 0;
+      width: 340px;
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    @include onDesktop {
+      width: 480px;
+      font-size: 56px;
+      line-height: 72px;
+    }
+  }
+
+  &__forms {
+
+    @include onTablet {
+      margin: 0 0 0 20px;
+    }
+
+    @include onDesktop {
+      margin-left: 100px;
+    }
   }
 }
 
@@ -18,18 +71,36 @@
   padding: 16px 30px;
   height: 48px;
   width: 100%;
-  border: 1px solid #828282;
-  background-color: #f7f7f7;
+  border: 1px solid $menu-text-color2;
+  background-color: $background-color;
+
+  @include onTablet {
+    width: 340px;
+  }
+
+  @include onDesktop {
+    width: 440px;
+  }
 
   &::placeholder {
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: $text-font, sans-serif;
     font-size: 16px;
     line-height: 19px;
-    color: #bdbdbd;
+    color: $placeholder-color;
+  }
+
+  &:focus {
+    border-color: $menu-text-color2;
+    background-color: $button-text-color;
+    outline: none;
   }
 
   &--email {
     margin-top: 30px;
+
+    @include onTablet {
+      margin: 0;
+    }
   }
 
   &--textarea {
@@ -37,18 +108,38 @@
     font-family: inherit;
     height: 128px;
     resize: none;
+
+    @include onTablet {
+      height: 200px;
+    }
+
+    @include onDesktop {
+      height: 128px;
+    }
   }
 }
 
 .button--send {
-  margin: 30px 0 72px;
+  margin-top: 30px;
+  width: 102px;
   height: 40px;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: $text-font, sans-serif;
   font-size: 12px;
   font-weight: normal;
   line-height: 15px;
-  color: #fff;
+  color: $button-text-color;
   text-transform: uppercase;
-  background-color: #0db2b3;
-  border: 1px solid #0db2b3;
+  background-color: $button-color;
+  border: 1px solid $button-color;
+  cursor: pointer;
+  transition: background-color 0.3s, border 0.3s;
+
+  &:hover {
+    background-color: $block-list-color;
+    border: 1px solid $block-list-color;
+  }
+}
+
+#questions {
+  scroll-margin-top: 100px;
 }

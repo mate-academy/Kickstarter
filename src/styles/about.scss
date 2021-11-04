@@ -1,44 +1,125 @@
 .about {
+  &__wrapper {
+    margin: 0 auto;
+    justify-content: center;
+    max-width: 1200px;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+      margin-top: 130px;
+    }
+  }
+
+  &__text {
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      width: 50vw;
+      padding: 0 36px 0 20px;
+    }
+
+    @include onDesktop {
+      width: 440px;
+    }
+  }
+  
   &__title {
     margin-top: 90px;
-    font-family: "DIN Pro", sans-serif;
+    font-family: $title-font, sans-serif;
     font-size: 37px;
     font-weight: 600;
     line-height: 55px;
-    color: #333;
+    color: $main-color;
+    text-transform: uppercase;
+
+    @include onTablet {
+      margin: 8px 0 0 -90px;
+      z-index: 1;
+      font-size: 56px;
+      line-height: 72px;
+    }
   }
 
   &__img {
     margin-top: 50px;
     width: 100%;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__picture {
+    @include onTablet {
+      overflow: hidden;
+    }
+  }
+
+  &__img-2 {
+    display: none;
+    transition: transform 0.3s;
+
+    @include onTablet {
+      display: block;
+      width: auto;
+      height: 415px;
+      margin-left: -50px;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    @include onDesktop {
+      margin: 0;
+    }
   }
 
   &__paragraph {
     margin-top: 28px;
-    font-family: Helvetica Neue, sans-serif;
+    font-family: $text-font, sans-serif;
     font-size: 14px;
     line-height: 21px;
-    color: #7c7c7c;
+    color: $text-color;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @include onDesktop {
+      max-width: 380px;
+    }
   }
 
   &__link {
     display: block;
     margin-top: 30px;
     text-decoration: none;
-    font-family: Helvetica Neue, sans-serif;
+    font-family: $text-font, sans-serif;
     font-size: 12px;
     line-height: 15px;
     font-weight: bold;
     text-transform: uppercase;
-    color: #0db2b3;
+    color: $button-color;
 
     &::after {
-      margin-top: 4px;
       display: block;
+      margin-top: 4px;
       content: "";
       height: 1px;
-      width: 53px;
-      background-color: #0db2b3;
+      width: 52px;
+      background-color: $button-color;
+      transition: width 0.3s;
+    }
+
+    &:hover::after {
+      width: 124px;
     }
   }
+}
+
+#about-us {
+  scroll-margin-top: 76px;
 }

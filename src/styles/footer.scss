@@ -3,25 +3,69 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 160px;
+
+  &__link {
+    padding: 20px;
+    transform: perspective(1px);
+    animation-duration: 0.3s, 1.5s;
+    animation-delay: 0s, 0.3s;
+    animation-timing-function: ease-out, ease-in-out;
+    animation-iteration-count: 1, infinite;
+    animation-fill-mode: forwards;
+    animation-direction: normal, alternate;
+
+    &:hover {
+      animation-name: hvr-bob-float, hvr-bob;
+    }
+  }
 
   &__soc {
-    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+
+    @include onTablet {
+      margin-top: 64px;
+    }
   }
 
   &__terms {
     margin: 24px 0 50px;
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: $text-font, sans-serif;
     font-size: 12px;
     line-height: 21px;
     text-align: center;
-    color: #bdbdbd;
-  }
-}
+    color: $placeholder-color;
 
-.footer__link {
-  margin: 0 10px;
-  padding: 10px;
+    @include onTablet {
+      margin: 108px auto 50px;
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+    @include onDesktop {
+      margin-top: 72px;
+    }
+  }
+
+  &__img {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      margin: 60px auto 0;
+      cursor: pointer;
+    }
+
+    @include onDesktop {
+      margin: 108px auto 0;
+      transform: perspective(1px);
+
+      &:hover {
+        animation: hvr-buzz-out 0.75s linear 1;
+      }
+    }
+  }
 }
 
 .icon__soc {

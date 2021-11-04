@@ -1,38 +1,116 @@
 .features {
-  display: flex;
+  position: relative;
   flex-direction: column;
-  background-color: #f2f2f2;
+  background-color: $block-bcg-color;
+
+  @include onTablet {
+    background-color: transparent;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  &__feature-1 {
+    @include onTablet {
+      align-self: center;
+      transform: translateX(25%);
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: translateX(10%);
+      }
+    }
+  }
+
+  &__feature-2 {
+    @include onTablet {
+      align-self: flex-start;
+      padding-left: 16px;
+      transition: transform 0.3s;
+    }
+
+    @include onDesktop {
+      transform: translateX(40%);
+
+      &:hover {
+        transform: translateX(55%);
+      }
+    }
+  }
+
+  &__feature-3 {
+    @include onTablet {
+      align-self: center;
+      transform: translateX(-15%);
+      transition: transform 0.3s;
+    }
+
+    @include onDesktop {
+      transform: translateX(-55%);
+
+      &:hover {
+        transform: translateX(-40%);
+      }
+    }
+  }
 
   &__title {
+    display: block;
     margin-top: 44px;
-    font-family: "DIN Pro", sans-serif;
+    font-family: $title-font, sans-serif;
     font-size: 37px;
     font-weight: 600;
     line-height: 60px;
     text-transform: uppercase;
-    text-align: center;
-    color: #333;
+    color: $main-color;
+
+    @include onTablet {
+      margin-top: 50px;
+      transform: translateX(3%);
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    @include onDesktop {
+      transform: translateX(8%);
+    }
   }
 
   &__name {
     margin-top: 52px;
-    font-family: "DIN Pro", sans-serif;
+    font-family: $title-font, sans-serif;
     font-size: 30px;
     line-height: 37px;
     text-transform: uppercase;
-    color: #0c797a;
+    color: $block-list-color;
+
+    @include onTablet {
+      margin-top: 58px;
+      font-size: 34px;
+      line-height: 42px;
+    }
   }
 
   &__list {
     margin-top: 20px;
+
+    @include onTablet {
+      margin-top: 30px;
+    }
   }
 
   &__item {
     list-style: disc;
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: $text-font, sans-serif;
     font-size: 14px;
     line-height: 21px;
-    color: #333;
+    color: $main-color;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 19px;
+    }
 
     &:not(:first-child) {
       margin-top: 10px;
@@ -42,12 +120,47 @@
   &__picture {
     display: flex;
     overflow: hidden;
+
+    @include onTablet {
+      position: absolute;
+      z-index: -2;
+      right: 0;
+      top: 50%;
+      transform: translateY(-30%);
+      height: 620px;
+      width: 644px;
+      background-color: $block-bcg-color;
+    }
+
+    @include onDesktop {
+      width: 75%;
+      overflow: visible;
+    }
   }
 
   &__photo {
-    margin: 8px -25px 45px auto;
-    // margin-left: auto;
+    margin: 8px -22px 45px auto;
     height: 220px;
     overflow: hidden;
+
+    @include onTablet {
+      position: absolute;
+      margin: 163px 0 78px 58px;
+      right: 0;
+      z-index: -1;
+      height: 380px;
+    }
+
+    @include onDesktop {
+      margin: 176px 123px 16px 204px;
+      transform: translateY(-17%);
+      height: 512px;
+      width: 786px;
+      overflow: visible;
+    }
   }
+}
+
+#features {
+  scroll-margin-top: 56px;
 }

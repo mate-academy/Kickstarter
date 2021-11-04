@@ -12,28 +12,63 @@
     display: flex;
   }
 
+  &__button {
+    display: block;
+    position: relative;
+    height: 48px;
+    line-height: 48px;
+    width: 102px;
+    text-align: center;
+    background-color: $main-color;
+    color: $button-text-color;
+
+    transform: translateZ(0);
+    transition: color 0.3s;
+
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $button-color;
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      transition: transform 0.3s ease-out;
+    }
+
+    &:hover:before {
+      transform: scaleX(1);
+    }
+    
+  }
+  
+
   &__item {
-    font-family: Helvetica Neue, sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
     font-size: 14px;
     line-height: 18px;
     text-transform: uppercase;
   
     &--specs {
-      color: #4f4f4f;
+      color: $menu-text-color;
       cursor: pointer;
     }
   
     &--en {
       font-weight: bold;
-      color: #333;
+      color: $main-color;
     }
   
     &--ua {
-      color: #828282;
+      color: $menu-text-color2;
+      transition: color 0.3s;
 
       &:hover {
         font-weight: bold;
-        color: #333;
+        color: $main-color;
         cursor: pointer;
       }
     }
@@ -42,15 +77,4 @@
       padding-right: 28px;
     }
   }
-}
-
-.button {
-  display: block;
-  height: 48px;
-  line-height: 48px;
-  width: 102px;
-  text-align: center;
-  font-weight: bold;
-  background-color: #333;
-  color: #fff;
 }
