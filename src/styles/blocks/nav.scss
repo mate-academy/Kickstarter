@@ -14,10 +14,19 @@
       right: -100%;
       justify-content: space-around;
       flex-direction: column;
-      text-align: center;
+      text-align: start;
       background-color: $c-gray-background;
       border: 3px solid #e9e7e7;
       transition: right 0.3s;
+    }
+  }
+
+  &__close {
+    @include onTablet {
+      display: none;
+    }
+    @include onDesktop {
+      display: none;
     }
   }
 
@@ -26,17 +35,23 @@
     text-transform: uppercase;
 
     @include onMobile {
-      width: 200px;
+      width: 100%;
       font-size: 10px;
       line-height: 10px;
-      // padding: 0 40px;
+      text-align: center;
     }
   }
 
   &__item {
     @include onMobile {
-      border-top: 2px solid #e9e7e7;
-      border-bottom: 2px solid #e9e7e7;
+      width: 70%;
+      border: 2px solid #e9e7e7;
+      border-left: none;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $c-gray-light;
+      }
     }
   }
 }
