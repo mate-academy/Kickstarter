@@ -1,22 +1,6 @@
 'use strict';
 
 /* Menu section */
-const menuButton = document.querySelector('.menu__mobile');
-const menu = document.querySelector('.nav__list');
-const headerNav = document.querySelector('.header__nav');
-const body = document.querySelector('.page');
-
-menuButton.addEventListener('click', () => {
-  headerNav.style.setProperty('display', 'block');
-  body.style.setProperty('overflow-y', 'hidden');
-  menu.style.setProperty('right', 0);
-
-  menu.addEventListener('click', () => {
-    headerNav.style.setProperty('display', 'none');
-    menu.style.setProperty('right', '-100%');
-    body.style.setProperty('overflow-y', 'auto');
-  });
-});
 
 /* Presentation section */
 
