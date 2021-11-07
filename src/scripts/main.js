@@ -1,6 +1,13 @@
 'use strict';
 
 /* Menu section */
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#mobile-menu') {
+    document.body.classList.add('page--with-menu');
+  } else {
+    document.body.classList.remove('page--with-menu');
+  }
+});
 
 /* Presentation section */
 
@@ -48,49 +55,4 @@ prev.addEventListener('click', () => {
   } else {
     prev.disabled = true;
   }
-});
-
-/* Technology section */
-const point1 = document.querySelector('.point-1__img');
-const vertLine1 = document.querySelector('.point-1__vert-line');
-
-const point2 = document.querySelector('.point-2__img');
-const vertLine2 = document.querySelector('.point-2__vert-line');
-
-const point3 = document.querySelector('.point-3__img');
-const vertLine3 = document.querySelector('.point-3__vert-line');
-
-const point4 = document.querySelector('.point-4__img');
-const vertLine4 = document.querySelector('.point-4__vert-line');
-
-point1.addEventListener('mouseover', () => {
-  vertLine1.style.setProperty('display', 'block');
-});
-
-point1.addEventListener('mouseleave', () => {
-  vertLine1.style.setProperty('display', 'none');
-});
-
-point2.addEventListener('mouseover', () => {
-  vertLine2.style.setProperty('display', 'block');
-});
-
-point2.addEventListener('mouseleave', () => {
-  vertLine2.style.setProperty('display', 'none');
-});
-
-point3.addEventListener('mouseover', () => {
-  vertLine3.style.setProperty('display', 'block');
-});
-
-point3.addEventListener('mouseleave', () => {
-  vertLine3.style.setProperty('display', 'none');
-});
-
-point4.addEventListener('mouseover', () => {
-  vertLine4.style.setProperty('display', 'block');
-});
-
-point4.addEventListener('mouseleave', () => {
-  vertLine4.style.setProperty('display', 'none');
 });
