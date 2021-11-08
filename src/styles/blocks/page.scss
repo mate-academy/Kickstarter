@@ -1,0 +1,77 @@
+.page {
+  overflow-x: hidden;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: $c-font-primary;
+
+  scroll-behavior: smooth;
+
+  background-color: $c-background;
+
+  &__body {
+    margin: 0 auto;
+
+    &--with-side-menu {
+      overflow: auto;
+    }
+  }
+
+  &__side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    transform: translateX(-100%);
+    transition: transform $transition-duration;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__nav {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    margin-bottom: 44px;
+  }
+
+  &__section {
+    margin-bottom: 90px;
+
+    @include tablet {
+      margin-bottom: 130px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 150px;
+    }
+
+    &--technology {
+      margin-bottom: 78px;
+
+      @include tablet {
+        margin-bottom: 40px;
+      }
+  
+      @include onDesktop {
+        margin-bottom: 60px;
+      }
+    }
+
+    &--last {
+      margin-bottom: 100px;
+
+      @include tablet {
+        margin-bottom: 60px;
+      }
+      
+      @include onDesktop {
+        margin-bottom: 108px;
+      }
+    }
+  }
+}
