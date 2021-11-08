@@ -1,16 +1,13 @@
 .features {
   padding-top: 45px;
   position: relative;
-  margin-bottom: 45px;
 
   @include onTablet {
     padding-top: 0;
-    margin-bottom: 138px;
   }
 
   @include onDesktop {
     padding-top: 0;
-    margin-bottom: 188px;
   }
 
   &__title {
@@ -50,28 +47,30 @@
 
   &__wrapper {
     @include onMobile {
-      width: 305px;
+      margin: 0 auto;
+      max-width: 260px;
       overflow: hidden;
     }
   }
 
   &__cards {
     @include onMobile {
-      --cards-count: 0;
+      // --cards-count: 0;
+      $cards-count: 0;
       display: flex;
       flex-direction: row-reverse;
       justify-content: flex-start;
       transition: transform 0.3s;
 
       transform: translateX(
-        calc(var(--cards-count) * 305px)
+        calc($cards-count * 260px)
       );
     }
   }
 
   &__card {
     @include onMobile {
-      width: 305px;
+      width: 260px;
       margin-bottom: 50px;
     }
 

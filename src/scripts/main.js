@@ -39,7 +39,7 @@ next.addEventListener('click', () => {
   if (cardsCount < 2) {
     prev.disabled = false;
     cardsCount++;
-    cards.style.setProperty('--cards-count', cardsCount);
+    cards.style.setProperty('$cards-count', cardsCount);
     activeCard.innerHTML = '0' + (cardsCount + 1);
   } else {
     next.disabled = true;
@@ -50,7 +50,7 @@ prev.addEventListener('click', () => {
   if (cardsCount > 0) {
     next.disabled = false;
     cardsCount--;
-    cards.style.setProperty('--cards-count', cardsCount);
+    cards.style.setProperty('$cards-count', cardsCount);
     activeCard.innerHTML = (cardsCount - 1);
   } else {
     prev.disabled = true;
