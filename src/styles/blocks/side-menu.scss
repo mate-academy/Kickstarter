@@ -1,4 +1,5 @@
 .side-menu {
+  max-width: 100vw;
   height: 100%;
   padding: 30px;
   position: fixed;
@@ -8,11 +9,19 @@
   right: 0;
   z-index: 2;
   overflow-y: auto;
-  transform: translateX(100%);
+  transform: translateX(-100%);
   transition: transform 0.4s;
 
   &:target {
     transform: translateX(0);
+  }
+
+  @include onTablet {
+    display: none;
+  }
+
+  @include onDesktop {
+    display: none;
   }
 
   &__content {
