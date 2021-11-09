@@ -1,0 +1,65 @@
+.card {
+  flex-basis: 260px;
+  padding: 10px;
+  border: 1px solid transparent;
+  transition: border-color 0.5s, box-shadow 0.5s;
+
+  @include onTablet {
+    flex-basis: 340px;
+  }
+
+  @include onDesktop {
+    flex-basis: 276px;
+  }
+
+  @include onMobile {
+    &:not(:first-of-type) {
+      display: none;
+    }
+  }
+
+  &:hover {
+    border-color: $c-turquoise;
+    box-shadow: 0 0 27px 13px rgba(13, 178, 179, 0.1);
+  }
+
+  &__header {
+    display: flex;
+    height: 147px;
+    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+
+  }
+
+  &__img {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 52px;
+
+    @include onMobile {
+      width: 52px;
+      height: 52px;
+      margin-bottom: 40px;
+    }
+
+  }
+
+  &__title {
+    font-family: "DIN Pro", sans-serif;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $c-granit;
+  }
+
+  &__description {
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $c-gray;
+  }
+}

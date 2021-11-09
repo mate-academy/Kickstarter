@@ -1,0 +1,77 @@
+.menu {
+  $menu-margin-l: 26px;
+
+  &__mobile {
+
+    &-img {
+      width: 24px;
+      height: 14px;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__desktop {
+    display: none;
+
+    @include onTablet {
+      display: inline-block;
+    }
+
+    @include onDesktop {
+      display: inline-block;
+    }
+
+    &-item {
+      display: inline-block;
+      font-family: "Helvetica Neue Light", sans-serif;
+      font-size: 14px;
+      line-height: 18px;
+      color: $c-gray-dark;
+      text-decoration: none;
+      transition: color 0.5s, font-weight 0.5s;
+  
+      &:hover {
+        color: $c-green;
+        font-weight: bold;
+      }
+  
+      &:active {
+        color: $c-granit;
+        font-weight: bold;
+      }
+    }
+
+    &-languages {
+      margin-left: $menu-margin-l;
+    }
+
+    &-button {
+      display: inline-block;
+      margin-left: $menu-margin-l;
+      padding: 16px 40px;
+      background-color: $c-gray-dark;
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background-color 0.3s;
+  
+      @include onDesktop {
+        $menu-margin-l: 37px;
+      }
+
+      &:hover {
+        background-color: $c-granit;
+      }
+    }
+  }
+}
