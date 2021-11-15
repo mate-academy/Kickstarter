@@ -1,0 +1,74 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__link {
+    padding: 20px;
+    transform: perspective(1px);
+    animation-duration: $duration, 1.5s;
+    animation-delay: 0s, $duration;
+    animation-timing-function: ease-out, ease-in-out;
+    animation-iteration-count: 1, infinite;
+    animation-fill-mode: forwards;
+    animation-direction: normal, alternate;
+
+    &:hover {
+      animation-name: hvr-bob-float, hvr-bob;
+    }
+  }
+
+  &__soc {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+
+    @include onTablet {
+      margin-top: 64px;
+    }
+  }
+
+  &__terms {
+    margin: 24px 0 50px;
+    font-family: $text-font, sans-serif;
+    font-size: 12px;
+    line-height: 21px;
+    text-align: center;
+    color: $placeholder-color;
+
+    @include onTablet {
+      margin: 108px auto 50px;
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+    @include onDesktop {
+      margin-top: 72px;
+    }
+  }
+
+  &__img {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      margin: 60px auto 0;
+      cursor: pointer;
+    }
+
+    @include onDesktop {
+      margin: 108px auto 0;
+      transform: perspective(1px);
+
+      &:hover {
+        animation: hvr-buzz-out 0.75s linear 1;
+      }
+    }
+  }
+}
+
+.icon__soc {
+  width: 22px;
+  height: 22px;
+}
