@@ -1,0 +1,43 @@
+.story {
+  position: relative;
+
+  &__button {
+    @include flex-center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 108px;
+    height: 108px;
+    border: 1px solid #f3f4f5;
+    border-radius: 50%;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #f3f4f5;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    @include onTablet {
+      width: 190px;
+      height: 190px;
+      font-size: 20px;
+    }
+
+    @include onDesktop {
+      width: 232px;
+      height: 232px;
+      font-size: 24px;
+    }
+
+    &--pause {
+      display: none;
+    }
+  }
+
+  &:hover &__button {
+    opacity: 1;
+  }
+}

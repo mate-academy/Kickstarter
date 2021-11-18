@@ -1,0 +1,91 @@
+.footer {
+  padding: 50px 30px;
+  @include flex-center;
+  flex-direction: column;
+  position: relative;
+
+  &__button {
+    display: block;
+    width: 20px;
+    height: 24px;
+    background-image: url(../images/arrow-up.svg);
+    position: absolute;
+    top: 0;
+    right: 30px;
+    cursor: pointer;
+    filter: contrast(1%);
+    transition: filter 0.3s;
+
+    @include onTablet {
+      right: 50px;
+    }
+    
+    @include onDesktop {
+      right: 200px;
+    }
+
+    &:hover {
+      filter: contrast(100%);
+    }
+  }
+
+  &__socialls {
+    @include flex-center;
+    gap: 45px;
+    padding-bottom: 25px;
+
+    @include onTablet {
+      padding-bottom: 70px;
+    }
+  }
+
+  &__sociall {
+    width: 22px;
+    height: 18px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  &__facebook {
+    background-image: url(../images/socials/facebook.svg);
+
+    &:hover {
+      filter: invert(85%) sepia(78%) saturate(6300%)
+        hue-rotate(200deg) brightness(97%) contrast(106%);
+    }
+  }
+
+  &__twitter {
+    background-image: url(../images/socials/twitter.svg);
+
+    &:hover {
+      filter: invert(85%) sepia(78%) saturate(6300%)
+        hue-rotate(200deg) brightness(97%) contrast(106%);
+    }
+  }
+
+  &__instagram {
+    background-image: url(../images/socials/instagram.svg);
+
+    &:hover {
+      filter: sepia(33%) saturate(6354%) hue-rotate(317deg)  contrast(106%);
+    }
+  }
+
+  &__text {
+    font-size: 12px;
+    line-height: 21px;
+    text-align: center;
+    color: $colorGray;
+  }
+}
+
+.footer .logo {
+  display: none;
+
+  @include onTablet {
+    display: block;
+    margin-bottom: 65px;
+  }
+}
