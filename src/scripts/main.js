@@ -183,7 +183,7 @@ contactsLinkM.addEventListener('click', () => {
   scrollPageM('.contacts');
 });
 
-// scroll page | mobile links
+// scroll page | desktop links
 
 const storyLink = document.querySelector('.story-link');
 const aboutLink = document.querySelector('.about-link');
@@ -219,4 +219,159 @@ featuresLink.addEventListener('click', () => {
 
 contactsLink.addEventListener('click', () => {
   scrollPage('.contacts');
+});
+
+// specs button
+
+document.querySelector('.header__specs').addEventListener('click', () => {
+  scrollPage('.technology');
+});
+
+// contacts input
+
+const inputEmail = document.querySelector('.contacts__email');
+
+setInterval(() => {
+  if (inputEmail.value) {
+    if (inputEmail.value.includes('@')
+      && inputEmail.value.slice(inputEmail.value.indexOf('@')).includes('.')) {
+      inputEmail.style.borderColor = '#0C797A';
+    } else {
+      inputEmail.style.borderColor = '#EB5757';
+    }
+  } else {
+    inputEmail.style.borderColor = '#BDBDBD';
+  }
+}, 1);
+
+// chose language
+
+const choseLanguage = document.querySelector('.header__chose');
+
+choseLanguage.addEventListener('click', () => {
+  document.querySelector('.header__chose-btn--en')
+    .classList.toggle('header__chose-btn--active');
+
+  document.querySelector('.header__chose-btn--ua')
+    .classList.toggle('header__chose-btn--active');
+});
+
+// --- CART ---
+
+document.querySelector('.header__buy').addEventListener('click', () => {
+  document.querySelector('.cart').classList.toggle('cart--active');
+  body.classList.toggle('page');
+});
+
+document.querySelector('.cart__return-button').addEventListener('click', () => {
+  document.querySelector('.cart').classList.toggle('cart--active');
+  body.classList.toggle('page');
+});
+
+// chose color
+
+function removeAllClass() {
+  document.querySelector('.cart__item-content-colors-chose')
+    .classList.remove('cart__item-content-colors-chose--1');
+
+  document.querySelector('.cart__item-content-colors-chose')
+    .classList.remove('cart__item-content-colors-chose--2');
+
+  document.querySelector('.cart__item-content-colors-chose')
+    .classList.remove('cart__item-content-colors-chose--3');
+
+  document.querySelector('.cart__item-content-colors-chose')
+    .classList.remove('cart__item-content-colors-chose--4');
+
+  document.querySelector('.cart__item-content-colors-chose')
+    .classList.remove('cart__item-content-colors-chose--5');
+}
+
+document.querySelector('.cart__item-content-colors-chose-silver')
+  .addEventListener('click', () => {
+    removeAllClass();
+
+    document.querySelector('.cart__item-content-colors-chose')
+      .classList.add('cart__item-content-colors-chose--1');
+    document.querySelector('.cart__item-content-color').innerHTML = 'Silver';
+  });
+
+document.querySelector('.cart__item-content-colors-chose-gray')
+  .addEventListener('click', () => {
+    removeAllClass();
+
+    document.querySelector('.cart__item-content-colors-chose')
+      .classList.add('cart__item-content-colors-chose--2');
+    document.querySelector('.cart__item-content-color').innerHTML = 'Gray';
+  });
+
+document.querySelector('.cart__item-content-colors-chose-bronze')
+  .addEventListener('click', () => {
+    removeAllClass();
+
+    document.querySelector('.cart__item-content-colors-chose')
+      .classList.add('cart__item-content-colors-chose--3');
+    document.querySelector('.cart__item-content-color').innerHTML = 'Bronze';
+  });
+
+document.querySelector('.cart__item-content-colors-chose-gold')
+  .addEventListener('click', () => {
+    removeAllClass();
+
+    document.querySelector('.cart__item-content-colors-chose')
+      .classList.add('cart__item-content-colors-chose--4');
+    document.querySelector('.cart__item-content-color').innerHTML = 'Gold';
+  });
+
+document.querySelector('.cart__item-content-colors-chose-dark')
+  .addEventListener('click', () => {
+    removeAllClass();
+
+    document.querySelector('.cart__item-content-colors-chose')
+      .classList.add('cart__item-content-colors-chose--5');
+    document.querySelector('.cart__item-content-color').innerHTML = 'Dark';
+  });
+
+// count and price
+
+const cartLeftBtn = document
+  .querySelector('.cart__item-content-counter-leftBtn');
+const cartRightBtn = document
+  .querySelector('.cart__item-content-counter-rightBtn');
+const cartCounter = document.querySelector('.cart__item-content-count');
+const cartTotalPrice = document.querySelector('.cart__total-price-amount');
+
+let cartCount = 1;
+
+cartRightBtn.addEventListener('click', () => {
+  if (cartCount < 20) {
+    cartCount++;
+  }
+  cartCounter.setAttribute('value', cartCount);
+  cartTotalPrice.innerHTML = `$${cartCount * 129}.00`;
+
+  if (cartCount > 1) {
+    cartLeftBtn.classList.remove('cart__item-content-counter-leftBtn--disable');
+  }
+
+  if (cartCount === 20) {
+    cartRightBtn.classList.add('cart__item-content-counter-rightBtn--disable');
+  }
+});
+
+cartLeftBtn.addEventListener('click', () => {
+  if (cartCount > 1) {
+    cartCount--;
+  }
+  cartCounter.setAttribute('value', cartCount);
+  cartTotalPrice.innerHTML = `$${cartCount * 129}.00`;
+
+  if (cartCount === 1) {
+    cartLeftBtn.classList.add('cart__item-content-counter-leftBtn--disable');
+  }
+
+  if (cartCount < 20) {
+    cartRightBtn.classList
+      .remove('cart__item-content-counter-rightBtn--disable');
+  }
 });

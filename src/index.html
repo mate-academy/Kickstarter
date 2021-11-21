@@ -36,13 +36,13 @@
         <div class="logo"></div>
       </a>
       <div class="header__buttons">
-        <a href="#" class="header__specs">Specs</a>
+        <a class="header__specs">Specs</a>
         <div class="header__chose">
-          <a href="#" class="header__chose-btn header__chose-btn--active">En</a>
+          <a href="#" class="header__chose-btn header__chose-btn--en header__chose-btn--active">En</a>
           <a href="#" class="header__chose-btn-line">/</a>
-          <a href="#" class="header__chose-btn">Ua</a>
+          <a href="#" class="header__chose-btn header__chose-btn--ua">Ua</a>
         </div>
-        <a href="#" class="header__buy">Buy</a>
+        <a class="header__buy">Buy</a>
       </div>
       <a class="header__menu-opener header__menu-opener--hover">
         <span class="header__menu-opener-line"></span>
@@ -165,7 +165,14 @@
           <p class="about__subtitle">
             In 2014, a group of geeky industrial designers, engineering veterans and acoustic experts formed crazybaby. This is a bunch of passionate people who are crazy enough to think they can challenge the industry with disruptive audio products.
           </p>
-          <a href="#" class="about__button">See more about us</a>
+          <a
+            href="https://crazybaby.com/"
+            class="about__button"
+            target="_blank"
+            rel="noopener"
+          >
+            See more about us
+          </a>
         </div>
       </article>
       <atricle class="technology">
@@ -176,6 +183,19 @@
             alt="technology"
             class="technology__image-img"
           >
+          <div class="technology__image-info">
+            <a class="technology__image-info-button">+</a>
+            <a class="technology__image-info-button">+</a>
+            <a class="technology__image-info-button">+</a>
+            <a class="technology__image-info-button">+</a>
+            <a class="technology__image-info-button">+</a>
+            <a class="technology__image-info-button">+</a>
+            <a class="technology__image-info-button">+</a>
+            <a class="technology__image-info-button">+</a>
+            <a class="technology__image-info-button">+</a>
+            <a class="technology__image-info-button">+</a>
+            <a class="technology__image-info-button">+</a>
+          </div>
         </div>
       </atricle>
       <article class="testimonials container">
@@ -188,7 +208,7 @@
             alt=""
             class="testimonials__image"
           >
-          <a href="#" class="testimonials__name">Garrett Martin</a>
+          <a class="testimonials__name">Garrett Martin</a>
           <p class="testimonials__role">Creative Director</p>
         </div>
       </article>
@@ -237,20 +257,22 @@
           Do you have any question?
         </h2>
         <form
-          action=""
+          action="http://localhost:8080/"
           method="post"
           class="contacts__form"
         >
           <input
             type="email"
             placeholder="Your email"
-            class="contacts__input"
+            class="contacts__input contacts__email"
             autocomplete="off"
+            required
           >
           <textarea
             placeholder="Your message..."
             class="contacts__input contacts__textarea"
             autocomplete="off"
+            required
          ></textarea>
           <button type="submit" class="contacts__button">Send</button>
         </form>
@@ -260,14 +282,86 @@
       <a class="footer__button"></a>
       <div class="logo"></div>
       <div class="footer__socialls">
-        <a href="#" class="footer__sociall footer__facebook"></a>
-        <a href="#" class="footer__sociall footer__twitter"></a>
-        <a href="#" class="footer__sociall footer__instagram"></a>
+        <a
+          href="https://www.facebook.com/hicrazybaby/"
+          class="footer__sociall footer__facebook"
+          target="_blank"
+          rel="noopener"
+       ></a>
+        <a
+          href="https://twitter.com/crazybabyaudio"
+          class="footer__sociall footer__twitter"
+          target="_blank"
+          rel="noopener"
+       ></a>
+        <a
+          href="https://www.instagram.com/crazybaby/"
+          class="footer__sociall footer__instagram"
+          target="_blank"
+          rel="noopener"
+       ></a>
       </div>
       <p class="footer__text">
         © 2019 All rights reserved. Terms of Use & Privacy Policy
       </p>
     </footer>
+
+    <div class="cart container">
+      <a class="cart__return-button"></a>
+      <div class="cart__proccess">
+        <div class="cart__proccess-cart cart__proccess-cart--active">
+          <div class="cart__proccess-cart-check"></div>
+          <p class="cart__proccess-cart-title">Cart</p>
+        </div>
+        <div class="cart__proccess-cart">
+          <div class="cart__proccess-cart-check"></div>
+          <p class="cart__proccess-cart-title">Shipping</p>
+        </div>
+        <div class="cart__proccess-cart">
+          <div class="cart__proccess-cart-check"></div>
+          <p class="cart__proccess-cart-title">Payment</p>
+        </div>
+      </div>
+      <div class="cart__item">
+        <img
+          src="./images/cart/luna.png"
+          alt="Luna eye"
+          height="360"
+        >
+        <div class="cart__item-info">
+          <div class="cart__item-content">
+            <h2 class="cart__item-content-title">Luna eye</h2>
+            <h3 class="cart__item-content-price">$129.00</h3>
+            <div class="cart__item-content-colors">
+              <div class="cart__item-content-colors-chose cart__item-content-colors-chose--1">
+                <a class="cart__item-content-colors-chose-silver"></a>
+                <a class="cart__item-content-colors-chose-gray"></a>
+                <a class="cart__item-content-colors-chose-bronze"></a>
+                <a class="cart__item-content-colors-chose-gold"></a>
+                <a class="cart__item-content-colors-chose-dark"></a>
+              </div>
+              <p class="cart__item-content-color">Silver</p>
+            </div>
+            <div class="cart__item-content-counter">
+              <a class="cart__item-content-counter-leftBtn cart__item-content-counter-leftBtn--disable"></a>
+              <input
+                type="text"
+                class="cart__item-content-count"
+                value="1"
+                disabled
+              >
+              <a class="cart__item-content-counter-rightBtn"></a>
+            </div>
+            <button class="cart__item-content-button">Add to card</button>
+          </div>
+          <div class="cart__total-price">
+            <p class="cart__total-price-text">Total:</p>
+            <h3 class="cart__total-price-amount">$129.00</h3>
+          </div>
+          <button class="cart__nextButton">Continue</button>
+        </div>
+      </div>
+    </div>
 
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
