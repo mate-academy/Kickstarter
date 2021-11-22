@@ -3,7 +3,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
+  overflow-x: scroll;
+
+  @include onTablet {
+    overflow: hidden;
+  }
 
   &__title {
     font-size: 37px;
@@ -45,68 +49,8 @@
       transition: background-color 0.3s;
       position: absolute;
 
-      &:nth-child(1) {
-        top: 165px;
-        left: 70px;
-        display: none;
-
-        @include onTablet {
-          display: flex;
-        }
-      }
-
-      &:nth-child(2) {
-        top: 300px;
-        left: 220px;
-      }
-
-      &:nth-child(3) {
-        top: 240px;
-        left: 280px;
-      }
-
-      &:nth-child(4) {
-        top: 115px;
-        left: 325px;
-      }
-
-      &:nth-child(5) {
-        top: 335px;
-        left: 400px;
-      }
-
-      &:nth-child(6) {
-        top: 145px;
-        left: 515px;
-      }
-
-      &:nth-child(7) {
-        top: 255px;
-        left: 620px;
-      }
-
-      &:nth-child(8) {
-        top: 135px;
-        left: 740px;
-      }
-
-      &:nth-child(9) {
-        top: 65px;
-        left: 840px;
-      }
-
-      &:nth-child(10) {
-        top: 180px;
-        left: 890px;
-      }
-
-      &:nth-child(11) {
-        top: 125px;
-        left: 930px;
-      }
-
       &::before {
-        content: "Lorem ipsum dolor sit.";
+        content: "Control button ring ornament";
         font-size: 14px;
         line-height: 21px;
         color: $colorBlack;
@@ -123,12 +67,123 @@
         padding-bottom: 15px;
       }
 
+      &::after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 150px;
+        border-bottom: 5px solid $colorBlack;
+        top: 115%;
+        right: 326%;
+        padding-bottom: 15px;
+        display: none;
+      }
+
+      &:nth-child(1) {
+        top: 165px;
+        left: 70px;
+        display: none;
+
+        @include onTablet {
+          display: flex;
+        }
+
+        &::before,
+        &::after {
+          height: 200px;
+        }
+      }
+
+      &:nth-child(2) {
+        top: 300px;
+        left: 220px;
+      }
+
+      &:nth-child(3) {
+        top: 240px;
+        left: 280px;
+
+        &::before,
+        &::after {
+          height: 200px;
+        }
+      }
+
+      &:nth-child(4) {
+        top: 115px;
+        left: 325px;
+
+        &::before,
+        &::after {
+          height: 300px;
+        }
+      }
+
+      &:nth-child(5) {
+        top: 335px;
+        left: 400px;
+
+        &::before,
+        &::after {
+          height: 100px;
+        }
+      }
+
+      &:nth-child(6) {
+        top: 145px;
+        left: 515px;
+
+        &::before,
+        &::after {
+          height: 250px;
+        }
+      }
+
+      &:nth-child(7) {
+        top: 255px;
+        left: 620px;
+      }
+
+      &:nth-child(8) {
+        top: 135px;
+        left: 740px;
+
+        &::before,
+        &::after {
+          height: 200px;
+        }
+      }
+
+      &:nth-child(9) {
+        top: 65px;
+        left: 840px;
+
+        &::before,
+        &::after {
+          height: 250px;
+        }
+      }
+
+      &:nth-child(10) {
+        top: 180px;
+        left: 890px;
+      }
+
+      &:nth-child(11) {
+        top: 125px;
+        left: 930px;
+      }
+
       &:hover {
         background-color: $colorBlack;
       }
 
       &:hover::before {
         display: flex;
+      }
+
+      &:hover::after {
+        display: block;
       }
     }
   }
