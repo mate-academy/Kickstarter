@@ -1,6 +1,66 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition-duration;
   &:hover {
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: #{$tablet-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: #{$desktop-breakpoint}) {
+    @content;
+  }
+}
+
+// @mixin hover($_property, $_toValue) {
+//   transition: #{$_property} 0.3s;
+//   &:hover {
+//     #{$_property}: $_toValue;
+//   }
+// }
+
+// @mixin onTablet {
+//   @media (min-width: 768px) {
+//     @content;
+//   }
+// }
+
+// @mixin onDesktop {
+//   @media (min-width: 1280px) {
+//     @content;
+//   }
+// }
+
+// @mixin iconSetting {
+//   display: block;
+//   width: 24px;
+//   padding-bottom: 100%;
+//   background-size: contain;
+//   background-position: center;
+//   background-repeat: no-repeat;
+// }
+
+// @mixin buttonBuy {
+//   text-transform: uppercase;
+//   background-color: #333;
+//   cursor: pointer;
+//   border: none;
+//   width: 102px;
+//   height: 48px;
+//   color: #fff;
+// }
+
+// @mixin buttonOnHeader {
+//   font-size: 14px;
+//   color: #4f4f4f;
+//   padding: 0;
+//   text-transform: uppercase;
+//   border: none;
+//   background-color: transparent;
+//   cursor: pointer;
+// }
