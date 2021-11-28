@@ -1,0 +1,129 @@
+.about-us {
+  @include onTablet {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__wrapper {
+    margin: 0 auto 90px;
+    padding: 0 30px;
+    max-width: 1200px;
+
+    @include onTablet {
+      padding: 0 36px 0 0;
+      margin: 0 auto 130px;
+    }
+
+    @include onDesktop {
+      margin: 0 auto 150px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 50px;
+
+    font-family: DIN Pro, sans-serif;
+    font-size: 37px;
+    line-height: 55px;
+    color: $c-hard-gray;
+
+    @include onTablet {
+      z-index: 1;
+
+      font-weight: 600;
+      font-size: 56px;
+      line-height: 72px;
+      margin-bottom: 30px;
+      margin-left: -100px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__img {
+    &-wrapper {
+      @include onTablet {
+        overflow: hidden;
+
+        max-height: 390px;
+      }
+    }
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &-2 {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        width: auto;
+        margin-bottom: 0;
+      }
+
+    }
+
+    &-1 {
+      width: 100%;
+      margin-bottom: 28px;
+      display: block;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    font-family: Helvetica Neue, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    color: #7c7c7c;
+
+    @include onTablet {
+      max-width: 400px;
+
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    font-family: Helvetica Neue, sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $c-green;
+
+    &::after {
+      content: "";
+
+      transform: matrix(1, 0, 0, -1, 0, 0);
+      transition: width $duration;
+
+      display: block;
+      margin-top: 6px;
+      height: 1px;
+      width: 53px;
+      background-color: $c-green;
+    }
+
+    &:hover::after {
+      width: 120px;
+    }
+  }
+}
