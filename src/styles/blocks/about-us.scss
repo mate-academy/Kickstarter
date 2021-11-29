@@ -1,0 +1,43 @@
+.about-us {
+  &__image-container {
+    overflow: hidden;
+  }
+
+  &__image {
+    transition: transform $animation-duration;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include onMobile {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    @extend %spacing-normal;
+
+    position: relative;
+    left: -#{$column-size + $column-gap};
+
+    text-transform: uppercase;
+    color: color(color-granit);
+
+    @include onMobile {
+      left: 0;
+
+      text-align: center;
+    }
+  }
+
+  &__description {
+    @extend %spacing-normal;
+
+    color: color(color-gray);
+
+    @include onMobile {
+      text-align: center;
+    }
+  }
+}
