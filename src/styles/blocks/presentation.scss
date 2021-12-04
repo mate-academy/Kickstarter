@@ -1,0 +1,60 @@
+.presentation {
+  position: relative;
+
+  &__button {
+    opacity: 0;
+    transition: opacity 0.5s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__video {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    min-height: 246px;
+    max-height: 590px;
+
+    &:hover ~ .presentation__button {
+      transition: opacity 0.5s;
+      opacity: 1;
+    }
+  }
+
+  &__button-circle,
+  &__button-triangle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__button-circle {
+    width: 108px;
+
+    @include onTablet {
+      width: 190px;
+    }
+
+    @include onDesktop {
+      width: 232px;
+    }
+  }
+
+  &__button-triangle {
+    width: 14px;
+    height: 18px;
+
+    @include onTablet {
+      width: 20px;
+      height: 26px;
+    }
+
+    @include onDesktop {
+      width: 50px;
+      height: 60px;
+    }
+  }
+}
