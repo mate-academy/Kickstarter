@@ -1,13 +1,27 @@
 .header {
-
   &__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     height: 48px;
-    padding-top: 28px;
-    margin-bottom: 30px;
+    margin: 26px 0 100px;
+
+    // @include onTablet {
+    //   margin: 12px 0 90px;
+    // }
+
+    @include onDesktop {
+      margin: 12px 0 90px;
+    }
+  }
+
+  &__main {
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: 33% 1fr;
+      grid-template-rows: 464px;
+    }
   }
 
   &__photo {
@@ -16,10 +30,20 @@
     width: 100%;
     margin-bottom: 40px;
 
+    overflow-y: hidden;
+
     border-radius: 8px;
 
     object-fit: cover;
     object-position: center;
+
+    grid-area: 1 / 2;
+  }
+
+  &__title-container {
+    align-items: end;
+    grid-area: 1 / 1;
+    // justify-items: end;
   }
 
   &__title {
@@ -30,6 +54,10 @@
     text-transform: uppercase;
 
     margin-bottom: 24px;
+
+    @include onDesktop {
+      text-align: left;
+    }
   }
 
   &__text {
@@ -37,5 +65,15 @@
     text-align: center;
 
     margin-bottom: 100px;
+
+    @include onDesktop {
+      text-align: left;
+    }
+  }
+
+  &__menu {
+    @include onTablet {
+      display: none;
+    }
   }
 }
