@@ -1,0 +1,55 @@
+.slider {
+  @include flex-position(center);
+
+  flex-direction: column;
+  padding-top: 50px;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &__buttons {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  &__button {
+    display: block;
+    height: 14px;
+    width: 48px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.4s;
+  }
+
+  &__button-right {
+    background-image: url(../images/icons_svg/arrow_right.svg);
+
+    &:hover {
+      transform: translateX(10px);
+    }
+  }
+
+  &__button-left {
+    background-image: url(../images/icons_svg/arrow_left.svg);
+
+    &:hover {
+      transform: translateX(-10px);
+    }
+  }
+
+  &__number-active {
+    font-family: "DIN Pro-500", sans-serif;
+    line-height: 20px;
+  }
+
+  &__number-disactive,
+  &__slash {
+    font-family: "DIN Pro-500", sans-serif;
+    font-size: 11px;
+    line-height: 14px;
+    color: #bdbdbd;
+  }
+}

@@ -16,25 +16,32 @@
 
     font-family: "HelveticaNeue-300", sans-serif;
     font-size: 14px;
+    transition: color 0.5s;
 
     &--is-active {
       font-family: "HelveticaNeue-500", sans-serif;
       color: #131313;
     }
 
+    &:hover {
+      color: $color-aqua-dark;
+    }
+
     &::before {
       content: "";
       position: relative;
       top: 24px;
+      left: 50%;
       display: block;
-      width: 0;
+      width: 2px;
       height: 1px;
-      background-color: $color-aqua;
-      transition: width 0.5s;
+      background-color: transparent;
+      transition: transform 0.5s;
     }
 
     &:hover::before {
-      width: 70px;
+      transform: scaleX(40);
+      background-color: $color-aqua;
     }
   }
 }
