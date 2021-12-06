@@ -1,0 +1,58 @@
+.navigation {
+  padding-top: 50px;
+  padding-bottom: 25px;
+  display: block;
+
+  @include onTablet {
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;
+    gap: 30px;
+  }
+
+  @include onDesktop {
+    gap: 50px;
+  }
+
+  &__item {
+    padding: 20px 15px;
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  &__link {
+    font-size: 32px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 500;
+    color: $c-text-dark-grey;
+    text-decoration: none;
+    text-transform: uppercase;
+    outline: none;
+    transition: all 0.3s;
+
+    @include onTablet {
+      font-size: 14px;
+      font-weight: 300;
+      @include hover(font-weight, 500);
+    }
+
+  }
+
+  &__close {
+    position: absolute;
+    top: 8%;
+    left: 10%;
+    text-decoration: none;
+    color: #000;
+    width: 24px;
+    height: 24px;
+    background: url(../images/cross.svg) center center/cover no-repeat;
+    @include onTablet {
+      display: none;
+    }
+  }
+}
