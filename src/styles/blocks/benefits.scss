@@ -1,0 +1,83 @@
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(1, 260px);
+  justify-content: center;
+  gap: 30px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 320px);
+    gap: 60px 20px;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(4, 276px);
+  }
+
+  &__card {
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 50px;
+    padding-top: 86px;
+    font-family: "DIN Pro", sans-serif;
+    font-size: 24px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: #333;
+
+    @include tablet {
+      margin-bottom: 20px;
+    }
+
+    @include desktop {
+      margin-bottom: 20px;
+      padding-top: 90px;
+
+      &--design,
+      &--multiroom {
+        margin-bottom: 50px;
+      }
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+    line-height: 21px;
+    color: #7c7c7c;
+  }
+
+  &__design {
+    background-image: url(../images/design.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+
+  &__tweeter {
+    background-image: url(../images/tweeter.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+
+  &__multiroom {
+    background-image: url(../images/multiroom.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+
+  &__lighting {
+    background-image: url(../images/lighting.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+
+  &__tweeter,
+  &__multiroom,
+  &__lighting {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
+}

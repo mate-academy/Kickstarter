@@ -1,0 +1,75 @@
+.about {
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(8, 70px);
+    grid-template-rows: 152px 146px 57px;
+    gap: 30px 20px;
+  }
+
+  &__title {
+    margin-bottom: 50px;
+    font-family: "DIN Pro", sans-serif;
+    font-size: 37px;
+    line-height: 55px;
+    text-transform: uppercase;
+    color: #333;
+
+    @include tablet {
+      grid-column: 4 / 9;
+      grid-row: 1 / 2;
+      z-index: 1;
+      font-size: 56px;
+      line-height: 72px;
+    }
+  }
+
+  &__scetch {
+    margin-bottom: 30px;
+
+    @include tablet {
+      grid-column: 1 / 5;
+      grid-row: 1 / 4;
+      margin-left: -30px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 21px;
+    color: #7c7c7c;
+
+    @include tablet {
+      grid-column: 5 / 9;
+      grid-row: 2 / 3;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #0db2b3;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 53px;
+      border: 1px solid #0db2b3;
+
+      @include tablet {
+        bottom: 36px;
+      }
+    }
+
+    @include tablet {
+      grid-column: 5 / 7;
+      grid-row: 3 / 4;
+    }
+  }
+}
