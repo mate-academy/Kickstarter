@@ -7,3 +7,15 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('page--with-menu');
   }
 });
+
+// очищение форм после submit
+const form = document.querySelector('.questions__form-box');
+const inputs = document.querySelectorAll('.questions__form-field');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  for (const elem of inputs) {
+    elem.value = '';
+  }
+});
