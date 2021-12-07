@@ -1,33 +1,44 @@
 .video {
-  &__play {
-    width: 108px;
-    height: 108px;
+  position: relative;
 
-    @include onTablet {
-      width: 190px;
-      height: 190px;
-    }
-
-    @include onDesktop {
-      width: 232px;
-      height: 232px;
-    }
-  }
-
-  &__play-container {
-    background-size: cover;
-    background-position: center;
-    background-image: url(../images/main.png);
-
-    height: 246px;
+  &::after {
+    position: absolute;
+    top: 25%;
+    left: 40%;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    position: relative;
+    content: url(../images/icons/play.svg);
+    width: 18px;
+    height: 18px;
 
-    overflow-y: hidden;
+    color: #f3f4f5;
+    border: 1px solid #f3f4f5;
+    border-radius: 50%;
+    padding: 46px;
+
+    @include onTablet {
+      padding: 90px;
+    }
+
+    @include onDesktop {
+      padding: 106px;
+      content: "Play";
+      font-family: "DIN Pro Bold", Helvetica, sans-serif;
+      font-size: 24px;
+      line-height: 18px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  &__img {
+    height: 246px;
+    width: 100%;
+
+    object-fit: cover;
 
     @include onTablet {
       height: 400px;
@@ -36,26 +47,9 @@
     @include onDesktop {
       height: 590px;
     }
+  }
 
-    &:after {
-      position: absolute;
-      content: url(../images/icons/play.svg);
-      width: 12px;
-      height: 18px;
-      top: 50%;
-      left: 50%;
-      color: #f3f4f5;
-
-      transform: translateY(-50%);
-
-      @include onDesktop {
-        content: "Play";
-        // font-family: "DIN Pro Bold";
-        font-size: 24px;
-        line-height: 18px;
-        text-align: center;
-        text-transform: uppercase;
-      }
-    }
+  &__play-container {
+    position: relative;
   }
 }

@@ -1,12 +1,19 @@
 .about-us {
+  &__container {
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
   &__title {
+    @extend %title;
+
     margin-bottom: 50px;
   }
 
   &__photo-container {
     margin-bottom: 28px;
-    background-size: cover;
-    background-position: center;
   }
 
   &__photo {
@@ -28,7 +35,22 @@
     text-decoration: none;
     color: $c-turquoise;
 
-    border-bottom: 1px solid $c-turquoise;
-    padding-bottom: 8px;
+    // border-bottom: 1px solid $c-turquoise;
+    // padding-bottom: 8px;
+    margin-bottom: 20px;
+
+    &::after {
+      display: block;
+
+      content: "";
+      height: 1px;
+      width: 52px;
+      background-color: $c-turquoise;
+      // border: 1px solid $c-turquoise;
+
+      &:hover {
+        width: 174px;
+      }
+    }
   }
 }
