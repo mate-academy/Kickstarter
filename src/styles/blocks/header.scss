@@ -67,11 +67,27 @@
     font-size: 14px;
     line-height: 17px;
     color: #4f4f4f;
-    transition: box-shadow 0.5s, color 0.5s;
+    transition: color 0.5s;
 
     &:hover {
-      box-shadow: 0 0 5px 2px rgba(12, 121, 122, 0.2);
       color: $color-aqua-dark;
+    }
+
+    &::before {
+      content: "";
+      position: relative;
+      top: 20px;
+      left: 50%;
+      display: block;
+      width: 2px;
+      height: 1px;
+      background-color: transparent;
+      transition-duration: 0.5s;
+    }
+
+    &:hover::before {
+      transform: scaleX(25);
+      background-color: $color-aqua;
     }
   }
 
@@ -110,14 +126,14 @@
     line-height: 48px;
     color: #fff;
     background-color: $color-granit;
-    border: 1px solid $color-aqua;
+    border: 1px solid transparent;
     transition: all 0.5s;
 
     &:hover {
       background-color: $color-aqua-dark;
       border-color: $color-granit;
       box-shadow: 0 0 5px 5px rgb(13, 178, 179) inset;
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
   }
 }
