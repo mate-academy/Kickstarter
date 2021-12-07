@@ -5,12 +5,23 @@
   padding: 0 30px;
   margin-bottom: 42px;
 
+  @include onTablet {
+    flex-direction: row;
+    justify-content: center;
+  }
+
   &__title {
     font-family: "DIN Pro Bold", sans-serif;
     font-size: 37px;
     line-height: 46px;
     text-transform: uppercase;
     color: #333;
+
+    @include onTablet {
+      font-size: 56px;
+      line-height: 70px;
+      max-width: 480px;
+    }
   }
 
   &__field {
@@ -19,7 +30,8 @@
     border: 1px solid #828282;
 
     &--mail {
-      width: 260px;
+      width: 100%;
+      box-sizing: border-box;
       height: 48px;
       margin-bottom: 20px;
       padding: 0 30px;
@@ -27,6 +39,10 @@
       font-family: Helvetica, Neue, sans-serif;
       font-size: 16px;
       line-height: 19px;
+
+      @include onTablet {
+        max-width: 438px;
+      }
 
       &:valid {
         border: 1px solid #0c797a;
@@ -41,7 +57,8 @@
 
     &--textarea {
       resize: none;
-      width: 260px;
+      width: 100%;
+      box-sizing: border-box;
       height: 128px;
       padding: 16px 30px;
       margin-bottom: 30px;
@@ -49,6 +66,10 @@
       font-family: Helvetica, Neue, sans-serif;
       font-size: 16px;
       line-height: 19px;
+
+      @include onTablet {
+        max-width: 438px;
+      }
 
       &:focus {
         border: 1px solid #828282;

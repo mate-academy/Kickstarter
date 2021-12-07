@@ -1,20 +1,80 @@
-.video {
-  position: relative;
+.presentation {
   display: flex;
+  flex-direction: column-reverse;
   justify-content: center;
-  margin-bottom: 88px;
 
-  &__poster {
-    width: 100%;
-    object-fit: fill;
-    object-position: center;
+  @include onTablet {
+    flex-direction: row;
+    padding-left: 34px;
+    padding-bottom: 120px;
+
+    &__image-mobile {
+      display: inline-block;
+    }
   }
 
-  &__play {
-    position: absolute;
-    align-self: center;
+  @include onDesktop {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 124px;
 
-    height: 108px;
-    width: 108px;
+    &__image-mobile {
+      display: none;
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-left: 30px;
+    width: 260px;
+  }
+
+  &__title {
+    font-family: "DIN Pro Bold", sans-serif;
+    font-size: 44px;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 27px;
+
+    @include onTablet {
+      font-size: 48px;
+    }
+  }
+
+  &__paragraph {
+    font-family: Helvetica, Neue, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+  }
+
+  &__image {
+    width: 100%;
+    min-height: 246px;
+    object-fit: cover;
+    object-position: left;
+    overflow: hidden;
+
+    @include onTablet {
+      &-mobile {
+        display: none;
+      }
+
+      display: block;
+      min-width: 538px;
+      min-height: 360px;
+      object-position: left;
+      object-fit: cover;
+      overflow-x: hidden;
+    }
+
+    @include onDesktop {
+      object-fit: contain;
+      width: 938px;
+      height: 468px;
+    }
   }
 }

@@ -1,5 +1,9 @@
 .features {
   margin-bottom: 45px;
+  background-image: url(../images/backgrounds/rectangle.png);
+  background-repeat: no-repeat;
+  background-position: center right;
+
   &__title {
     font-family: "DIN Pro Bold", sans-serif;
     font-size: 37px;
@@ -7,17 +11,54 @@
     text-transform: uppercase;
     color: #333;
     padding-left: 30px;
+
+    @include onTablet {
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    @include onDesktop {
+      padding-left: 124px;
+    }
   }
 }
 
 .info {
   padding: 0 30px;
+
+  &--mobile-hidden {
+    display: none;
+  }
+
+  @include onTablet {
+    display: grid;
+  }
+
+  &:first-child {
+    margin-bottom: 50px;
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
   &__title {
     font-family: "DIN Pro Bold", sans-serif;
     font-size: 30px;
     line-height: 37px;
     text-transform: uppercase;
     color: #0c797a;
+
+    @include onTablet {
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  @include onTablet {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
   }
 
   &__list {
@@ -39,11 +80,18 @@
 .slider {
   padding: 0;
 
+  @include onTablet {
+    grid-area: 2 / 2 / 2 / 4;
+  }
+
   &__toggle {
     display: flex;
     flex-direction: column;
     text-align: center;
 
+    @include onTablet {
+      display: none;
+    }
   }
 
   &__container {
@@ -72,6 +120,17 @@
     }
   }
 
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    @include onDesktop {
+      max-width: 800px;
+      max-height: 500px;
+    }
+  }
+
   .count {
     font-family: "DIN Pro Bold", sans-serif;
     font-size: 11px;
@@ -82,6 +141,24 @@
       font-size: 16px;
       line-height: 20px;
       color: #333;
+    }
+  }
+}
+
+.container {
+  margin-bottom: 188px;
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 1fr);
+
+    .info:nth-child(1) {
+      grid-area: 1 / 2;
+    }
+    .info:nth-child(2) {
+      grid-area: 2 / 1;
+    }
+    .info:nth-child(3) {
+      grid-area: 3 / 2;
     }
   }
 }

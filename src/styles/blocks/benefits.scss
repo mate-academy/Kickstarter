@@ -6,6 +6,38 @@
   padding: 0 30px;
   margin-bottom: 90px;
 
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 120px;
+  }
+
+  &__item {
+    width: 260px;
+
+    @include onTablet {
+      width: 320px;
+    }
+
+    @include onDesktop {
+      width: 276px;
+      align-items: start;
+    }
+  }
+
+  .benefits__item--mobile-hidden {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
   &__icons {
     margin-bottom: 40px;
   }

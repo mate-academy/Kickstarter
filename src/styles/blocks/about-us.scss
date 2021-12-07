@@ -2,7 +2,31 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 90px;
-  padding: 0 30px;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @include onDesktop {
+      align-items: center;
+      justify-items: center;
+    }
+
+    &__image {
+      width: 400px;
+      height: 100%;
+      object-position: center;
+      grid-row: span 2;
+      object-fit: cover;
+      padding: 0;
+      margin: 0;
+
+      @include onDesktop {
+        width: 100%;
+      }
+    }
+  }
 
   &__title {
     font-family: "DIN Pro Bold", sans-serif;
@@ -12,7 +36,14 @@
     margin-bottom: 50px;
     text-transform: uppercase;
 
+    @include onTablet {
+      position: relative;
+      transform: translateX(-18%);
+      font-size: 56px;
+      line-height: 72px;
+    }
   }
+
   &__description {
     font-size: 14px;
     line-height: 21px;
@@ -40,4 +71,9 @@
       top: 100%;
     }
   }
+}
+
+.wrap {
+  width: 340px;
+  text-align: start;
 }
