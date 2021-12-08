@@ -1,0 +1,56 @@
+.promo {
+  position: relative;
+  margin-bottom: 120px;
+
+  &__video {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    min-height: 246px;
+    max-height: 590px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.4s;
+
+    &--stop {
+      display: none;
+    }
+
+    @include onTablet {
+      width: 190px;
+      height: 190px;
+    }
+
+    @include onDesktop {
+      width: 210px;
+      height: 210px;
+    }
+  }
+
+  &:hover &__button {
+    opacity: 0.8;
+  }
+
+  &__button-icon {
+    width: 7vw;
+
+    @include onDesktop {
+      width: 5vw;
+    }
+  }
+}
