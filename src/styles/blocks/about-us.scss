@@ -1,6 +1,5 @@
 .about-us {
-  display: flex;
-  flex-direction: column;
+  @extend %flex-column;
   align-items: center;
 
   margin-bottom: 90px;
@@ -8,8 +7,8 @@
 
   @include onTablet {
     display: grid;
-    gap: 20px;
     justify-content: center;
+    gap: 20px;
   }
 
   &__history {
@@ -42,10 +41,9 @@
     margin-bottom: 50px;
     order: 1;
 
-    font-family: "DIN Pro Bold", sans-serif;
     font-size: 37px;
     line-height: 55px;
-    color: #333;
+    color: $c-granit;
     text-transform: uppercase;
 
     @include onTablet {
@@ -65,27 +63,26 @@
 
     font-size: 14px;
     line-height: 21px;
-    color: #7c7c7c;
   }
 
   &__more {
     position: relative;
 
-    text-decoration: none;
     font-weight: bold;
     font-size: 12px;
     line-height: 15px;
-    text-transform: uppercase;
-    color: #0db2b3;
+    color: $c-turquoise;
+    @extend %text-mutation;
 
     &::before {
       content: "";
       position: absolute;
-      width: 54px;
-      background-color: #0db2b3;
+      top: 100%;
+
       box-sizing: border-box;
       height: 1px;
-      top: 100%;
+      width: 54px;
+      background-color: $c-turquoise;
     }
   }
 }

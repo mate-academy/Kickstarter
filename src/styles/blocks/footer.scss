@@ -1,6 +1,5 @@
 .footer {
-  display: flex;
-  flex-direction: column;
+  @extend %flex-column;
   padding: 0 16px 50px 30px;
 
   &__logo {
@@ -17,7 +16,7 @@
 
   &__on-top {
     align-self: flex-end;
-    transition: transform 0.3s;
+    transition: transform $smooth-300ms;
 
     &:hover {
       transform: scale(1.5);
@@ -29,8 +28,7 @@
   }
 
   &__socials {
-    display: flex;
-    justify-content: center;
+    @extend %flex-jc-center;
     gap: 16px;
     margin-bottom: 5px;
 
@@ -47,7 +45,7 @@
     background-position: center;
     background-repeat: no-repeat;
 
-    transition: background-image 0.3s;
+    transition: background-image $smooth-300ms;
 
     &--facebook {
       background-image: url(../images/social-icons/facebook.svg);
@@ -76,9 +74,8 @@
 
   &__copyright {
     text-align: center;
-    font-family: Helvetica, Neue, sans-serif;
     font-size: 12px;
     line-height: 21px;
-    color: #bdbdbd;
+    color: $c-light-grey;
   }
 }

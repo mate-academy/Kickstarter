@@ -1,27 +1,25 @@
 .nav {
   display: none;
+  margin-bottom: 46px;
 
   @include onDesktop {
     display: block;
-    margin-bottom: 46px;
+  }
 
-    &__list {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      gap: 60px;
-    }
+  &__list {
+    @extend %flex-jc-center;
+    list-style: none;
+    gap: 60px;
+  }
 
-    &__link {
-      font-size: 14px;
-      line-height: 21px;
-      color: #333;
-      text-decoration: none;
-      text-transform: uppercase;
+  &__link {
+    font-size: 14px;
+    line-height: 21px;
+    color: $c-granit;
+    @extend %text-mutation;
 
-      &--active {
-        font-weight: bold;
-      }
+    &--active {
+      font-weight: bold;
     }
   }
 }

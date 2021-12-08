@@ -1,6 +1,5 @@
 .benefits {
-  display: flex;
-  flex-direction: column;
+  @extend %flex-column;
   text-align: center;
   align-items: center;
 
@@ -9,9 +8,9 @@
 
   @include onTablet {
     display: grid;
+    justify-items: center;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
-    justify-items: center;
   }
 
   @include onDesktop {
@@ -47,18 +46,17 @@
   &__title {
     margin-bottom: 50px;
 
-    font-family: "DIN Pro Bold", sans-serif;
     font-size: 24px;
     line-height: 30px;
     text-align: center;
     text-transform: uppercase;
-    color: #333;
+    color: $c-granit;
   }
 
   &__description {
     font-size: 14px;
     line-height: 21px;
     text-align: center;
-    color: #7c7c7c;
+    color: $c-grey;
   }
 }
