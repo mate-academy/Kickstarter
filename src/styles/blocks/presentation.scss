@@ -1,12 +1,13 @@
 .presentation {
   display: flex;
   flex-direction: column-reverse;
-  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
 
   @include onTablet {
     flex-direction: row;
+
     padding-left: 34px;
-    padding-bottom: 120px;
 
     &__image-mobile {
       display: inline-block;
@@ -16,7 +17,8 @@
   @include onDesktop {
     flex-direction: row;
     justify-content: space-between;
-    padding-left: 124px;
+
+    padding: 0 0 120px 124px;
 
     &__image-mobile {
       display: none;
@@ -26,25 +28,34 @@
   &__description {
     display: flex;
     flex-direction: column;
-    text-align: start;
-    margin-left: 30px;
+
     width: 260px;
   }
 
   &__title {
+    margin-bottom: 27px;
+    z-index: 1;
+
     font-family: "DIN Pro Bold", sans-serif;
     font-size: 44px;
     line-height: 130%;
-    text-transform: uppercase;
     color: #333;
-    margin-bottom: 27px;
+    text-transform: uppercase;
 
     @include onTablet {
       font-size: 48px;
     }
+
+    @include onDesktop {
+      font-size: 64px;
+      line-height: 130%;
+    }
   }
 
   &__paragraph {
+    width: 276px;
+    z-index: 1;
+
     font-family: Helvetica, Neue, sans-serif;
     font-size: 16px;
     line-height: 24px;
@@ -52,27 +63,18 @@
   }
 
   &__image {
-    width: 100%;
+    width: 320px;
     min-height: 246px;
+
     object-fit: cover;
     object-position: left;
     overflow: hidden;
 
     @include onTablet {
-      &-mobile {
-        display: none;
-      }
-
-      display: block;
-      min-width: 538px;
-      min-height: 360px;
-      object-position: left;
-      object-fit: cover;
-      overflow-x: hidden;
+      width: 100%;
     }
 
     @include onDesktop {
-      object-fit: contain;
       width: 938px;
       height: 468px;
     }

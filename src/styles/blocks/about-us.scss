@@ -1,59 +1,76 @@
 .about-us {
   display: flex;
   flex-direction: column;
+  align-items: center;
+
   margin-bottom: 90px;
+  padding: 30px;
 
   @include onTablet {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    justify-content: center;
+  }
 
-    @include onDesktop {
-      align-items: center;
-      justify-items: center;
+  &__history {
+    text-align: start;
+    order: 3;
+
+    @include onTablet {
+      grid-area: 2 / 3;
     }
+  }
 
-    &__image {
-      width: 400px;
-      height: 100%;
-      object-position: center;
-      grid-row: span 2;
-      object-fit: cover;
-      padding: 0;
-      margin: 0;
+  &__image {
+    grid-row: span 2;
+    order: 2;
 
-      @include onDesktop {
-        width: 100%;
-      }
+    width: 260px;
+    padding: 0;
+    margin: 0;
+    object-fit: cover;
+
+    @include onTablet {
+      width: 100%;
+      order: 0;
+      grid-area: 1 / 1 / 3 / 3;
+      height: 416px;
     }
   }
 
   &__title {
+    margin-bottom: 50px;
+    order: 1;
+
     font-family: "DIN Pro Bold", sans-serif;
     font-size: 37px;
     line-height: 55px;
     color: #333;
-    margin-bottom: 50px;
     text-transform: uppercase;
 
     @include onTablet {
       position: relative;
-      transform: translateX(-18%);
+      grid-area: 1 / 3;
+      margin: 0;
+
       font-size: 56px;
       line-height: 72px;
+      transform: translateX(-18%);
     }
   }
 
   &__description {
+    width: 260px;
+    margin-bottom: 30px;
+
     font-size: 14px;
     line-height: 21px;
     color: #7c7c7c;
-    margin-bottom: 30px;
   }
 
   &__more {
-    width: max-content;
     position: relative;
+
     text-decoration: none;
     font-weight: bold;
     font-size: 12px;
@@ -71,9 +88,4 @@
       top: 100%;
     }
   }
-}
-
-.wrap {
-  width: 340px;
-  text-align: start;
 }

@@ -1,10 +1,10 @@
 'use strict';
 
-const wrapper = document.querySelector('.wrapper');
-const toggler = document.querySelector('.top-bar__btn');
+const wrapper = document.querySelector('.menu');
+const toggler = document.querySelector('.menu__button');
 
 toggler.addEventListener('click', function() {
-  wrapper.classList.toggle('wrapper--open');
+  wrapper.classList.toggle('menu--open');
 });
 
 const form = document.querySelector('.questions__form');

@@ -1,33 +1,45 @@
 .video {
   position: relative;
-  display: flex;
-  justify-content: center;
   margin-bottom: 88px;
-  overflow: hidden;
 
-  &::before {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    content: url(../images/video/button-full-triangle.png);
-    width: 108px;
-    height: 108px;
-    cursor: pointer;
-    transition: all 0.5s;
-  }
-
-  &:hover {
-    &::before {
-      content: url(../images/button-play-hover.png);
-      transform: translate(-50%, -100%);
-      transition: all 0.5s;
-    }
-  }
-
-  &__poster2 {
+  &__poster {
     width: 100%;
     min-height: 246px;
     object-fit: cover;
-    object-position: center;
+  }
+
+  &__button {
+    position: absolute;
+    top: -54px;
+
+    transform: translateX(-50%) scale(0.6);
+    transition: opacity 0.3s;
+
+    @include onTablet {
+      top: auto;
+      transform: translateX(-50%);
+    }
+
+    &--triangle {
+      opacity: 0;
+    }
+  }
+
+  &__toggle {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+
+    cursor: pointer;
+    transition: opacity 0.3s;
+
+    &:hover .video__button {
+      transition: opacity 0.3s;
+      opacity: 0;
+    }
+
+    &:hover .video__button--triangle {
+      opacity: 1;
+    }
   }
 }
