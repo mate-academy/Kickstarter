@@ -33,7 +33,7 @@
 
   &__img {
     height: 26px;
-    width: 161px;
+    width: 162px;
     background: url(../images/logo.svg) center center/cover no-repeat;
   }
 
@@ -72,5 +72,35 @@
     padding: 17px 33px;
     text-decoration: none;
     color: #fff;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 5px 5px 10px $c-text-green;
+    }
+  }
+
+  &__lang {
+    color: $c-text-dark-grey;
+    &--eng {
+      @include link;
+      font-weight: bold;
+    }
+    &--ua {
+      @include link;
+    }
+  }
+
+  &__lang--eng,
+  &__lang--ua {
+    @include hover(color, $c-text-green);
+  }
+
+  &__specs {
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+      color: $c-text-green;
+    }
   }
 }
