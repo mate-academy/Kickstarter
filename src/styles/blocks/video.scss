@@ -1,7 +1,7 @@
 .video {
   position: relative;
 
-  &::after {
+  &:after {
     position: absolute;
     top: 25%;
     left: 40%;
@@ -25,14 +25,27 @@
 
     @include onDesktop {
       padding: 106px;
-      content: "Play";
-      font-family: "DIN Pro Bold", Helvetica, sans-serif;
-      font-size: 24px;
-      line-height: 18px;
-      text-align: center;
-      text-transform: uppercase;
     }
   }
+
+  &:hover:after {
+    content: "Play";
+    font-family: "DIN Pro Bold", Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 18px;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 24px;
+    }
+  }
+
+  // &__arrow {
+  //   background-size: cover;
+  //   background-position: center;
+  //   background-repeat: no-repeat;
+  // }
 
   &__img {
     height: 246px;

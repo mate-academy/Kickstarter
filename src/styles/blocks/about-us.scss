@@ -1,8 +1,13 @@
 .about-us {
+  overflow-x: hidden;
+
   &__container {
+    display: flex;
+    flex-direction: column;
+
     @include onTablet {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
     }
   }
 
@@ -10,47 +15,92 @@
     @extend %title;
 
     margin-bottom: 50px;
+    width: 386px;
+
+    @include onTablet {
+      font-size: 56px;
+      line-height: 72px;
+
+      margin-bottom: 30px;
+      // order: 2;
+
+      transform: translateX(-30%);
+    }
+  }
+
+  &__order {
+    padding-left: 20px;
+
+    @include onTablet {
+      padding-left: 30px;
+
+      display: flex;
+      flex-direction: column;
+      // order: 3;
+    }
   }
 
   &__photo-container {
     margin-bottom: 28px;
+    width: 622px;
+
+    @include onTablet {
+      // order: 1;
+    }
   }
 
   &__photo {
     height: 100%;
     width: 100%;
+
+    @include onTablet {
+      height: 414px;
+      width: 622px;
+      max-width: 100%;
+    }
   }
 
   &__text {
     margin-bottom: 28px;
 
+    width: 340px;
+
     line-height: 24px;
     color: $c-grey;
+
+    @include onTablet {
+      order: 3;
+    }
   }
 
   &__link {
+    display: block;
     font-size: 12px;
     line-height: 15px;
     text-transform: uppercase;
     text-decoration: none;
     color: $c-turquoise;
 
-    // border-bottom: 1px solid $c-turquoise;
-    // padding-bottom: 8px;
     margin-bottom: 20px;
 
-    &::after {
+    @include onTablet {
+      order: 4;
+    }
+
+    &:after {
       display: block;
 
       content: "";
       height: 1px;
       width: 52px;
       background-color: $c-turquoise;
-      // border: 1px solid $c-turquoise;
+      margin-top: 8px;
 
-      &:hover {
-        width: 174px;
-      }
+      transition: width 0.3s;
+    }
+
+    &:hover:after {
+      width: 120px;
     }
   }
 }

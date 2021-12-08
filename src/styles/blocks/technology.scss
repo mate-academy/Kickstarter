@@ -1,0 +1,110 @@
+.technology {
+  overflow-x: hidden;
+
+  &__title {
+    @extend %title;
+
+    text-transform: uppercase;
+
+    margin-bottom: 40px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    // &:after{
+    //   position: absolute;
+    //   content: url(../images/icons/quotes.svg);
+    //   height: 171px;
+    //   right: 10%;
+    //   top: -20%;
+
+    //   z-index: -1;
+    // }
+  }
+
+  &__empty-div {
+    display: block;
+
+    width: 5px;
+    height: 5px;
+    background-color: lawngreen;
+    position: relative;
+
+    &:after {
+      position: absolute;
+      content: url(../images/icons/quotes.svg);
+      height: 171px;
+      // right: 10%;
+      // top: -20%;
+
+      z-index: -1;
+    }
+  }
+
+  &__photo-container {
+    margin-bottom: 90px;
+
+    @include onTablet {
+      margin-bottom: 116px;
+    }
+  }
+
+  &__photo {
+    height: 280px;
+    object-fit: contain;
+
+    @media (min-width: 600px) {
+      height: 546px;
+    }
+  }
+
+  &__person-photo {
+    height: 62px;
+    width: 62px;
+
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    @extend %title;
+
+    display: block;
+    text-align: center;
+
+    margin-bottom: 40px;
+    position: relative;
+
+    @media (min-width: 600px) {
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    @include onDesktop {
+      max-width: 786px;
+    }
+  }
+
+  &__name {
+    display: block;
+
+    font-weight: bold;
+    line-height: 27px;
+    text-align: center;
+
+    margin-bottom: 5px;
+  }
+
+  &__post {
+    display: block;
+
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+
+    color: $c-grey;
+  }
+}
