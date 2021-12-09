@@ -11,6 +11,11 @@
     width: 24px;
     height: 14px;
     background-image: url("../images/menu.png");
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
 
     @include onTablet {
       display: none;
@@ -37,7 +42,7 @@
     text-transform: uppercase;
 
     &:hover {
-      background-color: #0f7583;
+      background-color: $c-hover;
     }
   }
 
@@ -48,7 +53,16 @@
     background-size: contain;
     position: absolute;
     right: 30px;
-    top: 0;
+    top: -60px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.25);
+    }
+
+    @include onTablet {
+      top: 0;
+    }
 
     @include onDesktop {
       right: 150px;

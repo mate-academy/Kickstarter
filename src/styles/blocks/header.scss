@@ -6,11 +6,11 @@
     margin-bottom: 22px;
 
     @include onTablet {
-      margin-bottom: 130px;
+      margin-bottom: 120px;
     }
 
     @include onDesktop {
-      margin-bottom: 170px;
+      margin-bottom: 150px;
     }
   }
 
@@ -39,15 +39,27 @@
     }
   }
 
-  &__lang,
+  &__item--1,
+  &__lang {
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+
+    &:hover {
+      color: $c-hover;
+      border-color: $c-hover;
+    }
+  }
+
+  &__lang--active,
   &__lang-slash {
     color: $c-dark;
     font-weight: bold;
+    pointer-events: none;
   }
 
   &__lang-slash {
     display: inline-block;
-    margin: 0 3px;
   }
 
   &__link {
@@ -59,45 +71,28 @@
     background-color: $c-dark;
     text-decoration: none;
     color: #fff;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $c-hover;
+    }
+
+    &:active {
+      background-color: #0b3d44;
+    }
   }
 
   &__picture-wrap {
     margin-bottom: 40px;
 
     @include onTablet {
-      margin-bottom: 0;
-      position: absolute;
-      right: 0;
-      top: 175px;
-      z-index: -1;
-      width: 62%;
-      max-height: 365px;
-
-      box-sizing: border-box;
-      overflow: hidden;
-
-      &::after {
-        content: "";
-        display: block;
-        padding-bottom: 100%;
-      }
-    }
-
-    @include onDesktop {
-      width: 66%;
-      max-height: 464px;
+      display: none;
     }
   }
 
   &__picture {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    object-position: center;
-
-    @include onTablet {
-      position: absolute;
-    }
   }
 
   &__title {
@@ -136,7 +131,7 @@
 
   &__nav {
     display: none;
-    margin-bottom: 45px;
+    margin-bottom: 65px;
 
     @include onDesktop {
       display: block;

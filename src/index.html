@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Crazybaby</title>
+    <link
+      rel="shortcut icon"
+      href="./images/favicon.png"
+      type="image/png"
+    >
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
   <body class="page__body">
@@ -19,30 +24,28 @@
           </a>
 
           <ul class="header__list">
-            <li class="header__item">specs</li>
+            <li class="header__item header__item--1">specs</li>
             <li class="header__item">
-              <span class="header__lang">en</span><span class="header__lang-slash">/</span><span>ua</span>
+              <span class="header__lang header__lang--active">en</span>
+              <span class="header__lang-slash">/</span>
+              <span class="header__lang">ua</span>
             </li>
             <li class="header__item">
-              <a class="header__link" href="#buy">buy</a>
+              <a class="header__link" href="#get-touch">buy</a>
             </li>
           </ul>
 
-          <button class="button button--menu"></button>
+          <a href="#menu" class="button button--menu"></a>
         </div>
       </div>
       <div class="header__picture-wrap">
-        <picture>
-          <source srcset="./images/device.png" media="(min-width: 1254px)">
-          <source srcset="./images/device-tablet.png" media="(min-width: 768px)">
-          <img
-            class="header__picture"
-            src="./images/device-mobile.png"
-            alt="Futuristic Wireless Speaker"
-          >
-        </picture>
+        <img
+          class="header__picture"
+          src="./images/device-mobile.png"
+          alt="Futuristic Wireless Speaker"
+        >
       </div>
-      <div class="container">
+      <div class="container container--header">
         <div class="grid">
           <div class="grid__item--1-4">
             <h1 class="header__title">
@@ -84,8 +87,45 @@
       </div>
 
     </header>
+
+    <nav class="page__menu menu" id="menu">
+      <div class="container">
+        <div class="menu__content">
+          <div class="menu__top">
+            <a href="#" class="logo header__logo">
+              <img
+                src="./images/logo.png"
+                class="logo_image"
+                alt="Crazybaby"
+              >
+            </a>
+
+            <a href="#" class="menu__cross"></a>
+          </div>
+
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a href="#our-story" class="menu__link" >our story</a>
+            </li>
+            <li class="menu__item">
+              <a href="#about-us" class="menu__link">about us</a>
+            </li>
+            <li class="menu__item">
+              <a href="#technology" class="menu__link">technology</a>
+            </li>
+            <li class="menu__item">
+              <a href="#features" class="menu__link">features</a>
+            </li>
+            <li class="menu__item">
+              <a href="#get-touch" class="menu__link">get in touch</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <main>
-      <section class="benefits page__section">
+      <section class="benefits page__section" id="our-story">
         <div class="container">
           <div class="benefits__wrapper">
             <div class="benefit benefits__item">
@@ -140,16 +180,19 @@
       <section class="presentation page__section">
         <div class="presentation__wrapper">
           <div class="presentation__item"></div>
-          <iframe
-            class="presentation__element"
-            src="https://www.youtube.com/embed/T3psVSj1YC8"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-         ></iframe>
+          <video
+            class="presentation__video"
+            src="./images/video-crazybaby.8b77ce30.mp4"
+            type="video/mp4"
+            poster="./images/preview.png"
+            preload="metadata"
+         ></video>
+          <div class="presentation__button presentation__button--start"></div>
+          <div class="presentation__button presentation__button--stop"></div>
         </div>
       </section>
 
-      <section class="about-us page__section">
+      <section class="about-us page__section" id="about-us">
         <div class="container">
           <div class="grid">
             <div class="grid__item--4-8 grid__item--desktop-7-11">
@@ -168,25 +211,30 @@
               </p>
             </div>
             <div class="grid__item--5-8 grid__item--desktop-8-11">
-              <a class="about-us__link" href="#more">See more about us</a>
+              <a
+                class="about-us__link"
+                href="https://crazybaby.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                See more about us
+              </a>
             </div>
           </div>
         </div>
       </section>
-      <section class="technology page__section">
+      <section class="technology page__section" id="technology">
         <div class="container">
           <div class="grid">
             <div class="grid__item">
               <h2 class="technology__title">technology</h2>
             </div>
           </div>
-          <div class="technology__picture-wrap">
-            <img
+          <img
             class="technology__picture"
-              src="./images/technology.png"
-              alt="technology"
-            >
-          </div>
+            src="./images/technology.png"
+            alt="technology"
+          >
 
           <div class="testimonial">
             <p class="testimonial__about">
@@ -207,7 +255,7 @@
         </div>
       </section>
 
-      <section class="features page__section">
+      <section class="features page__section" id="features">
         <div class="container container--features">
           <h2 class="features__title">features</h2>
           <div class="feature grid">
@@ -312,7 +360,7 @@
         </div>
       </section>
 
-      <section class="questions page__section page__section--last">
+      <section class="questions page__section page__section--last" id="get-touch">
         <div class="container">
           <div class="grid">
             <div class="grid__item--1-4 grid__item--desktop-2-6">
@@ -336,10 +384,11 @@
                 <textarea
                   name="message"
                   class="form__field form__field--message"
+                  required
                   placeholder="Your message..."
                ></textarea>
 
-                <button class="button button--form">
+                <button type="submit" class="button button--form">
                   send
                 </button>
               </form>
@@ -352,7 +401,7 @@
     <footer class="footer">
       <div class="container">
         <div class="footer__wrapper">
-          <a href="#/" class="logo header__logo footer__logo">
+          <a href="#/" class="logo footer__logo">
             <img
               src="./images/logo.png"
               class="logo_image"
@@ -365,18 +414,24 @@
               <a
                 class="footer__link footer__link--facebook"
                 href="https://uk-ua.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
              ></a>
             </li>
             <li class="footer__item">
               <a
                 class="footer__link footer__link--twitter"
                 href="https://twitter.com/?lang=uk"
+                target="_blank"
+                rel="noopener noreferrer"
              ></a>
             </li>
             <li class="footer__item">
               <a
                 class="footer__link footer__link--instagram"
                 href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
              ></a>
             </li>
           </ul>
@@ -386,11 +441,14 @@
           </p>
         </div>
 
-        <button
+        <a
+        href="#"
           class="button button--top"
         >
-        </button>
+        </a>
       </div>
     </footer>
+
+    <script src="./scripts/main.js"></script>
   </body>
 </html>

@@ -1,5 +1,6 @@
 .page {
   font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
@@ -7,6 +8,10 @@
 
   &__body {
     background-color: $back-color;
+
+    &--with-menu {
+      overflow: hidden;
+    }
   }
 
   &__section {
@@ -29,6 +34,19 @@
       @include onDesktop {
         margin-bottom: 106px;
       }
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    transition: transform 0.3s;
+    transform: translateX(-100%);
+
+    &:target {
+      transform: translateX(0);
     }
   }
 }

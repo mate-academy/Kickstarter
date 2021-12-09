@@ -45,7 +45,7 @@
   }
 
   &__link {
-    display: block;
+    display: inline-block;
     position: relative;
     font-size: 12px;
     line-height: 15px;
@@ -57,7 +57,11 @@
     transition: color 0.3s;
 
     &:hover {
-      color: #0f7583;
+      color: $c-hover;
+    }
+
+    &:active {
+      color: #0b3d44;
     }
 
     &::after {
@@ -69,11 +73,15 @@
       left: 0;
       bottom: 0;
       background-color: $c-blue;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, width 0.3s;
     }
 
     &:hover::after {
-      background-color: #0f7583;
+      width: 100%;
+      background-color: $c-hover;
+    }
+    &:active::after {
+      background-color: #0b3d44;
     }
   }
 }

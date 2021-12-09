@@ -1,5 +1,6 @@
 .technology {
   position: relative;
+  overflow: hidden;
 
   &__title {
     font-family: "DIN-Pro", sans-serif;
@@ -16,11 +17,17 @@
     }
   }
 
-  &__picture-wrap {
-    max-width: 1230px;
-  }
-
   &__picture {
-    width: 100%;
+    width: 200%;
+    transform: translateX(-50px);
+
+    @include onTablet {
+      width: 150%;
+    }
+
+    @include onDesktop {
+      width: 100%;
+      transform: translate(0);
+    }
   }
 }
