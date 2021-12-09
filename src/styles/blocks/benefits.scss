@@ -1,7 +1,5 @@
 .benefits {
   @extend %flex-column;
-  text-align: center;
-  align-items: center;
 
   padding: 0 30px;
   margin-bottom: 90px;
@@ -19,6 +17,9 @@
   }
 
   &__item {
+    display: grid;
+    grid-template-rows: 1fr 1fr 2fr;
+    justify-items: center;
     width: 260px;
 
     @include onTablet {
@@ -27,7 +28,10 @@
 
     @include onDesktop {
       width: 276px;
-      align-items: start;
+    }
+
+    &--mobile {
+      align-self: center;
     }
   }
 
@@ -35,17 +39,31 @@
     display: none;
 
     @include onTablet {
-      display: block;
+      display: grid;
     }
   }
 
   &__icons {
+    width: max-content;
     margin-bottom: 40px;
+    transition: transform $smooth-300ms;
+
+    &:hover {
+      transform: $t-scale-150;
+    }
+  }
+
+  &__image {
+    height: 46px;
+    width: 46px;
+    transition: filter $smooth-300ms;
+
+    &:hover {
+      filter: drop-shadow(1px 1px 0.65rem $c-turquoise);
+    }
   }
 
   &__title {
-    margin-bottom: 50px;
-
     font-size: 24px;
     line-height: 30px;
     text-align: center;

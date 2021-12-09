@@ -8,18 +8,31 @@
 
   &__list {
     @extend %flex-jc-center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
     list-style: none;
-    gap: 60px;
+
+    @include onDesktop {
+      flex-direction: row;
+      gap: 60px;
+    }
   }
 
   &__link {
-    font-size: 14px;
-    line-height: 21px;
+    font-size: 22px;
+    line-height: 25px;
     color: $c-granit;
     @extend %text-mutation;
+    transition: text-shadow $smooth-300ms;
 
-    &--active {
-      font-weight: bold;
+    &:hover {
+      text-shadow: 1px 1px 1px $c-black, 0 0 1px $c-black, 0 0 1px $c-black;
+    }
+
+    @include onTablet {
+      font-size: 14px;
+      line-height: 21px;
     }
   }
 }

@@ -15,5 +15,5 @@ form.addEventListener('submit', (event) => {
 
   for (const elem of inputs) {
     elem.value = '';
-  };
+  }
 });
