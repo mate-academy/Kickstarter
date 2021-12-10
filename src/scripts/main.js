@@ -2,9 +2,9 @@
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
-    document.body.classList.add('page__body--with-menu');
+    document.body.classList.add('page--with-menu');
   } else {
-    document.body.classList.remove('page__body--with-menu');
+    document.body.classList.remove('page--with-menu');
   }
 });
 
@@ -22,4 +22,15 @@ buttonStop.addEventListener('click', () => {
   promoVideo.pause();
   buttonStart.style.display = 'flex';
   buttonStop.style.display = 'none';
+});
+
+const form = document.querySelector('.contact-form__area');
+const inputs = document.querySelectorAll('.contact-form__form-field');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  for (const elem of inputs) {
+    elem.value = '';
+  }
 });
