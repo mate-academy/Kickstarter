@@ -1,6 +1,11 @@
 .about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   @include tablet {
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(8, 70px);
     grid-template-rows: 152px 146px 57px;
     gap: 30px 20px;
@@ -24,6 +29,7 @@
       grid-column: 4 / 9;
       grid-row: 1 / 2;
       z-index: 1;
+      margin-bottom: 0;
       font-size: 56px;
       line-height: 72px;
     }
@@ -42,7 +48,7 @@
     @include tablet {
       grid-column: 1 / 5;
       grid-row: 1 / 4;
-      margin-left: -30px;
+      margin-left: -34px;
       margin-bottom: 0;
     }
 
@@ -73,9 +79,25 @@
     }
   }
 
+  &__link-wrapper {
+    width: 260px;
+
+    @include tablet {
+      grid-column: 5 / 7;
+      grid-row: 3 / 4;
+    }
+
+    @include desktop {
+      grid-column: 8 / 12;
+      grid-row: 3 / 4;
+    }
+  }
+
   &__link {
+    display: inline-block;
+    align-self: flex-start;
     position: relative;
-    width: 128px;
+    width: 126px;
     height: 15px;
     font-size: 12px;
     line-height: 15px;
@@ -95,16 +117,6 @@
 
     &:hover::after {
       width: 122px;
-    }
-
-    @include tablet {
-      grid-column: 5 / 7;
-      grid-row: 3 / 4;
-    }
-
-    @include desktop {
-      grid-column: 8 / 12;
-      grid-row: 3 / 4;
     }
   }
 }
