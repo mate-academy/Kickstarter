@@ -9,12 +9,12 @@ window.addEventListener('hashchange', () => {
 });
 
 const form = document.querySelector('.contact-us__form');
-const email = document.querySelector('.contact-us__field--email');
-const textarea = document.querySelector('.contact-us__field--textarea');
+const inputs = document.querySelectorAll('.contact-us__field');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  email.value = '';
-  textarea.value = '';
+  for (const input of inputs) {
+    input.value = '';
+  }
 });
