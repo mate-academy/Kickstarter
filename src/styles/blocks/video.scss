@@ -1,0 +1,40 @@
+.video {
+  position: relative;
+  margin-bottom: 88px;
+
+  &__poster {
+    width: 100%;
+    min-height: 246px;
+    object-fit: cover;
+  }
+
+  &__button {
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%) scale(0.6);
+    transition: opacity $smooth-300ms;
+
+    @include onTablet {
+      transform: translate(50%, -50%) scale(1);
+    }
+
+    &--triangle {
+      opacity: 0;
+    }
+  }
+
+  &__toggle {
+    cursor: pointer;
+    transition: opacity $smooth-300ms;
+
+    &:hover .video__button {
+      transition: opacity $smooth-300ms;
+      opacity: 0;
+    }
+
+    &:hover .video__button--triangle {
+      opacity: 1;
+    }
+  }
+}

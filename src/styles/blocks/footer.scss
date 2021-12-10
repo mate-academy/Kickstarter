@@ -1,0 +1,87 @@
+.footer {
+  @extend %flex-column;
+  padding: 0 16px 50px 30px;
+
+  &__logo {
+    display: none;
+  }
+
+  @include onTablet {
+    &__logo {
+      display: flex;
+      align-self: center;
+      margin-bottom: 58px;
+    }
+  }
+
+  &__on-top {
+    align-self: flex-end;
+    transition: transform $smooth-300ms;
+
+    &:hover {
+      transform: $t-scale-150;
+    }
+  }
+
+  &__arrow {
+    font-size: 30px;
+  }
+
+  &__socials {
+    @extend %flex-jc-center;
+    gap: 16px;
+    margin-bottom: 5px;
+
+    @include onTablet {
+      margin-bottom: 102px;
+    }
+  }
+
+  &__link {
+    display: block;
+    height: 48px;
+    width: 48px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transition: background-image $smooth-300ms;
+
+    &--facebook {
+      transition: transform $smooth-300ms;
+      background-image: url(../images/social-icons/facebook.svg);
+
+      &:hover {
+        transform: $t-scale-150;
+        background-image: url(../images/social-icons/facebook-hover.svg);
+      }
+    }
+
+    &--twitter {
+      transition: transform $smooth-300ms;
+      background-image: url(../images/social-icons/twitter.svg);
+
+      &:hover {
+        transform: $t-scale-150;
+        background-image: url(../images/social-icons/twitter-hover.svg);
+      }
+    }
+
+    &--instagram {
+      transition: transform $smooth-300ms;
+      background-image: url(../images/social-icons/instagram.svg);
+
+      &:hover {
+        transform: $t-scale-150;
+        background-image: url(../images/social-icons/instagram-hover.svg);
+      }
+    }
+  }
+
+  &__copyright {
+    text-align: center;
+    font-size: 12px;
+    line-height: 21px;
+    color: $c-light-grey;
+  }
+}

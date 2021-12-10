@@ -1,0 +1,77 @@
+.presentation {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  margin-top: 10%;
+
+  @include onTablet {
+    flex-direction: row;
+    padding-left: 34px;
+
+    &__image-mobile {
+      display: inline-block;
+    }
+  }
+
+  @include onDesktop {
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 0 0 120px 124px;
+
+    &__image-mobile {
+      display: none;
+    }
+  }
+
+  &__description {
+    @extend %flex-column;
+    width: 260px;
+  }
+
+  &__title {
+    margin-bottom: 27px;
+    z-index: 1;
+
+    font-size: 44px;
+    line-height: 130%;
+    color: $c-granit;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 48px;
+    }
+
+    @include onDesktop {
+      font-size: 64px;
+      line-height: 130%;
+    }
+  }
+
+  &__paragraph {
+    width: 276px;
+    z-index: 1;
+
+    font-size: 16px;
+    line-height: 24px;
+    color: $c-granit;
+  }
+
+  &__image {
+    width: 320px;
+    min-height: 246px;
+
+    object-fit: cover;
+    object-position: left;
+    overflow: hidden;
+
+    @include onTablet {
+      width: 100%;
+    }
+
+    @include onDesktop {
+      width: 938px;
+      height: 468px;
+    }
+  }
+}

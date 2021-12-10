@@ -1,0 +1,75 @@
+.slider {
+  padding: 0;
+
+  @include onTablet {
+    grid-area: 2 / 2 / 2 / 4;
+  }
+
+  &__toggle {
+    text-align: center;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__button {
+    @extend %flex-jc-center;
+    margin-bottom: 10px;
+  }
+
+  &__toggler {
+    display: flex;
+    width: 48px;
+    height: 14px;
+
+    transition: background-image $smooth-300ms;
+
+    &--left {
+      background-image: url(../images/left.svg);
+      @extend %bg-no-rep-center;
+    }
+
+    &--right {
+      background-image: url(../images/right.svg);
+      @extend %bg-no-rep-center;
+
+      &:hover {
+        background-image: url(../images/slider-right-hover.svg);
+        @extend %bg-no-rep-center;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    transition: transform $smooth-300ms;
+
+    @include onTablet {
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    @include onDesktop {
+      max-width: 800px;
+      max-height: 500px;
+    }
+  }
+
+  &__count {
+    font-family: "DIN Pro Bold", sans-serif;
+    font-size: 11px;
+    line-height: 14px;
+    color: $c-light-grey;
+
+    &--current {
+      font-size: 16px;
+      line-height: 20px;
+      color: $c-granit;
+    }
+  }
+}

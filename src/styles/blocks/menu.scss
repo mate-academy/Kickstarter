@@ -1,0 +1,114 @@
+.menu {
+  @include onTablet {
+    &__nav {
+      display: none;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__specs {
+    @extend %flex-jc-center;
+    align-items: center;
+
+    height: 48px;
+
+    @extend %text-mutation;
+    color: $c-dark-grey;
+    background-color: $c-light;
+    font-size: 14px;
+    line-height: 21px;
+
+    transition: text-shadow $smooth-300ms;
+
+    &:hover {
+      text-shadow: 1px 1px 1px $c-black, 0 0 1px $c-black, 0 0 1px $c-black;
+    }
+
+    @include onTablet {
+      width: 98px;
+    }
+  }
+
+  &__buy {
+    @extend %flex-jc-center;
+    align-items: center;
+    margin: 0 auto;
+
+    width: 102px;
+    height: 48px;
+
+    @extend %text-mutation;
+    color: $c-white;
+    background-color: $c-granit;
+    font-size: 12px;
+    line-height: 15px;
+
+    transition: background-color $smooth-300ms;
+
+    &:hover {
+      background-color: $c-black;
+    }
+
+    @include onTablet {
+      width: 102px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-self: flex-end;
+
+    width: 24px;
+    height: 14px;
+
+    background-image: url(../images/burger-menu.svg);
+    background-color: transparent;
+    cursor: pointer;
+
+    transition: $smooth-300ms;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__container {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    background-color: $c-light;
+
+    transform: translateX(-100%);
+    transition: transform 1s;
+
+    @include onTablet {
+      position: static;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 34px;
+
+      transform: translateX(0);
+    }
+  }
+
+  &--open {
+    @extend %flex-column;
+    width: 100%;
+
+    .menu__button {
+      background-image: url(../images/cross.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    .menu__container--open {
+      transform: translateX(0);
+    }
+  }
+}
