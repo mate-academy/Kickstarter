@@ -45,9 +45,24 @@
     font-family: DinPro, sans-serif;
     font-size: 30px;
     line-height: 37px;
-    color: #0c797a;
+    color: $color-aqua;
     text-transform: uppercase;
     padding: 0 30px 20px;
+    width: max-content;
+
+    &::after {
+      transition: width 0.5s;
+      content: "";
+      display: block;
+      width: 0;
+      height: 1px;
+      background-color: $color-aqua;
+      margin: 6px 0 30px;
+    }
+
+    &:hover::after {
+      width: 200px;
+    }
   }
 
   &__list {
@@ -74,9 +89,18 @@
     padding-bottom: 10px;
     font-size: 14px;
     line-height: 21px;
+    transition: transform 1s;
+
+    @include onTablet {
+      width: max-content;
+    }
 
     &:last-child {
       padding-bottom: 50px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
 }
