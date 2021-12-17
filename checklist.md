@@ -28,6 +28,5 @@
 7. After clicking the menu buttons, the landing page should scroll exactly to the beginning of the desired block (exactly where its section begins)
 8. It would be more realistic if the "Buy" button was active and clickable (for example, it could scroll the page to a contact form)
 9. The video should work. If it is not working, it can confuse the recruiter/user, because then it is not clear why it is on the landing page.
-10. Buttons in the footer of the menu should also be clickable and lead to blocks on the landing page.
-11. It is important that in the email field the user has the opportunity to enter the whole mail and the text is not cut off
-12. All the social icons in the footer should be clickable and open the Crazybaby social networks in a new tab
+10. It is important that in the email field the user has the opportunity to enter the whole mail and the text is not cut off
+11. All the social icons in the footer should be clickable and open the Crazybaby social networks in a new tab
