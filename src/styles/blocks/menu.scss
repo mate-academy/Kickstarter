@@ -1,0 +1,85 @@
+.menu {
+  display: none;
+
+  @include onTablet {
+    display: block;
+  }
+
+  &__item {
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__list {
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    padding-bottom: 50px;
+    font-weight: 600;
+  }
+
+  &__link {
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: $color-grey-light;
+    text-decoration: none;
+    transition: color 0.5s;
+
+    &:hover {
+      color: $color-black;
+    }
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+
+  transform: translateX(100%);
+
+  background-color: #dfdfdf;
+  z-index: 1;
+
+  &__icon {
+    display: flex;
+    justify-content: flex-end;
+    padding: 33px 30px;
+  }
+
+  &__icon-cross {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background-image: url(../images/cross.png);
+    background-repeat: no-repeat;
+  }
+
+  &__list {
+    height: 76px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    padding: 20px;
+  }
+
+  &__link {
+    font-family: Helvetica, sans-serif;
+    font-size: 35px;
+    line-height: 21px;
+
+    color: #4f4f4f;
+    text-decoration: none;
+  }
+
+  &:target {
+    transform: translateX(0);
+  }
+}

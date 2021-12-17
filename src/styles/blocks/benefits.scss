@@ -1,0 +1,70 @@
+.benefits {
+  margin-bottom: 90px;
+
+  @include onTablet {
+    &--grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 20px;
+      row-gap: 60px;
+    }
+  }
+
+  &__title {
+    font-family: DinPro, sans-serif;
+    font-size: 24px;
+    font-weight: medium;
+    line-height: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  &__icon {
+    margin: 0 auto 40px;
+    height: 46px;
+    width: 58px;
+    background-repeat: no-repeat;
+    transition: transform 0.5s;
+
+    &-1 {
+      background-image: url(../images/benefits-icon-1.png);
+    }
+    &-2 {
+      background-image: url(../images/benefits-icon-2.png);
+    }
+    &-3 {
+      background-image: url(../images/benefits-icon-3.png);
+    }
+    &-4 {
+      background-image: url(../images/benefits-icon-4.png);
+    }
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
+  &__text {
+    font-family: Helvetica, sans-serif;
+    color: $color-grey;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+  }
+
+  &__box {
+    &--notebook {
+      display: none;
+    }
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onNotebook {
+      display: grid;
+      grid-template-rows: 100px 80px 1fr;
+    }
+  }
+}

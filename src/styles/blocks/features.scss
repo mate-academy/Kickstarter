@@ -1,0 +1,106 @@
+.features {
+  background-color: $color-light-semi;
+  padding-bottom: 45px;
+  position: relative;
+
+  @include onTablet {
+    display: grid;
+    background-color: $color-light;
+
+  }
+
+  &__background {
+    background-color: $color-light-semi;
+    height: 620px;
+    width: calc(100vw - 90px);
+    position: absolute;
+    right: 0;
+    top: 25%;
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__title {
+    padding: 45px 30px;
+    font-family: DinPro, sans-serif;
+    font-size: 37px;
+    line-height: 60px;
+    font-weight: bold;
+
+    @include onTablet {
+      font-size: 56px;
+      line-height: 70px;
+      padding: 45px 50px;
+    }
+
+    @include onNotebook {
+      padding: 45px 155px;
+    }
+  }
+
+  &__sub-title {
+    font-family: DinPro, sans-serif;
+    font-size: 30px;
+    line-height: 37px;
+    color: $color-aqua;
+    text-transform: uppercase;
+    padding: 0 30px 20px;
+    width: max-content;
+
+    &::after {
+      transition: width 0.5s;
+      content: "";
+      display: block;
+      width: 0;
+      height: 1px;
+      background-color: $color-aqua;
+      margin: 6px 0 30px;
+    }
+
+    &:hover::after {
+      width: 200px;
+    }
+  }
+
+  &__list {
+    padding: 0 30px 0 50px;
+    list-style: outside;
+  }
+
+  &__list-2 {
+    display: none;
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__list-3 {
+    display: none;
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__item {
+    font-family: Helvetica, sans-serif;
+    padding-bottom: 10px;
+    font-size: 14px;
+    line-height: 21px;
+    transition: transform 1s;
+
+    @include onTablet {
+      width: max-content;
+    }
+
+    &:last-child {
+      padding-bottom: 50px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
