@@ -1,0 +1,97 @@
+.about-us {
+  font-family: "Helvetica", sans-serif;
+
+  &__content {
+    position: relative;
+    padding: 0 30px;
+    @include onTablet {
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: 374px 340px;
+      grid-template-rows: 355px 60px;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      grid-template-columns: 582px 378px;
+      justify-content: center;
+      column-gap: 30px;
+    }
+  }
+
+  &__title {
+    font-family: "DIN Pro", sans-serif;
+    font-weight: bold;
+    margin-bottom: 50px;
+    @include onTablet {
+      width: 430px;
+      position: absolute;
+      margin-bottom: 0;
+      top: 8px;
+      right: 50%;
+      transform: translateX(81%);
+      line-height: 72px;
+      font-size: 56px;
+    }
+    @include onDesktop {
+      transform: translateX(100%);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 29px;
+    transition: box-shadow 0.3s;
+
+    @include onTablet {
+      margin-bottom: 0;
+      grid-row: 1 / 3;
+    }
+
+    &:hover {
+      box-shadow: 2px 2px 26px 1px #000;
+    }
+  }
+
+  &__description {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 21px;
+    color: #7c7c7c;
+    margin-bottom: 30px;
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__more {
+    text-decoration: none;
+    position: relative;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $c-text-green;
+    font-weight: 500;
+    grid-column: 2 / 3;
+    outline: none;
+    &::before {
+      position: absolute;
+      transition: all 0.3s ease;
+      top: calc(100% + 6px);
+      content: "";
+      width: 53px;
+      height: 1px;
+      background-color: $c-text-green;
+    }
+    @include onTablet {
+      align-self: flex-start;
+    }
+
+    &:hover::before {
+      width: 130px;
+    }
+  }
+}

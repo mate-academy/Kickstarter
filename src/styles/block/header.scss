@@ -1,0 +1,106 @@
+.header {
+  &__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    &:target {
+      transform: translateX(0);
+    }
+    @include onTablet {
+      position: static;
+      transform: translateX(0);
+      margin-bottom: 44px;
+    }
+  }
+
+  &__top {
+    padding: 31px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include onTablet {
+      padding: 40px 34px;
+      margin-bottom: 100px;
+    }
+    @include onDesktop {
+      padding: 24px 34px 0;
+    }
+  }
+
+  &__img {
+    height: 26px;
+    width: 162px;
+    background: url(../images/logo.svg) center center/cover no-repeat;
+  }
+
+  &__burger {
+    width: 24px;
+    height: 14px;
+    background: url(../images/burger.svg);
+    @include onDesktop {
+      display: none;
+    }
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__hide-for-phone {
+    display: none;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    gap: 27px;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    color: #4f4f4f;
+    @include onDesktop {
+      display: flex;
+    }
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__buy {
+    background-color: $c-text-dark-grey;
+    padding: 17px 33px;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 5px 5px 10px $c-text-green;
+    }
+  }
+
+  &__lang {
+    color: $c-text-dark-grey;
+    &--eng {
+      @include link;
+      font-weight: bold;
+    }
+    &--ua {
+      @include link;
+    }
+  }
+
+  &__lang--eng,
+  &__lang--ua {
+    @include hover(color, $c-text-green);
+  }
+
+  &__specs {
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+      color: $c-text-green;
+    }
+  }
+}
