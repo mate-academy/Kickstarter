@@ -1,0 +1,93 @@
+.about-us {
+  padding: 0 30 px;
+  margin-top: 150px;
+
+  @include onTablet {
+    padding: 0;
+  }
+  &__container {
+    display: block;
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 20px;
+      align-items: start;
+    }
+  }
+
+  &__title {
+    font-family: "DIN Pro", sans-serif;
+    font-weight: 600;
+    font-size: 37px;
+    line-height: 55px;
+    color: #333;
+
+    @include onTablet {
+      display: inline-block;
+      white-space: nowrap;
+      font-size: 56px;
+      line-height: 72px;
+      text-align: left;
+      grid-column: 5/-1;
+      margin: 0;
+      grid-row: 1/1;
+      position: relative;
+      right: 25%;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    @include onTablet {
+      grid-column: 1/5;
+      min-height: 415px;
+      width: 100%;
+      object-fit: cover;
+      object-position: right;
+    }
+  }
+
+  &__paragraph {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    text-align: justify;
+    line-height: 21px;
+    margin-top: 29px;
+    color: #7c7c7c;
+
+    @include onTablet {
+      font-size: 16px;
+      position: relative;
+      top: 140px;
+      grid-column: 5/-1;
+      grid-row: 1/1;
+      align-items: end;
+    }
+  }
+
+  &__link {
+    font-family: "Helvetica Neue", sans-serif;
+    margin-top: 30px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 15px;
+    letter-spacing: 1px;
+    color: #0db2b3;
+
+    @include onTablet {
+      grid-column: 5/-1;
+      grid-row: 1/1;
+      position: relative;
+      top: 280px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 53px;
+      height: 1px;
+      background-color: #0db2b3;
+      margin-top: 6px;
+    }
+  }
+}
