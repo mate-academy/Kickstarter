@@ -1,0 +1,95 @@
+.header {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+
+    padding-top: 20px;
+    padding-bottom: 140px;
+
+    font-family: "Roboto", sans-serif;
+
+    @extend %standardDimensions;
+
+    @include onTablet {
+      padding-bottom: 20px;
+    }
+ 
+  }
+
+  @include onTablet {
+    &__mobile-menu {
+      display: flex;
+      width: 24px;
+      height: 14px;
+      background: url(../images/menu.png) no-repeat center;
+    }
+  }
+
+  &__logo {
+    transition: transform $transitionDuration;
+  }
+
+  &__logo:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+
+  &__specs-link {
+    color: $lightGrey;
+  }
+
+  &__top-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    grid-column: 11/12;
+
+    font-size: 14px;
+    line-height: 21px;
+    color: $lightGrey;
+
+    @include onTablet {
+      display: none;
+    }
+
+  }
+
+  &__option-lang-en,
+  &__option-lang-ua,
+  &__specs-link {
+    transition: color, $transitionDuration;
+  }
+
+  &__option-lang-en:hover,
+  &__option-lang-ua:hover,
+  &__specs-link:hover {
+    cursor: pointer;
+    color: $granit;
+  }
+
+  &__option-lang--active {
+    color: $granit;
+  }
+
+  &__buy-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 48px;
+
+    background-color: $granit;
+    font-size: 12px;
+    line-height: 15px;
+    color: $white;
+
+    transition: color, $transitionDuration;
+  }
+
+  &__buy-link:hover {
+    color: $lightGrey;
+  }
+}

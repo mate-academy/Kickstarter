@@ -1,0 +1,117 @@
+.benefits {
+
+  &__wrapper {
+    display: grid;
+    gap: 120px 30px;
+    padding-bottom: 170px;
+    justify-content: space-between;
+
+    text-align: center;
+
+    @extend %standardDimensions;
+
+    @include benefitsSectionTransition (transform, $transitionDuration);
+
+    @include onTablet {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2,300px);
+      padding-bottom: 70px;
+
+      text-align: center;
+    }
+
+    @include onMobile {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__logo {
+    padding-bottom: 20px;
+
+    @include onMobile {
+      padding-bottom: 5px;
+    }
+  }
+
+  &__title {
+    height: 70px;
+    
+    font-family: "Barlow", sans-serif;
+    color: $granit;
+    font-size: 24px;
+    line-height: 30px;
+    text-transform: uppercase;
+
+    @include onMobile {
+      margin-bottom: 0;
+    }
+  }
+
+  &__description {
+    display: flex;
+
+    font-family: "Roboto", sans-serif;
+    color: $grey;
+
+  }
+
+  &__futuristic-design {
+    grid-column: 1/3;
+    
+    @include benefitsSectionTransition (transform, $transitionDuration);
+
+    @include onTablet {
+      grid-column: 1;
+    }
+
+  }
+
+  &__tweeter-speaker-system {
+    grid-column: 4/6;
+
+    @include benefitsSectionTransition (transform, $transitionDuration);
+
+    @include onTablet {
+      grid-column: 2;
+    }
+
+  }
+
+  &__multiroom {
+    grid-column: 7/9;
+
+    @include benefitsSectionTransition (transform, $transitionDuration);
+
+    @include onTablet {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+  }
+
+  &__intuitive-lighting-system {
+    grid-column: 10/12;
+
+    @include benefitsSectionTransition (transform, $transitionDuration);
+
+    @include onTablet {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+  }
+
+  &__futuristic-design:hover,
+  &__tweeter-speaker-system:hover,
+  &__multiroom:hover,
+  &__intuitive-lighting-system:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+
+    @include onTablet {
+      transform: scale(1.1);
+    }
+  }
+
+}
