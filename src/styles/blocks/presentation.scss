@@ -1,0 +1,47 @@
+.presentation {
+  text-align: center;
+
+  &__item {
+    list-style: none;
+    padding-bottom: 60px;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &:nth-child(n + 2) {
+      @include onTablet {
+        padding-bottom: 0;
+      }
+    }
+
+    @include onDesktop {
+      padding-bottom: 0;
+
+      &:nth-child(2n) > h3 {
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+  &__image {
+    padding-bottom: 46px;
+  }
+
+  &__title {
+    font-family: "DNSPro-Medium", serif;
+    font-size: 24px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: $c-granit;
+    padding-bottom: 50px;
+  }
+
+  &__text {
+    display: inline-block;
+    font-family: "HelveticaNeue", serif;
+    font-size: 14px;
+    line-height: 21px;
+    color: $c-grey;
+  }
+}

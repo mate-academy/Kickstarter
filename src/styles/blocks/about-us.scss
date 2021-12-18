@@ -1,0 +1,85 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include onTablet {
+    display: grid;
+  }
+
+  &__title {
+    @include sectionTitle;
+
+    padding-bottom: 80px;
+
+    @include onTablet {
+      padding-bottom: 30px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      background: center / cover no-repeat url(../images/about_us.png);
+      transform: translateY(50px);
+      width: 260px;
+      height: 210px;
+
+  
+      @include onTablet {
+        position: absolute;
+        transform: translate(-80%, -40%);
+        z-index: -1;
+        width: 420px;
+        height: 415px;
+        background: center / cover no-repeat url(../images/about_us-tablet.png);
+      }
+  
+      @include onDesktop {
+        transform: translate(-90%, -40%);
+        width: 580px;
+        height: 390px;
+        background: center / cover no-repeat url(../images/about_us-desk.png);
+      }
+    }
+  }
+
+  &__text {
+    font-family: "HelveticaNeue", serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: $c-grey;
+    padding-bottom: 30px;
+  }
+
+  &__link {
+    font-family: "HelveticaNeue-Medium", serif;
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    color: $c-turquoise;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s linear;
+
+    &:hover {
+      color: $c-green;
+
+      &:after {
+        width: 100%;
+        background-color: $c-green;
+        transition: width 0.3s linear, color 0.3s linear;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      display: block;
+      width: 54px;
+      height: 1px;
+      background-color: $c-turquoise;
+    }
+  }
+}

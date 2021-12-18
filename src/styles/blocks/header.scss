@@ -1,0 +1,71 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  &__menu {
+    background-color: $c-light;
+  }
+  
+  &__menu-opener {
+    display: block;
+    width: 24px;
+    min-height: 14px;
+  
+    background: center / contain no-repeat url(../images/icons/menu-icon.svg);
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__specs {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: "HelveticaNeue-Light", serif;
+      font-size: 14px;
+      line-height: 21px;
+      color: $c-dark-grey;
+    }
+  }
+
+  &__language {
+    line-height: 18px;
+    color: $c-granit;
+
+    &--en,
+    &--ua {
+      color: $c-light-grey;
+      text-decoration: none;
+    }
+
+    &--en:hover,
+    &--ua:hover {
+      color: $c-granit;
+    }
+
+    &--en:focus,
+    &--ua:focus {
+      color: $c-granit;
+      font-family: "HelveticaNeue", serif;
+    }
+  }
+
+  &__button {
+    @include button(102px, 48px, $c-granit);
+
+    transition: background-color 0.3s linear;
+
+    &:hover {
+      background-color: $c-black;
+    }
+  }
+
+  &__video {
+    width: 100vh;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,67 @@
+.menu {
+  overflow-y: auto;
+
+  &__content {
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 55px 30px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 40px;
+
+    @include onTablet {
+      display: none;
+      padding: 0;
+    }
+
+    @include onDesktop {
+      display: block;
+      height: 30px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 40px;
+
+    text-transform: uppercase;
+    font-family: "HelveticaNeue-Light", serif;
+    font-size: 14px;
+    line-height: 21px;
+
+    @include onDesktop {
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+
+  &__item {
+    list-style: none;
+
+    @include onDesktop {
+      width: 120px;
+      text-align: center;
+    }
+  }
+
+  &__link {
+    color: $c-granit;
+    text-decoration: none;
+    padding: 10px 0;
+    transition: font-weight 0.3s linear, color 0.3s linear;
+
+    @include onDesktop {
+      padding: 10px;
+    }
+
+    &:hover {
+      font-family: "HelveticaNeue", serif;
+      color: $c-black;
+    }
+  }
+}

@@ -1,6 +1,60 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
   }
+}
+
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin sectionTitle {
+  font-family: "DNSPro-Bold", serif;
+  font-size: 37px;
+  line-height: 55px;
+  color: $c-granit;
+  text-transform: uppercase;
+
+  @include onTablet {
+    font-size: 56px;
+    line-height: 72px;
+  }
+}
+
+@mixin formArea ($width, $heigh) {
+  width: $width;
+  height: $heigh;
+  border: 1px solid $c-light-grey;
+  box-sizing: border-box;
+  outline: none;
+
+  color: $c-granit;
+  font-family: "HelveticaNeue", serif;
+  font-size: 16px;
+  line-height: 16px;
+
+  &::placeholder {
+    color: $c-light-grey;
+  }
+
+  &:focus {
+    border: 1px solid $c-granit;
+  }
+}
+
+@mixin button ($width, $heigh, $color) {
+  width: $width;
+  height: $heigh;
+  border: none;
+  background-color: $color;
+
+  font-family: "HelveticaNeue-Medium", serif;
+  font-size: 12px;
+  line-height: $heigh;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $c-white;
 }

@@ -1,0 +1,68 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  @include onTablet {
+    flex-direction: row;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    min-height: 200px;
+    background: left / cover no-repeat url(../images/product-1.png);
+
+    @media (min-width: 580px) {
+      height: 300px;
+    }
+
+    @include onTablet {
+      position: absolute;
+      width: 60%;
+      height: 350px;
+      left: 40%;
+      z-index: -1;
+    }
+
+    @include onDesktop {
+      height: 464px;
+    }
+  }
+
+  &__title {
+    font-family: "DNSPro-Black", serif;
+    font-size: 44px;
+    line-height: 130%;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 40px 0 20px;
+
+    @include onTablet {
+      font-size: 48px;
+      text-align: left;
+      padding: 0 0 34px;
+    }
+
+    @include onDesktop {
+      font-size: 64px;
+    }
+  }
+
+  &__desk {
+    font-family: "HelveticaNeue", serif;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+
+    @include onTablet {
+      text-align: left;
+      max-width: 250px;
+    }
+
+    @include onDesktop {
+      max-width: 276px;
+    }
+  }
+}
