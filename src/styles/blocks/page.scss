@@ -1,0 +1,52 @@
+.page {
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: $c-dark;
+
+  &__body {
+    background-color: $back-color;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__section {
+    margin-bottom: 90px;
+    @include onTablet {
+      margin-bottom: 130px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 150px;
+    }
+
+    &--last {
+      margin-bottom: 100px;
+
+      @include onTablet {
+        margin-bottom: 70px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 106px;
+      }
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    transition: transform 0.3s;
+    transform: translateX(-100%);
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+}

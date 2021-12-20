@@ -1,0 +1,85 @@
+.button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &--menu {
+    width: 24px;
+    height: 14px;
+    background-image: url("../images/menu.png");
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &--arrow {
+    width: 48px;
+    height: 14px;
+    background-image: url("../images/arrow.png");
+    background-size: contain;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  &--arrow-left {
+    transform: rotate(180deg);
+
+    &:active {
+      transform: rotate(180deg) scale(0.9);
+    }
+  }
+
+  &--form {
+    width: 102px;
+    height: 40px;
+    background-color: $c-blue;
+    line-height: 40px;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: $c-hover;
+    }
+  }
+
+  &--top {
+    width: 24px;
+    height: 22px;
+    background: url("../images/arrow-top.png") no-repeat center;
+    background-size: contain;
+    position: absolute;
+    right: 30px;
+    top: -60px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.25);
+    }
+
+    @include onTablet {
+      top: 0;
+    }
+
+    @include onDesktop {
+      right: 150px;
+    }
+  }
+}

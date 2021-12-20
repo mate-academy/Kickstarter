@@ -1,0 +1,70 @@
+.presentation {
+  &__wrapper {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__item {
+    padding-top: 60%;
+
+    @include onTablet {
+      padding-top: 52%;
+    }
+
+    @include onDesktop {
+      padding-top: 40%;
+    }
+  }
+
+  &__element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__button {
+    width: 108px;
+    height: 108px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity, background-color 0.3s;
+    border-radius: 50%;
+    &:hover {
+      background-color: $c-blue;
+    }
+
+    &--start {
+      background-image: url("../images/Ellipse.png"), url("../images/play.png");
+      background-repeat: no-repeat, no-repeat;
+      background-position: center, center;
+    }
+
+    &--stop {
+      background-image: url("../images/Ellipse.png"),
+        url("../images/stop30.png");
+      background-repeat: no-repeat, no-repeat;
+      background-position: center, center;
+      display: none;
+      opacity: 0;
+    }
+  }
+
+  &__wrapper:hover &__button {
+    opacity: 1;
+  }
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

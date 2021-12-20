@@ -1,0 +1,65 @@
+.container {
+  max-width: 1254px;
+  padding: 0 30px;
+  margin: 0 auto;
+  position: relative;
+
+  @include onDesktop {
+    padding: 0 50px;
+  }
+
+  &--header {
+    &::after {
+      content: "";
+      display: none;
+      position: absolute;
+      right: 30px;
+      top: -50px;
+      width: 60%;
+      height: 90%;
+      background-color: #f6f6f6;
+      background-image: url("../images/device-tablet.png");
+      background-position: right center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      z-index: -1;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesktop {
+        right: 50px;
+        height: 80%;
+        width: 65%;
+        background-image: url("../images/device.png");
+        background-position: left;
+        background-size: cover;
+      }
+    }
+  }
+
+  &--features {
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: #f2f2f2;
+      right: 0;
+      bottom: 0;
+      z-index: -2;
+
+      @include onTablet {
+        width: 80%;
+        height: 65%;
+        bottom: 100px;
+      }
+
+      @include onDesktop {
+        bottom: 50px;
+      }
+    }
+  }
+}

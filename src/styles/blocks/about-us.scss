@@ -1,0 +1,87 @@
+.about-us {
+  &__title {
+    font-family: "DIN-Pro", sans-serif;
+    font-size: 37px;
+    line-height: 55px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      font-size: 56px;
+      line-height: 72px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__picture-wrap {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      position: absolute;
+      width: 582px;
+      left: 50%;
+      transform: translateX(-100%);
+      z-index: -1;
+    }
+
+    @include onDesktop {
+      left: 55%;
+    }
+  }
+
+  &__picture {
+    width: 100%;
+  }
+
+  &__description {
+    color: $c-grey;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    position: relative;
+    font-size: 12px;
+    line-height: 15px;
+    color: $c-blue;
+    text-decoration: none;
+    padding-bottom: 6px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $c-hover;
+    }
+
+    &:active {
+      color: #0b3d44;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 54px;
+      height: 1px;
+      left: 0;
+      bottom: 0;
+      background-color: $c-blue;
+      transition: background-color 0.3s, width 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+      background-color: $c-hover;
+    }
+    &:active::after {
+      background-color: #0b3d44;
+    }
+  }
+}
