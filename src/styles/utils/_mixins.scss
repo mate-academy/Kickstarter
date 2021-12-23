@@ -1,6 +1,35 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin flex-position($justify-content) {
+  display: flex;
+  justify-content: #{$justify-content};
+  align-items: center;
+}
+
+@mixin link {
+  text-decoration: none;
+  color: inherit;
+  text-transform: uppercase;
+}
+
+@mixin section-title-style {
+  font-family: "DIN Pro-700", sans-serif;
+  font-size: 37px;
+  line-height: 50px;
+  text-transform: uppercase;
+
+  @include onTablet {
+    font-size: 56px;
+    line-height: 70px;
   }
 }

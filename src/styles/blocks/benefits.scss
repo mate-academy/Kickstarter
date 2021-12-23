@@ -1,0 +1,91 @@
+.benefits {
+  &__grid {
+    row-gap: 60px;
+
+    @media (max-width: 768px) {
+      & > :not(:first-child) {
+        display: none;
+      }
+    }
+  }
+
+  &__benefit {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 80px;
+      left: -10px;
+      width: 2px;
+      height: 5px;
+      background-color: transparent;
+      transition-duration: 0.5s;
+    }
+
+    &:hover::before {
+      transform: scaleY(41);
+      background-color: $color-aqua;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 80px;
+      width: 5px;
+      height: 2px;
+      background-color: transparent;
+      transition-duration: 0.5s;
+    }
+
+    &:hover::after {
+      transform: scaleX(37);
+      background-color: $color-aqua;
+    }
+  }
+
+  &__icon-box {
+    margin: 0 auto 40px;
+    width: 58px;
+    border-radius: 50%;
+
+    @include onTablet {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  &__icon {
+    width: 100%;
+    transition: transform 1s;
+
+    &:hover {
+      transform: scale(1.5) rotateZ(360deg);
+    }
+  }
+
+  &__title {
+    margin-bottom: 50px;
+    font-family: "DIN Pro-500", sans-serif;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include onTablet {
+      margin-bottom: 20px;
+    }
+
+    @include onDesktop {
+      min-height: 90px;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $color-grey;
+  }
+}

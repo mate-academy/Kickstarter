@@ -1,0 +1,76 @@
+.mobile-menu {
+  height: 100vh;
+  overflow: hidden;
+  background-color: $color-aqua-light;
+  z-index: 50;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &__actions {
+    @include flex-position(space-between);
+
+    padding: 30px 30px 22px;
+    margin-bottom: 50px;
+  }
+
+  &__logo {
+    border-radius: 10px;
+    transition: transform 0.5s, box-shadow 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 10px 5px $color-light;
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background-image: url(../images/icons_svg/plus_icon.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: rotate(45deg) scale(1.2);
+    transition: transform 0.5s, box-shadow 0.5s;
+
+    &:hover {
+      transform: scale(1.4) rotate(225deg);
+      box-shadow: 0 0 10px 5px $color-light;
+    }
+  }
+
+  &__list {
+    @include flex-position(center);
+    flex-direction: column;
+    gap: 7vh;
+    list-style: none;
+    margin-bottom: 10vh;
+  }
+
+  &__link {
+    @include link;
+
+    font-family: "HelveticaNeue-500", sans-serif;
+    border-radius: 8px;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    padding: 10px 15px;
+    transition: border-color 0.3s, color 0.3s;
+
+    &:hover {
+      border-color: $color-aqua;
+      color: $color-aqua-dark;
+    }
+  }
+
+  &__link-box {
+    @include flex-position(center);
+
+    gap: 15vw;
+  }
+}

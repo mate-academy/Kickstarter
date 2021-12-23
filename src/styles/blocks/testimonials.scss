@@ -1,0 +1,73 @@
+.testimonials {
+  &__item {
+    @include flex-position(center);
+
+    flex-direction: column;
+    text-align: center;
+    background: url(../images/icons_svg/06_kavychki_back.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+
+  &__text {
+    margin-bottom: 40px;
+    max-width: 786px;
+    font-family: "DIN Pro-700", sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+
+    @include onTablet {
+      padding-top: 76px;
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+
+  &__image {
+    margin-bottom: 20px;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.7);
+    }
+  }
+
+  &__name {
+    font-family: "HelveticaNeue-500", sans-serif;
+    font-size: 16px;
+    line-height: 27px;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.5s;
+
+    &:hover {
+      color: $color-aqua-dark;
+    }
+
+    &::before {
+      content: "";
+      position: relative;
+      top: 24px;
+      left: 50%;
+      display: block;
+      width: 2px;
+      height: 1px;
+      background-color: transparent;
+      transition: transform 0.5s, color 0.5s;
+    }
+
+    &:hover::before {
+      transform: scaleX(50);
+      background-color: $color-aqua;
+    }
+  }
+
+  &__role {
+    font-size: 14px;
+    line-height: 17px;
+    color: $color-grey;
+  }
+}

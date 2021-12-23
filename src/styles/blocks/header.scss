@@ -1,0 +1,139 @@
+.header {
+  @include flex-position(space-between);
+
+  padding: 30px 30px 22px;
+  background-color: $color-light;
+
+  @include onTablet {
+    padding: 28px 34px 100px;
+  }
+
+  @include onDesktop {
+    padding: 14px 124px 88px;
+  }
+
+  &__actions {
+    @include flex-position(space-between);
+
+    width: 100%;
+  }
+
+  &__logo {
+    border-radius: 10px;
+    transition: transform 0.5s, box-shadow 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 10px 5px rgba(12, 121, 122, 0.2);
+    }
+  }
+
+  &__menu-icon {
+    display: block;
+    width: 24px;
+    height: 14px;
+    background-image: url(../images/icons_svg/menu_icon-mobile.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: rotate(-45deg) scaleX(1.3);
+      box-shadow: 0 0 10px 5px rgba(12, 121, 122, 0.2);
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__items {
+    display: none;
+
+    @include onTablet {
+      @include flex-position(center);
+      gap: 27px;
+    }
+
+    @include onDesktop {
+      gap: 37px;
+    }
+  }
+
+  &__specs-link {
+    @include link;
+
+    font-size: 14px;
+    line-height: 17px;
+    color: #4f4f4f;
+    transition: color 0.5s;
+
+    &:hover {
+      color: $color-aqua-dark;
+    }
+
+    &::before {
+      content: "";
+      position: relative;
+      top: 20px;
+      left: 50%;
+      display: block;
+      width: 2px;
+      height: 1px;
+      background-color: transparent;
+      transition-duration: 0.5s;
+    }
+
+    &:hover::before {
+      transform: scaleX(25);
+      background-color: $color-aqua;
+    }
+  }
+
+  &__language-items {
+    display: flex;
+    width: max-content;
+  }
+
+  &__language-ua {
+    color: #828282;
+  }
+
+  &__language-en,
+  &__language-ua {
+    @include link;
+
+    font-size: 14px;
+    line-height: 18px;
+
+    transition: box-shadow 0.5s, color 0.5s;
+
+    &:hover {
+      box-shadow: 0 0 5px 2px rgba(12, 121, 122, 0.2);
+      color: $color-aqua-dark;
+    }
+  }
+
+  &__button-buy {
+    @include link;
+
+    display: block;
+    text-align: center;
+    width: 102px;
+    height: 48px;
+    font-size: 12px;
+    line-height: 48px;
+    color: #fff;
+    background-color: $color-granit;
+    border: 1px solid transparent;
+    transition: all 0.5s;
+
+    &:hover {
+      background-color: $color-aqua-dark;
+      border-color: $color-granit;
+      box-shadow: 0 0 5px 5px rgb(13, 178, 179) inset;
+      transform: scale(1.05);
+    }
+  }
+}

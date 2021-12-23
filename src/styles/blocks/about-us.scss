@@ -1,0 +1,65 @@
+.about-us {
+  position: relative;
+
+  &__image-box {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      position: absolute;
+      z-index: -1;
+      left: -210px;
+    }
+
+    @include onDesktop {
+      left: -10px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__title {
+    @include section-title-style;
+
+    margin-bottom: 50px;
+    white-space: nowrap;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 21px;
+    color: $color-grey;
+  }
+
+  &__link {
+    @include link;
+
+    display: block;
+    font-family: "HelveticaNeue-500", sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    color: $color-aqua;
+    transition: transform 0.5s;
+
+    &::before {
+      content: "";
+      position: relative;
+      top: 24px;
+      display: block;
+      width: 50px;
+      height: 1px;
+      background-color: $color-aqua;
+      transition: width 0.5s;
+    }
+
+    &:hover::before {
+      width: 130px;
+    }
+  }
+}

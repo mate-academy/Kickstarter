@@ -1,0 +1,28 @@
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: $color-light;
+  color: $color-granit;
+
+  &--with-menu {
+    overflow: hidden;
+  }
+
+  &__mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translate(100%, -100%);
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translate(0);
+    }
+
+    &:target + main {
+      visibility: hidden;
+    }
+  }
+}

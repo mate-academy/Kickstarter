@@ -1,0 +1,47 @@
+.menu {
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  &__list {
+    @include flex-position(center);
+
+    gap: 70px;
+    height: 76px;
+    list-style: none;
+  }
+
+  &__link {
+    @include link;
+
+    font-family: "HelveticaNeue-300", sans-serif;
+    font-size: 14px;
+    transition: color 0.5s;
+
+    &--is-active {
+      font-family: "HelveticaNeue-500", sans-serif;
+      color: #131313;
+    }
+
+    &:hover {
+      color: $color-aqua-dark;
+    }
+
+    &::before {
+      content: "";
+      position: relative;
+      top: 24px;
+      left: 50%;
+      display: block;
+      width: 2px;
+      height: 1px;
+      background-color: transparent;
+      transition-duration: 0.5s;
+    }
+
+    &:hover::before {
+      transform: scaleX(40);
+      background-color: $color-aqua;
+    }
+  }
+}
