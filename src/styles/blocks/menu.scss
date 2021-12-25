@@ -1,0 +1,62 @@
+.menu {
+  display: none;
+  padding-top: 120px;
+  padding-bottom: 20px;
+  position: sticky;
+  top: -100px;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.12);
+  background-color: #f7f7f7;
+  z-index: 1;
+
+  @include onDesktop {
+    @include flex-center;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: $colorBlack;
+    transition: font-weight 0.3s;
+    padding: 10px 30px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 0%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.12);
+      opacity: 0;
+      transition: all 0.3s;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 50%;
+      width: 0%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.12);
+      opacity: 0;
+      transition: all 0.3s;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      width: 50%;
+      opacity: 1;
+    }
+
+  }
+}

@@ -1,0 +1,105 @@
+.about {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+
+  @include onTablet {
+    padding-left: 0;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  @include onDesktop {
+    justify-content: center;
+  }
+
+  &__desktop-image {
+    display: none;
+    max-width: max-content;
+    overflow: hidden;
+
+    &-img {
+      width: 100%;
+      transition: transform 0.3s;
+    }
+
+    &:hover &-img {
+      transform: scale(1.2);
+    }
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 37px;
+    line-height: 55px;
+    color: $colorBlack;
+    padding-bottom: 50px;
+    max-width: 260px;
+    position: relative;
+
+    @include onTablet {
+      margin-left: -47px;
+    }
+  }
+
+  &__image {
+    padding-bottom: 29px;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &-img {
+      width: 100%;
+    }
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    line-height: 21px;
+    color: $colorGray;
+    padding-bottom: 30px;
+
+    @include onTablet {
+      margin-left: 20px;
+      max-width: 340px;
+    }
+
+    @include onDesktop {
+      max-width: 378px;
+    }
+  }
+
+  &__button {
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $colorGreen;
+    padding-bottom: 6px;
+    position: relative;
+    max-width: max-content;
+
+    @include onTablet {
+      margin-left: 20px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 53px;
+      height: 1px;
+      background-color: $colorGreen;
+      transition: width 0.3s;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+}

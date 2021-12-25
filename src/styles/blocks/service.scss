@@ -1,0 +1,120 @@
+.service {
+  padding-top: 75px;
+  padding-bottom: 90px;
+  position: relative;
+  display: flex;
+  overflow-x: hidden;
+
+  @include onTablet {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  &__item {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: #f7f7f7;
+    padding: 20px;
+    transition: margin-left 0.3s;
+
+    &:first-child {
+
+      @include onTablet {
+        margin-left: 0;
+      }
+    }
+
+    @include onTablet {
+      min-width: auto;
+      flex-basis: 45%;
+      min-height: 350px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $colorGray;
+        z-index: -1;
+        transition: transform 0.3s;
+      }
+  
+      &:hover::before {
+        transform: skew(-4deg) rotate(-2deg);
+      }
+    }
+
+    @include onDesktop {
+      flex-basis: 22%;
+      min-height: max-content;
+    }
+  }
+
+  &__icon {
+    height: 40px;
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $colorBlack;
+    padding-bottom: 50px;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $colorGray;
+    max-width: 260px;
+    // padding: 0 20px;
+
+    @include onTablet {
+      max-width: 340px;
+    }
+
+    @include onDesktop {
+      max-width: 276px;
+    }
+  }
+
+  &__button {
+    width: 40px;
+    height: 55px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    border: 5px solid transparent;
+    transition: background-color 0.3s;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  &__button-left {
+    background-image: url(../images/arrow-left.png);
+    left: 20px;
+  }
+
+  &__button-right {
+    background-image: url(../images/arrow-right.png);
+    right: 20px;
+  }
+}

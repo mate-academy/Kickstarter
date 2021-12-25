@@ -1,6 +1,70 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin buttonStyle {
+  width: 102px;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  padding: 16px 0;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+
   &:hover {
-    #{$_property}: $_toValue;
+    background-color: #fff;
+    color: $colorBlack;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s;
+    z-index: -1;
+  }
+
+  &:hover::after {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+@mixin cartChoseColorBtn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    transform: translate(-5%, -3%);
+    border: 1px solid transparent;
+    border-radius: 50%;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1440px) {
+    @content;
   }
 }

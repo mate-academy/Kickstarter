@@ -1,0 +1,111 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__buttons {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+  }
+
+  &__specs {
+    font-size: 14px;
+    line-height: 17px;
+    color: #4f4f4f;
+    position: relative;
+    text-transform: uppercase;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 8px;
+      background-color: #4f4f4f;
+      transition: width 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  &__chose-btn {
+    font-size: 14px;
+    line-height: 18px;
+    color: #828282;
+    text-transform: uppercase;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $colorBlack;
+    }
+  }
+
+  &__chose-btn--active {
+    color: $colorBlack;
+  }
+
+  &__chose-btn-line {
+    font-size: 14px;
+    line-height: 18px;
+    color: $colorBlack;
+  }
+
+  &__buy {
+    @include buttonStyle;
+    background-color: $colorBlack;
+    border: 2px solid $colorBlack;
+  
+    &::after {
+      background-color: $colorBlack;
+    }
+  }
+
+  &__menu-opener-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #000;
+    transition: all 0.3s;
+  }
+
+  &__menu-opener {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    z-index: 100;
+
+    &--active &-line:nth-child(1) {
+      transform: rotate(45deg) translateY(4px);
+    }
+
+    &--active &-line:nth-child(2) {
+      display: none;
+    }
+
+    &--active &-line:nth-child(3) {
+      transform: rotate(-45deg) translateY(-4px);
+    }
+
+    &--hover:hover &-line:nth-child(1) {
+      width: 18px;
+    }
+
+    &--hover:hover &-line:nth-child(3) {
+      width: 12px;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}
