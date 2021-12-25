@@ -1,0 +1,131 @@
+.about {
+  @include max-width;
+
+  &__small {
+    display: none;
+  }
+
+  &__draw-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 158px;
+  }
+
+  &__draw {
+    position: relative;
+  }
+
+  &__draw-img {
+    width: 582px;
+    height: 388px;
+    background-image: url(../images/design_draw.png);
+  }
+
+  &__main-text {
+    position: absolute;
+    top: 8px;
+    left: 510px;
+    min-width: 430px;
+
+    font-size: 56px;
+    line-height: 72px;
+  }
+
+  &__main-text-position {
+    min-width: 430px;
+
+  }
+
+  &__text {
+    padding: 182px 0 0 30px;
+    max-width: 448px;
+    min-width: 310px;
+    font-size: 16px;
+
+    line-height: 24px;
+
+    color: $tertiary-color;
+  }
+
+  &__link {
+    position: relative;
+    padding: 30px 0 0 30px;
+  }
+
+  &__link-properties {
+    padding-bottom: 6px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+
+    border-bottom: 1px solid $secondary-color;
+    color: $secondary-color;
+    transition: color 1s;
+  }
+
+  &__link-properties:hover {
+    color: $main-color-text;
+  }
+}
+
+@media screen and (max-width: $medium-width) {
+  .about {
+    &__draw {
+      left: -200px;
+    }
+
+    &__text-container {
+      position: relative;
+      left: -200px;
+    }
+  }
+}
+
+@media screen and (max-width: $small-width) {
+  .about {
+    &__small {
+      display: block;
+    }
+
+    &__draw-container {
+      display: none;
+    }
+
+    &__small-img {
+      width: 85%;
+      margin: 0 auto;
+    }
+
+    &__draw-img-small {
+      width: 100%;
+    }
+
+    &__text-container-small {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__main-text-small {
+      font-size: 37px;
+      text-align: center;
+      line-height: 55px;
+      padding-bottom: 50px;
+      max-width: 260px;
+      margin: auto;
+
+      color: $main-color-text;
+    }
+
+    &__link {
+      padding-left: 0;
+      align-self: start;
+    }
+
+    &__text {
+      padding: 30px;
+    }
+  }
+}

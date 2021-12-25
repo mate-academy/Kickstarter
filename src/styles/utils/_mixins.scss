@@ -1,6 +1,109 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin topContent {
+  &__logo {
+    padding: 25px 0 0 123px;
   }
+
+  &__array {
+    position: absolute;
+    top: 100px;
+    width: 16px;
+    height: 14px;
+    margin-left: 123px;
+  }
+
+  &__content-top {
+    display: grid;
+    grid-template-columns: repeat(3,172px);
+    justify-content: center;
+    padding-top: 100px;
+  }
+
+  &__icons {
+    text-align: center;
+  }
+
+  &__top-icon {
+    width: 12px;
+    height: 12px;
+    margin: auto;
+
+    border-radius: 50%;
+
+    background-color: $six-row-color;
+  }
+
+  &__top-text {
+    padding-top: 18px;
+
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #d0d0d0;
+  }
+}
+
+@mixin buttonConfiguration {
+  &__button-return {
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    padding: 5px;
+
+    color: $six-row-color;
+
+    cursor: pointer;
+
+    transition: color 1s;
+  }
+
+  &__button-return:hover {
+    color: $for-row-color;
+  }
+
+  &__button-continue {
+    display: grid;
+    align-items: center;
+    text-align: center;
+    width: 174px;
+    height: 48px;
+
+    border: none;
+    background-color: $main-color-text;
+    color: $first-color;
+
+    cursor: pointer;
+
+    transition: color 1s;
+  }
+
+  &__button-continue:hover {
+    color: $for-row-color;
+  }
+}
+
+@mixin colorConfiguration {
+  &__color-first,
+  &__color-second,
+  &__color-third,
+  &__color-fourth,
+  &__color-fifth {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: transform 1s;
+  }
+
+  &__color-first:hover,
+  &__color-second:hover,
+  &__color-third:hover,
+  &__color-fourth:hover,
+  &__color-fifth:hover {
+    transform: scale(1.1);
+  }
+}
+
+@mixin max-width {
+  max-width: 1440px;
+  margin: auto;
 }
