@@ -1,0 +1,144 @@
+.technology-img {
+  position: relative;
+  width: 1200px;
+
+  &__photo {
+    position: relative;
+    transition: width 0.3s;
+  }
+  &__button {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $about-technology-highlight;
+    color: white;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    &::after {
+      content: attr(data-tooltip);
+      display: flex;
+      position: absolute;
+      width: 150px;
+      color: black;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.3s 0.1s;
+    }
+    &:hover {
+      background-color: rgb(3, 86, 86);
+    }
+    &:hover::after {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    &:nth-child(1) {
+      left: 9%;
+      top: 30%;
+      &::after {
+        width: 100px;
+        height: 150px;
+        @extend %technology-data-tooltip-top-left;
+      }
+    }
+    &:nth-child(2) {
+      left: 23%;
+      top: 50%;
+      &::after {
+        height: 170px;
+        @extend %technology-data-tooltip-bottom-left;
+      }
+    }
+    &:nth-child(3) {
+      left: 29%;
+      top: 41%;
+      &::after {
+        height: 250px;
+        @extend %technology-data-tooltip-bottom-left;
+      }
+    }
+    &:nth-child(4) {
+      left: 34%;
+      top: 21%;
+      &::after {
+        width: 250px;
+        height: 150px;
+        @extend %technology-data-tooltip-top-right ;
+      }
+    }
+    &:nth-child(5) {
+      left: 42%;
+      top: 58%;
+      &::after {
+        width: 250px;
+        height: 120px;
+        @extend %technology-data-tooltip-bottom-right;
+      }
+    }
+    &:nth-child(6) {
+      left: 54%;
+      top: 25%;
+      &::after {
+        height: 150px;
+        @extend %technology-data-tooltip-top-left;
+      }
+    }
+    &:nth-child(7) {
+      left: 65%;
+      top: 45%;
+      &::after {
+        height: 180px;
+        @extend %technology-data-tooltip-bottom-left;
+      }
+    }
+    &:nth-child(8) {
+      left: 77%;
+      top: 26%;
+      &::after {
+        height: 200px;
+        @extend %technology-data-tooltip-top-left;
+      }
+    }
+    &:nth-child(9) {
+      left: 88%;
+      top: 13%;
+      &::after {
+        height: 100px;
+        @extend %technology-data-tooltip-top-left;
+      }
+    }
+    &:nth-child(10) {
+      left: 93%;
+      top: 30%;
+      &::after {
+        height: 200px;
+        @extend %technology-data-tooltip-bottom-left;
+      }
+    }
+    &:nth-child(11) {
+      left: 96%;
+      top: 20%;
+      &::after {
+        height: 220px;
+        @extend %technology-data-tooltip-top-left;
+      }
+    }
+  }
+}
+
+@media (max-width: $phone-break-point ) {
+  .technology-img {
+    width: 660px;
+
+    &__photo {
+      width: 700px;
+    }
+    &__button {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

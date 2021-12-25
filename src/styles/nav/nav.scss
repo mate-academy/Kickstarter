@@ -1,0 +1,42 @@
+.nav {
+  @extend %section-width-limitatiom;
+
+  &__list {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+  &__item {
+    position: relative;
+    text-transform: uppercase;
+
+    &::after {
+      content: "";
+      width: 0;
+      height: 2px;
+      position: absolute;
+      display: block;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      bottom: -4px;
+      background-color: $main-color;
+      box-shadow: 1px 6px 13px rgb(76, 76, 76);
+      transition: width 0.3s;
+    }
+    &:hover::after {
+      width: 100%;
+
+    }
+  }
+}
+
+@media (max-width: $phone-break-point) {
+  .nav {
+    padding: 0;
+    .nav__list {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.footer {
+  @extend %section-width-limitatiom;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__logo {
+    margin-bottom: 60px;
+  }
+  &__up {
+    position: absolute;
+    right: 40px;
+    display: none;
+  }
+  &__list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  &__networks {
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+}
+
+@media (max-width: $phone-break-point ) {
+  .footer {
+    &__logo {
+      visibility: hidden;
+    }
+    &__up {
+      display: inline-block;
+    }
+  }
+}
