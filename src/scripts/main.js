@@ -15,14 +15,12 @@ const buttonStop = document.querySelector('.promo__button--stop');
 buttonStart.addEventListener('click', () => {
   promoVideo.play();
   buttonStart.style.display = 'none';
-  buttonStart.style.opacity = '0';
   buttonStop.style.display = 'flex';
 });
 
 buttonStop.addEventListener('click', () => {
   promoVideo.pause();
   buttonStart.style.display = 'flex';
-  buttonStart.style.opacity = '0';
   buttonStop.style.display = 'none';
 });
 
