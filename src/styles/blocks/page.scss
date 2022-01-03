@@ -1,0 +1,81 @@
+.page {
+  background: $c-gray;
+
+  &--with-menu {
+    overflow: hidden;
+  }
+
+  &__mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(100%);
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translate(0);
+    }
+
+    &:target + main {
+      visibility: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(100%);
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__benefits {
+    margin-bottom: 90px;
+    @include onTablet {
+      margin-bottom: 130px;
+    }
+    @include onDesktop {
+      margin-bottom: 150px;
+    }
+  }
+
+  &__technology {
+    padding-bottom: 40px;
+  }
+
+  &__testimonials {
+    padding-bottom: 40px;
+  }
+
+  &__features {
+    margin-bottom: 45px;
+
+    @include onTablet {
+      margin-bottom: 138px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 140px;
+    }
+  }
+
+  .contact-form {
+    padding-bottom: 40px;
+
+    @include onTablet {
+      padding-bottom: 70px;
+    }
+
+    @include onTablet {
+      padding-bottom: 100px;
+    }
+  }
+}

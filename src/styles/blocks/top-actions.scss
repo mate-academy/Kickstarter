@@ -1,0 +1,102 @@
+.top-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+
+  &__desktop {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 17px;
+    color: #4f4f4f;
+
+    @include onDesktop {
+      display: flex;
+    }
+
+    @include onTablet {
+      display: flex;
+    }
+
+    &--item {
+      margin-right: 27px;
+      transition: transform 0.4s;
+
+      &:hover {
+        transform: scale(120%);
+        cursor: pointer;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    &--specs {
+      color: $firstColor;
+
+      &:hover {
+        color: $thirdColor;
+      }
+    }
+
+    &--leng {
+      display: flex;
+      color: #828282;
+
+      &:hover {
+        transform: scale(110%);
+        cursor: pointer;
+      }
+    }
+
+    &--curentLeng {
+      font-weight: bold;
+      font-size: 14px;
+      color: $firstColor;
+
+      &:hover {
+        color: $thirdColor;
+      }
+    }
+
+    &--buy {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      height: 48px;
+      width: 102px;
+      background-color: $firstColor;
+      color: #fff;
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 15px;
+      transition: transform 0.5s;
+
+      &:hover {
+        background-color: $thirdColor;
+        transform: scale(110%);
+      }
+    }
+  }
+
+  &__menu {
+    transition: transform 0.3s;
+    @include onDesktop {
+      display: none;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+
+    &:hover {
+      transform: scale(120%);
+    }
+  }
+}

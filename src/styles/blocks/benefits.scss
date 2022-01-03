@@ -1,0 +1,71 @@
+.benefits {
+  padding: 20px 30px;
+
+  &__container {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 340px);
+      justify-content: center;
+      column-gap: 20px;
+      row-gap: 60px;
+    }
+    @include onDesktop {
+      grid-template-columns: repeat(4, minmax(200px, 276px));
+      column-gap: 30px;
+    }
+  }
+
+  &__content {
+    padding: 20px 0;
+    transition: all 0.4s;
+    &:hover {
+      transform: scale(110%);
+      color: $thirdColor;
+      border-top: 1px solid $thirdColor;
+      border-bottom: 1px solid $thirdColor;
+    }
+
+    &:nth-child(n+2) {
+      display: none;
+    }
+
+    @include onTablet {
+      &:nth-child(n) {
+        display: grid;
+      }
+      grid-template-rows: 90px 50px 1fr;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+      grid-template-rows: 90px 80px 1fr;
+    }
+  }
+
+  &__img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    font-family: "DIN Pro", sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 22px;
+    color: $firstColor;
+    margin-bottom: 50px;
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__subtitle {
+    font-family: Helvetica, sans-serif ;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #7c7c7c;
+  }
+}

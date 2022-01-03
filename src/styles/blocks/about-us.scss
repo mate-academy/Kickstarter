@@ -1,0 +1,83 @@
+.about-us {
+  padding-left: 10%;
+  padding-right: 10%;
+  position: relative;
+  padding-bottom: 70px;
+
+  &__image-box {
+    z-index: -1;
+    @include onTablet {
+      transform: translateY(-190px);
+    }
+
+    @include onDesktop {
+      transform: translateY(-190px);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    @media (min-width: 695px) and (max-width: 1024px) {
+      height: 160%;
+      width: 130%;
+      position: absolute;
+      left: -140px;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    font-size: 46px;
+    white-space: nowrap;
+
+    @include onTablet {
+      font-size: 56px;
+      line-height: 72px;
+      transform: translateX(-60px);
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 72px;
+      transform: translateX(-90px);
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 21px;
+    color: $secondColor;
+
+    @include onDesktop {
+      transform: translateX(-90px);
+    }
+  }
+
+  &__link {
+    padding-left: 30px;
+    padding-right: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    font-size: 12px;
+    line-height: 15px;
+    color: $thirdColor;
+    transition: transform 0.5s;
+
+    &::before {
+      content: "";
+      position: relative;
+      top: 24px;
+      display: block;
+      width: 50px;
+      height: 1px;
+      background-color: $thirdColor;
+      transition: width 0.5s;
+    }
+
+    &:hover::before {
+      width: 130px;
+    }
+  }
+}

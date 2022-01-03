@@ -1,0 +1,113 @@
+.header {
+  &__content {
+    @include onTablet {
+      display: flex;
+      min-height: 365px;
+
+    }
+
+    @include onDesktop {
+      display: flex;
+      min-height: 465px;
+
+    }
+  }
+
+  &__menu-icon {
+    display: block;
+    width: 24px;
+    height: 14px;
+    background-image: url(../images/menu.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(120%);
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__info {
+    @include onTablet {
+      order: 1;
+      max-width: 340px;
+      align-self: end;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__title {
+    font-size: 44px;
+    line-height: 130%;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include onTablet {
+      text-align: left;
+      font-size: 48px;
+
+    }
+
+    @include onDesktop {
+      text-align: left;
+      font-size: 65px;
+
+    }
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+
+    @include onTablet {
+      text-align: left;
+      max-width: 250px;
+    }
+
+    @include onDesktop {
+      text-align: left;
+      max-width: 300px;
+    }
+  }
+
+  &__speaker {
+    height: 245px;
+
+    @include onTablet {
+      order: 2;
+    }
+
+    @include onDesktop {
+      order: 2;
+    }
+
+    &--img {
+      position: absolute;
+      left: 0;
+      z-index: -1;
+
+      height: 245px;
+      width: 100%;
+      object-fit: cover;
+      object-position: left;
+
+      padding-bottom: 40px;
+
+      @include onTablet {
+        position: relative;
+        height: 365px;
+      }
+
+      @include onDesktop {
+        position: relative;
+        height: 465px;
+      }
+    }
+  }
+}

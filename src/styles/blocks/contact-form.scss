@@ -1,0 +1,108 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  @include onTablet {
+    flex-direction: row;
+    margin: auto;
+    max-width: 1200px;
+  }
+
+  &__area {
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    width: 80%;
+    gap: 20px;
+  }
+
+  &__titile {
+    width: 80%;
+    font-family: DINPro, sans-serif;
+    font-size: 37px;
+    line-height: 46px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 56px;
+      line-height: 72px;
+      text-align: left;
+      padding: 0 40px;
+    }
+  }
+
+  &__form-field {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 48px;
+    border: 1px solid #828282;
+    padding: 14px 30px;
+    font-family: inherit;
+    transition: border-color 0.4s;
+
+    &:hover {
+      border-color: $thirdColor;
+    }
+
+    &:focus {
+      outline: none;
+      border: 2px solid $thirdColor;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    &::placeholder {
+      font-size: 16px;
+      line-height: 19px;
+      color: #bdbdbd;
+    }
+
+    &--textarea {
+      height: 128px;
+      resize: none;
+
+      @include onTablet {
+        height: 200px;
+      }
+
+      @include onDesktop {
+        height: 128px;
+      }
+    }
+  }
+
+  &--textarea {
+    height: 128px;
+    resize: none;
+  }
+
+  &__button {
+    width: 102px;
+    height: 40px;
+    border: 1px solid transparent;
+    color: #fff;
+    background-color: $thirdColor;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: bold;
+    transition: background-color 0.5s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(238, 237, 237);
+      color: $thirdColor;
+      border: 2px solid $thirdColor;
+    }
+  }
+}
