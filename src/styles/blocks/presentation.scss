@@ -1,0 +1,59 @@
+.presentation {
+  position: relative;
+
+  &__video {
+    width: 100%;
+  }
+
+  &__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 108px;
+    height: 108px;
+    border: 1px solid #f3f4f5;
+    border-radius: 50%;
+    font-family: "DIN Pro", sans-serif;
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #f3f4f5;
+    background-color: transparent;
+    cursor: pointer;
+
+    &::after {
+      content: "PLAY";
+    }
+
+    &:hover::after {
+      @include tablet {
+        content: "";
+      }
+    }
+
+    @include tablet {
+      width: 190px;
+      height: 190px;
+      font-size: 20px;
+
+      &:hover {
+        background-image: url(../images/play1.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+
+    @include desktop {
+      width: 232px;
+      height: 232px;
+      font-size: 24px;
+
+      &:hover {
+        background-image: url(../images/play2.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}

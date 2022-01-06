@@ -1,0 +1,122 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include tablet {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(8, 70px);
+    grid-template-rows: 152px 146px 57px;
+    gap: 30px 20px;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(12, 72px);
+    grid-template-rows: 152px 123px 53px;
+    gap: 30px;
+  }
+
+  &__title {
+    margin-bottom: 50px;
+    font-family: "DIN Pro", sans-serif;
+    font-size: 37px;
+    line-height: 55px;
+    text-transform: uppercase;
+    color: #333;
+
+    @include tablet {
+      grid-column: 4 / 9;
+      grid-row: 1 / 2;
+      z-index: 1;
+      margin-bottom: 0;
+      font-size: 56px;
+      line-height: 72px;
+    }
+
+    @include desktop {
+      grid-column: 7 / 12;
+      grid-row: 1 / 2;
+      font-size: 56px;
+      line-height: 72px;
+    }
+  }
+
+  &__scetch {
+    margin-bottom: 30px;
+
+    @include tablet {
+      grid-column: 1 / 5;
+      grid-row: 1 / 4;
+      margin-left: -34px;
+      margin-bottom: 0;
+    }
+
+    @include desktop {
+      grid-column: 2 / 8;
+      grid-row: 1 / 4;
+      margin-left: 0;
+    }
+  }
+
+  &__text {
+    margin: 30px 0;
+    font-size: 14px;
+    line-height: 21px;
+    color: #7c7c7c;
+
+    @include tablet {
+      grid-column: 5 / 9;
+      grid-row: 2 / 3;
+      margin: 0;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @include desktop {
+      grid-column: 8 / 12;
+      grid-row: 2 / 3;
+    }
+  }
+
+  &__link-wrapper {
+    width: 260px;
+
+    @include tablet {
+      grid-column: 5 / 7;
+      grid-row: 3 / 4;
+    }
+
+    @include desktop {
+      grid-column: 8 / 12;
+      grid-row: 3 / 4;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    align-self: flex-start;
+    position: relative;
+    width: 126px;
+    height: 15px;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #0db2b3;
+
+    &::after {
+      content: "";
+      cursor: initial;
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 53px;
+      border: 1px solid #0db2b3;
+      transition: width 0.3s;
+    }
+
+    &:hover::after {
+      width: 122px;
+    }
+  }
+}
