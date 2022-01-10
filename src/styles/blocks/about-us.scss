@@ -1,0 +1,74 @@
+.about-us {
+  &__image-container {
+    position: relative;
+    width: 100%;
+    max-height: 388px;
+    z-index: -1;
+
+    &::after {
+      content: "";
+      padding-bottom: 100%;
+      display: block;
+    }
+
+    @include mobile {
+      margin-bottom: 30px;
+      max-height: 380px;
+    }
+
+    @include tablet {
+      max-height: 415px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__title {
+    margin: 0 0 30px;
+
+    @include mobile {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__paragraph {
+    margin: 0 0 30px;
+    color: #7c7c7c;
+
+    @include mobile {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 21px;
+    }
+  }
+
+  &__link {
+    padding-bottom: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $colorGreen;
+
+    &::after {
+      content: "";
+      display: block;
+      box-sizing: border-box;
+      width: 54px;
+      border: 1px solid $colorGreen;
+      transition: all 0.5s;
+    }
+
+    &:hover {
+      &::after {
+        width: 124px;
+      }
+    }
+  }
+}
