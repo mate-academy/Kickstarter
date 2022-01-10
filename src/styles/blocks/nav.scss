@@ -1,0 +1,76 @@
+.nav {
+  display: none;
+
+  @include onTablet {
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+
+    list-style: none;
+  }
+
+  &__item {
+    padding-left: 26px;
+
+    @include onDesktop {
+      padding-left: 36px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    text-transform: uppercase;
+
+    font-size: 14px;
+    line-height: 18px;
+
+    &--specs {
+      color: $c-darkgrey;
+
+      &:hover {
+        color: $c-turquoise;
+        font-weight: bold;
+      }
+    }
+
+    &--lang {
+      color: $c-granit;
+    }
+
+    &--en {
+      &:hover {
+        color: $c-turquoise;
+        font-weight: bold;
+      }
+    }
+
+    &--ua {
+      color: $c-lightgrey;
+
+      &:hover {
+        color: $c-turquoise;
+        font-weight: bold;
+      }
+    }
+
+    &--buy {
+      @extend %text-m;
+
+      font-size: 12px;
+      line-height: 15px;
+      color: #fff;
+
+      padding: 16px 40px;
+      background-color: $c-granit;
+
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $c-black;
+      }
+    }
+  }
+}

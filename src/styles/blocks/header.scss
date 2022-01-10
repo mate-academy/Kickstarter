@@ -1,0 +1,130 @@
+.header {
+  overflow-x: hidden;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 48px;
+    padding-top: 26px;
+    margin-bottom: 12px;
+
+    @include onTablet {
+      padding-top: 12px;
+      margin-bottom: 100px;
+    }
+
+    @include onDesktop {
+      padding-top: 12px;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+
+    @include onDesktop {
+      margin-bottom: 148px;
+    }
+  }
+
+  &__photo {
+    height: 245px;
+    width: 320px;
+    margin-bottom: 40px;
+
+    object-fit: cover;
+
+    @include onTablet {
+      height: 365px;
+      margin-bottom: 0;
+      width: 800px;
+      // transform: translateX(-10px);
+    }
+
+    @include onDesktop {
+      height: 464px;
+      width: 950px;
+    }
+  }
+
+  &__title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      justify-content: flex-end;
+      align-items: flex-start;
+
+      width: 280px;
+    }
+
+    @include onDesktop {
+      width: 378px;
+    }
+  }
+
+  &__title {
+    @extend %title;
+
+    width: 340px;
+
+    display: block;
+    font-size: 44px;
+    font-family: "DIN Pro Black", Helvetica, sans-serif;
+    line-height: 130%;
+    font-weight: bolder;
+    text-align: center;
+    text-transform: uppercase;
+
+    margin-bottom: 24px;
+
+    @include onTablet {
+      font-size: 48px;
+      text-align: left;
+      margin-bottom: 34px;
+    }
+
+    @include onDesktop {
+      font-size: 64px;
+      margin-bottom: 28px;
+    }
+  }
+
+  &__text {
+    @extend %text-l;
+
+    line-height: 24px;
+    text-align: center;
+    font-weight: bold;
+
+    max-width: 300px;
+
+    @include onTablet {
+      text-align: left;
+      width: 250px;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      width: 276px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__menu {
+    @include onTablet {
+      display: none;
+    }
+  }
+}

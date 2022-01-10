@@ -1,0 +1,115 @@
+.contact-us {
+  &__container {
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    @extend %title;
+
+    font-size: 37px;
+    line-height: 46px;
+    color: $c-granit;
+    text-transform: uppercase;
+
+    margin-bottom: 30px;
+
+    @include onTablet {
+      width: 340px;
+
+      font-size: 56px;
+      line-height: 72px;
+    }
+
+    @include onDesktop {
+      width: 480px;
+    }
+  }
+
+  &__form {
+
+    &::placeholder {
+      line-height: 20px;
+      color: $c-lightgrey;
+    }
+
+    @include onTablet {
+      max-width: 538px;
+      flex-grow: 1;
+      margin-left: 20px;
+    }
+
+    @include onDesktop {
+      margin-left: 102px;
+    }
+  }
+
+  &__field {
+    display: block;
+    width: 100%;
+
+    font-size: 14px;
+    line-height: 24px;
+    color: $c-granit;
+
+    border: 2px solid #828282;
+    padding: 16px 30px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &--email {
+      font-family: inherit;
+      height: 48px;
+      margin-bottom: 18px;
+    }
+
+    &--textarea {
+      height: 128px;
+      font-family: inherit;
+      margin-bottom: 30px;
+      resize: none;
+
+      @include onTablet {
+        height: 200px;
+      }
+
+      @include onDesktop {
+        height: 128px;
+      }
+    }
+  }
+
+  &__button {
+    @extend %text-l;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 102px;
+    height: 42px;
+
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+
+    background-color: $c-turquoise;
+    border: 0;
+    outline: none;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $c-green;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.overview {
+  @include onPhone {
+    &:not(.overview:first-child) {
+      display: none;
+    }
+  }
+
+  max-width: 500px;
+
+  transition: transform 0.3s;
+
+  @include onTablet {
+    max-width: 450px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &__img-container {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 50px;
+  }
+
+  &__img {
+    height: 48px;
+  }
+
+  &__title {
+    @extend %title-r;
+
+    height: 36px;
+    margin-bottom: 40px;
+
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__about {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $c-grey;
+  }
+
+}

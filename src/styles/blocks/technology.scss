@@ -1,0 +1,109 @@
+.technology {
+  overflow: hidden;
+
+  &__title {
+    @extend %title;
+
+    font-size: 36px;
+    line-height: 56px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 40px;
+
+    @include onTablet {
+      font-size: 56px;
+      line-height: 72px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__photo-container {
+    margin-bottom: 90px;
+
+    @include onTablet {
+      margin-bottom: 116px;
+    }
+  }
+
+  &__photo {
+    height: 280px;
+    object-fit: contain;
+
+    @media (min-width: 600px) {
+      height: 546px;
+    }
+  }
+
+  &__person-photo {
+    height: 62px;
+    width: 62px;
+
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    @extend %title-m;
+
+    font-size: 14px;
+    line-height: 21px;
+
+    display: block;
+    text-align: center;
+    font-weight: bold;
+
+    margin-bottom: 40px;
+    position: relative;
+
+    @media (min-width: 600px) {
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    @include onDesktop {
+      max-width: 786px;
+    }
+  }
+
+  &__name {
+    display: block;
+
+    font-weight: bold;
+    line-height: 27px;
+    text-align: center;
+
+    margin-bottom: 5px;
+
+    position: relative;
+
+    &:after {
+      position: absolute;
+      content: url(../images/icons/quotes.svg);
+      height: 171px;
+      left: -60%;
+      top: -270px;
+
+      z-index: -1;
+
+      @include onTablet {
+        top: -300px;
+      }
+    }
+  }
+
+  &__post {
+    display: block;
+
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+
+    color: $c-grey;
+  }
+}

@@ -1,0 +1,156 @@
+.about-us {
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__title {
+    @extend %title;
+
+    display: none;
+
+    font-size: 36px;
+    line-height: 56px;
+
+    margin-bottom: 50px;
+    width: 386px;
+
+    @include onTablet {
+      display: block;
+
+      font-size: 56px;
+      line-height: 72px;
+
+      margin-bottom: 30px;
+      // order: 2;
+
+      transform: translateX(-30%);
+    }
+
+    &--crutch {
+      @extend %title;
+
+      font-size: 36px;
+      line-height: 56px;
+
+      margin-bottom: 50px;
+      // width: 386px;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__order {
+    // padding-left: 20px;
+    width: 100%;
+    max-width: 550px;
+
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      padding-left: 30px;
+
+      display: flex;
+      flex-direction: column;
+      // order: 3;
+    }
+  }
+
+  &__photo-container {
+    direction: rtl;
+    overflow: hidden;
+
+    width: 260px;
+
+    margin-bottom: 28px;
+
+    @include onTablet {
+      width: 900px;
+      height: 414px;
+      // order: 1;
+    }
+
+    @include onDesktop {
+      width: 1200px;
+      height: 388px;
+    }
+  }
+
+  &__photo {
+
+    width: 100%;
+
+    @include onTablet {
+
+      // height: 100%;
+      min-width: 622px;
+      height: 100%;
+      // width: 622px;
+      // min-width: 100%;
+    }
+
+    @include onDesktop {
+      height: 100%;
+      min-width: 622px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 28px;
+
+    // max-width: 550px;
+
+    line-height: 24px;
+    color: $c-grey;
+
+    @include onTablet {
+      order: 3;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $c-turquoise;
+
+    align-self: flex-start;
+
+    margin-bottom: 20px;
+
+    @include onTablet {
+      order: 4;
+    }
+
+    &:after {
+      display: block;
+
+      content: "";
+      height: 1px;
+      width: 52px;
+      background-color: $c-turquoise;
+      margin-top: 8px;
+
+      transition: width 0.3s;
+    }
+
+    &:hover:after {
+      width: 120px;
+    }
+  }
+}
