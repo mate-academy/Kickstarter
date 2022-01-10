@@ -1,0 +1,70 @@
+.nav {
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    margin: 0 30px;
+    
+    @include mobile {
+      padding: 20px 0;
+    }
+
+    transition: all 0.5s;
+
+    &:hover {
+      transform: scale(115%);
+    }
+  }
+
+  &__link {
+    transition: all 0.5s;
+
+    @include mobile {
+      font-size: 25px;
+
+      &:hover {
+        @include mobile {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    display: none;
+  }
+
+  @include mobile {
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    z-index: 1;
+    overflow: auto;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    width: 60%;
+    background-color: $colorGreen;
+    border-radius: 10px;
+    transform: translateY(-100%);
+    transition: all 0.5s;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+}
