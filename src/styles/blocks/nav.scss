@@ -8,7 +8,6 @@
     justify-content: center;
 
     @include mobile {
-      display: flex;
       flex-direction: column;
     }
   }
@@ -32,12 +31,6 @@
 
     @include mobile {
       font-size: 25px;
-
-      &:hover {
-        @include mobile {
-          color: #fff;
-        }
-      }
     }
   }
 
@@ -47,24 +40,36 @@
 
   @include mobile {
     box-sizing: border-box;
-    padding: 20px;
     text-align: center;
     z-index: 1;
-    overflow: auto;
+    overflow-y: auto;
 
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
     height: 100vh;
-    width: 60%;
-    background-color: $colorGreen;
-    border-radius: 10px;
+
+    background-color: $c-gray;
     transform: translateY(-100%);
     transition: all 0.5s;
 
     &:target {
       transform: translateY(0);
+    }
+  }
+
+  &__mob-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 28px 30px 22px;
+    height: 76px;
+    margin-bottom: 45px;
+
+    @media (min-width: 768px) {
+      display: none;
     }
   }
 }
