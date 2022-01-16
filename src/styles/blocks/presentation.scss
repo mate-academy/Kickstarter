@@ -1,0 +1,66 @@
+.presentation {
+  &__content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/presentation_bg_1440px.jpg);
+    width: 100%;
+    height: 246px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 400px;
+    }
+
+    @include onDesktop {
+      height: 590px;
+    }
+  }
+
+  &__circle-img {
+    border: 1px solid #f3f4f5;
+    border-radius: 50%;
+    width: 108px;
+    height: 108px;
+
+    @include onTablet {
+      width: 190px;
+      height: 190px;
+    }
+
+    @include onDesktop {
+      width: 232px;
+      height: 232px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 18px;
+      height: 18px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image: url(../images/play_triangle.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      @include onDesktop {
+        content: "play";
+        background-image: none;
+        width: 56px;
+        height: 18px;
+        text-transform: uppercase;
+        text-align: center;
+        font-family: DIN Pro, sans-serif;
+        font-size: 24px;
+        line-height: 18px;
+        color: #f3f4f5;
+      }
+    }
+  }
+}
