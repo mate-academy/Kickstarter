@@ -1,0 +1,49 @@
+.icon {
+  cursor: pointer;
+
+  &--menu {
+    @include onDesktop768px {
+      display: none;
+    }
+  }
+
+  &--cross {
+    width: 21px;
+  }
+
+  &__slider {
+    display: flex;
+
+    @include onDesktop768px {
+      display: none;
+    }
+
+    &-counter {
+      @extend %link;
+    }
+
+    &--left {
+      width: 48px;
+      height: 13px;
+      background-image: url(../images/icons/left-slider.svg);
+
+      &:not([disabled]):hover {
+        background-image: url(../images/icons/left-sliderHover.svg);
+      }
+    }
+    &--right {
+      width: 48px;
+      height: 13px;
+      background-image: url(../images/icons/right-slider.svg);
+
+      &:not([disabled]):hover {
+        background-image: url(../images/icons/right-sliderHover.svg);
+      }
+    }
+
+    &--left:not([disabled]):hover,
+    &--right:not([disabled]):hover {
+      cursor: pointer;
+    }
+  }
+}

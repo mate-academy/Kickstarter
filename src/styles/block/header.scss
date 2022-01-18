@@ -1,0 +1,84 @@
+.header {
+
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 28px;
+    align-items: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include onDesktop768px {
+      flex-direction: row-reverse;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    @include onDesktop1440px {
+      gap: 350px;
+    }
+
+    &-box {
+      overflow: hidden;
+      margin: 0 -30px;
+      
+
+      @include onDesktop768px {
+        margin: 0;
+      }
+
+      &-img {
+        height: 245px;
+        @include onDesktop768px {
+          height: 350px;
+        }
+
+        @include onDesktop1280px {
+          height: 440px;
+        }
+      }
+    }
+
+    &-card {
+      text-align: center;
+
+      @include onDesktop768px {
+        margin-top: 135px;
+        text-align: left;
+        width: 245px;
+      }
+
+      &-title {
+        @extend %h1;
+        font-size: 44px;
+        text-transform: uppercase;
+        line-height: 62px;
+
+        @include onDesktop768px {
+          font-size: 48px;
+        }
+
+        
+        @include onDesktop1440px {
+          font-size: 64px;
+          line-height: 83px;
+        }
+      }
+
+      &-text {
+        @extend %header-card;
+        font-size: 16px;
+        padding-top: 23px;
+        line-height: 24px;
+
+        @include onDesktop1440px {
+          width: 276px;
+        }
+      }
+    }
+  }
+}

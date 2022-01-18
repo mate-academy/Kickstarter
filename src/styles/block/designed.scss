@@ -1,0 +1,116 @@
+.designed {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+
+  @include onDesktop768px {
+    position: relative;
+  }
+
+  @include onDesktop1440px {
+    
+    left: 25%;
+  }
+
+  &__title {
+    @extend %h2;
+    font-size: 37px;
+    line-height: 55px;
+    padding-top: 89px;
+    text-align: center;
+
+    @include onDesktop768px {
+      position: absolute;
+      width: 460px;
+      font-size: 56px;
+      line-height: 72px;
+      text-align: left;
+      top: -30px;
+      left: 390px;
+    }
+
+    @include onDesktop1440px {
+      width: 490px;
+    }
+  }
+
+  &__imgWrap {
+
+    @include onDesktop768px {
+      width: 582px;
+      height: 415px;
+      margin-left: -120px;
+    }
+  }
+
+  &__img {
+    padding-top: 50px;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include onDesktop768px {
+      flex-direction: row;
+    }
+
+    &-block {
+
+      @include onDesktop768px {
+        padding-top: 220px;
+      }
+    }
+
+    &-text {
+      @extend %text;
+      font-size: 14px;
+      line-height: 21px;
+      width: 260px;
+      padding-top: 49px;
+      padding-bottom: 30px;
+      align-self: center;
+      text-align: left;
+
+      @include onDesktop768px {
+        font-size: 16px;
+        line-height: 24px;
+        width: 340px;
+        padding-top: 29px;
+      }
+
+      @include onDesktop1440px {
+        width: 378px;
+      }
+    }
+
+    &-link {
+      position: relative;
+      @extend %greenLink;
+      font-size: 12px;
+      line-height: 15px;
+      padding-bottom: 20px;
+      align-self: flex-start;
+      
+      &::after {
+        content: "";
+        width: 53px;
+        position: absolute;
+        border: 1px solid $c-green;
+        box-sizing: border-box;
+        transform: matrix(1, 0, 0, -1, 0, 0);
+        left: 0;
+        top: 18px;
+      }
+
+      &:hover::after {
+        width: 100%;
+        transition: 0.3s ease;
+      }
+    }
+  }
+}

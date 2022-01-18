@@ -1,0 +1,70 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding-top: 59px;
+  align-items: center;
+  position: relative;
+
+  &__logo {
+    display: flex;
+   
+    
+    &-img {
+      display: none;
+
+      @include onDesktop768px {
+        display: block;
+        padding-top: 59px;
+        @include hover(transform, scale(1.1));
+      }
+    }
+
+    &-up {
+      position: absolute;
+      right: 20px;
+      top: 0;
+      padding-top: 53px;
+      @include hover(transform, scale(1.1));
+
+      @include onDesktop1440px {
+        padding-top: 113px;
+      }
+    }
+
+  }
+
+  &__socials {
+    padding-top: 24px;
+    display: flex;
+    gap: 46px;
+
+    @include onDesktop768px {
+      padding-top: 62px;
+    }
+
+    &-icon {
+      cursor: pointer;
+      pointer-events: fill;
+      @include hover(transform, scale(1.1));
+    }
+
+  }
+
+  &__text {
+    @extend %placeholder;
+    font-size: 12px;
+    line-height: 21px;
+    text-align: center;
+    padding-top: 23px;
+    width: 260px;
+
+    @include onDesktop768px {
+      padding-top: 108px;
+      width: 100%;
+    }
+
+    @include onDesktop1440px {
+      padding-top: 70px;
+    }
+  }
+}

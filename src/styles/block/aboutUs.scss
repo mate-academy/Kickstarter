@@ -1,0 +1,103 @@
+.aboutUs {
+  padding-top: 101px;
+
+  &__block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &-buttons {
+      display: flex;
+      padding-top: 25px;
+
+      @include onDesktop768px {
+        display: none;
+      }
+    }
+
+    &-counter {
+      padding-top: 10px;
+
+      @include onDesktop768px {
+        display: none;
+      }
+
+      &--left {
+        @extend %h2;
+        font-size: 16px;
+        color: $c-brown;
+      }
+
+      &--right {
+        @extend %h2;
+        color: $c-lightGrey;
+        font-size: 11px;
+      }
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    div:not(:first-child) {
+      display: none;
+      
+      @include onDesktop768px {
+        display: block;
+        justify-content: center;
+      }
+    }
+
+    div:nth-child(odd) {
+      padding-right: 20px;
+    }
+
+    @include onDesktop1440px {
+      flex-wrap: nowrap;
+      gap: 30px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 260px;
+    height: 330px;
+
+    @include onDesktop1440px {
+      width: 274px;
+    }
+
+    @include onDesktop768px {
+      width: 46%;
+    }
+
+    &-wrapIcon {
+      height: 44px;
+      align-self: center;
+    }
+
+    &-title {
+      @extend %h2;
+      text-transform: uppercase;
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+      padding-top: 40px;
+
+      @include onDesktop1440px {
+        height: 60px;
+      }
+    }
+
+    &-content {
+      @extend %text;
+      font-size: 14px;
+      line-height: 21px;
+      padding-top: 50px;
+    }
+  }
+}

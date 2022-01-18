@@ -1,0 +1,81 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+
+  @include onDesktop768px {
+    flex-direction: row;
+    gap: 30px;
+    justify-content: space-around;
+  }
+
+  &__title {
+    @extend %h2;
+    font-size: 37px;
+    line-height: 46px;
+    text-transform: uppercase;
+    padding-bottom: 30px;
+
+    @include onDesktop768px {
+      font-size: 56px;
+      line-height: 70px;
+      width: 340px;
+    }
+
+    @include onDesktop1440px {
+      width: 480px;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @include onDesktop768px {
+      width: 438px;
+    }
+
+    &-field {
+      padding: 15px 30px;
+      @extend %text;
+
+      &::placeholder {
+        @extend %placeholder;
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+    
+    &-textarea {
+      margin-top: 19px;
+      height: 128px;
+
+      @include onDesktop768px {
+        height: 201px;
+      }
+
+      @include onDesktop1440px {
+        height: 128px;
+      }
+    }
+
+    &-btn {
+      margin-top: 30px;
+      padding: 12px 0;
+      width: 102px;
+      background-color: $c-green;
+      @extend %link;
+      color: $c-white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      @include hover(background-color, #0c797a);
+
+      &:active {
+        background-color: #cfeff0;
+      }
+    }
+  }
+}
