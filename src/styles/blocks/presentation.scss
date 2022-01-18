@@ -1,25 +1,28 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
 .presentation {
   margin-bottom: 150px;
 
-  @media (max-width: 1280px) {
+  @include onTablet {
     margin-bottom: 130px;
   }
 
-  @media (max-width: 768px) {
+  @include onMobile {
     margin-bottom: 97px;
   }
 
   &__container {
     max-width: 1194px;
     margin: 0 auto;
-    padding: 0 34px;
+    padding: 10px 34px 0;
     box-sizing: border-box;
 
-    @media (max-width: 1280px) {
+    @include onTablet {
       padding-left: 0;
     }
 
-    @media (max-width: 768px) {
+    @include onMobile {
       padding: 0 30px;
     }
   }
@@ -30,9 +33,10 @@
     line-height: 72px;
     color: #333;
 
-    @media (max-width: 768px) {
+    @include onMobile {
       font-size: 37px;
       line-height: 55px;
+      margin-bottom: 50px;
     }
   }
 
@@ -51,8 +55,9 @@
     line-height: 25px;
     font-weight: 500;
     text-transform: uppercase;
-    color: #0db2b3;
+    color: $green-color;
     text-decoration: none;
+    transition: background-color 0.3s;
 
     &::after {
       content: "";
@@ -61,7 +66,7 @@
       left: 0;
       width: 54px;
       height: 1.5px;
-      background-color: #0db2b3;
+      background-color: $green-color;
     }
 
     &:hover {
@@ -79,9 +84,8 @@
 
   &__image {
     position: static;
-    grid-column: 2 / 8;
     object-position: right;
-    height: auto;
+    height: 60%;
     right: 50%;
     top: 0;
 
@@ -93,7 +97,7 @@
       position: relative;
       overflow: hidden;
       z-index: -1;
-      bottom: 45%;
+      bottom: 65%;
 
       @media (max-width: 768px) {
         position: static;
@@ -102,7 +106,6 @@
       }
 
       &--img {
-        margin-bottom: 30px;
 
         @media (max-width: 768px) {
           width: 100%;
@@ -143,7 +146,6 @@
 
   &--desktop-2-7 {
     grid-column: 2/8;
-    margin-bottom: 30px;
 
     @media (max-width: 768px) {
       margin-bottom: 50px;
@@ -152,6 +154,7 @@
 
   &--desktop-8-11 {
     grid-column: 8/12;
+    height: fit-content;
   }
 
   &--desktop-7-11 {

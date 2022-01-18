@@ -1,15 +1,52 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
 .footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 
   &__logo {
     display: flex;
     justify-content: center;
     margin-bottom: 64px;
 
-    @media (max-width: 768px) {
+    @include onMobile {
       display: none;
+    }
+  }
+
+  &__arrows {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+    padding: 0 34px;
+
+    @include onTablet {
+      grid-template-columns: repeat(8, 1fr);
+    }
+
+    @include onMobile {
+      grid-template-columns: repeat(4, 1fr);
+      padding: 0 30px;
+    }
+
+    &__link {
+      grid-column: 11/11;
+      margin-left: 11px;
+      margin-right: 67px;
+      margin-top: 20px;
+
+      @include onTablet {
+        grid-column: 8/8;
+      }
+
+      @include onMobile {
+        grid-column: 4/4;
+        text-align: right;
+        margin-bottom: 24px;
+      }
     }
   }
 
@@ -18,20 +55,35 @@
     justify-content: center;
     margin-bottom: 70px;
 
-    @media (max-width: 1280px) {
+    @include onTablet {
       margin-bottom: 108px;
     }
 
-    @media (max-width: 768px) {
+    @include onMobile {
       margin-bottom: 23px;
     }
   }
 
   &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 21px;
+    border-radius: 2px;
     margin-right: 46px;
+    transition: transform 0.3s;
 
     &:last-child {
       margin-right: 0;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:focus {
+      border-radius: 5px;
+      box-shadow: $box-shadow-color;
     }
   }
 
@@ -41,9 +93,9 @@
     padding: 0 30px;
     font-size: 14px;
     line-height: 21px;
-    color: #bdbdbd;
+    color: $grey-color;
 
-    @media (max-width: 768px) {
+    @include onMobile {
       font-size: 12px;
     }
   }

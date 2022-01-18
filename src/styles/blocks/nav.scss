@@ -1,9 +1,13 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
 .nav {
 
-  @media (max-width: 768px) {
+  @include onMobile {
     display: flex;
     align-items: center;
   }
+
   &__link {
     text-decoration: none;
 
@@ -34,11 +38,11 @@
       font-weight: bold;
       text-transform: uppercase;
       background-color: #333;
-      color: #fff;
+      color: $white-color;
       transition: all 0.3s;
 
       &:hover {
-        background-color: #fff;
+        background-color: $white-color;
         color: #333;
         box-shadow: 0 10px 20px #999;
       }
@@ -52,7 +56,7 @@
     list-style: none;
     box-sizing: border-box;
 
-    @media (max-width: 768px) {
+    @include onMobile {
       display: none;
     }
 
@@ -96,7 +100,7 @@
       opacity: 0;
     }
 
-    @media (max-width: 768px) {
+    @include onMobile {
       display: block;
     }
   }

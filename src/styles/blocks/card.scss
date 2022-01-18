@@ -1,11 +1,15 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
 .card {
   flex-basis: 276px;
 
-  @media (max-width: 1280px) {
+  @include onTablet {
     flex-basis: 47%;
     gap: 20px;
   }
-  @media (max-width: 768px) {
+
+  @include onMobile {
     flex-basis: 100%;
   }
 
@@ -17,7 +21,7 @@
     display: block;
     margin: 0 auto 47px;
 
-    @media (max-width: 768px) {
+    @include onMobile {
       margin-bottom: 40px;
     }
   }
@@ -35,11 +39,11 @@
     text-transform: uppercase;
     color: #333;
 
-    @media (max-width: 1280px) {
+    @include onTablet {
       margin-bottom: 20px;
     }
 
-    @media (max-width: 768px) {
+    @include onMobile {
       margin-bottom: 50px;
     }
   }
@@ -49,7 +53,7 @@
       text-align: center;
       font-size: 14px;
       line-height: 21px;
-      color: #7c7c7c;
+      color: $color-text-card;
     }
   }
 }
