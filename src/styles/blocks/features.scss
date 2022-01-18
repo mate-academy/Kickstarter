@@ -1,12 +1,39 @@
 .features {
-  padding-bottom: 200px;
   position: relative;
+  background-color: #f2f2f2;
+  overflow: hidden;
 
   @include onTablet {
-    padding-bottom: 0;
+    background-color: unset;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 222px;
+    width: 100%;
+    background-image: url(../images/features_bg.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onTablet {
+      left: 30%;
+      bottom: 200px;
+      height: 379px;
+      width: 576px;
+    }
+
+    @include onDesktop {
+      left: 40%;
+      bottom: 50px;
+      height: 509px;
+      width: 768px;
+    }
   }
 
   &__content {
+    position: relative;
 
     &::after {
       content: "";
@@ -21,39 +48,15 @@
       background-color: #f2f2f2;
 
       @include onTablet {
-        width: 80%;
+        // width: 70%;
         height: 660px;
         top: 370px;
+        left: 150px;
         right: 0;
-      }
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      // left: 0;
-      // right: 0;
-      bottom: 0;
-      height: 222px;
-      width: 344px;
-      background-image: url(../images/features_bg.png);
-      background-repeat: no-repeat;
-      background-size: contain;
-      z-index: -1;
-
-      @include onTablet {
-        left: 30%;
-        bottom: 200px;
-        height: 379px;
-        width: 576px;
-        overflow: hidden;
       }
 
       @include onDesktop {
-        left: 40%;
-        bottom: 100px;
-        height: 509px;
-        width: 768px;
+        left: 250px;
       }
     }
   }
@@ -75,15 +78,11 @@
 
   &__item {
     display: block;
-    // width: max-content;
     margin: 0 auto;
-    // display: flex;
-    // flex-direction: column;
-    // // justify-content: center;
-    // align-items: center;
-    margin-bottom: 50px;
 
     &--top {
+      margin-bottom: 50px;
+
       @include onTablet {
         margin-bottom: 58px;
       }
@@ -94,6 +93,8 @@
     }
 
     &--middle {
+      margin-bottom: 50px;
+
       @include onTablet {
         margin-bottom: 78px;
       }
@@ -124,7 +125,6 @@
   }
 
   &__list {
-
     list-style: inherit;
   }
 
