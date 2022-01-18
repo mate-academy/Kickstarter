@@ -18,11 +18,26 @@
   &__wrap {
     position: relative;
     width: 100%;
+    height: 100%;
     padding-top: 40px;
 
     &-img {
+      background-image: url(../images/img/technology.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: left;
+      width: 100%;
+      height: 277px;
       max-width: 1024px;
-      margin: 0 auto;
+      left: 0;
+
+      @include onDesktop768px {
+        height: 560px;
+      }
+
+      @include onDesktop1024px {
+        background-size: contain;
+      }
     }
 
     &-block-link {
@@ -51,9 +66,25 @@
 
           &:after {
             position: absolute;
-            content: url(../images/icons/Group.svg);
-            right: 0;
+            content: url(../images/icons/technologyGroup.svg);
+            right: 20px;
             top: 65px;
+          }
+
+          &:nth-child(6):after {
+            position: absolute;
+            content: url(../images/icons/technologyGroup1.svg);
+            left: 20px;
+            top: 65px;
+          }
+
+          &:nth-child(5):after,
+          &:nth-child(2):after,
+          &:nth-child(7):after {
+            position: absolute;
+            content: url(../images/icons/technologgyGroup2.svg);
+            left: -180px;
+            top: 60px;
           }
         }
       }
