@@ -1,0 +1,59 @@
+.arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__prev {
+    position: relative;
+    width: 48px;
+    height: 13px;
+    cursor: pointer;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 45%;
+      left: -2%;
+      width: 20px;
+      height: 1px;
+      background-color: #bdbdbd;
+      transform: rotate(35deg);
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      display: block;
+      width: 48px;
+      height: 1px;
+      background-color: #bdbdbd;
+    }
+  }
+  &__next {
+    position: relative;
+    width: 48px;
+    height: 13px;
+    cursor: pointer;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 45%;
+      right: -3%;
+      width: 20px;
+      height: 1px;
+      background-color: $c-text-black;
+      transform: rotate(35deg);
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      display: block;
+      width: 48px;
+      height: 1px;
+      background-color: $c-text-black;
+    }
+  }
+
+  @include onTablet {
+    display: none;
+  }
+}
