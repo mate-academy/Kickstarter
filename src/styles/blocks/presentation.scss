@@ -1,21 +1,23 @@
 .presentation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  height: 250px;
-  
-  background-image: url(../images/video_img.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+    height: 250px;
 
-  @include onTablet {
-    height: 400px;
-  }
+    background-image: url(../images/video_img.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
-  @include onDesktop {
-    height: 70vh;
+    @include onTablet {
+      height: 400px;
+    }
+
+    @include onDesktop {
+      height: 70vh;
+    }
   }
 
   &__play-image {
@@ -29,4 +31,46 @@
       height: 232px;
     }
   }
+
+  &__popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    background-color: rgba(0,0,0,0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &__popup--active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__video {
+    position: relative;
+    max-width: 900px;
+    outline: none;
+    z-index: 100;
+
+    &--close-button {
+      position: absolute;
+      height: 30px;
+      width: 30px;
+      top: 30px;
+      right: 30px;
+      cursor: pointer;
+    }
+  }
 }
+
+// .presentation__popup .presentation__popup--active {
+//   visibility: visible;
+//   opacity: 1;
+// }

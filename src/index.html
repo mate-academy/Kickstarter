@@ -26,8 +26,14 @@
                     </a>
                   </li>
                   <li class="nav__list-item">
-                    <a href="#" class="nav__link">
-                      en/ua
+                    <a href="#" class="nav__link nav__link--en">
+                      en&nbsp
+                    </a>
+                    <a href="#" class="nav__link nav__link--separetor">
+                      /&nbsp
+                    </a>
+                    <a href="#" class="nav__link nav__link--ua">
+                      ua
                     </a>
                   </li>
                   <li class="nav__list-item">
@@ -73,30 +79,30 @@
               <div class="grid__item grid__item--desktop-3-10">
                 <ul class="directions__list">
                   <li class="directions__item">
-                    <a href="#benefits" class="directions__link">
+                    <a href="#presentation" class="directions__link">
                       OUR STORY
                     </a>
                   </li>
                   <li class="directions__item">
-                    <a href="#" class="directions__link">
+                    <a href="#about-us" class="directions__link">
                       ABOUT US
                     </a>
                   </li>
 
                   <li class="directions__item">
-                    <a href="#" class="directions__link">
+                    <a href="#technology" class="directions__link">
                       TECHNOLOGY
                     </a>
                   </li>
 
                   <li class="directions__item">
-                    <a href="#" class="directions__link">
+                    <a href="#features" class="directions__link">
                       FEATURES
                     </a>
                   </li>
 
                   <li class="directions__item">
-                    <a href="#" class="directions__link">
+                    <a href="#questions" class="directions__link">
                       GET IN TOUCH
                     </a>
                   </li>
@@ -165,13 +171,40 @@
         </div>
       </section>
 
-      <section class="presentation" id="presentation">
-        <a href="#" class="presentation__play">
-          <img src="./images/play_btn.svg" alt="play button" class="presentation__play-image">
-        </a>
+      <section class="page__presentation presentation" id="presentation">
+        <div class="presentation__wrapper">
+          <a href="#presentation" class="presentation__play" onclick="toggle();">
+            <img src="./images/play_btn.svg" alt="play button" class="presentation__play-image">
+          </a>
+        </div>
+        <div class="presentation__popup">
+          <iframe
+            class="presentation__video"
+            src="https://www.youtube.com/embed/J49hDugk8jM"
+            title="YouTube video player"
+            width="100%"
+            height="50%"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture
+            "
+            allowfullscreen
+          >
+          </iframe>
+          <img
+            class="presentation__video--close-button"
+            src="./images/logo/close_icon.svg"
+            alt="Close icon"
+            onclick="toggle();"
+          >
+        </div>
       </section>
 
-      <section class="page__about-us about-us">
+      <section class="page__about-us about-us" id="about-us">
         <div class="container">
           <div class="grid grid--wide-screen">
             <div class="grid__item grid__item--tablet-4-8 grid__item--desktop-7-11">
@@ -196,7 +229,7 @@
         </div>
       </section>
 
-      <section class="page__technology technology">
+      <section class="page__technology technology" id="technology">
         <div class="container">
           <div class="grid grid--wide-screen">
             <div class="grid__item grid__item--tablet-2-7 grid__item--desktop-2-6">
@@ -207,7 +240,7 @@
         <img class="technology__image" src="./images/technology__bg--3x.png" alt="technology image">
       </section>
 
-      <section class="page__testimonials testimonials">
+      <section class="page__testimonials testimonials" id="testimonials">
         <div class="container">
           <div class="grid grid--wide-screen">
             <div class="grid__item grid__item--tablet-1-8 grid__item--desktop-3-10">
@@ -228,7 +261,7 @@
         </div>
       </section>
 
-      <section class="page__features features">
+      <section class="page__features features" id="features">
         <div class="container">
           <div class="features__content">
             <div class="grid grid--wide-screen">
@@ -326,7 +359,7 @@
         </div>
       </section>
 
-      <section class="page__questions questions">
+      <section class="page__questions questions" id="questions">
         <div class="container">
           <div class="grid grid--wide-screen">
             <div class="grid__item grid__item--tablet-1-4 grid__item--desktop-2-6">
@@ -363,6 +396,9 @@
     <footer class="page__footer footer">
       <div class="container">
         <div class="footer__content">
+          <a class="footer__arrow-link" href="#">
+            <img class="footer__arrow" src="./images/logo/arrow_up_logo.svg" alt="arrow logo">
+          </a>
           <a href="#" class="logo footer__logo">
             <img src="./images/logo.svg" alt="Logo image" class="logo__img">
           </a>
@@ -383,6 +419,15 @@
         </div>
       </div>
     </footer>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript">
+      function toggle() {
+        const presentationPopup = document.querySelector('.presentation__popup');
+
+        const presentationVideo = document.querySelector('iframe');
+        presentationPopup.classList.toggle('presentation__popup--active');
+        presentationVideo.pause();
+        presentationVideo.currentTime = 0;
+      }
+    </script>
   </body>
 </html>
