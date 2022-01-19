@@ -1,19 +1,51 @@
-.directions {
-  display: none;
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 
-  @include onDesktop {
-    display: block;
+  height: 100vh;
+
+  transform: translateX(100%);
+  transition: transform 0.3s;
+  z-index: 10;
+
+  background-color: #f7f7f7;
+
+  &:target {
+    transform: translateX(0);
   }
 
-  &__list {
+  @include onTablet {
+    display: none;
+  }
+
+  &__top-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    margin-bottom: 30px;
+  }
+
+  &__burger-icon {
+    width: 24px;
+    height: 24px;
+
+    transform: rotate(45deg);
+  }
+
+  &__content {
+    box-sizing: border-box;
+  }
+
+  &__item {
+    margin-bottom: 12px;
   }
 
   &__link {
-    color: #333;
     position: relative;
+    color: #333;
     text-transform: uppercase;
 
     &::before {

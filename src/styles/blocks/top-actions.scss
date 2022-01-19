@@ -1,4 +1,4 @@
-.nav {
+.top-actions{
   position: relative;
 
   &__burger-img {
@@ -6,7 +6,7 @@
     top: 50%;
     right: 30px;
 
-    transform: translateY(-50%);
+    transform: translateY(-60%);
 
     @include onTablet {
       display: none;
@@ -32,6 +32,7 @@
     text-transform: uppercase;
     display: flex;
     justify-content: space-between;
+
   }
 
   &__link {
@@ -40,12 +41,34 @@
     line-height: 17px;
     color: #4f4f4f;
 
-    &--separetor {
+    &--dark {
       color: #333;
     }
 
-    &--en {
-      color: #333;
+    position: relative;
+    transition: width 0.3s;
+
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: transparent;
+      height: 1px;
+      width: 1%;
+      bottom: -5px;
+
+      transition: width 0.3s;
+
+    }
+
+    &:hover {
+     &::before {
+       content: "";
+       position: absolute;
+       background-color: #333;
+       height: 1px;
+       width: 100%;
+       bottom: -5px;
+     }
     }
   }
 

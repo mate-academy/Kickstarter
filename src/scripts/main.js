@@ -1,7 +1,18 @@
 'use strict';
 
-// function toggle() {
-//   const presentationPopup = document.querySelector('.presentation__popup');
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#nav') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
 
-//   presentationPopup.classList.toggle('presentation__popup--active');
-// }
+const makeDefault = document.querySelector('.form');
+
+makeDefault.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  document.getElementsByName('email')[0].value = '';
+  document.getElementsByName('message')[0].value = '';
+});
