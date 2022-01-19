@@ -14,7 +14,41 @@
 @import "./questions.scss";
 @import "./footer.scss";
 
+.page {
+  scroll-behavior: smooth;
+}
+
 .page__body {
   background-color: #f7f7f7;
+
+  &--with-menu {
+    overflow: hidden;
+  }
+}
+
+.link--mod {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #00acdc;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: #00acdc;
+    transition: color 0.3s;
+
+    &::after {
+      transform: scaleX(100%);
+    }
+  }
 
 }
