@@ -1,0 +1,35 @@
+.questions {
+  display: flex;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat($grid-column-numbers-tablet, 1fr);
+    column-gap: $grid-gap-gadgets;
+  }
+
+  @include onMobile {
+    flex-direction: column;
+  }
+
+  &__title {
+    margin-left: 100px;
+    margin-right: 102px;
+    min-width: 480px;
+    width: 480px;
+
+    @include onTablet {
+      margin: 0;
+      grid-column: $grid-start-position / span 4;
+      min-width: 100%;
+      width: 100%;
+    }
+
+    @include onMobile {
+      margin: 0 0 30px;
+      min-width: 100%;
+      width: 100%;
+      font-size: 36px;
+      line-height: 1.25em;
+    }
+  }
+}

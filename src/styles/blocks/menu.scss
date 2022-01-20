@@ -1,0 +1,59 @@
+.menu {
+  display: flex;
+  justify-content: center;
+  height: 76px;
+  width: 100%;
+  max-width: $min-large-screen-width;
+
+  @include onMobile {
+    display: none;
+  }
+
+  @include onTablet {
+    display: none;
+  }
+
+  &__list {
+    padding: 0;
+    display: flex;
+    list-style: none;
+    color: $main-text-color;
+  }
+
+  &__item {
+    display: block;
+    text-align: center;
+    margin-right: 30px;
+
+    &:nth-child(odd) {
+      width: 174px;
+    }
+
+    &:nth-child(even) {
+      width: 76px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:visited {
+      color: $main-text-color;
+    }
+
+    &:hover {
+      color: $active-nav-link-color;
+      font-weight: bold;
+    }
+
+    &:active {
+      font-weight: bold;
+      color: $active-nav-link-color;
+    }
+  }
+}

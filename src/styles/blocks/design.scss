@@ -1,0 +1,60 @@
+.design {
+  display: grid;
+  grid-template-columns: repeat($grid-column-numbers-desktop, 1fr);
+  column-gap: $grid-gap-desktop;
+
+  &__picture {
+
+    grid-column: $grid-end-position / span 6;
+    background-image: url(../images/designed.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*width: 40.4vw;*/
+    height: 27vw;
+    max-height: 0.27 * $min-large-screen-width;
+  }
+
+  &__content {
+    grid-column: $grid-end-position * 4 / span 4;
+  }
+
+  &__title {
+    margin-left: -($grid-gap-desktop + 
+    ($min-large-screen-width - $base-spaces-desktop * 2 -
+    $grid-gap-desktop * ($grid-column-numbers-desktop - 1))
+    / $grid-column-numbers-desktop);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: $secondary-text-color;
+  }
+
+  &__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $green-links-color;
+    font-size: 12px;
+
+    &:visited {
+      color: $green-links-color;
+    }
+
+    &:hover {
+      font-weight: bold;
+    }
+
+    &::after {
+      box-sizing: border-box;
+      display: block;
+      content: "";
+      width: 54px;
+      height: 1px;
+      background-color: $green-links-color;
+      border: 0.5px solid $green-links-color;
+    }
+  }
+}

@@ -1,0 +1,114 @@
+.testimonials {
+
+  &__picture {
+    margin: 0 auto 284px;
+    width: 234px;
+    height: 190px;
+
+    background-image: url(../images/commas.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include onTablet {
+      margin: 0 auto 332px;
+    }
+
+    @include onMobile {
+      margin: 0 auto 168px;
+      width: 208px;
+      height: 172px;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 56px;
+    display: grid;
+    grid-template-columns: repeat($grid-column-numbers-desktop, 1fr);
+    column-gap: $grid-gap-desktop;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      top: 66px;
+      grid-template-columns: repeat($grid-column-numbers-tablet, 1fr);
+      column-gap: $grid-gap-gadgets;
+    }
+
+    @include onMobile {
+      top: 12px;
+      grid-template-columns: repeat($grid-column-numbers-mobile, 1fr);
+      column-gap: $grid-gap-gadgets;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    grid-column: $grid-start-position * 3 / span 8;
+    font-size: 24px;
+    line-height: 1.5em;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 40px;
+      grid-column: $grid-start-position / span $grid-column-numbers-tablet;
+    }
+
+    @include onMobile {
+      margin-bottom: 40px;
+      grid-column: $grid-start-position / span $grid-column-numbers-mobile;
+      font-size: 14px;
+    }
+  }
+
+  &__photo {
+    margin-bottom: 20px;
+    grid-column: $grid-end-position * 3 / span 2;
+    background-image: url(../images/GarrettMartin.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+
+    @include onTablet {
+      grid-column: $grid-end-position * 2 / span 2;
+    }
+
+    @include onMobile {
+      grid-column: $grid-end-position / span 2;
+    }
+  }
+
+  &__name {
+    margin-bottom: 5px;
+    grid-column: $grid-end-position * 3 / span 2;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+
+    @include onTablet {
+      grid-column: $grid-end-position * 2 / span 2;
+    }
+
+    @include onMobile {
+      grid-column: $grid-end-position / span 2;
+    }
+  }
+
+  &__position {
+    grid-column: $grid-end-position * 3 / span 2;
+    text-align: center;
+    line-height: 1.2em;
+    color: $secondary-text-color;
+
+    @include onTablet {
+      grid-column: $grid-end-position * 2 / span 2;
+    }
+
+    @include onMobile {
+      grid-column: $grid-end-position / span 2;
+    }
+  }
+}

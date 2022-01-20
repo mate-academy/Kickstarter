@@ -1,0 +1,97 @@
+.introduction {
+  /*grid-column: $grid-start-position / span $grid-column-numbers-desktop;*/
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+
+  @include onTablet {
+    overflow-x: hidden;
+  }
+
+  @include onMobile {
+    flex-direction: column-reverse;
+  }
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+
+    @include onMobile {
+      align-items: center;
+    }
+  }
+
+  &__title {
+    margin-bottom: 28px;
+    padding-top: 80px;
+    width: 378px;
+    font-size: 64px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      margin-bottom: 36px;
+      padding-top: 32px;
+      width: 340px;
+      font-size: 48px;
+      z-index: 1;
+    }
+
+    @include onMobile {
+      margin-bottom: 24px;
+      padding-top: 40px;
+      width: 260px;
+      font-size: 44px;
+      text-align: center;
+    }
+  }
+
+  &__text {
+    max-width: 276px;
+    font-size: 16px;
+
+    @include onTablet {
+      max-width: 250px;
+    }
+
+    @include onMobile {
+      max-width: 260px;
+      text-align: center;
+    }
+  }
+
+  &__image-container {
+    flex-grow: 1;
+    box-sizing: border-box;
+
+    @include onMobile {
+      background-image: url(../images/header-picture-mobile.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100vw;
+      min-width: $min-mobile-screen-width; /*320px*/
+      height: 76.56vw;
+      min-height: 0.76 * $min-mobile-screen-width;
+    }
+  }
+
+  &__image {
+    height: 32vw;
+    max-height: 0.32 * $min-large-screen-width;
+    width: 65.28vw;
+    max-width: 0.65 * $min-large-screen-width;
+
+    @include onTablet {
+      margin-left: -92px;
+      object-position: left bottom;
+
+      height: 47.5vw;
+      max-height: 0.48 * $min-tablet-screen-width;
+      width: 96.22vw;
+      max-width: 0.96 * $min-tablet-screen-width;
+    }
+
+    @include onMobile {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+.benefits {
+  display: grid;
+  grid-template-columns: repeat($grid-column-numbers-desktop, 1fr);
+  column-gap: $grid-gap-desktop;
+  justify-content: center;
+  justify-items: center;
+
+  @include onTablet {
+    grid-template-columns: repeat($grid-column-numbers-tablet, 1fr);
+    column-gap: $grid-gap-gadgets;
+  }
+
+  @include onMobile {
+    grid-template-columns: repeat($grid-column-numbers-mobile, 1fr);
+    column-gap: $grid-gap-gadgets;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @for $start from 1 through 4 {
+      &--#{$start} {
+        grid-column: #{$start * 3 - 2} / #{$start * 3 + 1};
+      }
+    }
+
+    @include onTablet {
+      margin-bottom: 60px;
+
+      &:nth-child(odd) {
+        grid-column: 1 / span 4;
+      }
+
+      &:nth-child(even) {
+        grid-column: 5 / span 4;
+      }
+    }
+
+    @include onMobile {
+      display: none;
+      grid-column: 1 / span 4;
+
+      &--isactive-mobile {
+        display: flex;
+      }
+    }
+  }
+
+  &__icon {
+    margin-bottom: 48px;
+
+    @for $start from 1 through 4 {
+      &--#{$start} {
+        background-image: url(../images/logo-#{$start}.png);
+      }
+    }
+
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 1.25em;
+    text-transform: uppercase;
+    text-align: center;
+    height: 2.5em;
+
+    @include onTablet {
+      height: 1.25em;
+    }
+  }
+
+  &__text {
+    color: $secondary-text-color;
+    text-align: center;
+  }
+}

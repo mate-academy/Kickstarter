@@ -1,0 +1,81 @@
+.form {
+  @include onTablet {
+    grid-column: $grid-start-position * 5 / span 4;
+  }
+
+  display: flex;
+  flex-direction: column;
+
+  &__text {
+    box-sizing: border-box;
+    padding-left: 30px;
+    width: 438px;
+    text-align: left;
+    border: 1px solid #828282;
+
+    @include onTablet {
+      width: 100%;
+    }
+
+    @include onMobile {
+      width: 100%;
+    }
+
+    &:hover {
+      outline: hidden;
+      border-color: $green-links-color;
+    }
+
+    &:active {
+      outline: hidden;
+      border-color: $green-links-color;
+    }
+
+    &::placeholder {
+      font-family: HelveticaNeue, sans-serif;
+      font-size: 16px;
+      line-height: 1.2em;
+      color: $pale-text-color;
+    }
+
+    &--email {
+      margin-bottom: 20px;
+      height: 48px;
+    }
+
+    &--description {
+      margin-bottom: 30px;
+      padding-top: 16px;
+      height: 128px;
+
+      @include onTablet {
+        height: 200px;
+      }
+
+      @include onMobile {
+        height: 128px;
+      }
+    }
+  }
+
+  &__button {
+    width: 102px;
+    height: 48px;
+    color: $button-text-color;
+    text-transform: uppercase;
+    background-color: $green-links-color;
+    border: 0;
+
+    @include onTablet {
+      height: 40px;
+    }
+
+    @include onMobile {
+      height: 40px;
+    }
+
+    &:hover {
+      box-shadow: 1px 1px 1px 1px #888;
+    }
+  }
+}

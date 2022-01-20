@@ -1,0 +1,62 @@
+.menu-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  max-width: $min-tablet-screen-width - 1;
+  background-color: $green-links-color;
+  z-index: 99;
+
+  @include notMobile {
+    display: none;
+  }
+
+  &__logo {
+    margin: 4.2vh 0;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    color: $button-text-color;
+    font-size: 4.2vh;
+    line-height: 1em;
+
+    flex-grow: 1;
+  }
+
+  &__item {
+    margin-bottom: 4.2vh;
+    display: block;
+    height: 4.2vh;
+    text-align: center;
+  }
+
+  &__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $button-text-color;
+
+    transform: 0.5s;
+
+    &:visited {
+      color: $button-text-color;
+    }
+
+    &:hover {
+      font-weight: bold;
+
+      transform: scale(1.1);
+    }
+
+    &:active {
+      font-weight: bold;
+      color: $button-text-color;
+    }
+  }
+}

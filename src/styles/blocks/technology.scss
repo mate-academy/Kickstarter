@@ -1,0 +1,52 @@
+.technology {
+
+  @include onTablet {
+    overflow-x: hidden;
+  }
+
+  @include onMobile {
+    overflow-x: hidden;
+  }
+
+  &__title {
+    margin-left: 100px;
+    margin-bottom: 136px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      margin-left: 136px;
+    }
+
+    @include onMobile {
+      margin-left: $base-spaces-gadgets;
+      margin-bottom: 40px;
+      font-size: 36px;
+      line-height: 1.25em;
+    }
+  }
+
+  &__image {
+    margin-left: -($base-spaces-desktop - 88px);
+    height: 48vw;
+    max-height: 0.48 * $min-large-screen-width;
+    /*width: 85.4vw;*/
+    max-width: 0.85 * $min-large-screen-width;
+
+    @include onTablet {
+      margin-left: 0;
+      height: 0.48 * $min-large-screen-width;
+    }
+
+    @include onMobile {
+      margin-left: -12px;
+      height: 0.48 * ($min-large-screen-width / 2);
+    }
+
+    @include onLargeScreens {
+      margin-left: -36px;
+    }
+
+    transform: rotate(-7.85deg);
+    transform-origin: top left;
+  }
+}

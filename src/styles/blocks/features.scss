@@ -1,0 +1,176 @@
+.features {
+  &__title-wrap {
+    display: grid;
+    grid-template-columns: repeat($grid-column-numbers-desktop, 1fr);
+    column-gap: $grid-gap-desktop;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+
+    @include onTablet {
+      grid-template-columns: repeat($grid-column-numbers-tablet, 1fr);
+      column-gap: $grid-gap-gadgets;
+    }
+
+    @include onMobile {
+      margin: 0 $base-spaces-gadgets;
+      display: block;
+    }
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    grid-column: $grid-start-position / span 4;
+    line-height: 1.25em;
+
+    @include onTablet {
+      margin-bottom: 52px;
+    }
+
+    @include onMobile {
+      margin-bottom: 52px;
+      padding-top: 44px;
+      font-size: 36px;
+      line-height: 1.6em;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat($grid-column-numbers-desktop, 1fr);
+    column-gap: $grid-gap-desktop;
+
+    @include onTablet {
+      grid-template-columns: repeat($grid-column-numbers-tablet, 1fr);
+      column-gap: $grid-gap-gadgets;
+    }
+
+    @include onMobile {
+      display: block;
+    }
+  }
+
+  &__description {
+    @include onMobile {
+      margin: 0 $base-spaces-gadgets 52px;
+    }
+  }
+
+  &__image-container {
+    position: absolute;
+    right: -$base-spaces-desktop;
+    bottom: 12px;
+    background-color: #f2f2f2;
+    width: 77.3vw;
+    max-width: 0.77 * $min-large-screen-width;
+    height: 48.7vw;
+    max-height: 0.49 * $min-large-screen-width;
+    z-index: -1;
+
+    @include onTablet {
+      right: -$base-spaces-gadgets;
+      bottom: 84px;
+      width: 83.85vw;
+      height: 80.7vw;
+    }
+
+    @include onMobile {
+      overflow-x: hidden;
+      right: 0;
+      left: 0;
+      width: 100vw;
+      max-width: 100vw;
+      height: 100%;
+      max-height: 1090px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    right: $base-spaces-desktop;
+    bottom: 16px;
+    width: 54.58vw;
+    max-width: 0.55 * $min-large-screen-width;
+    height: 35.35vw;
+    max-height: 0.35 * $min-large-screen-width;
+
+    @include onTablet {
+      right: 0;
+      width: 76vw;
+      height: 49vw;
+    }
+
+    @include onMobile {
+      left: 0;
+      bottom: 44px;
+      width: 107vw;
+      height: 69vw;
+    }
+  }
+
+  &__switch-mobile {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include notMobile {
+      display: none;
+    }
+  }
+
+  &__switch-back {
+    width: 48px;
+    height: 14px;
+    background-image: url(../images/Arrow-left.png);
+
+    transform: translateX(1px);
+
+    &:active {
+      background-color: $bg-color;
+      box-shadow: 1px 1px 1px 1px #888;
+    }
+  }
+
+  &__switch-ahead {
+    width: 48px;
+    height: 14px;
+    background-image: url(../images/Arrow-right.png);
+
+    transform: translateX(-1px);
+
+    &:active {
+      background-color: $bg-color;
+      box-shadow: 1px 1px 1px 1px #888;
+    }
+  }
+
+  &__switch-counter {
+    padding-bottom: 84vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.24em;
+
+    @include notMobile {
+      display: none;
+    }
+  }
+
+  &__current-card {
+    padding-right: 4px;
+    font-family: DinPro, sans-serif;
+    font-size: 16px;
+  }
+
+  &__numbers-separator {
+    padding-right: 4px;
+    font-size: 12px;
+    color: $pale-text-color;
+  }
+
+  &__last-card {
+    font-size: 12px;
+    color: $pale-text-color;
+  }
+}

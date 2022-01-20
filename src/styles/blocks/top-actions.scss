@@ -1,0 +1,118 @@
+.top-actions {
+  padding-top: 24px;
+  display: flex;
+  grid-column: $grid-start-position / span $grid-column-numbers-desktop;
+  justify-content: space-between;
+
+  @include onTablet {
+    padding-top: 40px;
+  }
+
+  @include onMobile {
+    align-items: center;
+    padding-top: 0;
+    height: 76px;
+  }
+
+  &__nav {
+    display: flex;
+  }
+
+  &__specs {
+    margin-right: 12px;
+    width: 5vw; /*72px on 1440px viewport*/
+    max-width: 0.05 * $min-large-screen-width;
+    font-family: HelveticaNeue, sans-serif;
+    color: $specs-text-color;
+    text-transform: uppercase;
+
+    @include onTablet {
+      margin-right: 0;
+      width: 9.1vw; /*70px on 768px viewport*/
+      max-width: 0.09 * $min-desktop-screen-width;
+    }
+
+    @include onMobile {
+      display: none;
+    }
+
+    &:visited {
+      color: $specs-text-color;
+    }
+
+    &:hover {
+      color: $main-text-color;
+    }
+
+    &:active {
+      color: $main-text-color;
+    }
+
+  }
+
+  &__language-selection {
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__eng-lang {
+    color: $pale-text-color;
+
+    @include onMobile {
+      display: none;
+    }
+
+    &:hover {
+      color: $main-text-color;
+    }
+  }
+
+  &__ua-lang {
+    margin-right: 36px;
+    color: $pale-text-color;
+
+    @include onTablet {
+      margin-right: 28px;
+    }
+
+    @include onMobile {
+      display: none;
+    }
+
+    &:visited {
+      color: $pale-text-color;
+    }
+
+    &:hover {
+      color: $main-text-color;
+    }
+  }
+
+  &__buy-button {
+    margin-top: -16px;
+  }
+
+  &__link {
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &--isactive {
+      color: $main-text-color;
+    }
+  }
+
+  &__menu-icon {
+    display: none;
+
+    @include onMobile {
+      display: block;
+      width: 24px;
+      height: 14px;
+      background-image: url(../images/menu-icon.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+}
