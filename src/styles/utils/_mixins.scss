@@ -1,6 +1,31 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin transitions($props) {
+  $all-transitions: "";
+
+  @each $prop in $props {
+    $all-transitions: $all-transitions + $prop;
+  }
+
+  transition-property: $all-transitions;
+  transition-duration: $transition-time;
+}
+
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin font-face($font-family, $src, $font-weight: 400, $font-style: normal) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    src: url(#{$src});
   }
 }
