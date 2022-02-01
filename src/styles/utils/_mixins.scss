@@ -1,4 +1,4 @@
-@mixin transitions($props) {
+@mixin transitions($props, $time: $transition-time) {
   $all-transitions: "";
 
   @each $prop in $props {
@@ -6,7 +6,7 @@
   }
 
   transition-property: $all-transitions;
-  transition-duration: $transition-time;
+  transition-duration: $time;
 }
 
 @mixin onTablet {
@@ -16,7 +16,7 @@
 }
 
 @mixin onDesktop {
-  @media (min-width: 1440px) {
+  @media (min-width: 1200px) {
     @content;
   }
 }

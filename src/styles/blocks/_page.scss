@@ -1,9 +1,62 @@
 .page {
-  font-family: $font-family, sans-serif;
+  @extend %f-helvetica-neue;
   scroll-behavior: smooth;
 
   &__body {
     margin: 0;
+    padding-top: $header-top-paddning - $header-padding-sticky;
+
     background-color: $c-light;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+
+    @include onTablet {
+      padding-top: ($header-top-paddning / 2) - $header-padding-sticky;
+    }
+  }
+
+  &__header {
+    position: sticky;
+    top: 0;
+    background-color: $c-light;
+
+    @include onTablet {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__menu {
+    visibility: hidden;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transform: translateX(-100%);
+
+    @include transitions("transform");
+
+    &:target {
+      visibility: visible;
+      transform: translate(0);
+    }
+  }
+
+  &__section {
+    padding-top: $section-top-paddning;
+    margin-top: -$section-top-paddning;
+
+    margin-bottom: 88px;
+
+    @include onTablet {
+      margin-bottom: 128px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 144px;
+    }
   }
 }
