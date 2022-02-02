@@ -56,7 +56,6 @@
   }
 
   &--menu-opener {
-    width: 24px;
     height: max-content;
     padding: 0;
 
@@ -95,5 +94,38 @@
 
   &--cross {
     background-image: url(../images/icons/other/cross.svg);
+  }
+
+  &--play-button {
+    border: 1px solid $c-white;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    @include transitions(transform);
+
+    &::before {
+      content: "play";
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      @extend %f-din-pro-bold-24;
+      text-transform: uppercase;
+      color: $c-white;
+
+      transform: translate(-50%, -50%);
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:active {
+      @include transitions(transform, 0.1s);
+
+      transform: scale(0.85);
+    }
   }
 }
