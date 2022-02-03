@@ -16,6 +16,7 @@
   &--bottom-line {
     display: block;
     width: max-content;
+
     &::after {
       content: "";
       display: block;
@@ -23,6 +24,16 @@
       margin-top: 6px;
       width: 30%;
       height: 1px;
+
+      @include transitions(width);
+    }
+
+    @include onDesktop {
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
     }
   }
 }
