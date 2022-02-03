@@ -1,0 +1,159 @@
+.features {
+  --bullet-size: 4px;
+  overflow: hidden;
+
+  &__items {
+    position: relative;
+  }
+
+  &__title {
+    @extend %f-h2;
+
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__item {
+    display: none;
+    &:first-child {
+      display: block;
+    }
+
+    @include onTablet {
+      display: block;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__item-title {
+    @extend %f-din-pro-medium;
+    font-size: 30px;
+    color: $c-green;
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    margin-bottom: 50px;
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__list-item {
+    position: relative;
+
+    padding-left: 10px;
+
+    margin-bottom: 10px;
+
+    @extend %f-helvetica-neue-14;
+
+    @include onTablet {
+      font-size: 16px;
+    }
+
+    &::before {
+      content: "";
+      position: relative;
+      transform: translate(-10px, -100%);
+
+      left: 0;
+      display: inline-block;
+      width: var(--bullet-size);
+      height: var(--bullet-size);
+
+      border-radius: 50%;
+
+      background: $c-black;
+    }
+  }
+
+  &__slider-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 8px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__slider-buttons {
+    margin-bottom: 10px;
+  }
+
+  &__slider-next {
+    transform: translateX(-10%) rotateZ(180deg);
+    background-image: url(../images/icons/other/slider-arrow.svg);
+  }
+
+  &__slider-prev,
+  &__slider-next {
+    display: inline-block;
+    width: 48px;
+    height: 13px;
+
+    transform: translateX(10%);
+
+    background: url(../images/icons/other/slider-arrow-inact.svg)
+      center / contain no-repeat;
+
+    &:hover {
+      background-image: url(../images/icons/other/slider-arrow-hover.svg);
+    }
+  }
+
+  &__slider-page-num {
+    @extend %f-din-pro;
+    font-size: 11px;
+    line-height: 125%;
+    color: $c-lightgrey;
+  }
+
+  &__slider-page-current {
+    font-size: 16px;
+    color: $c-granit;
+  }
+
+  &__image-container {
+    z-index: -1;
+    height: MAX(65vw, 220px); //css max()
+
+    @include onTablet {
+      height: MIN(50vw, 500px); //css min()
+      grid-row: 2 / 3;
+      position: absolute;
+      right: 0;
+      top: 60%;
+      transform: translateY(-50%);
+    }
+
+    @include onDesktop {
+      height: MIN(50vw, 600px); //css min()
+    }
+  }
+
+  &__image {
+    object-fit: contain;
+    width: 100vw;
+    position: absolute;
+
+    right: -$container-side-paddning;
+
+    @include onTablet {
+      width: auto;
+      height: 100%;
+    }
+
+    @include onDesktop {
+      position: static;
+    }
+  }
+}
