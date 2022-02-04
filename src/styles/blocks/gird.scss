@@ -1,8 +1,4 @@
 .grid {
-  $collumns-mob: 4;
-  $collumns-tab: 8;
-  $collumns-desktop: 12;
-    
   display: grid;
   grid-template-columns: repeat($collumns-mob, 1fr);
   column-gap: 20px;
@@ -13,6 +9,14 @@
 
   @include onDesktop {
     grid-template-columns: repeat($collumns-desktop, 1fr);
+  }
+
+  &--flex {
+    display: flex;
+
+    @include onTabs {
+      display: grid;
+    }
   }
 
   &--tabs {
@@ -31,7 +35,7 @@
     }
   }
 
-  &__item {
+  &--item {
     @include onTabs {
       @for $start from 1 through $collumns-tab {
         @for $end from $start through $collumns-tab {
