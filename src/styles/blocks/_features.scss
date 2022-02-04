@@ -2,6 +2,38 @@
   --bullet-size: 4px;
   overflow: hidden;
 
+  position: relative;
+
+  background-color: $c-lightgrey2;
+
+  @include onTablet {
+    background-color: transparent;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    z-index: -2;
+
+    display: none;
+
+    background: $c-lightgrey2;
+
+    @include onTablet {
+      display: block;
+      width: 87vw;
+      height: 62%;
+      bottom: 15%;
+    }
+
+    @include onDesktop {
+      width: 77vw;
+      height: 70%;
+      bottom: 60px;
+    }
+  }
+
   &__items {
     position: relative;
   }
