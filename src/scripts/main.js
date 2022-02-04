@@ -1,5 +1,6 @@
 'use strict';
 
+// #region MenuEvents
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
     document.body.classList.add('page__body--with-menu');
@@ -7,6 +8,7 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('page__body--with-menu');
   }
 });
+// #endregion MenuEvents
 
 // #region Slider
 
@@ -68,3 +70,53 @@ window.onresize = () => {
 };
 
 // #endregion Slider
+
+// #region ScrollTo
+const scrollToElement = (toElement) => {
+  const elementPosY = toElement.getBoundingClientRect().top;
+
+  toElement.scrollTo(0, elementPosY);
+};
+
+const html = document.querySelector('.page');
+const toTopButton = document.querySelector('.go-top');
+
+toTopButton.addEventListener('click', () => scrollToElement(html));
+
+// #endregion ScrollTo
+
+// #region dynamicNavigation
+const navLinks = document.querySelectorAll('.navigation__item');
+const sections = document.querySelectorAll('[data-name]');
+
+const sectionPos = {};
+const navTo = {};
+
+for (const link of navLinks) {
+  const linkName = link.getAttribute('data-link-to');
+
+  navTo[linkName] = link;
+}
+
+for (const section of sections) {
+  const sectionName = section.getAttribute('data-name');
+
+  sectionPos[sectionName] = section.getBoundingClientRect();
+}
+
+window.addEventListener('scroll', () => {
+  const y = window.scrollY + 100;
+
+  for (const section in sectionPos) {
+    const sectionPosTop = sectionPos[section].top;
+    const sectionPosBottom = sectionPosTop + sectionPos[section].height;
+
+    if (y > sectionPosTop - 45 && y < sectionPosBottom + 45) {
+      navTo[section].style.fontWeight = '500';
+      navTo[section].style.transform = 'scale(1.05)';
+    } else {
+      navTo[section].style.fontWeight = '300';
+    }
+  }
+});
+// #endregion dynamicNavigation
