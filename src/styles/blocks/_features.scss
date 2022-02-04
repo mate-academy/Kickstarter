@@ -10,6 +10,10 @@
     background-color: transparent;
   }
 
+  &__content {
+    position: relative;
+  }
+
   &::after {
     content: "";
     position: absolute;
@@ -34,10 +38,6 @@
     }
   }
 
-  &__items {
-    position: relative;
-  }
-
   &__title {
     @extend %f-h2;
 
@@ -48,14 +48,22 @@
     }
   }
 
-  &__item {
-    display: none;
-    &:first-child {
-      display: block;
-    }
+  &__items {
+    display: flex;
+    margin: 0 auto;
+    gap: 0;
+    width: max-content;
 
     @include onTablet {
-      display: block;
+      display: grid;
+      width: auto;
+    }
+  }
+
+  &__item {
+    width: calc(100vw - #{$container-side-paddning});
+    @include onTablet {
+      width: auto;
       margin-bottom: 60px;
     }
   }
@@ -103,61 +111,6 @@
 
       background: $c-black;
     }
-  }
-
-  &__slider-control {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    margin-bottom: 8px;
-
-    @include onTablet {
-      display: none;
-    }
-  }
-
-  &__slider-buttons {
-    margin-bottom: 10px;
-  }
-
-  &__slider-prev,
-  &__slider-next {
-    display: inline-block;
-    width: 48px;
-    height: 13px;
-
-    transform: translateX(10%);
-
-    background: url(../images/icons/other/slider-arrow-inact.svg)
-      center / contain no-repeat;
-  }
-
-  &__slider-next {
-    transform: translateX(-10%) rotateZ(180deg);
-    background-image: url(../images/icons/other/slider-arrow.svg);
-
-    &:hover {
-      background-image: url(../images/icons/other/slider-arrow-hover.svg);
-    }
-  }
-
-  &__slider-prev {
-    &:hover {
-      background-image: url(../images/icons/other/slider-arrow-hover.svg);
-    }
-  }
-
-  &__slider-page-num {
-    @extend %f-din-pro;
-    font-size: 11px;
-    line-height: 125%;
-    color: $c-lightgrey;
-  }
-
-  &__slider-page-current {
-    font-size: 16px;
-    color: $c-granit;
   }
 
   &__image-container {
