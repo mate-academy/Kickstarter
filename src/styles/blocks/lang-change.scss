@@ -1,0 +1,30 @@
+.lang-change {
+  &__input {
+    display: none;
+  }
+  
+  &__text {
+    text-transform: uppercase;
+    @extend %f-helvetica-neue-l;
+  }
+
+  &__input:checked ~ &__text {
+    color: $c-grey-dark;
+    font-weight: 500;
+  }
+
+  &__label {
+    
+    &::after {
+      content: "/";
+      font-weight: 800;
+      color: $c-grey-dark;
+    }
+
+    &:last-child {
+      &::after {
+        content: "";
+      }
+    }
+  }
+}

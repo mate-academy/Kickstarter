@@ -20,10 +20,17 @@
     padding: 1rem 0;
     top: 0;
     z-index: 1;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+    background-color: $c-white-background;
+    opacity: 0.9;
     
     @include onTabs {
       margin-bottom: 5rem;
+    }
+
+    @include onDesktop {
+      position: static;
+      box-shadow: none;
     }
   }
 
@@ -32,11 +39,27 @@
   }
 
   &__section {
+    margin-bottom: 90px;
+
+    @include onTabs {
+      margin-bottom: 130px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 150px;
+    }
 
     &--nav {
       position: sticky;
       top: 0;
       z-index: 1;
+      
+      background-color: $c-white-background;
+      opacity: 0.9;
+      
+      @include onDesktop {
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3);
+      }
     }
   }
 }
