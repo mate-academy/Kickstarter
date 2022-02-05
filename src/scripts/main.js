@@ -296,3 +296,29 @@ contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
 });
 // #endregion formProcessing
+
+// #region setBenefitsItemHeight
+
+const benefitsTitles = document.querySelectorAll('.benefits__title');
+
+const setBenefitsTitleHeight = () => {
+  let maxHeight = -1;
+
+  for (const title of benefitsTitles) {
+    const titleHeight = getElementPos(title).height;
+
+    if (maxHeight < titleHeight) {
+      maxHeight = Math.ceil(titleHeight);
+    }
+  }
+
+  if (maxHeight > 0) {
+    for (const title of benefitsTitles) {
+      title.style.height = `${maxHeight}px`;
+    }
+  }
+};
+
+setBenefitsTitleHeight();
+
+// #endregion setBenefitsItemHeight
