@@ -33,8 +33,6 @@
   }
 
   &__menu {
-    visibility: hidden;
-
     position: fixed;
     top: 0;
     left: 0;
@@ -42,10 +40,9 @@
     z-index: 1;
     transform: translateX(-100%);
 
-    @include transitions("transform");
+    @include transitions(transform);
 
-    &:target {
-      visibility: visible;
+    &--open {
       transform: translate(0);
     }
   }
@@ -81,5 +78,9 @@
     bottom: 30px;
     left: 0;
     right: 0;
+  }
+
+  &--with-menu {
+    overflow: hidden;
   }
 }

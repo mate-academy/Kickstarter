@@ -1,12 +1,71 @@
 'use strict';
 
+const body = document.querySelector('.page__body');
+
+// #region Decorators
+function throttle(fn, interval) {
+  let lastTime;
+
+  return function throttled() {
+    const timeSinceLastExecution = Date.now() - lastTime;
+
+    if (!lastTime || (timeSinceLastExecution >= interval)) {
+      fn.apply(this, arguments);
+      lastTime = Date.now();
+    }
+  };
+}
+
+function once(fn) {
+  let returnValue;
+  let canRun = true;
+
+  return function runOnce() {
+    if (canRun) {
+      returnValue = fn.apply(this, arguments);
+      canRun = false;
+    }
+
+    return returnValue;
+  };
+}
+
+// #endregion Decorators
+
+// #region getElementPos
+const getElementPos = (el) => {
+  const position = el.getBoundingClientRect();
+
+  return {
+    top: position.top + window.scrollY,
+    height: position.height,
+    bottom: position.bottom + window.scrollY,
+  };
+};
+// #endregion getElementPos
+
 // #region MenuEvents
-window.addEventListener('hashchange', () => {
-  if (window.location.hash === '#menu') {
-    document.body.classList.add('page__body--with-menu');
-  } else {
-    document.body.classList.remove('page__body--with-menu');
-  }
+
+const menu = document.querySelector('.menu');
+const closeMenuButton = menu.querySelector('.menu-close');
+
+const header = document.querySelector('.header');
+const headerHeight = getElementPos(header).height;
+const openMenuButton = header.querySelector('.menu-opener');
+
+const toglleMenu = () => {
+  menu.classList.toggle('page__menu--open');
+  body.classList.toggle('page__body--with-menu');
+};
+
+closeMenuButton.addEventListener('click', (e) => {
+  toglleMenu();
+  e.preventDefault();
+});
+
+openMenuButton.addEventListener('click', (e) => {
+  toglleMenu();
+  e.preventDefault();
 });
 // #endregion MenuEvents
 
@@ -65,58 +124,127 @@ function updatePageNumber(page, element = sliderCurrentPage, numLength = 2) {
   `;
 }
 
-window.onresize = () => {
+window.onresize = throttle(() => {
   slideWidth = sliderItem.offsetWidth;
-};
+}, 100);
 
 // #endregion Slider
 
 // #region ScrollTo
-const scrollToElement = (toElement) => {
-  const elementPosY = toElement.getBoundingClientRect().top;
+const navigation = document.querySelector('.navigation');
+const navHeight = getElementPos(navigation).height;
 
-  toElement.scrollTo(0, elementPosY);
+const scrollToElement = (
+  toElement,
+  addNavHeight = false,
+  mobileNav = false
+) => {
+  const elementTop = getElementPos(toElement).top;
+
+  if (addNavHeight) {
+    window.scrollTo(0, elementTop - navHeight);
+
+    return;
+  }
+
+  if (mobileNav) {
+    window.scrollTo(0, elementTop - headerHeight);
+
+    return;
+  }
+
+  window.scrollTo(0, elementTop);
 };
 
-const html = document.querySelector('.page');
 const toTopButton = document.querySelector('.go-top');
 
-toTopButton.addEventListener('click', () => scrollToElement(html));
+toTopButton.addEventListener('click', () => scrollToElement(body));
 
 // #endregion ScrollTo
 
 // #region dynamicNavigation
-const navLinks = document.querySelectorAll('.navigation__item');
-const sections = document.querySelectorAll('[data-name]');
+const navLinks = {};
+const sections = {};
 
-const sectionPos = {};
-const navTo = {};
+let firstSectionY = -1;
 
-for (const link of navLinks) {
-  const linkName = link.getAttribute('data-link-to');
-
-  navTo[linkName] = link;
-}
-
-for (const section of sections) {
-  const sectionName = section.getAttribute('data-name');
-
-  sectionPos[sectionName] = section.getBoundingClientRect();
-}
-
-window.addEventListener('scroll', () => {
-  const y = window.scrollY + 100;
-
-  for (const section in sectionPos) {
-    const sectionPosTop = sectionPos[section].top;
-    const sectionPosBottom = sectionPosTop + sectionPos[section].height;
-
-    if (y > sectionPosTop - 45 && y < sectionPosBottom + 45) {
-      navTo[section].style.fontWeight = '500';
-      navTo[section].style.transform = 'scale(1.05)';
+const setLinkEventListener = (linkId) => {
+  navLinks[linkId].addEventListener('click', (e) => {
+    if (menu.classList.contains('page__menu--open')) {
+      toglleMenu();
+      scrollToElement(sections[linkId], false, true);
     } else {
-      navTo[section].style.fontWeight = '300';
+      scrollToElement(sections[linkId], true, false);
+    }
+
+    e.preventDefault();
+  });
+};
+
+const getLinks = () => {
+  const links = document.querySelectorAll('.linkTo');
+
+  for (const link of links) {
+    const linkId = link.getAttribute('href').replace('#', '');
+
+    navLinks[linkId] = link;
+
+    setLinkEventListener(linkId);
+  }
+};
+
+const setFirstSectionY = (posY) => {
+  if (firstSectionY < 0 || posY < firstSectionY) {
+    firstSectionY = posY;
+  }
+};
+
+const getSections = () => {
+  if (!Object.keys(navLinks).length) {
+    once(getLinks());
+  }
+
+  for (const linkId in navLinks) {
+    const linkedSection = document.querySelector(`#${linkId}`);
+
+    sections[linkId] = linkedSection;
+    sections[linkId]['pos'] = getElementPos(sections[linkId]);
+
+    setFirstSectionY(sections[linkId]['pos'].top);
+  }
+};
+
+const changeActiveLink = throttle(() => {
+  const y = (window.pageYOffset || document.documentElement.scrollTop) + 150;
+
+  if (!Object.keys(sections).length) {
+    once(getSections());
+  }
+
+  if (y < firstSectionY) {
+    toTopButton.classList.remove('go-top--visible');
+
+    return;
+  }
+
+  toTopButton.classList.add('go-top--visible');
+
+  for (const section in sections) {
+    if (
+      y + navHeight > sections[section].pos.top
+      && y < sections[section].pos.bottom
+    ) {
+      navLinks[section].style.fontWeight = '500';
+      navLinks[section].style.transform = 'scale(1.05)';
+    } else {
+      navLinks[section].style.fontWeight = '300';
+      navLinks[section].style.transform = 'scale(1)';
     }
   }
-});
+}, 100);
+
+changeActiveLink();
+
+window.addEventListener('scroll', changeActiveLink);
+
 // #endregion dynamicNavigation
