@@ -16,6 +16,21 @@ function throttle(fn, interval) {
   };
 }
 
+function debounce(fn, interval) {
+  let timer;
+
+  return function debounced() {
+    clearTimeout(timer);
+
+    const args = arguments;
+    const that = this;
+
+    timer = setTimeout(function callOriginalFn() {
+      fn.apply(that, args);
+    }, interval);
+  };
+}
+
 function once(fn) {
   let returnValue;
   let canRun = true;
@@ -248,3 +263,36 @@ changeActiveLink();
 window.addEventListener('scroll', changeActiveLink);
 
 // #endregion dynamicNavigation
+
+// #region formProcessing
+const contactForm = document.querySelector('.contact__form');
+const emailInput = contactForm.querySelector('.contact__email');
+
+const validateEmail = (email) => {
+  // eslint-disable-next-line no-useless-escape
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    return true;
+  }
+
+  return false;
+};
+
+const checkInput = debounce(() => {
+  const valid = validateEmail(emailInput.value);
+
+  if (valid) {
+    emailInput.setAttribute('title', '');
+    emailInput.classList.remove('contact__form-field--error');
+    emailInput.classList.add('contact__form-field--valid');
+  } else {
+    emailInput.setAttribute('title', 'Please make sure the email is valid.');
+    emailInput.classList.remove('contact__form-field--valid');
+    emailInput.classList.add('contact__form-field--error');
+  }
+}, 100);
+
+contactForm.addEventListener('submit', (e) => {
+  checkInput();
+  e.preventDefault();
+});
+// #endregion formProcessing
