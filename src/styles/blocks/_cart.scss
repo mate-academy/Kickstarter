@@ -102,6 +102,14 @@
     @include onTablet {
       order: 1;
     }
+
+    @include onDesktop {
+      grid-row: 2 / 5;
+      display: flex;
+      align-items: center;
+      width: 85%;
+      margin: 0;
+    }
   }
 
   &__image {
@@ -218,15 +226,23 @@
         width: 39vw;
       }
     }
+
+    @include onDesktop {
+      &::after {
+        width: 300px;
+      }
+    }
   }
 
   // #region Delivery
 
   &__delivery {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     margin-bottom: 80px;
+
+    gap: 20px;
 
     @include onTablet {
       order: 6;
@@ -273,6 +289,10 @@
     @include onTablet {
       order: 7;
     }
+
+    @include onDesktop {
+      margin-bottom: 150px;
+    }
   }
 
   &__item {
@@ -296,6 +316,13 @@
       flex-direction: column;
       justify-content: space-between;
       grid-row: 4 / 6;
+
+      text-align: left;
+    }
+
+    @include onDesktop {
+      grid-row: 3 / 5;
+      margin-bottom: 70px;
     }
   }
 
@@ -305,7 +332,7 @@
     margin-bottom: 30px;
 
     @include onTablet {
-      // margin-bottom: 160px;
+      margin-bottom: 0;
     }
   }
 
@@ -318,6 +345,16 @@
   &__total-price {
     @extend %f-din-pro-bold-24;
     margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__continue-button {
+    @include onTablet {
+      width: 100%;
+    }
   }
 
   // #endregion Order
