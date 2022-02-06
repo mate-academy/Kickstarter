@@ -106,5 +106,35 @@
       }
     }
 
+    @for $start from 1 through 10 {
+      @for $end from $start through 10 {
+        &--tablet-row-#{$start}-#{$end} {
+          @include onTablet {
+            grid-row: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 10 {
+      @for $end from $start through 10 {
+        &--laptop-row-#{$start}-#{$end} {
+          @include onLaptop {
+            grid-row: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 10 {
+      @for $end from $start through 10 {
+        &--large-row-#{$start}-#{$end} {
+          @include onLarge {
+            grid-row: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
   }
 }

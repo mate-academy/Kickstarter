@@ -1,1 +1,110 @@
-$c-gray: #eee;
+$header-hight: 48px;
+
+.header {
+  height: $header-hight;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+
+    &-logo {
+      display: inline-block;
+      height: $header-hight;
+      width: 161px;
+      background-image: url(../images/logo.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &-list {
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      @include onTablet {
+        display: block;
+      }
+    }
+
+    &-list-item {
+      display: inline-block;
+    }
+
+    &-burger {
+      width: $header-hight;
+      height: $header-hight;
+      background-image: url(../images/burger-menu.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &-link {
+      display: inline-block;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #4f4f4f;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: $header-hight;
+      padding: 0 25px;
+      transition: all 0.3s ease-in;
+      &:hover {
+        background-color: #333;
+        color: #fff;
+      }
+    }
+  }
+
+  &__img-placeholder {
+    background-image: url(../images/title-image.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    margin: 0 -28px 40px;
+    height: 65vw;
+    @include onTablet {
+      background-position: left;
+      background-color: green;
+      margin: 0 -25px 0 -50px;
+      height: 300px;
+    }
+    @include onLaptop {
+      margin: 0 -25px 0 -10px;
+      height: 350px;
+    }
+    @include  onLarge {
+      margin: 0 -25px 0 10px;
+    }
+  }
+
+  &__intro {
+
+    &-title {
+      font-family: DIN Pro, sans-serif;
+      font-size: 44px;
+      line-height: 130%;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      color: #333;
+      @include onLaptop {
+        font-size: 64px;
+      }
+    }
+    &-explain {
+      font-family: Helvetica Neue, sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #333;
+    }
+  }
+}
