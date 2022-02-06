@@ -1,13 +1,14 @@
 .cart {
-  $cart-active-colors:
-    "silver" $c-darkgrey2 $c-lightgrey,
-    "grey" $c-grey $c-grey2,
-    "brown" $c-brown $c-brown,
-    "gold" $c-gold $c-gold,
-    "darkgrey" $c-darkgrey2 $c-darkgrey2;
+  padding-top: 24px;
 
+  // #region Header
   &__header {
     margin-bottom: 40px;
+    order: 0;
+
+    @include onTablet {
+      margin-bottom: 90px;
+    }
   }
 
   &__logo {
@@ -15,38 +16,107 @@
 
     @include onTablet {
       display: block;
+      margin-bottom: 52px;
+      height: auto;
     }
   }
 
-  &__title {
-    @extend %f-din-pro-bold-36;
-    text-align: center;
-    margin-bottom: 20px;
-  }
+  &__back {
+    display: none;
 
-  &__price {
-    @extend %f-din-pro-medium-24;
-    text-align: center;
-    margin-bottom: 30px;
+    @include onTablet {
+      display: block;
+      width: 16px;
+      margin-bottom: 30px;
+    }
   }
 
   &__cross {
     margin-left: auto;
     width: 16px;
+
+    @include onTablet {
+      display: none;
+    }
   }
 
+  &__bullets {
+    display: none;
+
+    @include onTablet {
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: end;
+      max-width: 520px;
+    }
+
+    @include onDesktop {
+      max-width: 590px; // переписати на відносні одиниці
+    }
+  }
+
+  &__bullet-input {
+    display: none;
+  }
+
+  &__bullet {
+    margin: 0 auto 16px;
+    width: 16px;
+    padding: 1px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+  }
+
+  &__bullet-content--active &__bullet {
+    border: 1px solid $c-darkgrey;
+  }
+
+  &__bullet-inner {
+    width: 100%;
+    padding-bottom: 100%;
+    background: $c-lightgrey-e;
+    border-radius: 50%;
+  }
+
+  &__bullet-content--active &__bullet-inner {
+    background: $c-darkgrey;
+  }
+
+  &__bullet-text {
+    @extend %f-helvetica-neue-medium-16;
+    color: $c-lightgrey-e;
+  }
+
+  &__bullet-content--active &__bullet-text {
+    color: $c-darkgrey;
+  }
+
+  // #endregion Header
+
+  // #region Image
   &__image-container {
     margin: 0 auto 60px;
     width: 60%;
+
+    @include onTablet {
+      order: 1;
+    }
   }
 
   &__image {
     width: 100%;
   }
+  // #endregion Image
 
+  // #region Filter
   &__filter {
     text-align: center;
     margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
   }
 
   &__colors {
@@ -92,26 +162,75 @@
     text-transform: uppercase;
   }
 
+  // #endregion Filter
+
+  // #region Counter
   &__counter {
     margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
   }
 
   &__add-button {
     display: block;
     margin: 0 auto;
   }
+  // #endregion Counter
 
   &__buy-block {
+    position: relative;
     padding-bottom: 40px;
     margin-bottom: 40px;
-    border-bottom: 1px solid $c-lightgrey-e;
+    // border-bottom: 1px solid $c-lightgrey-e;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: $c-lightgrey-e;
+    }
+
+    &::after {
+      bottom: 0;
+      left: 0;
+
+      display: block;
+
+      width: 100%;
+      height: 1px;
+    }
+
+    @include onTablet {
+      padding-bottom: 30px;
+      order: 4;
+
+      &::before {
+        right: -50px;
+        bottom: 30px;
+        display: block;
+        height: 400px;
+        width: 1px;
+      }
+
+      &::after {
+        width: 39vw;
+      }
+    }
   }
+
+  // #region Delivery
 
   &__delivery {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 80px;
+
+    @include onTablet {
+      order: 6;
+    }
   }
 
   &__delivery-image {
@@ -124,9 +243,36 @@
     font-weight: 500;
   }
 
+  // #endregion Delivery
+
+  &__title {
+    @extend %f-din-pro-bold-st-36;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      order: 2;
+    }
+  }
+
+  &__price {
+    @extend %f-din-pro-medium-24;
+    text-align: center;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      order: 3;
+      margin-bottom: 50px;
+    }
+  }
+
   &__items {
     margin-bottom: 90px;
-    display: none;
+    // display: none;
+
+    @include onTablet {
+      order: 7;
+    }
   }
 
   &__item {
@@ -137,16 +283,30 @@
     }
   }
 
+  // #region Order
+
   &__order {
     text-align: center;
     color: $c-granit;
     margin-bottom: 80px;
+
+    @include onTablet {
+      order: 5;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      grid-row: 4 / 6;
+    }
   }
 
   &__order-title {
     @extend %f-helvetica-neue-medium-16;
     text-transform: uppercase;
     margin-bottom: 30px;
+
+    @include onTablet {
+      // margin-bottom: 160px;
+    }
   }
 
   &__total-text {
@@ -158,5 +318,13 @@
   &__total-price {
     @extend %f-din-pro-bold-24;
     margin-bottom: 20px;
+  }
+
+  // #endregion Order
+
+  &__footer {
+    @include onTablet {
+      order: 8;
+    }
   }
 }
