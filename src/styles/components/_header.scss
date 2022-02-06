@@ -56,9 +56,52 @@ $header-hight: 48px;
       line-height: $header-hight;
       padding: 0 25px;
       transition: all 0.3s ease-in;
+
       &:hover {
         background-color: #333;
         color: #fff;
+      }
+    }
+  }
+
+  &__content {
+    margin-bottom: 100px;
+    @include onLaptop {
+      margin-bottom: 120px;
+    }
+    @include onLarge {
+      margin-bottom: 140px;
+    }
+  }
+
+  &__extra-nav {
+    display: none;
+
+    @include onLarge {
+      display: inherit;
+      padding-top: 50px;
+    }
+
+    &-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-link {
+      display: inline-block;
+      font-family: Helvetica Neue, sans-serif;
+      font-size: 14px;
+      line-height: 21px;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #333;
+
+      &--active {
+        color: #131313;
       }
     }
   }
@@ -80,12 +123,14 @@ $header-hight: 48px;
       margin: 0 -25px 0 -10px;
       height: 350px;
     }
-    @include  onLarge {
+    @include onLarge {
       margin: 0 -25px 0 10px;
     }
   }
 
   &__intro {
+    max-width: 500px;
+    margin: 0 auto;
 
     &-title {
       font-family: DIN Pro, sans-serif;
@@ -99,6 +144,7 @@ $header-hight: 48px;
         font-size: 64px;
       }
     }
+
     &-explain {
       font-family: Helvetica Neue, sans-serif;
       font-size: 16px;
