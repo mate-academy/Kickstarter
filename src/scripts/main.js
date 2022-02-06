@@ -68,18 +68,18 @@ const header = document.querySelector('.header');
 const headerHeight = getElementPos(header).height;
 const openMenuButton = header.querySelector('.menu-opener');
 
-const toglleMenu = () => {
-  menu.classList.toggle('page__menu--open');
-  body.classList.toggle('page__body--with-menu');
+const toglleMenu = (menuEl, bodyEl) => {
+  menuEl.classList.toggle('page__menu--open');
+  bodyEl.classList.toggle('page__body--with-menu');
 };
 
 closeMenuButton.addEventListener('click', (e) => {
-  toglleMenu();
+  toglleMenu(menu, body);
   e.preventDefault();
 });
 
 openMenuButton.addEventListener('click', (e) => {
-  toglleMenu();
+  toglleMenu(menu, body);
   e.preventDefault();
 });
 // #endregion MenuEvents
@@ -267,6 +267,7 @@ window.addEventListener('scroll', changeActiveLink);
 // #region formProcessing
 const contactForm = document.querySelector('.contact__form');
 const emailInput = contactForm.querySelector('.contact__email');
+const messageInput = contactForm.querySelector('.contact__message');
 
 const validateEmail = (email) => {
   // eslint-disable-next-line no-useless-escape
@@ -293,6 +294,9 @@ const checkInput = debounce(() => {
 
 contactForm.addEventListener('submit', (e) => {
   checkInput();
+  emailInput.value = '';
+  messageInput.value = '';
+  setTimeout(scrollToElement, 200, body);
   e.preventDefault();
 });
 // #endregion formProcessing
