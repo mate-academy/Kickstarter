@@ -1,0 +1,162 @@
+.cart {
+  $cart-active-colors:
+    "silver" $c-darkgrey2 $c-lightgrey,
+    "grey" $c-grey $c-grey2,
+    "brown" $c-brown $c-brown,
+    "gold" $c-gold $c-gold,
+    "darkgrey" $c-darkgrey2 $c-darkgrey2;
+
+  &__header {
+    margin-bottom: 40px;
+  }
+
+  &__logo {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__title {
+    @extend %f-din-pro-bold-36;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &__price {
+    @extend %f-din-pro-medium-24;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  &__cross {
+    margin-left: auto;
+    width: 16px;
+  }
+
+  &__image-container {
+    margin: 0 auto 60px;
+    width: 60%;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__filter {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__colors {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+  }
+
+  &__color-conatainer {
+    width: 32px;
+    overflow: hidden;
+
+    cursor: pointer;
+
+    border: 1px solid transparent;
+    border-radius: 50%;
+
+    padding: 3px;
+
+    @each $color-name, $border, $background in $cart-active-colors {
+      &--active--#{$color-name} {
+        border-color: $border;
+      }
+    }
+  }
+
+  &__color {
+    width: 100%;
+    padding-bottom: 100%;
+
+    border-radius: 50%;
+
+    @each $color-name, $border, $background in $cart-active-colors {
+      &--#{$color-name} {
+        background-color: $background;
+      }
+    }
+  }
+
+  &__color-name {
+    @extend %f-helvetica-neue-12;
+    color: $c-granit;
+    text-transform: uppercase;
+  }
+
+  &__counter {
+    margin-bottom: 40px;
+  }
+
+  &__add-button {
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__buy-block {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid $c-lightgrey-e;
+  }
+
+  &__delivery {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+
+  &__delivery-image {
+    width: 44px;
+  }
+
+  &__delivery-text {
+    @extend %f-helvetica-neue-14;
+    color: $c-darkgrey;
+    font-weight: 500;
+  }
+
+  &__items {
+    margin-bottom: 90px;
+    display: none;
+  }
+
+  &__item {
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__order {
+    text-align: center;
+    color: $c-granit;
+    margin-bottom: 80px;
+  }
+
+  &__order-title {
+    @extend %f-helvetica-neue-medium-16;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+
+  &__total-text {
+    @extend %f-helvetica-neue-16;
+    color: $c-darkgrey;
+    margin-bottom: 15px;
+  }
+
+  &__total-price {
+    @extend %f-din-pro-bold-24;
+    margin-bottom: 20px;
+  }
+}

@@ -9,8 +9,6 @@
 
   @extend %f-button;
 
-  font-size: 12px;
-
   text-align: center;
   text-transform: uppercase;
 
@@ -29,7 +27,8 @@
     }
   }
 
-  &[disabled] { // [disabled] of :disabled?
+  &[disabled] {
+    // [disabled] of :disabled?
     background-color: $c-lightgrey-inactive;
   }
 
@@ -40,6 +39,20 @@
 
     &--full {
       width: 100%;
+    }
+  }
+
+  &--style--revert {
+    background-color: transparent;
+    color: $c-granit;
+    border: 1px solid $c-granit;
+
+    @include onDesktop {
+      &:hover {
+        background-color: $c-granit;
+        color: $c-white;
+        border-color: $c-granit;
+      }
     }
   }
 
