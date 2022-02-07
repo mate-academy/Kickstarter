@@ -185,8 +185,8 @@ let firstSectionY = -1;
 
 const setLinkEventListener = (linkId) => {
   navLinks[linkId].addEventListener('click', (e) => {
-    if (menu.classList.contains('page__menu--open')) {
-      toglleMenu();
+    if (linkId.includes('-mob')) {
+      toglleMenu(menu, body);
       scrollToElement(sections[linkId], false, true);
     } else {
       scrollToElement(sections[linkId], true, false);
@@ -220,8 +220,13 @@ const getSections = () => {
   }
 
   for (const linkId in navLinks) {
-    const linkedSection = document.querySelector(`#${linkId}`);
+    let linkedSection;
 
+    if (linkId.includes('-mob')) {
+      linkedSection = document.querySelector(`[data-sect-name=${linkId}]`);
+    } else {
+      linkedSection = document.querySelector(`#${linkId}`);
+    }
     sections[linkId] = linkedSection;
     sections[linkId]['pos'] = getElementPos(sections[linkId]);
 
@@ -250,10 +255,8 @@ const changeActiveLink = throttle(() => {
       && y < sections[section].pos.bottom
     ) {
       navLinks[section].style.fontWeight = '500';
-      navLinks[section].style.transform = 'scale(1.05)';
     } else {
       navLinks[section].style.fontWeight = '300';
-      navLinks[section].style.transform = 'scale(1)';
     }
   }
 }, 100);
