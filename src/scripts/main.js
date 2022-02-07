@@ -285,6 +285,12 @@ const checkInput = debounce(() => {
     emailInput.setAttribute('title', '');
     emailInput.classList.remove('contact__form-field--error');
     emailInput.classList.add('contact__form-field--valid');
+
+    emailInput.value = '';
+    messageInput.value = '';
+    setTimeout(scrollToElement, 200, body);
+
+    emailInput.classList.remove('contact__form-field--valid');
   } else {
     emailInput.setAttribute('title', 'Please make sure the email is valid.');
     emailInput.classList.remove('contact__form-field--valid');
@@ -294,9 +300,6 @@ const checkInput = debounce(() => {
 
 contactForm.addEventListener('submit', (e) => {
   checkInput();
-  emailInput.value = '';
-  messageInput.value = '';
-  setTimeout(scrollToElement, 200, body);
   e.preventDefault();
 });
 // #endregion formProcessing
@@ -326,3 +329,29 @@ const setBenefitsTitleHeight = () => {
 setBenefitsTitleHeight();
 
 // #endregion setBenefitsItemHeight
+
+// #region openVideo
+
+const playVideoButton = document.querySelector('.video-section__play-button');
+const videoName = playVideoButton.getAttribute('data-requred-video');
+const videoPopup = document.querySelector('[data-popup="video"]');
+const popupArea = document.querySelector('.popup__area');
+const video = document.querySelector(`[data-video-name=${videoName}]`);
+const closeVideoButton = document.querySelector('.popup__cross');
+
+playVideoButton.addEventListener('click', (e) => {
+  videoPopup.classList.add('popup--open');
+  video.play();
+});
+
+closeVideoButton.addEventListener('click', () => {
+  video.pause();
+  videoPopup.classList.remove('popup--open');
+});
+
+popupArea.addEventListener('click', () => {
+  video.pause();
+  videoPopup.classList.remove('popup--open');
+});
+
+// #endregion openVideo
