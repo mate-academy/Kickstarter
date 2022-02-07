@@ -1,1 +1,23 @@
-$c-gray: #eee;
+$img-height: calc((100vw - 60px) * 774 / 1294 );
+$img-height-laptop: calc((100vw - 250px) * 774 / 1294 );
+$img-height-large: calc((100vw - 270px) * 774 / 1294 );
+
+.technology {
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__img-placeholder {
+    width: 100%;
+    height: $img-height;
+    background: url(../images/technology.png) no-repeat center;
+    background-size: cover;
+    @include onLaptop {
+      height: $img-height-laptop;
+    }
+    @include onLarge {
+      height: $img-height-large;
+    }
+  }
+}
