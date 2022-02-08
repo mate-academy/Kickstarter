@@ -72,3 +72,12 @@ function updatePageNumber(page, element = sliderCurrentPage, numLength = 2) {
     ''.repeat(numLength - String(page).length)}${page}
   `;
 }
+
+// # form clear
+
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  form.reset();
+});
