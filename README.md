@@ -11,8 +11,8 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Uj
 1. Implement the header with `nav`.
 1. Implement `Benefits` block.
 1. Implement `Presentation` block.
-1. Implement `About us` block with the card reused 3 times.
-1. Implement `Technology` block with 4 process cards.
+1. Implement `About us` block.
+1. Implement `Technology` block.
 1. Implement `Testimonilas` block.
 1. Implement `Features` block.
 1. Implement `Questions` block
