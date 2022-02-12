@@ -1,0 +1,320 @@
+.features {
+  background-color: #f2f2f2;
+
+  @include tablet {
+    background-color: #f7f7f7;
+  }
+
+  @include main {
+    background-color: #f7f7f7;
+  }
+
+  &__background {
+    overflow: hidden;
+
+    @include tablet {
+      background-color: #f2f2f2;
+      width: 87%;
+      height: 620px;
+      position: absolute;
+      top: 240px;
+      right: 0;
+    }
+
+    @include main {
+      background-color: #f2f2f2;
+      width: 1113px;
+      height: 701px;
+      position: absolute;
+      top: 210px;
+      right: 0;
+    }
+
+    &--image {
+      height: 222px;
+      width: 100%;
+
+      @include tablet {
+        height: 379px;
+        position: absolute;
+        right: 0;
+        top: 403px;
+        width: 509px;
+        display: inline-block;
+        object-position: left;
+      }
+
+      @include main {
+        height: 509px;
+        position: absolute;
+        right: 0;
+        top: 403px;
+        width: 786px;
+      }
+    }
+  }
+
+  &__content {
+    z-index: 2;
+    position: relative;
+
+    @include tablet {
+      grid-column: 1 / 9;
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 20px;
+      padding: 0;
+    }
+
+    @include main {
+      grid-column: 1 / 13;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+      padding: 0;
+    }
+  }
+
+  &__title {
+    font-family: "DIN Pro", sans-serif;
+    font-size: 37px;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: #333;
+
+    @include tablet {
+      font-size: 56px;
+      line-height: 70px;
+      grid-column: 1 / 5;
+      text-align: center;
+    }
+
+    @include main {
+      font-size: 56px;
+      line-height: 70px;
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__item {
+    overflow: hidden;
+
+    &--1 {
+      margin-top: 50px;
+
+      @include tablet {
+        grid-column: 4 / 9;
+        margin-top: 50px;
+      }
+
+      @include main {
+        margin-top: 24px;
+        grid-column: 6 / 10;
+      }
+    }
+
+    &--2 {
+      display: none;
+
+      &-nav {
+        display: block;
+      }
+
+      @include tablet {
+        display: block;
+        grid-column: 1 / 5;
+        margin-top: 58px;
+      }
+
+      @include main {
+        display: block;
+        grid-column: 2 / 6;
+        margin-top: 58px;
+      }
+    }
+
+    &--3 {
+      display: none;
+
+      &-nav {
+        display: block;
+      }
+
+      @include tablet {
+        display: block;
+        grid-column: 3 / 7;
+        margin-top: 78px;
+      }
+
+      @include main {
+        display: block;
+        grid-column: 4 / 7;
+        margin-top: 129px;
+      }
+    }
+
+    &--title {
+      font-family: "DIN Pro", sans-serif;
+      font-size: 30px;
+      line-height: 37px;
+      text-transform: uppercase;
+      color: #0c797a;
+
+      @include tablet {
+        font-size: 34px;
+        line-height: 42px;
+      }
+    }
+
+    &--list {
+      padding-left: 20px;
+      margin: 0;
+
+      &-nav {
+        padding-left: 20px;
+        margin: 0;
+      }
+    }
+
+    &--part {
+      font-family: "Helvetica", sans-serif;
+      font-size: 14px;
+      line-height: 21px;
+      color: #333;
+      margin-top: 10px;
+
+      &:first-child {
+        margin-top: 30px;
+      }
+
+      @include tablet {
+        font-size: 16px;
+        line-height: 19px;
+        margin-top: 13px;
+      }
+
+      @include main {
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+  }
+
+  &__slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    overflow: hidden;
+
+    @include tablet {
+      display: none;
+    }
+
+    @include main {
+      display: none;
+    }
+
+    &--arrow {
+      display: flex;
+
+      &-left {
+        display: inline-block;
+        width: 48px;
+        height: 20px;
+        border-top: 2px solid gray;
+        transform: scale(1.05);
+        transition: transform 1s ease;
+
+        &::before {
+          content: "";
+          width: 39px;
+          height: 1px;
+          transform: rotate(35deg);
+          background-color: gray;
+          display: block;
+          margin-left: -17px;
+        }
+
+        &:hover {
+          border-top: 2px solid #000;
+        }
+      }
+
+      &-right {
+        display: inline-block;
+        width: 48px;
+        height: 20px;
+        border-bottom: 2px solid gray;
+        transform: scale(1.05);
+        transition: transform 1s ease;
+        margin-left: 20px;
+        
+        &::after {
+          content: "";
+          width: 20px;
+          height: 1px;
+          transform: rotate(35deg);
+          background-color: gray;
+          display: inline-block;
+          margin-left: 30px;
+          margin-bottom: -2px;
+        }
+
+        &:hover {
+          border-bottom: 2px solid #000;
+        }
+      }
+    }
+
+    &--data {
+      display: flex;
+      flex-direction: row;
+      margin-top: 10px;
+      justify-content: center;
+
+      &-act {
+        display: inline-block;
+        font-family: "DIN Pro", sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        color: #333;
+      }
+
+      &-off {
+        font-family: "DIN Pro", sans-serif;
+        font-size: 11px;
+        line-height: 14px;
+        color: #bdbdbd;
+      }
+    }
+  }
+
+  &__sliderNav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 2;
+    height: 345px;
+    background-color: #f2f2f2;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    @include tablet {
+      display: none;
+    }
+    
+    @include main {
+      display: none;
+    }
+  }
+}

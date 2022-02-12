@@ -1,0 +1,160 @@
+.header {
+  width: 100%;
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    height: 76px;
+    margin-top: 28px;
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 20px;
+      grid-column: 1 / 9;
+      height: 175px;
+      margin-top: 27px;
+    }
+
+    @include main {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+      grid-column: 1 / 13;
+      height: 150px;
+      margin-top: 13px;
+    }
+  }
+
+  &__logo {
+    width: 161px;
+    height: 26px;
+    object-fit: contain;
+
+    @include tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include main {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__leftMenu {
+    display: none;
+    justify-content: space-between;
+    height: 48px;
+    align-items: center;
+
+    @include tablet {
+      grid-column: 6 / 9;
+      display: flex;
+    }
+
+    @include main {
+      grid-column: 10 / 13;
+      display: flex;
+    }
+
+    &--specs {
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 18px;
+      color: #828282;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+
+      &:hover {
+        color: #333;
+        font-weight: 700;
+      }
+    }
+
+    &--lang {
+      display: flex;
+
+      &-en {
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 18px;
+        color: #828282;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+
+        &:hover {
+          color: #333;
+          font-weight: 700;
+        }
+      }
+
+      &-ua {
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 18px;
+        color: #828282;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+
+        &:hover {
+          color: #333;
+          font-weight: 700;
+        }
+      }
+    }
+
+    &--buy {
+      font-size: 12px;
+      line-height: 15px;
+      text-decoration: none;
+      height: 48px;
+      background-color: #333;
+      width: 102px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
+
+  &__burgerMenu {
+    display: block;
+
+    @include tablet {
+      display: none;
+    }
+
+    @include main {
+      display: none;
+    }
+
+    &--line {
+      width: 26px;
+      height: 1px;
+      margin-top: 5px;
+      background-color: #333;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &-cross {
+        background-color: #333;
+
+        &:first-child {
+          width: 25px;
+          transform: translateY(6px) rotate(45deg);
+        }
+  
+        &:nth-child(2) {
+          opacity: 0;
+        }
+  
+        &:last-child {
+          width: 25px;
+          transform: translateY(-6px) rotate(-45deg);
+        }
+      }
+    }
+  }
+}
