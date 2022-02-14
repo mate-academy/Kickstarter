@@ -35,9 +35,17 @@ body {
   background: $c-gray;
   font-family: Helvetica Neue, Arial, sans-serif;
   margin: 0;
+  padding: 0;
   min-height: 100vh;
-  padding: 27px 30px 0;
+}
 
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  margin-bottom: 90px;
+  padding: 27px 30px 0;
   @include onTablet {
     padding: 32px 33px 0;
   }
@@ -49,20 +57,25 @@ body {
   }
 }
 
-* {
-  box-sizing: border-box;
-}
-
-.header {
-  margin-bottom: 90px;
-}
-
 .section {
   margin-bottom: 90px;
+  padding: 0 30px;
+  @include onTablet {
+    padding: 0 33px;
+  }
+  @include onLaptop {
+    padding: 0 123px;
+  }
+  @include onLarge {
+    padding: 0 135px;
+  }
+
 }
 
 ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -98,5 +111,18 @@ a {
   transition: background-image 0.3s ease-in;
   &:hover {
     background-image: url(../images/logo-hover.svg);
+  }
+}
+
+.link-buy {
+  border: 1px solid black;
+}
+
+.lang-switch {
+  color: #333;
+  .lang-case-active {
+    color: black;
+    font-weight: bolder;
+    border-bottom: 2px solid black;
   }
 }
