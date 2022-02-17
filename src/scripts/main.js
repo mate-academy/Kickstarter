@@ -1,1 +1,18 @@
 'use strict';
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#nav-mobile') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
+
+const makeDefault = document.querySelector('#form');
+
+makeDefault.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  document.getElementsByName('email')[0].value = '';
+  document.getElementsByName('message')[0].value = '';
+});
