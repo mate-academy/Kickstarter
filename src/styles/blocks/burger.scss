@@ -1,0 +1,42 @@
+.burger {
+  display: block;
+  width: 24px;
+  height: 14px;
+  z-index: 4;
+
+  @include onTablet {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  &__line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: $granit;
+    margin-bottom: 4px;
+    transition: all $animationTime;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &--open {
+      background-color: $light;
+      &:first-child {
+        transform: translateY(6px) rotate(45deg);
+      }
+      &:nth-child(2n) {
+        width: 0;
+      }
+      &:last-child {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
