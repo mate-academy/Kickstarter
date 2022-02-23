@@ -1,0 +1,64 @@
+.header {
+  padding: 28px 0 22px;
+  background-color: $light;
+
+  &__grid {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__open-menu {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    transition: all $animationTime;
+
+    &:target {
+      left: 0;
+    }
+  }
+
+  &__logo {
+    grid-column: 1 / 4;
+  }
+
+  &__burger {
+    grid-column: 4 / 5;
+    justify-self: end;
+  }
+
+  &__specs {
+    display: block;
+    color: $grey;
+    transition: all $animationTime;
+    font-size: 14px;
+    line-height: 17px;
+
+    &:hover {
+      color: $granit;
+    }
+  }
+
+  &__links {
+    display: none;
+
+    @include onTablet {
+      grid-column: 6 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      grid-column: 10 / 14;
+    }
+  }
+
+  &__button {
+    background-color: $granit;
+
+    &:hover {
+      background-color: $black;
+    }
+  }
+}
