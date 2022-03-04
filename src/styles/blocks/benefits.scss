@@ -63,6 +63,13 @@
     height: 50px;
     overflow: hidden;
     margin: 0 auto 40px;
+    transform: rotate(0deg);
+
+    &:hover {
+      animation-name: jiggle;
+      animation-duration: 1s;
+      animation-iteration-count: 1;
+    }
   }
 
   &__icon {
@@ -162,5 +169,20 @@
 
   @include onTablet {
     padding-bottom: 0;
+  }
+}
+
+@keyframes jiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
