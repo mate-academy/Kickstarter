@@ -1,0 +1,101 @@
+.benefits {
+  &__nav {
+    display: none;
+    @include onDesktop {
+      display: flex;
+    }
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+  }
+
+  &__item {
+    padding-right: 30px;
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $darkGrey-color;
+    @extend %mediumText;
+    line-height: 21px;
+
+    &:hover {
+      color: $turquoise-color;
+      transition: color 0.3s;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background-color: $turquoise-color;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    &:hover::after {
+      transform: scaleX(100%);
+    }
+  }
+  &__content-wrapper {
+    margin-top: 75px;
+    @include onTablet {
+      height: 200px;
+    }
+    @include onDesktop {
+      height: 290px;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &--mobile {
+      display: none;
+      @include onTablet {
+        display: flex;
+      }
+    }
+  }
+
+  &__image {
+    height: 40px;
+    max-width: 100%;
+  }
+
+  &__title {
+    margin-top: 45px;
+    text-transform: uppercase;
+    @include onTablet {
+      height: 30px;
+    }
+    @include onDesktop {
+      height: 60px;
+    }
+    color: $granit-color;
+    line-height: 30px;
+  }
+
+  &__text {
+    margin-top: 20px;
+    padding: 0 20px;
+    @extend %mediumText;
+    text-align: center;
+    color: $grey-color;
+    line-height: 21px;
+  }
+}

@@ -1,0 +1,81 @@
+.features {
+  background-color: $mediumGrey-color;
+  @include onTablet {
+    background-image: url(../images/sound-3.png);
+    background-repeat: no-repeat;
+    background-position: right 80%;
+    background-color: inherit;
+  }
+
+  &__wrapper {
+    margin-top: 50px;
+
+    &--second {
+      display: none;
+      @include onTablet {
+        display: inherit;
+      }
+    }
+
+    &--last {
+      display: none;
+      @include onTablet {
+        display: inherit;
+        margin-top: 130px;
+      }
+    }
+  }
+
+  &__title {
+    color: $green-color;
+    line-height: 42px;
+    @extend %h3;
+  }
+
+  &__list {
+    padding-top: 30px;
+  }
+
+  &__item {
+    @extend %largeText;
+    font-size: 14px;
+    line-height: 14px;
+
+    @include onTablet {
+      line-height: 19px;
+      font-size: 16px;
+    }
+
+    &:not(:first-child) {
+      padding-top: 13px;
+    }
+  }
+
+  &__pagination-wrapper {
+    margin-top: 50px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__arrow {
+    text-decoration: none;
+  }
+  &__pagination {
+    margin-top: 10px;
+  }
+  &__current-p {
+    @extend %largeText;
+    line-height: 20px;
+  }
+  &__next-p {
+    @extend %mediumText;
+    line-height: 14px;
+    color: $lightGrey-color;
+  }
+
+  &__image {
+    max-width: 100%;
+  }
+}
