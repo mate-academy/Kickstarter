@@ -1,0 +1,80 @@
+.nav {
+  display: none;
+
+  @include onTablet {
+    display: block;
+  }
+
+  &--mobile {
+    display: block;
+    @include onTablet {
+      display: none;
+    }
+  }
+  
+  &__list {
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    list-style: none;
+  }
+
+  &__item {
+    &:not(:last-of-type) {
+      padding-right: 27px;
+    }
+    @include onDesktop {
+      &:not(:last-of-type) {
+        padding-right: 37px;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $darkGrey-color;
+    @extend %mediumText;
+    line-height: 17px;
+
+    @include onDesktop {
+      line-height: 21px;
+    }
+
+    &:hover {
+      color: $turquoise-color;
+      transition: color 0.3s;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background-color: $turquoise-color;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    &:hover::after {
+      transform: scaleX(100%);
+    }
+
+    &--active {
+      color: $granit-color;
+      font-weight: 700;
+    }
+
+    &--dash {
+      cursor: default;
+      text-decoration: none;
+      color: $granit-color;
+      font-weight: 700;
+    }
+  }
+}

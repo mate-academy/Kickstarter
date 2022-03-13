@@ -1,0 +1,93 @@
+.about-us {
+  position: relative;
+  
+  &__image-wrapper {
+    margin-top: 50px;
+    @include onTablet {
+      margin-top: 0;
+    }
+  }
+
+  &__image {
+    max-width: 100%;
+    @include onTablet {
+      max-height: 415px;
+      position: absolute;
+    }
+    @include onDesktop {
+      max-width: 35%;
+      height: 100%;
+    }
+    object-position: right;
+    right: 50%;
+    top: 0;
+  }
+
+  &__content-wrapper {
+    height: max-content;
+    margin-left: 0;
+    @include onDesktop {
+      height: 400px;
+      margin-left: 20px;
+    }
+  }
+
+  
+  &__title {
+    display: none;
+    min-width: 400px;
+    @include onTablet {
+      right: 20%;
+      max-width: 400px;
+      display: block;
+      position: relative;
+    }
+
+    &--mobile {
+      display: block;
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+  &__text {
+    margin-top: 30px;
+    @extend %largeText;
+    line-height: 24px;
+    color: $grey-color;
+  }
+
+  &__link {
+    display: inline-block;
+    position: relative;
+    margin-top: 30px;
+    @extend %smallText;
+    font-weight: 700;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $turquoise-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $turquoise-color;
+      transition: color 0.3s;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background-color: $turquoise-color;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    &:hover::after {
+      transform: scaleX(100%);
+    }
+  }
+}
