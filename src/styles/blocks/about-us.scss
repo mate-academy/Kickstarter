@@ -1,0 +1,75 @@
+.about-us {
+  &__title {
+    margin-bottom: 50px;
+
+    line-height: 55px;
+  }
+
+  &__image-container {
+    position: relative;
+  }
+
+  &__image {
+    margin-bottom: 30px;
+    width: 100%;
+    height: 210px;
+
+    object-fit: cover;
+
+    @include onTablet() {
+      position: absolute;
+      z-index: -1;
+
+      margin-bottom: 0;
+
+      @include underDesktop() {
+        top: -8px;
+        left: -$gutter-mobile;
+
+        width: calc(100% + #{$gutter-mobile});
+        height: 420px;
+      }
+    }
+
+    @include onDesktop() {
+      transform: translateY(-8px);
+
+      width: 100%;
+      height: 380px;
+    }
+  }
+
+  &__paragraph {
+    margin: 0 0 30px;
+
+    font-size: 14px;
+    line-height: 21px;
+    color: $gray3;
+  }
+
+  &__link {
+    color: $green;
+    font-size: 12px;
+    line-height: 15px;
+
+    &::after {
+      content: "";
+
+      transform-origin: 0 0;
+
+      display: block;
+      margin-top: 6px;
+      height: 1px;
+      width: 50px;
+
+      background-color: $green;
+
+      transition-property: transform;
+      transition-duration: $animation-duration;
+    }
+
+    &:hover::after {
+      transform: scaleX(2.5) translateX(0);
+    }
+  }
+}

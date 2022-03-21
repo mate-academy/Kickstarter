@@ -1,0 +1,129 @@
+.benefits {
+  position: relative;
+
+  &__top-section {
+    margin-bottom: 100px;
+
+    @include onTablet() {
+      margin-bottom: 128px;
+    }
+
+    @include onDesktop() {
+      margin-bottom: 132px;
+    }
+  }
+
+  &__image {
+    position: relative;
+    z-index: -1;
+
+    margin-bottom: 40px;
+    width: 100%;
+
+    object-fit: contain;
+    object-position: left;
+
+    @media (min-width: 350px) {
+      content: url(../images/speakers_m.png);
+    }
+
+    @include onTablet() {
+      --columns-occupied: calc(5 / #{$columns-tablet});
+
+      position: absolute;
+      right: 0;
+      bottom: 0;
+
+      margin-bottom: 0;
+      width: calc(
+        100% * var(--columns-occupied) + #{$column-gap / 2});
+      height: 360px;
+    }
+
+    @include onDesktop() {
+      --columns-occupied: calc(8 / #{$columns-desktop});
+
+      height: 460px;
+
+      content: url(../images/speakers_l.png);
+    }
+  }
+
+  &__title {
+    margin-bottom: 24px;
+
+    text-align: center;
+    font-size: 44px;
+    line-height: 130%;
+
+    @include onTablet() {
+      margin-bottom: 36px;
+
+      text-align: left;
+      font-size: 48px;
+    }
+
+    @include onDesktop() {
+      margin-bottom: 28px;
+
+      font-size: 64px;
+    }
+  }
+
+  &__paragraph {
+    margin: 0;
+
+    color: $darkGray;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+
+    @include onTablet() {
+      text-align: left;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 40px;
+  }
+
+  &__icon {
+    margin: 0 auto 40px;
+    @include square(48px);
+
+    background-color: $gray1;
+
+    @include onTablet() {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 50px;
+
+    text-align: center;
+    font-weight: normal;
+
+    @include onTablet() {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__subparagraph {
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 150%;
+
+    text-align: center;
+    color: $gray3;
+  }
+
+  &__top-line-subparagraph {
+    @include onTablet() {
+      @include underDesktop() {
+        margin-bottom: 60px;
+      }
+    }
+  }
+}
