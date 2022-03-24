@@ -1,4 +1,11 @@
 .header {
+  @include onTablet() {
+    margin-bottom: 100px;
+  }
+
+  @include onDesktop() {
+    margin-bottom: 90px;
+  }
 
   &__container-for-max-width {
     @extend %max-width-wrapper;
@@ -20,13 +27,8 @@
   &__links {
     display: none;
     align-items: center;
-    gap: 0 27px;
 
     @extend %thirdary-text;
-
-    @include onDesktop() {
-      gap: 0 47px;
-    }
 
     @include onTablet() {
       display: flex;
@@ -35,6 +37,7 @@
 
   &__link {
     display: inline-block;
+    margin-right: 30px;
 
     color: $darkgrey;
     text-decoration: none;
