@@ -1,0 +1,158 @@
+.header {
+  &__top {
+    @include onTablet {
+      margin-bottom: 70px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__content {
+    @include onDesktop {
+      height: 100vh;
+    }
+  }
+
+  &__main {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 90px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 110px;
+    }
+  }
+
+  &__buttons {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+
+      &--link {
+        margin-right: 47px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &__specs {
+    position: relative;
+    transition: all 0.3s;
+
+    @include header-hover;
+    @include hover(color, #000);
+
+    @include onTablet {
+      font-size: 14px;
+      line-height: 17px;
+    }
+
+    @include onDesktop {
+      line-height: 20px;
+    }
+  }
+
+  &__language-switch {
+    font-size: 14px;
+    line-height: 20px;
+
+    &--ua {
+      color: #bdbdbd;
+
+      position: relative;
+      transition: all 0.3s;
+      @include header-hover;
+    }
+
+    &--en {
+      position: relative;
+      transition: all 0.3s;
+      @include header-hover;
+    }
+  }
+
+  &__button {
+    padding: 17px 34px;
+    margin-right: 0;
+    background-color: $main-color;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+
+    color: #fff;
+    border-radius: 2px;
+
+    @include hover(box-shadow, 0 3px 8px -1px $header-hover);
+  }
+
+  &__burger {
+    width: 24px;
+    height: 14px;
+    margin-right: 0;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      left: 60px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    @include onTablet {
+      position: absolute;
+    }
+  }
+
+  &__title {
+    font-size: 44px;
+    line-height: 57px;
+    font-weight: 700;
+
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 23px;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+      text-align: left;
+      margin-bottom: 34px;
+    }
+
+    @include onDesktop {
+      font-size: 64px;
+      line-height: 83px;
+      margin-bottom: 27px;
+    }
+  }
+
+  &__paragraph {
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+
+    @include onTablet {
+      text-align: left;
+    }
+  }
+}
