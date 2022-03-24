@@ -1,7 +1,247 @@
 @import "utils";
 @import "fonts";
-@import "typography";
+@import "./utils/resets";
+@import "./utils/extends";
+@import "./utils/mixins";
+@import "./utils/vars";
+@import "./blocks/header.scss";
+@import "./blocks/nav.scss";
+@import "./blocks/header-menu.scss";
+@import "./blocks/our-story.scss";
+@import "./blocks/technology.scss";
+@import "./blocks/features.scss";
+@import "./blocks/get-in-touch.scss";
+@import "./blocks/contacts.scss";
+@import "./blocks/footer.scss";
 
-body {
-  background: $c-gray;
+.page {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  color: $second-color;
+  background: $main-color;
+}
+
+.grid {
+  display: grid;
+  max-width: 770px;
+  margin: 0 auto;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+
+  @include OnTablet {
+    max-width: 1120px;
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include OnDesktop {
+    max-width: 1200px;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &__item {
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @include OnTablet {
+      max-width: 1120px;
+      grid-template-columns: repeat(8, 1fr);
+
+      @for $start from 1 through 8 {
+        @for $end from $start through 8 {
+          &--tablet-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @include OnDesktop {
+      max-width: 1200px;
+      grid-template-columns: repeat(12, 1fr);
+
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--desktop-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  margin: 0 30px;
+  margin-top: 32px;
+
+  @include OnTablet {
+    margin: 0 35px;
+    margin-top: 28px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    margin-bottom: 88px;
+  }
+
+  &__menu {
+    display: none;
+
+    @include OnTablet {
+      display: flex;
+      align-items: center;
+
+      &-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 99px;
+        height: 48px;
+      }
+
+      &-block-2 {
+        margin-right: 28px;
+      }
+    }
+
+    @include OnDesktop {
+      &-block {
+        margin-right: 10px;
+      }
+
+      &-block-2 {
+        margin-right: 36px;
+      }
+    }
+  }
+
+  &__menu-icon {
+    height: 14px;
+    width: 24px;
+
+    background-image: url(../images/icons/menu-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include OnTablet {
+      background-image: none;
+    }
+  }
+
+  &__btn-buy {
+    box-sizing: border-box;
+    border-color: #0db2b3;
+
+    color: #fff;
+    background-image: -webkit-linear-gradient(45deg,
+    #0db2b3 50%, transparent 50%),
+      linear-gradient(45deg,
+    #0db2b3 50%, transparent 50%);
+
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background box-shadow 300ms ease-in-out;
+
+    &:hover {
+      background-position: 0;
+
+      box-shadow: 1px 4px 16px #076363;
+      border: 1px solid #097979;
+    }
+  }
+
+  &__link-btn {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 48px;
+  width: 102px;
+
+  background-color: #333;
+  color: #fff;
+
+  cursor: pointer;
+}
+
+.about-us {
+  &__img {
+    background-image: url(../images/image5.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 365px;
+    width: 500px;
+    margin: 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+
+    @include OnTablet {
+      height: 365px;
+      width: auto;
+      grid-row: 1/3;
+      margin: 0;
+      transform: translateX(0);
+    }
+
+    @include OnDesktop {
+      height: 464px;
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    margin: 0 auto;
+    width: 260px;
+
+    &-special {
+      font-family: "DIN Pro", sans-serif;
+      font-size: 44px;
+      line-height: 130%;
+      text-transform: uppercase;
+      width: auto;
+
+      @include OnTablet {
+        font-size: 48px;
+      }
+
+      @include OnDesktop {
+        font-size: 64px;
+      }
+    }
+
+    @include OnTablet {
+      grid-row: 1/3;
+      text-align: left;
+    }
+
+    @include OnDesktop {
+      margin-right: 120px;
+    }
+  }
 }
