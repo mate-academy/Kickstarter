@@ -1,0 +1,67 @@
+.main {
+  position: relative;
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  &__container-for-max-width {
+    @extend %max-width-wrapper;
+  }
+
+  &__content-wrapper {
+    @extend %content-wrapper;
+  }
+
+  &__title {
+    @extend %h1;
+
+    margin-top: 300px;
+
+    @include onTablet() {
+      margin-top: 0;
+    }
+  }
+
+  &__paragraph {
+    @extend %main-text;
+  }
+
+  &__start-screen {
+    margin-bottom: $section-gap;
+  }
+
+  &__photo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: block;
+    margin: 0 auto;
+
+    width: 320px;
+    height: 245px;
+
+    z-index: -1;
+    overflow: hidden;
+
+    @include onTablet() {
+      position: absolute;
+      left: 285px;
+      right: -285px;
+
+      width: 739px;
+      height: 365px;
+    }
+
+    @include onDesktop() {
+      left: 250px;
+      right: -250px;
+      bottom: 140px;
+
+      width: 939px;
+      height: 464px;
+    }
+
+    object-fit: cover;
+    object-position: left;
+  }
+}
