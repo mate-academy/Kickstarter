@@ -21,11 +21,13 @@
   border: 1px solid;
   border-color: var(--theme-color);
 
-  transition-property: background-color, border-color;
+  transition-property: border-color, box-shadow, transform;
   transition-duration: $animation-duration;
 
   &:hover {
-    --theme-color: #{$black};
+    transform: scale(1.05);
+
+    box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.4);
   }
 
   &:disabled {
@@ -37,16 +39,14 @@
   &--submit {
     --theme-color: #{$green};
 
-    &:hover {
-      --theme-color: #{$darkGreen};
-    }
-
     &:disabled {
       --theme-color: #{$green2};
     }
   }
 
   &--play {
+    position: relative;
+
     @include square(110px);
 
     font-family: "DIN Pro", sans-serif;
@@ -55,11 +55,10 @@
     color: transparent;
 
     background-color: transparent;
-    border-width: 2px;
-    border-color: $white2;
+    border: 2px solid $white;
     border-radius: 50%;
 
-    transition-property: color;
+    transition-property: color, border-width;
     transition-duration: $animation-duration;
 
     @include onTablet() {
@@ -97,6 +96,9 @@
 
     &:hover {
       color: transparent;
+      box-shadow: none;
+
+      border-width: 3px;
 
       &::after {
         opacity: 1;
