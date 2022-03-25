@@ -1,0 +1,72 @@
+.video {
+  position: relative;
+  width: 100%;
+  padding-top: 110px;
+
+  @include mediaTablet {
+    padding-top: 140px;
+  }
+
+  @include mediaLaptop {
+    padding-top: 170px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+
+    z-index: -1;
+
+    @include mediaTablet {
+      height: 400px;
+    }
+
+    @include mediaLaptop {
+      height: 600px;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 110px;
+    height: 110px;
+    margin: 0 auto;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 18px;
+    color: $c-border;
+    cursor: pointer;
+
+    background-color: transparent;
+    border-color: $c-border;
+    border-radius: 50%;
+
+    &::before {
+      content: "PLAY";
+    }
+
+    &:hover {
+      content: "";
+      background-image: url(../images/play.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      color: transparent;
+
+    }
+
+    @include mediaTablet {
+      height: 190px;
+      width: 190px;
+    }
+
+    @include mediaLaptop {
+      height: 232px;
+      width: 232px;
+    }
+  }
+}
