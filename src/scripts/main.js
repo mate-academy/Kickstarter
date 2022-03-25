@@ -29,6 +29,10 @@ mobileNavLinks.forEach(link => {
   link.addEventListener('click', function() {
     mobileNav.classList.remove('mobile-nav--active');
     burgerMenuBtn.classList.remove('burger-menu--active');
+
+    burgerMenuLines.forEach(line => {
+      line.classList.remove('burger-menu__line--active');
+    });
     document.body.style.overflow = 'auto';
   });
 });
