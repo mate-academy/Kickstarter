@@ -1,0 +1,41 @@
+.nav {
+  display: none;
+
+  @include onDesktop() {
+    display: block;
+  }
+
+  &__link {
+    box-sizing: border-box;
+    display: block;
+
+    color: $granit;
+    text-decoration: none;
+
+    border-bottom: 1px solid transparent;
+
+    @include hover(border-color, $granit);
+
+    @extend %thirdary-text;
+
+    &--active {
+      font-weight: 700;
+
+      pointer-events: none;
+    }
+  }
+
+  &__content-wrapper {
+    @extend %content-wrapper;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    // padding-left: 220px;// at design, but it makes more sense to just center
+  }
+
+  &__container-for-max-width {
+    @extend %max-width-wrapper;
+  }
+}
