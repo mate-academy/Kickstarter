@@ -17,14 +17,16 @@ left.addEventListener('click', (e) => {
     section.children[0].style.display = 'block';
     section.children[2].style.display = 'none';
     section.children[1].style.display = 'none';
-    block.textContent = '1';
+    block.textContent = '01';
+    left.classList.remove('features__shryft');
+    right.classList.add('features__shryft');
   }
 
   if (item === 2) {
     section.children[0].style.display = 'none';
     section.children[2].style.display = 'none';
     section.children[1].style.display = 'block';
-    block.textContent = '2';
+    block.textContent = '02';
   }
 });
 
@@ -38,13 +40,13 @@ right.addEventListener('click', (e) => {
     section.children[0].style.display = 'none';
     section.children[2].style.display = 'none';
     section.children[1].style.display = 'block';
-    block.textContent = '2';
+    block.textContent = '02';
   }
 
   if (item === 3) {
     right.classList.remove('features__shryft');
     left.classList.add('features__shryft');
-    block.textContent = '3';
+    block.textContent = '03';
     section.children[0].style.display = 'none';
     section.children[2].style.display = 'block';
     section.children[1].style.display = 'none';
