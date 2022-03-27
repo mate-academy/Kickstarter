@@ -71,4 +71,82 @@
 
     @include hover(border-color, $darkgrey);
   }
+
+  &--video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    box-sizing: border-box;
+    width: 108px;
+    height: 108px;
+    font-size: 0;
+
+    background-color: transparent;
+    border: 1px solid $background;
+    border-radius: 50%;
+
+    transition: display 0.3s;
+
+    &::before {
+      content: "play";
+      display: block;
+
+      color: $background;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+
+      @include onTablet() {
+        font-size: 24px;
+        line-height: 36px;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: none;
+      box-sizing: border-box;
+
+      width: 0;
+      height: 0;
+
+      border-top: 9px solid transparent;
+      border-left: 14px solid $background;
+      border-bottom: 9px solid transparent;
+
+      @include onTablet() {
+        border-top: 13px solid transparent;
+        border-left: 20px solid $background;
+        border-bottom: 13px solid transparent;
+      }
+
+      @include onDesktop() {
+        border-top: 16px solid transparent;
+        border-left: 24px solid $background;
+        border-bottom: 16px solid transparent;
+      }
+    }
+
+    @include onTablet() {
+      width: 190px;
+      height: 190px;
+    }
+
+    @include onDesktop() {
+      width: 232px;
+      height: 232px;
+    }
+
+    &:hover {
+      &::after {
+        display: block;
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+  }
 }
