@@ -1,6 +1,5 @@
 .main-content {
   position: relative;
-  // margin: 0 auto;
 
   overflow: hidden;
 
@@ -12,21 +11,7 @@
     @extend %content-wrapper;
   }
 
-  &__title {
-    @extend %h1;
-
-    margin-top: 300px;
-
-    @include onTablet() {
-      margin-top: 0;
-    }
-  }
-
-  &__paragraph {
-    @extend %main-text;
-  }
-
-  &__start-screen {
+  &__section {
     margin-bottom: $section-gap-mobile;
 
     @include onTablet() {
@@ -35,6 +20,115 @@
 
     @include onDesktop() {
       margin-bottom: $section-gap-desktop;
+    }
+
+    &--our-story {
+      text-align: center;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+
+    &--first-screen {
+      margin-top: 300px;
+
+      @include onTablet() {
+        margin-top: 0;
+      }
+    }
+
+    &--our-story {
+      @extend %h4;
+      margin-bottom: 20px;
+
+      &:nth-of-type(n + 2) {
+        display: none;
+
+        @include onTablet() {
+          display: block;
+        }
+      }
+
+      &:nth-of-type(1) {
+        &::before {
+          content: "";
+
+          @extend %background-images;
+          margin: 0 auto 40px;
+          background-image: url(../images/features_1.svg);
+        }
+      }
+
+      &:nth-of-type(2) {
+        // display: none;
+
+        // @include onTablet() {
+        //   display: block;
+        // }
+
+        &::before {
+          content: "";
+
+          @extend %background-images;
+          margin: 0 auto 40px;
+          background-image: url(../images/features_2.svg);
+        }
+      }
+
+      &:nth-of-type(3) {
+        // display: none;
+
+        // @include onTablet() {
+        //   display: block;
+        // }
+
+        &::before {
+          content: "";
+
+          @extend %background-images;
+          margin: 0 auto 40px;
+          background-image: url(../images/features_3.svg);
+        }
+      }
+
+      &:nth-of-type(4) {
+        // display: none;
+
+        // @include onTablet() {
+        //   display: block;
+        // }
+
+        &::before {
+          content: "";
+
+          @extend %background-images;
+          margin: 0 auto 40px;
+          background-image: url(../images/features_4.svg);
+        }
+      }
+    }
+  }
+
+  &__paragraph {
+    @extend %main-text;
+
+    &--our-story {
+      @extend %secondary-text;
+      margin-bottom: 65px;
+
+      @include onDesktop() {
+        // display: block;
+        margin-bottom: 0;
+      }
+
+      &:nth-of-type(n + 2) {
+        display: none;
+
+        @include onTablet() {
+          display: block;
+        }
+      }
     }
   }
 
@@ -49,15 +143,12 @@
     height: 245px;
 
     z-index: -1;
-    // overflow: hidden;
 
     @include onTablet() {
       position: absolute;
       left: 270px;
       right: -270px;
-      bottom: 135px;
-
-      transform: scale(0.95);
+      top: -25px;
 
       width: 739px;
       height: 365px;
@@ -66,7 +157,7 @@
     @include onDesktop() {
       left: 250px;
       right: -250px;
-      bottom: 195px;
+      top: -80px;
 
       transform: none;
 
