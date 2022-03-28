@@ -29,18 +29,82 @@
     &--video {
       position: relative;
     }
+
+    &--design {
+      position: relative;
+    }
+  }
+
+  &__photo {
+    display: block;
+
+    margin: 0 auto;
+
+    z-index: -1;
+
+    object-fit: cover;
+    object-position: left;
+
+    &--first-screen {
+      width: 320px;
+      height: 245px;
+
+      margin-bottom: 40px;
+
+      @include onTablet() {
+        position: absolute;
+        left: 270px;
+        right: -270px;
+        top: -25px;
+
+        width: 739px;
+        height: 365px;
+      }
+
+      @include onDesktop() {
+        left: 250px;
+        right: -250px;
+        top: -80px;
+
+        width: 939px;
+        height: 464px;
+      }
+    }
+
+    &--design {
+      width: 259px;
+      height: 210px;
+
+      margin-bottom: 20px;
+
+      object-position: -30px;
+
+      @include onTablet() {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        width: 374px;
+        height: 415px;
+
+        margin-bottom: $section-gap-tablet;
+
+        object-position: -100px;
+      }
+
+      @include onDesktop() {
+        right: 30%;
+
+        width: 582px;
+        height: 388px;
+
+        object-position: center;
+      }
+    }
   }
 
   &__title {
     @extend %h1;
-
-    &--first-screen {
-      margin-top: 300px;
-
-      @include onTablet() {
-        margin-top: 0;
-      }
-    }
 
     &--our-story {
       @extend %h4;
@@ -94,6 +158,12 @@
         }
       }
     }
+
+    &--design {
+      @extend %h2;
+
+      margin-bottom: 30px;
+    }
   }
 
   &__paragraph {
@@ -116,43 +186,14 @@
         }
       }
     }
-  }
 
-  &__photo {
-    position: absolute;
-    left: 0;
-    right: 0;
-    display: block;
-    margin: 0 auto;
+    &--design {
+      margin-bottom: 30px;
 
-    width: 320px;
-    height: 245px;
-
-    z-index: -1;
-
-    @include onTablet() {
-      position: absolute;
-      left: 270px;
-      right: -270px;
-      top: -25px;
-
-      width: 739px;
-      height: 365px;
+      @include onTablet() {
+        margin-bottom: 60px;
+      }
     }
-
-    @include onDesktop() {
-      left: 250px;
-      right: -250px;
-      top: -80px;
-
-      transform: none;
-
-      width: 939px;
-      height: 464px;
-    }
-
-    object-fit: cover;
-    object-position: left;
   }
 
   &__video {
