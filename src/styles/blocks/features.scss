@@ -17,9 +17,29 @@
     }
   }
 
+  &__frame-toggler {
+    display: none;
+  }
+
+  &__mobile-frame {
+    @include underTablet() {
+      display: none;
+
+      margin: 0 auto 50px;
+      max-width: max-content;
+      height: 250px;
+    }
+  }
+
+  &__frame-toggler:checked + &__mobile-frame {
+    @include underTablet() {
+      display: block;
+    }
+  }
+
   &__sound-n-music {
-    margin-left: auto;
-    max-width: max-content;
+    // margin-left: auto;
+    // max-width: max-content;
 
     @include onTablet() {
       margin: 0 0 60px;
@@ -31,7 +51,9 @@
   }
 
   &__connectivity {
-    margin-bottom: 80px;
+    @include onTablet() {
+      margin-bottom: 80px;
+    }
 
     @include onDesktop() {
       margin-bottom: 130px;
@@ -82,7 +104,7 @@
     }
 
     &:last-child {
-      margin-bottom: 50px;
+      margin-bottom: 0;
 
       @include onTablet() {
         margin: 0;
