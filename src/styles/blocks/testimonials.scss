@@ -1,0 +1,97 @@
+.testimonials {
+  display: flex;
+  justify-content: center;
+  background-image: url(../images/icons/quotes.svg);
+  background-repeat: no-repeat;
+  background-size: 208px 171px;
+  background-position: top;
+
+  @include onTablet {
+    background-size: 233px 190px;
+  }
+
+  &__content {
+    margin-top: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      margin-top: 75px;
+    }
+
+    @include onDesktop {
+      margin-top: 53px;
+    }
+  }
+
+  &__about {
+    width: 100%;
+    max-width: 786px;
+
+    font-family: "Din Pro", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 150%;
+    color: $titleTextColor;
+    text-align: center;
+
+    @include onTablet {
+      font-size: 24px;
+    }
+  }
+
+  &__photo-container {
+    margin-top: 40px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 62px;
+    height: 62px;
+    transition: 0.3s;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    @include onDesktop {
+      margin-top: 30px;
+    }
+
+    &:hover {
+      transform: scale(1.7);
+      border-radius: 40%;
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+  &__name {
+    margin-top: 20px;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 169%;
+    color: $titleTextColor;
+  }
+
+  &__role {
+    margin-top: 7px;
+    @extend %additional-text;
+    line-height: 120%;
+    color: $mainTextColor;
+
+    @include onTablet {
+      margin-top: 5px;
+    }
+  }
+}

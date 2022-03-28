@@ -1,0 +1,45 @@
+.technology {
+
+  &__title {
+    @extend %h2;
+
+    @include onTablet {
+      margin-left: 100px;
+    }
+  }
+
+  &__photo-container {
+    margin: 40px auto 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: max-content;
+    height: 360px;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    @include onTablet {
+      margin-top: 0;
+      height: 705px;
+    }
+  }
+
+  &__photo {
+    position: relative;
+    transform: rotate(-7.85deg);
+    object-fit: cover;
+    min-width: 625px;
+    height: 278px;
+
+    @include onTablet {
+      min-width: 1230px;
+      height: 546px;
+    }
+  }
+}

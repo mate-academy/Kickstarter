@@ -1,0 +1,118 @@
+.questions {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      justify-content: center;
+      gap: 102px;
+    }
+  }
+
+  &__title {
+    @extend %h2;
+    line-height: 46px;
+
+    @include onTablet {
+      max-width: 340px;
+      line-height: 70px;
+    }
+
+    @include onDesktop {
+      max-width: 480px;
+      line-height: 72px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 30px;
+
+    @include onTablet {
+      margin: 0;
+    }
+  }
+
+  &__field {
+    width: 100%;
+    border: 1px solid #828282;
+    padding-left: 30px;
+
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+
+    @include onTablet {
+      width: 340px;
+    }
+
+    @include onDesktop {
+      width: 438px;
+    }
+
+    &--textarea {
+      margin-top: 19px;
+      padding-top: 16px;
+      height: 128px;
+      resize: none;
+
+      @include onTablet {
+        height: 201px;
+      }
+
+      @include onDesktop {
+        height: 128px;
+      }
+    }
+
+    &--email {
+      height: 48px;
+    }
+
+    @include hover(border-color, $hoverColor);
+
+    &::placeholder {
+      font-weight: normal;
+    }
+
+    &:hover::placeholder,
+    &:focus::placeholder {
+      color: $additionalColor;
+    }
+
+    &:focus {
+      outline: 0;
+      outline-offset: 0;
+      border-color: $additionalColor;
+      caret-color: $additionalColor;
+    }
+  }
+
+  &__form-button {
+    margin-top: 30px;
+    width: 102px;
+    height: 40px;
+    border: 0;
+    background-color: $hoverColor;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    @include hover(background-color, $additionalColor);
+
+    @include onDesktop {
+      height: 48px;
+    }
+  }
+}
