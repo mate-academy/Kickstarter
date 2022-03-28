@@ -37,15 +37,77 @@
       padding: 45px 0;
 
       background-color: $lightgrey3;
+
+      &::after {
+        content: "";
+        position: relative;
+        left: 20px;
+
+        display: block;
+        width: 320px;
+        height: 222px;
+        margin: 0 auto;
+
+        background-image: url("../images/crazybaby_2.jpg");
+        @extend %background-images;
+
+        @include onTablet() {
+          position: absolute;
+          z-index: -1;
+          top: 350px;
+          left: auto;
+          right: 0;
+
+          width: 586px;
+          height: 380px;
+        }
+
+        @include onDesktop() {
+          top: auto;
+          left: 38%;
+          right: auto;
+          bottom: 215px;
+
+          width: 786px;
+          height: 509px;
+        }
+      }
+
+      @include onTablet() {
+        background-color: inherit;
+      }
+    }
+  }
+
+  &__photos {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -20px;
+      top: 130px;
+
+      display: block;
+      width: 600px;
+      height: 221px;
+
+      background-image: url("../images/speaker_structure_shadow.png");
+      @extend %background-images;
+
+      @include onTablet() {
+        left: 150px;
+        top: 400px;
+
+        width: 954px;
+        height: 221px;
+      }
     }
   }
 
   &__photo {
     display: block;
-
     margin: 0 auto;
-
-    z-index: -1;
 
     object-fit: cover;
     object-position: left;
@@ -125,28 +187,6 @@
       @include onDesktop() {
         margin-bottom: 180px;
       }
-    }
-
-    &--features {
-      position: relative;
-      z-index: inherit;
-      left: #{-$margin-content-side-mobile};
-
-      width: 320px;
-      height: 222px;
-
-      // @include onTablet() {
-      //   position: absolute;
-      //   z-index: 0;
-      //   right: 0;
-      //   bottom: 130px;
-
-      //   width: 644px;
-      //   height: 620px;
-
-      //   background-color: $background;
-      // }
-
     }
   }
 
