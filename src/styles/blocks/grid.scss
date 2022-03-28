@@ -84,6 +84,36 @@
         grid-area: p-4;
       }
     }
+
+    &--features {
+      &-h1 {
+        grid-area: h-1;
+      }
+
+      &-h2 {
+        grid-area: h-2;
+      }
+
+      &-h3 {
+        grid-area: h-3;
+      }
+
+      &-h4 {
+        grid-area: h-4;
+      }
+
+      &-p2 {
+        grid-area: p-2;
+      }
+
+      &-p3 {
+        grid-area: p-3;
+      }
+
+      &-p4 {
+        grid-area: p-4;
+      }
+    }
   }
 
   &--tablet {
@@ -99,6 +129,33 @@
 
     @include onDesktop() {
       display: grid;
+    }
+  }
+
+  &--features {
+    @include onTablet() {
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas: ". h-1 h-1 h-1 h-1 h-1 h-1 ."
+        ". . . h-2 h-2 h-2 h-2 h-2"
+        ". . . p-2 p-2 p-2 p-2 p-2"
+        "h-3 h-3 h-3 h-3 h-3 . . ."
+        "p-3 p-3 p-3 p-3 p-3 . . ."
+        ". . h-4 h-4 h-4 h-4 h-4 ."
+        ". . p-4 p-4 p-4 p-4 p-4 .";
+    }
+
+    @include onDesktop() {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 0 30px;
+      grid-template-areas: ". h-1 h-1 h-1 h-1 . . . . . . ."
+        ". . . . . h-2 h-2 h-2 h-2 . . ."
+        ". . . . . p-2 p-2 p-2 p-2 . . ."
+        ". h-3 h-3 h-3 h-3 . . . . . . ."
+        ". p-3 p-3 p-3 p-3 . . . . . . ."
+        ". . . h-4 h-4 h-4 h-4 . . . . ."
+        ". . . p-4 p-4 p-4 p-4 . . . . .";
     }
   }
 }

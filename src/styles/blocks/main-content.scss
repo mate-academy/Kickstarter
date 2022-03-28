@@ -30,6 +30,14 @@
     &--design {
       position: relative;
     }
+
+    &--features {
+      position: relative;
+
+      padding: 45px 0;
+
+      background-color: $lightgrey3;
+    }
   }
 
   &__photo {
@@ -115,10 +123,34 @@
         margin-bottom: 180px;
       }
     }
+
+    &--features {
+      position: relative;
+      z-index: inherit;
+      left: #{-$margin-content-side-mobile};
+
+      width: 320px;
+      height: 222px;
+
+      // @include onTablet() {
+      //   position: absolute;
+      //   z-index: 0;
+      //   right: 0;
+      //   bottom: 130px;
+
+      //   width: 644px;
+      //   height: 620px;
+
+      //   background-color: $background;
+      // }
+
+    }
   }
 
   &__title {
     @extend %h1;
+
+    margin-bottom: 30px;
 
     &--our-story {
       @extend %h4;
@@ -188,6 +220,16 @@
         margin-bottom: 70px;
       }
     }
+
+    &--features {
+      @extend %h2;
+
+      &-h3 {
+        @extend %h3;
+
+        color: $green;
+      }
+    }
   }
 
   &__paragraph {
@@ -235,5 +277,42 @@
 
     object-fit: cover;
     object-position: center;
+  }
+
+  &__list {
+    list-style: none;
+
+    margin: 0 0 60px;
+    padding: 0;
+
+    @include onTablet() {
+      margin-bottom: 100px;
+    }
+
+    @include onDesktop() {
+      &:nth-of-type(1) {
+        margin-bottom: 60px;
+      }
+
+      &:nth-of-type(2) {
+        margin-bottom: 165px;
+      }
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      &::before {
+        content: "";
+        display: block;
+
+        width: 4px;
+        height: 4px;
+        margin-right: 11px;
+
+        border-radius: 50%;
+        background-color: $granit;
+      }
+    }
   }
 }
