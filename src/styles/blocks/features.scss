@@ -1,0 +1,325 @@
+.features {
+  padding: 45px 0 45px 30px;
+  background: $bgc-f2;
+
+  @include onTablet {
+    background: $bgc-f7;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(6, min-content);
+    column-gap: 20px;
+    align-items: center;
+    padding: 0 0 0 34px;
+  }
+
+  @include onDesktop {
+    padding: 0;
+    margin-left: 123px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(6, min-content);
+    column-gap: 30px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+
+    text-transform: uppercase;
+    color: $dark-grey-333;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+      grid-column: 2 / -1;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__sound {
+
+    @include onTablet {
+      grid-column: 4 / 9;
+      grid-row: 2 /4;
+      z-index: 2;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 11;
+      grid-row: 2 /4;
+    }
+
+    &-title {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      text-transform: uppercase;
+      color: $green7a;
+      margin-bottom: 20px;
+
+      @include onTablet {
+        font-size: 24px;
+        line-height: 30px;
+      }
+
+      @include onDesktop {
+        font-size: 34px;
+        line-height: 42px;
+      }
+    }
+
+    &-list {
+      margin: 0;
+      padding-left: 15px;
+      margin-bottom: 60px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
+
+    &-item {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      color: $dark-grey-333;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      @include onTablet {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &__connect {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      grid-column: 1 / 5;
+      grid-row: 4 / 5;
+      z-index: 2;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 6;
+      grid-row: 4 / 5;
+      margin-bottom: 140px;
+    }
+
+    &-title {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      text-transform: uppercase;
+      color: $green7a;
+      margin-bottom: 20px;
+
+      @include onTablet {
+        font-size: 24px;
+        line-height: 30px;
+      }
+
+      @include onDesktop {
+        font-size: 34px;
+        line-height: 42px;
+      }
+    }
+
+    &-list {
+      margin: 0;
+      padding-left: 15px;
+    }
+
+    &-item {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      color: $dark-grey-333;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      @include onTablet {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &__app {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      grid-column: 3 / 7;
+      grid-row: 5 / 7;
+      z-index: 2;
+    }
+
+    @include onDesktop {
+      grid-column: 4 / 8;
+      grid-row: 5 / 7;
+    }
+
+    &-title {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      text-transform: uppercase;
+      color: $green7a;
+      margin-bottom: 20px;
+
+      @include onTablet {
+        font-size: 24px;
+        line-height: 30px;
+      }
+
+      @include onDesktop {
+        font-size: 34px;
+        line-height: 42px;
+      }
+    }
+
+    &-list {
+      margin: 0;
+      padding-left: 15px;
+    }
+
+    &-item {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      color: $dark-grey-333;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      @include onTablet {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &__slider {
+    margin-bottom: 28px;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &-arrow-box {
+      display: flex;
+      justify-content: center;
+
+      &-left {
+        width: 48px;
+        height: 14px;
+        cursor: pointer;
+        background-image: url(../images/slider-left.png);
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      &-right {
+        width: 48px;
+        height: 14px;
+        cursor: pointer;
+        background-image: url(../images/slider-right.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: background-image 1s;
+
+        &:hover {
+          background-image: url(../images/slider-rigt-hov.png);
+          transition: background-image 1s;
+        }
+      }
+    }
+
+    &-num {
+      display: flex;
+      justify-content: center;
+
+      & :nth-child(n + 2) {
+        margin-left: 4px;
+      }
+
+      & :first-child {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: $dark-grey-333;
+      }
+
+      & :not(:first-child) {
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 24px;
+        color: $greyBD;
+      }
+    }
+  }
+
+  &__img-box {
+
+    @include onTablet {
+      grid-column: 3 / 9;
+      grid-row: 4 / 5;
+      z-index: 1;
+      height: 380px;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / -1;
+      grid-row: 3 / 6;
+    }
+
+    &-img {
+      width: 100%;
+      object-position: right;
+      object-fit: contain;
+
+      @include onTablet {
+        content: url(../images/features-m.png);
+        object-position: center;
+      }
+
+      @include onDesktop {
+        content: url(../images/features-l.png);
+        height: 550px;
+        object-fit: contain;
+        object-position: top;
+      }
+    }
+  }
+
+  &__bg-box {
+
+    @include onTablet {
+      z-index: 0;
+      height: 620px;
+      background: $bgc-f2;
+      grid-column: 2 / 9;
+      grid-row: 3 / 6;
+    }
+
+    @include onDesktop {
+      height: 700px;
+      grid-column: 3 / -1;
+      grid-row: 3 / 6;
+    }
+  }
+}

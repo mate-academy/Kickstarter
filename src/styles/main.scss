@@ -8,31 +8,111 @@
 @import "./blocks/page-container.scss";
 @import "./blocks/desktop-navigation.scss";
 @import "./blocks/benefits.scss";
+@import "./blocks/video.scss";
+@import "./blocks/about-us.scss";
+@import "./blocks/technology.scss";
+@import "./blocks/testimonials.scss";
+@import "./blocks/features.scss";
+@import "./blocks/questions.scss";
 
-.video-box {
-  height: 246px;
-  background: url(../images/circle-icon.png), url(../images/icon-play.png), url(../images/video-s.jpg);
-  background-size: 108px, 14px 18px, cover;
-  background-position: center, center, center;
-  background-repeat: no-repeat, no-repeat, no-repeat;
+.footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  &:hover {
-    cursor: pointer;
+  &__logo {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      margin-bottom: 64px;
+    }
   }
 
-  @include onTablet {
-    height: 400px;
-    background: url(../images/circle-icon.png), url(../images/icon-play.png), url(../images/video-m.jpg);
-    background-size: 190px, 20px 26px, cover;
-    background-position: center, center, center;
-    background-repeat: no-repeat, no-repeat, no-repeat;
+  &__top-link {
+    position: absolute;
+    top: 0;
+    right: 40px;
+    display: block;
+    height: 20px;
+    width: 24px;
+    background-image: url(../images/icon-up.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 1s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include onDesktop {
+      right: 137px;
+    }
   }
 
-  @include onDesktop {
-    height: 590px;
-    background: url(../images/circle-icon.png), url(../images/PLAY-text.png), url(../images/video-l.jpg);
-    background-size: 232px, 57px 18px, cover;
-    background-position: center, center, center;
-    background-repeat: no-repeat, no-repeat, no-repeat;
+  &__media-box {
+    display: flex;
+    margin-top: 90px;
+    margin-bottom: 62px;
+
+    @include onTablet {
+      margin-top: 0;
+    }
+
+    &--face {
+      height: 19px;
+      width: 11px;
+      background-image: url(../images/icon-facebook.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-right: 48px;
+      transition: background-image 0.5s;
+
+      &:hover {
+        background-image: url(../images/icon-facebook-hov.png);
+      }
+    }
+
+    &--twit {
+      height: 17px;
+      width: 22px;
+      background-image: url(../images/icon-twitter.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-right: 44px;
+      transition: background-image 0.5s;
+
+      &:hover {
+        background-image: url(../images/icon-twitter-hov.png);
+      }
+    }
+
+    &--insta {
+      height: 18px;
+      width: 18px;
+      background-image: url(../images/icon-inst.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: background-image 0.5s;
+
+      &:hover {
+        background-image: url(../images/icon-inst-hov.png);
+      }
+    }
+  }
+
+  &__copyright {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $greyBD;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
   }
 }
