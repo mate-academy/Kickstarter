@@ -15,6 +15,10 @@
     @include onDesktop {
       height: 100vh;
     }
+
+    @media (min-width: 1264px) {
+      height: auto;
+    }
   }
 
   &__main {
@@ -99,12 +103,38 @@
   }
 
   &__burger {
+    display: block;
     width: 24px;
-    height: 14px;
-    margin-right: 0;
+    height: 24px;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-image: url(../images/icons/burger.svg);
+
+    &:hover {
+      background-image: url(../images/menu_hover.svg);
+      transition: 0.3s;
+    }
 
     @include onTablet {
       display: none;
+    }
+
+    &-element {
+      background-color: #000;
+    }
+
+    &--cross {
+      display: block;
+      width: 22px;
+      height: 22px;
+
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url(../images/icons/cross.svg);
     }
   }
 
