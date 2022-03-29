@@ -20,30 +20,21 @@
 @import "./blocks/contacts.scss";
 @import "./blocks/footer.scss";
 
-.technology {
-  margin: 0 30px;
+.features {
+  font-family: "DIN Pro", sans-serif;
+  margin: 0 auto;
 
   @include OnTablet {
-    margin: 0 34px;
-  }
-
-  @include OnDesktop {
-    margin: 0 58px 0 88px;
-  }
-
-  &__flex {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+    margin-left: 50px;
   }
 
   &__title {
-    font-family: "DIN Pro", sans-serif;
     font-size: 37px;
-    line-height: 46px;
+    line-height: 60px;
+    text-align: center;
     text-transform: uppercase;
+    margin-bottom: 50px;
+
     color: $second-color;
 
     @include OnTablet {
@@ -52,41 +43,81 @@
     }
   }
 
-  &__img {
-    background-image: url(../images/image2.svg);
-    background-position: left;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 444px;
+  &__name {
+    font-size: 30px;
+    line-height: 37px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    color: #0c797a;
 
     @include OnTablet {
-      height: 710px;
+      font-size: 34px;
+      line-height: 41px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__list {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #333;
+  }
+
+  &__item {
+    margin-bottom: 10px;
+
+    @include OnTablet {
+      margin-bottom: 13px;
+    }
+  }
+
+  &__img {
+    background-image: url(../images/image1.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    height: 222px;
+    width: 344px;
+    grid-row: 3/3;
+    z-index: -1;
+
+    @include OnTablet {
+      width: 586px;
+      height: 379px;
     }
 
     @include OnDesktop {
-      height: 774px;
-      max-width: 1294px;
-      margin: 0 auto;
+      width: 786px;
+      height: 509px;
     }
   }
 
-  &__description {
-    display: block;
+  &__block-1 {
+    grid-row: 2/2;
   }
 
-  &__quotes {
-    display: block;
+  &__block-2 {
+    display: none;
+    grid-row: 3/3;
+
+    @include OnTablet {
+      display: block;
+      margin-bottom: 130px;
+    }
   }
 
-  &__photo {
-    display: block;
-  }
+  &__block-3 {
+    display: none;
+    grid-row: 4/4;
 
-  &__name {
-    display: block;
-  }
+    margin-bottom: 188px;
 
-  &__role {
-    display: block;
+    @include OnTablet {
+      display: block;
+    }
   }
 }
