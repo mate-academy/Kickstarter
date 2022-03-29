@@ -34,7 +34,7 @@
     &--features {
       position: relative;
 
-      padding: 45px 0;
+      padding: 45px 0 0;
 
       background-color: $lightgrey3;
 
@@ -141,6 +141,7 @@
 
     &--first-screen {
       position: relative;
+      z-index: -1;
       left: #{-$margin-content-side-mobile};
 
       width: 320px;
@@ -218,12 +219,15 @@
   }
 
   &__title {
-    @extend %h1;
+    @extend %h2;
 
     margin-bottom: 30px;
 
+    .main-content &--first-screen {
+      @extend %h1;
+    }
+
     &--our-story {
-      @extend %h4;
       margin-bottom: 20px;
 
       &:nth-of-type(n + 2) {
@@ -276,14 +280,10 @@
     }
 
     &--design {
-      @extend %h2;
-
       margin-bottom: 30px;
     }
 
     &--technology {
-      @extend %h2;
-
       margin-bottom: 56px;
 
       @include onTablet() {
@@ -292,8 +292,6 @@
     }
 
     &--features {
-      @extend %h2;
-
       &-h3 {
         @extend %h3;
 
@@ -365,6 +363,10 @@
 
     @include onTablet() {
       margin-bottom: 100px;
+
+      &:nth-last-child(1) {
+        margin-bottom: 0;
+      }
     }
 
     @include onDesktop() {
