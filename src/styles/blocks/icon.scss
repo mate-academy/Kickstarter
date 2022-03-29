@@ -1,20 +1,29 @@
 .icon {
-  @extend %background-images;
-  
-  &--menu {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
+  width: $height-button;
+  height: $height-button;
+  
+  @extend %background-images;
+
+  &--menu {
     border: 1px solid transparent;
-    // background-image: url(../images/menu-burger.svg);
 
     @include onTablet() {
       display: none;
     }
 
     @include hover(border-color, $granit);
+  }
+
+  &--scroll-up {
+    border: 1px solid transparent;
+    @include hover(border-color, $granit);
+
+    background-image: url("../images/scroll_up.svg");
+    background-size: calc(#{$height-button} / 2);
   }
 }

@@ -1,0 +1,43 @@
+.footer {
+  &__container-for-max-width {
+    @extend %max-width-wrapper;
+  }
+
+  &__content-wrapper {
+    @extend %content-wrapper;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+
+    @include onTablet() {
+      gap: 60px;
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include onTablet() {
+      display: flex;
+    }
+  }
+
+  &__terms-of-use {
+    @extend %secondary-text;
+    color: $lightgrey;
+  }
+
+  &__scroll-up {
+    position: absolute;
+    top: -80px;
+    right: 0;
+
+    @include onTablet() {
+      top: 10px;
+    }
+  }
+}
