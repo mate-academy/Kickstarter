@@ -5,8 +5,14 @@
 
   box-sizing: border-box;
   height: $height-button;
+  padding: 0;
+  margin: 0;
+
+  border: 0;
+  background: none;
 
   @extend %button;
+  
   color: $white;
   text-decoration: none;
 
@@ -192,6 +198,49 @@
 
     &:hover {
       transform: scale(1.05);
+    }
+  }
+
+  &--prev {
+    width: 48px;
+    height: 13px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 48px;
+      height: 13px;
+
+      background-image: url("../images/prev_button.svg");
+      @extend %background-images;
+    }
+
+    &:hover {
+      &::after {
+        background-image: url("../images/next-prev-hover_button.svg");
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &--next {
+    width: 48px;
+    height: 13px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 48px;
+      height: 13px;
+
+      background-image: url("../images/next_button.svg");
+      @extend %background-images;
+    }
+
+    &:hover {
+      &::after {
+        background-image: url("../images/next-prev-hover_button.svg");
+      }
     }
   }
 }
