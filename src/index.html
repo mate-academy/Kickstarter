@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon.png">
     <script src="./scripts/main.js"></script>
   </head>
   <body class="page__body">
@@ -76,7 +77,7 @@
             </li>
           </ul>
         </nav>
-        <div class="burger page__burger page__burger--with-menu" id="menu">
+        <nav class="burger page__burger page__burger--with-menu" id="menu">
           <div class="conteiner">
             <div class="burger__top">
               <a href="#" class="header__logo-link">
@@ -105,7 +106,7 @@
               <a href="#get-in-touch" class="burger__link">GET IN TOUCH</a>
             </li>
           </ul>
-        </div>
+        </nav>
       </div>
     </header>
 
@@ -174,14 +175,18 @@
               </p>
             </div>
           </div>
-          <div class="our-story__video video">
-            <div class="video__container">
-              <img
-              src="./images/video.jpg"
-              alt="Video of our story"
-              class="video__img"
+        </div>
+        <div class="our-story__video video">
+          <div class="video__container">
+            <video
+              width="100%"
+              height="100%"
+              poster="./images/video.jpg"
+              controls
             >
-            </div>
+              <source src="./images/videos/Earth, Wind & Fire - September (Lyrics).mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </section>
@@ -368,21 +373,23 @@
             <form action="get" class="contact-us__form grid__item--1-2 grid__item--onDesktop-8-12 grid__item--onTablet-5-8">
               <label>
                 <input
-                required
-                id="email"
-                name="email"
-                type="email"
-                class="contact-us__field form-field"
-                placeholder="Your email"
-              >
+                  minlength="3"
+                  required
+                  id="email"
+                  name="email"
+                  type="email"
+                  class="contact-us__field form-field"
+                  placeholder="Your email"
+                >
               </label>
               <textarea
+                minlength="10"
                 required
                 name="message"
                 class="contact-us__field contact-us__field--last form-field form-field--textarea"
                 placeholder="Your message..."
               ></textarea>
-              <button type="button" class="button">
+              <button type="submit" class="button">
                 Send
               </button>
             </form>
