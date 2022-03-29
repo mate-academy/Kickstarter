@@ -4,454 +4,89 @@
 @import "./utils/extends";
 @import "./utils/mixins";
 @import "./utils/vars";
+@import "./blocks/button.scss";
+@import "./blocks/page.scss";
+@import "./blocks/grid.scss";
+@import "./blocks/container.scss";
 @import "./blocks/header.scss";
 @import "./blocks/nav.scss";
 @import "./blocks/header-menu.scss";
 @import "./blocks/our-story.scss";
+@import "./blocks/specs.scss";
+@import "./blocks/about-us.scss";
 @import "./blocks/technology.scss";
 @import "./blocks/features.scss";
 @import "./blocks/get-in-touch.scss";
 @import "./blocks/contacts.scss";
 @import "./blocks/footer.scss";
 
-.page {
-  font-family: "Helvetica Neue", sans-serif;
-  font-size: 14px;
-  line-height: 21px;
-  color: $second-color;
-  background: $main-color;
-
-  width: fit-content;
+.technology {
+  margin: 0 30px;
 
   @include OnTablet {
-    width: unset;
-  }
-}
-
-.grid {
-  display: grid;
-  max-width: 770px;
-  margin: 0 auto;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-
-  @include OnTablet {
-    max-width: 1120px;
-    grid-template-columns: repeat(8, 1fr);
+    margin: 0 34px;
   }
 
   @include OnDesktop {
-    max-width: 1200px;
-    grid-template-columns: repeat(12, 1fr);
+    margin: 0 58px 0 88px;
   }
 
-  &__item {
-    @for $start from 1 through 4 {
-      @for $end from $start through 4 {
-        &--#{$start}-#{$end} {
-          grid-column: #{$start} / #{$end + 1};
-        }
-      }
-    }
-
-    @include OnTablet {
-      max-width: 1120px;
-      grid-template-columns: repeat(8, 1fr);
-
-      @for $start from 1 through 8 {
-        @for $end from $start through 8 {
-          &--tablet-#{$start}-#{$end} {
-            grid-column: #{$start} / #{$end + 1};
-          }
-        }
-      }
-    }
-
-    @include OnDesktop {
-      max-width: 1200px;
-      grid-template-columns: repeat(12, 1fr);
-
-      @for $start from 1 through 12 {
-        @for $end from $start through 12 {
-          &--desktop-#{$start}-#{$end} {
-            grid-column: #{$start} / #{$end + 1};
-          }
-        }
-      }
-    }
-
-    &-row {
-      &-1-1 {
-        grid-row: 1/1;
-      }
-
-      &-1-2 {
-        grid-row: 2/2;
-      }
-
-      &-3-1 {
-        grid-row: 4/4;
-
-        @include OnDesktop {
-          grid-row: 1/1;
-        }
-      }
-
-      &-3-2 {
-        grid-row: 5/5;
-
-        @include OnDesktop {
-          grid-row: 2/2;
-        }
-      }
-
-      @include OnDesktop {
-        &-2-1 {
-          grid-row: 1/1;
-        }
-
-        &-2-2 {
-          grid-row: 2/2;
-        }
-      }
-    }
-  }
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.header {
-  margin: 0 30px;
-  margin-top: 32px;
-
-  @include OnTablet {
-    margin: 0 35px;
-    margin-top: 28px;
-  }
-
-  &__container {
+  &__flex {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-content: center;
-    margin-bottom: 88px;
-  }
-
-  &__menu {
-    display: none;
-
-    @include OnTablet {
-      display: flex;
-      align-items: center;
-
-      &-link {
-        text-decoration: none;
-        color: #4f4f4f;
-      }
-
-      &-block {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        width: 99px;
-        height: 48px;
-      }
-
-      &-block-2 {
-        margin-right: 28px;
-      }
-    }
-
-    @include OnDesktop {
-      &-block {
-        margin-right: 10px;
-      }
-
-      &-block-2 {
-        margin-right: 36px;
-      }
-    }
-
-    &--mobile {
-      display: flex;
-      position: absolute;
-      align-items: center;
-      justify-content: space-between;
-      padding-left: 30px;
-      height: 48px;
-      width: 300px;
-      top: 20px;
-
-      background-color: #0db2b3;
-      border: #076363 solid 1px;
-      border-bottom-right-radius: 20px;
-      border-top-left-radius: 20px;
-      box-sizing: border-box;
-
-      transform: translate(-85%, -150%);
-
-      z-index: 1;
-      pointer-events: none;
-      transition: transform 0.3s ease;
-
-      &-btn {
-        border-top-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-      }
-
-      &:hover {
-        pointer-events: all;
-      }
-    }
-  }
-
-  &__menu-icon {
-    height: 14px;
-    width: 24px;
-
-    background-image: url(../images/icons/menu-icon.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    transition: transform 0.3s ease;
-
-    @include OnTablet {
-      background-image: none;
-    }
-
-    &:hover .header__menu--mobile {
-      transform: translate(0, -85%);
-      align-items: center;
-      opacity: 1;
-
-      pointer-events: all;
-
-      &-link {
-        text-decoration: none;
-        color: #4f4f4f;
-      }
-
-      &-block {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        width: 99px;
-        height: 48px;
-      }
-
-      &-block-2 {
-        margin-right: 28px;
-      }
-    }
-  }
-
-  &__btn-buy {
-    box-sizing: border-box;
-    border-color: #0db2b3;
-
-    color: #fff;
-    background-image: -webkit-linear-gradient(45deg,
-    #0db2b3 50%, transparent 50%),
-      linear-gradient(45deg,
-    #0db2b3 50%, transparent 50%);
-
-    background-position: 100%;
-    background-size: 400%;
-    -webkit-transition: background 300ms ease-in-out;
-    transition: background box-shadow 300ms ease-in-out;
-
-    &:hover {
-      background-position: 0;
-
-      box-shadow: 1px 4px 16px #076363;
-      border: 1px solid #097979;
-    }
-  }
-
-  &__link-btn {
-    text-decoration: none;
-    color: #fff;
-  }
-}
-
-.btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 48px;
-  width: 102px;
-
-  background-color: #333;
-  color: #fff;
-
-  cursor: pointer;
-}
-
-.about-us {
-  &__img {
-    background-image: url(../images/image5.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    height: 365px;
-    width: 500px;
-    margin: 0;
-    margin-left: 50%;
-    transform: translateX(-50%);
-
-    @include OnTablet {
-      height: 365px;
-      width: auto;
-      grid-row: 1/3;
-      margin: 0;
-      transform: translateX(0);
-    }
-
-    @include OnDesktop {
-      height: 464px;
-      margin-bottom: 90px;
-    }
-  }
-
-  &__description {
-    font-size: 16px;
-    line-height: 24px;
-    text-align: center;
-    margin: 0 auto;
-    width: 260px;
-
-    &-special {
-      font-family: "DIN Pro", sans-serif;
-      font-size: 44px;
-      line-height: 130%;
-      text-transform: uppercase;
-      width: auto;
-      margin-bottom: 20px;
-
-      @include OnTablet {
-        font-size: 48px;
-        margin-bottom: 36px;
-      }
-
-      @include OnDesktop {
-        font-size: 64px;
-        margin-bottom: 28px;
-      }
-    }
-
-    @include OnTablet {
-      grid-row: 1/3;
-      text-align: left;
-    }
-
-    @include OnDesktop {
-      margin-right: 120px;
-    }
-
-    &-bot {
-      margin-bottom: 102px;
-    }
-  }
-}
-
-.nav {
-  display: none;
-
-  @include OnDesktop {
-    display: block;
-
-    &__container {
-      margin: 0 auto;
-      width: 666px;
-      display: flex;
-      margin-bottom: 72px;
-    }
-
-    &__item {
-      text-align: center;
-      width: 132px;
-    }
-
-    &__link {
-      text-decoration: none;
-      color: #333;
-
-      transition: text-shadow 0.3s ease;
-
-      &:hover {
-        color: #131313;
-        text-shadow: 1px 1px 4px #076363;
-      }
-    }
-  }
-}
-
-.specs {
-  width: fit-content;
-  margin: 0 30px;
-
-  @include OnTablet {
-    width: unset;
-  }
-
-  &__img {
-    height: 46px;
-    width: 58px;
-    display: flex;
-    margin: 0 auto;
-    margin-bottom: 10px;
-
-    &--tablet {
-      display: none;
-
-      @include OnTablet {
-        display: block;
-        margin-bottom: 18px;
-      }
-    }
+    align-items: center;
   }
 
   &__title {
     font-family: "DIN Pro", sans-serif;
-    font-size: 24px;
-    line-height: 30px;
-    text-align: center;
+    font-size: 37px;
+    line-height: 46px;
     text-transform: uppercase;
-
-    margin-bottom: 20px;
-    justify-content: center;
+    color: $second-color;
 
     @include OnTablet {
-      margin-bottom: -10px;
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__img {
+    background-image: url(../images/image2.svg);
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 444px;
+
+    @include OnTablet {
+      height: 710px;
     }
 
-    &--tablet {
-      display: none;
-
-      @include OnTablet {
-        display: block;
-      }
+    @include OnDesktop {
+      height: 774px;
+      max-width: 1294px;
+      margin: 0 auto;
     }
   }
 
   &__description {
-    margin-bottom: 32px;
-    text-align: center;
-    color: $color-text;
+    display: block;
+  }
 
-    &--tablet {
-      display: none;
+  &__quotes {
+    display: block;
+  }
 
-      @include OnTablet {
-        display: block;
-      }
-    }
+  &__photo {
+    display: block;
+  }
+
+  &__name {
+    display: block;
+  }
+
+  &__role {
+    display: block;
   }
 }
