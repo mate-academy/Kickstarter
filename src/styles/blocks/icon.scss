@@ -6,24 +6,27 @@
   box-sizing: border-box;
   width: $height-button;
   height: $height-button;
-  
+
   @extend %background-images;
 
+  border: 1px solid transparent;
+  border-radius: 10%;
+  @include hover(border-color, $granit);
+
   &--menu {
-    border: 1px solid transparent;
+    // border: 1px solid transparent;
 
     @include onTablet() {
       display: none;
     }
-
-    @include hover(border-color, $granit);
   }
 
   &--scroll-up {
-    border: 1px solid transparent;
-    @include hover(border-color, $granit);
-
     background-image: url("../images/scroll_up.svg");
     background-size: calc(#{$height-button} / 2);
+  }
+
+  &--social {
+    border: none;
   }
 }
