@@ -1,0 +1,31 @@
+.nav {
+  display: none;
+  @extend %f-helvetica-neue-m;
+
+  @include onDesktop {
+    display: block;
+  }
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    background-color: $c-white-background;
+  }
+
+  &__item {
+    padding: 25px 0;
+  }
+
+  &__link {
+    color: $c-grey-dark;
+    text-transform: uppercase;
+    @include transition((color, text-shadow));
+
+    @include hover {
+      color: $c-silver-light;
+      text-shadow: $hover-text-shadow;
+    }
+  }
+}

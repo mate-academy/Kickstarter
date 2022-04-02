@@ -1,0 +1,53 @@
+.features {
+  background-color: $c-white-dry;
+
+  @include onTabs {
+    background-color: transparent;
+  }
+
+  &__title {
+    @extend %title;
+    margin-bottom: 50px;
+
+    @include onDesktop {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__img-container {
+    z-index: -1;
+    height: MAX(60vw,220px);
+
+    @include onTabs {
+      height: MIN(50vw,380px);
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @include onDesktop {
+      height: MIN(50vw,500px);
+    }
+  }
+
+  &__img {
+    object-fit: contain;
+    width: 100vw;
+    position: absolute;
+    right: -30px;
+
+    @include onTabs {
+      width: auto;
+      height: 100%;
+    }
+
+    @include onDesktop {
+      position: static;
+    }
+  }
+}

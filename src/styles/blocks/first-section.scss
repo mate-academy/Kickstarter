@@ -1,0 +1,58 @@
+.first-section {
+  
+  &__content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 2rem;
+    padding-bottom: 2rem;
+    
+    @extend %f-din-pro-b;
+
+    @include onDesktop {
+      font-size: 4rem;
+    }
+  }
+
+  &__text {
+
+    order: 2;
+    
+    @include onTabs {
+      order: 0;
+    }
+  }
+
+  &__description {
+    @extend %f-helvetica-neue;
+    line-height: 24px;
+  }
+
+  &__img {
+    width: 100%;
+    
+    @include onTabs {
+      order: 0;
+    }
+
+    &-container {
+      width: 100vw;
+      position: relative;
+      left: -30px;
+      z-index: -1;
+
+      @include onTabs {
+        left: auto;
+        right: -30px;
+  
+        width: 100%;
+  
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+}

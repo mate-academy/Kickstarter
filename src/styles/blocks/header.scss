@@ -1,0 +1,42 @@
+.header {
+  &__content {
+    @extend %flex-space-between;
+  }
+
+  &__menu-open {
+    width: 24px;
+
+    @include onTabs {
+      display: none;
+    }
+  }
+
+  &__link {
+    @extend %f-helvetica-neue-l;
+    color: $c-grey-dark;
+    @include transition(text-shadow);
+
+    &:hover {
+      text-shadow: 0.25px 0 0.1px, -0.25px 0 0.3px;
+    }
+  }
+
+  &__button {
+    transition-duration: $transition-time;
+    transition-property: background-color, color;
+    &:hover {
+      color: $c-grey-dark;
+      background-color: $c-silver-light;
+    }
+  }
+
+  &__nav {
+    @extend %flex-center;
+    display: none;
+    gap: 36px;
+
+    @include onTabs {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+.technology {
+  &__title {
+    @extend %title;
+  }
+
+  &__text {
+    @extend %f-din-pro-b;
+    font-size: 14px;
+    margin-bottom: 40px;
+
+    @include onTabs {
+      font-size: 24px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__img-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    left: 0;
+    margin: 0 -30px;
+  }
+
+  &__person-photo-container {
+    margin-bottom: 20px;
+  }
+
+  &__person-name {
+    @extend %f-din-pro-b;
+    margin-bottom: 7px;
+
+    @include onTabs {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__person-position {
+    @extend %f-helvetica-neue-l;
+    font-size: 14px;
+    color: $c-grey;
+  }
+
+  &__feedback {
+    position: relative;
+    text-align: center;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      z-index: -1;
+
+      display: block;
+      width: 100%;
+      height: 60%;
+      background: url(../images/technology-text-background.svg) center top / contain no-repeat;
+
+      @include onTabs {
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

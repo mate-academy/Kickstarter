@@ -1,0 +1,60 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat($collumns-mob, 1fr);
+  column-gap: 20px;
+
+  @include onTabs {
+    grid-template-columns: repeat($collumns-tab, 1fr);
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat($collumns-desktop, 1fr);
+  }
+
+  &--flex {
+    display: flex;
+    flex-direction: column;
+
+    @include onTabs {
+      display: grid;
+    }
+  }
+
+  &--tabs {
+    display: block;
+
+    @include onTabs {
+      display: grid;
+    }
+  }
+
+  &--desktop {
+    display: block;
+
+    @include onDesktop {
+      display: grid;
+    }
+  }
+
+  &--item {
+    @include onTabs {
+      @for $start from 1 through $collumns-tab {
+        @for $end from $start through $collumns-tab {
+          &--t-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @include onDesktop {
+      @for $start from 1 through $collumns-desktop {
+        @for $end from $start through $collumns-desktop {
+          &--d-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}

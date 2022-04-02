@@ -1,0 +1,36 @@
+.story {
+  position: relative;
+  
+  &__button {
+    @extend %flex-center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include circle(108px);
+    border: 1px solid $c-white-background;
+    color: $c-white-background;
+    text-align: center;
+    opacity: 0;
+    cursor: pointer;
+
+    @include transition (opacity);
+
+    @include onTabs {
+      @include circle(190px);
+      font-size: 20px;
+    }
+
+    @include onDesktop {
+      @include circle(230px);
+      font-size: 24px;
+    }
+
+    &--pause {
+      display: none;
+    }
+  }
+  &:hover &__button {
+    opacity: 1;
+  }
+}
