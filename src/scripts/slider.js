@@ -7,11 +7,9 @@ function createSlider(element, params = {}) {
   } = params;
 
   if (window.matchMedia('(max-width: 767px)').matches) {
-    const sliderHeight = element.offsetHeight + 'px';
     const sliderSlide = element.querySelector('.slider__slide');
     const sliderSlideHeight = sliderSlide.offsetHeight + 'px';
 
-    element.style.setProperty('min-height', sliderHeight);
     sliderSlide.style.setProperty('min-height', sliderSlideHeight);
   }
 
