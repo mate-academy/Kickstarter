@@ -229,15 +229,8 @@
 
     &--our-story {
       margin-bottom: 20px;
+
       @extend %h4;
-
-      &:nth-of-type(n + 2) {
-        display: none;
-
-        @include onTablet() {
-          display: block;
-        }
-      }
 
       &:nth-of-type(1) {
         &::before {
@@ -298,14 +291,6 @@
 
         color: $green;
       }
-
-      &:nth-of-type(n + 2) {
-        display: none;
-
-        @include onTablet() {
-          display: block;
-        }
-      }
     }
   }
 
@@ -314,18 +299,14 @@
 
     &--our-story {
       @extend %secondary-text;
-      margin-bottom: 65px;
 
-      @include onDesktop() {
-        // display: block;
-        margin-bottom: 0;
-      }
+      @include onTablet() {
+        &:nth-child(-n+2) {
+          margin-bottom: 65px;
 
-      &:nth-of-type(n + 2) {
-        display: none;
-
-        @include onTablet() {
-          display: block;
+          @include onDesktop() {
+            margin-bottom: 0;
+          }
         }
       }
     }
@@ -393,14 +374,6 @@
 
         border-radius: 50%;
         background-color: $granit;
-      }
-    }
-
-    &:nth-of-type(n + 2) {
-      display: none;
-
-      @include onTablet() {
-        display: block;
       }
     }
   }

@@ -4,8 +4,6 @@
 const menu = document.querySelector('.nav');
 const iconMenu = document.querySelector('.icon--menu');
 const burgerMenu = document.querySelector('.burger');
-const videoButton = document.querySelector('.button--video');
-const video = document.querySelector('.main-content__video');
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
@@ -21,16 +19,4 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('page__body--with-menu');
     iconMenu.setAttribute('href', '#menu');
   }
-});
-
-videoButton.addEventListener('click', () => {
-  videoButton.style.setProperty('display', 'none');
-  video.setAttribute('controls', '');
-  video.play();
-});
-
-video.addEventListener('click', () => {
-  videoButton.style.setProperty('display', 'flex');
-  video.removeAttribute('controls', '');
-  video.pause();
 });
