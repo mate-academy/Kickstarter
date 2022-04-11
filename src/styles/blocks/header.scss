@@ -1,17 +1,30 @@
 .header {
-  height: 100vh;
+  min-height: 100vh;
+  padding: 28px $paddingX 0;
+
+
+  display: flex;
+  justify-content: center;
+
+  @include tablet {
+    padding: 27px $paddingXTablet 0;
+  }
+
+  @include desktop {
+    padding: 32px $paddingXDesktop 0;
+  }
 
   &__wrapper {
-    padding-top: 28px;
+    height: 100%;
+    width: 100%;
+
     @include limitContentWidth;
 
     @include tablet {
-      padding-top: 27px;
       max-width: $maxContentWidthTablet;
     }
 
     @include desktop {
-      padding: 32px $paddingXDesktop 0;
       max-width: $maxContentWidthDesktop;
     }
   }
@@ -80,6 +93,7 @@
 
   &__menu {
     position: fixed;
+
     top: 0;
     left: 0;
     right: 0;
@@ -122,10 +136,6 @@
       background-image: url("/images/cross.svg");
       background-repeat: no-repeat;
       background-size: contain;
-    }
-
-    @include tablet {
-      display: none;
     }
   }
 
@@ -194,6 +204,7 @@
 
   &__text {
     @include fontParams(16px, 24px);
+    width: 260px;
 
     margin-top: 24px;
 
