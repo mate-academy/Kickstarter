@@ -1,0 +1,52 @@
+.nav {
+  display: none;
+
+  @include tablet {
+    display: contents;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    padding-top: 32px;
+
+    list-style: none;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: center;
+      gap: 24px;
+    }
+  }
+
+  &__item {
+    text-align: center;
+
+    @include tablet {
+      &:nth-child(odd) {
+        width: 174px;
+      }
+
+      &:nth-child(even) {
+        width: 72px;
+      }
+    }
+  }
+
+  &__link {
+    @include fontParams(14px, 21px);
+    color: $c-greyDark;
+    text-decoration: none;
+
+    @include tablet {
+      padding: 28px 0;
+    }
+
+    &:hover,
+    &:active {
+      color: $c-black;
+    }
+  }
+}

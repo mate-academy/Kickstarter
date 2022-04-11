@@ -1,0 +1,204 @@
+.header {
+  height: 100vh;
+
+  &__wrapper {
+    padding-top: 28px;
+    @include limitContentWidth;
+
+    @include tablet {
+      padding-top: 27px;
+      max-width: $maxContentWidthTablet;
+    }
+
+    @include desktop {
+      padding-top: 32px;
+      max-width: $maxContentWidthDesktop;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 22px;
+
+    @include tablet {
+      margin-bottom: 129px;
+    }
+
+    &-link {
+      color: #4f4f4f;
+      text-decoration: none;
+
+      &:active {
+        color: $c-greyDark;
+      }
+    }
+  }
+
+  &__items {
+    display: none;
+
+    justify-content: space-between;
+    align-items: center;
+
+    &-buy {
+      background-color: $c-greyDark;
+      color: #fff;
+
+      text-align: center;
+      text-transform: uppercase;
+
+      width: 102px;
+      padding: 16px 0;
+    }
+
+    @include tablet {
+      display: flex;
+      gap: 27px;
+    }
+
+    @include desktop {
+      display: flex;
+      gap: 47px;
+    }
+  }
+
+  &__menu-toggler {
+    display: inline-block;
+    width: 24px;
+    height: 14px;
+
+    background-image: url("/images/menu.svg");
+    background-repeat: no-repeat;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    min-height: 100vh;
+
+    background-color: $c-greyLight;
+
+    z-index: -1;
+
+    transform: translateX(-100%);
+
+    transition: transform $transitionDuration ease-in-out,
+      z-index $transitionDuration ease-in-out;
+
+    &:target {
+      transform: translateX(0);
+      z-index: 1;
+    }
+
+    &-wrapper {
+      padding: 28px 30px 22px;
+    }
+
+    &-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-cross {
+      display: inline-block;
+      width: 24px;
+      height: 14px;
+
+      background-image: url("/images/cross.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+      text-align: start;
+
+      margin-bottom: 170px;
+    }
+
+    &-text {
+      color: $c-greyDark;
+      margin-top: 40px;
+
+      @include tablet {
+        position: relative;
+        top: 29px;
+        z-index: 1;
+
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    position: relative;
+    left: -30px;
+
+    object-fit: cover;
+    object-position: left;
+
+    width: 320px;
+    height: 245px;
+
+    @include tablet {
+      order: 1;
+      left: -15px;
+
+      width: 739px;
+      height: 100%;
+    }
+
+    @include desktop {
+      left: 0;
+
+      width: 100%;
+      height: 464px;
+    }
+  }
+
+  &__title {
+    @include fontParams(44px, 130%, 700);
+    text-transform: uppercase;
+
+    @include tablet {
+      @include fontParams(48px, 62px, 700);
+    }
+
+    @include desktop {
+      @include fontParams(62px, 78px, 700);
+    }
+  }
+
+  &__text {
+    @include fontParams(16px, 24px);
+
+    margin-top: 24px;
+
+    @include tablet {
+      margin-top: 34px;
+      width: 250px;
+    }
+
+    @include desktop {
+      margin-top: 34px;
+      width: 276px;
+    }
+  }
+}
