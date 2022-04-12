@@ -1,34 +1,41 @@
 .benefits {
-  padding: 110px $paddingX 0;
+  $numbOfColumnsTablet: 2;
+  $numbOfColumnsDesktop: 4;
+
+  padding: 0 $paddingX;
 
   @include tablet {
-    padding: 138px $paddingXTablet 0;
+    padding: 0 $paddingXTablet ;
   }
 
   @include desktop {
-    padding: 96px $paddingXDesktop 0;
+    padding: 0 $paddingXDesktop;
   }
 
   &__wrapper {
     @include limitContentWidth;
 
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4);
-    gap: 40px;
-
     @include tablet {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 64px 20px;
-
       max-width: $maxContentWidthTablet;
     }
 
     @include desktop {
-      grid-template-columns: repeat(4, 1fr);
-      column-gap: 30px;
-
       max-width: $maxContentWidthDesktop;
+    }
+  }
+
+  &__container {
+    padding-top: 104px;
+
+    @include gridWithColumns(1, $numbOfColumnsTablet, $numbOfColumnsDesktop);
+    gap: 40px;
+
+    @include tablet {
+      gap: 64px 20px;
+    }
+
+    @include desktop {
+      column-gap: 30px;
     }
   }
 }

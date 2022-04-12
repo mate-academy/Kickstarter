@@ -1,10 +1,3 @@
-// @mixin hover($_property, $_toValue) {
-//   transition: #{$_property} 0.3s;
-//   &:hover {
-//     #{$_property}: $_toValue;
-//   }
-// }
-
 @mixin fontParams($size, $lineHeight, $weight: 400) {
   font-size: $size;
   line-height: $lineHeight;
@@ -25,5 +18,35 @@
 @mixin desktop {
   @media (min-width: 1200px) {
     @content;
+  }
+}
+
+@mixin gridWithColumns($numOfColsMobile, $numOfColsTablet, $numOfColsDesktop) {
+  display: grid;
+  grid-template-columns: repeat($numOfColsMobile, 1fr);
+  column-gap: $gridGutterWidthMobile;
+
+  @include tablet {
+    grid-template-columns: repeat($numOfColsTablet, 1fr);
+    column-gap: $gridGutterWidthTablet;
+  }
+
+  @include desktop() {
+    grid-template-columns: repeat($numOfColsDesktop, 1fr);
+    column-gap: $gridGutterWidthDekstop;
+  }
+}
+
+@mixin customColumns($numOfCols) {
+  @for $start from 1 through $numOfCols {
+    @for $end from $start through $numOfCols {
+      &--tablet--#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end};
+      }
+
+      &--desktop--#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end};
+      }
+    }
   }
 }
