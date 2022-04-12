@@ -1,0 +1,46 @@
+.benefits {
+  &__wrapper {
+    margin: 0 auto;
+    padding: 8px 128px 0;
+    width: 100%;
+    max-width: 1440px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+
+    @include atResolution (1142px) {
+      padding: 24px 32px 0;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include atResolution ($r-mobile) {
+      padding: 24px 32px 0;
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    width: 100%;
+  }
+
+  &__img {
+    width: max-content;
+    margin-bottom: 32px;
+  }
+
+  &__description {
+    @extend %p-accent;
+    text-align: center;
+  }
+
+  &__title {
+    height: 60px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+}
