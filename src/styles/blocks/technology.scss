@@ -1,0 +1,65 @@
+.technology {
+  $numbOfColumnsTablet: 8;
+  $numbOfColumnsDesktop: 12;
+
+  padding: 108px $paddingX 0;
+
+  @include tablet {
+    padding: 138px $paddingXTablet 0;
+  }
+
+  @include desktop {
+    padding: 170px $paddingXDesktop 0;
+  }
+
+  &__wrapper {
+    @include limitContentWidth;
+
+    @include gridWithColumns(4, $numbOfColumnsTablet, $numbOfColumnsDesktop);
+
+
+    @include tablet {
+      max-width: $maxContentWidthTablet;
+    }
+
+    @include desktop {
+      max-width: $maxContentWidthDesktop;
+    }
+  }
+
+  &__title {
+    @include tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include desktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__image {
+    display: block;
+    grid-column: 1 / 4;
+
+    margin-top: 56px;
+
+    width: 625px;
+    height: 278px;
+
+    @include tablet {
+      margin-top: 72px;
+      grid-column: 1 / 8;
+
+      width: 1231px;
+      height: 546px;
+    }
+
+    @include desktop {
+      margin-top: 69px;
+      grid-column: 1 / 12;
+
+      width: 1230px;
+      height: 545px;
+    }
+  }
+}
