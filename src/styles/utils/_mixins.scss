@@ -4,3 +4,41 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin fontParam($fontSize, $lineHeight) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+}
+
+@mixin notebookLayout {
+  @media (max-width: $notebookBreakPoint) {
+    @content;
+  }
+}
+
+@mixin tabletLayout {
+  @media (max-width: $tabletBreakPoint) {
+    @content;
+  }
+}
+
+@mixin mobileLayout {
+  @media (max-width: $mobileBreakPoint) {
+    @content;
+  }
+}
+
+@mixin limitContentWidthDesktop {
+  margin: 0 auto;
+  max-width: $maxContentWidthDesktop;
+}
+
+@mixin limitContentWidthTablet {
+  margin: 0 auto;
+  max-width: $maxContentWidthTablet;
+}
+
+@mixin limitContentWidthMobile {
+  margin: 0 auto;
+  max-width: $maxContentWidthMobile;
+}
