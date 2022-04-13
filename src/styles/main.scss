@@ -2,3 +2,69 @@
 @import "typography";
 @import "utils";
 @import "blocks";
+
+.main {
+  &__middle-banner {
+    position: relative;
+    display: flex;
+    margin: 150px 0;
+    background-image: url("/images/Ellipse.svg"), url("/images/middle_page_banner.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%, 100%;
+    min-width: 320px;
+    min-height: 246px;
+    padding: 0 0 35% 0;
+
+    @include atResolution ($r-tablet) {
+      margin: 130px 0;
+      background-image: url("/images/Ellipse.svg"), url("/images/middle_page_banner_tablet.png");
+      padding: 0 0 40% 0;
+    }
+
+    @include atResolution ($r-mobile) {
+      margin: 90px 0;
+      background-image: url("/images/Ellipse.svg"), url("/images/middle_page_banner_mobile.png");
+      padding: 0 0 75% 0;
+    }
+
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: auto;
+      max-width: 1440px;
+    }
+  }
+
+  &__play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    @extend %h3;
+    color: #fff;
+    text-transform: uppercase;
+
+
+    @include atResolution ($r-tablet) {
+      display: none;
+    }
+
+    @include atResolution ($r-mobile) {
+      display: none;
+    }
+
+    &--button {
+      display: none;
+
+      @include atResolution ($r-tablet) {
+        display: block;
+      }
+
+      @include atResolution ($r-mobile) {
+        display: block;
+      }
+    }
+  }
+}
