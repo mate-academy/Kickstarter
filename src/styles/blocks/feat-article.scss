@@ -1,0 +1,92 @@
+.feat-article {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    column-gap: 30px;
+    max-width: 1440px;
+    margin: 0 auto;
+    align-items: center;
+
+    @include atResolution ($r-mobile) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__image {
+    height: 388px;
+    width: 100%;
+    background-image: url("/images/designed_for_the_future.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+
+    @include atResolution ($r-mobile) {
+      display: none;
+    }
+  }
+
+  &__image-mobile {
+    display: none;
+    width: 100%;
+    background-image: url("/images/designed_for_the_future.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+
+    @include atResolution ($r-mobile) {
+      display: block;
+      padding-bottom: 80%;
+    }
+  }
+
+  &__right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 378px;
+    height: 100%;
+
+    @include atResolution ($r-mobile) {
+      padding: 24px 32px 0;
+      max-width: unset;
+    }
+  }
+
+  &__title {
+    min-width: 390px;
+    position: relative;
+    top: 0;
+    left: -90px;
+    font-size: 56px;
+    font-family: "DIN Pro Bold";
+    line-height: 72px;
+
+    @include atResolution ($r-mobile) {
+      left: 0;
+      font-size: 37px;
+      min-width: unset;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__description {
+    color: $c-light-gray;
+    line-height: 150%;
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: $c-l-green;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1px;
+      background-color: $c-l-green;
+      width: 40%;
+      margin-top: 6px;
+    }
+  }
+}
