@@ -29,11 +29,7 @@
     }
 
     &-wrapper {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin: auto;
-      max-width: 1440px;
+      @extend %wrapper-positioning;
     }
 
     &-buttons {
@@ -46,23 +42,20 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    @extend %h3;
     color: #fff;
     text-transform: uppercase;
+    @extend %h3;
 
     &:hover {
-      color: transparent;
-      background-image: url("/images/play.svg");
-      background-repeat: no-repeat;
-      background-position: center;
+      @include swap-play-buttons;
     }
 
     @include atResolution ($r-tablet) {
-      display: none;
+      @include swap-play-buttons;
     }
 
     @include atResolution ($r-mobile) {
-      display: none;
+      @include swap-play-buttons;
     }
 
     &--button {
@@ -75,6 +68,18 @@
       @include atResolution ($r-mobile) {
         display: block;
       }
+    }
+  }
+
+  &__technology {
+    margin-top: 150px;
+
+    @include atResolution ($r-tablet) {
+      margin-top: 130px;
+    }
+    
+    @include atResolution ($r-mobile) {
+      margin-top: 90px;
     }
   }
 }
