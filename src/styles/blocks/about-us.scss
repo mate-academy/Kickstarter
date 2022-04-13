@@ -13,7 +13,6 @@
   }
 
   &__wrapper {
-    position: relative;
     @include limitContentWidth;
 
     @include gridWithColumns(1, $numbOfColumnsTablet, $numbOfColumnsDesktop);
@@ -27,28 +26,19 @@
     }
   }
 
-  &__item {
+  &__title {
     @include tablet {
-      @include customColumns($numbOfColumnsTablet);
+      position: relative;
+      left: -90px;
+
+      z-index: 1;
+
+      margin-top: 8px;
+      width: 430px;
     }
 
     @include desktop {
-      @include customColumns($numbOfColumnsDesktop);
-    }
-  }
-
-  &__title {
-    @include tablet {
-      display: none;
-    }
-
-    &--second {
-      display: none;
-
-      @include tablet {
-        display: inline-block;
-        z-index: 1;
-      }
+      width: 480px;
     }
   }
 
@@ -56,46 +46,65 @@
     display: block;
 
     margin-top: 28px;
-
-    width: 100%;
     height: 210px;
 
-    object-fit: cover;
+    background-image: url("/images/about-us.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
     @include tablet {
-      margin-top: 0;
-      grid-column: 1 / 5;
+      display: none;
+    }
 
-      position: absolute;
-      left: -300px;
+    &--tablet {
+      display: none;
 
-      width: 639px;
-      height: 415px;
+      @include tablet {
+        display: inline-block;
+
+        position: relative;
+        left: -34px;
+
+        grid-column: 1 / 5;
+
+        margin: 0;
+        width: calc(100% + 34px);
+        height: 415px;
+
+        background-image: url("/images/about-us.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+      @include desktop {
+        left: 0;
+        grid-column: 2 / 8;
+
+        width: 100%;
+        height: 388px;
+      }
+    }
+  }
+
+  &__container {
+    @include tablet {
+      grid-column: 5 / 7;
     }
 
     @include desktop {
-      grid-column: 2 / 7;
-
-      position: absolute;
-      left: 0;
-
-      width: 540px;
-      height: 388px;
+      grid-column: 8 / 11;
     }
   }
 
   &__text {
-    margin-top: 20px;
-
+    margin-top: 30px;
     @include fontParams(14px, 21px);
     color: $c-grey;
 
     @include tablet {
-      margin-top: 32px;
-    }
-
-    @include desktop {
-      margin-top: 30px;
+      width: 340px;
     }
   }
 
@@ -104,28 +113,28 @@
 
     display: block;
 
+    padding-bottom: 8px;
     margin-top: 30px;
 
     @include fontParams(14px, 21px, 700);
-    color: $c-green;
+    color: $c-turquoise;
+
+    border-bottom: 1px solid $c-turquoise;
+    width: max-content;
 
     text-transform: uppercase;
     text-decoration: none;
 
-    @include tablet {
-      margin-top: 60px;
-    }
+    // &::after {
+    //   position: absolute;
+    //   bottom: -5px;
+    //   left: 0;
 
-    &::after {
-      position: absolute;
-      bottom: -5px;
-      left: 0;
+    //   content: "";
 
-      content: "";
+    //   width: 51px;
 
-      width: 51px;
-
-      border: 1px solid $c-green;
-    }
+    //   border: 1px solid $c-green;
+    // }
   }
 }
