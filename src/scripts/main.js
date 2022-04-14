@@ -50,3 +50,22 @@ form.addEventListener('submit', function(event) {
   event.preventDefault();
   form.reset();
 });
+
+const play = document.getElementById('play');
+const video = document.getElementById('video');
+
+play.addEventListener('click', () => {
+  if (video.paused === true) {
+    video.play();
+    play.style.visibility = 'hidden';
+  } else {
+    video.pause();
+  }
+});
+
+video.addEventListener('click', () => {
+  if (video.paused === false) {
+    video.pause();
+    play.style.visibility = 'visible';
+  }
+});
