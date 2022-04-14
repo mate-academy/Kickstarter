@@ -30,3 +30,5 @@ item4.addEventListener('click', () => {
 item5.addEventListener('click', () => {
   document.getElementById('menu-container').classList.toggle('menu-opened');
 });
+
+document.getElementById('message').value = '';
