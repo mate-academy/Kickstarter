@@ -16,14 +16,6 @@
     @include limitContentWidth;
 
     @include gridWithColumns(4, $numbOfColumnsTablet, $numbOfColumnsDesktop);
-
-    @include tablet {
-      max-width: $maxContentWidthTablet;
-    }
-
-    @include desktop {
-      max-width: $maxContentWidthDesktop;
-    }
   }
 
   &__title {
@@ -42,8 +34,7 @@
 
     margin-top: 56px;
 
-    width: 625px;
-    height: 278px;
+    @include elementSize(625px, 278px);
 
     transform: matrix(0.99, -0.14, 0.14, 0.99, 0, 0);
 
@@ -57,16 +48,14 @@
       margin-top: 0;
       grid-column: 1 / 8;
 
-      width: 1231px;
-      height: 546px;
+      @include elementSize(1231px, 546px);
     }
 
     @include desktop {
       margin-top: 69px;
       grid-column: 1 / 12;
 
-      width: 1230px;
-      height: 545px;
+      @include elementSize(1230px, 545px);
     }
   }
 }

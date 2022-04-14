@@ -13,18 +13,9 @@
   }
 
   &__wrapper {
-    height: 100%;
-    width: 100%;
+    @include elementSize(100%, 100%);
 
     @include limitContentWidth;
-
-    @include tablet {
-      max-width: $maxContentWidthTablet;
-    }
-
-    @include desktop {
-      max-width: $maxContentWidthDesktop;
-    }
   }
 
   &__controls {
@@ -54,6 +45,24 @@
     justify-content: space-between;
     align-items: center;
 
+    &-en {
+      line-height: 18px;
+
+      border: none;
+      background-color: transparent;
+
+      cursor: pointer;
+      color: #828282;
+
+      &:focus {
+        color: $c-granit;
+      }
+    }
+
+    &-ua {
+      @extend .header__items-en;
+    }
+
     &-buy {
       background-color: $c-granit;
       color: #fff;
@@ -78,8 +87,7 @@
 
   &__menu-toggler {
     display: inline-block;
-    width: 24px;
-    height: 14px;
+    @include elementSize(24px, 14px);
 
     border: none;
     background-color: transparent;
@@ -127,20 +135,17 @@
     object-fit: cover;
     object-position: left;
 
-    width: 320px;
-    height: 245px;
+    @include elementSize(320px, 245px);
 
     @include tablet {
       order: 1;
       left: -30px;
 
-      width: 739px;
-      height: 100%;
+      @include elementSize(739px, 100%);
     }
 
     @include desktop {
-      width: 939px;
-      height: 464px;
+      @include elementSize(939px, 464px);
     }
   }
 

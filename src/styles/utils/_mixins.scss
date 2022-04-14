@@ -7,6 +7,14 @@
 @mixin limitContentWidth {
   margin: 0 auto;
   max-width: $maxContentWidth;
+
+  @include tablet {
+    max-width: $maxContentWidthTablet;
+  }
+
+  @include desktop {
+    max-width: $maxContentWidthDesktop;
+  }
 }
 
 @mixin tablet {
@@ -37,16 +45,7 @@
   }
 }
 
-@mixin customColumns($numOfCols) {
-  @for $start from 1 through $numOfCols {
-    @for $end from $start through $numOfCols {
-      &--tablet--#{$start}-#{$end} {
-        grid-column: #{$start} / #{$end};
-      }
-
-      &--desktop--#{$start}-#{$end} {
-        grid-column: #{$start} / #{$end};
-      }
-    }
-  }
+@mixin elementSize($width, $height) {
+  width: $width;
+  height: $height;
 }

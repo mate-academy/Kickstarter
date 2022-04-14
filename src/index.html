@@ -23,14 +23,16 @@
           </a>
 
           <div class="header__items">
-            <a href="/"
+            <a href="#"
               class=" header__controls-link">SPECS</a>
 
             <div class="header__items--language">
-              <a href="/"
-                class="header__controls-link header__items-en">EN</a> /
-              <a href="/"
-                class="header__controls-link header__items-ua">UA</a>
+              <button
+                class="header__controls-link header__items-en"
+                id="english">EN</button> /
+              <button
+                class="header__controls-link header__items-ua"
+                id="ukranian">UA</button>
             </div>
 
             <a href="/"
@@ -56,40 +58,6 @@
             </p>
           </div>
         </div>
-
-        <!-- <div class="header__menu" id="menu">
-          <div class="header__menu-wrapper">
-            <div class="header__menu-controls">
-              <a href="/">
-                <img
-                  src="/images/logo.svg"
-                  alt="crybaby logo"
-                  class="logo">
-              </a>
-
-              <a href="#" class="header__menu-cross"></a>
-            </div>
-            <nav class="nav header__menu-nav">
-              <ul class="nav__list">
-                <li class="nav__item">
-                  <a href="/" class="nav__link">Our story</a>
-                </li>
-                <li class="nav__item">
-                  <a href="#about-us" class="nav__link">About us</a>
-                </li>
-                <li class="nav__item">
-                  <a href="/" class="nav__link">Technology</a>
-                </li>
-                <li class="nav__item">
-                  <a href="/" class="nav__link">Features</a>
-                </li>
-                <li class="nav__item">
-                  <a href="/" class="nav__link">Get in touch</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div> -->
       </div>
     </header>
 
@@ -208,18 +176,16 @@
         </div>
       </section>
 
-      <section class="presentation" id="presentation">
-        <div class="presentation__wrapper">
-          <video
-            src="/videos/luna.mp4"
-            width="100%"
-            height="100%"
-            poster="/images/presentation.png"
-            id="video"
-          >
-          </video>
-          <button class="presentation__play" id="play"></button>
-        </div>
+      <section class="presentation page__presentation" id="presentation">
+        <video
+          poster="/images/presentation.png"
+          id="video"
+          preload="auto"
+          class="presentation__video"
+        >
+          <source src="/videos/luna.mp4" type="video/mp4">
+        </video>
+        <button class="presentation__play" id="play"></button>
       </section>
 
       <section class="about-us" id="about-us">
@@ -300,6 +266,7 @@
                 </li>
               </ul>
             </div>
+
             <div class="feature feature--mobile feature--mobile-2" id="featureTwo">
               <h3 class="feature__title">Connectivity</h3>
               <ul class="feature__list">
@@ -323,6 +290,7 @@
                 </li>
               </ul>
             </div>
+
             <div class="feature feature--mobile feature--mobile-3" id="featureThree">
               <h3 class="feature__title">App Features</h3>
               <ul class="feature__list">
@@ -340,26 +308,34 @@
                 </li>
               </ul>
             </div>
+
             <div class="features__controls">
               <div class="features__controls--toggles">
-                <!-- <img
-                  src="/images/features/prev_inactive.svg"
-                  alt="previous feature"
-                  class="features__controls--prev"
-                  id="prev"> -->
                 <button
-                  class="features__controls--button features__controls--button-prev"
-                  id="prev"></button>
+                    class="features__controls--button features__controls--button-prev-inactive"
+                    id="prevInactive">
+                </button>
+                <button
+                    class="features__controls--button features__controls--button-prev-active"
+                    id="prevActive">
+                </button>
+                <button
+                    class="features__controls--button features__controls--button-prev-hover"
+                    id="prevHover">
+                </button>
 
-                <!-- <img
-                  src="/images/features/next_active.svg"
-                  alt="next feature"
-                  class="features__controls--next"
-                  id="next"> -->
                 <button
-                  class="features__controls--button features__controls--button-next"
-                  id="next"
-                  onmouseover="hover('/images/features/next_hover.svg')"></button>
+                    class="features__controls--button features__controls--button-next-inactive"
+                    id="nextInactive">
+                </button>
+                <button
+                    class="features__controls--button features__controls--button-next-active"
+                    id="nextActive">
+                </button>
+                <button
+                    class="features__controls--button features__controls--button-next-hover"
+                    id="nextHover">
+                </button>
               </div>
 
               <div class="features__controls--number">
@@ -448,7 +424,7 @@
             class="form questions__form"
             id="form">
             <input
-              type="text"
+              type="email"
               name="email"
               placeholder="Your email"
               class="form__field"

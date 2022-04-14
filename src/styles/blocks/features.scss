@@ -15,8 +15,6 @@
     @include gridWithColumns(1, 8, 12);
 
     @include tablet {
-      max-width: $maxContentWidthTablet;
-
       background-image: url("/images/features/features.png");
       background-repeat: no-repeat;
       background-size: 586px 379px;
@@ -24,8 +22,6 @@
     }
 
     @include desktop {
-      max-width: $maxContentWidthDesktop;
-
       background-size: 786px 509px;
       background-position: right bottom 10%;
     }
@@ -51,8 +47,8 @@
     flex-direction: column;
     align-items: center;
 
+    @include elementSize(260px, 48px);
     margin-top: 51px;
-    width: 280px;
 
     &--button {
       cursor: pointer;
@@ -62,18 +58,33 @@
 
       background-repeat: no-repeat;
 
-      width: 48px;
-      height: 14px;
+      @include elementSize(48px, 14px);
 
       &-prev {
-        background-image: url("/images/features/prev_inactive.svg");
+        &-inactive {
+          background-image: url("/images/features/prev_inactive.svg");
+        }
+        &-active {
+          background-image: url("/images/features/prev_active.svg");
+          display: none;
+        }
+        &-hover {
+          background-image: url("/images/features/prev_hover.svg");
+          display: none;
+        }
       }
 
       &-next {
-        background-image: url("/images/features/next_active.svg");
-
-        &:hover {
+        &-inactive {
+          background-image: url("/images/features/next_inactive.svg");
+          display: none;
+        }
+        &-active {
+          background-image: url("/images/features/next_active.svg");
+        }
+        &-hover {
           background-image: url("/images/features/next_hover.svg");
+          display: none;
         }
       }
 
@@ -101,8 +112,7 @@
 
   &__background {
     margin-top: 8px;
-    width: 344px;
-    height: 222px;
+    @include elementSize(344px, 222px);
 
     background-image: url("/images/features/features.png");
     background-repeat: no-repeat;
