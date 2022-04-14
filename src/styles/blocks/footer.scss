@@ -1,0 +1,135 @@
+.footer {
+  padding: 43px $paddingX 50px;
+
+  @include tablet {
+    padding: 25px $paddingXTablet 50px;
+  }
+
+  @include desktop {
+    padding: 108px $paddingXDesktop 50px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include limitContentWidth;
+
+    @include tablet {
+      max-width: 610px;
+    }
+
+    @include desktop {
+      max-width: 762px;
+    }
+  }
+
+  &__controls {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    width: 100%;
+  }
+
+  &__logo {
+    display: none;
+
+    @include tablet {
+      display: block;
+
+      grid-column: 2;
+      justify-self: center;
+      align-self: flex-end;
+
+      margin-top: 32px;
+    }
+
+    @include desktop {
+      align-self: flex-start;
+
+      margin-top: 0;
+    }
+  }
+
+  &__link {
+    grid-column: 3;
+    justify-self: flex-end;
+
+    display: block;
+
+    width: 24px;
+    height: 20px;
+
+    @include tablet {
+      justify-self: right;
+      align-self: flex-start;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: space-between;
+    gap: 46px;
+
+    margin-top: 12px;
+    width: 174px;
+    height: 48px;
+
+    @include tablet {
+      margin-top: 64px;
+    }
+
+    &--icon {
+      display: inline-block;
+
+      width: 48px;
+
+      &-facebook {
+        background-image: url("/images/footer/facebook.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background-image: url("/images/footer/facebook_hover.svg");
+        }
+      }
+
+      &-twitter {
+        background-image: url("/images/footer/twitter.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background-image: url("/images/footer/twitter_hover.svg");
+        }
+      }
+
+      &-instagram {
+        background-image: url("/images/footer/instagram.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:hover {
+          background-image: url("/images/footer/instagram_hover.svg");
+        }
+      }
+    }
+  }
+
+  &__copyright {
+    margin-top: 23px;
+
+    @include fontParams(12px, 21px);
+    color: #bdbdbd;
+    text-align: center;
+
+    @include tablet {
+      margin-top: 108px;
+    }
+
+    @include desktop {
+      margin-top: 72px;
+    }
+  }
+}

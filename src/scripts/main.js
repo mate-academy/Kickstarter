@@ -5,7 +5,7 @@ const menuNav = document.getElementById('menuNav');
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
     document.body.classList.add('page--with-menu');
-    menuNav.style.display = 'inline-block';
+    menuNav.style.display = 'contents';
   } else {
     document.body.classList.remove('page--with-menu');
   }
@@ -42,4 +42,11 @@ prev.addEventListener('click', () => {
     featureTwo.style.display = 'block';
     featureNumber.innerHTML = '02';
   }
+});
+
+const form = document.getElementById('form');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+  form.reset();
 });
