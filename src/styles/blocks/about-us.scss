@@ -119,22 +119,32 @@
     @include fontParams(14px, 21px, 700);
     color: $c-turquoise;
 
-    border-bottom: 1px solid $c-turquoise;
+    border-bottom: 1px solid transparent;
     width: max-content;
 
     text-transform: uppercase;
     text-decoration: none;
 
-    // &::after {
-    //   position: absolute;
-    //   bottom: -5px;
-    //   left: 0;
+    transition: border $transitionDuration;
 
-    //   content: "";
+    &::after {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
 
-    //   width: 51px;
+      content: "";
 
-    //   border: 1px solid $c-green;
-    // }
+      width: 51px;
+
+      height: 1px;
+      background-color: $c-turquoise;
+    }
+
+    &:hover {
+      &::after {
+        display: none;
+      }
+      border-color: $c-turquoise;
+    }
   }
 }
