@@ -1,19 +1,105 @@
 .header {
-  padding: 0 43px;
-
-  @include tabletLayout {
-    padding: 0 32px;
-  }
+  padding: 0 34px;
 
   &__wrapper {
-    @include limitContentWidthDesktop;
+    @include limitContentWidthMain;
+
   }
 
-  &__menu {
-    padding: 12px 0 88px;
+  &__controls {
+    height: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 89px;
+
+  }
+
+  &__menu-toggler {
+    display: inline-block;
+    width: 24px;
+    height: 14px;
+    background-image: url("/images/menu.svg");
+    background-color: transparent;
+    background-repeat: no-repeat;
+
+    @include tabletLayout {
+      display: none;
+    }
   }
 
   &__content {
-    padding-bottom: 120px;
+    display: flex;
+    margin-bottom: 121px;
+
+  }
+
+  &__content-text {
+    padding: 81px 0 11px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 27px;
+
+  }
+
+  &__title {
+    width: 378px;
+
+    @include fontParam(64px, 130%);
+    text-transform: uppercase;
+
+  }
+
+  &__description {
+    width: 276px;
+
+    @include fontParam(16px, 150%);
+
+  }
+
+  &__items {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-transform: uppercase;
+
+  }
+
+  &__links-top {
+    width: 174px;
+    display: flex;
+
+  }
+
+  &__controls-link {
+    color: #4f4f4f;
+
+    &:active {
+      color: #333;
+    }
+  }
+
+  &__specs {
+    width: 70px;
+  }
+
+  &__language {
+    display: flex;
+    width: 70px;
+  }
+
+  &__buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 48px;
+    background-color: #333;
+    color: #fff;
+
+    @include fontParam(12px, 15px);
+
   }
 }

@@ -1,36 +1,41 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
-  }
-}
-
 @mixin fontParam($fontSize, $lineHeight) {
   font-size: $fontSize;
   line-height: $lineHeight;
 }
 
+@mixin mainLayout {
+  @media (min-width: $mainBreakPoint) {
+    @content;
+  }
+}
+
 @mixin notebookLayout {
-  @media (max-width: $notebookBreakPoint) {
+  @media (min-width: $notebookBreakPoint) {
+    @content;
+  }
+}
+
+@mixin notebookNarrowLayout {
+  @media (min-width: $notebookNarrowBreakPoint) {
     @content;
   }
 }
 
 @mixin tabletLayout {
-  @media (max-width: $tabletBreakPoint) {
+  @media (min-width: $tabletBreakPoint) {
     @content;
   }
 }
 
 @mixin mobileLayout {
-  @media (max-width: $mobileBreakPoint) {
+  @media (min-width: $mobileBreakPoint) {
     @content;
   }
 }
 
-@mixin limitContentWidthDesktop {
+@mixin limitContentWidthMain {
   margin: 0 auto;
-  max-width: $maxContentWidthDesktop;
+  max-width: $maxContentWidthMain;
 }
 
 @mixin limitContentWidthTablet {
