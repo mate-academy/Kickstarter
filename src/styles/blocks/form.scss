@@ -6,7 +6,7 @@
 
     margin-bottom: 19px;
     padding: 16px 30px;
-    
+
     @include elementSize(100%, 48px);
 
     border: 1px solid #828282;
@@ -17,9 +17,25 @@
       color: #bdbdbd;
     }
 
+    &:valid {
+      border-color: $c-green;
+    }
+
+    &:focus {
+      &:invalid {
+        border-color: #eb5757;
+
+        &::placeholder {
+          color: #eb5757;
+        }
+      }
+    }
+
     &--message {
       margin-bottom: 30px;
       height: 128px;
+
+      resize: none;
 
       @include tablet {
         height: 201px;

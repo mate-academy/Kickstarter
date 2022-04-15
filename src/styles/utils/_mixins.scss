@@ -49,3 +49,29 @@
   width: $width;
   height: $height;
 }
+
+@mixin linkUnderline {
+  &::after {
+    content: "";
+
+    display: block;
+
+    margin-top: 6px;
+    @include elementSize(40%, 1px);
+
+    background-color: transparent;
+
+    transition: width $transitionDuration;
+  }
+
+  &:hover::after {
+    content: "";
+
+    display: block;
+
+    margin-top: 6px;
+    @include elementSize(100%, 1px);
+
+    background-color: $c-turquoise;
+  }
+}

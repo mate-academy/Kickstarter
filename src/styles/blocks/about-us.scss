@@ -108,34 +108,18 @@
     padding-bottom: 8px;
     margin-top: 30px;
 
+    width: max-content;
+
     @include fontParams(14px, 21px, 700);
     color: $c-turquoise;
-
-    border-bottom: 1px solid transparent;
-    width: max-content;
 
     text-transform: uppercase;
     text-decoration: none;
 
-    transition: border $transitionDuration;
+    @include linkUnderline;
 
     &::after {
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-
-      content: "";
-
-      @include elementSize(51px, 1px);
-
       background-color: $c-turquoise;
-    }
-
-    &:hover {
-      &::after {
-        display: none;
-      }
-      border-color: $c-turquoise;
     }
   }
 }

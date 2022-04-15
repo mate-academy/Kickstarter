@@ -18,31 +18,34 @@
     @include tablet {
       flex-direction: row;
       justify-content: center;
-      gap: 24px;
+      gap: 30px;
     }
   }
 
   &__item {
     text-align: center;
+    width: max-content;
+
+    transition: transform $transitionDuration;
 
     &:last-child {
       margin-bottom: 0;
     }
 
     @include tablet {
-      &:nth-child(odd) {
-        width: 174px;
-      }
-
       &:nth-child(even) {
-        width: 88px;
+        margin: 0 25px;
       }
     }
 
     @include desktop {
       &:nth-child(even) {
-        width: 72px;
+        margin: 0 50px;
       }
+    }
+
+    &:hover {
+      transform: scale(1.25);
     }
   }
 
@@ -51,17 +54,18 @@
     color: $c-granit;
     text-decoration: none;
 
-    border-bottom: 1px solid transparent;
     padding: 8px 0;
 
     text-transform: uppercase;
+
+    transition: color $transitionDuration;
 
     @include tablet {
       padding: 28px 0;
     }
 
     &:hover {
-      border-color: $c-black;
+      color: $c-black;
     }
 
     &:active {
