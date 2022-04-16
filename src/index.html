@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crazybaby - Futuristic Wireless Speaker</title>
     <link rel="stylesheet" href="./styles/main.scss">
-    <script src="/scripts/main.js"></script>
     <link
       rel="shortcut icon"
       href="images/fav.png"
@@ -29,9 +28,9 @@
                 <a class="header__link" href="#features">Specs</a>
               </li>
               <li class="header__service-panel-item">
-                <a class="header__link header__link--lang" href="#">En</a>
+                <a id="lang-en" class="header__link header__link--lang" href="#">En</a>
                 /
-                <a class="header__link header__link--lang" href="#">Ua</a>
+                <a id="lang-ua" class="header__link header__link--lang" href="#">Ua</a>
               </li>
               <li class="header__service-panel-item">
                 <a>Buy</a>
@@ -201,19 +200,28 @@
       </div>
 
       <div class="main__middle-banner-wrapper" id="about-us">
-        <div class="main__middle-banner">
+        <div class="imain__iframe-container">
           <iframe
+            id="iframe"
+            class="main__iframe"
             width="100%"
-            height="640px"
-            min-height="230px"
             src="https://www.youtube.com/embed/J49hDugk8jM"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
+            muted
           ></iframe>
-          <!-- <a class="main__middle-banner-buttons" href="#">
-            <p class="main__play">Play</p>
-          </a> -->
+        </div>
+        <div
+          class="main__middle-banner"
+          id="iframe-placeholder"
+        >
+          <p
+            class="main__play"
+            id="iframe-placeholder-btn"
+          >
+            Play
+          </p>
         </div>
       </div>
 
@@ -292,7 +300,7 @@
           <h2 class="features__title" id="features">Features</h2>
           <div class="features__wrapper">
             <div class="features__left">
-              <div class="features__left-top">
+              <div class="features__left-top" id="features-card-1">
                 <div class="features__list-container features__list-container--top">
                   <h3 class="features__section-title">Sound & music</h3>
                   <ul class="features__list">
@@ -317,7 +325,7 @@
                   </ul>
                 </div>
               </div>
-              <div class="features__left-middle">
+              <div class="features__left-middle" id="features-card-2">
                 <div class="features__list-container features__list-container--middle">
                   <h3 class="features__section-title">Connectivity</h3>
                   <ul class="features__list">
@@ -342,7 +350,7 @@
                   </ul>
                 </div>
               </div>
-              <div class="features__left-bottom">
+              <div class="features__left-bottom" id="features-card-3">
                 <div class="features__list-container features__list-container--bottom">
                   <h3 class="features__section-title">
                     App features
@@ -365,25 +373,31 @@
               </div>
               <div class="m-block features__m-block">
                 <div class="m-block__buttons">
-                  <button id="m-block__button-left">
-                    <img
-                      src="/images/arrow_grey.png"
-                      alt="button left"
-                      class="m-block__button m-block__buttons--left"
-                    >
+                  <button
+                    id="m-block__button-left"
+                    class="m-block__button m-block__button--left"
+                  >
                   </button>
-                  <button id="m-block__button-right">
-                    <img
-                      src="/images/arrow_black.png"
-                      alt="button right"
-                      class="m-block__button m-block__buttons--right"
-                    >
+                  <button
+                    id="m-block__button-left-2"
+                    class="m-block__button m-block__button--left-2"
+                  >
+                  </button>
+                  <button
+                    id="m-block__button-right"
+                    class="m-block__button m-block__button--right"
+                  >
+                  </button>
+                  <button
+                    id="m-block__button-right-2"
+                    class="m-block__button m-block__button--right-2"
+                  >
                   </button>
                 </div>
                 <div class="m-block__pagination">
                   <button
                     id="m-block__pagination-right"
-                    class="m-block__page m-block__page--first"
+                    class="m-block__page m-block__page--first m-block__page--focus"
                   >
                     01
                   </button>
@@ -476,5 +490,6 @@
         </p>
       </div>
     </footer>
+    <script src="scripts/main.js" defer></script>
   </body>
 </html>
