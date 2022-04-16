@@ -1,0 +1,85 @@
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  transform: translateY(-100%);
+  transition: transform $transitionTime;
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  @include atResolution (758px) {
+    height: 325px;
+    display: block;
+  }
+
+  @include atResolution ($r-mobile) {
+    height: 315px;
+    display: block;
+  }
+
+  background-color: white;
+
+  &__wrapper {
+    position: relative;
+    margin: 24px 32px 0;
+
+    @include atResolution ($r-tablet) {
+      margin: 24px 32px 0;
+    }
+
+    @include atResolution ($r-mobile) {
+      margin: 24px 32px 0;
+    }
+  }
+
+  &__service-block {
+    display: flex;
+    align-items: center;
+
+    @include atResolution ($r-tablet) {
+      margin-top: 32px;
+    }
+
+    @include atResolution ($r-mobile) {
+      margin-top: 0;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    display: none;
+    background-image: url("/images/cross.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    @include size (22px, 22px);
+
+    @include atResolution ($r-mobile) {
+      display: block;
+    }
+
+    @include atResolution (758px) {
+      display: block;
+    }
+  }
+
+  &__nav-list {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: right;
+    list-style: none;
+
+    @include atResolution ($r-tablet) {
+      margin-top: 40px;
+    }
+  }
+}
