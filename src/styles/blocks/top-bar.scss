@@ -41,27 +41,34 @@
 
   &__button {
     width: 102px;
-    height: 48px;
+    height: $topBarButtonHeight;
   }
 
   &__burger-btn {
     display: block;
     width: 24px;
-    height: 14px;
+    height: 24px;
 
-    background-image: url(../images/burger.svg);
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
 
-    transition: transform 0.3s, border-radius 0.3s;
+    transition: transform 0.3s;
 
     &:hover {
-      transform: scale(1.3) rotate(180deg);
-      border-radius: 50%;
+      transform: scale(1.3);
     }
 
     @include onTablet {
       display: none;
+    }
+
+    &--open {
+      background-image: url(../images/burger.svg);
+    }
+
+    &--close {
+      background-image: url(../images/close__icon.svg);
     }
   }
 }
