@@ -1,9 +1,16 @@
 .header {
   padding: 0 34px;
 
+  @include mobileWideLayout {
+    padding: 0 30px;
+  }
+
   &__wrapper {
     @include limitContentWidthMain;
 
+    @include mobileWideLayout {
+      @include limitContentWidthMobile;
+    }
   }
 
   &__controls {
@@ -13,28 +20,38 @@
     align-items: center;
     margin-bottom: 89px;
 
+    @include mobileWideLayout {
+      margin-bottom: 0;
+    }
   }
 
   &__menu-toggler {
-    display: inline-block;
+    display: none;
     width: 24px;
     height: 14px;
     background-image: url("/images/menu.svg");
     background-color: transparent;
     background-repeat: no-repeat;
 
-    @include tabletLayout {
-      display: none;
+    @include mobileWideLayout {
+      display: block;
     }
   }
 
   &__content {
     display: flex;
     margin-bottom: 121px;
+    overflow: hidden;
 
+    @include mobileWideLayout {
+      flex-direction: column;
+      overflow: visible;
+    }
   }
 
   &__content-text {
+    z-index: 1;
+
     padding: 81px 0 11px;
     color: #333;
     display: flex;
@@ -42,6 +59,18 @@
     justify-content: center;
     gap: 27px;
 
+    @include notebookNarrowLayout {
+      padding: 55px 0 5px;
+    }
+
+    @include tabletLayout {
+      padding: 29px 0 0;
+    }
+
+    @include mobileWideLayout {
+      order: 1;
+      padding: 0;
+    }
   }
 
   &__title {
@@ -50,6 +79,24 @@
     @include fontParam(64px, 130%);
     text-transform: uppercase;
 
+    @include tabletWideLayout {
+      width: 359px;
+
+      @include fontParam(54px, 130%);
+    }
+
+    @include tabletLayout {
+      width: 340px;
+
+      @include fontParam(48px, 130%);
+    }
+
+    @include mobileWideLayout {
+      width: 260px;
+
+      @include fontParam(40px, 130%);
+      text-align: center;
+    }
   }
 
   &__description {
@@ -57,6 +104,38 @@
 
     @include fontParam(16px, 150%);
 
+    @include tabletLayout {
+      width: 250px;
+    }
+
+    @include mobileWideLayout {
+      width: 260px;
+      text-align: center;
+    }
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+    object-position: left;
+
+    @include notebookNarrowLayout {
+      margin-left: -59px;
+    }
+
+    @include tabletWideLayout {
+      margin-left: -89px;
+    }
+
+    @include mobileWideLayout {
+      margin-left: -30px;
+      height: 245px;
+      width: 300px;
+
+      margin-bottom: 40px;
+    }
   }
 
   &__items {
@@ -65,11 +144,16 @@
     align-items: center;
     text-transform: uppercase;
 
+    @include mobileWideLayout {
+      display: none;
+    }
+
   }
 
   &__links-top {
     width: 174px;
     display: flex;
+    gap: 12px;
 
   }
 
@@ -82,7 +166,7 @@
   }
 
   &__specs {
-    width: 70px;
+    width: 72px;
   }
 
   &__language {
