@@ -1,12 +1,12 @@
 .feauters {
-  background-image: url(../images/pitcures/feauters_rect.svg);
+  // background-image: url(../images/pitcures/feauters_rect.svg);
 
   @include onTablet {
     //asd
   }
 
   &__inner {
-    background-image: url(../images/pitcures/features.jpg);
+    // background-image: url(../images/pitcures/features.jpg);
     background-repeat: no-repeat;
     background-size: contain;
 
@@ -28,8 +28,15 @@
     }
   }
 
+  &__slider {
+    margin: 0 auto 40px;
+    width: 260px;
+  }
+
   &__item {
+    margin-right: 15px;
     margin-bottom: 40px;
+    width: 260px; // for slider
 
     @include onTablet {
       margin-bottom: 100px;
@@ -70,6 +77,37 @@
 
     &:last-child {
       margin-bottom: 0;
+    }
+  }
+
+  &__btn-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__button {
+    margin: 0 0 0 -5px;
+    width: 50px;
+    height: 30px;
+    padding: 0;
+    display: inline-block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+
+    background-image: url(../images/slider_arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &--prev {
+      margin: 0 -5px 0 0;
+      transform: rotate(180deg);
+    }
+
+    &:hover {
+      background-color: #bcbcbc;
     }
   }
 }
