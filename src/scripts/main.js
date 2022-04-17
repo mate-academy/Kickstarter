@@ -11,7 +11,6 @@ document.querySelector('#btn-forward').addEventListener('click', function() {
   }
 
   sliderLine.style.left = offset + 'px';
-
 });
 
 document.querySelector('#btn-back').addEventListener('click', function() {
