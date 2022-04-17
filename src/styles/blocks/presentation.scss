@@ -15,8 +15,10 @@
   }
 
   &__video {
+    z-index: 0;
     width: 100%;
     height: 590px;
+    transition: filter 0.5s;
 
     @include tabletLayout {
       height: 400px;
@@ -25,6 +27,18 @@
     @include mobileWideLayout {
       height: 246px;
       object-fit: cover;
+    }
+
+    &--hover-on {
+      &:hover {
+        filter: brightness(40%);
+      }
+    }
+
+    &--hover-off {
+      &:hover {
+        filter: none;
+      }
     }
   }
 
