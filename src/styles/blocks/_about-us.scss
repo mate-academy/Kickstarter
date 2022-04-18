@@ -1,4 +1,75 @@
-.page {
-  margin: 0;
-  box-sizing: border-box;
+.about-us {
+  margin-top: 50px;
+
+  &-h {
+    color: $primary-gray;
+    margin: 0;
+    font-weight: 700;
+    font-size: 30px;
+    text-align: bottom;
+
+    @include onTablet {
+      grid-row: 1 / 2;
+      font-size: 36px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__photo {
+    height: 210px;
+    background-image: url(../images/2.png);
+    background-repeat: no-repeat;
+    background-size: contain auto;
+    background-position-y: 0;
+    margin-top: 20px;
+
+    @include onTablet {
+      height: 415px;
+      grid-row: 1 / 4;
+      background-size: contain auto;
+      background-position: right;
+      margin: 0;
+    }
+
+    @include onDesktop {
+      height: 415px;
+    }
+  }
+
+  &-p {
+    margin: 20px 0 0;
+
+    @include onTablet {
+      grid-row: 2 / 3;
+    }
+  }
+
+  &__link {
+    width: fit-content;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #0db2b3;
+    margin-top: 20px;
+
+    &::after {
+      content: "";
+      display: block;
+      position: relative;
+      bottom: -25px;
+      width: 50px;
+      height: 2px;
+      background-color: #0db2b3;
+    }
+
+    @include onTablet {
+      grid-row: 3 / 4;
+    }
+  }
 }

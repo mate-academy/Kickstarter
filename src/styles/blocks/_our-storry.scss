@@ -1,4 +1,100 @@
-.page {
-  margin: 0;
-  box-sizing: border-box;
+.our-story {
+  width: 100%;
+  position: relative;
+
+  .swiper-container {
+    @include onPhone {
+      width: 100%;
+      scroll-snap-type: x proximity;
+      overflow-x: scroll;
+    }
+  }
+
+  &__benefits {
+    @include onPhone {
+      scroll-snap-align: start;
+
+      display: flex;
+      flex-direction: row;
+    }
+
+    &-section {
+      flex: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 70px;
+
+      @include onPhone {
+        width: 100vw;
+      }
+
+    }
+
+    &-h {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    &-p {
+      text-align: center;
+      padding: 0 30px;
+    }
+  }
+
+  &__video {
+    width: 100%;
+    position: relative;
+
+    @include onPhone {
+      height: 246px;
+    }
+
+    .video__preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .video__button {
+      position: absolute;
+      @include toCentr;
+
+      width: 108px;
+      height: 108px;
+      // height: calc(width);
+      border: 1px solid #f3f4f5;
+      border-radius: 50%;
+
+      font-size: 24px;
+      text-align: center;
+      line-height: 108px;
+      color: #f3f4f5;
+      cursor: pointer;
+
+      @include onTablet {
+        width: 190px;
+        height: 190px;
+        line-height: 190px;
+      }
+
+      &-image {
+        visibility: hidden;
+        position: inherit;
+        object-position: center;
+        @include toCentr;
+      }
+
+      &:hover {
+        font-size: 0;
+
+        .video__button-image {
+          visibility: visible;
+        }
+      }
+    }
+  }
 }
