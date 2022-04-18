@@ -10,9 +10,27 @@
     justify-content: space-between;
     align-items: center;
 
-    @include onTablet{
+    &_burger {
+      display: none;
+      width: 30%;
+      justify-content: flex-end;
+
+      &_photo {
+        width: 24px;
+        height: 14px;
+        background-image: url("../images/burger.png");
+        cursor: pointer;
+
+        &:hover {
+          background-image: url("../images/burgerHover.svg");
+        }
+      }
+    }
+    @include onTablet {
       width: 90%;
     }
+
+
     &_list {
       display: flex;
       justify-content: space-around;
@@ -45,6 +63,16 @@
             color: $hover-color;
           }
         }
+      }
+    }
+    @include onMobile {
+
+      &_burger {
+        display: flex;
+      }
+
+      &_list {
+        display: none;
       }
     }
   }
