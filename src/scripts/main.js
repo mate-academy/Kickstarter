@@ -1,5 +1,28 @@
 'use strict';
 
+// removing reloading page =======================
+document.querySelector('#form').addEventListener('submit', function(event) {
+  const email = document.querySelector('#email').value;
+  const text = document.querySelector('#textarea').value;
+
+  document.querySelector('#email').value = '';
+  document.querySelector('#textarea').value = '';
+
+  event.preventDefault();
+
+  return [email, text];
+});
+
+// burger menu remove scroll =======================
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#burger-menu') {
+    document.body.classList.add('page--with-menu');
+  } else {
+    document.body.classList.remove('page--with-menu');
+  }
+});
+
+// slider =======================
 let offset = 0;
 const sliderLine = document.querySelector('#slider-line');
 
