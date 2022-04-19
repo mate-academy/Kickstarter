@@ -34,6 +34,13 @@ document.querySelector('#btn-forward').addEventListener('click', function() {
   }
 
   sliderLine.style.left = offset + 'px';
+
+  if (offset === 0) {
+    document.querySelector('#feaActImg').innerHTML = '01';
+  } else {
+    document.querySelector('#feaActImg').innerHTML
+    = `0${Math.abs(offset / 270) + 1}`;
+  }
 });
 
 document.querySelector('#btn-back').addEventListener('click', function() {
@@ -44,4 +51,11 @@ document.querySelector('#btn-back').addEventListener('click', function() {
   }
 
   sliderLine.style.left = offset + 'px';
+
+  if (offset === 0) {
+    document.querySelector('#feaActImg').innerHTML = '01';
+  } else {
+    document.querySelector('#feaActImg').innerHTML
+    = `0${Math.abs(offset / 270) + 1}`;
+  }
 });
