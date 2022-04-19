@@ -53,6 +53,9 @@
   }
 
   &__link {
+    position: fixed;
+    bottom: 175px;
+
     grid-column: 3;
     justify-self: flex-end;
 
@@ -60,9 +63,17 @@
 
     @include elementSize(24px, 20px);
 
+    transition: transform $transitionDuration;
+
     @include tablet {
+      position: unset;
+
       justify-self: right;
       align-self: flex-start;
+    }
+
+    &:hover {
+      transform: scale(1.25);
     }
   }
 
