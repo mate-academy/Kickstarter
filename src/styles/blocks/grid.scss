@@ -1,0 +1,19 @@
+.grid {
+  display: none;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
+
+  @include onTablet {
+    display: grid;
+  }
+
+  &__item {
+    @for $start from 1 to 12 {
+      @for $end from $start to 12 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+}
