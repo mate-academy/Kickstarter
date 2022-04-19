@@ -1,0 +1,120 @@
+.features {
+  padding-left: 123px;
+  margin: 0 auto;
+
+  @include notebookLayout {
+    padding-left: 86px;
+  }
+
+  @include notebookNarrowLayout {
+    padding-left: 66px;
+  }
+
+  @include tabletLayout {
+    padding-left: 35px;
+  }
+
+  &__wrapper {
+    max-width: 1317px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__background {
+    position: absolute;
+    bottom: 12px;
+    right: 0;
+    width: 1113px;
+    height: 701px;
+    background-color: #f2f2f2;
+
+    @include notebookLayout {
+      width: 987px;
+      height: 670px;
+      bottom: 48px;
+    }
+
+    @include notebookNarrowLayout {
+      width: 644px;
+      height: 620px;
+      bottom: 83px;
+    }
+  }
+
+  &__background-image {
+    width: 786px;
+    height: 509px;
+    background-image: url("/images/features.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    position: absolute;
+    bottom: 28px;
+    right: 123px;
+
+    @include notebookLayout {
+      width: 686px;
+      height: 444px;
+      bottom: 95px;
+      right: 23px;
+    }
+
+    @include notebookNarrowLayout {
+      width: 586px;
+      height: 379px;
+      bottom: 161px;
+      right: 0;
+    }
+  }
+
+  &__title {
+    @include fontParam(56px, 70px);
+    color: $c-darkGray-default;
+    width: 378px;
+    text-align: center;
+  }
+
+  &__content-wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(12, 72px);
+    column-gap: 30px;
+
+    @include notebookNarrowLayout {
+      grid-template-columns: repeat(8, 70px);
+      column-gap: 20px;
+    }
+  }
+
+  &__list {
+    &--sound {
+      grid-column: 5 / 9;
+      margin-top: 24px;
+
+      @include notebookNarrowLayout {
+        grid-column: 4 / 8;
+        margin-top: 50px;
+      }
+    }
+
+    &--connectivity {
+      grid-column: 2 / 6;
+      margin-top: 13px;
+
+      @include notebookNarrowLayout {
+        grid-column: 1 / 5;
+        margin-top: 58px;
+      }
+    }
+
+    &--app {
+      grid-column: 4 / 7;
+      margin-top: 129px;
+
+      @include notebookNarrowLayout {
+        grid-column: 3 / 6;
+        margin-top: 78px;
+      }
+    }
+  }
+}

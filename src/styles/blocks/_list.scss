@@ -1,0 +1,33 @@
+.list {
+  width: 392px;
+  &__wrapper {
+    padding-left: 10px;
+  }
+
+  &__title {
+    @include fontParam(34px, 120%);
+    color: #0c797a;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    padding-left: 12px;
+  }
+
+  &__items {
+    position: relative;
+    @include fontParam(16px, 19px);
+    color: $c-darkGray-default;
+    margin-bottom: 13px;
+    padding-left: 12px;
+
+    &::before {
+      content: url("/images/bullet.svg");
+      position: absolute;
+      top: -3.5px;
+      left: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
