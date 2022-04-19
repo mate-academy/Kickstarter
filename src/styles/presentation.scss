@@ -1,0 +1,101 @@
+.presentation {
+  $blockName: &;
+  $recordPlayerSize: 232px;
+  $tabletRecordPlayerSize: 190px;
+  $mobileRecordPlayerSize: 108px;
+
+  position: relative;
+  background-image: url("../images/video.png");
+  height: 590px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media (max-width: $tabletBreakPoint) {
+    height: 400px;
+  }
+
+  @media (max-width: $mobileBreakPoint) {
+    height: 246px;
+  }
+
+  &__record-player {
+    width: $recordPlayerSize;
+    height: $recordPlayerSize;
+
+    position: absolute;
+    top: calc(50% - #{$recordPlayerSize / 2});
+    left: calc(50% - #{$recordPlayerSize / 2});
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid $recordPlayerColor;
+    border-radius: 50%;
+    cursor: pointer;
+    @include hover(transform, scale(1.05));
+
+    @media (max-width: $tabletBreakPoint) {
+      width: $tabletRecordPlayerSize;
+      height: $tabletRecordPlayerSize;
+      top: calc(50% - #{$tabletRecordPlayerSize / 2});
+      left: calc(50% - #{$tabletRecordPlayerSize / 2});
+    }
+
+    @media (max-width: $mobileBreakPoint) {
+      width: $mobileRecordPlayerSize;
+      height: $mobileRecordPlayerSize;
+      top: calc(50% - #{$mobileRecordPlayerSize / 2});
+      left: calc(50% - #{$mobileRecordPlayerSize / 2});
+    }
+
+    &:hover > #{$blockName}__link--word {
+      display: none;
+    }
+
+    &:hover > #{$blockName}__link--triangle {
+      display: block;
+    }
+  }
+
+  &__link {
+    font-family: "DIN Pro", "Roboto", sans-serif;
+    font-size: 24px;
+    line-height: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    color: $recordPlayerColor;
+
+    &--triangle {
+      display: none;
+
+      @media (max-width: $tabletBreakPoint) {
+        display: block;
+      }
+    }
+
+    &--word {
+      @media (max-width: $tabletBreakPoint) {
+        display: none;
+      }
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 32px;
+
+
+    @media (max-width: $tabletBreakPoint) {
+      width: 20px;
+      height: 26px;
+    }
+
+    @media (max-width: $mobileBreakPoint) {
+      width: 14px;
+      height: 18px;
+    }
+  }
+}
