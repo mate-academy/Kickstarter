@@ -35,17 +35,13 @@ buttonRight.onclick = function paginationRight() {
   if (card1.style.display !== 'none') {
     card1.style.display = 'none';
     card2.style.display = 'block';
-    paginationFirst.classList.remove('m-block__page--focus');
-    paginationSecond.classList.add('m-block__page--focus');
+    paginationFirst.textContent = '02';
     buttonLeftBlack.style.display = 'unset';
     buttonLeft.style.display = 'none';
   } else if (card2.style.display !== 'none') {
     card2.style.display = 'none';
     card3.style.display = 'block';
-    paginationFirst.classList.remove('m-block__page--focus');
-    paginationSecond.classList.add('m-block__page--focus');
-    paginationSecond.textContent = '03';
-    paginationFirst.textContent = '02';
+    paginationFirst.textContent = '03';
     buttonRightGrey.style.display = 'unset';
     buttonRight.style.display = 'none';
   }
@@ -55,14 +51,10 @@ buttonLeft.onclick = function paginationLeft() {
   if (card3.style.display !== 'none') {
     card3.style.display = 'none';
     card2.style.display = 'block';
-    paginationFirst.classList.add('m-block__page--focus');
-    paginationSecond.classList.remove('m-block__page--focus');
+    paginationFirst.textContent = '02';
   } else if (card2.style.display !== 'none') {
     card2.style.display = 'none';
     card1.style.display = 'block';
-    paginationFirst.classList.add('m-block__page--focus');
-    paginationSecond.classList.remove('m-block__page--focus');
-    paginationSecond.textContent = '02';
     paginationFirst.textContent = '01';
   }
 };
@@ -71,16 +63,12 @@ buttonLeftBlack.onclick = function paginationLeft() {
   if (card3.style.display !== 'none') {
     card3.style.display = 'none';
     card2.style.display = 'block';
-    paginationFirst.classList.add('m-block__page--focus');
-    paginationSecond.classList.remove('m-block__page--focus');
     buttonRightGrey.style.display = 'none';
     buttonRight.style.display = 'unset';
+    paginationFirst.textContent = '02';
   } else if (card2.style.display !== 'none') {
     card2.style.display = 'none';
     card1.style.display = 'block';
-    paginationFirst.classList.add('m-block__page--focus');
-    paginationSecond.classList.remove('m-block__page--focus');
-    paginationSecond.textContent = '02';
     paginationFirst.textContent = '01';
     buttonLeftBlack.style.display = 'none';
     buttonLeft.style.display = 'unset';
@@ -90,3 +78,4 @@ buttonLeftBlack.onclick = function paginationLeft() {
 const langEN = document.getElementById('lang-en');
 
 langEN.focus();
+
