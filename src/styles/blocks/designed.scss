@@ -6,6 +6,33 @@
   justify-content: space-around;
   align-items: center;
 
+  @include onMobile {
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 85%;
+  }
+
+  &_photo {
+    margin-right: 40px;
+
+    @include onMobile {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+  &_temp {
+    height: 144px;
+    text-transform: uppercase;
+    font-family: "DIN Pro", sans-serif;
+    font-size: 56px;
+    line-height: 72px;
+    color: $font-color;
+    display: none;
+
+    @include onMobile {
+      display: inline;
+    }
+  }
   &_content {
 
     &_title {
@@ -17,6 +44,10 @@
       line-height: 72px;
       color: $font-color;
       margin-left: -150px;
+
+      @include onMobile {
+        display: none;
+      }
     }
 
     &_text {
@@ -26,6 +57,10 @@
       font-size: 16px;
       line-height: 24px;
       color: $para-color;
+
+      @include onMobile {
+        width: 100%;
+      }
     }
 
     &_more {
