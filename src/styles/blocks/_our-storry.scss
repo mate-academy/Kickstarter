@@ -45,54 +45,60 @@
   }
 
   &__video {
-    width: 100%;
     position: relative;
+    max-width: 100%;
+    max-height: 590px;
 
-    @include onPhone {
-      height: 246px;
-    }
-
-    .video__preview {
+    .video {
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: cover;
       object-position: center;
+
+      @include onDesktop {
+        height: 590px;
+      }
     }
 
-    .video__button {
+    .play-button {
       position: absolute;
+      overflow: hidden;
       @include toCentr;
 
-      width: 108px;
-      height: 108px;
-      // height: calc(width);
+      width: 110px;
+      height: 110px;
       border: 1px solid #f3f4f5;
+      background-color: #0000;
+
       border-radius: 50%;
 
+      color: #fff;
       font-size: 24px;
-      text-align: center;
-      line-height: 108px;
-      color: #f3f4f5;
+
       cursor: pointer;
 
       @include onTablet {
-        width: 190px;
-        height: 190px;
+        width: 200px;
+        height: 200px;
         line-height: 190px;
       }
 
-      &-image {
-        visibility: hidden;
-        position: inherit;
-        object-position: center;
-        @include toCentr;
+      &--opasity {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
       }
 
-      &:hover {
-        font-size: 0;
+      &--visiable {
+        opacity: 1;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
 
-        .video__button-image {
-          visibility: visible;
+        @include onTablet {
+          width: 200px;
+          height: 200px;
         }
       }
     }
