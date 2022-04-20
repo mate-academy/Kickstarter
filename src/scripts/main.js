@@ -1,13 +1,16 @@
 'use strict';
 
 const menuNav = document.getElementById('menuNav');
+const topLink = document.getElementById('topLink');
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
     document.body.classList.add('page--with-menu');
     menuNav.style.display = 'unset';
+    topLink.style.display = 'none';
   } else {
     document.body.classList.remove('page--with-menu');
+    topLink.style.display = 'unset';
   }
 });
 
