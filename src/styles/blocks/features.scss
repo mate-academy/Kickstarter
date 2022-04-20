@@ -1,7 +1,9 @@
 .features {
   padding-left: 123px;
-  margin: 0 auto;
+  margin-bottom: 188px;
 
+  background-color: #f2f2f2;
+  
   @include notebookLayout {
     padding-left: 86px;
   }
@@ -14,10 +16,18 @@
     padding-left: 35px;
   }
 
+  @include mobileWideLayout {
+    padding: 0 30px;
+  }
+
   &__wrapper {
     max-width: 1317px;
     margin: 0 auto;
     position: relative;
+
+    @include mobileWideLayout {
+      max-width: 480px;
+    }
   }
 
   &__background {
@@ -38,6 +48,10 @@
       width: 644px;
       height: 620px;
       bottom: 83px;
+    }
+
+    @include mobileWideLayout {
+      display: none;
     }
   }
 
@@ -65,6 +79,10 @@
       bottom: 161px;
       right: 0;
     }
+
+    @include mobileWideLayout {
+      display: none;
+    }
   }
 
   &__title {
@@ -72,6 +90,11 @@
     color: $c-darkGray-default;
     width: 378px;
     text-align: center;
+
+    @include mobileWideLayout {
+      @include fontParam(37px, 60px);
+
+    }
   }
 
   &__content-wrapper {
@@ -83,6 +106,12 @@
     @include notebookNarrowLayout {
       grid-template-columns: repeat(8, 70px);
       column-gap: 20px;
+    }
+
+    @include mobileWideLayout {
+      display: block;
+      margin: 0 auto;
+      max-width: 480px;
     }
   }
 
@@ -105,6 +134,10 @@
         grid-column: 1 / 5;
         margin-top: 58px;
       }
+
+      @include mobileWideLayout {
+        display: none;
+      }
     }
 
     &--app {
@@ -114,6 +147,10 @@
       @include notebookNarrowLayout {
         grid-column: 3 / 6;
         margin-top: 78px;
+      }
+
+      @include mobileWideLayout {
+        display: none;
       }
     }
   }

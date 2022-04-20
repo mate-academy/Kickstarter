@@ -1,5 +1,11 @@
 .list {
   width: 392px;
+  // margin: 0 auto;
+
+  @include mobileWideLayout {
+    width: 278px;
+  }
+
   &__wrapper {
     padding-left: 10px;
   }
@@ -10,14 +16,28 @@
     text-transform: uppercase;
     margin-bottom: 30px;
     padding-left: 12px;
+
+    @include mobileWideLayout {
+      margin-bottom: 20px;
+      padding-left: 0;
+
+      @include fontParam(30px, 37px);
+    }
   }
 
   &__items {
     position: relative;
-    @include fontParam(16px, 19px);
-    color: $c-darkGray-default;
     margin-bottom: 13px;
     padding-left: 12px;
+
+    @include fontParam(16px, 19px);
+    color: $c-darkGray-default;
+
+    @include mobileWideLayout {
+      margin-bottom: 10px;
+
+      @include fontParam(14px, 21px);
+    }
 
     &::before {
       content: url("/images/bullet.svg");
