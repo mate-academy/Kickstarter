@@ -1,16 +1,28 @@
 .nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  &__main {
 
-  &__item {
-    &--no-mobile {
-      display: none;
-
-      @include onTablet {
-        display: initial;
-      }
+    display: none;
+    @include onDesktop {
+      display: flex;
+      margin-bottom: 45px;
     }
+
+    justify-content: space-between;
+    width: 786px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 28px 0;
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 
   &__language {
@@ -52,7 +64,7 @@
     }
   }
 
-  &__item:not(:last-child) {
+  &__item {
     margin-right: 28px;
     text-transform: uppercase;
     font-size: 14px;
@@ -62,6 +74,18 @@
     &:hover {
       color: #0db2b3;
     }
+
+    &--no-mobile {
+      display: none;
+
+      @include onTablet {
+        display: initial;
+      }
+    }
+  }
+
+  &__link {
+    color: #333;
   }
 
   &__burger-menu {

@@ -1,0 +1,43 @@
+.specs {
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px;
+      padding: 0 30px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+    }
+  }
+
+  &__spec {
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 400px;
+    margin-bottom: 90px;
+
+    @include onTablet {
+      max-width: 350px;
+      margin-bottom: unset;
+    }
+
+    @include onDesktop {
+      width: 276px;
+
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+    }
+  }
+}
