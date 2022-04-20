@@ -9,8 +9,14 @@
   align-items: center;
   justify-content: center;
 
+
+
   @include onTablet {
     margin-top: 100px;
+  }
+
+  &_vd {
+    display: none;
   }
 
   &_photo {
@@ -19,6 +25,16 @@
     background-image: url("../images/PlaySign.png");
     cursor: pointer;
     transition: background-image 0.5s;
+
+    &:active ~ .page_main_play_vd {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:active {
+      display: none;
+    }
 
     &:hover {
       background-image: url("../images/Play.png");
