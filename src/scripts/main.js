@@ -29,7 +29,6 @@ const card1 = document.querySelector('#features-card-1');
 const card2 = document.querySelector('#features-card-2');
 const card3 = document.querySelector('#features-card-3');
 const paginationFirst = document.querySelector('.m-block__page--first');
-const paginationSecond = document.querySelector('.m-block__page--second');
 
 buttonRight.onclick = function paginationRight() {
   if (card1.style.display !== 'none') {
@@ -78,4 +77,3 @@ buttonLeftBlack.onclick = function paginationLeft() {
 const langEN = document.getElementById('lang-en');
 
 langEN.focus();
-
