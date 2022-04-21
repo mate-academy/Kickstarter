@@ -1,4 +1,85 @@
-.page {
-  margin: 0;
-  box-sizing: border-box;
+.footer {
+  height: 300px;
+
+  @include onTablet {
+    height: 345px;
+  }
+
+  @include onDesktop {
+    height: 370px;
+  }
+
+  &__logo {
+    justify-self: center;
+    @include onPhone {
+      display: none;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: fit-content;
+    
+    &-item {
+      display: block;
+      justify-self: center;
+      width: 20px;
+      height: 20px;
+
+      transition: transform 0.3s;
+    }
+
+    .link__facebook {
+      background-image: url(../images/svg/facebook.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+
+      &:hover {
+        background-image: url(../images/svg/facebook_color.svg);
+        transform: scale(1.1);
+      }
+    }
+
+    .link__twitter {
+      background-image: url(../images/svg/twitter.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+
+      &:hover {
+        background-image: url(../images/svg/twitter_color.svg);
+        transform: scale(1.1);
+      }
+    }
+
+    .link__instagram {
+      background-image: url(../images/svg/instagram.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+
+      &:hover {
+        background-image: url(../images/svg/instagram_color.svg);
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__credirs {
+    text-align: center;
+    text-decoration: none;
+    color: #bdbdbd;
+    font-weight: 400;
+    font-size: 14px;
+  }
 }

@@ -1,43 +1,69 @@
 .form {
-  padding: 0 30px;
-  margin: 0;
+  padding: 75px 30px;
   overflow: hidden;
 
   &__head {
     &-h {
+      margin: 0;
+      font-family: "DIN Pro Regular", Helvetica, sans-serif;
       font-weight: bold;
       font-size: 37px;
       text-transform: uppercase;
       color: $secondary-gray;
-    }
 
+      @include onTablet {
+        font-weight: 700;
+        font-size: 41px;
+      }
+
+      @include onDesktop {
+        font-weight: 700;
+        font-size: 56px;
+      }
+    }
   }
 
   &__inputs {
-
-    &-email {
-      margin-bottom: 20px;
-    }
-
-    &-text {
+    &-lines {
+      display: block;
       margin-bottom: 20px;
     }
   }
 
   &__line {
+    font-family: "DIN Pro Regular", Helvetica, sans-serif;
+    font-size: 16px;
     display: block;
-    box-sizing: border-box;
+    outline: none;
     border: 2px solid #828282;
     width: 100%;
     padding: 10px;
 
+    &:focus {
+      border: 2px solid $accent;
+    }
+
     &-text {
-      height: 250px;
+      height: 150px;
       resize: none;
     }
   }
 
-  // &__submit {
+  &__submit {
+    height: 40px;
+    background-color: $accent;
+    font-family: "DIN Pro Regular", Helvetica, sans-serif;
+    width: 100px;
+    font-weight: 700;
+    font-size: 12px;
+    color: #fff;
 
-  // }
+    &:hover {
+      background-color: $primary-accent;
+    }
+
+    &:active {
+      background-color: #cfeff0;
+    }
+  }
 }
