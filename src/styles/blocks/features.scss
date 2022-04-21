@@ -2,14 +2,13 @@
   padding-left: 123px;
   margin-bottom: 188px;
 
-  background-color: #f2f2f2;
-  
   @include notebookLayout {
     padding-left: 86px;
   }
 
   @include notebookNarrowLayout {
     padding-left: 66px;
+    margin-bottom: 138px;
   }
 
   @include tabletLayout {
@@ -18,6 +17,8 @@
 
   @include mobileWideLayout {
     padding: 0 30px;
+    margin-bottom: 90px;
+
   }
 
   &__wrapper {
@@ -27,84 +28,101 @@
 
     @include mobileWideLayout {
       max-width: 480px;
-    }
-  }
 
-  &__background {
-    position: absolute;
-    bottom: 12px;
-    right: 0;
-    width: 1113px;
-    height: 701px;
-    background-color: #f2f2f2;
+      // &::after {
+      //   content: "";
+      //   display: block;
+      //   // position: absolute;
 
-    @include notebookLayout {
-      width: 987px;
-      height: 670px;
-      bottom: 48px;
-    }
-
-    @include notebookNarrowLayout {
-      width: 644px;
-      height: 620px;
-      bottom: 83px;
-    }
-
-    @include mobileWideLayout {
-      display: none;
-    }
-  }
-
-  &__background-image {
-    width: 786px;
-    height: 509px;
-    background-image: url("/images/features.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom;
-    position: absolute;
-    bottom: 28px;
-    right: 123px;
-
-    @include notebookLayout {
-      width: 686px;
-      height: 444px;
-      bottom: 95px;
-      right: 23px;
-    }
-
-    @include notebookNarrowLayout {
-      width: 586px;
-      height: 379px;
-      bottom: 161px;
-      right: 0;
-    }
-
-    @include mobileWideLayout {
-      display: none;
+      //   background-image: url("/images/features.png");
+      //   background-repeat: no-repeat;
+      //   background-size: contain;
+      //   max-width: 344px;
+      //   height: 222px;
+      //   right: 0;
+      //   left: 0;
+      //   padding-top: 9px;
+      //   // margin-left: -30px;
+      // }
     }
   }
 
   &__title {
     @include fontParam(56px, 70px);
     color: $c-darkGray-default;
-    width: 378px;
+    max-width: 378px;
     text-align: center;
 
-    @include mobileWideLayout {
+    @include tabletLayout {
+      margin: 0 auto;
+    }
+
+    @include mobile480Layout {
       @include fontParam(37px, 60px);
 
     }
   }
 
   &__content-wrapper {
-    position: relative;
     display: grid;
-    grid-template-columns: repeat(12, 72px);
+    grid-template-columns: repeat(12, 1fr);
     column-gap: 30px;
+    position: relative;
+    z-index: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 12px;
+      right: 0;
+      width: 85%;
+      height: 100%;
+      max-width: 1113px;
+      max-height: 701px;
+      background-color: #f2f2f2;
+      z-index: 0;
+
+      @include notebookNarrowLayout {
+        max-height: 620px;
+        bottom: 83px;
+
+      }
+
+      @include mobileWideLayout {
+        display: none;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+
+      background-image: url("/images/features.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      right: 123px;
+      bottom: 28px;
+      max-width: 786px;
+      width: 100%;
+      max-height: 509px;
+      height: 100%;
+      z-index: 1;
+
+      @include notebookNarrowLayout {
+        max-width: 586px;
+        max-height: 379px;
+        right: 0;
+        bottom: 161px;
+      }
+
+      @include mobileWideLayout {
+        display: none;
+      }
+    }
 
     @include notebookNarrowLayout {
-      grid-template-columns: repeat(8, 70px);
+      grid-template-columns: repeat(8, 1fr);
       column-gap: 20px;
     }
 
@@ -116,23 +134,24 @@
   }
 
   &__list {
+    z-index: 2;
     &--sound {
       grid-column: 5 / 9;
-      margin-top: 24px;
+      padding-top: 24px;
 
       @include notebookNarrowLayout {
         grid-column: 4 / 8;
-        margin-top: 50px;
+        padding-top: 50px;
       }
     }
 
     &--connectivity {
       grid-column: 2 / 6;
-      margin-top: 13px;
+      padding-top: 13px;
 
       @include notebookNarrowLayout {
         grid-column: 1 / 5;
-        margin-top: 58px;
+        padding-top: 58px;
       }
 
       @include mobileWideLayout {
@@ -142,16 +161,29 @@
 
     &--app {
       grid-column: 4 / 7;
-      margin-top: 129px;
+      padding-top: 129px;
 
       @include notebookNarrowLayout {
         grid-column: 3 / 6;
-        margin-top: 78px;
+        padding-top: 78px;
       }
 
       @include mobileWideLayout {
         display: none;
       }
     }
+  }
+
+  &__slider-menu {
+    padding-top: 51px;
+  }
+
+  &__image-mobile {
+    // position: relative;
+    max-width: 100vw;
+    // height: 222px;
+    // margin: 0 auto;
+    object-fit: cover;
+
   }
 }
