@@ -9,7 +9,7 @@
     @include limitContentWidthMain;
 
     @include mobileWideLayout {
-      // @include limitContentWidthMobile;
+      // @include maxContentWidthTablet;
     }
   }
 
@@ -64,34 +64,36 @@
 
     @include tabletLayout {
       padding: 29px 0 0;
+      max-width: 250px;
     }
 
     @include mobileWideLayout {
       order: 1;
+      margin: 0 auto;
       padding: 0;
     }
   }
 
   &__title {
-    width: 378px;
+    max-width: 378px;
 
     @include fontParam(64px, 130%);
     text-transform: uppercase;
 
     @include tabletWideLayout {
-      width: 359px;
+      max-width: 359px;
 
       @include fontParam(54px, 130%);
     }
 
     @include tabletLayout {
-      width: 340px;
+      max-width: 340px;
 
       @include fontParam(48px, 130%);
     }
 
     @include mobileWideLayout {
-      width: 260px;
+      max-width: 260px;
 
       @include fontParam(40px, 130%);
       text-align: center;
@@ -99,16 +101,11 @@
   }
 
   &__description {
-    width: 276px;
+    max-width: 276px;
 
     @include fontParam(16px, 150%);
 
-    @include tabletLayout {
-      width: 250px;
-    }
-
     @include mobileWideLayout {
-      width: 260px;
       text-align: center;
     }
   }
@@ -121,19 +118,26 @@
     object-position: left;
 
     @include notebookNarrowLayout {
-      margin-left: -59px;
+      margin-left: -19px;
     }
 
     @include tabletWideLayout {
-      margin-left: -89px;
+      margin-left: 0;
     }
 
     @include mobileWideLayout {
+      margin: 0 auto;
+      // margin-left: 50px;
+      height: 245px;
+      max-width: 400px;
+
+      margin-bottom: 40px;
+    }
+
+    @include mobileLayout {
       margin-left: -30px;
       height: 245px;
       width: 300px;
-
-      margin-bottom: 40px;
     }
   }
 
@@ -181,6 +185,11 @@
     height: 48px;
     background-color: #333;
     color: #fff;
+    transition: background-color $transitionDuration;
+
+    &:hover {
+      background-color: #131313;
+    }
 
     @include fontParam(12px, 15px);
 
