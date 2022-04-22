@@ -1,5 +1,17 @@
 'use strict';
 
+const page = document.querySelector('.page');
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#burger-menu') {
+    page.classList.add('page--with-menu');
+  } else {
+    page.classList.remove('page--with-menu');
+  }
+});
+
+// form
+
 document.querySelector('#form').addEventListener('submit', function(event) {
   const email = document.querySelector('#email').value;
   const text = document.querySelector('#textarea').value;
@@ -12,13 +24,7 @@ document.querySelector('#form').addEventListener('submit', function(event) {
   return [email, text];
 });
 
-window.addEventListener('hashchange', () => {
-  if (window.location.hash === '#burger-menu') {
-    document.body.classList.add('page--with-menu');
-  } else {
-    document.body.classList.remove('page--with-menu');
-  }
-});
+// form
 
 let offset = 0;
 const sliderLine = document.querySelector('#slider-line');
