@@ -2,6 +2,12 @@
 @import "fonts";
 @import "typography";
 
+$main-font: "Helvetica Neue", "Helvetica", sans-serif;
+$secondary-font: "DIN Pro", sans-serif;
+
+$main-dark: #333;
+$secondary-dark: #7c7c7c;
+
 @import "blocks/reset.scss";
 @import "blocks/page.scss";
 @import "blocks/link.scss";
@@ -16,3 +22,171 @@
 @import "blocks/about-us.scss";
 @import "blocks/technology.scss";
 @import "blocks/testimonials.scss";
+
+.menu {
+  &__top-actions {
+    background-color: #0a8e8f;
+  }
+
+  &__content {
+    background-color: #0a8e8f;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 40px;
+  }
+
+  &__cross {
+    background-image: url(/images/vector/cross.svg);
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+  }
+
+  &__item {
+    font-family: $secondary-font;
+    font-size: 24px;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      font-size: 32px;
+    }
+  }
+
+  &__link {
+    color: $main-dark;
+  }
+}
+
+.features {
+  overflow: hidden;
+
+  &__container {
+    width: 70vw;
+    margin: 0 auto;
+
+    @include onTablet {
+      width: unset;
+      padding: 0 32px;
+    }
+
+    max-width: 1200px;
+  }
+
+  &__title {
+    font-family: $secondary-font;
+    font-size: 37px;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: $main-dark;
+    margin-bottom: 48px;
+
+    @include onDesktop {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__pic-container {
+    width: 105%;
+    z-index: -1;
+
+    @include onTablet {
+      width: max-content;
+    }
+  }
+
+  &__pic {
+    width: 100%;
+    height: 100%;
+    @include onTablet {
+      height: unset;
+    }
+  }
+}
+
+.feature {
+
+  &__container {
+    margin-bottom: 24px;
+  }
+
+  &__name {
+    font-family: $secondary-font;
+    font-size: 30px;
+    line-height: 37px;
+    text-transform: uppercase;
+    color: #0c797a;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 34px;
+      line-height: 40px;
+    }
+  }
+
+  &__item {
+    font-family: $main-font;
+    font-size: 14px;
+    line-height: 21px;
+    color: $main-dark;
+
+    @include onTablet {
+      font-size: 16px;
+    }
+  }
+}
+
+.grid {
+
+  @include onTablet {
+    display: grid;
+    align-items: center;
+    grid-template-rows: repeat(4, 230px);
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &--tablet {
+
+    @include onTablet {
+      display: grid;
+    }
+  }
+
+  &--desktop {
+
+    @include onDesktop {
+      display: grid;
+    }
+  }
+
+  &__item {
+
+    @for $start from 1 through 4 {
+      @for $end from $start through 4 {
+        &--row-#{$start}-#{$end} {
+          grid-row: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--desktop-column-#{$start}-#{$end} {
+          @include onDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+        &--tablet-column-#{$start}-#{$end} {
+          @include onTablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
