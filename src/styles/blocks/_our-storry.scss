@@ -31,11 +31,17 @@
   }
 
   &__benefits {
+    transition: transform 0.2s;
     @include onPhone {
       scroll-snap-align: start;
-
       display: flex;
       flex-direction: row;
+    }
+
+    @include onDesktop {
+      &:hover {
+        transform: scale(1.2);
+      }
     }
 
     &-section {
@@ -49,23 +55,45 @@
       @include onPhone {
         width: 100vw;
       }
-
     }
 
     &-h {
+      font-family: "DINPro-Regular", Helvetica, sans-serif;
       font-weight: 700;
       font-size: 22px;
       line-height: 28px;
     }
 
     &-p {
+      font-family: "DINPro-Regular", Helvetica, sans-serif;
       text-align: center;
       padding: 0 30px;
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+
+  &__svg {
+    &--fill {
+      fill: #4f4f4f;
+      transition: fill 0.3s;
+
+      &:hover {
+        fill: $accent;
+      }
+      &-sub {
+        fill: #4f4f4f;
+
+        &:hover {
+          fill: $accent;
+        }
+      }
     }
   }
 
   &__video {
     position: relative;
+    margin-top: 20px;
     max-width: 100%;
     max-height: 590px;
 
@@ -78,7 +106,6 @@
       @include onDesktop {
         height: 590px;
       }
-
     }
 
     .play-button {
