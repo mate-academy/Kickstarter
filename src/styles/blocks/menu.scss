@@ -1,10 +1,7 @@
 .menu {
-  &__top-actions {
-    background-color: #0a8e8f;
-  }
 
   &__content {
-    background-color: #0a8e8f;
+    height: 100vh;
   }
 
   &__list {
@@ -21,11 +18,20 @@
 
   &__item {
     font-family: $secondary-font;
+    width: max-content;
     font-size: 24px;
     margin-bottom: 40px;
 
-    @include onTablet {
-      font-size: 32px;
+    &::after {
+      display: block;
+      content: " ";
+      height: 2px;
+      width: 20%;
+      background-color: #0a8e8f;
+      transition: width 0.5s;
+    }
+    &:hover::after {
+      width: 100%;
     }
   }
 

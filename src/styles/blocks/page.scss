@@ -7,9 +7,14 @@
     font-family: $main-font;
     font-size: 16px;
     box-sizing: border-box;
+
+    &--with-menu {
+      overflow: hidden;
+    }
   }
 
   &__menu {
+    background-color: #0db2b3;
     height: 100vh;
     position: fixed;
     top: 0;
@@ -25,7 +30,7 @@
   }
 
   &__section {
-    &:not(:last-child) {
+    &:not(:nth-child(6)) {
       margin-bottom: 88px;
       @include onTablet {
         margin-bottom: 120px;
@@ -33,6 +38,15 @@
       @include onDesktop {
         margin-bottom: 140px;
       }
+    }
+
+    &:nth-child(7) {
+      @include onTablet {
+        margin-bottom: 40px;
+      }
+    }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }

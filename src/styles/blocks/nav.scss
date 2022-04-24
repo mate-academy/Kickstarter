@@ -4,7 +4,6 @@
     display: none;
     @include onDesktop {
       display: flex;
-      margin-bottom: 45px;
     }
 
     justify-content: space-between;
@@ -37,15 +36,11 @@
       font-size: 14px;
       transition: color 0.3s;
 
-      &:focus {
-        color: $main-dark;
-      }
-
       &:hover {
         color: #0db2b3;
       }
 
-      &:active {
+      &:focus {
         color: #000;
       }
 
@@ -65,14 +60,32 @@
   }
 
   &__item {
+    position: relative;
     margin-right: 28px;
     text-transform: uppercase;
     font-size: 14px;
     color: #4f4f4f;
     transition: color 0.5s;
 
-    &:hover {
-      color: #0db2b3;
+    &--with-after {
+      transition: color 0.3s;
+      &:hover {
+        color: #0db2b3;
+      }
+
+      &::after {
+        display: block;
+        content: " ";
+        height: 2px;
+        width: 7%;
+
+        transition: width 0.5s;
+      }
+      &:hover::after {
+        background-color: #0db2b3;
+        width: 100%;
+        transition: width background-color 0.5s;
+      }
     }
 
     &--no-mobile {

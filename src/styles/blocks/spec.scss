@@ -1,10 +1,37 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1800deg);
+  }
+}
+
+@keyframes translate {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(80%);
+  }
+}
+
 .spec {
+
   &__pic-container {
     margin-bottom: 50px;
   }
 
   &__pic {
     height: 50px;
+
+    &:hover {
+      animation: translate 0.7s ease-in infinite alternate;
+    }
+
+    &--spin:hover {
+      animation: rotate 3s ease-in infinite alternate;
+    }
   }
 
   &__title-container {

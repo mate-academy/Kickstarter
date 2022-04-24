@@ -25,14 +25,29 @@
     margin: 0 auto;
     width: 80vw;
     max-width: 400px;
+    transition: box-shadow 0.5s;
+
+    @include onTablet {
+      padding: 20px;
+      border-radius: 10px;
+
+      &:hover {
+        box-shadow: 4px 4px 4px 4px $secondary-dark;
+      }
+    }
 
     &:not(:last-child) {
       margin-bottom: 90px;
+
+      @include onTablet {
+        margin-bottom: unset;
+      }
+
     }
 
     @include onTablet {
       max-width: 350px;
-      margin-bottom: unset;
+
     }
 
     @include onDesktop {
@@ -41,6 +56,7 @@
       &:not(:last-child) {
         margin-right: 30px;
       }
+
     }
   }
 }
