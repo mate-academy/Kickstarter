@@ -1,0 +1,60 @@
+.benefit {
+
+  &__container {
+    text-align: center;
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 400px;
+    margin-bottom: 90px;
+    transition: box-shadow 0.5s;
+
+    @include onTablet {
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: unset;
+      max-width: 350px;
+    }
+
+    @include onDesktop {
+      width: 276px;
+
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  &__pic {
+    height: 50px;
+    margin-bottom: 50px;
+  }
+
+  &__title {
+    font-family: $secondary-font;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    min-height: 60px;
+  }
+
+  &__description {
+    font-size: 14px;
+    line-height: 21px;
+    color: $secondary-dark;
+  }
+
+  &:hover {
+    .benefit__container {
+      box-shadow: 4px 4px 4px 4px $secondary-dark;
+    }
+
+    .benefit__pic {
+      animation: translate 0.7s ease-in infinite alternate;
+
+      &--spin {
+        animation: rotate 3s ease-in infinite alternate;
+      }
+    }
+  }
+}
