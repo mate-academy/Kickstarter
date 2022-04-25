@@ -9,6 +9,10 @@
     font-weight: 700;
     font-size: 51px;
     text-transform: uppercase;
+
+    @include onPhone {
+      font-size: 30px;
+    }
   }
   .photo-wriper {
     width: 100%;
@@ -33,13 +37,28 @@
     }
   }
 
-  &__phrase {
+  &--double-qoutes {
+    position: relative;
 
-    background-image: url(../images/svg/doublequotes.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    opacity: 80%;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: -1;
+      opacity: 0.8;
+      background-image: url(../images/svg/doublequotes.svg);
+
+      background-repeat: no-repeat;
+      background-size: auto 50%;
+      background-position-x: center;
+      background-position-y: 0;
+    }
+  }
+
+  &__phrase {
 
     padding: 0 30px;
     text-align: center;
@@ -70,7 +89,6 @@
     }
 
     &-position {
-      margin: 5px 0;
       color: #7c7c7c;
       font-weight: 400;
       font-size: 14px;

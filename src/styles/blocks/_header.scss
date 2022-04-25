@@ -49,9 +49,14 @@
       position: relative;
       color: #4f4f4f;
       text-decoration: none;
+      transition: color 0.3s;
 
       &:target {
         font-weight: bold;
+      }
+
+      &:hover {
+        color: $accent;
       }
     }
   }
@@ -66,10 +71,12 @@
     color: #fff;
     background-color: $secondary-gray;
     border: 1px solid $secondary-gray;
+    transition: background-color 0.3s, border-color 0.3s;
 
     &:hover {
       background-color: #131313;
       border-color: #131313;
+      color: #fff;
     }
 
     &:active {
@@ -82,7 +89,6 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     position: relative;
     display: block;
     width: 24px;
@@ -97,7 +103,8 @@
 }
 
 .bar-menu {
-  z-index: 1;
+  z-index: 3;
+  position: relative;
 
   @include onPhone {
     position: fixed;
@@ -105,15 +112,13 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 3;
-
-    transition: transform 0.3s;
 
     background: linear-gradient(103deg, rgba(57,57,57,1) 0%,
     rgba(187,187,187,1) 30%,
     rgba(187,187,187,1) 80%,
     rgba(73,73,73,1) 100%);
 
+    transition: transform 0.3s;
     transform: translateX(100%);
 
     &:target {
@@ -125,18 +130,39 @@
     list-style: none;
     height: 100%;
 
-    &-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
-      height: 100%;
+    &-cross {
+      position: absolute;
+      width: 24px;
+      height: 14px;
+      top: 30px;
+      right: 30px;
 
       @include onTablet {
         display: none;
       }
 
-      @include onDesktop {
+      .cross {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        fill: $secondary-gray;
+      }
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      gap: 40px;
+      height: 100%;
+
+      @include onTablet {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -144,11 +170,14 @@
         align-items: center;
         list-style: none;
       }
+
+      &-wraper {
+        display: flex;
+      }
     }
 
     &-item {
       display: block;
-      list-style: none;
     }
 
     &-link {
@@ -164,11 +193,57 @@
 
       @include onDesktop {
         font-size: 24px;
-        line-height: 30px;
       }
 
       &:hover {
         color: $accent;
+      }
+    }
+  }
+
+  .special {
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    align-items: center;
+
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    row-gap: 14px;
+    // padding: 0;
+
+    &:first-child {
+      margin-right: 20px;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+
+    &__link {
+      text-decoration: none;
+      margin: 13px;
+    }
+
+    &__item {
+      position: relative;
+      color: #4f4f4f;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:target {
+        font-weight: bold;
+      }
+
+      &:hover {
+        color: $accent;
+      }
+    }
+    &__button {
+      @include onTablet {
+        display: none;
       }
     }
   }
