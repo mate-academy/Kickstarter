@@ -1,0 +1,100 @@
+.footer {
+  padding-bottom: 50px;
+
+  &__social {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+
+    @include On768 {
+      margin-bottom: 108px;
+    }
+    @include On1280 {
+      margin-bottom: 70px;
+    }
+
+    & a {
+      display: block;
+      margin-right: 50px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    height: 100%;
+    @include hover(filter, invert(33%) sepia(13%) saturate(5520%)
+    hue-rotate(146deg) brightness(95%) contrast(91%));
+  
+    &:hover {
+      filter: invert(33%) sepia(13%) saturate(5520%) hue-rotate(146deg)
+        brightness(95%) contrast(91%);
+    }
+  }
+
+  @include On768 {
+    &::before {
+      content: "";
+      position: absolute;
+      @include bg-img;
+      width: 160px;
+      height: 25px;
+      left: 50%;
+      right: 50%;
+      transform: translate(-50%, -75px);
+      background-image: url(./images/logos/logo.svg);
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    justify-content: end;
+
+    &-img {
+      @include bg-img;
+      width: 20px;
+      height: 24px;
+      background-image: url(./images/signs/up-arrow.svg);
+      animation: blink 4s linear infinite;
+
+      @include On768 {
+        width: 25px;
+        height: 29px;
+      }
+      @include On1280 {
+        width: 30px;
+        height: 35px;
+      }
+
+      @keyframes blink {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    &-text {
+      font-family: "Helvetica light", sans-serif;
+      font-size: 12px;
+      line-height: 21px;
+      color: #bdbdbd;
+
+      @include On768 {
+        font-size: 14px;
+      }
+    }
+  }
+}

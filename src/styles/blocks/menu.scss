@@ -1,0 +1,98 @@
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  transform: translate(-250vh);
+  background-color: #fff;
+  height: 100vh;
+
+  &:target {
+    transform: translate(0);
+  }
+
+  &__content {
+    padding-top: 30px;
+
+    @include On1280 {
+      padding-top: 13px;
+    }
+  }
+
+  &__top-actions {
+    margin-bottom: 80px;
+
+    @include On768 {
+      margin-bottom: 100px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 390px;
+    margin: 0 auto;
+
+    @include On768 {
+      max-width: 620px;
+    }
+  }
+
+  &__item {
+    width: 50%;
+    padding: 0 12px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    text-align: start;
+
+    &:nth-child(odd) {
+      text-align: end;
+    }
+
+    @include On768 {
+      padding: 0 30px;
+      margin-bottom: 50px;
+    }
+
+    @include On1280 {
+      padding: 0 40px;
+      margin-bottom: 60px;
+    }
+
+    & a {
+      color: rgba(19, 19, 19, 0.55);
+      font-family: "DIN-700", sans-serif;
+      font-size: 16px;
+      @include hover(color, $black-color);
+      @include hover(text-decoration, underline);
+
+      &:hover {
+        color: $black-color;
+        text-decoration: underline;
+      }
+
+      @include On768 {
+        font-size: 24px;
+      }
+      @include On1280 {
+        font-size: 36px;
+      }
+    }
+  }
+
+  &__cross {
+    width: 24px;
+    height: 24px;
+    filter: invert(13%) sepia(81%) saturate(0%) hue-rotate(126deg)
+      brightness(110%) contrast(92%);
+    @include hover(filter, invert(33%) sepia(13%) saturate(5520%)
+    hue-rotate(146deg)
+    brightness(95%) contrast(91%));
+  
+    &:hover {
+      filter: invert(33%) sepia(13%) saturate(5520%) hue-rotate(146deg)
+        brightness(95%) contrast(91%);
+    }
+  }
+}

@@ -1,0 +1,108 @@
+.video {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 246px;
+  overflow: hidden;
+
+  @include On768 {
+    height: 400px;
+  }
+
+  @include On1280 {
+    height: 590px;
+  }
+  
+  &__img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    min-width: 400px;
+  }
+
+  &__circle {
+    cursor: pointer;
+    place-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    display: block;
+    width: 108px;
+    height: 108px;
+    border: 1px solid #f3f4f5;
+    @include hover(background-color, rgba(211, 216, 216, 0.22));
+
+    &:hover {
+      background-color: rgba(211, 216, 216, 0.22);
+    }
+
+    @include On768 {
+      width: 190px;
+      height: 190px;
+    }
+
+    @include On1280 {
+      width: 232px;
+      height: 232px;
+    }
+  
+
+    &::before {
+      display: none;
+      position: absolute;
+      text-transform: uppercase;
+      font-family: "DIN-700", sans-serif;
+      font-size: 24px;
+      line-height: 18px;
+      content: "play";
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: #f3f4f5;
+      transition: font-size 0.3s;
+
+      @include On1280 {
+        display: block;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 14px;
+      height: 18px;
+      @include bg-img;
+      background-image: url(./images/signs/triangle.svg);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s;
+
+      @include On768 {
+        width: 20px;
+        height: 25px;
+      }
+
+      @include On1280 {
+        display: none;
+      }
+    }
+
+    &:hover::after {
+      width: 19px;
+      height: 23px;
+
+      @include On768 {
+        width: 25px;
+        height: 30px;
+      }
+    }
+
+    &:hover::before {
+      font-size: 28px;
+    }
+  }
+}
