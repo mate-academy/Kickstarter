@@ -10,23 +10,29 @@
 
     @include On768 {
       font-size: 56px;
-      margin-bottom: 0;
+      // margin-bottom: 0;
     }
   }
 
-  &__picture {
-    overflow: hidden;
-    height: 277px;
-
-    @include On768 {
-      height: 546px;
-    }
-  }
-
-  &__img {
+  &__video {
     display: block;
     height: 100%;
+    width: 100%;
     margin: 0 auto;
-    @include zoomIn;
+
+    &-container {
+      height: 220px;
+      width: 100%;
+
+      @media (min-width: 400px) {
+        height: 272px;
+      }
+      @include On768 {
+        height: 420px;
+      }
+      @include On1280 {
+        height: 546px;
+      }
+    }
   }
 }

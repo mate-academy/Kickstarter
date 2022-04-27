@@ -1,4 +1,5 @@
 .footer {
+  position: relative;
   padding-bottom: 50px;
 
   &__social {
@@ -36,17 +37,15 @@
     }
   }
 
-  @include On768 {
-    &::before {
-      content: "";
+  &__logo {
+    display: none;
+
+    @include On768 {
       position: absolute;
-      @include bg-img;
-      width: 160px;
-      height: 25px;
+      display: block;
       left: 50%;
       right: 50%;
       transform: translate(-50%, -75px);
-      background-image: url(./images/logos/logo.svg);
     }
   }
 
