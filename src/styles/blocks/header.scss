@@ -1,0 +1,89 @@
+.header {
+
+  &__topbar {
+    margin: 20px 123px 90px;
+
+    @include on-tablet {
+      margin: 27px 34px 100px;
+    }
+
+    @include on-mobile {
+      display: none;
+    }
+  }
+
+  &__container {
+    margin: 0 0 170px 123px;
+  }
+
+  &__img {
+    position: relative;
+    z-index: 3;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 939px;
+    height: 464px;
+  }
+
+  &__title {
+    margin: 0 0 30px;
+    padding: 0;
+    width: 378px;
+    height: 234px;
+
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 62px;
+    line-height: 78px;
+
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+
+    color: #333;
+  }
+
+  &__text {
+    width: 276px;
+    height: 120px;
+    margin: 0;
+
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__mobile-nav-icon {
+    display: none;
+    width: 24px;
+    height: 14px;
+    background-image: url(../images/mobile-menu-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    z-index: 3;
+    transition: background-image 0.3s;
+
+    @include on-mobile {
+      display: block;
+    }
+  }
+
+  &__mobile-nav-toggler {
+    display: none;
+
+    &:checked + label {
+      background-image: url(../images/close.png);
+    }
+
+    &:checked ~ .mobile-nav {
+      display: block;
+      top: 0;
+    }
+  }
+}
