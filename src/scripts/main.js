@@ -16,3 +16,10 @@ form.addEventListener('submit', (event) => {
 
   window.location.href = '#';
 });
+
+const vid = document.getElementById('myVid');
+const Btn = document.getElementById('playBtn');
+
+Btn.addEventListener('click', () => {
+  vid.play();
+});

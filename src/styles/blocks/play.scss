@@ -13,15 +13,36 @@
     margin-top: 100px;
   }
 
+  @include onMobile {
+    height: 100%;
+  }
+
   &_btn {
     display: block;
     background-image: url("../images/playSign.png");
+    background-size: cover;
     position: absolute;
     top: calc(590 - 232) / 2px;
     left: auto;
     width: 232px;
     height: 232px;
     cursor: pointer;
+
+    @include onTablet {
+      width: 152px;
+      height: 152px;
+      top: calc(590 - 152) / 2px;
+    }
+
+    @include onMobile {
+      width: 102px;
+      height: 102px;
+      top: calc(590 - 102) / 2px;
+    }
+
+    &:active {
+      display: none;
+    }
 
     &:hover {
       background-image: url("../images/Play.png");
