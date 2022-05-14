@@ -3,24 +3,36 @@
 /* eslint-disable no-new */
 
 const swiperFeatur = document.querySelector('.featur-swiper');
-const langEn = document.querySelector('.lang-block__lang--en');
-const langUa = document.querySelector('.lang-block__lang--ua');
+const langEn = document.querySelectorAll('.lang-block__lang--en');
+const langUa = document.querySelectorAll('.lang-block__lang--ua');
 
 const nextActive = swiperFeatur.querySelector('.swiper-next-active');
 const nextPassive = swiperFeatur.querySelector('.swiper-next-passive');
 const prevActive = swiperFeatur.querySelector('.swiper-prev-active');
 const prevPassive = swiperFeatur.querySelector('.swiper-prev-passive');
 
-langUa.addEventListener('click', (e) => {
-  langUa.classList.remove('lang-block__lang--passive');
-  langEn.classList.add('lang-block__lang--passive');
-  e.preventDefault();
+function changeLang(currentLang, requiredLang) {
+  currentLang.forEach(el => {
+    el.classList.add('lang-block__lang--passive');
+  });
+
+  requiredLang.forEach(el => {
+    el.classList.remove('lang-block__lang--passive');
+  });
+};
+
+langUa.forEach(el => {
+  el.addEventListener('click', (e) => {
+    changeLang(langUa, langEn);
+    e.preventDefault();
+  });
 });
 
-langEn.addEventListener('click', (e) => {
-  langEn.classList.remove('lang-block__lang--passive');
-  langUa.classList.add('lang-block__lang--passive');
-  e.preventDefault();
+langEn.forEach(el => {
+  el.addEventListener('click', (e) => {
+    changeLang(langEn, langUa);
+    e.preventDefault();
+  });
 });
 
 new Swiper('.benefits-swiper', {
