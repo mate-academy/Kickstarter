@@ -1,53 +1,62 @@
 .testimonials {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-content: center;
-  flex-wrap: wrap;
+  position: relative;
 
-  &__main {
-    display: inline-block;
-    max-width: 786px;
-    margin: 0 auto;
+  &__quotes-image {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
+    width: 233px;
+    height: 190px;
+    background-image: url(../images/techtextbg.svg);
+    background-size: cover;
+    @include background-center;
+    z-index: -1;
 
-    font-family: "Inter", sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 36px;
-    text-align: center;
-    color: #333;
-  }
-
-  &__img {
-    margin-bottom: 16px;
-
-    &--width {
-      height: 62px;
+    @include on-mobile {
+      width: 208px;
+      height: 171px;
+      bottom: 60%;
     }
   }
 
-  &__name {
-    display: block;
-    margin-bottom: 5px;
-
-    font-family: "Inter", sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 27px;
-
+  &__item {
+    display: flex;
+    flex-direction: column;
+    @include flex-center;
     text-align: center;
-
-    color: #333;
   }
 
-  &__position {
-    font-weight: 300;
-    font-size: 14px;
+  &__title {
+    margin-bottom: 30px;
+    font-size: 24px;
+    line-height: 36px;
+    text-transform: none;
+
+    @include on-mobile {
+      font-size: $font-size-small;
+      line-height: 21px;
+    }
+  }
+
+  &__author-photo {
+    margin-bottom: 20px;
+    transition: transform $transition-duration;
+
+    &:hover {
+      transform: scale(1.4);
+    }
+  }
+
+  &__author-name {
+    margin-bottom: 5px;
+    font-size: $font-size-normal;
+    line-height: 27px;
+  }
+
+  &__author-role {
+    font-size: $font-size-small;
     line-height: 120%;
-
-    text-align: center;
-
-    color: #7c7c7c;
+    color: $color-grey;
   }
 }
