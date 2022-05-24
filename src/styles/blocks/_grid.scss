@@ -1,0 +1,37 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+
+  @include forTablet {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include forDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &__item {
+
+    @for $start from 1 through 4 {
+      @for $end from 1 through 4 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @include forTablet {
+      &--tablet {
+        @include position-in-grid (8);
+      }
+    }
+
+    @include forTablet {
+      &--desktop {
+        @include position-in-grid (12);
+      }
+    }
+  }
+}
