@@ -1,0 +1,86 @@
+.navigation {
+  box-sizing: border-box;
+  background-color: $c-grey;
+  display: block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  margin: 0;
+  z-index: 3;
+  overflow-y: hidden;
+  transform: translateY(-100%);
+  transition: transform 0.5s;
+
+  &:target {
+    display: block;
+    transform: translateX(0);
+  }
+
+  @include mediaLaptop {
+    position: static;
+    height: auto;
+    background-color: $c-background;
+    z-index: 0;
+    padding: 160px 0;
+    transform: translateY(0);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+
+    @include mediaLaptop {
+      display: none;
+    }
+  }
+
+  &__image {
+    padding-top: 28px;
+  }
+
+  &__close {
+    padding-top: 31px;
+    width: 24px;
+    height: 14px;
+  }
+
+  &__list {
+    padding-top: 80px;
+    list-style-type: none;
+
+    @include mediaLaptop {
+      @include flex;
+      padding: 0;
+    }
+  }
+
+  &__item {
+    @include flex;
+    padding-bottom: 25px;
+
+    @include mediaLaptop {
+      display: inline-block;
+      padding: 0 30px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 18px;
+    color: $c-main;
+
+    @include hover(transform, scale(1.05));
+
+    @include mediaLaptop {
+      font-size: 16px;
+
+      &--first {
+        font-weight: bold;
+      }
+
+      @include hover(font-weight, bold);
+    }
+  }
+}
