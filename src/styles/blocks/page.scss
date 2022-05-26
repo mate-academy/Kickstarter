@@ -1,14 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
 .page {
   font-family: "Roboto", sans-serif;
-
-  &__title {
-    font-family: "Inter", sans-serif;
-    text-transform: uppercase;
-    color: $gray;
-  }
 
   &__body {
     margin: 0;
     background: $background;
+  }
+
+  &__title {
+    font-family: "Inter", sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: $dark-gray;
+  }
+
+  &__section {
+    margin-bottom: 90px;
+
+    @include onTablet {
+      margin-bottom: 130px;
+
+    }
+
+    @include onDesktop {
+      margin-bottom: 150px;
+    }
+  }
+
+  &__grid {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 70px);
+      gap: 0 20px;
+      justify-content: center;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 72px);
+      gap: 0 30px;
+    }
   }
 }
