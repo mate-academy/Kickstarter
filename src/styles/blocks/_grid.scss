@@ -1,13 +1,32 @@
 .grid {
 
+  &__header {
+
+    @include forTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 20px;
+      align-items: end;
+    }
+
+    @include forDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+      align-items: end;
+    }
+  }
+
   @include forTablet {
     display: grid;
+    align-items: start;
     grid-template-columns: repeat(8, 1fr);
     column-gap: 20px;
   }
 
   @include forDesktop {
     display: grid;
+    align-items: start;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 30px;
   }
@@ -16,13 +35,25 @@
 
     @include forTablet {
       &--tablet {
-        @include position-in-grid(8);
+        @for $start from 1 through 8 {
+          @for $end from $start through 8 {
+            &-#{$start}-#{$end} {
+              grid-column: #{$start} / #{$end + 1};
+            }
+          }
+        }
       }
     }
 
-    @include forTablet {
+    @include forDesktop {
       &--desktop {
-        @include position-in-grid(12);
+        @for $start from 1 through 12 {
+          @for $end from $start through 12 {
+            &-#{$start}-#{$end} {
+              grid-column: #{$start} / #{$end + 1};
+            }
+          }
+        }
       }
     }
   }

@@ -17,9 +17,25 @@
       height: 74px;
     }
   }
+  &__info {
+
+    @include forTablet {
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      grid-column: 1 / 4;
+
+      @include forDesktop {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        grid-column: 1 / 4;
+      }
+    }
+  }
 
   &__title {
-    position: relative;
     margin-bottom: 23px;
     font-size: 44px;
     line-height: 130%;
@@ -75,11 +91,21 @@
     }
 
     @include forTablet {
+
+      grid-column: 4 / 9;
+      grid-row: 1;
       height: 365px;
+      transform: scale(1.12);
+      left: 6px;
+      margin-bottom: 0;
     }
 
     @include forDesktop {
+      grid-column: 5 / 10;
+      transform: scale(1.1);
+      left: 30px;
       height: 464px;
+      margin-bottom: 0;
     }
   }
 
@@ -92,14 +118,7 @@
     object-position: center;
   }
 
-  // &__info {
-  //   // display: flex;
-  //   flex-direction: column;
-  //   // align-items: flex-start;
-  // }
-
   &__paragraph {
-    position: relative;
     display: block;
     text-align: center;
 
