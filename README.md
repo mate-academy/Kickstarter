@@ -35,6 +35,6 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Uj
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
   [DEMO LINK](https://mflkvsk.github.io/Kickstarter/)
-14. Copy `DEMO LINK` to the PR description
-
+14. Copy `DEMO LINK` to the R description
+P
 > To update you PR repeat steps 7-11
