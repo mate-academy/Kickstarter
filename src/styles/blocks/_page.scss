@@ -1,12 +1,14 @@
 .page {
-  font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+  font-family: Inter, Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 24px;
+  font-weight: 400;
   color: $black-crazy;
   background-color: #f7f7f7;
   scroll-behavior: smooth;
 
   &__section {
+    margin-bottom: 110px;
 
     &:nth-of-type(1) {
       margin-bottom: 101px;
@@ -30,10 +32,33 @@
 
     &-title {
       display: block;
-      font-family: Din, Arial, Helvetica, sans-serif;
-      font-size: 37px;
-      line-height: 55px;
+      font-family: Inter-bold, Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 40px;
       text-transform: uppercase;
+
+      @include forTablet {
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      @include forDesktop {
+        font-size: 56px;
+        line-height: 70px;
+      }
+    }
+
+    &:nth-child(3) &-title {
+      margin-bottom: 28px;
+
+      @include forTablet {
+        margin-bottom: 32px;
+      }
+
+      @include forDesktop {
+        margin-bottom: 30px;
+      }
     }
   }
 }
