@@ -14,12 +14,22 @@
       padding-bottom: 100%;
     }
 
+    @media (min-width: 600px ) {
+      height: 300px;
+    }
+
     @include forTablet {
+      grid-column: 1 / 5;
+      grid-row: 1 / 6;
+      margin-bottom: 0;
       height: 415px;
     }
 
     @include forDesktop {
+      grid-column: 2 / 8;
+      grid-row: 1 / 6;
       height: 388px;
+      max-width: 582px;
     }
   }
 
@@ -30,6 +40,16 @@
     height: 100%;
     object-fit: contain;
     object-position: center;
+
+    @include forTablet {
+      object-fit: cover;
+      object-position: -100px;
+    }
+
+    @include forDesktop {
+      object-fit: cover;
+      object-position: center;
+    }
   }
 
   &__paragraph {
@@ -71,10 +91,17 @@
 
     @include forTablet {
       width: 340px;
+      padding-top: 34px;
+      grid-column: 5 / 9;
+      grid-row: 2 ;
     }
 
     @include forDesktop {
       width: 480px;
+
+      padding-top: 25px;
+      grid-column: 8 / 13;
+      grid-row: 4;
     }
   }
 }

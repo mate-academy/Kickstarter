@@ -24,7 +24,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      grid-column: 1 / 4;
+      grid-column: 1 / 3;
 
       @include forDesktop {
         display: flex;
@@ -36,12 +36,14 @@
   }
 
   &__title {
+    display: block;
     margin-bottom: 20px;
     font-size: 40px;
     line-height: 52px;
     text-align: center;
 
     @include forTablet {
+      z-index: 1;
       margin-bottom: 30px;
       font-size: 48px;
       line-height: 62px;
@@ -74,8 +76,9 @@
   }
 
   &__photo-container {
+    margin: 0 -30px;
     position: relative;
-    width: 100%;
+    min-width: 320px;
     margin-bottom: 40px;
     height: 245px;
     overflow: hidden;
@@ -92,21 +95,21 @@
     }
 
     @include forTablet {
-
+      margin: 0 -34px 0 0;
       grid-column: 4 / 9;
       grid-row: 1;
       height: 365px;
-      transform: scale(1.08);
-      left: 6px;
-      margin-bottom: 0;
     }
 
     @include forDesktop {
-      grid-column: 5 / 10;
-      transform: scale(1.1);
-      left: 30px;
+      grid-column: 5 / 13;
       height: 464px;
+      max-width: 939px;
       margin-bottom: 0;
+    }
+
+    @media (min-width: 1440px) {
+      right: 25px;
     }
   }
 
@@ -117,6 +120,16 @@
     height: 100%;
     object-fit: contain;
     object-position: center;
+
+    @include forTablet {
+      object-fit: contain;
+      object-position: center;
+    }
+
+    @include forDesktop {
+      object-fit: contain;
+      object-position: center;
+    }
   }
 
   &__paragraph {
