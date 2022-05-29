@@ -1,7 +1,19 @@
 .slider {
+  margin: 0 auto;
+  margin-bottom: 27px;
 
+  @include forTablet {
+
+    margin: 0;
+    grid-column: 1 /-1;
+  }
+
+  @include forDesktop {
+    grid-column: 1 /-1;
+  }
+
+  &__wrapper,
   &__content {
-    width: 100%;
 
     @include forTablet {
       grid-column: 1 /-1;
@@ -13,14 +25,17 @@
   }
 
   &__item {
+    position: relative;
+    width: 100%;
+    flex-shrink: 0;
 
-    &:nth-last-of-type(-n+2) {
-      display: none;
+    // &:nth-last-of-type(-n+2) {
+    //   display: none;
 
-      @include forTablet {
-        display: block;
-      }
-    }
+    //   @include forTablet {
+    //     display: block;
+    //   }
+    // }
 
     &:nth-of-type(1) {
 
@@ -62,6 +77,73 @@
       @include forDesktop {
         grid-column: 4 / 8;
       }
+    }
+  }
+
+  @media (max-width: 767px) {
+
+    &__wrapper {
+      margin-bottom: 61px;
+      overflow: hidden;
+    }
+
+    &__content {
+      display: flex;
+    }
+    &__nav {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      &--fore {
+        align-items: flex-start;
+      }
+    }
+
+    &__arrow {
+      background-size: contain;
+      width: 48px;
+      height: 14px;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+
+      &--back {
+        background-image: url(/images/slider-left.svg);
+        margin-bottom: 8px;
+
+        transform: translateX(3px);
+      }
+
+      &--fore {
+        background-image: url(/images/slider-right.svg);
+        margin-bottom: 21px;
+      }
+    }
+  }
+
+  &__counter {
+    display: block;
+    margin-right: 3px;
+
+    @include forTablet {
+      display: none;
+    }
+  }
+
+  &__total {
+    display: block;
+    font-size: 11px;
+    line-height: 13px;
+    color: #bdbdbd;
+
+    @include forTablet {
+      display: none;
     }
   }
 }

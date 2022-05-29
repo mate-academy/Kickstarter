@@ -47,6 +47,7 @@
 
   &__photo-container {
     position: relative;
+    margin-right: -30px;
     z-index: -1;
 
     @include forTablet {
@@ -61,7 +62,7 @@
       grid-column: -1 / 5;
       grid-row: 2 ;
       width: 786px;
-      top: 360px;
+      top: 260px;
       margin-right: -34px;
     }
   }
@@ -70,14 +71,28 @@
     position: absolute;
     width: 100%;
     height: 222px;
+    object-position: 24px;
     object-fit: contain;
+    z-index: 1;
+    transition: all 0.4s;
+
+    @media (min-width: 350px) {
+      object-position: right;
+    }
+
+    @media (min-width: 500px) {
+      height: 300px;
+    }
 
     @include forTablet {
+      position: absolute;
+      object-position: center;
       height: 379px;
-      z-index: -2;
+      z-index: -1;
     }
 
     @include forDesktop {
+      position: absolute;
       height: 509px;
       z-index: -1;
     }
