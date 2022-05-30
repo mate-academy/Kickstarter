@@ -15,7 +15,36 @@
   }
 
   &__image {
-    width: 100%;
+
+    &-photo-mobile {
+      width: 100%;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &-photo-tablet {
+      display: none;
+      width: 100%;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &-photo-desktop {
+      display: none;
+      width: 100%;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
   }
 
   &__quote {
@@ -23,11 +52,20 @@
     background-repeat: no-repeat;
     background-position: top;
 
+    @include onTablet {
+      background-image: url(../images/technology-bg_tablet.png);
+    }
+
     &-text {
       line-height: 21px;
       margin-bottom: 40px;
       font-weight: bold;
       color: $darkerColor;
+
+      @include onTablet {
+        font-size: 24px;
+        line-height: 36px;
+      }
     }
 
     &-portrait {

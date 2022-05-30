@@ -29,6 +29,7 @@
 
       @include onTablet {
         text-align: start;
+        grid-column: 1 / 4;
         margin: 0;
       }
     }
@@ -38,19 +39,28 @@
     order: 1;
     width: 100%;
     padding-bottom: 100%;
-    background-image: url(../images/header_mobile.png);
+    background-image: url(../images/header.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: left;
     margin-bottom: 40px;
+    transition: transform 1s;
+    transform-origin: center left;
 
     @include onTablet {
       padding: 0;
       margin: 0;
       height: 100%;
-      grid-column: 2 / -1;
+      grid-column: 4 / -1;
+      background-image: url(../images/header_tablet.png);
+    }
+
+    @include onDesktop {
       background-image: url(../images/header_desktop.png);
 
+      &:hover {
+        transform: scale(1.2);
+      }
     }
   }
 
@@ -59,7 +69,12 @@
     line-height: 130%;
     margin-bottom: 23px;
     color: $darkerColor;
+    font-weight: 900;
     text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 48px;
+    }
   }
 
   &__text {
