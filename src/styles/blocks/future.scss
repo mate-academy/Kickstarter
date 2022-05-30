@@ -1,0 +1,50 @@
+.future {
+  @include onTablet {
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "img header" "img descr";
+  }
+  &__title {
+    grid-area: header;
+  }
+  &__photo-container {
+    @include onTablet {
+      overflow: hidden;
+      grid-area: img;
+      height: 415px;
+      position: relative;
+      margin-left: -134px;
+      padding-bottom: 0;
+    }
+    @include onDesktop {
+      margin-left: 0;
+    }
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    @include onTablet {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      object-fit: cover;
+      object-position: 10%;
+    }
+
+    @include onDesktop {
+      object-position: center;
+    }
+  }
+  &__content {
+    @include onTablet {
+      grid-area: descr;
+    }
+  }
+}
