@@ -1,0 +1,44 @@
+.slider {
+  overflow: hidden;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &__content {
+    display: flex;
+    margin-bottom: 50px;
+    transition: transform 0.3s;
+  }
+
+  &__item {
+    flex-shrink: 0;
+    width: 100%;
+    transform: translateX(0);
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+    font-family: "DIN Pro", sans-serif;
+
+  }
+
+  &__page::before {
+    content: "01";
+    font-family: "DIN Pro", sans-serif;
+    color: $dark-gray;
+  }
+
+  &__total-pages {
+    font-size: 13px;
+    color: $placeholder-color;
+  }
+}
