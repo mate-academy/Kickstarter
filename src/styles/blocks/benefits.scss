@@ -1,0 +1,57 @@
+.benefits {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr);
+  justify-content: center;
+  row-gap: 60px;
+
+  @include onTablet {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(4, minmax(230px, 1fr));
+  }
+
+  &__card {
+    text-align: center;
+
+    &:not(:first-child) {
+      display: none;
+    }
+
+    &:nth-child(n + 2) {
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &__image {
+    width: 50px;
+    margin-bottom: 45px;
+    height: 40px;
+    transition-duration: $duration;
+
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    height: 60px;
+    font-family: "DIN Pro", sans-serif;
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $title-color;
+  }
+
+  &__text {
+    line-height: 21px;
+    color: $grey;
+  }
+}

@@ -1,0 +1,141 @@
+.contact-us {
+  @include flex-center;
+  flex-direction: column;
+  max-width: 1020px;
+
+  @include onTablet {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  @include onDesktop {
+    gap: 102px;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      line-height: 72px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__input {
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    padding-left: 30px;
+    width: 100%;
+
+    @include onTablet {
+      width: 340px;
+    }
+
+    @include onDesktop {
+      width: 438px;
+    }
+
+    &-email {
+      margin-bottom: 20px;
+      height: 48px;
+    }
+
+    &-textarea {
+      margin-bottom: 30px;
+      padding-top: 16px;
+      height: 128px;
+      resize: none;
+
+      @include onTablet {
+        height: 202px;
+      }
+
+      @include onDesktop {
+        height: 112px;
+      }
+    }
+
+    &::placeholder {
+      color: #bdbdbd;
+    }
+
+    &:focus {
+      border-color: transparent;
+      outline: 1px solid $green;
+    }
+  }
+
+  &__button {
+    background-color: $turquose;
+    color: $white;
+
+    &:hover {
+      background-color: $green;
+    }
+
+    @keyframes TransitioningBackground {
+      0% {
+        background-position: 1% 0%;
+      }
+      50% {
+        background-position: 99% 100%;
+      }
+      100% {
+        background-position: 1% 0%;
+      }
+    }
+
+    &--shine {
+      background-image: (linear-gradient(270deg, $turquose, #af39da));
+      background-size: 400% 400%;
+      animation: TransitioningBackground 10s ease infinite;
+      transition: 0.6s;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        display: block;
+        width: 60px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.5);
+        filter: blur(40px);
+        transform: translateX(-100px) skewX(-15deg);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        display: block;
+        width: 40px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        filter: blur(5px);
+        transform: translateX(-100px) skewX(-15deg);
+      }
+
+      &:hover {
+        background-image: (linear-gradient(to left, #399, $green));
+        transform: scale(1.2);
+        cursor: pointer;
+
+        &::before,
+        &::after {
+          transform: translateX(300px) skewX(-15deg);
+          transition: 0.7s;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+.footer {
+  position: relative;
+
+  &__arrow-up {
+    position: absolute;
+    top: -48px;
+    right: 5%;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/arrow-up.svg);
+    background-size: contain;
+    @include background-center;
+    transition-duration: $duration;
+
+    &:hover {
+      transform: scale(1.8);
+    }
+
+    @include onTablet {
+      top: -32px;
+      right: 10%;
+    }
+
+    @include onDesktop {
+      top: 32px;
+      right: 15%;
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 64px;
+      width: min-content;
+    }
+  }
+
+  &__icons-container {
+    @include flex-center;
+    gap: 44px;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 108px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    @include background-center;
+    transition-duration: $duration;
+
+    &--facebook {
+
+      background-image: url(../images/facebookround.svg);
+
+      &:hover {
+        background-image: url(../images/facebookroundhov.png);
+      }
+    }
+
+    &--twitter {
+      background-image: url(../images/twitterround.png);
+
+      &:hover {
+        background-image: url(../images/twitterroundhov.jpg);
+      }
+    }
+
+    &--instagram {
+      background-image: url(../images/instagramround1.png);
+
+      &:hover {
+        background-image: url(../images/instagramroundhov.png);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+
+  &__copyright {
+    margin-bottom: 50px;
+    color: #bdbdbd;
+    text-align: center;
+    font-size: 12px;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+}

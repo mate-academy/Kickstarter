@@ -1,0 +1,48 @@
+.scroll {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 24px;
+  column-gap: 40px;
+  padding-bottom: 50px;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__btn {
+    width: 48px;
+    height: 14px;
+    transition-duration: $duration;
+
+    &--prev {
+      background-image: url(../images/slider-previous.svg);
+    }
+
+    &--next {
+      background-image: url(../images/slider-next.svg);
+    }
+
+    &:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+  }
+
+  &__text {
+    font-family: "DIN Pro", sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    color: #bdbdbd;
+
+    &--current {
+      color: #333;
+    }
+  }
+}
