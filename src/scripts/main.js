@@ -1,5 +1,13 @@
 'use strict';
 
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
+
 const video = document.querySelector('.presentation__video');
 const splash = document.querySelector('.presentation__splash-screen');
 const buttonPlay = document.querySelector('.presentation__play');

@@ -1,0 +1,75 @@
+.slider1 {
+  display: none;
+
+  @include forTablet {
+    display: grid;
+
+    margin: 0;
+    grid-column: 1 /-1;
+  }
+
+  @include forDesktop {
+    display: grid;
+    grid-column: 1 /-1;
+  }
+
+  &__wrapper,
+  &__content {
+
+    @include forTablet {
+      grid-column: 1 /-1;
+    }
+
+    @include forDesktop {
+      grid-column: 1 /-1;
+    }
+  }
+
+  &__item {
+    position: relative;
+    width: 100%;
+    flex-shrink: 0;
+
+    &:nth-of-type(1) {
+
+      @include forTablet {
+        grid-column: 4 / 9;
+
+        margin-bottom: 40px;
+      }
+
+      @include forDesktop {
+        grid-column: 6 / 11;
+
+        margin-bottom: 49px;
+      }
+    }
+
+    &:nth-of-type(2) {
+
+      @include forTablet {
+        grid-column: 1 / 7;
+        margin-top: 60px;
+        margin-bottom: 100px;
+      }
+
+      @include forDesktop {
+        grid-column: 1 / 5;
+
+        margin-top: 11px;
+        margin-bottom: 165px;
+      }
+    }
+
+    &:nth-of-type(3) {
+
+      @include forTablet {
+        grid-column: 3 / 7;
+      }
+
+      @include forDesktop {
+        grid-column: 4 / 8;
+      }
+    }
+  }
+}
