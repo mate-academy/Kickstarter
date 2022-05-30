@@ -1,17 +1,10 @@
 .header {
-  box-sizing: border-box;
-
-  &__image {
-    width: 100%;
-    
-  }
-
   &__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    padding: 28px 30px 22px;
+    padding: 28px 0 22px;
   }
 
   &__box {
@@ -40,11 +33,75 @@
 
     @include onTablet {
       display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      &-info {
+        order: -1;
+      }
 
     }
 
     @include onDesktop {
       display: flex;
+    }
+
+    &-photo {
+      overflow: hidden;
+      // min-width: 320px;
+      // min-height: 245px;
+      margin-bottom: 40px;
+    }
+
+    &-image {
+      width: 100%;
+      transform: scale(1.7) translateX(8%);
+
+      @include onTablet {
+        transform: scale(1.3) translateX(0);
+      }
+    }
+
+    &-info {
+      padding: 0;
+    }
+
+    &-title {
+      padding-bottom: 24px;
+      font-size: 44px;
+      line-height: 130%;
+      font-weight: bold;
+
+      text-align: center;
+      text-transform: uppercase;
+
+      color: $Very-dark-gray;
+
+      @include onTablet {
+        text-align: left;
+        font-size: 48px;
+      }
+
+      @include onDesktop {
+        font-size: 64px;
+      }
+    }
+
+    &-text {
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+
+      color: $Very-dark-gray;
+
+      @include onTablet {
+        text-align: left;
+        max-width: 250px;
+      }
+
+      @include onDesktop {
+        max-width: 276px;
+      }
     }
   }
 }
