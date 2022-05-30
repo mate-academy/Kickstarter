@@ -24,21 +24,26 @@
   }
 
   &__buttons {
+    position: relative;
     display: flex;
     justify-content: center;
-    margin-bottom: 8px;
-    font-family: "DIN Pro", sans-serif;
-
   }
 
-  &__page::before {
-    content: "01";
-    font-family: "DIN Pro", sans-serif;
-    color: $dark-gray;
+  &__page {
+    position: absolute;
+    transform: translateX(-20px);
   }
 
   &__total-pages {
     font-size: 13px;
     color: $placeholder-color;
+  }
+
+  &__button-prev,
+  &__button-next {
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.5);
+    }
   }
 }

@@ -19,13 +19,19 @@ function move(newIndex) {
 nextButton.addEventListener('click', () => {
   move(curentIndex + 1);
   render();
+  pageCounter();
 });
 
 prevButton.addEventListener('click', () => {
   move(curentIndex - 1);
   render();
+  pageCounter();
 });
 
 function render() {
   slider.style.transform = `translateX(${curentIndex * -(100)}%`;
+}
+
+function pageCounter() {
+  document.getElementById('slider__page').innerHTML = `0${curentIndex + 1}`;
 }
