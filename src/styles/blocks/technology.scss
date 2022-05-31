@@ -6,11 +6,46 @@
     }
   }
   &__photo-container {
-    margin-bottom: 110px;
+    position: relative;
+    width: 100%;
+    height: 278px;
+    overflow: hidden;
+    transition: all 0.4s;
+
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    @include onTablet {
+      height: 546px;
+    }
+
+    @include onDesktop {
+      height: 500px;
+    }
+
+    @media (min-width: 1024px) {
+      height: 545px;
+    }
   }
-  &__photo {
+
+  &__image {
+    display: block;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: left;
+
+    @include onTablet {
+      left: 34px;
+    }
+
+    @include onDesktop {
+      left: 134px;
+      object-fit: contain;
+    }
   }
 
   &__content {

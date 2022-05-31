@@ -1,16 +1,30 @@
 'use strict';
 
-let offset = 0;
-const sliderline = document.querySelector('.features__line');
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
 
-document.querySelector('.features__next')
-  .addEventListener('click', function() {
-    offset = offset + 214;
-    sliderline.style.top = -offset + 'px';
-  });
+const slider = document.querySelector('.features__wrapper');
+const list = slider.querySelector('.features__content');
+const prev = slider.querySelector('.features__arrow--back');
+const next = slider.querySelector('.features__arrow--fore');
+const count = list.children.length;
+let currentIndex = 0;
 
-document.querySelector('.features__prev')
-  .addEventListener('click', function() {
-    offset = offset - 214;
-    sliderline.style.top = -offset + 'px';
-  });
+function move() {
+  currentIndex = (currentIndex + 1 + count) % count;
+
+  list.style.transform = `translateX(${-currentIndex * 100}%)`;
+}
+
+next.addEventListener('click', function() {
+  move(currentIndex + 1);
+});
+
+prev.addEventListener('click', function() {
+  move(currentIndex - 1);
+});

@@ -24,12 +24,22 @@
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4) {
+      display: none;
+      @include onTablet {
+        display: flex;
+      }
+    }
   }
   &__img {
     margin-bottom: 40px;
     @include onTablet {
       margin-bottom: 50px;
+    }
+    &--sun {
+      margin-bottom: 42px;
     }
   }
   &__title {
@@ -40,7 +50,12 @@
     text-align: center;
     margin-bottom: 20px;
     @include onDesktop {
-      margin-bottom: 24px;
+      margin-bottom: 52px;
+    }
+    &--system {
+      @include onDesktop {
+        margin-bottom: 24px;
+      }
     }
   }
   &__text {
