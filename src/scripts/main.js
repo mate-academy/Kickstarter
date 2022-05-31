@@ -37,3 +37,11 @@ window.addEventListener('scroll', function() {
 
   arrow.classList.toggle('page__arrow-up--active', window.scrollY > 100);
 });
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});

@@ -5,6 +5,10 @@
 
   &__body {
     background-color: #f7f7f7;
+
+    &--with-menu {
+      overflow: hidden;
+    }
   }
 
   &__arrow-up {
@@ -15,6 +19,14 @@
     padding: 10px;
     visibility: hidden;
     opacity: 0;
+
+    &-image {
+      transition: transform 0.5s;
+
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
 
     &--active {
       visibility: visible;
@@ -30,6 +42,7 @@
     right: 0;
     transform: translateY(-100%);
     transition: transform 0.5s;
+    height: 100vh;
 
     &:target {
       transform: translateY(0);
@@ -40,6 +53,13 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    &-changes {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
 
     &--tablet {
       display: none;
@@ -76,7 +96,12 @@
   }
 
   &__nav {
+    display: none;
     margin-bottom: 45px;
+
+    @include onDesktop {
+      display: block;
+    }
   }
 
   &__systems {
