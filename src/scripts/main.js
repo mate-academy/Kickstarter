@@ -35,3 +35,11 @@ function render() {
 function pageCounter() {
   document.getElementById('slider__page').innerHTML = `0${curentIndex + 1}`;
 }
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
