@@ -1,0 +1,109 @@
+.about-us {
+  overflow: hidden;
+
+  &__container {
+    position: relative;
+  }
+
+  &__image {
+    margin-bottom: 30px;
+    height: 210px;
+    background-image: url(../images/about-us-section.png);
+    background-size: cover;
+    background-position: center;
+
+    @include onTablet {
+      position: absolute;
+      grid-column: 1;
+      width: 623px;
+      height: 415px;
+
+      transform: translateX(-46%);
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 8;
+      width: 582px;
+      height: 388px;
+      background-position: center center;
+      transform: translateX(0);
+    }
+  }
+
+  &__title {
+    position: inherit;
+    z-index: 2;
+    margin-bottom: 50px;
+    font-size: 37px;
+    line-height: 55px;
+    padding-top: 8px;
+    font-weight: bold;
+
+    @include onTablet {
+      grid-column: 4 / 9;
+      margin-bottom: 30px;
+      font-size: 56px;
+      line-height: 72px;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 12;
+    }
+  }
+
+  &__info {
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 150%;
+
+    @include onTablet {
+      grid-column: 5 / 9;
+      font-size: 16px;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 12;
+    }
+  }
+
+  &__item {
+    position: inherit;
+    padding-bottom: 6px;
+    transition: 0.7s;
+
+    @include onTablet {
+      grid-column: 5 / 7;
+      margin-bottom: 35px;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 10;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__link {
+    padding-bottom: 6px;
+    font-size: 12px;
+    line-height: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #0db2b3;
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      display: block;
+      content: "";
+      height: 1px;
+      width: 54px;
+      background-color: #0db2b3;
+      transition: 0.2s;
+    }
+
+    &:hover::after {
+      width: 100%;
+      transition: linear 0.5s;
+    }
+  }
+}

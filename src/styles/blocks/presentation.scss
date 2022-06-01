@@ -1,0 +1,78 @@
+.presentation {
+  max-width: 1440px;
+  &__screen {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/luna.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 246px;
+
+    @include onTablet {
+      height: 400px;
+    }
+
+    @include onDesktop {
+      height: 590px;
+    }
+  }
+
+  &__play-button {
+    width: 108px;
+    height: 108px;
+    font-size: 24px;
+    line-height: 18px;
+    color: transparent;
+    background-color: transparent;
+    border: 1px solid #f3f4f5;
+    border-radius: 50%;
+    outline: none;
+    transition: 0.3s;
+    cursor: pointer;
+
+    @include onTablet {
+      width: 190px;
+      height: 190px;
+    }
+
+    @include onDesktop {
+      width: 232px;
+      height: 232px;
+      color: #f3f4f5;
+    }
+
+    &:active {
+      transform: scale(0.9);
+      opacity: 0.5;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      content: "";
+      width: 14px;
+      height: 18px;
+      background-image: url(../images/play-button.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+
+      transform: translate(-50%, -50%);
+
+      @include onTablet {
+        width: 20px;
+        height: 25px;
+      }
+
+      @include onDesktop {
+        visibility: hidden;
+      }
+    }
+  }
+}

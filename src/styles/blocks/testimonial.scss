@@ -1,0 +1,148 @@
+.testimonial {
+  &__title {
+    margin-bottom: 40px;
+    font-size: 37px;
+    line-height: 46px;
+
+    font-weight: bold;
+    @include onTablet {
+      margin-bottom: 70px;
+      padding-left: 100px;
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__image {
+    margin-bottom: 40px;
+    height: 277px;
+    background-image: url(../images/technology.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: matrix(0.99, -0.14, 0.14, 0.99, 0, 0);
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onTablet {
+      height: 546px;
+      margin-bottom: 115px;
+      transform: translateX(10%),
+        scale(1.2),
+        matrix(0.99, -0.14, 0.14, 0.99, 0, 0);
+    }
+
+    @include onDesktop {
+      margin-bottom: 60px;
+      transform: rotate(-7.85deg);
+    }
+  }
+
+  &__card {
+    position: relative;
+    text-align: center;
+
+    @include onTablet {
+      grid-column: 1 / 9;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 11;
+    }
+
+  }
+
+  &__background-image {
+    position: absolute;
+    left: 50%;
+    z-index: -1;
+    width: 208px;
+    height: 171px;
+    background-image: url(../images/background-logo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    transform: translate(-50%, -10%);
+
+    @include onTablet {
+      width: 230px;
+      height: 190px;
+
+      transform: translate(-50%, -30%);
+    }
+  }
+
+  &__review {
+    margin-bottom: 40px;
+    font-size: 13px;
+    line-height: 150%;
+    font-weight: bold;
+    text-transform: none;
+
+    &::before {
+      content: "“";
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &::after {
+      content: "”";
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    @include onTablet {
+      margin-bottom: 40px;
+
+      // I don't like it neither,
+      //  but it doesn't work otherways =(
+
+      font-size: 22.7px;
+      line-height: 150%;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+      font-size: 23px;
+      line-height: 150%;
+    }
+  }
+
+  &__photo {
+    margin-bottom: 20px;
+    height: 62px;
+    width: 62px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.5);
+      border-radius: 10%;
+    }
+  }
+
+  &__name {
+    margin-bottom: 5px;
+    font-size: 16px;
+    line-height: 27px;
+    color: $dark-gray;
+  }
+
+  &__position {
+    font-size: 14px;
+    line-height: 120%;
+    color: $gray;
+  }
+}

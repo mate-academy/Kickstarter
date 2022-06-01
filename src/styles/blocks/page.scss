@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    background: $background;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__title {
+    font-family: "DIN Pro", sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: $dark-gray;
+  }
+
+  &__section {
+    margin: 0 auto 90px;
+
+    @include onTablet {
+      margin-bottom: 130px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 150px;
+    }
+  }
+
+  &__menu {
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__grid {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 70px);
+      gap: 0 20px;
+      justify-content: center;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 72px);
+      gap: 0 30px;
+    }
+  }
+}
