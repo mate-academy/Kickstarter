@@ -42,7 +42,11 @@
     height: 210px;
     margin-bottom: 20px;
     overflow: hidden;
-    transition: all 0.4s;
+    transition: all 0.5s;
+    transform-origin: center;
+    &:hover {
+      transform: scale(110%);
+    }
 
     &:after {
       content: "";
@@ -75,7 +79,6 @@
     height: 100%;
     object-fit: contain;
     object-position: center;
-    transition: all 0.4s;
 
     @media (min-width: 500px) {
       width: 450px;
@@ -125,8 +128,10 @@
     }
   }
   &__link {
+    position: relative;
     display: block;
     font-weight: 700;
+    width: fit-content;
     font-size: 12px;
     line-height: 14px;
     text-transform: uppercase;
@@ -136,7 +141,8 @@
     transform-origin: left;
 
     &:after {
-      display: block;
+      position: absolute;
+      display: flex;
       content: "";
       margin-top: 5px;
       width: 50px;
@@ -145,7 +151,7 @@
       transition: all 0.4s;
     }
     &:hover::after {
-      width: 100px;
+      width: 100%;
     }
   }
 }

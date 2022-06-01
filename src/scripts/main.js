@@ -8,16 +8,39 @@ window.addEventListener('hashchange', () => {
   }
 });
 
+const slider1 = document.querySelector('.testimonials');
+const list1 = slider1.querySelector('.testimonials__content');
+const prev1 = slider1.querySelector('.testimonials__arrow--back');
+const next1 = slider1.querySelector('.testimonials__arrow--fore');
+const testimonials = slider1.querySelector('.testimonials__counter');
+const count1 = list1.children.length;
+let currentIndex1 = 0;
+
+function move1() {
+  currentIndex1 = (currentIndex1 + 1 + count1) % count1;
+  testimonials.textContent = currentIndex1 + 1;
+  list1.style.transform = `translateX(${-currentIndex1 * 100}%)`;
+}
+
+next1.addEventListener('click', function() {
+  move1(currentIndex1 + 1);
+});
+
+prev1.addEventListener('click', function() {
+  move1(currentIndex1 - 1);
+});
+
 const slider = document.querySelector('.features__wrapper');
 const list = slider.querySelector('.features__content');
 const prev = slider.querySelector('.features__arrow--back');
 const next = slider.querySelector('.features__arrow--fore');
+const features = slider.querySelector('.features__counter');
 const count = list.children.length;
 let currentIndex = 0;
 
 function move() {
   currentIndex = (currentIndex + 1 + count) % count;
-
+  features.textContent = currentIndex + 1;
   list.style.transform = `translateX(${-currentIndex * 100}%)`;
 }
 
