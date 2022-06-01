@@ -107,12 +107,31 @@
     }
 
     &-link {
+      position: relative;
+      width: fit-content;
       font-size: 12px;
       line-height: 15px;
       text-transform: uppercase;
       font-weight: 500;
+      padding: 0 6px 6px 0;
 
-      color:  #0db2b3;
+      color: #0db2b3;
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 53px;
+        height: 1px;
+        border-bottom: 1px solid #0db2b3;
+        content: "";
+        transition: 0.3s;
+      }
+
+      &:hover::after {
+        width: 130px;
+        transition: 0.3s;
+      }
 
       @include onTablet {
         margin-left: 100px;
@@ -121,6 +140,8 @@
   }
 
   &__container {
+    margin-bottom: 90px;
+    
     @include onTablet {
       display: flex;
       flex-direction: column;
