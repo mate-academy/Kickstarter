@@ -48,3 +48,13 @@ function myFunction() {
     navbar.classList.remove('sticky');
   }
 }
+
+const videoimage = document.querySelector('.video__image');
+const playButton = document.querySelector('.video__play');
+const video = document.querySelector('.video__mp4');
+
+playButton.addEventListener('click', () => {
+  video.classList.remove('video__mp4--hidden');
+  playButton.classList.remove('video__play');
+  videoimage.classList.add('video__image--hidden');
+});
