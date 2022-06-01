@@ -24,4 +24,45 @@
     object-position: center;
     z-index: 2;
   }
+  &__play {
+    position: absolute;
+    display: block;
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    border: 1px solid #f3f4f5;
+    background-color: transparent;
+    z-index: 3;
+    cursor: pointer;
+    transition: all 0.4s;
+    @include onTablet {
+      width: 190px;
+      height: 190px;
+    }
+    @include onDesktop {
+      width: 232px;
+      height: 232px;
+    }
+
+    &::after {
+      position: absolute;
+      content: url(/images/button-play.svg);
+      transform: translate(224%, 130%);
+      @include onTablet {
+        transform: translate(83px, 83px);
+      }
+
+      @include onDesktop {
+        content: "PLAY";
+        position: absolute;
+        font-size: 24px;
+        line-height: 18px;
+        transform: translate(82px, 105px);
+        color: #f3f4f5;
+      }
+    }
+    &:hover {
+      transform: scale(120%);
+    }
+  }
 }

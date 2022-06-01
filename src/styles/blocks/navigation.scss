@@ -27,6 +27,7 @@
     line-height: 52px;
     text-transform: uppercase;
     color: #333;
+    z-index: 1;
     @include onTablet {
       font-size: 48px;
       line-height: 62px;
@@ -91,8 +92,17 @@
     color: #333;
     transition: all 0.3s;
 
-    &:hover {
-      font-weight: 700;
+    &:after {
+      display: block;
+      content: "";
+      margin-top: 5px;
+      width: 25px;
+      height: 1px;
+      background-color: #0db2b3;
+      transition: all 0.4s;
+    }
+    &:hover::after {
+      width: 60px;
     }
   }
 }

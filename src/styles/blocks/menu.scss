@@ -59,38 +59,26 @@
     font-size: 26px;
     line-height: 26px;
     text-decoration: none;
-    font-family: Inter-bold, Arial, Helvetica, sans-serif;
     color: #333;
     text-transform: uppercase;
     transition: all 0.4s;
 
-    &:hover {
-      transform: scale(1.01);
-      box-shadow: rgba(0, 0, 0, 0.15) 0 15px 25px,
-        rgba(0, 0, 0, 0.05) 0 5px 10px;
+    &:after {
+      display: block;
+      content: "";
+      margin-top: 5px;
+      width: 25px;
+      height: 1px;
+      background-color: #0db2b3;
+      transition: all 0.4s;
+    }
+    &:hover::after {
+      width: 60px;
     }
   }
 
   @include onTablet {
     display: none;
-  }
-
-  &__buy {
-    position: sticky;
-    bottom: 0;
-
-    &:hover {
-      background: #131313;
-    }
-
-    &:active {
-      transform: scale(0.95);
-      box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px,
-        rgba(0, 0, 0, 0.12) 0 -12px 30px,
-        rgba(0, 0, 0, 0.12) 0 4px 6px,
-        rgba(0, 0, 0, 0.17) 0 12px 13px,
-        rgba(0, 0, 0, 0.09) 0 -3px 5px;
-    }
   }
 
   @include onTablet {
