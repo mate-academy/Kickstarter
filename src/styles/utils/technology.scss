@@ -2,29 +2,33 @@
   display: block;
 
   &__title {
+    padding-top: 20px;
     margin-bottom: 40px;
-    text-align: center;
+    text-align: start;
     font-size: 37px;
     line-height: 46px;
     text-transform: uppercase;
 
     color: $Very-dark-gray;
+
+    @include onTablet {
+      font-size: 56px;
+      line-height: 70px;
+    }
   }
 
   &__container {
-    &-image {
-      // margin-right: -30px;
-      transform: translateX(10%) rotate(-10deg);
+    height: 278px;
+    margin-bottom: 40px;
+
+    background-image: url(../images/Technology.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: matrix(.99,-.14,.14,.99,0,0);
 
     @include onTablet {
-      width: 735px;
-      transform: translateX(20%) rotate(-10deg);
-    }
-
-    @include onDesktop {
-      margin: 0 auto;
-      transform: translateX(25%) rotate(-10deg);
-    }
+      height: 546px;
+      margin-bottom: 116px;
     }
   }
 
@@ -65,17 +69,25 @@
 
     &-people {
       display: flex;
+      width: fit-content;
       flex-direction: column;
       align-items: center;
 
       margin: 40px auto;
+      transition: 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.5);
+        background-color: $form-color;
+        border-radius: 10px;
+      }
     }
   }
 }
 
 .people {
   &__photo {
-
     &-Martin {
       width: 62px;
       height: 62px;
