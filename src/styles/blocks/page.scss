@@ -76,7 +76,13 @@
     }
 
     &-specs {
+      text-decoration: none;
       color: #4f4f4f;
+
+      &:hover {
+        color: #292929;
+        font-weight: 500;
+      }
     }
 
     &-language {
@@ -101,6 +107,22 @@
 
     @include onDesktop {
       display: block;
+    }
+
+    &-link {
+
+      &::after {
+        display: block;
+        width: 0;
+        height: 1px;
+        content: "";
+        transition: 1s;
+      }
+
+      &:hover::after {
+        width: 100%;
+        background-color: black;
+      }
     }
   }
 

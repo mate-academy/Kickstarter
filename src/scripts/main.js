@@ -32,7 +32,7 @@ const swiper2 = new Swiper('.swiper__features', {
   },
 });
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', () => {
   const arrow = document.querySelector('.page__arrow-up');
 
   arrow.classList.toggle('page__arrow-up--active', window.scrollY > 100);
@@ -44,4 +44,11 @@ window.addEventListener('hashchange', () => {
   } else {
     document.body.classList.remove('page__body--with-menu');
   }
+});
+
+window.addEventListener('click', () => {
+  const video = document.querySelector('.video__wraper');
+  const videoFirst = document.querySelector('.video__first');
+
+  video.removeChild(videoFirst);
 });
