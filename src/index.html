@@ -22,72 +22,90 @@
           >
         </a>
 
-        <input
-          type="checkbox"
-          class="header__toggler"
-          id="mobile-toggler"
-       ></input>
-        <label for="mobile-toggler" class="header__icon header__icon--close"></label>
+        <a href="#menu" class="icon icon--menu"></a>
 
-        <nav class="mobile-nav">
-          <div class="mobile-nav__container">
-            <div class="mobile-nav__lang">
-              <a href="#" class="header__option header__option--active link">
-                EN
+        <div class="page__menu menu" id="menu">
+          <div class="page__options">
+            <div class="options">
+              <a href="#" class="logo">
+                <img
+              src="images/logo.svg"
+              alt="Crazybaby logo"
+              class="logo__image"
+            >
               </a>
 
-              <span>/</span>
-
-              <a href="#" class="header__option link">
-                UA
-              </a>
+              <a href="#" class="icon icon--cross"></a>
             </div>
 
-            <div class="mobile-nav__buy">
-              <a href="#" class="link mobile-nav__buy--link">
+            <nav class="menu__nav">
+              <ul class="menu__nav-list">
+                <li class="menu__nav-item">
+                  <a href="#story" class="menu__nav-link">
+                    OUR STORY
+                  </a>
+                </li>
+
+                <li class="menu__nav-item">
+                  <a href="#about" class="menu__nav-link">
+                    ABOUT US
+                  </a>
+                </li>
+
+                <li class="menu__nav-item">
+                  <a href="#technology" class="menu__nav-link">
+                    TECHNOLOGY
+                  </a>
+                </li>
+
+                <li class="menu__nav-item">
+                  <a href="#features" class="menu__nav-link">
+                    FEATURES
+                  </a>
+                </li>
+
+                <li class="menu__nav-item">
+                  <a href="#contact-us" class="menu__nav-link">
+                    GET IN TOUCH
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+            <div class="menu__option">
+              <a
+                href="https://www.crazybaby.com/"
+                class="header__option link"
+                target="_blank"
+              >
                 SPECS
               </a>
-              <a href="#contact-us" class="link mobile-nav__buy--link">
+
+              <div class="header__options-lang">
+                <a href="#" class="header__option header__option--active link">
+                  EN
+                </a>
+
+                <span>/</span>
+
+                <a href="#" class="header__option link">
+                  UA
+                </a>
+              </div>
+
+              <a href="#contact-us" class="button">
                 BUY
               </a>
             </div>
-
-            <ul class="mobile-nav__list">
-              <li class="mobile-nav__item">
-                <a href="#story" class="mobile-nav__link link">
-                  Our story
-                </a>
-              </li>
-
-              <li class="mobile-nav__item">
-                <a href="#about" class="mobile-nav__link link">
-                  About us
-                </a>
-              </li>
-
-              <li class="mobile-nav__item">
-                <a href="#technology" class="mobile-nav__link link">
-                  Technology
-                </a>
-              </li>
-
-              <li class="mobile-nav__item">
-                <a href="#features" class="mobile-nav__link link">
-                  Features
-                </a>
-              </li>
-
-              <li class="mobile-nav__item">
-                <a href="#contact-us" class="mobile-nav__link link">
-                  Get in touch
-                </a>
-              </li>
-            </ul>
           </div>
-        </nav>
+        </div>
 
         <div class="header__options">
-          <a href="#" class="header__option link">
+          <a
+            href="https://www.crazybaby.com/"
+            class="header__option link"
+            target="_blank"
+          >
             SPECS
           </a>
 
@@ -274,10 +292,9 @@
       <section class="content__presentation presentation" id="story">
         <div class="presentation__video presentation__video--hidden">
           <video
-          src="./video/presentation-video.mp4"
-          autoplay
-          controls
-          muted
+            src="./video/presentation-video.mp4"
+            controls
+            muted
           >
           </video>
         </div>
@@ -485,7 +502,7 @@
         </h2>
 
         <form
-          action="#"
+          action="www.action.com"
           method="get"
           class="contact-us__form"
         >
@@ -510,7 +527,6 @@
     </main>
 
     <footer class="footer">
-
       <a href="#" class="footer__logo logo">
         <img
           src="./images/logo.svg"
@@ -550,6 +566,14 @@
       </p>
     </footer>
     <script>
+      window.addEventListener('hashchange', () => {
+          if (window.location.hash === '#menu') {
+            document.body.classList.add('page--with-menu');
+          } else {
+            document.body.classList.remove('page--with-menu');
+          }
+      });
+
       const playButton = document.querySelector('.presentation__play-btn');
       const video = document.querySelector('.presentation__video');
 
@@ -557,8 +581,8 @@
         video.classList.remove('presentation__video--hidden');
         playButton.classList.remove('presentation__play-btn');
       });
-
-      form.addEventListener('submit', function (event) {
+      const form = document.querySelector('.contact-us__form');
+      form.addEventListener('submit', function(event) {
         event.preventDefault();
         form.reset();
       });
