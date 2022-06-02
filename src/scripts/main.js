@@ -81,3 +81,14 @@ playButton.addEventListener('click', () => {
   playButton.classList.remove('video__play');
   videoimage.classList.add('video__image--hidden');
 });
+
+const form = document.getElementById('myForm');
+
+form.addEventListener('submit', function handleSubmit() {
+  // event.preventDefault();
+
+  // 👇️ Send data to server here
+
+  // 👇️ Reset form here
+  form.reset();
+});
