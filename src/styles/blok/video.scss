@@ -1,17 +1,67 @@
 .video {
+
+  &__play {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f3f4f5;
+    color: #f3f4f5;
+    cursor: pointer;
+    transition: transform 0.5s;
+
+    width: 228px;
+    height: 228px;
+    border-radius: 50%;
+
+    &::before {
+      content: "PLAY";
+    }
+
+    &::after {
+
+      display: none;
+      content: "";
+      width: 18px;
+      height: 18px;
+      background-image: url(../styles/images/Vector.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    &:hover {
+      background: rgba(0,0,0,0.5);
+      transform: scale(1.2);
+    }
+
+    &:hover::after {
+      display: block;
+    }
+
+    &:hover::before {
+      display: none;
+    }
+  }
   &__container {
     display: flex;
     justify-content: center;
-    max-height: 590px;
+    align-items: center;
     width: 100%;
+
     margin-bottom: 110px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../styles/images/video.svg);
 
     @include onTab {
       margin-bottom: 138px;
+      height: 400px;
+      background-image: url(../styles/images/video768.svg);
     }
 
     @include onDesktop {
       margin-bottom: 170px;
+      height: 590px;
+      background-image: url(../styles/images/video1024.svg);
     }
   }
 }
