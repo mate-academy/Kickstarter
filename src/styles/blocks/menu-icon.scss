@@ -4,8 +4,54 @@
     width: 24px;
     height: 3px;
     margin-bottom: 3px;
+    position: relative;
+
     background-color: #333;
     border-radius: 3px;
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      opacity 0.55s ease;
+
+    &:nth-last-child(3) {
+      transform-origin: top right;
+    }
+
+    &:last-child {
+      transform-origin: bottom right;
+    }
+  }
+
+  &__toggler {
+    display: block;
+    width: 24px;
+    height: 18px;
+    position: absolute;
+
+    cursor: pointer;
+
+    opacity: 0;
+    z-index: 2;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    &:checked ~ span {
+      opacity: 1;
+      transform: rotate(45deg) translate(3px, 3px);
+      background: #232323;
+    }
+
+    
+    &:checked ~ span:nth-last-child(2) {
+      opacity: 0;
+      transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    &:checked ~ span:nth-last-child(3) {
+      transform: rotate(-45deg);
+    }
   }
 }
 

@@ -38,22 +38,19 @@
     }
   }
 
-  &__video-frame {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-  }
+  &__video {
+    display: none;
 
-  /*&__video {
-    width: 100%;
-    height: 100%;
-  }*/
+    &--visible {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
 
   &__play-button {
     display: block;
+    background: transparent;
     background-image: url(../images/PLAY.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -61,6 +58,15 @@
     margin: 107px auto;
     width: 58px;
     height: 18px;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
 
     @include onTablet {
       background-image: url(../images/logo-play.png);
@@ -75,5 +81,9 @@
       width: 14px;
       height: 18px;
     }
+  }
+
+  &__hidden {
+    display: none;
   }
 }

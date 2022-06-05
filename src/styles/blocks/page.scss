@@ -26,14 +26,12 @@
     margin: 0;
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
+    left: -100%;
 
-    transform: translateX(-100%);
-    transition: transform 0.3s;
+    transition: 0.3s;
 
-    &:target {
-      transform: translateX(0);
+    &--target {
+      left: 0;
     }
   }
 
@@ -57,5 +55,9 @@
     @include onLargeScreens {
       margin: 0 auto;
     }
+  }
+
+  &--non-overflow {
+    overflow: hidden;
   }
 }
