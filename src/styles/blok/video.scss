@@ -1,5 +1,4 @@
 .video {
-
   &__play {
     display: flex;
     justify-content: center;
@@ -9,9 +8,20 @@
     cursor: pointer;
     transition: transform 0.5s;
 
-    width: 228px;
-    height: 228px;
+    width: 108px;
+    height: 108px;
+
     border-radius: 50%;
+
+    @include onTab {
+      width: 190px;
+      height: 190px;
+    }
+
+    @include onDesktop {
+      width: 232px;
+      height: 232px;
+    }
 
     &::before {
       content: "PLAY";
@@ -28,7 +38,7 @@
       background-size: contain;
     }
     &:hover {
-      background: rgba(0,0,0,0.5);
+      background-color: rgba(0,0,0,0.5);
       transform: scale(1.2);
     }
 
@@ -45,6 +55,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 320px;
 
     margin-bottom: 110px;
     background-repeat: no-repeat;

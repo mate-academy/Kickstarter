@@ -3,6 +3,31 @@
   background-repeat: no-repeat;
   background-position: right 200px;
 
+  &__button {
+    display: flex;
+    justify-content: center;
+
+    @include onTab {
+      display: none;
+    }
+
+    &--left {
+      background-image: url(../styles/images/Vectorleft.png);
+      width: 48px;
+      height: 13px;
+      border: none;
+      cursor: pointer;
+    }
+
+    &--right {
+      background-image: url(../styles/images/Vectorright.png);
+      width: 48px;
+      height: 13px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
   &__container {
     background-image: url(./images/FEATURES1024.svg);
     background-repeat: no-repeat;
@@ -21,6 +46,10 @@
     @include onDesktop {
       margin-bottom: 170px;
     }
+  }
+
+  &__slider {
+    transition: transform 0.3s;
   }
 
   &__connectivity {
@@ -84,4 +113,16 @@
       margin-bottom: 60px;
     }
   }
+}
+
+.slider {
+
+  &__wraper {
+    overflow: hidden;
+  }
+}
+
+.slide {
+  flex-shrink: 0;
+  width: 100%;
 }
