@@ -1,7 +1,172 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "blocks";
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
+  margin: 0;
   background: $c-gray;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  line-height: 27px;
+  color: $dark-main;
+
+  @media (max-width: 1600px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  @media (max-width: 685px) {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+a {
+  transition: all 0.3s;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+
+  &:hover {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "League Spartan", sans-serif;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 48px;
+  width: 102px;
+  height: 48px;
+  text-align: center;
+  color: #fff;
+
+  &__buy {
+    background-color: $dark-main;
+    border: 1px solid $dark-main;
+  
+    &:hover {
+      background-color: $c-gray;
+      color: $dark-main;
+      font-size: 14px;
+    }
+  }
+
+  &__send {
+    background-color: $light-green;
+    border: 1px solid $light-green;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $green;
+      border-color: $green;
+    }
+  }
+}
+
+.title {
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 130%;
+  letter-spacing: 5px;
+
+  @media (max-width: 1500px) {
+    font-size: 64px;
+  }
+
+  @media (max-width: 1350px) {
+    font-size: 48px;
+  }
+  
+  @media (max-width: 767px) {
+    font-size: 44px;
+  }
+}
+
+.section-title {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 129%;
+
+  @media (max-width: 1500px) {
+    font-size: 56px;
+  }
+
+  @media (max-width: 800px) {
+    font-size: 45px;
+  }
+
+  @media (max-width: 685px) {
+    font-size: 37px;
+  }
+}
+
+.lang-block {
+  &__lang {
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+
+    &--passive {
+      color: #bdbdbd;
+      font-weight: 300;
+    }
+
+  }
+}
+
+.section {
+  box-sizing: border-box;
+}
+
+.menu-open {
+  display: none;
+
+  @media (max-width: 600px) {
+    display: block;
+  }
+}
+
+.menu {
+  box-sizing: border-box;
+  text-transform: uppercase;
+  width: 100vw;
+  height: 100vh;
+  padding: 27px 34px 50vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &__close {
+    align-self: flex-end;
+  }
 }
