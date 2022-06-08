@@ -1,0 +1,96 @@
+.page_main_designed {
+  width: 70%;
+  margin: auto;
+  margin-top: 150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+
+  @include onMobile {
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 85%;
+  }
+
+  @include onTablet {
+    max-width: 100vw;
+  }
+
+  &_photo {
+    margin-right: 40px;
+
+    @include onMobile {
+      width: 100%;
+      margin-bottom: 30px;
+      margin-right: 10px;
+    }
+  }
+  &_temp {
+    height: 144px;
+    text-transform: uppercase;
+    font-family: "DIN Pro", sans-serif;
+    font-size: 56px;
+    line-height: 72px;
+    color: $font-color;
+    display: none;
+
+    @include onMobile {
+      display: inline;
+      margin-bottom: 100px;
+      font-size: 46px;
+    }
+  }
+  &_content {
+
+    &_title {
+      width: 480px;
+      height: 144px;
+      text-transform: uppercase;
+      font-family: "DIN Pro", sans-serif;
+      font-size: 56px;
+      line-height: 72px;
+      color: $font-color;
+      margin-left: -150px;
+
+      @include onMobile {
+        display: none;
+      }
+    }
+
+    &_text {
+      height: 123px;
+      width: 378px;
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: $para-color;
+
+      @include onMobile {
+        width: 100%;
+      }
+    }
+
+    &_more {
+      color: $ciel-color;
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 12px;
+      line-height: 15px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 50px;
+    }
+
+    &_border {
+      width: 54px;
+      height: 2px;
+      background-color: $ciel-color;
+      border-radius: 10%;
+      transition: width 0.3s;
+    }
+  }
+}
+
+.page_main_designed_content_more:hover ~ .page_main_designed_content_border {
+  width: 120px;
+}
