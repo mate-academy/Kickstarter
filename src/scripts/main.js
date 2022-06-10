@@ -1,4 +1,8 @@
-'use strict'
+'use strict';
+
+/* eslint-disable space-before-function-paren */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 
 import Swiper, { Navigation, Pagination } from 'swiper';
 
@@ -32,24 +36,13 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-const video_wrapper = document.querySelector('.about__wrapper');
+const videoWrapper = document.querySelector('.about__wrapper');
 const video = document.getElementById('video');
 const splash = document.querySelector('.about__movie');
 const buttonPlay = document.querySelector('.about__movie-round');
 
 buttonPlay.addEventListener('click', () => {
   splash.style.display = 'none';
-  video_wrapper.style.display = 'flex';
-  simulateClick(video);
+  videoWrapper.style.display = 'flex';
   buttonPlay.style.display = 'none';
 });
-
-function simulateClick(element){
-  trigger( element, 'mousedown' );
-  trigger( element, 'click' );
-  trigger( element, 'mouseup' );
-
-  function trigger( elem, event ) {
-    elem.dispatchEvent( new MouseEvent( event ) );
-  }
-}
