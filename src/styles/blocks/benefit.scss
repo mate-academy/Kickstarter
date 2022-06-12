@@ -1,5 +1,13 @@
 .benefit {
 
+  &__mobile-hidden {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
   &__container {
     text-align: center;
     margin: 0 auto;
@@ -44,16 +52,18 @@
     color: $secondary-dark;
   }
 
-  &:hover {
-    .benefit__container {
-      box-shadow: 4px 4px 4px 4px $secondary-dark;
-    }
+  @include onDesktop {
+    &:hover {
+      .benefit__container {
+        box-shadow: 4px 4px 4px 4px $secondary-dark;
+      }
 
-    .benefit__pic {
-      animation: translate 0.7s ease-in infinite alternate;
+      .benefit__pic {
+        animation: translate 0.7s ease-in infinite alternate;
 
-      &--spin {
-        animation: rotate 3s ease-in infinite alternate;
+        &--spin {
+          animation: rotate 3s ease-in infinite alternate;
+        }
       }
     }
   }
