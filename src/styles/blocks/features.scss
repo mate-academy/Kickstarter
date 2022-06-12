@@ -1,17 +1,52 @@
 .features {
 
+  @include onMobile {
+    background-color: #f2f2f2;
+  }
+
+  &__main-title-wrap {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+
+    @include onMobile {
+      display: block;
+    }
+  }
+
+
   &__main-title {
-    padding-left: 102px;
+    grid-column: 2 / 6;
     margin: 0 0 30px;
     font-weight: 700;
     font-size: 56px;
     line-height: 70px;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onMobile {
+      font-size: 30px;
+      line-height: 40px;
+    }
   }
 
   &__items {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 24px;
+
+    @include onMobile {
+      display: block;
+      // overflow: hidden;
+    }
+
+    @include onTablet {
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 20px;
+    }
   }
 
   &__item {
@@ -19,15 +54,51 @@
     &--top {
       grid-column: 6 / 10;
       margin-bottom: 60px;
+
+      @include onDesktop {
+        grid-column: 6 / 11;
+      }
+
+      @include onTablet {
+        grid-column: 4 / 9;
+      }
+
+      @include onMobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
     }
 
     &--left {
       grid-column: 2 / 6;
       margin-bottom: 165px;
+
+      @include onDesktop {
+        grid-column: 2 / 7;
+      }
+
+      @include onTablet {
+        grid-column: 1 / 6;
+      }
     }
 
     &--bottom {
       grid-column: 4 / 7;
+
+      @include onDesktop {
+        grid-column: 4 / 8;
+      }
+
+      @include onTablet {
+        grid-column: 3 / 7;
+      }
+    }
+
+    @include onMobile {
+      &:not(:first-child) {
+        display: none;
+      }
     }
   }
 
@@ -38,6 +109,11 @@
     line-height: 42px;
     text-transform: uppercase;
     color: #0c797a;
+
+    @include onMobile {
+      font-size: 18px;
+      line-height: 22px;
+    }
   }
 
   &__list {
@@ -46,6 +122,11 @@
     font-size: 16px;
     line-height: 24px;
     list-style: inside;
+
+    @include onMobile {
+      font-size: 14px;
+      line-height: 21px;
+    }
   }
 
   &__image-container {
@@ -56,11 +137,37 @@
     right: 0;
     z-index: -1;
     background-color: #f2f2f2;
+
+    @include onTablet {
+      width: 644px;
+      overflow: hidden;
+    }
+
+    @include onMobile {
+      position: relative;
+      // transform: translateX(30%);
+      width: auto;
+      height: 300px;
+      top: 0;
+      z-index: 1;
+    }
   }
 
   &__image {
     position: relative;
     left: 194px;
     top: 128px;
+
+    @include onTablet {
+      transform: scale(0.8);
+      left: -70px;
+      top: 30px;
+    }
+
+    @include onMobile {
+      transform: scale(0.5);
+      left: -300px;
+      top: -100px;
+    }
   }
 }

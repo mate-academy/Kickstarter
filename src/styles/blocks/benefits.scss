@@ -5,14 +5,35 @@
   gap: 30px;
   text-align: center;
 
+  @include onTablet {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 64px;
+  }
+
+  @include onMobile {
+    display: block;
+  }
+
   &__item {
     box-sizing: border-box;
+
+    &:not(:first-child) {
+      @include onMobile {
+        display: none;
+      }
+    }
   }
 
   &__icon {
     display: inline-block;
     height: 40px;
     margin-bottom: 34px;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   &__title {
@@ -22,6 +43,10 @@
     font-size: 22px;
     line-height: 28px;
     text-transform: uppercase;
+
+    @include onTablet {
+      height: max-content;
+    }
   }
 
   &__article {
