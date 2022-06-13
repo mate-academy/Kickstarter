@@ -1,0 +1,111 @@
+.about-us {
+  &__content {
+    position: relative;
+    @extend %margin-bottom;
+  }
+
+  &__title {
+    display: block;
+    margin-bottom: 50px;
+
+    line-height: 55px;
+
+    @include on-tablet {
+      margin: 0 0 30px 270px;
+
+      line-height: 72px;
+    }
+
+    @include on-desktop {
+      margin-left: 655px;
+    }
+  }
+
+  &__photo-container {
+    margin-bottom: 28px;
+    width: 100%;
+    height: auto;
+
+    @include on-tablet {
+      position: absolute;
+      left: -284px;
+      bottom: -56px;
+      z-index: -1;
+
+      width: 624px;
+      height: 400px;
+    }
+
+    @include on-desktop {
+      left: 145px;
+      bottom: -60px;
+
+      width: 582px;
+      height: 388px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      margin-left: 360px;
+    }
+
+    @include on-desktop {
+      margin-left: 756px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    line-height: 24px;
+    color: $secondary-text-color;
+
+    @include on-tablet {
+      width: 340px;
+    }
+
+    @include on-desktop {
+      width: 378px;
+    }
+  }
+
+  &__link {
+    width: max-content;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $turquoise-color;
+
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $turquoise-secondary-color;
+    }
+
+    &::after {
+      content: "";
+      margin-top: 6px;
+      display: block;
+      width: 52px;
+      height: 1px;
+      background-color: $turquoise-color;
+
+      transition: all 0.3s ease;
+    }
+
+    &:hover::after {
+      background-color: $turquoise-secondary-color;
+      width: 100%;
+    }
+  }
+}
