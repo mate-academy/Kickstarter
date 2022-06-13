@@ -1,0 +1,66 @@
+.menu {
+  background-image: linear-gradient(to right bottom,
+  $color-main-dark,
+  $color-main-medium);
+
+  @include onDesktop {
+    background-image: none;
+  }
+
+  &__item--burger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__close {
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    background: url("/icons/cross.svg") center / contain no-repeat;
+  }
+
+  &__list {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 0;
+    list-style: none;
+
+    @include onDesktop {
+      height: 76px;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 10px 0;
+    border: 1px solid transparent;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: $color-text-dark;
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    @include onDesktop {
+      padding: 17px;
+
+      @include hover(border-color, $color-text-dark);
+    }
+
+    &:active {
+      font-weight: 700;
+    }
+  }
+}

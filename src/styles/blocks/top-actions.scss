@@ -1,0 +1,73 @@
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+
+  @include onTablet {
+    padding: 30px 0;
+  }
+
+  @include onDesktop {
+    padding: 42px 0;
+  }
+
+  &__logo {
+    @include hover(transform, scale(1.1));
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+  }
+
+  &__link,
+  &__languages,
+  &__button {
+    display: none;
+    font-family: "Helvetica Neue", "Helvetica", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+
+    @include onTablet {
+      display: initial;
+    }
+  }
+
+  &__link,
+  &__language-en,
+  &__language-ua {
+    text-decoration: none;
+  }
+
+  &__link {
+    padding: 16px;
+    border: 1px solid transparent;
+    line-height: 17px;
+    color: #4f4f4f;
+
+    @include hover(border-color, $color-text-dark);
+  }
+
+  &__language-en {
+    font-weight: 400;
+    color: $color-text-dark;
+  }
+
+  &__language-ua {
+    color: #828282;
+  }
+
+  &__burger-menu {
+    width: 24px;
+    height: 14px;
+    background: url("/icons/burger.svg") center / contain no-repeat;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}
