@@ -18,10 +18,16 @@
   font-size: 16px;
   line-height: 24px;
 
-  background-color: #f7f7f7;
-  color: $color-text-dark;
+  background-color: $c-bg-page;
+  color: $c-text-dark;
 
   scroll-behavior: smooth;
+
+  &__body {
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
 
   &__menu {
     position: fixed;
@@ -66,4 +72,31 @@
       margin: 0 auto var(--default-margin) auto;
     }
   }
+
+  &__page-up-btn {
+    @include circle(40px);
+    position: sticky;
+    left: 87%;
+    bottom: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    fill: $c-text-dark;
+
+    transition: transform 0.4s, fill 0.4s, border-color 0.4s, box-shadow 0.4s;
+
+    &:hover,
+    &:active {
+      transform: scale(1.1);
+      fill: $c-main-hover;
+      border-color: $c-main-hover;
+      box-shadow: 1px 4px 16px rgba($c-main-hover, 0.64);
+    }
+    // @include hover(transform, scale(1.2));
+  }
+
+  /* &__page-up-icon {
+    fill: $c-text-dark;
+  } */
 }
