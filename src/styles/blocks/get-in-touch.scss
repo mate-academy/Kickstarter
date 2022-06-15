@@ -1,0 +1,37 @@
+.get-in-touch {
+  &__title {
+    @include underTablet() {
+      margin-bottom: 30px;
+    }
+
+    // prevents text overlap
+    @media (max-width: 739px) {
+      font-size: 37px;
+      line-height: 46px;
+    }
+  }
+
+  &__form {
+    @include onDesktop() {
+      position: relative;
+      transform: translateX(-$column-gap);
+
+      display: block;
+      width: calc(100% + 2 * #{$column-gap});
+    }
+  }
+
+  &__email {
+    margin-bottom: 20px;
+  }
+
+  &__message {
+    margin-bottom: 30px;
+  }
+
+  &__button {
+    @include underDesktop() {
+      height: 38px;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.grid {
+  --grid-amount: 4;
+
+  display: grid;
+  grid-template-columns: repeat(var(--grid-amount), 1fr);
+  column-gap: $column-gap;
+
+  @include onTablet() {
+    --grid-amount: #{$columns-tablet};
+  }
+
+  @include onDesktop() {
+    --grid-amount: #{$columns-desktop};
+  }
+
+  @for $start from 1 through 12 {
+    @for $end from $start through 12 {
+      &__item-#{$start}-#{$end} {
+        grid-column-start: #{$start};
+        grid-column-end: #{$end + 1};
+      }
+
+      &__item-tablet-#{$start}-#{$end} {
+        @include onTablet() {
+          @include underDesktop() {
+            grid-column-start: #{$start};
+            grid-column-end: #{$end + 1};
+          }
+        }
+      }
+
+      &__item-desktop-#{$start}-#{$end} {
+        @include onDesktop() {
+          grid-column-start: #{$start};
+          grid-column-end: #{$end + 1};
+        }
+      }
+    }
+  }
+
+  @for $start from 1 through 6 {
+    @for $end from $start through 6 {
+      &__vertical-item-tablet-#{$start}-#{$end} {
+        @include onTablet() {
+          @include underDesktop() {
+            grid-row-start: #{$start};
+            grid-row-end: #{$end + 1};
+          }
+        }
+      }
+
+      &__vertical-item-desktop-#{$start}-#{$end} {
+        @include onDesktop() {
+          grid-row-start: #{$start};
+          grid-row-end: #{$end + 1};
+        }
+      }
+    }
+  }
+
+  &--tablet {
+    display: block;
+
+    @include onTablet() {
+      display: grid;
+    }
+  }
+
+  &--desktop {
+    display: block;
+
+    @include onDesktop() {
+      display: grid;
+    }
+  }
+}

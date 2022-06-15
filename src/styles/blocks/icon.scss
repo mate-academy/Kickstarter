@@ -1,0 +1,54 @@
+.icon {
+  display: block;
+  @include square(24px);
+
+  background-color: $darkGray;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+
+  &--interactable {
+    transition-property: background-color;
+    transition-duration: $animation-duration;
+
+    &:hover {
+      background-color: $green;
+    }
+  }
+
+  @each $icon in $icons {
+    &--#{$icon} {
+      -webkit-mask-image: url(../images/icons/#{$icon}.svg);
+      mask-image: url(../images/icons/#{$icon}.svg);
+    }
+  }
+
+  &--facebook {
+    &:hover {
+      background-color: #4267b2;
+    }
+  }
+
+  &--twitter {
+    &:hover {
+      background-color: #64a8d2;
+    }
+  }
+
+  &--instagram {
+    transition-property: none;
+
+    &:hover {
+      background: linear-gradient(
+        225deg,
+        #75429d 8.82%,
+        #b63282 34.26%,
+        #e2102d 52.51%,
+        #f46802 73.11%,
+        #efc300 91.67%);
+    }
+  }
+}

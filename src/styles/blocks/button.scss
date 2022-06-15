@@ -1,0 +1,108 @@
+.button {
+  --theme-color: #{$darkGray};
+  box-sizing: content-box;
+  padding: 0;
+  width: 100px;
+  height: 46px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 12px;
+  line-height: 15px;
+
+  cursor: pointer;
+  background-color: var(--theme-color);
+  border: 1px solid;
+  border-color: var(--theme-color);
+
+  transition-property: border-color, box-shadow, transform;
+  transition-duration: $animation-duration;
+
+  &:hover {
+    transform: scale(1.05);
+
+    box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  &:disabled {
+    --theme-color: #{$gray5};
+
+    cursor: not-allowed;
+  }
+
+  &--submit {
+    --theme-color: #{$green};
+
+    &:disabled {
+      --theme-color: #{$green2};
+    }
+  }
+
+  &--play {
+    position: relative;
+
+    @include square(110px);
+
+    font-family: "DIN Pro", sans-serif;
+    font-size: 24px;
+    line-height: 18px;
+    color: transparent;
+
+    background-color: transparent;
+    border: 2px solid $white;
+    border-radius: 50%;
+
+    transition-property: color, border-width;
+    transition-duration: $animation-duration;
+
+    @include onTablet() {
+      @include square(190px);
+    }
+
+    @include onDesktop() {
+      @include square(230px);
+
+      color: $white2;
+    }
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      top: 0;
+
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      opacity: 1;
+      background-image: url(../images/icons/play.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+
+      transition-property: opacity;
+      transition-duration: $animation-duration;
+
+      @include onDesktop() {
+        opacity: 0;
+      }
+    }
+
+    &:hover {
+      color: transparent;
+      box-shadow: none;
+
+      border-width: 3px;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

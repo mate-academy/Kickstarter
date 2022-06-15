@@ -1,0 +1,182 @@
+.features {
+  position: relative;
+
+  padding-top: 46px;
+
+  overflow-x: hidden;
+
+  @include underTablet() {
+    background-color: $white;
+  }
+
+  &__title {
+    margin-bottom: 50px;
+
+    @include onDesktop() {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__frame-toggler {
+    display: none;
+  }
+
+  &__mobile-frame {
+    @include underTablet() {
+      display: none;
+
+      margin: 0 auto 50px;
+      max-width: max-content;
+      height: 270px;
+    }
+  }
+
+  &__frame-toggler:checked + &__mobile-frame {
+    @include underTablet() {
+      display: block;
+    }
+  }
+
+  &__sound-n-music {
+    // margin-left: auto;
+    // max-width: max-content;
+
+    @include onTablet() {
+      margin: 0 0 60px;
+    }
+
+    @include onDesktop() {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__connectivity {
+    @include onTablet() {
+      margin-bottom: 80px;
+    }
+
+    @include onDesktop() {
+      margin-bottom: 130px;
+    }
+  }
+
+  &__subtitle {
+    margin: 0 0 20px;
+
+    color: $green;
+    font-family: "DIN Pro", sans-serif;
+    font-size: 30px;
+    line-height: 120%;
+    text-transform: uppercase;
+    font-weight: normal;
+
+    @include onTablet() {
+      margin-bottom: 30px;
+      padding-left: 14px;
+
+      font-size: 34px;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  &__list-item {
+    margin-bottom: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 14px;
+    line-height: 21px;
+    color: $darkGray;
+
+    @include onTablet() {
+      margin-bottom: 12px;
+
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+
+      @include onTablet() {
+        margin: 0;
+      }
+    }
+
+    &::before {
+      content: "";
+
+      display: inline-block;
+      @include square(4px);
+
+      background-color: #000;
+      border-radius: 50%;
+    }
+  }
+
+  &__slider {
+    margin: 0 auto 8px;
+  }
+
+  &__image-container {
+    @include onDesktop() {
+      position: absolute;
+      bottom: 28px;
+      z-index: -1;
+
+      overflow: hidden;
+    }
+  }
+
+  &__image {
+    margin-bottom: 46px;
+    width: 110%;
+
+    @include onTablet() {
+      position: absolute;
+      right: 0;
+      bottom: 160px;
+      z-index: -1;
+
+      width: 586px;
+    }
+
+    @include onDesktop() {
+      position: static;
+
+      width: 100%;
+    }
+  }
+
+  &__geometry-container {
+    position: relative;
+    width: 100%;
+  }
+
+  &__background-geometry {
+    position: absolute;
+    bottom: 84px;
+    left: 0;
+    z-index: -2;
+
+    display: block;
+    width: 100vw;
+    height: 620px;
+
+    background-color: $white;
+
+    @include onDesktop() {
+      bottom: 12px;
+
+      height: 700px;
+    }
+  }
+}
