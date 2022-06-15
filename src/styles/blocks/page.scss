@@ -1,26 +1,29 @@
 .page {
   --default-margin: 110px;
   --default-paddings: 30px;
+  --font-size-title: 30px;
+  --line-hight-title: 40px;
 
   @include onTablet {
     --default-margin: 140px;
     --default-paddings: 34px;
+    --font-size-title: 36px;
+    --line-hight-title: 46px;
   }
 
   @include onDesktop {
     --default-margin: 170px;
     --default-paddings: 123px;
+    --font-size-title: 56px;
+    --line-hight-title: 70px;
   }
 
   font-family: "Inter", sans-serif;
-  font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-
-  background-color: $c-bg-page;
+  @include smallText($fz-default);
   color: $c-text-dark;
 
+  background-color: $c-bg-page;
   scroll-behavior: smooth;
 
   &__body {
@@ -51,14 +54,9 @@
 
   &__section-title {
     font-weight: 700;
-    font-size: 30px;
-    line-height: 40px;
+    font-size: var(--font-size-title);
+    line-height: var(--line-hight-title);
     text-transform: uppercase;
-
-    @include onDesktop {
-      font-size: 56px;
-      line-height: 70px;
-    }
   }
 
   &__title-image {
@@ -93,10 +91,5 @@
       border-color: $c-main-hover;
       box-shadow: 1px 4px 16px rgba($c-main-hover, 0.64);
     }
-    // @include hover(transform, scale(1.2));
   }
-
-  /* &__page-up-icon {
-    fill: $c-text-dark;
-  } */
 }
