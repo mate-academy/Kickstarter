@@ -1,0 +1,122 @@
+.questions {
+  padding: 0 30px;
+
+  @include onTablet {
+    padding: 0 34px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    padding: 0 123px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    color: $dark-grey-333;
+    margin-bottom: 28px;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+      grid-column: 1 / 5;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      grid-column: 5 / -1;
+    }
+
+    &--email {
+      display: block;
+      height: 48px;
+
+      font-size: 14px;
+      line-height: 24px;
+      color: $dark-grey-333;
+      margin-bottom: 20px;
+      padding-left: 20px;
+      border: 1px solid $light-grey-82;
+      box-sizing: border-box;
+      outline-color: $light-grey-82;
+
+      &::placeholder {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: $greyBD;
+      }
+
+      &:focus {
+        border-color: $light-grey-82;
+      }
+
+      &:valid {
+        border-color: $dark-green;
+      }
+    }
+
+    &--text {
+      display: block;
+      resize: none;
+      height: 128px;
+      font-size: 16px;
+      line-height: 19px;
+      color: $dark-grey-333;
+      margin-bottom: 30px;
+      padding: 12px 20px;
+      border: 1px solid $light-grey-82;
+      box-sizing: border-box;
+
+      @include onTablet {
+        height: 200px;
+      }
+
+      &::placeholder {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: $greyBD;
+      }
+
+      &:focus {
+        outline-color: $light-grey-82;
+      }
+
+      &:valid {
+        border-color: $dark-green;
+      }
+    }
+  }
+
+  &__button {
+    width: 102px;
+    height: 40px;
+    background: $blue-grey;
+    color: #fff;
+    border: 1px solid transparent;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover {
+      color: $blue-grey;
+      background: #fff;
+      border-color: $blue-grey;
+    }
+  }
+}
