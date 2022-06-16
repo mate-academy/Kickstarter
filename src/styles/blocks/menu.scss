@@ -7,10 +7,32 @@
     background-image: none;
   }
 
-  &__item--burger {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  &__item {
+    &--burger {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--with-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      justify-content: space-between;
+
+      @media (orientation: landscape) {
+        flex-direction: row;
+      }
+    }
+  }
+
+  &__btn {
+    max-width: min-content;
 
     @include onDesktop {
       display: none;
@@ -42,15 +64,48 @@
   &__link {
     display: inline-block;
     padding: 10px;
-    border: 1px solid transparent;
+    border-bottom: 1px solid transparent;
     text-transform: uppercase;
 
     @include smallText($fz-small);
 
     @include onDesktop {
+      position: relative;
       padding: 17px;
 
-      @include hover(border-color, $c-text-dark);
+      & {
+        color: #0000;
+        background: linear-gradient(90deg, #{$c-main-hover} 50%,#000 0)
+          var(--pos,100%)/200% no-repeat;
+        -webkit-background-clip: text;
+        background-clip: text;
+        transition: color 0.4s, background 0.4s;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 51%;
+        right: 51%;
+        bottom: 0;
+        background: $c-main-hover;
+        height: 2px;
+        transition-property: left, right;
+        transition-duration: 0.4s;
+        transition-timing-function: ease-out;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        --pos: 0%;
+
+        &:before {
+          left: 0;
+          right: 0;
+        }
+      }
     }
 
     &:active {
