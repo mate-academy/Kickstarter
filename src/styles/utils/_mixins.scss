@@ -15,7 +15,7 @@
 }
 
 @mixin onTablet {
-  @media (min-width: 768px) {
+  @media (min-width: 740px) {
     @content;
   }
 }
@@ -39,4 +39,19 @@
 @mixin smallText($fz) {
   font-size: $fz;
   line-height: 150%;
+}
+
+@mixin text-hover-effect {
+  & {
+    color: #0000;
+    background: linear-gradient(90deg, #{$c-main-hover} 50%,#000 0)
+      var(--pos,100%)/200% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: color 0.4s, background 0.4s;
+  }
+
+  &:hover {
+    --pos: 0%;
+  }
 }
