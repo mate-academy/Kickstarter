@@ -1,13 +1,45 @@
 'use strict';
 
-const list = document.querySelector('.features__slider');
-const buttonL = document.querySelector('.features__button--left');
-const buttonR = document.querySelector('.features__button--right');
+const slider = document.querySelector('.features__slider');
+const prevButton = document.querySelector('.features__button--left');
+const nextButton = document.querySelector('.features__button--right');
 
-buttonL.addEventListener('click', () => {
-  list.style.transform = `translateX(-100%)`;
+let curentIndex = 0;
+
+function move(newIndex) {
+  if (newIndex < 0) {
+    curentIndex = 2;
+  } else if (newIndex > 2) {
+    curentIndex = 0;
+  } else {
+    curentIndex = newIndex;
+  }
+}
+
+nextButton.addEventListener('click', () => {
+  move(curentIndex + 1);
+  render();
+  pageCounter();
 });
 
-buttonR.addEventListener('click', () => {
-  list.style.transform = `translateX(100%)`;
+prevButton.addEventListener('click', () => {
+  move(curentIndex - 1);
+  render();
+  pageCounter();
+});
+
+function render() {
+  slider.style.transform = `translateX(${curentIndex * -(100)}%`;
+}
+
+function pageCounter() {
+  document.getElementById('slider__page').innerHTML = `0${curentIndex + 1}`;
+}
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
 });
