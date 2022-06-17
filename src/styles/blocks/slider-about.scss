@@ -1,0 +1,52 @@
+.slider-about {
+  position: relative;
+  display: flex;
+  padding-left: 10vw;
+  gap: 10vw;
+
+  @include onTablet {
+    width: 100% !important;
+    padding-left: var(--default-paddings);
+    flex-wrap: wrap;
+    gap: 0;
+    justify-content: space-between;
+  }
+
+  &__slide {
+    width: 100vw;
+    transition: transform 1s;
+
+    @include onTablet {
+      flex-basis: 48%;
+    }
+
+    @include onDesktop {
+      flex-basis: 23%;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: 0;
+
+    background-color: transparent;
+    border: none;
+    font-family: inherit;
+    @include circle(30px);
+    font-size: 15px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__btn--left {
+    left: 5vw;
+    transform: translate(-50%, -50%);
+  }
+
+  &__btn--right {
+    left: 88vw;
+    transform: translate(50%, -50%);
+  }
+}
