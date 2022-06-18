@@ -67,7 +67,7 @@ const slider = function(sliderSelector,
   changeSlide(currentSlide);
 
   const nextSlide = function() {
-    if (currentSlide === maxSlide - 1) {
+    if (currentSlide >= maxSlide - 1) {
       currentSlide = 0;
     } else {
       currentSlide++;
@@ -77,7 +77,7 @@ const slider = function(sliderSelector,
   };
 
   const prevSlide = function() {
-    if (currentSlide === 0) {
+    if (currentSlide <= 0) {
       currentSlide = maxSlide - 1;
     } else {
       currentSlide--;
