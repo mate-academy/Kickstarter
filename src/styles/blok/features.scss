@@ -1,14 +1,40 @@
 .features {
-  background-image: url(./images/rectangle.png);
-  background-repeat: no-repeat;
-  background-position: right 200px;
+  @include onDesktop {
+    margin-bottom: 164px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 175px;
+    margin-bottom: 90px;
+    background-image: url(../styles/images/image9.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onTab {
+      height: 226px;
+      background-position: right, bottom;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__nav {
+    @include onTab {
+      justify-content: start;
+    }
+  }
 
   &__button {
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 
     @include onTab {
-      display: none;
+      justify-content: start;
+      margin-left: 105px;
     }
 
     @include onDesktop {
@@ -16,53 +42,63 @@
     }
 
     &--left {
-      background-image: url(../styles/images/Vectorleft.png);
+      background-image: url(../styles/images/icon/left.jpg);
+      background-repeat: no-repeat;
       width: 48px;
       height: 13px;
       border: none;
       cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
 
     &--right {
-      background-image: url(../styles/images/Vectorrigt.png);
+      background-image: url(../styles/images/icon/right.jpg);
       width: 48px;
       height: 13px;
       border: none;
       cursor: pointer;
+      transition: all 0.3s;
 
       &:hover {
-        background-image: url(../styles/images/Vectorhover.png);
+        transform: scale(1.1);
       }
     }
   }
 
-  &__container {
-    background-image: url(./images/FEATURES1024.svg);
-    background-repeat: no-repeat;
-    background-position: right 350px;
-    background-size: 400px 700px;
+  &__count {
+    display: flex;
+    justify-content: center;
 
     @include onTab {
-      background-size: 700px 500px;
+      justify-content: start;
+      margin-left: 130px;
     }
 
-    margin-bottom: 110px;
-
-    @include onTab {
-      margin-bottom: 138px;
-    }
     @include onDesktop {
-      margin-bottom: 170px;
+      display: none;
     }
   }
 
   &__slider {
+    display: flex;
     transition: transform 0.3s;
+
+    @include onTab {
+      margin-left: 105px;
+      margin-top: 50px;
+    }
+
+    @include onDesktop {
+      position: relative;
+      padding-bottom: 600px;
+    }
   }
 
   &__connectivity {
-    margin-bottom: 100px;
-
     @include onDesktop {
       margin-bottom: 160px;
     }
@@ -115,7 +151,7 @@
   }
 
   &__sound {
-    margin-bottom: 100px;
+    margin-bottom: 51px;
 
     @include onDesktop {
       margin-bottom: 60px;
@@ -124,6 +160,64 @@
 }
 
 .slider {
+  @include onDesktop {
+    display: none;
+  }
+
+  background-color: #d6ecec;
+
+  &-1 {
+    @include onDesktop {
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  &-2 {
+    @include onDesktop {
+      position: absolute;
+      top: 300px;
+    }
+  }
+
+  &-3 {
+    @include onDesktop {
+      position: absolute;
+      top: 0;
+      left: 700px;
+    }
+  }
+
+  &-4 {
+    @include onDesktop {
+      height: 330px;
+      width: 580px;
+      position: absolute;
+      top: 300px;
+      left: 600px;
+      background-image: url(../styles/images/imagel.jpg);
+      background-position: right, bottom;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  &__page {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #333;
+
+  }
+
+  &__total-pages {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+
+    color: #0c797a;
+  }
 
   &__wraper {
     overflow: hidden;
@@ -133,4 +227,75 @@
 .slide {
   flex-shrink: 0;
   width: 100%;
+
+  @include onDesktop {
+    flex-shrink: unset;
+  }
+}
+
+.sliderr {
+  display: none;
+
+  @include onDesktop {
+    display: contents;
+
+  }
+
+  &-1 {
+    @include onDesktop {
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  &-2 {
+    @include onDesktop {
+      position: absolute;
+      top: 300px;
+    }
+  }
+
+  &-3 {
+    @include onDesktop {
+      position: absolute;
+      top: 0;
+      left: 700px;
+    }
+  }
+
+  &-4 {
+    @include onDesktop {
+      height: 330px;
+      width: 580px;
+      position: absolute;
+      top: 300px;
+      left: 600px;
+      background-image: url(../styles/images/imagel.jpg);
+      background-position: right, bottom;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  &__page {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #333;
+
+  }
+
+  &__total-pages {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+
+    color: #0c797a;
+  }
+
+  &__wraper {
+    overflow: hidden;
+    background-color: #d6ecec;
+  }
 }
