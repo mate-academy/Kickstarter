@@ -41,6 +41,8 @@ const slider = function(sliderSelector,
     );
   };
 
+  createDots();
+
   const activateDot = function(slide) {
     document
       .querySelectorAll('.dots__dot')
@@ -50,8 +52,6 @@ const slider = function(sliderSelector,
       .querySelector(`.dots__dot[data-slide="${slide}"]`)
       .classList.add('dots__dot--active');
   };
-
-  createDots();
 
   const goToSlide = function(slide) {
     slides.forEach(
@@ -93,6 +93,7 @@ const slider = function(sliderSelector,
     if (e.target.classList.contains('dots__dot')) {
       const { slide } = e.target.dataset;
 
+      currentSlide = slide;
       changeSlide(slide);
     }
   });
