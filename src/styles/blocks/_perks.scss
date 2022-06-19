@@ -1,0 +1,64 @@
+.perks {
+  margin-top: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__grid {
+    display: none;
+
+    @include onTablet {
+      display: grid;
+    }
+
+    @include onDesktop {
+      display: grid;
+    }
+  }
+  
+  @include onDesktop {
+    margin-top: 66px;
+  }
+
+  @include onTablet {
+    margin-top: 140px;
+  }
+
+  &__perk {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 260px;
+    
+    @include onTablet {
+      &:nth-child(3),
+      &:nth-child(4) {
+        margin-top: 65px;
+      }
+      max-width: none;
+    }
+  }
+
+  &__title {
+    text-align: center;
+
+    @include onTablet {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    margin-top: 40px;
+    text-transform: uppercase;
+    color: #333;
+  }
+
+  &__descr {
+    color: $lightGrey;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
