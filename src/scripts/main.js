@@ -104,9 +104,13 @@ const slider = function(sliderSelector,
   setInterval(nextSlide, 5000);
 };
 
-slider('.slider-about',
-  '.slider-about__slide',
-  '.slider-about__btn--left',
-  '.slider-about__btn--right',
-  '.dots',
-  '.wrapper');
+const mediaQuery = window.matchMedia('(max-width: 667px)');
+
+if (mediaQuery.matches) {
+  slider('.slider-about',
+    '.slider-about__slide',
+    '.slider-about__btn--left',
+    '.slider-about__btn--right',
+    '.dots',
+    '.wrapper');
+}
