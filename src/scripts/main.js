@@ -20,17 +20,20 @@ window.addEventListener('scroll', () => {
 
 // Slider
 const slider = function(sliderSelector,
-  slidesSelector, leftBtnSelector, rightBtnSelector, dotsBoxSelector) {
-  const sliderWrapper = document.querySelector(sliderSelector);
+  slidesSelector, leftBtnSelector, rightBtnSelector, dotsBoxSelector, wrapper) {
+  const sliderContainer = document.querySelector(sliderSelector);
   const slides = document.querySelectorAll(slidesSelector);
   const btnLeft = document.querySelector(leftBtnSelector);
   const btnRight = document.querySelector(rightBtnSelector);
   const dotsContainer = document.querySelector(dotsBoxSelector);
+  const sliderWrapper = document.querySelector(wrapper);
+  const width = window.getComputedStyle(sliderWrapper).width;
 
   let currentSlide = 0;
   const maxSlide = slides.length;
 
-  sliderWrapper.style.width = 110 * slides.length + 'vw';
+  sliderContainer.style.minWidth = 110 * slides.length + 'vw';
+  slides.forEach((slide) => (slide.style.minWidth = width));
 
   const createDots = function() {
     slides.forEach((_, i) =>
@@ -55,7 +58,7 @@ const slider = function(sliderSelector,
 
   const goToSlide = function(slide) {
     slides.forEach(
-      (s) => (s.style.transform = `translateX(${90 * (-slide)}vw)`)
+      (s) => (s.style.transform = `translateX(${110 * (-slide)}vw)`)
     );
   };
 
@@ -97,10 +100,13 @@ const slider = function(sliderSelector,
       changeSlide(slide);
     }
   });
+
+  setInterval(nextSlide, 5000);
 };
 
 slider('.slider-about',
   '.slider-about__slide',
   '.slider-about__btn--left',
   '.slider-about__btn--right',
-  '.dots');
+  '.dots',
+  '.wrapper');
