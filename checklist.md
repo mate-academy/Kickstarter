@@ -3,8 +3,6 @@
 
 ## Tech review
 
-1. Add favicon
-2. Add a smooth scroll for the whole page (`scroll-behavior: smooth;`)
 3. Menu on mobile should contain navigation links. [Menu example](http://joxi.ru/VrwJRDPcoOzEZA)
 4. Logos should become bigger on hover and lead to the first section
 5. Icons in the “about us” block should be ***animated*** on hover
@@ -19,8 +17,6 @@
 
 ## HR review
 
-1. To make it clear to the recruiter what exactly this landing page is, it is better to give the whole web page the title “CrazyBaby”
-2. A landing page is implemented strictly according to the design in Figma
 3. Links in the header and menu should lead to the corresponding blocks of the landing page
 4. The speed of animations is the same throughout the landing page (for example, increasing when hovering or moving blocks when scrolling)
 5. Placeholders in the forms suggest what to enter, and if there is a validation of the form, then it is clear in what format to enter the phone number
