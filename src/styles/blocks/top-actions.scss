@@ -15,9 +15,11 @@
   &__logo {
     animation: moveInLeft 1s ease-out;
 
-    @include hover(transform, scale(1.1),
-    filter, brightness(0) saturate(100%) invert(33%) sepia(52%)
-    saturate(1803%) hue-rotate(149deg) brightness(86%) contrast(91%));
+    @include onDesktop {
+      @include hover(transform, scale(1.1),
+      filter, brightness(0) saturate(100%) invert(33%) sepia(52%)
+      saturate(1803%) hue-rotate(149deg) brightness(86%) contrast(91%));
+    }
   }
 
   &__nav {
@@ -53,19 +55,25 @@
     line-height: 17px;
     color: $c-icons-default;
 
-    @include hover(border-color, $c-text-dark);
+    @include onDesktop {
+      @include hover(border-color, $c-text-dark);
+    }
   }
 
   &__language-en {
     color: $c-text-dark;
 
-    @include hover(color, $c-main-hover);
+    @include onDesktop {
+      @include hover(color, $c-main-hover);
+    }
   }
 
   &__language-ua {
     color: $c-border-grey;
 
-    @include hover(color, $c-main-hover);
+    @include onDesktop {
+      @include hover(color, $c-main-hover);
+    }
   }
 
   &__burger-menu {

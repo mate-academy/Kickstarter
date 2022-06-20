@@ -14,7 +14,9 @@
     @include onTablet {
       display: initial;
       margin-bottom: 64px;
+    }
 
+    @include onDesktop {
       @include hover(transform, scale(1.1),
       filter, brightness(0) saturate(100%) invert(33%) sepia(52%)
       saturate(1803%) hue-rotate(149deg) brightness(86%) contrast(91%));
@@ -35,6 +37,9 @@
 
   &__icon {
     fill: $c-icons-default;
-    @include hover(fill, $c-main-hover, transform, scale(1.2));
+
+    @include onDesktop {
+      @include hover(fill, $c-main-hover, transform, scale(1.2));
+    }
   }
 }
