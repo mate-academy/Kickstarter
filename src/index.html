@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CrazyBaby</title>
+    <link 
+      rel="icon" 
+      type="image/x-icon" 
+      href="./images/svgs/favicon.svg"
+    >
     <link rel="stylesheet" href="./styles/main.scss">
     <script>
 
@@ -15,8 +20,13 @@
         }
       });
 
+      let mybutton;
 
       window.addEventListener('DOMContentLoaded', (event) => {
+
+      mybutton = document.getElementById("myBtn");
+      mybutton.addEventListener("click", function() {topFunction()});
+      window.onscroll = function() {scrollFunction()};
 
       let bLeft = document.getElementById('left'),
           bRight = document.getElementById('right');
@@ -65,6 +75,19 @@
         }
         x[slideIndexFeatures-1].style.display = "block"; 
         now.textContent = '0' + slideIndexFeatures; 
+      }
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
       }
     </script>
   </head>
@@ -192,7 +215,7 @@
     <main class="main">
       <div class="container">
         <section class="page__section perks slider">
-          <div class="container slider">
+          <div class="container slider slider-inner">
             <article class="perks__perk mySlides">
               <img 
               src="./images/icons/design.svg" 
@@ -315,7 +338,11 @@
       </div>
       <section class="page__section luna" id="luna">
         <div class="container">
-          <div class="luna__img"></div>
+          <img 
+            class="luna__image"
+            src="./images/desktop/luna.png" 
+            alt="luna picture"
+          >
           <div class="grid">
             <div class="grid__item grid__item--tablet-1-4 grid__item--desktop-1-6">
               <div class="luna__design"></div>
@@ -682,6 +709,10 @@
         </div>
       </div>
     </footer>
+
+    <button class="scrollToTop" id="myBtn">
+      &#8593;
+    </button>
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>
