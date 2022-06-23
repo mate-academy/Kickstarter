@@ -1,0 +1,119 @@
+.menu-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $c-background;
+  transform: translateX(100%);
+  opacity: 0;
+  overflow-y: auto;
+  transition: transform 0.3s, opacity 1s;
+
+  &:target {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 76px;
+    width: auto;
+    padding: 25px 30px;
+    margin-bottom: 72px;
+  }
+
+  &__img {
+    transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(1px 1px 10px $c-blue-2);
+    }
+
+    &:active {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+  }
+
+  &__cross {
+    display: block;
+    height: 16px;
+    width: 16px;
+    background-image: url(../images/svg/cross.svg);
+
+    transition: height 1s,
+      width 1s,
+      transform 1s,
+      animation 1s
+      opacity 0.3s;
+
+      &:hover {
+        animation: cross 2s linear infinite alternate;
+
+        @keyframes cross {
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      }
+
+      &:active {
+        transform: scale(0.8);
+        opacity: 0.1;
+      }
+  }
+
+  &__item {
+    margin-bottom: 42px;
+    padding: 0 20%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    line-height: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.7s, opacity 0.1s;
+    color: $c-gray;
+
+    &--mark {
+      font-weight: 700;
+    }
+
+    &:hover {
+      color: $c-blue-1;
+      transform: scale(1.1) translate(-30px, 0);
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -6px;
+        height: 1px;
+        width: 0;
+        background-color: $c-blue-1;
+        animation: border-bottom 0.7s 1 forwards;
+
+        @keyframes border-bottom {
+          100% {
+            width: 100%;
+          }
+        }
+      }
+
+      &:active {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+    }
+  }
+}
