@@ -1,0 +1,131 @@
+.header {
+
+  padding-top: 30px;
+  padding-bottom: 110px;
+
+  @include onTablet {
+    padding-bottom: 140px;
+  }
+
+  @include onTablet {
+    padding-bottom: 170px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px;
+
+    @include onTablet {
+      padding-bottom: 0;
+    }
+  }
+
+  &__logo {
+    width: 161px;
+    height: 26px;
+    object-fit: contain;
+  }
+
+  &__menu-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  &__menu-container {
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+
+    @include onTablet {
+      flex-direction: row;
+    }
+
+    &-image {
+      display: block;
+      position: absolute;
+      width: 320px;
+      height: 245px;
+      bottom: 340px;
+      right: -30px;
+      content: "";
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url(../images/1mobile.png);
+      z-index: -0;
+
+      @include onTablet {
+        right: 0;
+        bottom: 0;
+        width: 430px;
+        height: 317px;
+        background-image: url(../images/1tablet.png);
+      }
+
+      @include onDesktop {
+        width: 816px;
+        height: 464px;
+        background-image: url(../images/1desktop.png);
+      }
+    }
+
+    &-content {
+      z-index: 1;
+
+      padding-top: 285px;
+
+      @include onTablet {
+        padding-top: 129px;
+      }
+
+      @include onDesktop {
+        padding-top: 170px;
+      }
+
+      &-title {
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 52px;
+        text-transform: uppercase;
+        color: $c-dgrey;
+        margin-bottom: 20px;
+
+        @include onTablet {
+          margin-bottom: 30px;
+          width: 340px;
+          font-size: 48px;
+          line-height: 62px;
+        }
+
+        @include onDesktop {
+          width: 378px;
+          font-size: 62px;
+          line-height: 78px;
+        }
+      }
+
+      &-text {
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: $c-dgrey;
+
+        width: 250px;
+      }
+    }
+  }
+}
