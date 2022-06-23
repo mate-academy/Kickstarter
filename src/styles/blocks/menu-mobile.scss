@@ -3,11 +3,12 @@
   top: 0;
   left: 0;
   right: 0;
+  height: 100vh;
   background-color: $c-background;
   transform: translateX(100%);
   opacity: 0;
   overflow-y: auto;
-  transition: transform 0.3s, opacity 1s;
+  transition: transform 0.3s, opacity 0.5s;
 
   &:target {
     opacity: 1;
@@ -15,11 +16,11 @@
   }
 
   &__header {
+    @include center;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 76px;
-    width: auto;
     padding: 25px 30px;
     margin-bottom: 72px;
   }
@@ -50,20 +51,20 @@
       animation 1s
       opacity 0.3s;
 
-      &:hover {
-        animation: cross 2s linear infinite alternate;
+    &:hover {
+      animation: cross 2s linear infinite alternate;
 
-        @keyframes cross {
-          100% {
-            transform: rotate(360deg);
-          }
+      @keyframes cross {
+        100% {
+          transform: rotate(360deg);
         }
       }
+    }
 
-      &:active {
-        transform: scale(0.8);
-        opacity: 0.1;
-      }
+    &:active {
+      transform: scale(0.8);
+      opacity: 0.1;
+    }
   }
 
   &__item {
