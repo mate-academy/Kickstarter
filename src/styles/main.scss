@@ -9,6 +9,7 @@
 @import "./blocks/screen-image.scss";
 @import "./blocks/header.scss";
 @import "./blocks//info-item.scss";
+@import "./blocks/person-qoute.scss";
 @import "./blocks/button.scss";
 
 .icon {
@@ -66,7 +67,6 @@
   }
 
   &__link {
-    text-decoration: none;
     color: #4f4f4f;
 
     border-bottom: 1px solid transparent;
@@ -124,9 +124,130 @@
 }
 
 .technology {
-  &__image {
-    display: flex;
-    margin: 0 auto;
-    width: 846px;
+
+  // &__about {
+  // }
+
+  &__about-item {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
+
+  &__picture {
+    max-width: 846px;
+    margin: 0 auto;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__about-picture {
+    position: relative;
+    grid-row: 1/-1;
+
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__about-image {
+    width: 100%;
+
+    @include onTablet {
+      position: absolute;
+
+      &--left {
+        right: 10%;
+      }
+
+      &--right {
+        left: 10%;
+      }
+    }
+
+    @include onDesktop {
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #333;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__paragraph {
+    margin-bottom: 30px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #7c7c7c;
+
+    @include onTablet {
+      margin-bottom: 60px;
+
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+
+    width: max-content 100%;
+    color: #0db2b3;
+
+    &::after {
+      content: "";
+
+      margin-top: 5px;
+      display: block;
+
+      height: 1px;
+      width: 54px;
+
+      background-color: #0db2b3;
+
+      @include onDesktop {
+        width: 64px;
+      }
+    }
+  }
+}
+
+a {
+  text-decoration: none;
 }
