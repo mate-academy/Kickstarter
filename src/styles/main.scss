@@ -1,253 +1,89 @@
-@import "utils";
-@import "fonts";
-@import "typography";
-
 @import "./utils/reset.scss";
-@import "./blocks/page.scss";
+@import "./utils/normalize.scss";
+@import "./utils/vars";
+@import "./utils/mixins";
+@import "./utils/typography";
+
 @import "./blocks/container.scss";
 @import "./blocks/grid.scss";
 @import "./blocks/screen-image.scss";
-@import "./blocks/header.scss";
-@import "./blocks//info-item.scss";
-@import "./blocks/person-qoute.scss";
 @import "./blocks/button.scss";
+@import "./blocks/logo.scss";
+@import "./blocks/form-field.scss";
+@import "./blocks/icon.scss";
 
-.icon {
-  display: block;
-  // width: 100%;
+@import "./blocks/page.scss";
+@import "./blocks/header.scss";
+@import "./blocks/top-actions.scss";
+@import "./blocks/info-item.scss";
+@import "./blocks/about-us.scss";
+@import "./blocks/technology.scss";
+@import "./blocks/person-qoute.scss";
+@import "./blocks/questions.scss";
+@import "./blocks/footer.scss";
 
-  width: 24px;
-  height: 24px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  &--menu {
-    background-image: url(../images/menu_burger.svg);
-
-    @include onTablet {
-      display: none;
-    }
-  }
-}
-
-.top-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 25px 0;
-
-  // &__buttons {
-
-  // }
-
-  &__nav {
-    display: none;
-
-    @include onTablet {
-      display: flex;
-    }
-  }
-
-  &__list {
-    list-style: none;
-    display: flex;
-  }
-
-  &__item {
-    display: flex;
-    align-items: center;
-
-    margin-right: 46px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &__link {
-    color: #4f4f4f;
-
-    border-bottom: 1px solid transparent;
-
-    transition: border-color 0.3s;
-
-    &:hover {
-      border-color: #4f4f4f;
-    }
-
-    &--obsolete {
-      color: #828282;
-    }
-  }
-
-  &__button {
-    width: 102px;
-
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    color: #fff;
-  }
-}
-
-// .logo {
-//   &__image {
-
-//   }
-// }
-
-.about-us {
-  &__items {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  &__item {
-    margin-right: 0;
-
-    @include onTablet {
-      width: calc(50% - 20px);
-
-      margin-bottom: 64px;
-      margin-right: 20px;
-    }
-
-    @include onDesktop {
-      width: 25%;
-
-      margin-bottom: 0;
-      margin-right: 0;
-    }
-  }
-}
-
-.technology {
-
-  // &__about {
-  // }
-
-  &__about-item {
-    margin-bottom: 110px;
-
-    @include onTablet {
-      margin-bottom: 140px;
-    }
-
-    @include onDesktop {
-      margin-bottom: 170px;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  &__picture {
-    max-width: 846px;
-    margin: 0 auto;
-  }
-
-  &__image {
-    width: 100%;
-  }
-
-  &__about-picture {
+.features {
+  &__content {
     position: relative;
-    grid-row: 1/-1;
 
-    margin-bottom: 20px;
+    padding-top: 60px;
 
-    @include onTablet {
-      margin-bottom: 0;
-    }
-  }
-
-  &__about-image {
-    width: 100%;
-
-    @include onTablet {
-      position: absolute;
-
-      &--left {
-        right: 10%;
-      }
-
-      &--right {
-        left: 10%;
-      }
-    }
-
-    @include onDesktop {
-      left: 0;
-      right: 0;
-    }
+    background-color: #d6ecec;
   }
 
   &__title {
     margin-bottom: 30px;
-
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 40px;
-    text-transform: uppercase;
-    color: #333;
-
-    @include onTablet {
-      font-size: 36px;
-      line-height: 46px;
-    }
-
-    @include onDesktop {
-      font-size: 56px;
-      line-height: 70px;
-    }
   }
 
-  &__paragraph {
+  &__block {
+    margin-bottom: 56px;
+  }
+
+  &__subTitle {
     margin-bottom: 30px;
+
+    color: #0c797A;
+  }
+
+  // &__list {
+  // }
+
+  &__item {
+    margin-bottom: 10px;
 
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
-    color: #7c7c7c;
+    color: #333333;
 
-    @include onTablet {
-      margin-bottom: 60px;
-
+    @include onDesktop {
       font-size: 16px;
       line-height: 24px;
     }
-  }
 
-  &__link {
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    text-transform: uppercase;
+    &:last-child {
+      margin-bottom: 0;
+    }
 
-    width: max-content 100%;
-    color: #0db2b3;
-
-    &::after {
+    &::before {
       content: "";
+      display: inline-block;
 
-      margin-top: 5px;
-      display: block;
+      transform: translateY(-75%);
 
-      height: 1px;
-      width: 54px;
+      margin-right: 12px;
 
-      background-color: #0db2b3;
+      width: 4px;
+      height: 4px;
 
-      @include onDesktop {
-        width: 64px;
-      }
+      background-color: #000;
+      border-radius: 50%;
     }
   }
-}
 
-a {
-  text-decoration: none;
+  &__image {
+    position: absolute;
+    right: 30px;
+    bottom: 0;
+  }
 }
