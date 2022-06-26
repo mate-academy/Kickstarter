@@ -1,4 +1,5 @@
 .benefits {
+
   @include tablet {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
@@ -12,8 +13,24 @@
     margin-bottom: 170px;
   }
 
+  &__logo {
+    height: 40px;
+    width: auto;
+    margin-bottom: 40px;
+    z-index: 2;
+    transition: margin-bottom 1s, transform 0.7s;
+
+    @include tablet {
+      margin-bottom: 50px;
+    }
+
+    @include desktop {
+      margin-bottom: 34px;
+    }
+  }
+  
   &__card {
-    margin: 0 40px 60px;
+    margin: 0 30px 60px;
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
@@ -25,8 +42,15 @@
     &:hover {
       transform: scale(1.1);
       .benefits__logo {
-        transform:rotateY(180deg);
-        filter: brightness(0) saturate(100%) invert(58%) sepia(97%) saturate(2697%) hue-rotate(141deg) brightness(94%) contrast(90%);
+        transform: rotateY(180deg);
+        filter: brightness(0)
+          saturate(100%)
+          invert(58%)
+          sepia(97%)
+          saturate(2697%)
+          hue-rotate(141deg)
+          brightness(94%)
+          contrast(90%);
       }
     }
 
@@ -49,22 +73,6 @@
       grid-column: span 3;
       max-width: 276px;
       height: 300px;
-    }
-  }
-
-  &__logo {
-    height: 40px;
-    width: auto;
-    margin-bottom: 40px;
-    z-index: 2;
-    transition: margin-bottom 1s, transform 0.7s;
-
-    @include tablet {
-      margin-bottom: 50px;
-    }
-
-    @include desktop {
-      margin-bottom: 34px;
     }
   }
 
