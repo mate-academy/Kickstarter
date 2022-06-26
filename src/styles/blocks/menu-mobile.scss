@@ -7,7 +7,7 @@
   background-color: $c-white;
   transform: translateX(100%);
   opacity: 0;
-  z-index: 4;
+  z-index: 10;
   transition: transform 0.4s, opacity 0.5s;
 
   &:target {
@@ -50,12 +50,12 @@
     height: 16px;
     width: 16px;
     background-image: url(../images/svg/cross.svg);
-
     transition: height 1s,
       width 1s,
       transform 1s,
       animation 1s
       opacity 0.3s;
+      z-index: 10;
 
     &:hover {
       animation: cross 2s linear infinite alternate;
@@ -84,13 +84,17 @@
   &__link {
     position: relative;
     display: inline-block;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 20px;
     font-weight: 400;
     text-transform: uppercase;
     text-decoration: none;
     transition: transform 0.7s, opacity 0.1s;
     color: $c-gray;
+
+    @include tablet {
+      font-size: 24px;
+    }
 
     &--mark {
       font-weight: 700;
