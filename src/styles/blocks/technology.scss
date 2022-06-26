@@ -26,6 +26,12 @@
 
   &__image {
     width: 100%;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__about-picture {
@@ -85,24 +91,24 @@
     font-size: 12px;
     line-height: 14px;
     text-transform: uppercase;
-
-    width: max-content 100%;
     color: #0db2b3;
 
     &::after {
+      transition: width 0.3s;
+
       content: "";
 
       margin-top: 5px;
       display: block;
 
       height: 1px;
-      width: 54px;
+      width: 10%;
 
       background-color: #0db2b3;
+    }
 
-      @include onDesktop {
-        width: 64px;
-      }
+    &:hover::after {
+      width: 20%;
     }
   }
 }
