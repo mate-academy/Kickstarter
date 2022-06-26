@@ -1,16 +1,16 @@
 .header {
-  padding-top: 25px;
+  padding-top: $headerTopPd;
+
+  @include onTablet {
+    padding-top: 30px;
+  }
 
   &__logo {
     display: block;
   }
 
   &__nav {
-    display: flex;
-    justify-content: space-between;
-    height: 48px;
-    align-items: center;
-    margin-bottom: 25px;
+    @include nav-action;
 
     @include onTablet {
       margin-bottom: 130px;
@@ -45,8 +45,8 @@
     width: 100%;
 
     @include onTablet {
-     display: block;
-     width: 100%;
+      display: block;
+      width: 100%;
       grid-column: 4 / 9;
     }
 
@@ -66,23 +66,12 @@
     }
   }
 
-  &__menu-opener {
-    background-image: url("../images/menu.svg");
-    display: block;
-    width: 48px;
-    height: 48px;
-
-    @include onTablet {
-      display: none;
-    }
-  }
-
   &__title {
     margin-bottom: 20px;
     font-weight: 700;
     font-size: 40px;
     line-height: 52px;
-    color: #333333;
+    color: $c-main-grey;
     text-transform: uppercase;
 
     @include onTablet {
@@ -99,7 +88,7 @@
   &__link {
     font-size: 14px;
     line-height: 18px;
-    color: #4F4F4F;
+    color: #4f4f4f;
     text-transform: uppercase;
   }
 
@@ -118,6 +107,10 @@
       display: flex;
       align-items: center;
       gap: 27px;
+    }
+
+    @include onDesktop {
+      gap: 47px;
     }
   }
 }
