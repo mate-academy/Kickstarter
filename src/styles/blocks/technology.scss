@@ -1,0 +1,156 @@
+.technology {
+
+  &__presentation {
+    margin-bottom: 160px;
+
+    @include onTablet {
+      margin-bottom: 197px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 204px;
+    }
+  }
+
+  &__card {
+    &:first-child {
+      margin-bottom: 110px;
+    }
+
+    @include onTablet {
+      &:first-child {
+        margin-bottom: 140px;
+      }
+      grid-template-rows: auto auto 1fr;
+      @include gridTablet;
+    }
+
+    @include onDesktop {
+      &:first-child {
+        margin-bottom: 170px;
+      }
+
+      @include gridDesktop;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    max-width: 582px;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 0;
+      grid-column: 1 / 5;
+      grid-row: 1 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+    }
+
+    &--r {
+      @include onTablet {
+        grid-column: 5 / 9;
+      }
+
+      @include onDesktop {
+        grid-column: 7 / 13;
+      }
+    }
+  }
+
+  &__title,
+  &__link,
+  &__description {
+    @include onTablet {
+      grid-column: 5 / 9;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 13;
+    }
+
+    &--l {
+      @include onTablet {
+        grid-column: 1 / 5;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 7;
+      }
+    }
+
+  }
+
+  &__description {
+    color: #7C7C7C;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__link {
+    width: max-content;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: #0DB2B3;
+    text-transform: uppercase;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      margin-top: 5px;
+      height: 2px;
+      width: 54px;
+      background-color:#0DB2B3;
+    }
+  }
+
+  &__testimonials {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+  }
+  &__feedback {
+    max-width: 700px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+
+  &__person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+  }
+
+  &__person-photo {
+    margin-bottom: 20px;
+  }
+
+  &__person-name {
+    font-weight: 700;
+    line-height: 22px;
+    margin-bottom: 5px;
+  }
+
+  &__person-post {
+    font-size: 14px;
+    line-height: 21px;
+    color: #7C7C7C;
+  }
+}
