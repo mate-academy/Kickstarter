@@ -1,12 +1,30 @@
 .page {
-  scroll-behavior: smooth;
-
   font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
 
   background-color: #f7f7f7;
 
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
   &__body {
     margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
   }
 
   &__section {
