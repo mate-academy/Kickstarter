@@ -1,6 +1,19 @@
 .benefits {
+  display: flex;
+  overflow-x: auto;
+  padding: 0 30px 10px;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
   @include tablet {
+    padding: 0 0 10px;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     column-gap: 20px;
@@ -30,17 +43,62 @@
   }
 
   &__card {
-    margin: 0 30px 60px;
+    min-width: 260px;
+    max-width: 100%;
+    margin: 0 0 60px;
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
     align-items: center;
-    padding: 0 5px;
+    padding: 20px 30px 0;
     cursor: pointer;
-    transition: transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s, animation 1s;
+    animation: cards 12s infinite alternate linear;
+
+    @keyframes cards {
+      8% {
+        transform: translateX(0);
+      }
+      16% {
+        transform: translateX(-100%);
+      }
+      24% {
+        transform: translateX(-100%);
+      }
+      32% {
+        transform: translateX(-200%);
+      }
+      40% {
+        transform: translateX(-200%);
+      }
+      48% {
+        transform: translateX(-300%);
+      }
+      56% {
+        transform: translateX(-300%);
+      }
+      64% {
+        transform: translateX(-200%);
+      }
+      72% {
+        transform: translateX(-200%);
+      }
+      80% {
+        transform: translateX(-100%);
+      }
+      88% {
+        transform: translateX(-100%);
+      }
+      96% {
+        transform: translateX(0);
+      }
+    }
 
     &:hover {
+      @include tablet {
       transform: scale(1.1);
+      }
+
       .benefits__logo {
         transform: rotateY(360deg);
         filter: brightness(0)
@@ -52,6 +110,13 @@
           brightness(94%)
           contrast(90%);
       }
+      .benefits__title{
+      transform: scale(1.1);
+
+      @include tablet {
+        transform: scale(1);
+      }
+      }
     }
 
     &:active {
@@ -60,6 +125,8 @@
     }
 
     @include tablet {
+      padding: 20px 0 0;
+      animation: none;
       margin: 0;
       width: auto;
       grid-column: span 4;
@@ -83,6 +150,7 @@
     text-align: center;
     color: $c-black;
     margin-bottom: 20px;
+    transition: transform 0.5s;
   }
 
   &__text {
@@ -93,3 +161,4 @@
     color: $c-gray-text;
   }
 }
+
