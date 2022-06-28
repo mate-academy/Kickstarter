@@ -1,6 +1,5 @@
 .footer {
 
-
   &__container {
     position: relative;
     display: flex;
@@ -10,12 +9,15 @@
     text-align: center;
   }
 
+  &__icon {
+    margin-bottom: 64px;
+  }
+
   &__logo {
     display: none;
 
     @include onTablet {
       display: block;
-      margin-bottom: 64px;
     }
   }
 
@@ -30,6 +32,15 @@
     }
   }
 
+  &__social {
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(2);
+      filter: brightness(0) saturate(100%) invert(33%) sepia(52%) saturate(1803%) hue-rotate(149deg) brightness(86%) contrast(91%);
+    }
+  }
+
   &__terms {
     font-size: 14px;
     line-height: 21px;
@@ -37,11 +48,23 @@
     margin-bottom: 30px;
   }
 
+
+
   &__top-arrow {
+    padding: 10px;
     display: none;
     position: absolute;
     top: 0;
     right: 50px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+      filter: brightness(0) saturate(100%) invert(33%) sepia(52%) saturate(1803%) hue-rotate(149deg) brightness(86%) contrast(91%);
+      border-color: $c-main-blue;
+    }
 
     @include onTablet {
       display: block;
