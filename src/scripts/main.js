@@ -1,5 +1,14 @@
 'use strict';
 
+const form = document.querySelector('form');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+  form.reset();
+
+  window.location.href = '#top';
+});
+
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
     document.body.classList.add('page__body--with-menu');
