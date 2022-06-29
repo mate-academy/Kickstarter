@@ -1,6 +1,8 @@
 .futures {
 
   &__main-block {
+  transition: margin-bottom 1s;
+
     @include tablet {
       margin-bottom: -40px;
     }
@@ -17,6 +19,10 @@
     font-weight: 700;
     line-height: 40px;
     color: $c-black;
+    transition: margin-bottom 1s,
+      padding 1s,
+      font-size 1s,
+      line-height 1s;
 
     @include tablet {
       padding: 0;
@@ -30,19 +36,20 @@
   }
 
   &__container {
-    padding-top: 30px;
     height: auto;
     min-width: 320px;
     background-color: $c-blue-back;
-
-    @include tablet {
-      padding-top: 60px;
-    }
+    animation: features 2s infinite;
   }
 
   &__card-block {
+    padding: 30px 0 51px;
     display: flex;
-    transition: transform 0.5s;
+    transition: padding 1s, grid 1s, gap 1s, transform 0.5s;
+
+    @include tablet {
+      padding: 60px 0 51px;
+    }
 
     @include desktop {
       display: grid;
@@ -53,12 +60,29 @@
 
   &__wrapper {
     overflow: hidden;
-    margin-bottom: 51px;
   }
 
   &__card {
     flex-shrink: 0;
     width: 100%;
+    cursor: pointer;
+    transition: transform 0.5s, opacity 0.5s;
+
+    &:hover {
+      transform: scale(1.1) translateX(30px);
+
+      @include tablet {
+        transform: scale(1.1) translateX(60px);
+      }
+
+      @include tablet {
+        transform: scale(1.1) translateX(10px);
+      }
+    }
+    &:active {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
   }
 
   &__card-title {
@@ -68,6 +92,11 @@
     font-weight: 700;
     line-height: 22px;
     color: $c-blue-text;
+    animation: features-move 1s infinite;
+    transition: padding-left 1s,
+      margin-bottom 1s,
+      font-size 1s,
+      line-height 1s;
 
     @include tablet {
       padding-left: 90px;
@@ -83,6 +112,7 @@
 
   &__card-list {
     padding-left: 48px;
+    transition: padding-left 1s;
 
     @include tablet {
       padding-left: 106px;
@@ -99,9 +129,10 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
+    transition: padding-right 1s, font-size 1s, line-height 1s;
 
     @include tablet {
-      padding-right: 0px;
+      padding-right: 0;
     }
 
     @include desktop {
@@ -119,6 +150,7 @@
     height: 174px;
     width: 320px;
     overflow: hidden;
+    transition: height 1s, width 1s;
 
     @include tablet {
       min-height: 226px;
@@ -135,6 +167,7 @@
     object-fit: cover;
     object-position: 0 0;
     height: 100%;
+    animation: features-move 1s infinite;
   }
 }
 
@@ -158,5 +191,24 @@
   @include desktop {
     grid-column: 6 / 12;
     grid-row: 1 / 2;
+  }
+}
+
+@keyframes features {
+
+  40% {
+    filter: hue-rotate(104deg);
+  }
+  60% {
+    filter: hue-rotate(0deg);
+  }
+  80% {
+    filter: hue-rotate(200deg);
+  }
+}
+
+@keyframes features-move {
+  80% {
+    transform: scale(1.01);
   }
 }

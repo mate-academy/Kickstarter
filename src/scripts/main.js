@@ -27,7 +27,7 @@ function newSlider(slider) {
       currentPosition = targetPosition;
     }
 
-        counter.textContent = currentPosition + 1;
+    counter.textContent = currentPosition + 1;
 
     list.style.transform = `translateX(${-currentPosition * 100}%)`;
   }
