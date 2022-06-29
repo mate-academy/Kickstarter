@@ -15,3 +15,32 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('page__body--with-menu');
   }
 });
+
+const btnPrev = document.querySelector('.slider__button-prev');
+const btnNext = document.querySelector('.slider__button-next');
+const list = document.querySelector('.features__list-slider');
+const counter = document.querySelector('.slider__pagination-current');
+
+let currentPosition = 0;
+
+function moveTo(targetPosition) {
+  if (targetPosition < 0) {
+    currentPosition = 2;
+  } else if (targetPosition > 2) {
+    currentPosition = 0;
+  } else {
+    currentPosition = targetPosition;
+  }
+
+  counter.textContent = currentPosition + 1;
+
+  list.style.transform = `translateX(${-currentPosition * 100}%)`;
+}
+
+btnNext.addEventListener('click', () => {
+  moveTo(currentPosition + 1);
+});
+
+btnPrev.addEventListener('click', () => {
+  moveTo(currentPosition - 1);
+});
