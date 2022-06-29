@@ -1,0 +1,60 @@
+.technology {
+  @include onNotebook {
+    height: 383px;
+  }
+
+  @include onTablet {
+    height: 415px;
+  }
+
+  &__image {
+    position: absolute;
+    width: 582px;
+    height: 401px;
+    top: 0;
+    object-fit: cover;
+
+    @include onTablet {
+      margin-right: -$padding-tablet;
+      top: 0;
+      width: 374px;
+      height: 415px;
+
+      object-position: 60%;
+    }
+
+    @include onMobile {
+      margin-bottom: 20px;
+      object-position: 60%;
+      position: static;
+      width: 259px;
+      height: 210px;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    color: $c_dark-charcoal;
+  }
+
+  &__description {
+    margin-bottom: 60px;
+    @extend %main-text;
+    color: $c_gray;
+
+    @include onMobile {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__more-link {
+    color: $c_tiffany-blue;
+    text-decoration: none;
+    @extend %button;
+
+    &_border {
+      border-bottom: 1px solid $c_tiffany-blue;
+    }
+  }
+}
