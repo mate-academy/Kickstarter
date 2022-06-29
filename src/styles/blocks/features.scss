@@ -1,5 +1,15 @@
 .futures {
 
+  &__main-block {
+    @include tablet {
+      margin-bottom: -40px;
+    }
+
+    @include desktop {
+      margin-bottom: -420px;
+    }
+  }
+
   &__title {
     padding: 0 30px;
     margin-bottom: 32px;
@@ -20,30 +30,35 @@
   }
 
   &__container {
-    padding: 30px 28px 51px 0;
-    height: 575px;
+    padding-top: 30px;
+    height: auto;
     min-width: 320px;
     background-color: $c-blue-back;
 
     @include tablet {
-      padding: 60px 0 51px;
-      height: 555px;
-    }
-
-    @include desktop {
-      padding: 60px 0 56px;
-      height: 642px;
+      padding-top: 60px;
     }
   }
 
   &__card-block {
     display: flex;
+    transition: transform 0.5s;
 
+    @include desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+    }
+  }
+
+  &__wrapper {
+    overflow: hidden;
+    margin-bottom: 51px;
   }
 
   &__card {
-    display: flex;
-    flex-direction: column;
+    flex-shrink: 0;
+    width: 100%;
   }
 
   &__card-title {
@@ -79,11 +94,15 @@
   }
 
   &__card-li {
-
+    padding-right: 28px;
     margin-bottom: 10px;
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
+
+    @include tablet {
+      padding-right: 0px;
+    }
 
     @include desktop {
       font-size: 16px;
@@ -96,15 +115,48 @@
   }
 
   &__wrap {
-    margin: 0 auto;
+    margin-left: auto;
     height: 174px;
     width: 320px;
     overflow: hidden;
+
+    @include tablet {
+      min-height: 226px;
+      min-width: 436px;
+    }
+
+    @include desktop {
+      height: 302px;
+      width: 582px;
+    }
   }
 
   &__img {
     object-fit: cover;
     object-position: 0 0;
     height: 100%;
+  }
+}
+
+.card-1 {
+  @include desktop {
+    grid-column: 1 / 6;
+    margin-bottom: 159px;
+  }
+}
+
+.card-2 {
+  @include desktop {
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+    margin-bottom: 56px;
+
+  }
+}
+
+.card-3 {
+  @include desktop {
+    grid-column: 6 / 12;
+    grid-row: 1 / 2;
   }
 }
