@@ -7,3 +7,44 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('page__body--with-menu');
   }
 });
+
+// Slide
+const parentElement = document.querySelector('.slider__parent-elements');
+const nextButton = document.querySelector('.slider__arrow--right');
+const prevButton = document.querySelector('.slider__arrow--left');
+const currentCounter = document.querySelector('.slider__text-current');
+const allBlocksCounter = document.querySelector('.slider__text-all');
+
+allBlocksCounter.textContent = parentElement.childElementCount;
+
+function setCurrentText() {
+  currentCounter.textContent
+    = [...parentElement.children]
+      .indexOf(parentElement.querySelector('.slider--current-block')) + 1;
+}
+
+function AddRemoveClass(currentSlide, targetSlide) {
+  currentSlide.classList.remove('slider--current-block');
+  targetSlide.classList.add('slider--current-block');
+
+  setCurrentText();
+}
+
+nextButton.addEventListener('click', e => {
+  const currentSlide = parentElement.querySelector('.slider--current-block');
+
+  const nextSlide = currentSlide.nextElementSibling === null
+    ? parentElement.firstElementChild
+    : currentSlide.nextElementSibling;
+
+  AddRemoveClass(currentSlide, nextSlide);
+});
+
+prevButton.addEventListener('click', e => {
+  const currentSlide = parentElement.querySelector('.slider--current-block');
+  const nextSlide = currentSlide.previousElementSibling === null
+    ? parentElement.lastElementChild
+    : currentSlide.previousElementSibling;
+
+  AddRemoveClass(currentSlide, nextSlide);
+});
