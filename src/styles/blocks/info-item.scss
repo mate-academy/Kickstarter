@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   width: 100%;
   padding: 10px;
 
@@ -11,10 +12,10 @@
 
   cursor: pointer;
 
-  transition: transform 0.3s,
-    outline-width 0.3s,
-    background-color 0.3s,
-    border-radius 0.3s;
+  transition: transform $transitionTime,
+    outline-width $transitionTime,
+    background-color $transitionTime,
+    border-radius $transitionTime;
 
   &__title {
     min-height: 56px;
@@ -24,7 +25,7 @@
     font-size: 22px;
     line-height: 28px;
     text-transform: uppercase;
-    color: #333;
+    color: $c-3;
 
     @include onDesktop {
       margin-bottom: 24px;
@@ -35,7 +36,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
-    color: #7c7c7c;
+    color: $c-5;
   }
 
   &:hover {
@@ -46,11 +47,11 @@
     border-radius: 20px;
 
     .info-item__title {
-      color: #0c797a;
+      color: $c-9;
     }
 
     .info-item__paragraph {
-      color: #333;
+      color: $c-3;
     }
   }
 
@@ -65,6 +66,11 @@
       margin-bottom: 34px;
     }
 
+    transition: transform $transitionTime;
+
+    &:hover {
+      transform: rotateZ(180deg);
+    }
   }
 
   &--tablet-display {
