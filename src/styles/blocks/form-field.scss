@@ -1,0 +1,50 @@
+.form {
+  &-field {
+    display: block;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      padding: 12px 30px;
+    }
+
+    @include onNotebook {
+      padding: 12px 36px;
+    }
+
+    width: 100%;
+    height: 48px;
+
+    background-color: $c_cultured;
+    border: 1px solid $border-color;
+
+    &::placeholder {
+      color: $c_lighter-gray;
+      @extend %main-text;
+    }
+
+    &:focus {
+      border-color: $article-title;
+      outline: none;
+
+      color: $c_dark-charcoal;
+    }
+
+    &--text-area {
+      height: 128px;
+      resize: none;
+
+      font-family: inherit;
+
+      @include onTablet {
+        height: 201px;
+      }
+
+      @include onNotebook {
+        padding: 16px 36px;
+      }
+
+      margin-bottom: 30px;
+    }
+  }
+}
