@@ -13,6 +13,7 @@
     text-align: center;
     text-transform: uppercase;
     color: $colorBlack;
+    transition: color 0.3s;
   }
 
   &__text {
@@ -24,11 +25,22 @@
   }
 
   &__card {
+    transition: transform 0.3s;
+    cursor: pointer;
+
     &--tablet {
       display: none;
 
       @include onTablet {
         display: block;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.2);
+
+      .benefits__title {
+        color: $colorGreen;
       }
     }
   }
