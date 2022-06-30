@@ -19,9 +19,10 @@
     line-height: 40px;
     color: $c-black;
     text-transform: uppercase;
+    animation: colo 3s 1s linear infinite;
 
     @include tablet {
-            display: flex;
+      display: flex;
       flex-wrap: wrap;
       gap: 10px;
       font-size: 36px;
@@ -36,6 +37,7 @@
 
   &__title-container {
     margin-bottom: 27px;
+    animation: photo 1s infinite;
 
     @include tablet {
       grid-column: 1 / 5;
@@ -74,6 +76,9 @@
     }
   }
 
+  &__button {
+  }
+
   &__button-link {
     height: 40px;
     width: 102px;
@@ -84,10 +89,26 @@
     background-color: $c-blue-1;
     border-color: transparent;
     color: $c-white;
+    cursor: pointer;
+    transition: height 1s,
+      width 1s,
+      transform 0.5s,
+      background-color 0.5s;
 
     @include desktop {
       height: 48px;
       width: 124px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: $c-blue-text;
+      filter: drop-shadow(-8px 8px 8px $c-black);
+    }
+
+    &:active {
+      background-color: $c-blue-2;
+      transform: scale(0.8);
     }
   }
 }
