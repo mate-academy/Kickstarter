@@ -11,25 +11,41 @@ form.addEventListener('submit', function(event) {
   }
 });
 
-// new Swiper ('.option-slider', {
-//   // navigation: {
-//   //   nextEl: '.swiper-button-next',
-//   //   prevEl: '.swiper-butoon-prev'
-//   // },
+function newSlider(slider) {
+  const btnPrev = slider.querySelector('.button--prev');
+  const btnNext = slider.querySelector('.button--next');
+  const list = slider.querySelector('.list');
+  const counter = slider.querySelector('.counter');
 
-//   pagination: {
-//     el: '.swiper-pagination',
+  const slideCount = list.childElementCount;
 
-//     type: 'fraction',
-//   },
+  let currentPosition = 0;
 
-//   loop: true,
+  function moveTo(targetPosition) {
+    if (targetPosition < 0) {
+      currentPosition = slideCount - 1;
+    } else if (targetPosition > slideCount - 1) {
+      currentPosition = 0;
+    } else {
+      currentPosition = targetPosition;
+    }
 
-//   autoplay: {
-//     delay: 2000,
+    counter.textContent = currentPosition + 1;
 
-//     stopOnLastSide: true,
+    list.style.transform = `translateX(${-currentPosition * 100}%)`;
+  }
 
-//     disableOnInteraction: false
-//   }
-// });
+  btnNext.addEventListener('click', () => {
+    moveTo(currentPosition + 1);
+  });
+
+  btnPrev.addEventListener('click', () => {
+    moveTo(currentPosition - 1);
+  });
+
+  moveTo(0);
+}
+
+const slider1 = document.getElementById('slider1');
+
+newSlider(slider1, true);
