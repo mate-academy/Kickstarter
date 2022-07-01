@@ -1,4 +1,13 @@
 .benefits {
+  &__wrapper {
+    overflow: hidden;
+    margin-bottom: 35px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
   &__image {
     display: block;
     height: 40px;
@@ -25,8 +34,18 @@
   }
 
   &__card {
+    width: 100%;
+    flex-shrink: 0;
     transition: transform 0.3s;
     cursor: pointer;
+
+    &--hidden {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+    }
 
     &--tablet {
       display: none;
