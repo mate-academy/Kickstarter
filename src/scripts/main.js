@@ -44,5 +44,7 @@ function newSlider(slider) {
 }
 
 const slider1 = document.getElementById('slider1');
+const slider2 = document.getElementById('slider2');
 
 newSlider(slider1, true);
+newSlider(slider2, true);
