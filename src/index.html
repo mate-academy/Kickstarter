@@ -529,7 +529,12 @@
                 <input
                   name="email"
                   type="email"
-                  class="questions__field form-field"
+                  id="one"
+                  class="
+                    questions__field
+                    form-field
+                    form-field__input
+                  "
                   placeholder="Your email"
                   required
                 >
@@ -538,15 +543,38 @@
                   name="message"
                   placeholder="Your message..."
                   required
+                  id="two"
                   class="
                     questions__field
                     form-field
                     form-field--text-area"
                ></textarea>
 
-                <button class="button" type="submit">
+                <button
+                  class="questions__button"
+                  type="submit"
+                  disabled
+                >
                   Send
                 </button>
+
+                <script>
+                  const input1 = document.querySelector("#one");
+                  const input2 = document.querySelector("#two");
+                  const btn = document.querySelector("button");
+
+                  input1.addEventListener("input", validate);
+                  input2.addEventListener("input", validate);
+
+                  function validate(){
+
+                    if(input1.value === "" || input2.value === ""){
+                      btn.setAttribute("disabled","disabled");
+                    } else {
+                      btn.removeAttribute("disabled");
+                    }
+                  }
+                </script>
               </form>
             </div>
           </div>
