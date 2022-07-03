@@ -49,3 +49,22 @@ function newSlider(slider) {
 const slider1 = document.getElementById('slider1');
 
 newSlider(slider1, true);
+
+// function backToTop() {
+//   let button1 = $('.back-to-top');
+
+//   $(window).on('scrollTop', () => {
+//     if ($(this).scrollTop() >= 50) {
+//       button1.fadeIn();
+//     } else {
+//       button1.fadeOut();
+//     }
+//   });
+
+//   button1.on('click', (e) => {
+//     e.preventDefault();
+//     $('html').animate({scrollTop: 0}, 1000);
+//   })
+// }
+
+// backToTop();

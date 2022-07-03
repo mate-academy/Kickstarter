@@ -6,13 +6,13 @@
   &__cards {
     width: 100%;
     display: flex;
-    margin-bottom: 50px;
+    transition: 0.3s;
 
     @media (min-width: 1280px) {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: repeat(2, 1fr);
-      column-gap: 26px;
+      column-gap: 30px;
       row-gap: 50px;
     }
   }
@@ -20,16 +20,26 @@
   &__card {
     flex-shrink: 0;
     width: 100%;
+    transition: 0.3s;
+
+    @media (min-width: 1280px) {
+
+      &:hover {
+        transform: scale(97%);
+      }
+    }
   }
 
   &__card--1 {
     grid-column: 2 / 6;
+    grid-row: 1/2;
   }
   &__card--2 {
     grid-column: 7 / 12;
+    grid-row: 1/2;
   }
   &__card--3 {
-    grid-column: 2 / 6;
+    grid-column: 2/6;
   }
 
   &__container {
@@ -39,7 +49,11 @@
     width: 100%;
 
     @media (min-width: 768px) {
-      padding: 60px 363px 220px 90px;
+      padding: 60px 0 220px 90px;
+    }
+
+    @media (min-width: 1280px) {
+      padding: 60px 0 0;
     }
   }
 
@@ -96,5 +110,11 @@
       position: absolute;
       width: 60%;
     }
+
+    @media (min-width: 1280px) {
+
+      width: 50%;
+    }
   }
+
 }
