@@ -3,12 +3,14 @@
   align-items: center;
   justify-content: space-between;
 
+  @include onMobile {
+    height: 76px;
+    margin-top: -25px;
+  }
+
   &__logo {
     width: 161px;
-
-    @include onMobile {
-      margin-bottom: 25px;
-    }
+    display: block;
   }
 
   &__properties {
@@ -61,5 +63,30 @@
     &:active {
       background-color: $c_american-silver;
     }
+  }
+
+  &__menu-opener {
+    @include onMobile {
+      display: flex;
+    }
+
+    @include onBigScreen {
+      display: none;
+    }
+
+    width: 24px;
+    height: 14px;
+    padding: 6px 0;
+
+    background-image: url("../images/svg/hamburger.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 1px solid transparent;
+  }
+
+  &__cross {
+    display: block;
   }
 }

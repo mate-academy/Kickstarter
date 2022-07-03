@@ -4,7 +4,7 @@
   background-color: $c_cultured;
   color: $c_dark-charcoal;
 
-  &__menu {
+  &__nav {
     @include onNotebook {
       margin-bottom: 62px;
     }
@@ -19,6 +19,51 @@
 
     @include onNotebook {
       margin-bottom: 171px;
+    }
+  }
+
+  &__up-btn {
+    @include onMobile {
+      display: none;
+    }
+
+    position: sticky;
+    bottom: 95px;
+    left: 91%;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s;
+
+    &.active {
+      bottom: 185px;
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
+
+  &__body--with-menu {
+    overflow: hidden;
+  }
+
+  &__menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.4s;
+
+    &:target {
+      transform: translateX(0);
     }
   }
 }
