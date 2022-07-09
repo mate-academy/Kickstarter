@@ -2,7 +2,7 @@
 
 const input1 = document.querySelector('#one');
 const input2 = document.querySelector('#two');
-const btn = document.querySelector('button');
+const btn = document.querySelector('#button');
 
 input1.addEventListener('input', validate);
 input2.addEventListener('input', validate);
@@ -31,14 +31,6 @@ window.addEventListener('hashchange', () => {
   } else {
     document.body.classList.remove('page__body--with-menu');
   }
-});
-
-const form = document.querySelector('.form');
-
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  form.reset();
 });
 
 const slider = document.querySelector('.slider__content');
