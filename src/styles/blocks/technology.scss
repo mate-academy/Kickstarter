@@ -1,6 +1,6 @@
 .technology {
   @include onNotebook {
-    height: 383px;
+    height: 401px;
   }
 
   @include onTablet {
@@ -42,7 +42,7 @@
       font-size: 36px;
       line-height: 46px;
     }
-    
+
     color: $c_dark-charcoal;
   }
 
@@ -59,11 +59,23 @@
   &__more-link {
     color: $c_tiffany-blue;
     text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
     @extend %button;
 
-    &_border {
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1px;
+      width: 50%;
       border-bottom: 1px solid $c_tiffany-blue;
-      padding-bottom: 5px;
+      transition: all 0.4s;
+    }
+
+    &:hover::before {
+      width: 100%;
     }
   }
 }

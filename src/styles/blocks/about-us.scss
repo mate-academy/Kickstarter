@@ -54,10 +54,23 @@
     color: $c_tiffany-blue;
     text-decoration: none;
     @extend %button;
+    padding-bottom: 5px;
+    position: relative;
+    transition: all 0.4s;
 
-    &_border {
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1px;
+      width: 50%;
       border-bottom: 1px solid $c_tiffany-blue;
-      padding-bottom: 5px;
+      transition: all 0.4s;
+    }
+
+    &:hover::before {
+      width: 100%;
     }
   }
 }
