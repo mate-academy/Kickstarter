@@ -1,0 +1,122 @@
+.about-us {
+  padding: 0 30px;
+
+  @include tablet {
+    padding-left: 0;
+    padding-right: 34px;
+  }
+
+  @include desktop {
+    padding: 0 124px;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3);
+      grid-column-gap: 20px;
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3);
+      grid-column-gap: 30px;
+    }
+  }
+
+  &__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+
+    text-transform: uppercase;
+    padding-bottom: 30px;
+
+    @include tablet {
+      font-size: 36px;
+      line-height: 46px;
+      grid-column-start: 2;
+      grid-column-end: -1;
+      grid-row-start: 1;
+      grid-row-end: 2;
+    }
+
+    @include desktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__paragraph {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: $colorLightGray;
+    padding-bottom: 30px;
+
+    @include tablet {
+      font-size: 16px;
+      line-height: 24px;
+      padding-bottom: 60px;
+      grid-column-start: 2;
+      grid-column-end: -1;
+    }
+  }
+
+  &__picture {
+    width: 259px;
+    height: 210px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+
+    @include tablet {
+      width: 374px;
+      height: 415px;
+      padding-bottom: 0;
+      grid-column-start: 1;
+      grid-column-end: -2;
+      grid-row-start: 1;
+      grid-row-end: 4;
+    }
+
+    @include desktop {
+      width: 582px;
+      height: 388px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__more {
+    position: relative;
+    padding-bottom: 5px;
+    height: 20px;
+  }
+
+  &__link {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $colorCyan;
+
+    &::after {
+      content: "";
+      background-color: $colorCyan;
+      position: absolute;
+      bottom: 0;
+      width: 53px;
+      height: 1px;
+      left: 0;
+    }
+  }
+}

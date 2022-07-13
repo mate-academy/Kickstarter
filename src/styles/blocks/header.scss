@@ -1,0 +1,119 @@
+.header {
+  font-family: "Inter", sans-serif;
+
+  &__content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding-bottom: 110px;
+
+    @include tablet {
+      padding-bottom: 140px;
+      flex-direction: row;
+      align-items: flex-end;
+      overflow: hidden;
+      }
+
+
+    @include desktop {
+      padding-bottom: 200px;
+      padding-left: 124px;
+      padding-right: 124px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+
+    @include tablet {
+      gap: 28px;
+      align-items: center;
+    }
+
+    @include desktop {
+      gap: 48px;
+    }
+  }
+
+  &__picture {
+    text-align: center;
+    width: 100%;
+
+
+    &--desktop {
+      display: none;
+
+      @include desktop {
+        display: inline;
+        position: relative;
+        left: -20px;
+        z-index: -1;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include tablet {
+        display: inline;
+      }
+
+      @include desktop {
+        display: none;
+      }
+    }
+
+    &--mobile {
+      height: 245px;
+      min-width: 320px;
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    padding: 40px 30px 0;
+    width: min-content;
+
+    text-transform: uppercase;
+    color: $colorDarkGray;
+
+    @include desktop {
+      padding: 0;
+    }
+  }
+
+  &__paragraph {
+    padding: 20px 30px 0;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $colorDarkGray;
+
+    @include desktop {
+      padding: 20px 0 0;
+      max-width: 280px;
+      margin-top: 27px;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include desktop {
+      display: inline;
+    }
+  }
+
+  &__content {
+    @include tablet {
+      display: flex;
+    }
+  }
+}
