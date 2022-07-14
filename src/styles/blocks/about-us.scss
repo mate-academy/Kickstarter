@@ -8,34 +8,63 @@
     padding-bottom: 5px;
   }
 
-  &__image {
-    position: absolute;
-    width: 582px;
-    height: 383px;
-    top: 0;
+  &__image-wrapper {
+    position: relative;
+    left: 0;
 
     @include onTablet {
-      margin-left: -$padding-tablet;
-      top: 0;
+      top: -122px;
       width: 374px;
       height: 415px;
+    }
 
-      object-fit: cover;
-      object-position: 40%;
+    @include onNotebook {
+      width: 583px;
+      height: 383px;
+      top: -170px;
     }
 
     @include onMobile {
-      margin-bottom: 20px;
-      position: static;
       width: 259px;
       height: 210px;
-      object-fit: cover;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    animation: picturesLeft 15s linear infinite alternate-reverse;
+
+    @include onTablet {
+      margin-left: -$padding-tablet;
+    }
+
+    @include onMobile {
+      position: static;
+      animation-duration: 10s;
+    }
+
+    transition: all 0.4s;
+
+    &:hover {
+      box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.4);
+      transform: scale(1.05);
     }
   }
 
   &__title {
     margin-bottom: 30px;
     color: $c_dark-charcoal;
+
+    transition: all 0.4s;
+
+    &:hover {
+      transform: scale(1.05);
+      color: $c_chinese-black;
+    }
   }
 
   &__description {
@@ -47,6 +76,13 @@
       margin-bottom: 30px;
       font-size: 14px;
       line-height: 21px;
+    }
+
+    transition: all 0.4s;
+
+    &:hover {
+      transform: scale(1.05);
+      color: $c_chinese-black;
     }
   }
 

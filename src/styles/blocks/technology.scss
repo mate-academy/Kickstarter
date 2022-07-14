@@ -8,6 +8,10 @@
     padding-bottom: 5px;
   }
 
+  &__image-wrapper {
+    position: relative;
+  }
+
   &__image {
     position: absolute;
     width: 582px;
@@ -15,22 +19,29 @@
     top: 0;
     object-fit: cover;
 
+    animation: picturesRight 15s linear infinite alternate-reverse;
+
     @include onTablet {
       margin-right: -$padding-tablet;
       top: 0;
       width: 374px;
       height: 415px;
-
-      object-position: 60%;
     }
 
     @include onMobile {
       margin-bottom: 20px;
-      object-position: 60%;
       position: static;
       width: 259px;
       height: 210px;
       object-fit: cover;
+      animation-duration: 10s;
+    }
+
+    transition: all 0.4s;
+
+    &:hover {
+      box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.4);
+      transform: scale(1.05);
     }
   }
 
@@ -44,6 +55,13 @@
     }
 
     color: $c_dark-charcoal;
+
+    transition: all 0.4s;
+
+    &:hover {
+      transform: scale(1.05);
+      color: $c_chinese-black;
+    }
   }
 
   &__description {
@@ -53,6 +71,13 @@
 
     @include onMobile {
       margin-bottom: 30px;
+    }
+
+    transition: all 0.4s;
+
+    &:hover {
+      transform: scale(1.05);
+      color: $c_chinese-black;
     }
   }
 

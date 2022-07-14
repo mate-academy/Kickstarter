@@ -68,3 +68,11 @@ function render() {
 function pageCounter() {
   document.getElementById('slider__page').innerHTML = `0${curentIndex + 1}`;
 }
+
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  form.reset();
+});
