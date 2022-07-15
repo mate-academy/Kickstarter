@@ -1,10 +1,16 @@
 .benefits {
   &__card {
     display: none;
+    cursor: pointer;
 
     @include onBigScreen {
       display: block;
     }
+
+    &:hover > &-icon-wrapper > &-icon {
+      -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+      animation: heartbeat 1.5s ease-in-out infinite both;
+    } /* stylelint-disable no-descending-specificity */
 
     &-item {
       @include onTablet {
