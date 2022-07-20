@@ -1,0 +1,170 @@
+.control {
+  &__label {
+    display: none;
+  }
+}
+
+.slider {
+  position: relative;
+
+  &__slide {
+    position: relative;
+    z-index: 5;
+
+    &--1 {
+      @include onDesktop {
+        order: 3;
+      }
+    }
+
+    &--2 {
+      @include onDesktop {
+        order: 1;
+      }
+    }
+
+    &--3 {
+      @include onDesktop {
+        order: 1;
+      }
+    }
+  }
+
+  &__radio {
+    display: none;
+  }
+
+  &__arrow-l {
+    position: absolute;
+    right: calc(50% + 2px);
+    bottom: 220px;
+    z-index: 6;
+    cursor: pointer;
+
+    &::after {
+      content: "01";
+
+      margin-top: 8px;
+      display: block;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: right;
+      color: $colorDark;
+    }
+
+    @include onTablet {
+      right: 562px;
+      bottom: 120px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__arrow-r {
+    position: absolute;
+    right: 50%;
+    bottom: 220px;
+    z-index: 6;
+    cursor: pointer;
+
+    transform: translateX(100%);
+
+    &::after {
+      content: "/ 02";
+
+      display: block;
+      margin-top: 20px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 11px;
+      line-height: 13px;
+      color: #bdbdbd;
+    }
+
+    @include onTablet {
+      right: 514px;
+      bottom: 120px;
+
+      transform: translateX(0);
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  svg {
+    fill: $colorDark;
+
+    @include hover(fill, #0c797a);
+  }
+
+  &--r1:checked ~ .control__next .control__numb2,
+  &--r2:checked ~ .control__next .control__numb3,
+  &--r3:checked ~ .control__next .control__numb3,
+  &--r2:checked ~ .control__previous .control__numb1,
+  &--r3:checked ~ .control__previous .control__numb2,
+  &--r1:checked ~ .control__previous .control__numb1 {
+    display: block;
+  }
+
+  &--r2:checked ~ .control__previous .slider__arrow-l::after {
+    content: "02";
+  }
+
+  &--r3:checked ~ .control__previous .slider__arrow-l::after {
+    content: "03";
+  }
+
+  &--r2:checked ~ .control__next .slider__arrow-r::after {
+    content: "/ 03";
+  }
+
+  &--r3:checked ~ .control__next .slider__arrow-r::after {
+    content: "/ 03";
+  }
+
+  &--r1:checked ~ .control__previous svg,
+  &--r3:checked ~ .control__next svg {
+    fill: #bdbdbd;
+  }
+
+  &--r1:checked ~ .slider__slides .slider__slide {
+    transform: translateX(9px);
+
+    @include onDesktop {
+      transform: translateX(0);
+    }
+  }
+
+  &--r2:checked ~ .slider__slides .slider__slide {
+    transform: translateX(calc(-100% - 9px));
+
+    @include onDesktop {
+      transform: translateX(0);
+    }
+  }
+
+  &--r3:checked ~ .slider__slides .slider__slide {
+    transform: translateX(calc(-200% - 20px));
+
+    @include onDesktop {
+      transform: translateX(0);
+    }
+  }
+
+  &__slides {
+    display: grid;
+    grid-template-columns: repeat(3, 100%);
+
+    overflow-x: hidden;
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+}
