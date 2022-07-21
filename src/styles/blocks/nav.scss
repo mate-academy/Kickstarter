@@ -1,0 +1,114 @@
+.nav {
+  &__main {
+
+    display: none;
+    @include onDesktop {
+      display: flex;
+    }
+
+    justify-content: space-between;
+    width: 786px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 28px 0;
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__language {
+    display: flex;
+    margin-right: 28px;
+    gap: 2px;
+
+    &--selector {
+
+      color: #828282;
+      text-transform: uppercase;
+      font-size: 14px;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $main-green;
+      }
+
+      &:focus {
+        color: #000;
+      }
+
+      &:last-child::before {
+        content: "/";
+        margin-right: 2px;
+        text-decoration: none;
+        pointer-events: none;
+        color: #828282;
+
+      }
+    }
+
+    &--divider {
+      display: block;
+    }
+  }
+
+  &__item {
+    position: relative;
+    margin-right: 28px;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #4f4f4f;
+    transition: color 0.5s;
+
+    &--with-after {
+      transition: color 0.3s;
+      &:hover {
+        color: $main-green;
+      }
+
+      &::after {
+        display: block;
+        content: " ";
+        height: 2px;
+        width: 7%;
+        transition: width 0.5s;
+      }
+
+      &:hover::after {
+        background-color: $main-green;
+        width: 100%;
+        transition: width background-color 0.5s;
+      }
+    }
+
+    &--no-mobile {
+      display: none;
+
+      @include onTablet {
+        display: initial;
+      }
+    }
+  }
+
+  &__link {
+    color: $main-dark;
+  }
+
+  &__burger-menu {
+    background-image: url(/images/vector/burger-menu.svg);
+    background-repeat: no-repeat;
+    height: 14px;
+    width: 24px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}
