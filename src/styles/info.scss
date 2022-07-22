@@ -1,0 +1,113 @@
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 calc(50% - #{990px / 2});
+
+  @include adaptiv(767px) {
+    padding: 0 30px;
+  }
+
+  &__image {
+    width: 582px;
+    height: 388px;
+    background: url("../images/image-info.png") no-repeat center / cover;
+
+    @include adaptiv(767px) {
+      display: none;
+    }
+  }
+
+  &__text {
+    flex-shrink: 0;
+    flex-basis: 408px;
+    padding-top: 8px;
+
+    @include adaptiv(767px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-shrink: 1;
+      min-height: 601px;
+      margin: 0 auto;
+    }
+  }
+
+  &__title {
+    margin-left: -72px;
+    font-family: "DIN Pro", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 56px;
+    line-height: 72px;
+    margin-bottom: 30px;
+
+    @include adaptiv(767px) {
+      margin: 0 0 50px;
+      max-width: 260px;
+      font-size: 37px;
+      line-height: 55px;
+    }
+  }
+
+  &__image-mobile {
+    display: none;
+    margin-bottom: 30px;
+    width: 100%;
+    height: 100%;
+    background: url("../images/image-info.png") no-repeat center / cover;
+
+    @include adaptiv(767px) {
+      display: block;
+    }
+  }
+
+  &__paragraph {
+    padding-left: 30px;
+    color: $paragraphColor;
+    margin-bottom: 30px;
+
+    @include adaptiv(1024px) {
+      padding-right: 20px;
+    }
+
+    @include adaptiv(767px) {
+      padding: 0;
+      font-size: 14px;
+      flex-shrink: 21px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    width: fit-content;
+    left: 30px;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $activeColor;
+
+    @include adaptiv(767px) {
+      left: 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 50%;
+      height: 1px;
+      background-color: $activeColor;
+      transition: all 0.3s linear;
+
+      @include adaptiv(767px) {
+        left: 0;
+      }
+    }
+
+    &:hover::after {
+      right: 0;
+    }
+  }
+}

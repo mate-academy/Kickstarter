@@ -1,0 +1,54 @@
+.burger {
+  &__icon {
+    display: block;
+    height: 14px;
+    width: 24px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      margin: auto;
+      height: $line-height;
+      background-color: $mainColor;
+
+      transition: transform 0.3s;
+    }
+
+    &::before {
+      bottom: 0;
+    }
+
+    &::after {
+      top: 0;
+    }
+
+    &--active::before {
+      transform: rotate(-45deg);
+      top: 0;
+      background-color: #828282;
+    }
+
+    &--active::after {
+      transform: rotate(45deg);
+      bottom: 0;
+      background-color: #828282;
+    }
+  }
+
+  &__line {
+    position: absolute;
+    top: calc(50% - #{$line-height / 2});
+    width: 100%;
+    height: $line-height;
+    background-color: $mainColor;
+
+    &--active {
+      transform: scale(0);
+    }
+  }
+}

@@ -1,0 +1,98 @@
+.promo {
+
+  &__slider {
+    @include adaptiv(767px) {
+      width: 260px;
+      margin: 0 auto 50px;
+    }
+  }
+
+  &__wrapper-features {
+    padding: 0 calc(50% - #{(1194px + 68px) / 2 });
+
+    @include adaptiv(767px) {
+      padding: 0;
+      overflow: hidden;
+    }
+  }
+
+  &__features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+    text-align: center;
+    padding: 0 34px;
+
+    @include adaptiv(1080px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 74px 20px;
+    }
+
+    @include adaptiv(767px) {
+      display: flex;
+      gap: 0;
+      padding: 0;
+      transition: transform 0.3s linear;
+    }
+  }
+
+  &__feature {
+    @include adaptiv(767px) {
+      min-width: 260px;
+    }
+  }
+
+  &__icon {
+    margin: 0 auto 40px;
+
+    &--design {
+      width: 50px;
+      height: 44px;
+      background: url(../images/promo-icon1.svg) no-repeat center / contain;
+    }
+
+    &--speaker {
+      width: 46px;
+      height: 44px;
+      background: url(../images/promo-icon2.svg) no-repeat center;
+    }
+
+    &--multiroom {
+      width: 46px;
+      height: 44px;
+      background: url(../images/promo-icon3.svg) no-repeat center;
+    }
+
+    &--lighting {
+      width: 44px;
+      height: 44px;
+      background: url(../images/promo-icon4.svg) no-repeat center;
+    }
+  }
+
+  &__title {
+    margin-bottom: 50px;
+    font-family: "DIN Pro", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    text-transform: uppercase;
+
+    @include adaptiv(1080px) {
+      margin-bottom: 20px;
+    }
+
+    @include adaptiv(767px) {
+      margin-bottom: 50px;
+    }
+
+    &--long {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__paragraph {
+    font-size: 14px;
+    color: $paragraphColor;
+  }
+}
