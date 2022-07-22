@@ -1,0 +1,91 @@
+.slider {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &__slide {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-shrink: 0;
+    height: 100%;
+    align-items: center;
+
+    scroll-snap-align: start;
+
+    &-icon {
+      display: block;
+      width: 50px;
+      height: 40px;
+
+      &-container {
+        margin-bottom: 40px;
+      }
+
+    }
+
+    &-title {
+      font-family: "Inter", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 28px;
+      text-align: center;
+      text-transform: uppercase;
+      color: $c-dgrey;
+      margin-bottom: 20px;
+    }
+
+    &-text {
+      font-family: "Inter", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      text-align: center;
+      color: $c-mgrey;
+    }
+  }
+}
+
+.mySlides {
+  display: none;
+  min-height: 250px;
+
+  @media (max-width: 400px) {
+    min-height: 300px;
+  }
+
+  &:first-child {
+    display: flex;
+  }
+
+  &__button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: transform 0.3s;
+
+    &-right {
+      position: absolute;
+      top: 40%;
+      right: -10%;
+    }
+
+    &-left {
+      position: absolute;
+      top: 40%;
+      left: -10%;
+    }
+
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+}
