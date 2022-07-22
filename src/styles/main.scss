@@ -2,6 +2,131 @@
 @import "fonts";
 @import "typography";
 
+@import "./components/header";
+@import "./components/benefits";
+@import "./components/presentation";
+@import "./components/about";
+@import "./components/technology";
+@import "./components/testimonilas";
+@import "./components/features";
+@import "./components/questions";
+@import "./components/footer";
+@import "./components/popup";
+@import "./components/scroll-button";
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 body {
   background: $c-gray;
+  font-family: Helvetica Neue, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  margin-bottom: 90px;
+  padding: 27px 30px 0;
+  @include onTablet {
+    padding: 32px 33px 0;
+  }
+  @include onLaptop {
+    padding: 32px 123px 0;
+  }
+  @include onLarge {
+    padding: 36px 135px 0;
+  }
+}
+
+.section {
+  margin-bottom: 90px;
+  padding: 0 30px;
+  @include onTablet {
+    padding: 0 33px;
+  }
+  @include onLaptop {
+    padding: 0 123px;
+  }
+  @include onLarge {
+    padding: 0 135px;
+  }
+
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.section-title {
+  font-family: DIN Pro, Arial, sans-serif;
+  font-size: 37px;
+  line-height: 46px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #333;
+  @include onTablet {
+    font-size: 48px;
+    line-height: 64px;
+  }
+  @include  onLaptop {
+    font-size: 56px;
+    line-height: 70px;
+  }
+  @include onLarge {
+    font-size: 56px;
+    line-height: 72px;
+  }
+}
+
+.logo {
+  display: inline-block;
+  background-image: url(../images/logo.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.3s ease-in;
+  &:hover {
+    background-image: url(../images/logo-hover.svg);
+  }
+}
+
+.link-buy {
+  border: 1px solid black;
+}
+
+.lang-switch {
+  color: #333;
+  .lang-case-active {
+    color: black;
+    font-weight: bolder;
+    border-bottom: 2px solid black;
+    &:hover {
+      color: lawngreen;
+      border-bottom-color: lawngreen;
+    }
+  }
 }

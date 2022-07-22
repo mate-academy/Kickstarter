@@ -1,0 +1,149 @@
+$nav-hight: 48px;
+
+.header {
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $nav-hight;
+    margin-bottom: 60px;
+
+    &-logo {
+      height: 48px;
+      width: 161px;
+    }
+
+    &-list {
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      @include onTablet {
+        display: block;
+      }
+    }
+
+    &-list-item {
+      display: inline-block;
+    }
+
+    &-burger {
+      width: $nav-hight;
+      height: $nav-hight;
+      background-image: url(../images/burger-menu.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &-link {
+      display: inline-block;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #4f4f4f;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: $nav-hight;
+      padding: 0 25px;
+      transition: all 0.3s ease-in;
+
+      &:hover {
+        background-color: #333;
+        color: #fff;
+      }
+    }
+  }
+
+  &__extra-nav {
+    display: none;
+
+    @include onTablet {
+      display: inherit;
+      padding-top: 50px;
+    }
+
+    &-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-link {
+      display: inline-block;
+      font-family: Helvetica Neue, sans-serif;
+      font-size: 14px;
+      line-height: 21px;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #333;
+      transition: transform 0.2s ease-in-out;
+      &--active {
+        color: #131313;
+      }
+      &:hover {
+        transform: scale(1.1);
+        text-shadow: 0 0 8px rgba(31, 245, 245, 0.3);
+      }
+    }
+  }
+
+  &__img-container {
+    position: relative;
+    z-index: -1;
+    overflow: hidden;
+    @include onLaptop {
+      margin: 0 0 0 72px;
+    }
+  }
+
+  &__img {
+    width: 90%;
+    @include onTablet {
+      position: relative;
+      z-index: -1;
+      width: unset;
+      height: 300px;
+    }
+  }
+
+  &__intro {
+    max-width: 500px;
+    margin: 0 auto;
+
+    &-title {
+      font-family: DIN Pro, sans-serif;
+      font-size: 44px;
+      line-height: 130%;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      color: #333;
+      @include onTablet {
+        text-align: left;
+      }
+      @include onLaptop {
+        font-size: 64px;
+      }
+    }
+
+    &-explain {
+      font-family: Helvetica Neue, sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #333;
+      @include onTablet {
+        text-align: left;
+      }
+    }
+  }
+}

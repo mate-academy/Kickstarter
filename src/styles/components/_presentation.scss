@@ -1,0 +1,62 @@
+$frame-width: calc(100vw - 60px);
+$frame-height: calc(100vw * 246 / 320);
+$frame-height-tablet: calc(100vw * 400 / 768);
+$frame-height-laptop: calc(100vw * 590 / 1200);
+$frame-height-large: calc(100vw * 590 / 1440);
+$play-btn-size: calc(100vw * 108 / 320);
+$play-btn-size-tablet: calc(100vw * 108 / 768);
+$play-btn-size-laptop: calc(100vw * 232 / 1440);
+$play-btn-size-large: calc(100vw * 232 / 1440);
+
+.presentation {
+
+  &__frame {
+    &-placeholder {
+      position: relative;
+      height: $frame-height;
+      margin: 0 -30px 40px;
+      background: url(../images/frame.png) no-repeat center;
+      background-size: cover;
+      @include onTablet {
+        height: $frame-height-tablet;
+      }
+      @include onLaptop {
+        height: $frame-height-laptop;
+        margin: 0 -120px 40px;
+      }
+      @include onLarge {
+        height: $frame-height-large;
+        margin: 0 -135px 40px;
+      }
+    }
+    &-play-btn {
+      width: $play-btn-size;
+      height: $play-btn-size;
+      padding: 3px;
+      background: url(../images/play-button.svg) no-repeat center;
+      background-size: cover;
+      position: absolute;
+      z-index: 2;
+      bottom: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(50%);
+      transition: background 0.3s ease-in;
+      cursor: pointer;
+      &:hover {
+        //background: url(../images/play-button-hover.svg) no-repeat center;
+      }
+      @include onTablet {
+        width: $play-btn-size-tablet;
+        height: $play-btn-size-tablet;
+      }
+      @include onLaptop {
+        width: $play-btn-size-laptop;
+        height: $play-btn-size-laptop;
+      }
+      @include onLarge {
+        width: $play-btn-size-large;
+        height: $play-btn-size-large;
+      }
+    }
+  }
+}
