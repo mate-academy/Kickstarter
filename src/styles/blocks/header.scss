@@ -1,0 +1,246 @@
+.header {
+
+  &__top-wrap {
+    @extend %row-centered;
+
+    padding: 20px 0;
+    margin-bottom: 90px;
+
+    @include onMobile {
+      margin: 0;
+    }
+  }
+
+  &__actions {
+    @extend %row-centered;
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__link {
+
+    &-specification {
+      margin-right: 26px;
+      font-size: 14px;
+      color: #4f4f4f;
+    }
+
+    &--purchase {
+      height: $purchase-height;
+      width: 102px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: $purchase-height;
+      text-align: center;
+      text-transform: uppercase;
+      color: #fff;
+      background-color: #333;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: #4f4f4f;
+        box-shadow: 0 2px 5px 0 rgba(51,51,51,0.75);
+      }
+    }
+  }
+
+  &__lang {
+    display: inline-block;
+    margin-right: 46px;
+
+    &-link {
+      font-size: 14px;
+      color: #bdbdbd;
+
+      &:focus {
+        color: $main-color;
+      }
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    @include onMobile {
+      display: inline-block;
+    }
+
+    // &::after {
+    //   content: "";
+    //   background-image: url(../images/close-cross.svg);
+    //   height: 100%;
+    //   width: 100%;
+    // }
+  }
+
+  &__content {
+    margin-bottom: 170px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    gap: 24px;
+
+    @include onMobile {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 0;
+      margin-bottom: 110px;
+    }
+  }
+
+  &__info {
+    grid-column: 1 / 5;
+    display: grid;
+    grid-template-columns: repeat(4, 76px);
+    column-gap: 24px;
+
+    @include onTablet {
+      grid-template-columns: repeat(3, 70px);
+      column-gap: 20px;
+    }
+
+    @include onMobile {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / 5;
+    display: block;
+    margin: 0 0 30px;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 78px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+      grid-column: 1 / 4;
+    }
+
+    @include onMobile {
+      font-size: 40px;
+      line-height: 52px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__paragraph {
+    grid-column: 1 / 4;
+    margin: 0;
+    line-height: 24px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__image-container {
+    grid-column: 5 / 13;
+    z-index: -1;
+    overflow: hidden;
+
+    @include onMobile {
+      width: 300px;
+      height: 245px;
+    }
+  }
+
+  &__image {
+    @include onTablet {
+      width: 739px;
+      height: 365px;
+    }
+
+    @include onMobile {
+      transform: scale(0.6) translate(-30%, -30%);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 30px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    background-color: #f6f6f6;
+    transform: translateX(-100%);
+    transition: all 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    &-top-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+
+    &-cross {
+      height: 100%;
+      width: 30px;
+    }
+
+    &-list {
+      padding: 50px 0 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      list-style: none;
+    }
+
+    &-item {
+      &-link {
+        font-size: 14px;
+        line-height: 20px;
+        color: $main-color;
+      }
+    }
+
+    &-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0 50px;
+    }
+
+    &-lang {
+      display: inline-block;
+
+      &-link {
+        font-size: 14px;
+        color: #bdbdbd;
+
+        &:focus {
+          color: $main-color;
+        }
+      }
+    }
+
+    &-link--buy {
+      height: $purchase-height;
+      width: 102px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: $purchase-height;
+      text-align: center;
+      text-transform: uppercase;
+      color: #fff;
+      background-color: #333;
+    }
+  }
+}

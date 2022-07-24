@@ -1,0 +1,122 @@
+.contact-us {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+
+  @include onTablet {
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onMobile {
+    display: block;
+  }
+
+  &__title {
+    grid-column: 2 / 8;
+    margin: 0;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 70px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
+
+    @include onMobile {
+      font-size: 30px;
+      line-height: 40px;
+    }
+  }
+
+  &__form {
+    grid-column: 8 / 13;
+
+    @include onTablet {
+      grid-column: 5 / 9;
+    }
+  }
+
+  &__form-field {
+    display: block;
+    box-sizing: border-box;
+    width: 480px;
+    height: 48px;
+    padding: 12px 30px;
+    margin: 0 0 20px;
+    font-size: 16px;
+    line-height: 24px;
+    background-color: #e5e5e5;
+    border: 1px solid #828282;
+    outline: none;
+    transition: all 0.3s;
+
+    &:hover {
+      border: 1px solid #0db2b3;
+    }
+
+    &:focus {
+      border: 1px solid #0db2b3;
+      box-shadow: 0 2px 10px 0 rgba(13,178,179,0.39);
+    }
+
+    &--textarea {
+      margin: 0 0 30px;
+      height: 128px;
+      font-family: inherit;
+      resize: none;
+
+      @include onTablet {
+        height: 200px;
+      }
+
+      @include onMobile {
+        height: 128px;
+      }
+    }
+
+    @include onDesktop {
+      width: 400px;
+    }
+
+    @include onTablet {
+      width: 340px;
+    }
+
+    @include onMobile {
+      width: 100%;
+    }
+  }
+
+  &__button {
+    display: block;
+    width: 102px;
+    height: 48px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    color: #fff;
+    background-color: #0db2b3;
+
+    &:hover {
+      box-shadow: 0 7px 10px 0 rgba(13,178,179,0.39);
+    }
+
+    &:active {
+      box-shadow: 0 2px 10px 0 rgba(13,178,179,0.9);
+    }
+
+    @include onTablet {
+      height: 40px;
+    }
+  }
+}

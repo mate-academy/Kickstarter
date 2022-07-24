@@ -1,0 +1,109 @@
+.about-us {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+
+  @include onDesktop {
+    display: flex;
+    gap: 20px;
+  }
+
+  @include onMobile {
+    flex-direction: column;
+  }
+
+  &__image-container {
+    grid-column: 2 / 7;
+
+    @include onTablet {
+      overflow: hidden;
+    }
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__image {
+    transition: all 0.3s;
+
+    @include onTablet {
+      transform: scale(1.1);
+      float: left;
+    }
+
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+
+  &__info {
+    grid-column: 8 / 13;
+    overflow: hidden;
+
+    @include onTablet {
+      width: 400px;
+    }
+
+    @include onMobile {
+      width: auto;
+    }
+  }
+
+  &__title {
+    margin: 0 0 30px;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 70px;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onMobile {
+      font-size: 30px;
+      line-height: 40px;
+    }
+  }
+
+  &__image-mobile {
+    display: none;
+
+    @include onMobile {
+      display: block;
+    }
+  }
+
+  &__article {
+    margin-bottom: 60px;
+    line-height: 24px;
+    color: #7c7c7c;
+
+    @include onMobile {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__link {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #0db2b3;
+
+    &::after {
+      content: "";
+      display: block;
+      margin-top: 5px;
+      height: 1px;
+      width: 54px;
+      background-color: #0db2b3;
+      transition: all 0.3s ease-in;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
