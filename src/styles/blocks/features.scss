@@ -1,0 +1,208 @@
+.features {
+  position: relative;
+
+  &__bg-color {
+    overflow: hidden;
+    position: absolute;
+    z-index: -2;
+    background-color: $bg-color;
+    height: 800px;
+    width: 100%;
+    transform: translateY(-45px);
+
+    @include On768 {
+      height: 720px;
+      transform: translateY(280px);
+      right: 0;
+      width: 80%;
+    }
+    @include On1280 {
+      width: 88%;
+    }
+  }
+
+  &__title {
+    display: block;
+    font-family: "DIN-700", sans-serif;
+    font-size: 37px;
+    line-height: 60px;
+
+    @include On768 {
+      font-size: 56px;
+      line-height: 100%;
+    }
+
+    &-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 260px;
+      height: 60px;
+      margin: 0 auto 50px;
+
+      @include On768 {
+        width: 340px;
+        height: 80px;
+        text-align: center;
+      }
+      @include On1280 {
+        width: 340px;
+        height: 80px;
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include On768 {
+      align-items: start;
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &--hidden {
+      display: none;
+
+      @include On768 {
+        display: flex;
+      }
+    }
+
+    &-title {
+      font-family: "DIN-600", sans-serif;
+      text-transform: uppercase;
+      font-size: 30px;
+      line-height: 100%;
+      color: $turquoise;
+      margin-bottom: 24px;
+
+      @include On768 {
+        margin-bottom: 32px;
+      }
+    }
+
+    &-list {
+      display: block;
+      list-style-type: disc;
+      height: 289px;
+
+      @include On768 {
+        height: 100%;
+      }
+
+      & li {
+        line-height: 140%;
+        margin-bottom: 15px;
+
+        @include On768 {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  &__slider {
+    padding: 2px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    width: 93px;
+    height: 43px;
+    margin: 0 auto;
+
+    @include On768 {
+      display: none;
+    }
+
+    &-arrows {
+      display: flex;
+    }
+
+    &-arrow {
+      cursor: pointer;
+      @include bg-img;
+      width: 48px;
+      height: 14px;
+
+      &--left {
+        background-image: url(./images/signs/left-arrow.svg);
+      }
+
+      &--right {
+        background-image: url(./images/signs/right-arrow.svg);
+      }
+    }
+
+    &-numbers {
+      font-family: "DIN-500", sans-serif;
+      font-size: 11px;
+      line-height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      color: #bdbdbd;
+    }
+
+    &-number {
+
+      &--active {
+        font-size: 16px;
+        color: $black-color;
+      }
+    }
+
+    &-divider {
+      margin: 0 3px;
+    }
+  }
+
+  &__picture {
+    position: relative;
+    height: 222px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    @include On768 {
+      position: absolute;
+      height: 379px;
+      bottom: 100px;
+    }
+    @include On1280 {
+      height: 509px;
+      bottom: 40px;
+    }
+
+    &--shown-On768 {
+      display: none;
+
+      @include On768 {
+        display: flex;
+      }
+    }
+
+    &--hidden-On768 {
+      display: block;
+
+      @include On768 {
+        display: none;
+      }
+    }
+  }
+
+  &__img {
+    margin: 0 auto;
+    z-index: -1;
+    display: block;
+    height: 100%;
+  }
+}
