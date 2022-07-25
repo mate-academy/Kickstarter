@@ -1,0 +1,126 @@
+.nav {
+  display: none;
+
+  @include onTab {
+    display: contents;
+  }
+
+  &__container {
+    margin-bottom: 64px;
+    @include onTab {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    height: 76px;
+
+  }
+
+  &__item {
+    &:nth-child(odd) {
+      text-align: center;
+      width: 175px;
+    }
+
+    &:nth-child(even) {
+      text-align: center;
+      width: 77px;
+    }
+  }
+  &__link {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    transition: 0.5s;
+    text-decoration: none;
+
+    color: #333;
+
+    &:hover {
+      color: #39bebf;
+      font-size: 15px;
+      line-height: 20px;
+      transform: scale(1.6);
+    }
+  }
+}
+
+.mobile {
+  padding: 31px 20px;
+  background-color: #cfeff0;
+  box-sizing: border-box;
+  height: 100vh;
+  z-index: 2;
+
+  &__logo {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+  }
+
+  &__menu {
+
+    &--image {
+      display: block;
+      width: 24px;
+      height: 14px;
+
+      @include onTab {
+        display: none;
+      }
+
+      background-image: url(../styles/images/cross.766ae7cc.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__nav {
+    &--container {
+      display: flex;
+      justify-content: center;
+    }
+    &--link {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 20px;
+      transition: 0.5s;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+
+      color: #333;
+
+      &:hover {
+        border-bottom: 2px solid #131313;
+        transform: scale(1.5);
+
+        color: #131313;
+      }
+    }
+
+    &--item {
+      margin-bottom: 30px;
+
+      &:last-child {
+        margin-bottom: 50px;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: center;
+    &--container {
+      display: flex;
+      flex-direction: column-reverse;
+      row-gap: 30px;
+    }
+  }
+}

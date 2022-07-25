@@ -1,0 +1,100 @@
+.header {
+  padding-top: 31px;
+  margin-bottom: 31px;
+
+  @include onTab {
+    padding-top: 20px;
+    margin-bottom: 100px;
+  }
+
+  &__logo--image {
+    transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+    &--none {
+      display: none;
+      @include onTab {
+        display: contents;
+      }
+    }
+
+    &--specs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      line-height: 17px;
+      transition: 0.5s;
+
+      color: #4f4f4f;
+
+      &:hover {
+        cursor: pointer;
+        color: #333;
+        transform: scale(1.1);
+      }
+    }
+
+    &--link {
+      text-decoration: none;
+      color: #4f4f4f;
+    }
+
+    &--languages {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &--language {
+      font-size: 14px;
+      line-height: 18px;
+      text-decoration: none;
+
+      color: #828282;
+
+      &:hover {
+        color: #333;
+      }
+
+      &--en:focus {
+        color: #333;
+      }
+
+      &--ua:focus {
+        color: #333;
+      }
+    }
+
+    &--image {
+      display: block;
+      width: 24px;
+      height: 14px;
+
+      @include onTab {
+        display: none;
+      }
+
+      background-image: url(../styles/images/icon/menu.svg);
+      background-position: center;
+    }
+  }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+
+    &--image {
+      display: block;
+      height: 26px;
+    }
+  }
+}
