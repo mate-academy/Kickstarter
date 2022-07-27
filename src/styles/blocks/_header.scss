@@ -4,11 +4,46 @@
   background-size: 440px 245px;
   background-position: 0 76px;
 
+  @include onTablet {
+    background-position: 320px 220px;
+    background-size: 65%;
+  }
+
+  &__check-lang--en {
+    &::after {
+      content: "/";
+      padding: 0 3px;
+    }
+  }
+
   &__nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 25px 0;
+
+    &-func {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        gap: 27px;
+      }
+
+      &_item {
+        text-decoration: none;
+        font-family: $fontFamilyHelvetica;
+        font-size: 14px;
+        color: #4f4f4f;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &__nav-languages {
+    display: flex;
   }
 
   &__content {
@@ -19,12 +54,28 @@
     margin-bottom: 110px;
 
     min-height: 660px;
+
+    @include onTablet {
+      justify-content: left;
+      margin-bottom: 140px;
+      min-height: 0;
+    }
   }
 
   &__lead-section {
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @include onTablet {
+      display: flex;
+      max-width: 340px;
+      margin-top: 110px;
+    }
+
+    @include onDesktop {
+      margin-top: 180px;
+    }
   }
 
   &__title {
@@ -33,15 +84,34 @@
     line-height: 52px;
     color: $colorDune;
     text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 3rem;
+      line-height: 62px;
+    }
+
+    @include onTablet {
+      font-size: 3.88rem;
+      line-height: 62px;
+    }
   }
 
   &__introduction {
     font-size: 1rem;
     line-height: 24px;
     color: $colorDune;
+
+    @include onTablet {
+      max-width: 250px;
+    }
   }
 
   &__menu-opener {
+    display: block;
     background-image: url(/images/menu.svg);
+
+    @include onTablet {
+      display: none;
+    }
   }
 }

@@ -1,5 +1,13 @@
 .product-options {
 
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 65px 20px;
+    margin-bottom: 140px;
+  }
+
   &__item {
     display: flex;
     flex-direction: column;
@@ -8,14 +16,47 @@
 
     margin-bottom: 110px;
 
-    &:not(:nth-child(1)) {
-      display: none;
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 767px) {
+      &:not(:nth-child(1)) {
+        display: none;
+      }
+    }
+  }
+
+  &__icon {
+    height: 44px;
+    width: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onTablet {
+      margin-bottom: 50px;
     }
   }
 
   &__icon-design {
     margin-bottom: 40px;
     background-image: url(../images/icon-futuristic-design.svg);
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__icon-speaker {
+    background-image: url(../images/icon-speaker.svg);
+  }
+
+  &__icon-multiroom {
+    background-image: url(../images/icon-multiroom.svg);
+  }
+
+  &__icon-lighting {
+    background-image: url(../images/icon-lighting.svg);
   }
 
   &__headline {
