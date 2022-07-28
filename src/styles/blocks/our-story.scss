@@ -1,0 +1,124 @@
+.our-story {
+  &__section-content {
+    display: block;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    height: 210px;
+    width: 100%;
+    border-radius: 1px;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      height: 415px;
+      margin: 0 20px 130px 0;
+    }
+
+    @include onDesktop {
+      height: 388px;
+      margin: 0 30px 150px 0;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: right;
+
+    @include onDesktop {
+      object-position: center;
+    }
+  }
+
+  &__text {
+    width: 100%;
+
+    margin-bottom: 90px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    display: none;
+
+    @include onTablet {
+      display: inline-block;
+      font-size: 50px;
+      line-height: 72px;
+
+      text-transform: uppercase;
+      transform: translateX(-100px);
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+    }
+
+    margin-bottom: 30px;
+    transform: translateX(-120px);
+
+    &--onMobile {
+      font-size: 37px;
+      line-height: 55px;
+      text-transform: uppercase;
+
+      margin-bottom: 50px;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+  }
+
+  &__paragraf {
+    font-size: 14px;
+    line-height: 21px;
+    color: $paragrafs;
+
+    margin-bottom: 30px;
+    @include onTablet {
+      margin-right: 34px;
+    }
+
+    @include onDesktop {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $green-on-page;
+    padding-bottom: 6px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1px;
+      width: 54px;
+      background-color: $green-on-page;
+      transition: 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

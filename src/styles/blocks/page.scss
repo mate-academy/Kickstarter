@@ -1,0 +1,50 @@
+.page {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  color: $main-color;
+
+  scroll-behavior: smooth;
+
+  &__header {
+    padding-top: 25px;
+
+    @include onTablet {
+      padding-top: 20px;
+    }
+  }
+
+  &__burger {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(200%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__body {
+    margin: 0;
+    background-color: #f6f6f6;
+  }
+
+  &__section {
+    &-title {
+      font-size: 37px;
+      line-height: 55px;
+      font-weight: 700px;
+      text-transform: uppercase;
+
+      @include onTablet {
+        font-size: 56px;
+        line-height: 72px;
+      }
+    }
+  }
+}
