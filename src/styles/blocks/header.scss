@@ -1,0 +1,73 @@
+.header {
+  &__content {
+    height: calc(100vh - #{$logoHeight} - #{$headInnerPadTop} * 2);
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      height: calc(100vh - #{$topBarButtonHeight}
+      - #{$navLinkHeight} - #{$headInnerPadTop} * 2);
+      flex-direction: row;
+    }
+  }
+
+  &__background {
+    margin: 0 -30px;
+    flex-grow: 1;
+    background-image: url(../images/pitcures/header.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center right;
+
+    @include onTablet {
+      margin: 0 -265px 0 0;
+      order: 2;
+      background-image: url(../images/pitcures/header_pc.jpg);
+    }
+  }
+
+  &__inner {
+    padding: $headInnerPadTop 0;
+
+    @include onTablet {
+      padding: $headInnerPadToponTablet 0;
+    }
+  }
+
+  &__title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: min-content;
+
+    @media (min-width: 400px) {
+      margin: 0 auto;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    color: #333;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__descr {
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+  }
+}
