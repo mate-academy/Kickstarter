@@ -1,0 +1,47 @@
+.about-us {
+  @extend %flexColumn;
+
+  @include mainArticleBlockTablet;
+
+  @include onDesktop {
+    gap: 30px;
+  }
+
+  &__article {
+
+    @include onTablet {
+      --maxWidth: 340px;
+      max-width: var(--maxWidth);
+    }
+
+    @include onDesktop {
+      --maxWidth: 582px;
+    }
+  }
+
+  &__headline {
+    @include mainArticleHeadline;
+  }
+
+  &__paragraph {
+    @include mainArticleParagraph;
+  }
+
+  &__pctr {
+    @include mainArticlePicture;
+  }
+
+  &__see-more {
+    @extend %seeMore;
+    --marginSM: 30px 0 110px;
+    margin: var(--marginSM);
+
+    @include onTablet {
+      --marginSM: 0;
+    }
+
+    @include onDesktop {
+      --marginSM: 60px;
+    }
+  }
+}
