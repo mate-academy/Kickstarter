@@ -3,6 +3,11 @@
 
   @include mainArticleBlockTablet;
 
+  @include onTablet {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
   @include onDesktop {
     gap: 30px;
   }
@@ -20,11 +25,39 @@
   }
 
   &__headline {
-    @include mainArticleHeadline;
+    --fontSizeH: 2.25rem;
+    --lineHeightH: 40px;
+    --paddingBotH: 0;
+
+    font-size: var(--fontSizeH);
+    line-height: var(--lineHeightH);
+    text-transform: uppercase;
+    padding-bottom: var(--paddingBotH);
+
+    @include onTablet {
+      --paddingBotH: 30px;
+      --lineHeightH: 46px;
+    }
+
+    @include onDesktop {
+      --fontSizeH: 3.5rem;
+      --lineHeightH: 70px;
+    }
   }
 
   &__paragraph {
-    @include mainArticleParagraph;
+    font-size: 1rem;
+    line-height: 24px;
+    color: #7c7c7c;
+
+    @include onTablet {
+      padding-bottom: 60px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 0;
+      line-height: 24px;
+    }
   }
 
   &__pctr {
@@ -41,7 +74,8 @@
     }
 
     @include onDesktop {
-      --marginSM: 60px;
+      display: block;
+      --marginSM: 60px 0;
     }
   }
 }

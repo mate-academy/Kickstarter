@@ -1,66 +1,38 @@
-@mixin mainArticleBlockTablet {
-  @include onTablet {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-}
-
-@mixin mainArticleHeadline {
-  --fontSizeH: 1.8rem;
-  --lineHeightH: 40px;
-  --paddingBotH: 0;
-
-  font-size: var(--fontSizeH);
-  line-height: var(--lineHeightH);
-  text-transform: var(--paddingBotH);
-
-  @include onTablet {
-    --paddingBotH: 30px;
-    --fontSizeH: 2.5rem;
-    --lineHeightH: 46px;
-  }
-
-  @include onDesktop {
-    --fontSizeH: 3.5rem;
-    --lineHeightH: 70px;
-  }
-}
-
-@mixin mainArticleParagraph {
-  font-size: 0.88rem;
-  line-height: 21px;
-  color: #7c7c7c;
-
-  @include onTablet {
-    padding-bottom: 60px;
-  }
-
-  @include onDesktop {
-    padding-bottom: 0;
-    line-height: 24px;
-  }
-}
-
-@mixin mainArticlePicture {
-  padding: 30px 0 20px;
-  width: 100%;
-
-  @include onTablet {
-    padding: 0;
-  }
-}
-
 %flexColumn {
   display: flex;
   flex-direction: column;
 }
 
 %seeMore {
-  display: block;
+  position: relative;
   font-weight: 700;
   font-size: 12px;
   line-height: 14px;
   text-transform: uppercase;
   color: #0db2b3;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    margin-top: 5px;
+    height: 1px;
+    width: 0;
+
+    background-color: #0db2b3;
+    transition: 0.3s;
+
+    @include onDesktop {
+      width: 63px;
+    }
+  }
+
+  &:hover::after {
+    width: 43%;
+
+    @include onDesktop {
+      width: 125px;
+    }
+  }
 }

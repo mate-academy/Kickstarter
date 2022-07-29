@@ -1,6 +1,6 @@
 .features {
 
-  &-headline {
+  &__headline {
     margin-bottom: 32px;
     padding-left: 30px;
 
@@ -17,11 +17,7 @@
     }
   }
 
-  &-list_block {
-    background-image: url(/images/slider-bgr.png);
-    background-position: right bottom;
-    background-size: auto 225px;
-    background-repeat: no-repeat;
+  &__list-block {
     padding-top: 30px;
     padding-bottom: 174px;
     margin-bottom: 89px;
@@ -39,8 +35,10 @@
       padding: 60px 102px;
       margin-bottom: 170px;
 
+      background-image: url(/images/slider-bgr.png);
       background-position: 92% 100%;
       background-size: auto 302px;
+      background-repeat: no-repeat;
     }
   }
 
@@ -117,4 +115,34 @@
       content: url(/images/arrow-right.svg);
     }
   }
+
+  &__numbers {
+    display: flex;
+    justify-content: center;
+
+    @include onTablet {
+      justify-content: start;
+      margin-left: 114px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--fist::after {
+      content: "01";
+      display: block;
+      margin-top: 8px;
+      color: #333;
+    }
+
+    &--last::after {
+      content: "/ 03";
+      display: block;
+      margin: 16px 0 0 3px;
+      font-size: 0.7rem;
+      color: #0c797a;
+    }
+  }
+
 }
