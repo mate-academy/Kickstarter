@@ -1,42 +1,62 @@
 .footer {
   &__top {
+    position: relative;
+
     display: none;
 
     @include onTablet {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
 
       margin-bottom: 64px;
     }
+  }
+
+  // попробуй в конце при скроле чтобы стрелка поднималась
+  // sticky or fixed
+  &__arrow {
+    position: absolute;
+    right: 10px;
   }
 
   &__middle {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 48px;
     margin-bottom: 33px;
-    // max-width: 114px;
-
 
     @include onTablet {
       margin-bottom: 64px;
     }
   }
 
-  &__social {
-    // ставь ссылкам общюю высоту и ширину
-    // даня сказал не загонятся
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  // возможно это в класс иконок перетащить или добавить
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
 
+  &__link {
+    width: 20px;
+    height: 20px;
   }
 
   &__bottom {
+    display: flex;
+    justify-content: center;
+    // можно плейсхолдер и с align-items: center; сюда кинуть
+    // align-items: center;
+
     margin-bottom: 20px;
 
     @include onTablet {
       margin-bottom: 30px;
     }
+  }
+
+  &__rights {
+    font-size: 14px;
+    color: $form-placeholder;
   }
 }
