@@ -1,0 +1,138 @@
+.presentation {
+  &__row {
+    position: relative;
+
+    display: block;
+    margin-bottom: 115px;
+
+    @include onTablet {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 140px;
+    }
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 170px;
+    }
+  }
+
+
+
+  &__img-container {
+    // не позволяет карточкам уменьшится но при уменьшении экрана с правой стороны это и нужно
+    // flex-shrink: 0;
+    // height: 388px;
+    // width: 50%; расчитывал что оно на 50% родителя растянет картинку но нет
+    // width: 50%;
+    // тест для тайтла
+    // position: relative;
+    margin-bottom: 20px;
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+  }
+
+  &__info {
+    // flex-grow: 0;
+
+
+    @include onTablet {
+      max-width: 50%;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    // min-height: 380px;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  &__intro {
+
+  }
+
+  &__test {
+    // background-image: url('../../images/presentation/presentation1-lg.jpg');
+    background-image: url('/images/presentation/presentation1-lg.jpg');
+    background-repeat: no-repeat;
+    height: 35vh;
+    width: 700px;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    // font-size: 30px;
+    // line-height: 1.33;
+    // color: $dark;
+
+    // text-transform: uppercase;
+
+    // тест для тайтла
+    position: absolute;
+    // top: -100px;
+    top: -20%;
+
+    @include onTablet {
+      position: static;
+      // font-size: 36px;
+      // line-height: 1.28;
+    }
+
+    // @include onDesktop {
+    //   font-size: 56px;
+    //   line-height: 1.25;
+    // }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    color: $gray;
+
+    @include onTablet {
+      margin-bottom: 60px;
+
+    }
+
+  }
+
+  &__link {
+    position: relative;
+
+    display: inline-block;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.17;
+
+    text-transform: uppercase;
+    text-decoration: none;
+
+    color: $links-color;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 50%;
+      height: 1px;
+      background-color: $links-color;
+    }
+  }
+}
+
+.presentation__img path,
+  .presentation__img polygon {
+    fill-opacity: 0.5; /* прозрачность заливки */
+    stroke: #ff6c00; /* цвет обводки */
+    stroke-width: 10px; /* толщина обводки */
+    stroke-opacity: 0.8; /* прозрачность обводки */
+  }
