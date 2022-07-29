@@ -1,13 +1,21 @@
 .main {
 
   &__benefits {
+    --container-padding: 0 30px;
+    margin: 0 auto;
+    max-width: 1060px;
+    padding: var(--container-padding);
 
     @include onTablet {
+      --container-padding: 0 34px;
       margin-bottom: 140px;
       gap: 65px 20px;
     }
 
     @include onDesktop {
+      --container-padding: 0;
+      max-width: 100%;
+
       margin-bottom: 170px;
       gap: 0 30px;
     }
@@ -24,14 +32,17 @@
   }
 
   &__content-part {
+    --contentMrgnBot: 116px;
+
     padding: 0 30px;
+    margin-bottom: var(--contentMrgnBot);
 
     @include onTablet {
-      margin-bottom: 140px;
+      --contentMrgnBot: 140px;
     }
 
     @include onDesktop {
-      margin-bottom: 170px;
+      --contentMrgnBot: 170px;
       padding: 0;
     }
   }
@@ -48,15 +59,18 @@
   }
 
   &__testimonilas {
-    padding-top: 50px;
-    margin-bottom: 110px;
+    --testimonilasPadding: 50px 30px 0 30px;
+    --testimonilasMargin: 0 auto 110px;
+
+    margin: var(--testimonilasMargin);
+    padding: var(--testimonilasPadding);
 
     @include onTablet {
-      margin-bottom: 140px;
+      --testimonilasMargin: 0 auto 140px;
     }
 
     @include onDesktop {
-      margin-bottom: 170px;
+      --testimonilasMargin: 0 auto 170px;
     }
 
   }
@@ -66,26 +80,29 @@
     @include onTablet {
       padding: 0 34px;
     }
-
-    @include onTablet {
-      padding: 0;
-    }
-
   }
 
   &__questions {
-    margin-bottom: 113px;
+    --questionsMargin: 0 auto 113px;
+    --questionsPadding: 0 30px;
+
+    max-width: 1060px;
+    margin: var(--questionsMargin);
+    padding: var(--questionsPadding);
 
     @include onTablet {
+      --questionsMargin: 0 auto 140px;
+      --questionsPadding: 0 34px;
+
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 21px;
-      margin-bottom: 140px;
     }
 
     @include onDesktop {
+      --questionsMargin: 0 auto 187px;
+      max-width: 100%;
       gap: 28px;
-      margin-bottom: 187px;
     }
   }
 }

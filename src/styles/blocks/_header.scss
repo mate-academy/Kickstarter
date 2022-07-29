@@ -42,12 +42,17 @@
   }
 
   &__content {
+    --paddingHeader: 0 30px;
+    --marginHeader: 0 auto 110px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
-    margin-bottom: 110px;
+    margin: var(--marginHeader);
+    padding: var(--paddingHeader);
     min-height: 660px;
+    max-width: 1060px;
 
     background-image: url(/images/header-bgr-mob.jpg);
     background-repeat: no-repeat;
@@ -55,18 +60,24 @@
     background-size: contain;
 
     @include onTablet {
+      --paddingHeader: 0 34px;
+      --marginHeader: 0 auto 140px;
+
       justify-content: left;
-      margin-bottom: 140px;
       min-height: 0;
 
-      background-image: url(/images/header-bgr.png);
-      background-position: 70% 95%;
+      background-image: url(/images/header-bgr-tablet.png);
+      background-position: 100% 95%;
       background-size: 55%;
     }
 
     @include onDesktop {
-      margin-bottom: 170px;
+      --paddingHeader: 0;
+      --marginHeader: 0 auto 170px;
 
+      max-width: 100%;
+
+      background-image: url(/images/header-bgr.png);
       background-position: 95% 100%;
       background-size: 65%;
     }
