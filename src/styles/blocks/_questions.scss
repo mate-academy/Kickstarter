@@ -16,11 +16,8 @@
   }
 
   &__title {
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 40px;
-    text-transform: uppercase;
-    color: #333333;
+    @extend %title;
+
     margin-bottom: 26px;
 
     @include onTablet {
@@ -37,60 +34,55 @@
   &__email {
     height: 48px;
     margin-bottom: 20px;
-    outline: none;
     padding-left: 20px;
+    outline: none;
     border: 1px solid #828282;
 
     &::placeholder {
-      font-family: 'Inter';
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 24px;
-      color: #BDBDBD;
+      @extend %medium-font;
+
+      color: #bdbdbd;
     }
   }
 
   &__name {
+    height: 128px;
     margin-bottom: 30px;
+    padding: 12px 0 0 20px;
     resize: none;
     outline: none;
     border: 1px solid #828282;
-    height: 128px;
 
     @include onTablet {
       height: 201px;
     }
 
     &::placeholder {
-      font-family: 'Inter';
-      padding: 12px 0 0 20px;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 24px;
-      color: #BDBDBD;
+      @extend %medium-font;
+
+      color: #bdbdbd;
     }
   }
 
   &__button {
+    @extend %button;
+    
     width: 102px;
     height: 40px;
-    font-family: 'Inter';
-    font-size: 12px;
-    line-height: 14px;
+    background: #0db2b3;
+    font-family: "Inter", sans-serif;
     font-weight: 700;
     border-color: transparent;
-    background: #0DB2B3;
     text-transform: uppercase;
-    color: #fff;
     cursor: pointer;
     transition: 0.3s;
 
     &:hover {
-      background: #0C797A;
+      background: #0c797a;
     }
 
     &:disabled {
-      background: #CFEFF0;
+      background: #cfeff0;
     }
   }
 }
