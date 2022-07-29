@@ -1,0 +1,39 @@
+.about {
+  &__wrapper {
+    @extend %flex-row-sb;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    width: 100%;
+
+    @include onTablet {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__article {
+    flex-basis: 25%;
+    &:not(:last-child()) {
+      padding-right: 30px;
+    }
+    
+    @include onTablet {
+      flex-basis: 50%;
+
+      &:nth-child(2) {
+        padding-right: 0;
+      }
+
+      &:nth-child(-n + 2) {
+        padding-bottom: 64px;
+      }
+    }
+
+    @include onMobile {
+      flex-basis: 100%;
+      
+      &:not(:last-child) {
+        padding: 0 0 64px;
+      }
+    }
+  }
+}
