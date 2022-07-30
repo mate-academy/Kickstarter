@@ -6,6 +6,7 @@ const technologyH = document.querySelector('.technology__headline');
 const technologyPctr = document.querySelector('.technology__pctr');
 const featuresSection = document.querySelectorAll('.feature__section');
 const scrollUp = document.querySelector('.scroll-up');
+const menuLink = [...document.querySelectorAll('.menu__link')];
 
 if (window.matchMedia('(max-width: 767px)').matches) {
   aboutUsH.appendChild(aboutUsPctr);
@@ -33,9 +34,15 @@ function scrollFunction() {
   }
 }
 
-const menuLink = [...document.querySelectorAll('.menu__link')];
-
 menuLink.map(a => a.addEventListener('click', function() {
   menuLink.map(b => b.classList.remove('menu__link--is-active'));
   a.classList.add('menu__link--is-active');
 }));
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});

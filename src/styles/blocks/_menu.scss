@@ -1,157 +1,100 @@
 .menu {
+  @media (max-width:767px) {
+
+    position: fixed;
+    flex-direction: column;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    background: #f7f7f7;
+
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+
+    overflow: auto;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    &__cross {
+      transform: translateY(-20%);
+      margin-left: auto;
+      background-image: url(../images/cross.svg);
+
+      @include onDesktop {
+        top: 50px;
+      }
+    }
+
+    &__container-top {
+      background-color: #d6ecec;
+      box-shadow: 2px 16px 19px -14px rgba(0,0,0,0.29);
+      display: flex;
+      align-items: center;
+      position: sticky;
+      padding: 35px 30px;
+      z-index: 4;
+      top: 0;
+      overflow: hidden;
+    }
+  }
+
   &__list {
-    display: none;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 20px 30px;
     list-style: none;
 
     @include onDesktop {
-      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      padding-bottom: 0;
+      gap: 84px;
     }
-  }
-
-  &__item:not(:last-child) {
-    margin-right: 84px;
   }
 
   &__link {
-    display: inline-block;
-
-    font-size: 14px;
-    line-height: 20px;
+    position: relative;
+    font-size: 1rem;
     color: #333;
     text-decoration: none;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    transition: 0.1s;
 
-    &:hover {
-      text-decoration: underline;
+    &::after {
+      position: absolute;
+      display: flex;
+      margin-top: 8px;
+      content: "";
+      height: 1px;
+      text-decoration: solid;
+      background-color: black;
+      width: 0;
+      transition: black;
     }
 
-    &:active {
-      color: blue;
+    &:hover::after {
+      width: 100%;
     }
 
-    &--is-active {
-      font-weight: 700;
+    @include onDesktop {
+      font-size: 0.88rem;
+      line-height: 20px;
+      transition: 0.1s;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &--is-active {
+        font-weight: 700;
+      }
     }
   }
 }
-
-// .menu {
-//   position: fixed;
-//   flex-direction: column;
-//   height: 100vh;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   z-index: 5;
-
-//   background-color: black;
-
-//   transform: translateX(100%);
-//   transition: transform 0.5s ease;
-
-//   overflow: auto;
-
-//   &:target {
-//     transform: translateX(0);
-//   }
-
-//   &__container {
-//     display: flex;
-//     flex-direction: column;
-
-//     &-top {
-//       display: flex;
-//       align-items: center;
-//       position: sticky;
-//       z-index: 4;
-//       top: 0;
-//       height: 120px;
-//       background-color: black;
-//       overflow: hidden;
-
-//       @include onTablet {
-//         height: 144px;
-//       }
-//     }
-//   }
-
-//   &__menu-close {
-//     transform: translateY(-20%);
-//     margin-left: auto;
-//     background-image: url(../images/cross.svg);
-
-//     @include onDesktop {
-//       top: 50px;
-//     }
-//   }
-
-//   &__list {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 32px;
-//     padding-bottom: 40px;
-//     list-style: none;
-
-//   }
-
-//   &__link {
-//     position: relative;
-//     font-size: 1.38rem;
-//     color: black;
-//     text-decoration: none;
-//     font-weight: 700;
-//     line-height: 22px;
-//     letter-spacing: 2px;
-//     text-transform: uppercase;
-
-//     &-tel {
-//       display: inline-block;
-//       margin-bottom: 16px;
-//       font-size: 1rem;
-//       line-height: 27px;
-//       transition: 0.2s;
-
-//       &:hover {
-//         text-shadow: 1px 2px 5px black;
-//         color: white;
-//       }
-//     }
-
-//     &-book-test {
-//       font-size: 0.75rem;
-//       line-height: 16px;
-
-//       &::after {
-//         position: relative;
-//         content: " ";
-//         display: flex;
-//         height: 1px;
-//         top: 8px;
-//         width: 141px;
-//         background: black;
-//         border-radius: 8px;
-//         text-decoration: solid;
-//       }
-//     }
-//   }
-
-//   &__item-link {
-//     &::after {
-//       position: absolute;
-//       display: flex;
-//       margin-top: 8px;
-//       content: "";
-//       height: 1px;
-//       text-decoration: solid;
-//       background-color: black;
-//       width: 0;
-//       transition: black;
-//     }
-
-//     &:hover::after {
-//       width: 100%;
-//     }
-//   }
-// }
