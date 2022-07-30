@@ -20,4 +20,4 @@ function sliderAuto() {
   sliderAutoWrapper.style.left = -offset + '%';
 }
 
-setInterval(sliderAuto, 8000);
+setInterval(sliderAuto, 2000);
