@@ -1,5 +1,8 @@
 .btn {
-  max-width: 102px;
+  // max-width: 102px;
+  display: inline-block;
+  width: 102px;
+
   padding: 13px 0;
 
   font-family: "Inter", "Roboto", serif;
@@ -11,16 +14,36 @@
   background-color: $links-color;
   border: 0;
 
+  text-decoration: none;
   text-transform: uppercase;
   transition: background-color 0.3s;
+  text-align: center;
   cursor: pointer;
 
   &:hover {
     background-color: $slider-title;
   }
 
-  @include onDesktop {
-    max-width: 124px;
-    padding: 17px 0;
+  &--dark {
+    background-color: $dark;
+
+    &:hover {
+      background-color: $active-nav;
+    }
+  }
+
+  &--lg-desktop {
+     @include onDesktop {
+      width: 124px;
+      padding: 17px 0;
+    }
+  }
+
+  &--d-md-none {
+    display: block;
+
+    @include onTablet {
+      display: none;
+    }
   }
 }
