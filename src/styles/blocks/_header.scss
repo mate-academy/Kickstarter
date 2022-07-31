@@ -12,8 +12,7 @@
   }
 
   &__nav {
-    display: flex;
-    align-items: center;
+    @extend %flexAlignCenter;
     justify-content: space-between;
     padding: 25px 0;
 
@@ -38,8 +37,8 @@
       &_item {
         text-decoration: none;
         font-family: $fontFamilyHelvetica;
-        font-size: 14px;
-        color: #4f4f4f;
+        font-size: 0.88rem;
+        color: $colorLiver;
         text-transform: uppercase;
       }
     }
@@ -53,8 +52,7 @@
     --paddingHeader: 0 30px;
     --marginHeader: 0 auto 110px;
 
-    display: flex;
-    flex-direction: column;
+    @extend %flexColumn;
     justify-content: space-between;
     box-sizing: border-box;
     margin: var(--marginHeader);
@@ -63,9 +61,8 @@
     max-width: 1060px;
 
     background-image: url(/images/header-bgr-mob.jpg);
-    background-repeat: no-repeat;
     background-position: center 20%;
-    background-size: contain;
+    @extend %BackgroundNoRepeatContain;
 
     @include onTablet {
       --paddingHeader: 0 34px;
@@ -92,8 +89,7 @@
   }
 
   &__lead-section {
-    display: flex;
-    flex-direction: column;
+    @extend %flexColumn;
     gap: 20px;
 
     @include onTablet {

@@ -1,114 +1,123 @@
 .features {
 
   &__headline {
-    margin-bottom: 32px;
-    padding-left: 30px;
+    --fontSize: 1.88rem;
+    --lineHeight: 40px;
+    --paddingLeft: 30px;
 
-    font-weight: 700;
-    font-size: 1.88rem;
-    line-height: 40px;
+    margin-bottom: 32px;
+    padding-left: var(--paddingLeft);
+
+    font-weight: $fontWeight700;
+    font-size: var(-fontSize);
+    line-height: var(--lineHeight);
     text-transform: uppercase;
-    color: #333;
+    color: $colorDune;
 
     @include onDesktop {
-      font-size: 3.5rem;
-      line-height: 70px;
-      padding-left: 0;
+      --fontSize: 3.5rem;
+      --lineHeight: 70px;
+      --paddingLeft: 0;
     }
   }
 
   &__list-block {
-    padding-top: 30px;
-    padding-bottom: 174px;
-    margin-bottom: 89px;
+    --listBlockPadding: 30px 0 174px;
+    --listBlockMarginBot: 89px;
+    --backgroundPosition: center bottom;
+    --backgroundImage: url(/images/features-bgr.png);
+    --backgroundSize: contain;
 
-    background-image: url(/images/features-bgr.png);
-    background-color: #d6ecec;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
+    padding: var(--listBlockPadding);
+    margin-bottom: var(--listBlockMarginBot);
+
+    background-image: var(--backgroundImage);
+    background-color: $colorPaleBlueLily;
+    background-position: var(--backgroundPosition);
+    @extend %BackgroundNoRepeatContain;
 
     @include onTablet {
-      padding-top: 60px;
-      padding-bottom: 123px;
-      padding-right: 30px;
-      margin-bottom: 140px;
-
-      background-image: url(/images/features-bgr-tablet.png);
-      background-position: 95% 100%;
-      background-repeat: no-repeat;
-      background-size: 55%;
+      --listBlockPadding: 60px 30px 123px 0;
+      --listBlockMarginBot: 140px;
+      --backgroundPosition: 95% 100%;
+      --backgroundImage: url(/images/features-bgr-tablet.png);
+      --backgroundSize: 55%;
     }
 
     @include onDesktop {
+      --listBlockPadding: 60px 102px;
+      --listBlockMarginBot: 170px;
+      --backgroundPosition: 92% 100%;
+      --backgroundImage: url(/images/slider-bgr.png);
+      --backgroundSize: auto 302px;
+
       display: grid;
       grid-template-columns: repeat(2,1fr);
       gap: 56px 0;
-      padding: 60px 102px;
-      margin-bottom: 170px;
-
-      background-image: url(/images/slider-bgr.png);
-      background-position: 92% 100%;
-      background-size: auto 302px;
-      background-repeat: no-repeat;
     }
   }
 
   &__name {
-    margin-bottom: 20px;
-    padding-left: 32px;
+    --marginBot: 20px;
+    --paddingLeft: 32px;
+    --fontSize: 1.13rem;
 
-    font-weight: 700;
-    font-size: 1.13rem;
+    margin-bottom: var(-marginBot);
+    padding-left: var(--paddingLeft);
+
+    font-weight: $fontWeight700;
+    font-size: var(--fontSize);
     line-height: 22px;
     text-transform: uppercase;
-    color: #0c797a;
+    color: $colorSurfieGreen;
 
     @include onTablet {
-      padding-left: 90px;
+      --paddingLeft: 90px;
     }
 
     @include onDesktop {
-      font-size: 2.13rem;
-      margin-bottom: 30px;
-      padding-left: 0;
+      --marginBot: 30px;
+      --paddingLeft: 0;
+      --fontSize: 2.13rem;
     }
   }
 
   &__list {
-    display: flex;
-    flex-direction: column;
+    --padding: 0 27px 50px 48px;
+
+    @extend %flexColumn;
     gap: 10px;
-    padding: 0 27px 50px 48px;
+    padding: var(--padding);
+    min-height: 240px;
 
     list-style-position: outside;
 
     @include onTablet {
-      padding: 0 0 50px 106px;
+      --padding: 0 0 50px 106px;
+
       max-width: 244px;
     }
 
     @include onDesktop {
-      padding-left: 18px;
-      padding-bottom: 0;
+      --padding: 0 0 18px 0;
+
       max-width: 378px;
     }
 
     &_item {
       font-size: 0.88rem;
       line-height: 21px;
-      color: #333;
+      color: $colorDune;
 
       @include onDesktop {
         font-size: 1rem;
         line-height: 24px;
       }
     }
-
   }
 
   &__control {
-    text-align: center;
+    @extend %flexJustifyCenter;
 
     @include onTablet {
       text-align: left;
@@ -119,18 +128,51 @@
       display: none;
     }
 
-    &--left::after {
-      content: url(/images/arrow-left.svg);
+    &--left {
+
+      &::after {
+        content: "";
+        display: block;
+        width: 48px;
+        height: 14px;
+
+        background-image: url(/images/arrow-left.svg);
+
+        @extend %BackgroundNoRepeatContain;
+
+        transition: 0.2s;
+      }
+
+      &:hover::after {
+        content: "";
+        background-image: url(/images/arrow-left-hover.svg);
+      }
     }
 
-    &--right::after {
-      content: url(/images/arrow-right.svg);
+    &--right {
+
+      &::after {
+        content: "";
+        display: block;
+        width: 48px;
+        height: 14px;
+
+        background-image: url(/images/arrow-right.svg);
+
+        @extend %BackgroundNoRepeatContain;
+
+        transition: 0.2s;
+      }
+
+      &:hover::after {
+        content: "";
+        background-image: url(/images/arrow-right-hover.svg);
+      }
     }
   }
 
   &__numbers {
-    display: flex;
-    justify-content: center;
+    @extend %flexJustifyCenter;
 
     @include onTablet {
       justify-content: start;
@@ -141,20 +183,17 @@
       display: none;
     }
 
-    &--fist::after {
-      content: "01";
+    &--fist {
       display: block;
       margin-top: 8px;
-      color: #333;
+      color: $colorDune;
     }
 
-    &--last::after {
-      content: "/ 03";
+    &--last {
       display: block;
       margin: 16px 0 0 3px;
       font-size: 0.7rem;
-      color: #0c797a;
+      color: $colorSurfieGreen;
     }
   }
-
 }
