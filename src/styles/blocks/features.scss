@@ -1,0 +1,206 @@
+.features {
+
+  height: 575px;
+
+  @include onTablet {
+    height: 555px;
+  }
+
+  background-color: #d6ecec;
+
+  padding: 30px 20px;
+
+  @include onTablet {
+    padding: 60px 90px;
+    height: 555px;
+  }
+
+  @include onDesctop {
+    height: 650px;
+  }
+
+  .slider {
+    position: relative;
+    width: 250px;
+    height: 270px;
+    overflow: hidden;
+
+    grid-column: 2 / span 3;
+
+    @include onDesctop {
+      display: none;
+    }
+  }
+
+  &__articles-wrap {
+
+    float: left;
+
+    @include onMobile {
+      height: 270px;
+    }
+
+    @include onTablet {
+      height: 270px;
+    }
+
+    @include grid-onDesctop;
+
+  }
+
+  &__article {
+    float: left;
+  }
+
+  &__title {
+    text-align: left;
+
+    color: #0c797a;
+  }
+
+  &__list {
+    padding-left: 25px;
+  }
+
+  &__item {
+    margin-bottom: 10px;
+  }
+
+  &__image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    @include onMobile {
+      right: 0;
+    }
+  }
+
+  &__buttons {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: max-content;
+
+    @include onMobile {
+      margin-top: 50px;
+    }
+
+    @include onTablet {
+      margin-left: 20px;
+      margin-top: 50px;
+      justify-content: left;
+    }
+
+    @include onDesctop {
+      display: none;
+    }
+
+    grid-column: 2 / span 1;
+
+    &-wrap {
+      display: flex;
+      flex-direction: row;
+
+      margin-bottom: 10px;
+    }
+  }
+
+  &__slide-counter {
+    position: relative;
+
+    font-family: "Inter", sans-serif;
+
+    color: #0c797a;
+  }
+
+  &__slide-counter::before {
+    position: absolute;
+
+    content: "01";
+
+    right: 10px;
+    bottom: 1px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #333;
+  }
+
+  &__slide-counter::after {
+    position: absolute;
+
+    content: "03";
+
+    left: 10px;
+
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 24px;
+  }
+
+  &__button {
+    &-left {
+      width: 50px;
+      height: 15px;
+
+      cursor: pointer;
+
+      background-image: url(../images/icon/button-left.svg);
+    }
+
+    &-right {
+      width: 50px;
+      height: 15px;
+
+      cursor: pointer;
+
+      background-image: url(../images/icon/button-right.svg);
+    }
+  }
+
+  &--display-onDesctop-only {
+    @include onMobile {
+      display: none;
+    }
+    @include onTablet {
+      display: none;
+    }
+    @include onDesctop {
+      display: grid;
+    }
+  }
+
+  &--display-onDesctop-none {
+    @include onDesctop {
+      display: none;
+    }
+  }
+
+  &--grid-item--2-4 {
+
+    grid-column: 2 / span 5;
+  }
+
+  &--grid-item--4-9 {
+    @include onTablet {
+      grid-column: 4 / span 5;
+    }
+    @include onDesctop {
+      grid-column: 7 / span 6;
+    }
+  }
+
+  &--grid-item--7-9 {
+
+    @include onDesctop {
+      grid-column: 7 / span 4;
+    }
+  }
+
+}
