@@ -1,0 +1,88 @@
+.header {
+  box-sizing: border-box;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    @include marginLeft ($m-hor, $m-hor, 0);
+    @include marginRight ($m-hor, $m-hor, 0);
+
+    @include onTablet {
+      padding: 30px 0;
+    }
+  }
+
+  &__logo {
+    flex-shrink: 0;
+  }
+
+  &__buttons {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  &__menu-opener {
+    background-image: url("../images/icons/menu_1.svg");
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: 584px;
+    @include marginLeft (0, $m-hor, 0);
+    @include marginRight (0, $m-hor, 0);
+
+    background-image: url(../images/photos/header_m.jpg);
+    background-position: top;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 326px;
+      background-image: url(../images/photos/header_t.jpg);
+      background-position: bottom right;
+      background-size: auto;
+    }
+
+    @include onDesktop {
+      height: 418px;
+      background-image: url(../images/photos/header_d.jpg);
+      background-position: bottom right;
+      background-size: auto;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    @include marginLeft ($m-hor, 0, 0);
+
+    @extend %h1;
+    @include onTablet {
+      margin-left: 0;
+    }
+  }
+
+  &__text {
+    max-width: 250px;
+    @include marginLeft ($m-hor, 0, 0);
+
+    @extend %text-main;
+    color: $color-darkgrey_2;
+
+    @include onDesktop {
+      max-width: 276px;
+    }
+  }
+}

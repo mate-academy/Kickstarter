@@ -1,6 +1,35 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1254px) {
+    @content;
+  }
+}
+
+@mixin marginLeft($phone, $tablet, $desktop) {
+  margin-left: $phone;
+
+  @include onTablet() {
+    margin-left: $tablet;
+  }
+
+  @include onDesktop {
+    margin-left: $desktop;
+  }
+}
+
+@mixin marginRight($phone, $tablet, $desktop) {
+  margin-right: $phone;
+
+  @include onTablet() {
+    margin-right: $tablet;
+  }
+
+  @include onDesktop {
+    margin-right: $desktop;
   }
 }
