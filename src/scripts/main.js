@@ -9,6 +9,14 @@ const scrollUp = document.querySelector('.scroll-up');
 const menuLink = [...document.querySelectorAll('.menu__link')];
 const form = document.querySelector('.form');
 
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
+
 /* Put a headline before the picture */
 
 if (window.matchMedia('(max-width: 767px)').matches) {
@@ -47,14 +55,6 @@ menuLink.map(a => a.addEventListener('click', function() {
   menuLink.map(b => b.classList.remove('menu__link--is-active'));
   a.classList.add('menu__link--is-active');
 }));
-
-window.addEventListener('hashchange', () => {
-  if (window.location.hash === '#menu') {
-    document.body.classList.add('page__body--with-menu');
-  } else {
-    document.body.classList.remove('page__body--with-menu');
-  }
-});
 
 /* Prevent sumbit form */
 
