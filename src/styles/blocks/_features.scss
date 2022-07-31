@@ -9,10 +9,14 @@
     padding-left: var(--paddingLeft);
 
     font-weight: $fontWeight700;
-    font-size: var(-fontSize);
+    font-size: var(--fontSize);
     line-height: var(--lineHeight);
     text-transform: uppercase;
     color: $colorDune;
+
+    @include onDesktopS {
+      --fontSize: 2.5rem;
+    }
 
     @include onDesktop {
       --fontSize: 3.5rem;
@@ -26,7 +30,7 @@
     --listBlockMarginBot: 89px;
     --backgroundPosition: center bottom;
     --backgroundImage: url(/images/features-bgr.png);
-    --backgroundSize: contain;
+    --backgroundSize: 320px;
 
     padding: var(--listBlockPadding);
     margin-bottom: var(--listBlockMarginBot);
@@ -34,7 +38,12 @@
     background-image: var(--backgroundImage);
     background-color: $colorPaleBlueLily;
     background-position: var(--backgroundPosition);
+    background-size: var(--backgroundSize);
     @extend %BackgroundNoRepeatContain;
+
+    @include onMobileL {
+      --backgroundPosition: right bottom;
+    }
 
     @include onTablet {
       --listBlockPadding: 60px 30px 123px 0;
@@ -44,8 +53,8 @@
       --backgroundSize: 55%;
     }
 
-    @include onDesktop {
-      --listBlockPadding: 60px 102px;
+    @include onDesktopS {
+      --listBlockPadding: 60px 30px 30px 0;
       --listBlockMarginBot: 170px;
       --backgroundPosition: 92% 100%;
       --backgroundImage: url(/images/slider-bgr.png);
@@ -53,6 +62,14 @@
 
       display: grid;
       grid-template-columns: repeat(2,1fr);
+      gap: 0;
+    }
+
+    @include onDesktop {
+      --listBlockPadding: 60px 102px;
+      --backgroundPosition: 92% 100%;
+      --backgroundImage: url(/images/slider-bgr.png);
+
       gap: 56px 0;
     }
   }
@@ -62,7 +79,7 @@
     --paddingLeft: 32px;
     --fontSize: 1.13rem;
 
-    margin-bottom: var(-marginBot);
+    margin-bottom: var(--marginBot);
     padding-left: var(--paddingLeft);
 
     font-weight: $fontWeight700;
@@ -73,6 +90,12 @@
 
     @include onTablet {
       --paddingLeft: 90px;
+    }
+
+    @include onDesktopS {
+      --marginBot: 30px;
+      --paddingLeft: 90px;
+      --fontSize: 1.5rem;
     }
 
     @include onDesktop {
@@ -92,6 +115,10 @@
 
     list-style-position: outside;
 
+    @include onMobileL {
+      max-width: 244px;
+    }
+
     @include onTablet {
       --padding: 0 0 50px 106px;
 
@@ -109,7 +136,7 @@
       line-height: 21px;
       color: $colorDune;
 
-      @include onDesktop {
+      @include onDesktopS {
         font-size: 1rem;
         line-height: 24px;
       }
@@ -119,12 +146,12 @@
   &__control {
     @extend %flexJustifyCenter;
 
-    @include onTablet {
-      text-align: left;
+    @include onMobileL {
+      justify-content: start;
       margin-left: 90px;
     }
 
-    @include onDesktop {
+    @include onDesktopS {
       display: none;
     }
 
@@ -174,12 +201,12 @@
   &__numbers {
     @extend %flexJustifyCenter;
 
-    @include onTablet {
+    @include onMobileL {
       justify-content: start;
       margin-left: 114px;
     }
 
-    @include onDesktop {
+    @include onDesktopS {
       display: none;
     }
 
