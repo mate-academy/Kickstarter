@@ -34,9 +34,12 @@ function showSlides(n) {
 
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
+    slides[i].classList.remove('fade');
   }
 
   slides[slideIndex - 1].style.display = 'block';
+  slides[slideIndex - 1].classList.add('fade');
+
   current.textContent = `0${slideIndex}`;
 }
 
