@@ -10,52 +10,45 @@
   &__article {
 
     @include onTablet {
-      --maxWidth: auto;
-      max-width: var(--maxWidth);
+      max-width: auto;
     }
 
     @include onDesktop {
-      --maxWidth: 582px;
+      max-width: 582px;
     }
   }
 
   &__headline {
-    --fontSizeH: 1.88rem;
-    --lineHeightH: 40px;
-    --paddingBotH: 0;
-
-    font-size: var(--fontSizeH);
-    line-height: var(--lineHeightH);
-    text-transform: var(--paddingBotH);
+    font-size: 1.88rem;
+    line-height: 40px;
+    text-transform: uppercase;
 
     @include onTablet {
-      --paddingBotH: 30px;
-      --fontSizeH: 2.5rem;
-      --lineHeightH: 46px;
+      scroll-padding-bottom: 30px;
+      font-size: 2.5rem;
+      line-height: 46px;
       margin-bottom: 30px;
     }
 
     @include onDesktop {
-      --fontSizeH: 3.5rem;
-      --lineHeightH: 70px;
+      font-size: 3.5rem;
+      line-height: 70px;
       margin-bottom: 30px;
     }
   }
 
   &__paragraph {
-    --paddingBtm: 30px;
-
-    padding-bottom: var(--paddingBtm);
+    padding-bottom: 30px;
     font-size: 0.88rem;
     line-height: 21px;
     color: $colorConcord;
 
     @include onTablet {
-      --paddingBtm: 60px;
+      padding-bottom: 60px;
     }
 
     @include onDesktop {
-      --paddingBtm: 0;
+      padding-bottom: 0;
       font-size: 1rem;
       line-height: 24px;
     }
@@ -66,18 +59,41 @@
   }
 
   &__see-more {
-    @extend %seeMore;
-
-    --marginSM: 30px 0 110px;
-    margin: var(--marginSM);
+    @extend %seeMoreDefaultStyle;
+    
+    margin: 30px 0 110px;
 
     @include onTablet {
-      --marginSM: 0;
+      margin: 0;
     }
 
     @include onDesktop {
       display: block;
-      --marginSM: 60px 0;
+      margin: 60px 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      margin-top: 5px;
+      height: 1px;
+      width: 53px;
+
+      background-color: #0db2b3;
+      transition: 0.3s;
+
+      @include onDesktop {
+        width: 65px;
+      }
+    }
+
+    &:hover::after {
+      width: 100%;
+
+      @include onDesktop {
+        width: 125px;
+      }
     }
   }
 }

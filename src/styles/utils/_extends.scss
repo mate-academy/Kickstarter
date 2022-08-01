@@ -14,11 +14,11 @@
 }
 
 %BackgroundNoRepeatContain {
-  background-size: $backgroundSizeContaine;
-  background-repeat: $backgroundNoRepeat;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-%seeMore {
+%seeMoreDefaultStyle {
   position: relative;
   font-weight: 700;
   font-size: 12px;
@@ -26,28 +26,4 @@
   text-transform: uppercase;
   color: #0db2b3;
   text-decoration: none;
-
-  &::after {
-    content: "";
-    position: absolute;
-    display: block;
-    margin-top: 5px;
-    height: 1px;
-    width: 53px;
-
-    background-color: #0db2b3;
-    transition: 0.3s;
-
-    @include onDesktop {
-      width: 65px;
-    }
-  }
-
-  &:hover::after {
-    width: 100%;
-
-    @include onDesktop {
-      width: 125px;
-    }
-  }
 }
