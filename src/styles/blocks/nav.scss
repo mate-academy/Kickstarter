@@ -33,12 +33,39 @@
   &__specs {
     @include display-onMobile-none;
 
+    position: relative;
+
     font-family: "Helvetica Neue", sans-serif;
 
     font-weight: 300;
     font-size: 14px;
 
     text-transform: uppercase;
+
+    &::after {
+
+      position: absolute;
+
+      content: "";
+
+      width: 0;
+
+      left: 0;
+      bottom: -5px;
+
+      border: 1px solid #333;
+
+      opacity: 0;
+
+      background-color: #333;
+
+      transition: width 0.3s ease-in-out, opacity 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+      opacity: 0.7;
+    }
   }
 
   &--display {
@@ -54,11 +81,28 @@
     }
   }
 
+  &__menu-exit {
+    width: 24px;
+    height: 14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
   &--buy-button {
     display: none;
 
     @include onTablet {
       display: block;
+    }
+
+    &:hover {
+      background: #131313;
     }
   }
 }

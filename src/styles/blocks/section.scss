@@ -87,23 +87,31 @@
     text-transform: uppercase;
 
     color: #0db2b3;
-  }
 
-  &__link::after {
+    &::after {
 
-    position: absolute;
+      position: absolute;
 
-    content: "";
+      content: "";
 
-    width: 55px;
+      width: 55px;
 
-    left: 0;
-    bottom: -5px;
+      left: 0;
+      bottom: -5px;
 
-    border: 1px solid #0db2b3;
+      border: 0.5px solid #0db2b3;
 
-    @include onDesctop {
-      width: 65px;
+      background-color: #0db2b3;
+
+      transition: width 0.3s ease-in-out;
+
+      @include onDesctop {
+        width: 65px;
+      }
+    }
+
+    &:hover::after {
+      width: 100%;
     }
   }
 
