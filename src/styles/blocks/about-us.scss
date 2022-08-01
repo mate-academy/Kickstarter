@@ -37,11 +37,17 @@
   }
 
   &__title {
-    @extend %h2-desktop;
+    @extend %h2-mobile;
     text-transform: uppercase;
+
     @include onTablet {
       font-size: 36px;
       line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
     }
   }
 
@@ -54,5 +60,23 @@
     color: $main-button;
     text-transform: uppercase;
     text-decoration: none;
+    position: relative;
+    padding: 5px 0;
+    border-bottom: 1px solid transparent;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 54px;
+      background-color: $main-button;
+      left: 0;
+      bottom: 0;
+      transition: width 0.3s;
+    }
+
+    &:hover::after {
+      width: 128px;
+    }
   }
 }
