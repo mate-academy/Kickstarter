@@ -19,10 +19,11 @@
     height: 650px;
   }
 
-  .slider {
+  .slider-wrapper {
     position: relative;
     width: 250px;
     height: 270px;
+
     overflow: hidden;
 
     grid-column: 2 / span 3;
@@ -86,10 +87,12 @@
     width: max-content;
 
     @include onMobile {
-      margin-top: 50px;
+      margin: 50px auto;
+      margin-bottom: 0;
     }
 
     @include onTablet {
+      margin: 0;
       margin-left: 20px;
       margin-top: 50px;
       justify-content: left;
@@ -144,23 +147,53 @@
     line-height: 24px;
   }
 
-  &__button {
-    &-left {
-      width: 50px;
-      height: 15px;
+  .features__buttons-wrap {
+    width: 100px;
+    display: flex;
+    justify-content: start;
+  }
 
-      cursor: pointer;
+  .features__buttons-wrap &__left-button {
 
-      background-image: url(../images/icon/button-left.svg);
+    position: relative;
+
+    left: 0;
+
+    width: 50px;
+    height: 15px;
+
+    border: none;
+
+    background-color: transparent;
+
+    cursor: pointer;
+
+    background-image: url(../images/icon/button-left.svg);
+
+    &::after {
+      content: none;
     }
+  }
 
-    &-right {
-      width: 50px;
-      height: 15px;
+  .features__buttons-wrap &__right-button {
 
-      cursor: pointer;
+    position: relative;
 
-      background-image: url(../images/icon/button-right.svg);
+    right: 0;
+
+    width: 50px;
+    height: 15px;
+
+    border: none;
+
+    background-color: transparent;
+
+    cursor: pointer;
+
+    background-image: url(../images/icon/button-right.svg);
+
+    &::after {
+      content: none;
     }
   }
 
@@ -200,6 +233,14 @@
 
     @include onDesctop {
       grid-column: 7 / span 4;
+    }
+  }
+
+  .swiper {
+    height: 370px;
+
+    @include onTablet {
+      height: 280px;
     }
   }
 
