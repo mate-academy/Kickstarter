@@ -10,10 +10,6 @@ new Swiper('.swiper', {
   modules: [Navigation, Pagination],
 
   grabCursor: true,
-  // указывает с какого слайда начинать
-  // initialSlide: 3,
-  // позволяет перематывать слайды
-  // с последнего сразу на 1й
   rewind: true,
 
   pagination: {
