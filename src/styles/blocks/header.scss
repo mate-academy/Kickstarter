@@ -17,10 +17,7 @@
   }
 
   &__top {
-    display: flex;
-    justify-content: space-between;
-    // чтобы бургер отцентрировать
-    align-items: center;
+    @extend %flex-center-between;
 
     margin-bottom: 90px;
   }
@@ -35,9 +32,9 @@
   }
 
   &__title {
-    font-size: 40px;
-    // line-height: 78px;
     margin-bottom: 20px;
+
+    font-size: 40px;
 
     @include onTablet {
       margin-bottom: 30px;
@@ -59,18 +56,22 @@
   }
 
   &__link {
-    font-size: 14px;
-    line-height: 20px;
-    color: $form-placeholder;
+    @extend %links;
 
-    text-decoration: none;
+    color: $form-placeholder;
 
     &--specs {
       color: $specs;
+
+      transition: color 0.3s;
+
+      &:hover {
+        color: $links-color;
+      }
     }
 
     &--d-md-none {
-      display: block;
+      display: flex;
 
       @include onTablet {
         display: none;
@@ -88,39 +89,21 @@
     }
   }
 
-  // &__input {
-  //   display: none;
-  // }
   &__intro {
-    filter: brightness(101%);
-    // filter: contrast(200%);
     margin-left: 0;
 
     width: 100%;
-    // min-height: 464px;
     max-height: 464px;
 
     object-fit: cover;
-    // object-position: left;
     margin-bottom: 40px;
 
     transition: transform 0.3s;
+    filter: brightness(101%);
 
     @include onTablet {
       margin-bottom: 0;
       margin-left: 10px;
     }
-
-    // &:hover {
-    //   transform: scale(105%);
-    // }
   }
 }
-
-//  &__test {
-//   background-image: url(/images/header/header.png);
-//   width: 500px;
-//   height: 500px;
-//   // background-color: transparent
-//   background-blend-mode: darken;
-//  }

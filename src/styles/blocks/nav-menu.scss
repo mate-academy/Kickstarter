@@ -9,7 +9,13 @@
   @include onTablet {
     position: static;
 
+    margin-bottom: 48px;
+
     transform: translateY(0);
+  }
+
+  @include onDesktop {
+    margin-bottom: 64px;
   }
 
   &:target {
@@ -17,12 +23,8 @@
     flex-direction: column;
     height: 100vh;
 
-    background-color: #f9f9f9;
+    background-color: $page-bg;
     transform: translateY(0);
-  }
-
-  &--desktop-mb {
-    margin-bottom: 64px;
   }
 
   &--is-active {
@@ -42,11 +44,9 @@
   }
 
   &__content {
-    display: flex;
-    // єто направление должно біть только при открітии меню
+    @extend %flex-center;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
     gap: 60px;
 
     padding: 28px 0;
@@ -62,9 +62,7 @@
   }
 
   &__inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @extend %flex-center-between;
 
     width: 100%;
 
@@ -73,12 +71,10 @@
     }
   }
 
-  &__links {
-    font-size: 14px;
-    line-height: 1.43;
+  &__link {
+    @extend %links;
     color: $dark;
 
-    text-decoration: none;
     text-transform: uppercase;
 
     transition: color 0.3s;

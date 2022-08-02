@@ -1,35 +1,27 @@
 .footer {
-  // position: sticky;
-  bottom: 0;
+
   &__top {
     position: relative;
 
     display: none;
 
     @include onTablet {
-      display: flex;
-      justify-content: center;
+      @include flex-center;
 
       margin-bottom: 64px;
     }
   }
 
-  // попробуй в конце при скроле чтобы стрелка поднималась
-  // sticky or fixed
   &__arrow {
     position: absolute;
     right: 10px;
-    // position: fixed;
-    // bottom: 15%;
-    // right: 15%;
-    // position: sticky;
   }
 
   &__middle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend %flex-center;
+
     gap: 48px;
+
     margin-bottom: 33px;
 
     @include onTablet {
@@ -37,27 +29,12 @@
     }
   }
 
-  // возможно это в класс иконок перетащить или добавить
-  &__img {
-    width: 100%;
-    height: 100%;
-
-    &:hover {
-      fill: red;
-      stroke: blue;
-    }
-  }
-
   &__link {
-    width: 20px;
-    height: 20px;
+    @include icon-size(20px, 20px);
   }
 
   &__bottom {
-    display: flex;
-    justify-content: center;
-    // можно плейсхолдер и с align-items: center; сюда кинуть
-    // align-items: center;
+    @extend %flex-center;
 
     margin-bottom: 20px;
 
