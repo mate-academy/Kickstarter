@@ -1,0 +1,92 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+
+  @include onTablet {
+    grid-column: 1/4;
+  }
+
+  &__container {
+    display: block;
+    background-color: $section-background;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &-wrapper {
+    padding-bottom: 40px;
+  }
+
+  &__button-left {
+    background-image: url(../images/icon/prev.png);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+
+  &__button-right {
+    background-image: url(../images/icon/next.png);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+
+  &-button-prev::after {
+    display: none;
+  }
+
+  &-button-next::after {
+    display: none;
+  }
+
+  &-slide {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 32px 0;
+
+    @include onTablet {
+      padding: 60px 90px;
+    }
+
+  }
+
+  &-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  &__photo {
+    display: block;
+    width: 100%;
+    min-height: 180px;
+    align-self: flex-end;
+
+    @include onTablet {
+      grid-column: 3/7;
+    }
+  }
+}
+
+.wrapper-button {
+  display: flex;
+  padding-left: 20px;
+  @include onTablet {
+    padding-left: 60px;
+    grid-column: 1;
+  }
+}
