@@ -13,14 +13,14 @@
     @include onDesktop {
       margin-bottom: 160px;
     }
+  }
 
+  &__top-desktop {
     @include onTablet {
-      &-desktop {
-        width: 300px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+      width: 300px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 
@@ -35,6 +35,11 @@
     font-weight: 300;
     font-size: 14px;
     line-height: 17px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   &__language {
@@ -49,7 +54,7 @@
     height: 48px;
     width: 102px;
     background-color: $dark-color;
-    transition: 0.3s;
+    transition: background 0.3s;
 
     &:hover {
       background: #131313;
@@ -57,15 +62,6 @@
 
     &:disabled {
       background: #d0d0d0;
-    }
-  }
-
-  &__inner {
-    @include onTablet {
-      display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      grid-template-rows: 1fr;
-      grid-auto-flow: dense;
     }
   }
 

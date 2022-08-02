@@ -6,6 +6,25 @@
 
   &__body {
     margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.4s;
+
+    &:target {
+      transform: translateX(0);
+      transition: transform 0.4s;
+    }
   }
 
   &__section {
@@ -18,6 +37,11 @@
     @include onDesktop {
       margin-bottom: 170px;
     }
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }
 
