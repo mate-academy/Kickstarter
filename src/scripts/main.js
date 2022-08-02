@@ -1,4 +1,6 @@
-'use strict';
+
+import Swiper, { Navigation, Pagination } from 'swiper';
+import 'swiper/swiper-bundle.min.css';
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
@@ -21,3 +23,19 @@ function sliderAuto() {
 }
 
 setInterval(sliderAuto, 10000);
+
+window.swiper = new Swiper('.swiper', {
+  direction: 'horizontal',
+  loop: true,
+
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'fraction',
+  },
+
+  navigation: {
+    nextEl: '.swiper-btn-next',
+    prevEl: '.swiper-btn-prev',
+  },
+  modules: [Navigation, Pagination],
+});
