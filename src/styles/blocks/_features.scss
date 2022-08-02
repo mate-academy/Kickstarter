@@ -1,0 +1,161 @@
+.features {
+  margin-bottom: 90px;
+
+  @include onTablet {
+    margin-bottom: 140px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 170px;
+  }
+
+  &__content {
+    padding-top: 20px;
+    background-color: #d6ecec;
+  }
+
+  &__info {
+
+
+    @include onDesktop {
+      margin-bottom: 60px;
+    }
+
+    &--none {
+      @include onMobile-onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__container {
+    margin-top: 60px;
+    margin-left: 90px;
+  }
+
+  &__title {
+    color: $dark-color;
+    @extend %font-large;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 20px;
+    color: #0c797a;
+    @extend %font-large;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+
+    @include onDesktop {
+      margin-bottom: 30px;
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    list-style: inside;
+  }
+
+  &__item {
+    @extend %font-small;
+    margin-bottom: 10px;
+    color: $dark-color;
+
+    @include onDesktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__slider {
+    height: 10px;
+    width: 100px;
+    position: relative;
+    margin: 0 auto 40px;
+    cursor: pointer;
+
+    @include onTablet {
+      margin: 0;
+    }
+    &--none {
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__slide {
+    width: 50px;
+    position: absolute;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+
+    &--prev {
+      left: 0;
+      margin-right: 40px;
+      background-image: url(/images/svg/arrow-prev.svg);
+
+      &:hover {
+        background-image: url(/images/svg/arrow-prev-hover.svg);
+      }
+    }
+
+    &--next {
+      right: 0;
+      background-image: url(/images/svg/arrow-next.svg);
+
+      &:hover {
+        background-image: url(/images/svg/arrow-next-hover.svg);
+      }
+    }
+
+    &--current {
+      @extend %font-small;
+
+      margin-top: 17px;
+      margin-left: 30px;
+      color: $dark-color;
+    }
+
+    &--total {
+      margin-top: 28px;
+      margin-left: 2px;
+      color: #0c797a;
+      font-size: 11px;
+      line-height: 13px;
+    }
+  }
+
+  &__photo {
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &__photo-wrapper {
+    height: 174px;
+    // position: relative;
+    // float: right;
+
+    @include onTablet {
+      height: 226px;
+    }
+
+    @include onDesktop {
+      height: 300px;
+      margin-top: -300px;
+    }
+  }
+}
+
