@@ -6,6 +6,7 @@ const featuresSection = document.querySelectorAll('.feature__section');
 const scrollUp = document.querySelector('.scroll-up');
 const menuLink = [...document.querySelectorAll('.menu__link')];
 const form = document.querySelector('.form');
+const button = document.querySelector('.button--form');
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
@@ -57,6 +58,7 @@ menuLink.map(a => a.addEventListener('click', function() {
 /* Prevent sumbit form */
 
 form.addEventListener('submit', function(event) {
+  button.textContent = 'SENT ✅';
   event.preventDefault();
 });
 
