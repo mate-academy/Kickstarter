@@ -1,6 +1,14 @@
+:root {
+  --swipper-height: 575px;
+  --swipper-list-height: 176px;
+  --swipper-list-li-height: 31px;
+
+}
+
 .slider {
 
   &__wrap {
+    display: none;
     // padding: 30px 0;
     padding-top: 30px;
 
@@ -11,24 +19,32 @@
       padding-top: 60px;
     }
 
+    @include onDesktop {
+      display: block;
+    }
+
     &--d-lg-none {
-      display: none;
+      display: block;
 
       @include onDesktop {
-        display: block;
+        display: none;
       }
     }
   }
 
-
   &__title {
     margin-bottom: 20px;
+    padding: 0 20px;
 
     font-size: 18px;
     line-height: 1.24;
     color: $slider-title;
 
     text-transform: uppercase;
+
+    @include onTablet {
+      padding: 0;
+    }
 
     @include onDesktop {
       margin-bottom: 30px;
@@ -38,17 +54,32 @@
   }
 
   &__list {
-    margin: 0 0 0 20px;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    // gap: 0px 10px;
 
+    // max-height: 233px;
+    // margin: 0 0 0 20px;
+    margin: 0;
+    padding: 0 20px;
+
+    // тест
+    // height: var(--swipper-list-height);
+
+    @include onTablet {
+      padding: 0;
+    }
 
     @include onDesktop {
-      margin: 0 0 55px 20px;
+      // margin: 0 0 55px 20px;
+      margin-bottom: 55px;
     }
   }
 
   &__item {
     font-size: 14px;
+    margin-left: 20px;
 
     &:not(:last-child) {
       margin-bottom: 10px;
@@ -58,6 +89,15 @@
       font-size: 16px;
     }
   }
+
+  // &__color {
+  //   background-color: $slider-bg;
+
+  //   @include onTablet {
+  //     background-color: transparent
+  //   }
+
+  // }
 
   &__bg {
     background-image: url(/images/slider/slider-img.png);
@@ -86,28 +126,129 @@
       background-size: auto;
     }
   }
+
+  &__container {
+    padding: 0;
+
+    @include onTablet {
+      padding: 0 20px;
+    }
+  }
 }
 
 // swiper
 .swiper {
-  height: 575px;
+  padding-top: 30px !important;
+  padding-bottom: 200px !important;
+
+  // height: 575px;
+  // min-height: 575px;
 
   @include onTablet {
-    height: 555px;
+    // height: 555px;
+    // min-height: 555px;
+    // height: calc(var(--swipper-height) + var(--swipper-list-height));
+    padding-top: 60px !important;
+    padding-bottom: 255px !important;
   }
 
   @include onDesktop {
     height: auto;
   }
 
-  &-slide {
-    // padding: 60px 0 123px;
-    padding-top: 60px;
+  // &-slide {
+  //   // padding: 60px 0 123px;
+  //   padding-top: 60px;
+  // }
+
+  &-pagination-total {
+    // position: relative;
+    font-size: 11px;
+    line-height: 13px;
+
+    color: $slider-title;
+  }
+
+  // &-pagination-fraction {
+  //   bottom: calc(28vh - ( #{$slider-li-height}
+  // * #{$max-slider-li-amount})) !important;
+  //   left: 43% !important;
+  //   width: auto !important;
+
+  //   @include onTablet {
+  //     bottom: calc(26vh - ( #{$slider-li-height}
+  // * #{$max-slider-li-amount})) !important;
+  //     left: 13% !important;
+  //     // width: auto !important;
+  //   }
+  // }
+
+}
+
+.test-next {
+  position: relative;
+  // bottom: 45%;
+  bottom: calc(31vh - ( #{$slider-li-height} * #{$max-slider-li-amount}));
+  left: 50%;
+  z-index: 1;
+
+  width: 48px;
+  height: 13px;
+
+  background-image: url(/images/svg/slider/arrow-right.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  cursor: pointer;
+
+  @include onTablet {
+    bottom: calc(30vh - ( #{$slider-li-height} * #{$max-slider-li-amount}));
+    left: 15%;
   }
 }
 
-.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
-  bottom: 200px;
-  left: -355px;
-  width: 100%;
+.test-prev {
+  position: relative;
+  bottom: calc(32vh - ( #{$slider-li-height} * #{$max-slider-li-amount}));
+  left: 35%;
+  z-index: 1;
+
+  width: 48px;
+  height: 13px;
+
+  background-image: url(/images/svg/slider/arrow-left.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  cursor: pointer;
+
+  @include onTablet {
+    bottom: calc(31vh - ( #{$slider-li-height} * #{$max-slider-li-amount}));
+    left: 10%;
+  }
+}
+
+.swiper-pagination-pag {
+  // position: relative;
+  bottom: calc(28vh - ( #{$slider-li-height} * #{$max-slider-li-amount})) ;
+  left: 44%;
+  // width: auto;
+  font-size: 11px;
+
+  @include onTablet {
+    bottom: calc(26vh - ( #{$slider-li-height} * #{$max-slider-li-amount}));
+    left: 13%;
+    // width: auto !important;
+  }
+}
+
+.start {
+  font-size: 16px;
+}
+
+.end {
+  font-size: 11px;
+  line-height: 13px;
+
+  color: $slider-title;
 }

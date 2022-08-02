@@ -8,18 +8,42 @@ import 'swiper/swiper-bundle.min.css';
 // import 'swiper/css/navigation';
 // import 'swiper/css/pagination';
 
+function addZero(num) {
+  return (num > 9) ? num : '0' + num;
+}
+
+// addZero(1);
+
 // init Swiper:
 // eslint-disable-next-line no-new
 new Swiper('.swiper', {
   // configure Swiper to use modules
   modules: [Navigation, Pagination],
+  grabCursor: true,
+  // указывает с какого слайда начинать
+  // initialSlide: 3,
+  // позволяет перематывать слайды
+  // с последнего сразу на 1й
+  rewind: true,
+
   pagination: {
     el: '.swiper-pagination',
+    // el: '.test',
+    modifierClass: 'swiper-pagination-pag ',
+    // el: '.pag',
+    currentClass: 'start',
+    totalClass: 'end',
     type: 'fraction',
+    formatFractionCurrent: addZero,
+    formatFractionTotal: addZero,
+
   },
+
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    // nextEl: '.swiper-button-next',
+    // prevEl: '.swiper-button-prev',
+    nextEl: '.test-next',
+    prevEl: '.test-prev',
   },
 
 });
@@ -78,3 +102,5 @@ window.addEventListener('hashchange', () => {
 //     prevEl: '.swiper-button-prev',
 //   },
 // });
+
+// alert(document.querySelector('.slider__list').children.length);
