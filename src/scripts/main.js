@@ -10,6 +10,7 @@ const swiper = new Swiper('.swiper', {
   // Navigation arrows
   pagination: {
     el: '.swiper-pagination',
+    type: 'fraction',
   },
   navigation: {
     nextEl: '.swiper-button-next',

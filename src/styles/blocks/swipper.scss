@@ -7,13 +7,38 @@
   align-items: flex-start;
   position: relative;
 
+  &__container--tablet {
+    display: none;
+    @include onTablet {
+      display: grid;
+      background-color: $section-background;
+    }
+  }
+
+  &__component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__container--mobile {
+    display: block;
+    background-color: $section-background;
+
+    @include onTablet {
+      display: none;
+    }
+    @include onDesktop {
+      display: none;
+    }
+  }
+
   @include onTablet {
     grid-column: 1/4;
   }
 
   &__container {
     display: block;
-    background-color: $section-background;
 
     @include onTablet {
       display: grid;
@@ -63,13 +88,6 @@
 
   }
 
-  &-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-  }
-
   &__photo {
     display: block;
     width: 100%;
@@ -84,7 +102,7 @@
 
 .wrapper-button {
   display: flex;
-  padding-left: 20px;
+  margin-top: 30px;
   @include onTablet {
     padding-left: 60px;
     grid-column: 1;
