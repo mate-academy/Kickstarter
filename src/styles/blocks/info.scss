@@ -1,4 +1,5 @@
 .info {
+  animation: 1s show ease-in;
   margin-top: 10px;
 
   @include onTablet {
@@ -12,6 +13,7 @@
   &__headline {
     @extend %h1-mobile;
     color: $primery;
+    // animation: an 1.5s ease-out 1 both;
 
     @include onTablet {
       font-size: 48px;
@@ -59,4 +61,15 @@
     gap: 30px;
   }
 
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
