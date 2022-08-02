@@ -1,4 +1,3 @@
-
 import Swiper, { Navigation, Pagination } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
 
@@ -8,6 +7,13 @@ window.addEventListener('hashchange', () => {
   } else {
     document.body.classList.remove('page__body--menu-is-open');
   }
+});
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  e.target.reset();
 });
 
 const sliderAutoWrapper = document.querySelector('.slider-auto__wrapper');
