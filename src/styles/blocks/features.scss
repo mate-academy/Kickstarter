@@ -6,7 +6,7 @@
     @include marginRight ($m-hor, $m-hor, 0);
   }
 
-  &__wraper {
+  &__wrapper {
     box-sizing: border-box;
     height: 575px;
     padding-top: 30px;
@@ -35,23 +35,32 @@
 
   &__content {
     padding: 0 30px;
+    max-width: 360px;
+    height: 45%;
 
     @include onTablet {
+      height: 35%;
       padding: 0 90px;
     }
 
-    & > :nth-child(-n+2) {
-      display: none;
+    @include onDesktop {
+      height: 35%;
+      max-width: 100%;
+      padding: 0 90px;
     }
+
+    // & > :nth-child(-n+2) {
+    //   display: none;
+    // }
 
     @include onDesktop {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 56px 0;
 
-      & > :nth-child(-n+2) {
-        display: block;
-      }
+      // & > :nth-child(-n+2) {
+      //   display: block;
+      // }
     }
   }
 
