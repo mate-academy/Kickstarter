@@ -33,3 +33,13 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('page__body--with-menu');
   }
 });
+
+window.onscroll = function() {
+  if (window.scrollY >= 140
+    + document.getElementById('menu').clientHeight
+    + document.getElementById('header').clientHeight) {
+    document.getElementById('menu').classList.add('menu--sticky');
+  } else {
+    document.getElementById('menu').classList.remove('menu--sticky');
+  }
+};
