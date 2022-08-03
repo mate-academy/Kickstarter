@@ -1,0 +1,109 @@
+.header {
+
+  &__logo {
+    display: flex;
+  }
+
+  &__switchers {
+    margin-left: 16px;
+  }
+
+  &--flex {
+    display: flex;
+
+    @include onTablet {
+      display: grid;
+    }
+  }
+
+  &__top {
+    @extend %flex-center-between;
+
+    margin-bottom: 90px;
+  }
+
+  &__info {
+    display: none;
+    align-items: center;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-size: 40px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+
+      font-size: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+
+      font-size: 62px;
+    }
+  }
+
+  &__text {
+    @include onTablet {
+      max-width: 276px;
+    }
+  }
+
+  &__link {
+    @extend %links;
+
+    color: $light-gray;
+
+    &--specs {
+      color: $specs;
+
+      transition: color 0.3s;
+
+      &:hover {
+        color: $success;
+      }
+    }
+
+    &--d-md-none {
+      display: flex;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__btn {
+    @include onTablet {
+      margin-left: 26px;
+    }
+
+    @include onDesktop {
+      margin-left: 46px;
+    }
+  }
+
+  &__intro {
+    margin-left: 0;
+
+    width: 100%;
+    max-height: 464px;
+
+    object-fit: cover;
+    margin-bottom: 40px;
+
+    transition: transform 0.3s;
+    filter: brightness(101%);
+
+    @include onTablet {
+      margin-bottom: 0;
+      margin-left: 10px;
+    }
+  }
+}

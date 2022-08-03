@@ -1,0 +1,83 @@
+.about-us {
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+  }
+
+  &__text {
+    position: relative;
+
+    max-width: 310px;
+    margin-bottom: 30px;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.43;
+    color: $dark;
+
+    @include onTablet {
+      max-width: 710px;
+      font-size: 24px;
+      line-height: 1.5;
+    }
+
+    @include onDesktop {
+      max-width: 100%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -85%);
+      z-index: -1;
+
+      width: 208px;
+      height: 171px;
+
+      background-image: url("/images/svg/about-us/quotes.svg");
+      @extend %bg-cover;
+      background-position: center;
+
+      @include onTablet {
+        width: 233px;
+        height: 189px;
+
+        transform: translate(-50%, -90%);
+      }
+
+      @include onDesktop {
+        transform: translate(-50%, -60%);
+      }
+    }
+  }
+
+  &__img {
+    margin-bottom: 10px;
+
+    transition: transform 0.3s;
+
+    @include onTablet {
+      margin-bottom: 20px;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__name {
+    margin-bottom: 5px;
+    font-size: 16px;
+    line-height: 1.38;
+  }
+
+  &__position {
+    font-size: 14px;
+    color: $gray;
+  }
+}

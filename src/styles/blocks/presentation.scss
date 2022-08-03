@@ -1,0 +1,111 @@
+.presentation {
+
+  &--d-md-none {
+    display: block;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &--d-none {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__row {
+    display: block;
+    margin-bottom: 110px;
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      gap: 30px;
+
+      margin-bottom: 165px;
+    }
+  }
+
+  &__img-container {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__info {
+    @include onTablet {
+      max-width: 50%;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    transition: transform 0.3s;
+
+    @include onTablet {
+      min-height: 400px;
+    }
+
+    &:hover {
+      transform: scale(105%);
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    color: $gray;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    display: inline-block;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.17;
+    color: $success;
+
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &-decor {
+      display: block;
+      margin-top: 5px;
+      width: 50%;
+      height: 1px;
+
+      background-color: $success;
+
+      transition: width 0.3s;
+    }
+
+    &:hover &-decor {
+      width: 100%;
+    }
+  }
+}

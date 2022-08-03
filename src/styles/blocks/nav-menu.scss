@@ -1,0 +1,91 @@
+.nav-menu {
+  position: fixed;
+  left: 0;
+  right: 0;
+
+  transform: translateY(-100%);
+  transition: transform 0.4s;
+
+  @include onTablet {
+    position: static;
+
+    margin-bottom: 48px;
+
+    transform: translateY(0);
+  }
+
+  @include onDesktop {
+    margin-bottom: 64px;
+  }
+
+  &:target {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    background-color: $page-bg;
+    transform: translateY(0);
+  }
+
+  &--is-active {
+    font-weight: 700;
+  }
+
+  &__img {
+    display: flex;
+  }
+
+  &__switchers {
+    display: block;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__content {
+    @extend %flex-center;
+    flex-direction: column;
+
+    gap: 60px;
+
+    padding: 28px 0;
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 55px;
+    }
+
+    @include onDesktop {
+      gap: 84px;
+    }
+  }
+
+  &__inner {
+    @extend %flex-center-between;
+
+    width: 100%;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__link {
+    @extend %links;
+    color: $dark;
+
+    text-transform: uppercase;
+
+    transition: color 0.3s;
+
+    &:focus {
+      font-weight: 700;
+      color: $black;
+    }
+
+    &:hover {
+      color: $success;
+    }
+  }
+}
