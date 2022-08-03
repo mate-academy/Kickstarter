@@ -1,0 +1,114 @@
+.carousel {
+
+  &__cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 30px;
+    padding-top: 30px;
+
+    @media (min-width:400px) {
+      padding-left: 80px;
+    }
+
+    @include onTablet {
+      padding-left: 100px;
+    }
+
+    @include onDesktop {
+      padding-left: 100px;
+    }
+  }
+
+  &__name {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #0c797a;
+    margin-bottom: 20px;
+  }
+
+  &__item {
+    font-size: 14px;
+    line-height: 27px;
+    color: #333;
+  }
+
+  &__arrows {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+
+    &:hover {
+      color: #0c797a;
+    }
+
+    @include onTablet {
+      justify-content: flex-start;
+      margin-left: 50px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__left {
+    position: absolute;
+    margin-right: 80px;
+    background-image: url(../images/icons/left.svg);
+    height: 14px;
+    width: 48px;
+    background-repeat: no-repeat;
+
+    &:hover {
+      background-image: url(../images/icons/left-hover.svg);
+    }
+  }
+
+  &__right {
+    background-image: url(../images/icons/right.svg);
+    height: 14px;
+    width: 48px;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      margin-left: 40px;
+    }
+
+    &:hover {
+      background-image: url(../images/icons/right-hover.svg);
+    }
+  }
+
+  &__pages {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    margin: 10px 30px 0 0;
+
+    @include onTablet {
+      justify-content: flex-start;
+      margin-left: 70px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--current {
+      margin-right: 5px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &--all {
+      margin-top: 10px;
+      font-size: 11px;
+      line-height: 14px;
+      color: #0c797a;
+    }
+  }
+}

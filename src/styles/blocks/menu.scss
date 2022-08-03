@@ -1,0 +1,79 @@
+.menu {
+  display: none;
+  margin-bottom: 90px;
+
+  @include onDesktop {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__item {
+    display: block;
+    box-sizing: border-box;
+    margin-right: 84px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333;
+    scroll-behavior: smooth;
+
+    &:hover {
+      font-weight: bold;
+      color: #131313;
+    }
+  }
+}
+
+.menu.open {
+  display: flex;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #d6ecec;
+  justify-content: space-between;
+  width: 100%;
+  position: fixed;
+
+  z-index: 1;
+  background-image: url(../images/features.png);
+  background-position: bottom right;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @include onTablet {
+    display: none;
+  }
+}
+
+.menu__list.open {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-content: center;
+  right: 50%;
+  transform: translateX(35%);
+  padding-top: 50px;
+
+}
+
+.menu__item.open {
+  font-size: 20px;
+}
+
+.menu__list.open > .menu__item > .menu__link {
+  font-size: 20px;
+  line-height: 50px;
+}
