@@ -1,6 +1,12 @@
 import Swiper, { Navigation, Pagination } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
 
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+}, true);
+
 function addZero(num) {
   return (num > 9) ? num : '0' + num;
 }
