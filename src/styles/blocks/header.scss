@@ -1,0 +1,171 @@
+.header {
+  @include onMobile {
+    background-image: url(../images/photos/mobile/photo_1.jpg);
+    background-repeat: no-repeat;
+    background-position: center 13%;
+    background-size: contain;
+  }
+
+  &__content {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px 0;
+
+    @include onTablet {
+      height: 100vh;
+
+      background-image: url(../images/photos/tablet/photo_1.jpg);
+      background-position: right;
+      background-repeat: no-repeat;
+    }
+
+    @include onDesign {
+      background-image: url(../images/photos/desktop/photo_1.jpg);
+      background-size: 65%;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__top-menu {
+    display: flex;
+    align-items: center;
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__specs-link {
+    display: block;
+    margin-right: 25px;
+
+    font-size: 14px;
+    line-height: 20px;
+    color: #4f4f4f;
+
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  &__lang-switcher {
+    display: flex;
+    margin-right: 50px;
+  }
+
+  &__lang-link {
+    font-size: 14px;
+    line-height: 20px;
+    color: #bdbdbd;
+
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &--en {
+      color: #333;
+
+      &::after {
+        content: "/";
+        padding: 0 3px;
+      }
+    }
+  }
+
+  &__buy-button {
+    width: 102px;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 48px;
+    color: #fff;
+    background-color: #333;
+    text-align: center;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #131313;
+    }
+  }
+
+  &__menu-button {
+    display: block;
+    width: 32px;
+    height: 32px;
+
+    background-image: url(../images/icons/menu.svg);
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__article {
+    margin-top: 285px;
+
+    @include onTablet {
+      margin: auto 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: #333;
+
+    @include onTablet {
+      max-width: 340px;
+      margin-bottom: 30px;
+
+      font-size: 48px;
+    }
+
+    @include onDesktop {
+      max-width: 378px;
+      font-size: 62px;
+    }
+  }
+
+  &__paragraph {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #333;
+
+    @include onTablet {
+      max-width: 250px;
+    }
+
+    @include onDesktop {
+      max-width: 276px;
+    }
+  }
+
+  &__nav {
+    @include onMobile {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      transform: translateX(+150%);
+      transition: transform 0.3s;
+
+      &:target {
+        transform: translateX(0);
+      }
+    }
+  }
+}
