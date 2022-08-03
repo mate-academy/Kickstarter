@@ -4,6 +4,16 @@ let flkty = null;
 let carouselElem = null;
 const Flickity = require('flickity');
 
+preventSubmit();
+
+export function preventSubmit() {
+  const form = document.getElementById('form');
+
+  form.addEventListener('submit', function(event) {
+    event.reset();
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   carouselElem = document.getElementById('carousel');
   toggleSlider();
@@ -27,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('about').addEventListener('click', () => {
     window.scroll({
       top: 500,
+      behavior: 'smooth',
     });
     document.getElementById('burger').classList.remove('open');
     document.getElementById('menu').classList.remove('open');
@@ -46,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('technology').addEventListener('click', () => {
     window.scroll({
       top: 1300,
+      behavior: 'smooth',
     });
     document.getElementById('burger').classList.remove('open');
     document.getElementById('menu').classList.remove('open');
@@ -57,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('features').addEventListener('click', () => {
     window.scroll({
       top: 3200,
+      behavior: 'smooth',
     });
 
     document.getElementById('burger').classList.remove('open');
@@ -69,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('touch').addEventListener('click', () => {
     window.scroll({
       top: 3500,
+      behavior: 'smooth',
     });
 
     document.getElementById('burger').classList.remove('open');
