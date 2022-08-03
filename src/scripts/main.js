@@ -1,18 +1,7 @@
-'use strict';
 
 let flkty = null;
 let carouselElem = null;
 const Flickity = require('flickity');
-
-preventSubmit();
-
-export function preventSubmit() {
-  const form = document.getElementById('form');
-
-  form.addEventListener('submit', function(event) {
-    event.reset();
-  });
-};
 
 document.addEventListener('DOMContentLoaded', () => {
   carouselElem = document.getElementById('carousel');
@@ -24,6 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
       left: 0,
       behavior: 'smooth',
     });
+  });
+
+  const form = document.getElementById('form');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    e.target.reset();
   });
 
   document.getElementById('burger').addEventListener('click', () => {
