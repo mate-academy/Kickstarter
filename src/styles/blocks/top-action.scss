@@ -1,0 +1,51 @@
+.top-action {
+  &__logo-wrapper {
+    @extend %flex-row-sb;
+    padding-bottom: 32px;
+    width: 100%;
+  }
+
+  &__logo {
+    width: 160px;
+  }
+
+  &__interaction-box {
+    @extend %flex-row-sb;
+
+    &--mobile {
+      @extend %flex-col;
+    }
+
+    &--hiden {
+      @include onMobile {
+        display: none;
+      }
+    }
+  }
+
+  &__icon {
+    display: none;
+    width: 24px;
+    height: 24px;
+
+    @include onMobile {
+      display: block;
+    }
+  }
+
+  &__languages {
+    padding-right: 48px;
+
+    &--mobile {
+      padding-right: 0;
+      padding-bottom: 32px;
+    }
+  }
+
+  &__btn {
+    width: 100px;
+    background-color: $c-txt-dark;
+
+    @include hover(background-color, $c-btn-hover);
+  }
+}

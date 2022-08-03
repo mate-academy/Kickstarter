@@ -1,0 +1,100 @@
+.header {
+  &__container {
+    margin: 0 auto;
+  }
+
+  &__wrapper {
+    @extend %flex-col;
+  }
+  
+  &__top-action {
+    width: 100%;
+    @extend %flex-row-sb;
+    padding-bottom: 90px;
+  }
+  
+  &__nav {
+    padding: 28px 0;
+    
+    @include onMobile {
+      display: none;
+    }
+  }
+  
+  &__content {
+    @extend %flex-row-sb;
+    flex-wrap: nowrap;
+    padding-bottom: 150px;
+    width: 100%;
+
+    @include onMobile {
+      flex-wrap: wrap;
+      padding-bottom: 0;
+    }
+  }
+
+  &__description {
+    @extend %flex-col;
+    align-items: start;
+    flex-basis: 380px;
+    
+    @include onMobile {
+      flex-basis: 100%;
+      order: 2;
+    }
+  }
+
+  &__title {
+    padding-bottom: 30px;
+
+    font-weight: 700;
+    font-size: 62px;
+    line-height: 78px;
+    color: $c-txt-dark;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onMobile {
+      font-size: 40px;
+      line-height: 52px;
+    }
+  }
+
+  &__text {
+    max-width: 280px;
+    
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $c-txt-dark;
+
+    @include onMobile {
+      min-width: 100%;
+    }
+  }
+
+  &__img-wrapper {
+    flex-basis: 816px;
+    flex-shrink: 1;
+
+    @include onTablet {
+      flex-basis: 430px;
+    }
+
+    @include onMobile {
+      flex-grow: 1;
+    }
+  }
+
+  &__img {
+    max-width: 100%;
+    object-fit: cover;
+    
+    @include onMobile {
+      width: 100%;
+    }
+  }
+}

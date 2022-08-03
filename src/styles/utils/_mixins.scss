@@ -4,3 +4,38 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin hover-2($_property, $_toValue, $_property-2, $_toValue-2) {
+  transition: #{$_property} 0.3s, #{$_property-2} 0.3s;
+  &:hover {
+    #{$_property}: $_toValue;
+    #{$_property-2}: $_toValue-2;
+  }
+}
+
+@mixin active($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:active {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin active-2($_property, $_toValue, $_property-2, $_toValue-2) {
+  transition: #{$_property} 0.3s, #{$_property-2} 0.3s;
+  &:active {
+    #{$_property}: $_toValue;
+    #{$_property-2}: $_toValue-2;
+  }
+}
+
+@mixin onTablet {
+  @media (max-width: $media-tablet) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media (max-width: $media-mobile) {
+    @content;
+  }
+}
