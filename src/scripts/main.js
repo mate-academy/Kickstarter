@@ -1,8 +1,9 @@
-import Swiper from '../../node_modules/swiper/swiper-bundle.js';
-import '../../node_modules/swiper/swiper-bundle.css';
+import Swiper, { Navigation, Pagination } from 'swiper';
+import 'swiper/swiper-bundle.min.css';
 
 // eslint-disable-next-line no-new
 new Swiper('.swiper', {
+  modules: [Navigation, Pagination],
   // Optional parameters
   direction: 'horizontal',
   loop: true,
@@ -16,16 +17,12 @@ new Swiper('.swiper', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
-
-  // And if we need scrollbar
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
 });
 
 document.getElementById('form').addEventListener('submit',
   (event) => {
     event.preventDefault();
+    document.getElementById('form').reset();
   }
 );
 
