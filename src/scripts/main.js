@@ -37,7 +37,7 @@ form.addEventListener('submit', function(e) {
 );
 
 function reveal() {
-  var reveals = document.querySelectorAll('І.about-us');
+  var reveals = document.querySelectorAll('.about-us');
 
   for (var i = 0; i < reveals.length; i++) {
     var windowHeight = window.innerHeight;
