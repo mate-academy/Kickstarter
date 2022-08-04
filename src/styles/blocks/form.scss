@@ -1,0 +1,71 @@
+.form {
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 2px solid #828282;
+  padding: 12px 36px;
+  @extend %main-text;
+  color: $primery;
+
+  &:focus {
+    border-color: $form-active;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $form-text-color;
+  }
+
+  &__textarea {
+    margin-top: 19px;
+    font-family: inherit;
+    height: 201px;
+    resize: none;
+
+    @include onDesktop {
+      height: 128px;
+    }
+  }
+}
+
+.bounce {
+  outline: 0;
+  border-color: red;
+  animation-name: bounce;
+  animation-duration: 0.5s;
+  animation-delay: 0.25s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateX(0);
+    animation-timing-function: ease-in;
+  }
+  37% {
+    transform: translateX(5px);
+    animation-timing-function: ease-out;
+  }
+  55% {
+    transform: translateX(-5px);
+    animation-timing-function: ease-in;
+  }
+  73% {
+    transform: translateX(4px);
+    animation-timing-function: ease-out;
+  }
+  82% {
+    transform: translateX(-4px);
+    animation-timing-function: ease-in;
+  }
+  91% {
+    transform: translateX(2px);
+    animation-timing-function: ease-out;
+  }
+  96% {
+    transform: translateX(-2px);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateX(0);
+    animation-timing-function: ease-in;
+  }
+}

@@ -1,0 +1,74 @@
+.info {
+  animation: 1s show ease-in;
+  margin-top: 10px;
+
+  @include onTablet {
+    margin-top: 60px;
+  }
+
+  @include onDesktop {
+    margin-top: 100px;
+  }
+
+  &__headline {
+    @extend %h1-mobile;
+    color: $primery;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onTablet {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__description {
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @extend %main-text;
+    color: $primery;
+  }
+
+  &__photo {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 300px;
+    min-height: 245px;
+
+    @include onDesktop {
+      height: 464px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 464px;
+    object-position: center;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

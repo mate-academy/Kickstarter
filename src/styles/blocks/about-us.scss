@@ -1,0 +1,91 @@
+.about-us {
+  align-items: center;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1.5s all ease;
+
+  &.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &__photo {
+    position: relative;
+    box-sizing: border-box;
+    min-height: 245px;
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    min-width: 300px;
+    object-position: center;
+
+    &--tablet {
+      display: none;
+      @include onTablet {
+        display: inline-block;
+      }
+    }
+
+    &--desktop {
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+
+    @include onTablet {
+      gap: 30px;
+    }
+  }
+
+  &__title {
+    @extend %h2-mobile;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__text {
+    @extend %main-text;
+  }
+
+  &__link {
+    @extend %button;
+    color: $main-button;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 0;
+    border-bottom: 1px solid transparent;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 54px;
+      background-color: $main-button;
+      left: 0;
+      bottom: 0;
+      transition: width 0.3s;
+    }
+
+    &:hover::after {
+      width: 128px;
+    }
+  }
+}
