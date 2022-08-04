@@ -65,17 +65,28 @@
   }
   &__link {
     padding: 5px;
+    position: relative;
     display: inline-block;
     font-weight: 700;
     font-size: 12px;
     line-height: 14px;
     text-transform: uppercase;
     color: $c-bl-0d;
-    border-bottom: 1px solid transparent;
-    transition: all 0.4s ease-in-out;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 45%;
+      height: 1px;
+      background: $c-bl-0d;
+      transition: all 0.5s ease;
+    }
     &:hover,
     &:focus {
-      border-bottom: 1px solid $c-bl-0d;
+      &::after {
+        width: 100%;
+      }
     }
   }
 }
