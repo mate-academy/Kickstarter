@@ -1,0 +1,51 @@
+.page {
+  scroll-behavior: smooth;
+  &__body {
+    font-family: "Inter", sans-serif;
+    background-color: $c-white-f;
+    color: $c-black-3;
+    @extend %text;
+  }
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: all 0.4s ease-in-out;
+
+    &:target {
+      visibility: visible;
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: 110px;
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+    @include onLaptop {
+      margin-bottom: 170px;
+    }
+    // &-title {
+    //   margin-bottom: 60px;
+    //   font-size: 28px;
+    //   line-height: 125%;
+    //   display: flex;
+    //   align-items: center;
+    //   color: $black;
+    //   @include onTablet {
+    //     margin-bottom: 70px;
+    //     font-size: 40px;
+    //     line-height: 125%;
+    //   }
+    //   @include onLaptop {
+    //     margin-bottom: 56px;
+    //     font-size: 48px;
+    //     line-height: 120%;
+    //   }
+    // }
+  }
+}
