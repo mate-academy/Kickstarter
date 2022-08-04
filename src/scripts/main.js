@@ -8,6 +8,13 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-document.addEventListener('submit', e => {
-  e.preventDefault();
+const form = document.querySelector('.form');
+const inputs = document.querySelectorAll('.contact-us__form-field');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  inputs.forEach((input) => {
+    input.value = '';
+  });
 });
