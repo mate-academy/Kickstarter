@@ -35,7 +35,7 @@ window.addEventListener('hashchange', () => {
 });
 
 window.onscroll = function() {
-  if (window.scrollY >= 140
+  if (window.innerWidth >= 768 && window.scrollY >= 140
     + document.getElementById('menu').clientHeight
     + document.getElementById('header').clientHeight) {
     document.getElementById('menu').classList.add('menu--sticky');
