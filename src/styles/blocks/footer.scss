@@ -1,0 +1,75 @@
+.footer {
+  overflow: hidden;
+  position: relative;
+
+  &__logo {
+    display: none;
+
+    @include onTablet {
+      @include flex-center;
+      margin-bottom: 64px;
+    }
+  }
+
+  &__icons-container {
+    @include flex-center;
+    gap: 44px;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 108px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 18px;
+    background-size: contain;
+    @include background-center;
+    transition-duration: $duration;
+
+    &--facebook {
+
+      background-image: url(../images/faceb.svg);
+
+      &:hover {
+        background-image: url(../images/facebookcol.svg);
+      }
+    }
+
+    &--twitter {
+      background-image: url(../images/twit.svg);
+
+      &:hover {
+        background-image: url(../images/twitcol.svg);
+      }
+    }
+
+    &--instagram {
+      background-image: url(../images/insta.svg);
+
+      &:hover {
+        background-image: url(../images/instcol.svg);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+
+  &__copyright {
+    margin-bottom: 50px;
+    color: #bdbdbd;
+    text-align: center;
+    font-size: 12px;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+.page {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  scroll-behavior: smooth;
+
+  &--with-menu {
+    overflow: hidden;
+  }
+
+  &__content {
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: $main-back;
+  }
+
+  &__menu {
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 30px 0;
+    height: 100vh;
+    transform: translateY(-100%);
+    transition-duration: 0.4s;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__arrow-up {
+    position: fixed;
+    z-index: 3;
+    bottom: 48px;
+    right: 7px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/arrow-up.svg);
+    background-size: contain;
+    @include background-center;
+    transition-duration: $duration;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

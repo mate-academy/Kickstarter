@@ -1,0 +1,72 @@
+.entry {
+  @include flex-center;
+  flex-direction: column-reverse;
+  overflow: hidden;
+
+  @include onTablet {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: start;
+  }
+
+  &__info {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+
+    @include onTablet {
+      text-align: left;
+    }
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    width: 100%;
+    font-size: 44px;
+    line-height: 130%;
+
+    @include onTablet {
+      margin-bottom: 34px;
+      font-size: 48px;
+      line-height: 130%;
+    }
+
+    @include onDesktop {
+      margin-bottom: 28px;
+      font-size: 64px;
+    }
+  }
+
+  &__text {
+    margin: 0 30px;
+    font-size: 16px;
+    line-height: 24px;
+
+    @include onTablet {
+      margin: 0;
+      max-width: 248px;
+    }
+
+    @include onDesktop {
+      max-width: 276px;
+    }
+  }
+
+  &__image {
+    position: relative;
+    right: -94px;
+    height: 245px;
+    min-width: 320px;
+
+    @include onTablet {
+      left: -28px;
+      height: 364px;
+      min-width: unset;
+    }
+
+    @include onDesktop {
+      left: 0;
+      height: 464px;
+    }
+  }
+}
