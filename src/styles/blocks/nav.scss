@@ -1,4 +1,8 @@
 .nav {
+  @include onMobile {
+    display: none;
+  }
+
   display: flex;
   justify-content: center;
 
@@ -22,47 +26,5 @@
     color: #333;
     text-transform: uppercase;
     text-decoration: none;
-  }
-
-  &__cross-button {
-    display: block;
-    width: 32px;
-    height: 32px;
-
-    background-image: url(../images/icons/cross.svg);
-
-    @include onTablet {
-      display: none;
-    }
-  }
-
-  @include onMobile {
-    display: block;
-    box-sizing: border-box;
-    max-width: 400px;
-    height: 100vh;
-    margin: 0 auto;
-    padding: 0 30px;
-    margin-top: 64px;
-
-    background-color: #f7f7f7;
-
-    &__list {
-      flex-direction: column;
-      justify-content: center;
-      gap: 0;
-    }
-
-    &__item {
-      margin-bottom: 24px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    &__link {
-      font-size: 20px;
-    }
   }
 }

@@ -1,11 +1,4 @@
 .header {
-  @include onMobile {
-    background-image: url(../images/photos/mobile/photo_1.jpg);
-    background-repeat: no-repeat;
-    background-position: center 13%;
-    background-size: contain;
-  }
-
   &__content {
     box-sizing: border-box;
 
@@ -108,9 +101,15 @@
     }
   }
 
-  &__article {
-    margin-top: 285px;
+  &__image {
+    @include onTablet {
+      display: none;
+    }
 
+    margin: 0 -30px 40px;
+  }
+
+  &__article {
     @include onTablet {
       margin: auto 0;
     }
@@ -150,22 +149,6 @@
 
     @include onDesktop {
       max-width: 276px;
-    }
-  }
-
-  &__nav {
-    @include onMobile {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-
-      transform: translateX(+150%);
-      transition: transform 0.3s;
-
-      &:target {
-        transform: translateX(0);
-      }
     }
   }
 }

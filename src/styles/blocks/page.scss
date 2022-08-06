@@ -5,17 +5,30 @@
   scroll-behavior: smooth;
 
   &__body {
-    &--with-nav {
+    &--with-menu {
       overflow: hidden;
     }
   }
 
-  &__section {
-    &--header {
-      @include onMobile {
-        max-width: 400px;
-        margin: 0 auto;
-      }
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(+100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__footer {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
     }
   }
 }
