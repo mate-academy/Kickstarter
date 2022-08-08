@@ -1,0 +1,164 @@
+.header {
+  // height: 110vh;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 90px;
+    align-items: center;
+
+    @include onMobile {
+      padding: 25px 30px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    column-gap: 50px;
+
+    @include onMobile {
+      display: none;
+    }
+
+  }
+
+  &__links-item {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #4f4f4f;
+
+    &--active {
+      font-weight: 700;
+    }
+  }
+
+  &__buy-button {
+    height: 48px;
+    width: 103px;
+    background: #333;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 48px;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #fff;
+  }
+
+  &__burger {
+    display: none;
+
+    @include onMobile {
+      display: block;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 170px;
+
+    @media (max-width: 775px) {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onMobile {
+      margin-bottom: 110px;
+      flex-direction: column-reverse;
+      row-gap: 40px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__img {
+    @include onMobile {
+      width: 100%;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 62px;
+    line-height: 78px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onTablet {
+      font-size: 40px;
+      line-height: 52px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    @include onMobile {
+      text-align: center;
+      padding: 0 20px;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 65px;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &-list {
+      display: flex;
+      justify-content: center;
+      column-gap: 84px;
+    }
+
+    &-link {
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: $main-color;
+      transition: scale 0.3s ease-in-out, color 0.3s;
+      display: block;
+
+      &:hover {
+        color: #131313;
+        scale: 1.1;
+      }
+
+      &--active {
+        color: #131313;
+        font-weight: 700;
+      }
+    }
+  }
+}
