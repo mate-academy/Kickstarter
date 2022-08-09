@@ -1,0 +1,172 @@
+.header {
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 76px;
+
+    @include forTablet {
+      margin-bottom: 73px;
+      height: 102px;
+
+    }
+
+    @include forDesktop {
+      margin-bottom: 76px;
+      height: 74px;
+    }
+  }
+  &__info {
+
+    @include forTablet {
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      grid-column: 1 / 3;
+
+      @include forDesktop {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        grid-column: 1 / 4;
+
+      }
+    }
+  }
+
+  &__title {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 40px;
+    line-height: 52px;
+    text-align: center;
+
+    @include forTablet {
+      z-index: 1;
+      margin-bottom: 30px;
+      font-size: 48px;
+      line-height: 62px;
+      text-align: left;
+      width: min-content;
+    }
+
+    @include forDesktop {
+      margin-bottom: 30px;
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__product {
+
+    @include forTablet {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      align-items: flex-end;
+    }
+
+    @include forDesktop {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      align-items: center;
+    }
+  }
+
+  &__photo-container {
+    margin: 0 -30px;
+    position: relative;
+    min-width: 320px;
+    margin-bottom: 40px;
+    height: 245px;
+    overflow: hidden;
+    transition: all 0.4s;
+
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    @media (min-width: 550px) {
+      height: 300px;
+    }
+
+    @include forTablet {
+      margin: 0 -34px 0 0;
+      grid-column: 4 / 9;
+      grid-row: 1;
+      height: 365px;
+    }
+
+    @include forDesktop {
+      grid-column: 5 / 13;
+      height: 464px;
+      max-width: 939px;
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 1440px) {
+      right: 25px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+
+    &:hover {
+      cursor: pointer;
+      animation: vibe 6s ease-in-out infinite;
+    }
+
+    @keyframes vibe {
+
+      0% {
+        transform: scale(1) rotateY(0.5turn);
+      }
+
+      25% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(0.8);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @include forTablet {
+      object-fit: contain;
+      object-position: center;
+    }
+
+    @include forDesktop {
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  &__paragraph {
+    display: block;
+    text-align: center;
+
+    @include forTablet {
+      width: 245px;
+      text-align: left;
+    }
+
+    @include forDesktop {
+      width: 276px;
+    }
+  }
+}

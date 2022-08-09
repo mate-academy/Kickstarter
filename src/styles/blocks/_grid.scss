@@ -1,0 +1,81 @@
+.grid {
+
+  &__header {
+
+    @include forTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 20px;
+      align-items: end;
+    }
+
+    @include forDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      align-content: start;
+      column-gap: 30px;
+      align-items: end;
+      margin-bottom: 171px;
+    }
+  }
+
+  &__about {
+
+    @include forTablet {
+      display: grid;
+      margin: 0 -34px;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(5, 83px);
+      column-gap: 20px;
+    }
+
+    @include forDesktop {
+      display: grid;
+      margin: 0;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(8, 48.5px);
+      column-gap: 30px;
+    }
+  }
+
+  @include forTablet {
+    display: grid;
+    align-items: start;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 20px;
+  }
+
+  @include forDesktop {
+    display: grid;
+    align-items: start;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &__item {
+
+    @include forTablet {
+      &--tablet {
+        @for $start from 1 through 8 {
+          @for $end from $start through 8 {
+            &-#{$start}-#{$end} {
+              grid-column: #{$start} / #{$end + 1};
+            }
+          }
+        }
+      }
+    }
+
+    @include forDesktop {
+      &--desktop {
+        @for $start from 1 through 12 {
+          @for $end from $start through 12 {
+            &-#{$start}-#{$end} {
+              grid-column: #{$start} / #{$end + 1};
+            }
+          }
+        }
+      }
+    }
+  }
+}

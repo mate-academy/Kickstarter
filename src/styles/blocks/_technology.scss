@@ -1,0 +1,46 @@
+.technology {
+
+  &__photo-container {
+    position: relative;
+    width: 100%;
+    height: 278px;
+    overflow: hidden;
+    transition: all 0.4s;
+
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    @include forTablet {
+      height: 546px;
+    }
+
+    @include forDesktop {
+      height: 500px;
+    }
+
+    @media (min-width: 1440px) {
+      height: 545px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+
+    @include forTablet {
+      left: 34px;
+    }
+
+    @include forDesktop {
+      left: 123px;
+      object-fit: contain;
+    }
+  }
+}
