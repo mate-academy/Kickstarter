@@ -7,6 +7,12 @@ new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
+
   // If we need pagination
   pagination: {
     el: '.swiper-pagination',
