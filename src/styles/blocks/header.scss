@@ -1,0 +1,135 @@
+.header {
+  background-color: $secondary-background-color;
+  height: 100vh;
+
+  &__top-actions {
+    margin: 0;
+
+    @include on-tablet {
+      margin: 27px 0 130px;
+    }
+
+    @include on-desktop {
+      margin: 13px 0 170px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__image {
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+    object-position: center;
+    object-fit: contain;
+    transform: translateX(15%) scale(1.7);
+
+    @include on-tablet {
+      position: absolute;
+      margin-bottom: 0;
+      width: 100%;
+      height: 140%;
+      object-fit: cover;
+      transform: translate(25%, -20%);
+    }
+
+    @include on-desktop {
+      width: 100%;
+      height: 100%;
+      object-position: left 90%;
+      transform: translate(25%, 0);
+    }
+  }
+
+  &__info {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+
+    @include on-tablet {
+      text-align: left;
+
+      @include on-desktop {
+        margin-bottom: 132px;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 23px;
+    font-family: "DINPro-Black", serif;
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 130%;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin-bottom: 34px;
+      font-size: 48px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      margin-bottom: 27px;
+      font-size: 64px;
+    }
+
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $turquoise-color;
+    }
+  }
+
+  &__anounce {
+    grid-column: 1 / 4;
+    line-height: 24px;
+    font-size: 16px;
+    color: $secondary-text-color;
+  }
+
+  &__nav {
+    display: none;
+    padding: 0;
+    width: 100%;
+    height: 76px;
+    list-style: none;
+
+    @include on-desktop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__item {
+    padding: 0 15px;
+
+    &:nth-child(2n + 1) {
+      width: 170px;
+    }
+  }
+
+  &__link {
+    display: block;
+    color: $secondary-text-color;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 21px;
+    transition: 0.3s;
+
+    &:hover {
+      font-weight: 700;
+      transform: scale(1.3);
+    }
+  }
+}

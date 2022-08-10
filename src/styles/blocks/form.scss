@@ -1,0 +1,53 @@
+.form {
+  &__container {
+    margin-top: 30px;
+    position: relative;
+  }
+
+  &__field {
+
+    &--textarea {
+      height: 106px;
+      resize: none;
+
+      @include on-tablet {
+        height: 180px;
+      }
+
+      @include on-desktop {
+        height: 106px;
+      }
+    }
+  }
+
+  &__input {
+    padding: 15px 0 15px 30px;
+    width: 100%;
+
+    @include on-tablet {
+      width: 340px;
+    }
+
+    @include on-desktop {
+      width: 438px;
+    }
+
+    font: inherit;
+    color: $main-text-color;
+    outline: none;
+  }
+
+  &__label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(10px, 10px);
+    transition: transform 0.3s;
+  }
+
+  &__input:focus + &__label,
+  &__input:valid + &__label {
+    transform: translate(15px, -20px);
+    color: $secondary-text-color;
+  }
+}

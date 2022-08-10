@@ -1,0 +1,58 @@
+.nav {
+  display: none;
+
+  @include on-tablet {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    display: block;
+    font-size: 14px;
+    background-color: $secondary-background-color;
+
+    &__list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: $header-height;
+
+      @include on-desktop {
+        height: $header-height-desktop;
+      }
+    }
+
+    &__item {
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+
+      &:nth-child(odd) {
+        width: 174px;
+      }
+
+      &:nth-child(even) {
+        width: 80px;
+      }
+
+      text-align: center;
+      list-style: none;
+    }
+
+    &__link {
+      font-family: "Helvetica-Neue-Thin", Helvetica, Arial, sans-serif;
+      padding: 18px 0;
+      text-decoration: none;
+      color: $main-text-color;
+
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $turquoise-color;
+      }
+
+      @include on-desktop {
+        padding: 27px 0 28px;
+      }
+    }
+  }
+}

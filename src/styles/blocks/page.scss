@@ -1,0 +1,64 @@
+.page {
+  font-family: "Helvetica-Neue-Regular", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: $main-text-color;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 30px 0;
+    height: 100vh;
+    transform: translateY(-100%);
+    transition-duration: 0.3s;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+
+  &__grid {
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(8, 70px);
+      gap: 0 20px;
+      justify-content: center;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(12, 72px);
+      gap: 0 30px;
+    }
+  }
+
+  &__title {
+    font-family: "DINPro-Medium", Helvetica, Arial, sans-serif;
+    font-size: 37px;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      font-size: 56px;
+    }
+  }
+
+  &__subtitle {
+    font-family: "DIN Pro", Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+}
