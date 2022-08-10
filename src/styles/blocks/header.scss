@@ -10,7 +10,7 @@
     flex-direction: column;
     box-sizing: border-box;
     align-items: center;
-    
+
     width: 100%;
 
     @include onDesktop {
@@ -38,7 +38,7 @@
     font-size: 40px;
     line-height: 52px;
     text-transform: uppercase;
-    
+    z-index: 1;
     color: #333;
 
     @include onDesktop {
@@ -61,7 +61,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-
+    z-index: 1;
     color: #333;
 
     @include onDesktop {
@@ -89,7 +89,7 @@
 
   &__menu-buttons {
     display: none;
-  
+
     @include onDesktop {
       display: flex;
       justify-content: space-between;
@@ -198,7 +198,10 @@
     @include onTablet {
       right: 0;
       top: 0;
-      max-width: 429.39px;
+    }
+
+    @include onDesktop {
+      min-height: 370px;
     }
 
     @include onBoth {
@@ -207,6 +210,13 @@
       max-width: 600px;
       max-height: 464px;
       margin-top: 57px;
+    }
+
+    transition: 0.5s ease;
+
+    &:hover {
+      transition: 1s ease;
+      transform: scale(1.1);
     }
   }
 
