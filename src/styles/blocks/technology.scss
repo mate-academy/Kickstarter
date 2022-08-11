@@ -1,0 +1,58 @@
+.technology {
+  $numbOfColumnsTablet: 8;
+  $numbOfColumnsDesktop: 12;
+
+  padding: 90px $paddingX 0;
+
+  overflow: hidden;
+
+  @include tablet {
+    padding: 130px $paddingXTablet 0;
+  }
+
+  @include desktop {
+    padding: 150px $paddingXDesktop 0;
+  }
+
+  &__wrapper {
+    @include limitContentWidth;
+
+
+    @include gridWithColumns(4, $numbOfColumnsTablet, $numbOfColumnsDesktop);
+  }
+
+  &__title {
+    @include tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include desktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__image {
+    display: block;
+    grid-column: 1 / 4;
+
+    margin-top: 56px;
+
+    @include elementSize(625px, 278px);
+
+    transform: matrix(0.99, -0.14, 0.14, 0.99, 0, 0);
+
+    @include tablet {
+      margin-top: 0;
+      grid-column: 1 / 8;
+
+      @include elementSize(1231px, 546px);
+    }
+
+    @include desktop {
+      margin-top: 69px;
+      grid-column: 1 / 12;
+
+      @include elementSize(1230px, 545px);
+    }
+  }
+}

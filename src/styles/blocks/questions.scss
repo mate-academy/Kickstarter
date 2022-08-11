@@ -1,0 +1,58 @@
+.questions {
+  padding: 90px $paddingX 0;
+
+  @include tablet {
+    padding: 130px $paddingXTablet 0;
+  }
+
+  @include desktop {
+    padding: 150px $paddingXDesktop 0;
+  }
+
+  &__wrapper {
+    @include limitContentWidth;
+
+    @include gridWithColumns(1, 2, 12);
+  }
+
+  &__title {
+    @include fontParams(37px, 46px);
+    text-transform: uppercase;
+    width: 100%;
+
+    @include tablet {
+      grid-column: 1;
+
+      @include fontParams(56px, 70px);
+    }
+
+    @include desktop {
+      grid-column: 2 / 7;
+
+      line-height: 72px;
+    }
+  }
+
+  &__form {
+    margin-top: 30px;
+
+    @include tablet {
+      margin-top: 0;
+
+      width: 340px;
+    }
+
+    @include desktop {
+      position: relative;
+      left: -20px;
+
+      grid-column: 8 / 12;
+
+      width: 438px;
+    }
+  }
+
+  &__button {
+    @include elementSize(102px, 40px);
+  }
+}

@@ -1,0 +1,80 @@
+.presentation {
+  position: relative;
+
+  &__video {
+    @include elementSize(100%, 100%);
+
+    transition: filter $transitionDuration;
+
+    @include tablet {
+      // height: 400px;
+    }
+
+    @include desktop {
+      // height: 590px;
+    }
+
+    &:hover {
+      filter: brightness(50%);
+    }
+  }
+
+  &__play {
+    display: block;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    background-color: transparent;
+    cursor: pointer;
+
+    transform: translate(-50%, -50%);
+
+    @include elementSize(108px, 108px);
+
+    @include fontParams(18px, 24px, 700);
+    color: #f3f4f5;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    border: 1px solid #f3f4f5;
+    border-radius: 50%;
+
+    @include tablet {
+      @include elementSize(190px, 190px);
+    }
+
+    @include desktop {
+      @include elementSize(232px, 232px);
+    }
+
+    &::before {
+      content: "Play";
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+    }
+
+    &:hover {
+      &::before {
+        content: "";
+
+        @include elementSize(100%, 100%);
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+
+        background-image: url("/images/play.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  }
+}

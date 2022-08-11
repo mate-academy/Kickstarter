@@ -1,0 +1,43 @@
+.specification {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  &__image {
+    display: block;
+
+    @include elementSize(50px, 40px);
+
+    &:hover {
+      animation-name: shake;
+      animation-duration: $animationDuration;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: linear;
+    }
+  }
+
+  &__title {
+    @include fontParams(22px, 28px, 700);
+    text-transform: uppercase;
+
+    color: $c-granit;
+
+    margin-top: 40px;
+
+    @include desktop {
+      height: 60px;
+    }
+
+  }
+
+  &__text {
+    @include fontParams(14px, 21px);
+
+    color: $c-grey;
+
+    margin-top: 20px;
+  }
+}

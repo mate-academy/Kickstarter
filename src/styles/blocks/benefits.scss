@@ -1,0 +1,33 @@
+.benefits {
+  $numbOfColumnsTablet: 2;
+  $numbOfColumnsDesktop: 4;
+
+  padding: 0 $paddingX;
+
+  @include tablet {
+    padding: 0 $paddingXTablet ;
+  }
+
+  @include desktop {
+    padding: 0 $paddingXDesktop;
+  }
+
+  &__wrapper {
+    @include limitContentWidth;
+  }
+
+  &__container {
+    padding-top: 104px;
+
+    @include gridWithColumns(1, $numbOfColumnsTablet, $numbOfColumnsDesktop);
+    gap: 40px;
+
+    @include tablet {
+      gap: 64px 20px;
+    }
+
+    @include desktop {
+      column-gap: 30px;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+
+  padding: 28px 30px 22px;
+
+  background-color: $c-light;
+
+  transform: translateX(-100%);
+
+  transition: transform $transitionDuration ease-in-out;
+
+  @include tablet {
+    display: none;
+  }
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__wrapper {
+    @include limitContentWidth;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__cross {
+    display: inline-block;
+    @include elementSize(24px, 14px);
+
+    background-color: transparent;
+    border: none;
+
+    cursor: pointer;
+
+    background-image: url("/images/cross.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}

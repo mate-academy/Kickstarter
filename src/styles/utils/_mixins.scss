@@ -1,6 +1,69 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin fontParams($size, $lineHeight, $weight: 400) {
+  font-size: $size;
+  line-height: $lineHeight;
+  font-weight: $weight;
+}
+
+@mixin limitContentWidth {
+  margin: 0 auto;
+  max-width: $maxContentWidthDesktop;
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin gridWithColumns($numOfColsMobile, $numOfColsTablet, $numOfColsDesktop) {
+  display: grid;
+  grid-template-columns: repeat($numOfColsMobile, 1fr);
+  column-gap: $gridGutterWidthMobile;
+
+  @include tablet {
+    grid-template-columns: repeat($numOfColsTablet, 1fr);
+    column-gap: $gridGutterWidthTablet;
+  }
+
+  @include desktop() {
+    grid-template-columns: repeat($numOfColsDesktop, 1fr);
+    column-gap: $gridGutterWidthDekstop;
+  }
+}
+
+@mixin elementSize($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin linkUnderline {
+  &::after {
+    content: "";
+
+    display: block;
+
+    margin-top: 6px;
+    @include elementSize(40%, 1px);
+
+    background-color: transparent;
+
+    transition: width $transitionDuration;
+  }
+
+  &:hover::after {
+    content: "";
+
+    display: block;
+
+    margin-top: 6px;
+    @include elementSize(100%, 1px);
+
+    background-color: $c-turquoise;
   }
 }

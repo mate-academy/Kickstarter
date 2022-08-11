@@ -1,0 +1,129 @@
+.features {
+  padding: 90px $paddingX 0;
+
+  @include tablet {
+    padding: 130px $paddingXTablet 0;
+  }
+
+  @include desktop {
+    padding: 150px $paddingXDesktop 0;
+  }
+
+  &__wrapper {
+    display: flex;
+
+    @include limitContentWidth;
+
+    @include gridWithColumns(1, 8, 12);
+
+    @include tablet {
+      background-image: url("/images/features/features.png");
+      background-repeat: no-repeat;
+      background-size: 586px 379px;
+      background-position: right top 65%;
+    }
+
+    @include desktop {
+      background-size: 786px 509px;
+      background-position: right bottom 10%;
+    }
+  }
+
+  &__title {
+    @include tablet {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__slides {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include elementSize(260px, 48px);
+    margin: 51px auto 0;
+
+    &--button {
+      cursor: pointer;
+
+      border: none;
+      background-color: transparent;
+
+      background-repeat: no-repeat;
+
+      @include elementSize(48px, 14px);
+
+      &-prev {
+        &-inactive {
+          background-image: url("/images/features/prev_inactive.svg");
+        }
+        &-active {
+          background-image: url("/images/features/prev_active.svg");
+          display: none;
+
+          &:hover {
+            background-image: url("/images/features/prev_hover.svg");
+          }
+        }
+      }
+
+      &-next {
+        &-inactive {
+          background-image: url("/images/features/next_inactive.svg");
+          display: none;
+        }
+        &-active {
+          background-image: url("/images/features/next_active.svg");
+
+          &:hover {
+            background-image: url("/images/features/next_hover.svg");
+          }
+        }
+      }
+    }
+
+    &--number {
+      display: flex;
+
+      margin-top: 8px;
+
+      @include fontParams(16px, 20px);
+      color: $c-granit;
+
+      &-prev {
+        &::after {
+          content: " / 03" ;
+
+          @include fontParams(11px, 14px);
+          color: #bdbdbd;
+          height: 14px;
+        }
+      }
+    }
+  }
+
+  &__background {
+    justify-self: right;
+
+    margin-top: 8px;
+    @include elementSize(344px, 222px);
+
+    background-image: url("/images/features/features.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right 10vw center;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}
