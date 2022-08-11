@@ -1,0 +1,110 @@
+.questions {
+  padding: 90px 30px 113px;
+
+  @include tablet {
+    padding: 140px 0 142px;
+    display: grid;
+    column-gap: 28px;
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include desktop {
+    padding: 170px 0;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    color: $c-black;
+    text-transform: uppercase;
+    animation: colo 4s 1s linear infinite;
+
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include desktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__title-container {
+    margin-bottom: 27px;
+
+    @include tablet {
+      grid-column: 1 / 5;
+      margin-bottom: 0;
+    }
+
+    @include desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__title-wrap {
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+  }
+
+  &__email {
+    margin-bottom: 20px;
+  }
+
+  &__message {
+    margin-bottom: 30px;
+  }
+
+  &__form {
+    @include tablet {
+      grid-column: 5 / -1;
+    }
+
+    @include desktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__button-link {
+    height: 40px;
+    width: 102px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    background-color: $c-blue-1;
+    border-color: transparent;
+    color: $c-white;
+    cursor: pointer;
+    transition: height 1s,
+      width 1s,
+      transform 0.5s,
+      background-color 0.5s;
+
+    @include desktop {
+      height: 48px;
+      width: 124px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: $c-blue-text;
+      filter: drop-shadow(0 2px 2px $c-blue-1);
+    }
+
+    &:active {
+      background-color: $c-blue-2;
+      transform: scale(0.8);
+    }
+  }
+}

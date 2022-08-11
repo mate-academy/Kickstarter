@@ -1,0 +1,360 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.body {
+  margin: 0 auto;
+  max-width: 1440px;
+  font-family: "Inter", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  background-color: #e5e5e5;
+  scroll-behavior: smooth;
+  -webkit-transition: image 1s 1s;
+  transition: image 1s 1s;
+  opacity: 0;
+  -webkit-animation: show 4s 1 forwards;
+          animation: show 4s 1 forwards;
+}
+
+@-webkit-keyframes show {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  100% {
+    opacity: 1;
+  }
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 76px;
+  width: auto;
+  padding: 25px 30px;
+}
+
+.header__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 150px;
+  height: 48px;
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background-color: #333;
+  visibility: hidden;
+  -webkit-transition: background-color 0.5s, -webkit-transform 0.5s, -webkit-box-shadow 0.5s;
+  transition: background-color 0.5s, -webkit-transform 0.5s, -webkit-box-shadow 0.5s;
+  transition: transform 0.5s, background-color 0.5s, box-shadow 0.5s;
+  transition: transform 0.5s, background-color 0.5s, box-shadow 0.5s, -webkit-transform 0.5s, -webkit-box-shadow 0.5s;
+}
+
+.header__button:hover {
+  background-color: #131313;
+  -webkit-box-shadow: 1px 3px 5px 1px #0db2b3;
+          box-shadow: 1px 3px 5px 1px #0db2b3;
+  -webkit-transform: scale(105%);
+          transform: scale(105%);
+}
+
+.header__button:active {
+  background-color: #d0d0d0;
+  -webkit-box-shadow: 1px 3px 5px 1px #cfeff0;
+          box-shadow: 1px 3px 5px 1px #cfeff0;
+  -webkit-transform: scale(95%);
+          transform: scale(95%);
+}
+
+@media (min-width: 768px) {
+  .header__button {
+    visibility: visible;
+  }
+}
+
+.header__burger {
+  display: block;
+  background-image: url(../images/svg/burger.svg);
+  width: 24px;
+  height: 14px;
+  -webkit-transition: opacity 0.3s, -webkit-transform 1s, -webkit-animation 1s;
+  transition: opacity 0.3s, -webkit-transform 1s, -webkit-animation 1s;
+  transition: transform 1s, animation 1s, opacity 0.3s;
+  transition: transform 1s, animation 1s, opacity 0.3s, -webkit-transform 1s, -webkit-animation 1s;
+}
+
+.header__burger:hover {
+  -webkit-animation: burger 1.5s linear infinite alternate;
+          animation: burger 1.5s linear infinite alternate;
+}
+
+@-webkit-keyframes burger {
+  50% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+}
+
+@keyframes burger {
+  50% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+}
+
+.header__burger:active {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  opacity: 0.5;
+}
+
+.header__image {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: auto;
+  background-image: url(../images/photos/image-1.png);
+}
+
+.header__title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 52px;
+  color: #333;
+}
+
+.header__text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.logo__img {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.logo__img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-filter: drop-shadow(1px 1px 10px #cfeff0);
+          filter: drop-shadow(1px 1px 10px #cfeff0);
+}
+
+.logo__img:active {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  opacity: 0.5;
+}
+
+.menu-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #e5e5e5;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  opacity: 0;
+  overflow-y: auto;
+  -webkit-transition: opacity 0.5s, -webkit-transform 0.3s;
+  transition: opacity 0.5s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.5s;
+  transition: transform 0.3s, opacity 0.5s, -webkit-transform 0.3s;
+}
+
+.menu-mobile:target {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.menu-mobile__header {
+  margin: 0 auto;
+  max-width: 1440px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 76px;
+  padding: 25px 30px;
+  margin-bottom: 72px;
+}
+
+.menu-mobile__img {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.menu-mobile__img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-filter: drop-shadow(1px 1px 10px #cfeff0);
+          filter: drop-shadow(1px 1px 10px #cfeff0);
+}
+
+.menu-mobile__img:active {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  opacity: 0.5;
+}
+
+.menu-mobile__cross {
+  display: block;
+  height: 16px;
+  width: 16px;
+  background-image: url(../images/svg/cross.svg);
+  -webkit-transition: height 1s, width 1s, -webkit-transform 1s, -webkit-animation 1s opacity 0.3s;
+  transition: height 1s, width 1s, -webkit-transform 1s, -webkit-animation 1s opacity 0.3s;
+  transition: height 1s, width 1s, transform 1s, animation 1s opacity 0.3s;
+  transition: height 1s, width 1s, transform 1s, animation 1s opacity 0.3s, -webkit-transform 1s, -webkit-animation 1s opacity 0.3s;
+}
+
+.menu-mobile__cross:hover {
+  -webkit-animation: cross 2s linear infinite alternate;
+          animation: cross 2s linear infinite alternate;
+}
+
+@-webkit-keyframes cross {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes cross {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.menu-mobile__cross:active {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  opacity: 0.1;
+}
+
+.menu-mobile__item {
+  margin-bottom: 42px;
+  padding: 0 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu-mobile__link {
+  position: relative;
+  display: inline-block;
+  font-size: 24px;
+  line-height: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-transition: opacity 0.1s, -webkit-transform 0.7s;
+  transition: opacity 0.1s, -webkit-transform 0.7s;
+  transition: transform 0.7s, opacity 0.1s;
+  transition: transform 0.7s, opacity 0.1s, -webkit-transform 0.7s;
+  color: #333;
+}
+
+.menu-mobile__link--mark {
+  font-weight: 700;
+}
+
+.menu-mobile__link:hover {
+  color: #0db2b3;
+  -webkit-transform: scale(1.1) translate(-30px, 0);
+          transform: scale(1.1) translate(-30px, 0);
+}
+
+.menu-mobile__link:hover::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  width: 0;
+  background-color: #0db2b3;
+  -webkit-animation: border-bottom 0.7s 1 forwards;
+          animation: border-bottom 0.7s 1 forwards;
+}
+
+@-webkit-keyframes border-bottom {
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes border-bottom {
+  100% {
+    width: 100%;
+  }
+}
+
+.menu-mobile__link:hover:active {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  opacity: 0.5;
+}

@@ -1,0 +1,137 @@
+.menu-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: $c-white;
+  transform: translateX(100%);
+  opacity: 0;
+  z-index: 10;
+  transition: transform 0.5s, opacity 0.5s;
+
+  &:target {
+    opacity: 1;
+    transform: translateX(0);
+
+  }
+
+  &__header {
+    @include center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 76px;
+    padding: 25px 30px;
+    margin-bottom: 72px;
+
+    @include tablet {
+      height: 108px;
+      padding: 30px 34px;
+    }
+  }
+
+  &__img {
+    transition: transform 0.5s, opacity 0.5s;
+
+    &:hover {
+      transform: scale(1.1);
+      filter: brightness(0)
+        saturate(100%)
+        invert(58%)
+        sepia(97%)
+        saturate(2697%)
+        hue-rotate(141deg)
+        brightness(94%)
+        contrast(90%);
+    }
+
+    &:active {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+  }
+
+  &__cross {
+    display: block;
+    height: 16px;
+    width: 16px;
+    z-index: 10;
+    background-image: url(../images/svg/cross.svg);
+    transition: height 1s,
+      width 1s,
+      transform 1s,
+      animation 1s
+      opacity 0.3s;
+
+    &:hover {
+      animation: cross 2s linear infinite alternate;
+
+      @keyframes cross {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+
+    &:active {
+      transform: scale(0.8);
+      opacity: 0.1;
+    }
+  }
+
+  &__item {
+    margin-bottom: 42px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.5s, opacity 0.5s;
+    color: $c-gray;
+
+    @include tablet {
+      font-size: 24px;
+    }
+
+    &--mark {
+      font-weight: 700;
+    }
+
+    &:hover {
+      color: $c-blue-1;
+      transform: scale(1.1) translate(10px, 0);
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -6px;
+        height: 1px;
+        width: 0;
+        background-color: $c-blue-1;
+        animation: border-bottom 0.7s 1 forwards;
+
+        @keyframes border-bottom {
+          100% {
+            width: 100%;
+          }
+        }
+      }
+
+      &:active {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+    }
+  }
+}

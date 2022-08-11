@@ -1,0 +1,267 @@
+.about-us {
+  padding: 0 30px;
+
+  @include tablet {
+    padding: 0;
+    display: grid;
+    column-gap: 28px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(3, auto);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $c-black;
+    margin-bottom: 30px;
+    transition: color 0.3s, grid 1s, font-size 1s, line-height 1s;
+
+    @include tablet {
+      margin-bottom: 0;
+      grid-column: 5 / -1;
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include desktop {
+      grid-column: 7 / -1;
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    &:hover {
+      color: $c-blue-1;
+    }
+  }
+
+  &__wrap {
+    position: relative;
+    overflow: hidden;
+    min-height: 245px;
+    max-width: 300px;
+    z-index: 3;
+    margin: 0 auto 20px;
+    cursor: pointer;
+    transition: transform 0.5s,
+      box-shadow 0.5s,
+      grid 1s,
+      margin-bottom 1s,
+      height 1s,
+      min-width 1s,
+      opacity 1s,
+      padding-bottom 1s;
+
+    @include tablet {
+      margin: 0 0 140px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: -1px 0 20px 4px rgba(13,178,179,0.88);
+
+      @include tablet {
+        transform: scale(1.05);
+      }
+    }
+
+    &:active {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+
+    ::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    @include tablet {
+      grid-column: 1 / 5;
+      grid-row: 1 / 4;
+      min-height: 415px;
+      min-width: 374px;
+    }
+
+    @include desktop {
+      grid-column: 1 / 7;
+      margin-bottom: 170px;
+      height: 388px;
+      min-width: 582px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    object-fit: contain;
+    height: 100%;
+    object-position: center;
+    transition: transform 0.5s,
+      box-shadow 0.5s,
+      grid 1s,
+      margin-bottom 1s,
+      height 1s,
+      width 1s,
+      padding 1s;
+    animation: about-us 6s infinite alternate linear;
+
+    @keyframes about-us {
+      100% {
+        transform: translateX(-15%);
+      }
+    }
+
+    @include desktop {
+      @keyframes about-us {
+        100% {
+          transform: translateX(-7%);
+        }
+      }
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: $c-gray-text;
+    margin-bottom: 30px;
+    transition: grid 1s, font-size 1s, line-height 1s, margin 1s;
+
+    @include tablet {
+      grid-column: 5 / -1;
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 0;
+    }
+
+    @include desktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: $c-blue-1;
+    text-decoration: none;
+    margin-bottom: 116px;
+    transition: width 0.5s, animation 0.5s, transform 0.5s, opacity 0.5s;
+
+    &:hover {
+      transform: scale(1.1) translate(30px, 0);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: -5px;
+      height: 1px;
+      width: 4em;
+      background-color: $c-blue-1;
+      transition: width 0.5s, transform 0.5s;
+
+      @include tablet {
+        top: 25px;
+      }
+    }
+
+    &:hover::after {
+      width: 10.5em;
+    }
+
+    &:active {
+      transform: scale(0.9);
+      opacity: 0.5;
+    }
+
+    @include tablet {
+      grid-column: 5 / 8;
+      margin-bottom: 213px;
+    }
+
+    @include desktop {
+      grid-column: 7 / -1;
+    }
+  }
+}
+
+.wrap-2 {
+
+  @include tablet {
+    grid-column: 5 / -1;
+    grid-row: 1 / 4;
+  }
+
+  @include desktop {
+    grid-column: 7 / -1;
+  }
+}
+
+.img-2 {
+  object-position: -100px 0;
+  height: 115%;
+  transition: object-position 1s;
+  animation: img-2 6s infinite alternate linear;
+
+  @include tablet {
+    object-position: -14em 0;
+    height: 105%;
+  }
+
+  @include desktop {
+    object-position: -7em 0;
+  }
+
+  @keyframes img-2 {
+    50% {
+      transform: translateX(-5%);
+    }
+    100% {
+      transform: translateY(-5%);
+    }
+  }
+}
+
+.title-about {
+  @include tablet {
+    grid-column: 1 / 4;
+  }
+
+  @include desktop {
+    grid-column: 1 / 5;
+  }
+}
+
+.text-about {
+  @include tablet {
+    grid-column: 1 / 5;
+  }
+
+  @include desktop {
+    grid-column: 1 / 7;
+  }
+}
+
+.link-about {
+  @include tablet {
+    grid-column: 1 / 3;
+  }
+
+  @include desktop {
+    grid-column: 1 / 5;
+  }
+}

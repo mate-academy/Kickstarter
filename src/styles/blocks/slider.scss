@@ -1,0 +1,64 @@
+.slider {
+  transition: padding-left 1s, display 1s;
+
+  @include tablet {
+    display: inline-block;
+    padding-left: 106px;
+  }
+
+  @include desktop {
+    display: none;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  &__button {
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+      filter: brightness(0)
+        saturate(100%)
+        invert(35%)
+        sepia(39%)
+        saturate(1913%)
+        hue-rotate(145deg)
+        brightness(86%)
+        contrast(90%);
+    }
+
+    &:active {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+  }
+
+  &__count-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  &__count {
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: $c-black;
+  }
+
+  &__sum {
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+    line-height: 14px;
+    color: $c-blue-text;
+  }
+}

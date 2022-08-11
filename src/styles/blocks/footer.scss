@@ -1,0 +1,102 @@
+.footer {
+  min-width: 320px;
+
+  &__container {
+    padding: 0 30px 20px;
+
+    @include tablet {
+      padding: 0 34px 30px;
+    }
+
+    @include desktop {
+      padding: 0 123px 30px;
+    }
+  }
+
+  &__head {
+    position: relative;
+  }
+
+  &__logo {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 64px;
+    }
+  }
+
+  &__arrow {
+    display: none;
+    transition: display 0.5s,
+      outline 0.5s,
+      transform 0.5s,
+      filter 0.5s,
+      box-shadow 0.5s;
+
+    @include tablet {
+      border-radius: 50%;
+      position: absolute;
+      padding: 9px;
+      display: block;
+      height: 40px;
+      width: 40px;
+      right: 0;
+      top: 0;
+    }
+
+    &:hover {
+      outline: 2px solid $c-blue-text;
+      transform: scale(1.1);
+      box-shadow: -2px 2px 5px 1px rgba(0,0,0,0.75);
+      filter: brightness(0)
+        saturate(100%)
+        invert(58%)
+        sepia(97%)
+        saturate(2697%)
+        hue-rotate(141deg)
+        brightness(94%)
+        contrast(90%);
+    }
+  }
+
+  &__networks {
+    display: flex;
+    gap: 56px;
+    justify-content: center;
+    margin-bottom: 33px;
+  }
+
+  &__links {
+    height: 30px;
+    width: 30px;
+    transition: transform 0.5s, filter 0.5s, rotate 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+      filter: brightness(0)
+        saturate(100%)
+        invert(58%)
+        sepia(97%)
+        saturate(2697%)
+        hue-rotate(141deg)
+        brightness(94%)
+        contrast(90%);
+    }
+
+    &:active {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+  }
+
+  &__rights {
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    text-align: center;
+    color: $c-form-text;
+  }
+}

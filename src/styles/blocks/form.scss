@@ -1,0 +1,48 @@
+.form {
+  display: block;
+  width: 100%;
+  height: 48px;
+  border: 1px solid $c-border;
+  padding: 12px 20px;
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: $c-black;
+  transition: width 1s, padding 1s;
+
+  @include tablet {
+    padding: 12px 30px;
+  }
+
+  @include desktop {
+    padding: 12px 36px;
+  }
+
+  &:hover {
+    border-color: $c-blue-1;
+  }
+
+  &:focus {
+    border-color: $c-blue-text;
+    outline: none;
+    filter: drop-shadow(-1px 1px 2px $c-blue-1);
+
+    &:invalid {
+      border-color: $c-border-hover;
+      filter: drop-shadow(-1px 1px 2px $c-border-hover);
+    }
+  }
+
+  &::placeholder {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $c-form-text;
+  }
+}
+
+.form-field {
+  height: 128px;
+  font-family: inherit;
+  resize: none;
+}
