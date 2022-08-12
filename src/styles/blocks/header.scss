@@ -1,0 +1,146 @@
+.header {
+  margin-top: 30px;
+
+  &__nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+
+    @include onTab {
+      margin-bottom: 120px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__menu {
+    font-family: Helvetica, sans-serif;
+    text-transform: uppercase;
+
+    @include onTab {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__specs {
+    display: none;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: $_4F4F4F;
+    margin-right: 27px;
+
+    @include onTab {
+      display: block;
+    }
+
+    @include onDesktop {
+      margin-right: 47px;
+    }
+  }
+
+  &__language {
+    display: none;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+    color: #828282;
+
+    @include onTab {
+      display: block;
+    }
+
+    &--is-active {
+      color: $_333333;
+    }
+  }
+
+  &__language:nth-child(2n) {
+    margin: 0 3px;
+  }
+
+  &__burger {
+
+    @include onTab {
+      display: none;
+    }
+  }
+
+  &__img {
+    height: 245px;
+    width: 100vw;
+    transform: translateX(-30px);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../images/mob/1.png);
+
+    @include onTab {
+      height: 316px;
+      width: 100%;
+      transform: translateX(0);
+      grid-row: 2/4;
+      background-size: contain;
+      background-image: url(../images/tab/1.png);
+    }
+
+    @include onDesktop {
+      height: 464px;
+      width: 100%;
+      background-image: url(../images/desktop/1.png);
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 52px;
+    text-transform: uppercase;
+    color: $_333333;
+    margin-bottom: 20px;
+
+    @include onTab {
+      font-size: 48px;
+      line-height: 62px;
+      margin: 0 0 30px;
+      grid-row: 2/2;
+      z-index: 1;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $_333333;
+
+    @include onTab {
+      grid-row: 3/3;
+    }
+  }
+
+  &__button {
+    display: none;
+    margin-left: 27px;
+
+    @include onTab {
+      display: flex;
+    }
+
+    @include onDesktop {
+      margin-left: 47px;
+    }
+  }
+}
