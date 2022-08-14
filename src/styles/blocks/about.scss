@@ -1,0 +1,192 @@
+.about {
+  &__container {
+    margin: 0 auto;
+    max-width: 1194px;
+    padding: 0 30px;
+
+    @include onTablet {
+      padding: 0;
+    }
+
+    @include onDesktop {
+      padding: 0 44px;
+    }
+
+    @include onDesign {
+      padding: 0 123px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #333;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    &--2 {
+      font-size: 36px;
+      line-height: 46px;
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 30px;
+      }
+
+      @include onDesktop {
+        font-size: 56px;
+        line-height: 70px;
+      }
+    }
+  }
+
+  &__frame {
+    display: block;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__frame2 {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-column: 1/7;
+    }
+
+    &--2 {
+      order: 1;
+
+      @include onDesktop {
+        grid-column: 7/13;
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 259px;
+    height: 210px;
+    margin: 0 auto;
+
+    &:hover {
+      -webkit-animation: flash 1.5s;
+      animation: flash 1.5s;
+    }
+    
+    @include onTablet {
+      width: 374px;
+      height: 415px;
+      margin: 0;
+    }
+
+    @include onDesktop {
+      width: 582px;
+      height: 388px;
+      margin: 0;
+    }
+
+    &--2 {
+      object-fit: contain;
+
+      @include onTablet {
+        object-fit: cover;
+      }
+
+      @include onDesktop {
+        height: 400px;
+        object-fit: none;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #7c7c7c;
+
+    @include onTablet {
+      margin-bottom: 60px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &--2 {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__more {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 5px;
+
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #0db2b3;
+    width: fit-content;
+    cursor: pointer;
+    
+    &::after {
+      position: absolute;
+      display: block;
+      height: 1px;
+      content: "";
+      width: 48%;
+      background: #0db2b3;
+      bottom: 0;
+      transition: width 0.5s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+@-webkit-keyframes flash {
+  0% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

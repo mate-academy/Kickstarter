@@ -1,0 +1,130 @@
+.top {
+  &__container {
+    margin: 0 auto;
+    max-width: 1194px;
+    padding: 0;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 34px;
+    }
+
+    @include onDesktop {
+      padding: 0 44px;
+    }
+
+    @include onDesign {
+      padding: 0 123px;
+    }
+  }
+
+  &__frame {
+    display: block;
+    margin-bottom: 40px;
+    
+    @include onTablet {
+      margin-bottom: 0;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: -185%;
+        z-index: 2;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.7) 100%);
+        -webkit-transform: skewX(-25deg);
+        transform: skewX(-25deg);
+      }
+
+      &:hover::before {
+        -webkit-animation: shine 3s;
+        animation: shine 3s;
+      }
+    }
+
+    @include onDesktop {
+      &::before {
+        left: -145%;
+      }
+    }
+  }
+
+  @-webkit-keyframes shine {
+    100% {
+      left: 125%;
+    }
+  }
+  @keyframes shine {
+    100% {
+      left: 125%;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 245px;
+    object-position: 10px;
+    object-fit: cover;
+
+    @include onTablet {
+      width: 430px;
+      height: 318px;
+      object-position: -8px;
+      overflow: hidden;
+    }
+
+    @include onDesktop {
+      width: 816px;
+      height: 464px;
+      object-position: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    padding: 0 30px;
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    color: #333;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+      padding: 0;
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__text {
+    padding: 0 30px;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+
+    @include onTablet {
+      padding: 0;
+    }
+
+    @include onDesktop {
+      width: 276px;
+    }
+  }
+}
