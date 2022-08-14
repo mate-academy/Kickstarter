@@ -1,0 +1,27 @@
+.box {
+  display: block;
+
+  @include onTablet {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    &:first-child {
+      margin-bottom: 140px;
+
+      @include onDesktop {
+        margin-bottom: 165px;
+      }
+    }
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+  }
+
+  @include onDesign {
+    column-gap: 30px;
+  }
+}

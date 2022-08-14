@@ -1,0 +1,160 @@
+.top-actions {
+  display: none;
+
+  @include onTablet {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 26px;
+  }
+
+  &__link {
+    display: inline-block;
+    position: relative;
+    font-family: "HelveticaNeue-Light",
+      "Helvetica Neue Light",
+      "Helvetica Neue",
+      Helvetica,
+      Arial,
+      "Lucida Grande",
+      sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 17px;
+    color: #4f4f4f;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0;
+
+    &:hover,
+    &:active {
+      letter-spacing: 5px;
+    }
+
+    &:after,
+    &:before {
+      backface-visibility: hidden;
+      border: 1px solid rgba(#4f4f4f, 0);
+      bottom: 0;
+      content: " ";
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      transition: all 280ms ease-in-out;
+      width: 0;
+    }
+
+    &:hover:after,
+    &:hover:before {
+      backface-visibility: hidden;
+      border-color: #4f4f4f;
+      transition: width 350ms ease-in-out;
+      width: 100%;
+    }
+
+    &:hover:before {
+      bottom: auto;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  &__language {
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    text-decoration: none;
+    font-family: "HelveticaNeue-Light",
+      "Helvetica Neue Light",
+      "Helvetica Neue",
+      Helvetica,
+      Arial,
+      "Lucida Grande",
+      sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #828282;
+    cursor: pointer;
+  }
+
+  &__slash {
+    color: #333;
+    
+    &:after,
+    &:before {
+      backface-visibility: hidden;
+      border: 1px solid rgba(#4f4f4f, 0);
+      content: " ";
+      display: block;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 100px;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: #333;
+    border: none;
+    text-decoration: none;
+    font-family: "HelveticaNeue-Light",
+      "Helvetica Neue Light",
+      "Helvetica Neue",
+      Helvetica,
+      Arial,
+      "Lucida Grande",
+      sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+
+    &:hover {
+      background-color: #131313;
+    }
+
+    &:disabled {
+      background-color: #d0d0d0;
+    }
+  }
+}
+
+.button_lang {
+  &:after,
+  &:before {
+    backface-visibility: hidden;
+    border: 1px solid rgba(#4f4f4f, 0);
+    bottom: 0;
+    content: " ";
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    transition: all 80ms ease-in-out;
+    width: 0;
+  }
+
+  &:hover:after,
+  &:hover:before {
+    backface-visibility: hidden;
+    border-color: #4f4f4f;
+    transition: width 150ms ease-in-out;
+    width: 90%;
+  }
+
+  &:hover:before {
+    bottom: auto;
+    top: 0;
+    width: 90%;
+  }
+}
+
+.current_lang {
+  color: #333;
+}
