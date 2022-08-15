@@ -1,0 +1,260 @@
+.features {
+  display: flex;
+  
+  &__content {
+    padding: unset;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: flex-start;
+    left: 0;
+    margin-top: 110px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+
+    text-transform: uppercase;
+    color: #333;
+
+    @include onTablet {
+      font-size: 30px;
+      line-height: 40px;
+    }
+    
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__items {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+
+    min-height: 630px;
+    width: 100%;
+    max-height: 800px;
+    background: #d6ecec;
+
+    @include onTablet {
+      min-height: 630px;
+      margin: unset;
+      padding: unset;
+    }
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: column;
+      min-height: 642px;
+    }
+
+    &-item {
+      display: none;
+      z-index: 1;
+      width: 50%;
+      
+      @include onTablet {
+        display: none;
+      }
+  
+      @include onBoth {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  &__sound {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  &__subtitle {
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-transform: uppercase;
+
+    color: #0c797a;
+    padding-left: 33px;
+
+    @include onDesktop {
+      padding-left: 100px;
+      margin-top: 30px;
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    justify-content: center;
+    text-align: start;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    z-index: 1;
+
+    color: #333;
+
+    padding-left: 33px;
+
+    @include onDesktop {
+      padding-left: 100px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+  }
+
+  &__slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    z-index: 1;
+
+    // background: #BDBDBD;
+
+    @include onDesktop {
+      margin-left: 90px;
+    }
+    
+    @include onBoth {
+      display: none;
+    }
+
+    &-button {
+      margin: 51px 0 0;
+
+      width: 48px;
+      height: 14px;
+
+      &-left {
+        color: #bdbdbd;
+
+        &:hover {
+          cursor: pointer;
+          background: #0c797a;
+        }
+      }
+
+      &-right {
+        color: #333;
+
+        &:hover {
+          cursor: pointer;
+          background-color: #0c797a;
+        }
+      }
+    }
+  }
+
+  &__pages {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    margin: 0 auto;
+
+    @include onDesktop {
+      margin-left: 114px;
+    }
+
+    @include onBoth {
+      display: none;
+    }
+
+    &-number {
+      cursor: pointer;
+      background: #d6ecec;
+      border: #d6ecec;
+      font-weight: 400;
+      z-index: 1;
+
+      &-1 {
+        margin: 8px 3px 0;
+        font-size: 16px;
+        line-height: 24px;
+
+        color: #333;
+
+        &:hover {
+          color: #0c797a;
+        }
+      }
+
+      &-slash {
+        margin: 20px 3px 0;
+        font-size: 11px;
+        line-height: 13px;
+
+        color: #0c797a;
+      }
+
+      &-3 {
+        margin: 21px 4px 0;
+        font-size: 11px;
+        line-height: 13px;
+
+        color: #bdbdbd;
+
+        &:hover {
+          color: #0c797a;
+        }
+      }
+    }
+  }
+
+  &__background {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+  
+    max-width: 375px;
+    max-height: 174px;
+
+    background-blend-mode: darken;
+    background-size: cover;
+    background-color: #d6ecec;
+    background-image: url(../images/feature.png);
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      max-width: 435.69px;
+      max-height: 226.08px;
+    }
+
+    @include onDesktop {
+      max-width: 582px;
+      max-height: 302px;
+    }
+
+    @include onBoth {
+      max-width: 582px;
+      max-height: 302px;
+    }
+  }
+}

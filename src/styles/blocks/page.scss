@@ -1,0 +1,65 @@
+.page {
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+  }
+
+  &__menu {
+    position: fixed;
+    height: 400px;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%) translateY(-10%);
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section-title {
+    min-width: 260px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+    
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    display: flex;
+    align-items: flex-start;
+    text-transform: uppercase;
+    margin-top: 0;
+
+    color: #333;
+
+    &-1 {
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &-2 {
+      display: none;
+      margin-top: 0;
+
+      @include onDesktop {
+        display: flex;
+        margin: unset;
+
+        
+      }
+    }
+  }
+}
