@@ -1,0 +1,68 @@
+.feature {
+  display: none;
+
+  &--connectivity {
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &--app {
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &--sound {
+    display: block;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #0c797a;
+
+    @include onDesktop {
+      margin-bottom: 30px;
+
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    font-size: 14px;
+    line-height: 150%;
+    color: #333;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 4px;
+      height: 4px;
+      margin: auto 0;
+      margin-right: 11px;
+
+      background-image: url(../images/icons/bullet.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    @include onDesktop {
+      font-size: 16px;
+    }
+  }
+}
