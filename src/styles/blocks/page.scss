@@ -1,0 +1,104 @@
+.page {
+  font-family: "Helvetica Neue", sans-serif;
+  background-color: #f7f7f7;
+  scroll-behavior: smooth;
+
+  &__body {
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: block;
+      margin-top: 148px;
+      position: static;
+      transform: translateX(0);
+      min-height: min-content;
+    }
+  }
+
+  &__section {
+    &--benefits {
+      margin-top: 100px;
+
+      @include onTablet {
+        margin-top: 127px;
+      }
+
+      @include onDesktop {
+        margin-top: 70px;
+      }
+    }
+
+    &--presentation,
+    &--about-us,
+    &--technology,
+    &--features {
+      margin-top: 90px;
+
+      @include onTablet {
+        margin-top: 130px;
+      }
+
+      @include onDesktop {
+        margin-top: 150px;
+      }
+    }
+
+    &--testimonials {
+      margin-top: 80px;
+
+      @include onTablet {
+        margin-top: 40px;
+      }
+
+      @include onDesktop {
+        margin-top: 60px;
+      }
+    }
+
+    &--questions {
+      margin-top: 321px;
+
+      @include onTablet {
+        margin-top: 138px;
+      }
+
+      @include onDesktop {
+        margin-top: 188px;
+      }
+    }
+
+    &--footer {
+      margin-top: 55px;
+
+      @include onTablet {
+        margin-top: 25px;
+      }
+
+      @include onDesktop {
+        margin-top: 105px;
+      }
+    }
+  }
+}
