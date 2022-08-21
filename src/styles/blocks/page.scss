@@ -1,0 +1,50 @@
+.page {
+  background-color: $bg-color;
+  scroll-behavior: smooth;
+
+  &__content {
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  &__menu {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-top: 90px;
+
+    @include onTablet {
+      margin-top: 120px;
+    }
+    @include onDesktop {
+      margin-top: 150px;
+    }
+  }
+
+  &__toTop {
+    position: absolute;
+    bottom: 6%;
+    right: 10%;
+    @include onDesktop {
+      bottom: 4%;
+      right: 15%;
+    }
+  }
+
+  &__toTop-img {
+    width: 20px;
+    height: 25px;
+  }
+}

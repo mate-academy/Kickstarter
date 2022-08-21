@@ -1,0 +1,61 @@
+.form {
+  margin-top: 30px;
+
+  @include onTablet {
+    margin-top: 0;
+  }
+  &__input {
+    width: 100%;
+    display: block;
+    @include onTablet {
+      width: 340px;
+    }
+    @include onDesktop {
+      width: 438px;
+    }
+    height: 48px;
+    border: 2px solid $formGrey-color;
+    padding: 0 30px;
+    outline: none;
+    box-sizing: border-box;
+    &::placeholder {
+      @extend %largeText;
+      color: $lightGrey-color;
+    }
+    &:focus {
+      border: 2px solid $turquoise-color;
+    }
+  }
+
+  &__textarea {
+    display: block;
+    margin-top: 20px;
+    padding: 16px 30px;
+    outline: none;
+    border: 2px solid $formGrey-color;
+    height: 128px;
+    width: 100%;
+    @include onTablet {
+      height: 201px;
+      width: 340px;
+    }
+
+    @include onDesktop {
+      width: 438px;
+    }
+
+    box-sizing: border-box;
+    resize: none;
+    &::placeholder {
+      @extend %largeText;
+      color: $lightGrey-color;
+    }
+    &:focus {
+      border: 2px solid $turquoise-color;
+    }
+  }
+
+  &__submit {
+    margin-top: 30px;
+  }
+}
