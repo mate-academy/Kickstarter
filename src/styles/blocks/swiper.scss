@@ -1,0 +1,77 @@
+.swiper {
+  @include onDesktop {
+    display: none;
+  }
+
+  &__switcher {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 97px;
+
+    @include onMobile {
+      margin: 0 auto;
+    }
+
+    @include onTablet {
+      padding-bottom: 125px;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+  }
+
+  &__arrow-prev {
+    display: block;
+    width: 49px;
+    height: 14px;
+    cursor: pointer;
+
+    background-image: url(../images/arrows/arrow_left_normal.svg);
+
+    transition: background-image 0.3s;
+
+    &:hover {
+      background-image: url(../images/arrows/arrow_left_hover.svg);
+    }
+  }
+
+  &__arrow-next {
+    display: block;
+    width: 48px;
+    height: 13px;
+    cursor: pointer;
+
+    background-image: url(../images/arrows/arrow_right_normal.svg);
+
+    transition: background-image 0.3s;
+
+    &:hover {
+      background-image: url(../images/arrows/arrow_right_hover.svg);
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    align-items: flex-end;
+
+    font-size: 11px;
+    line-height: 13px;
+    color: #0c797a;
+
+    cursor: default;
+  }
+
+  &__current-slide {
+    margin-right: 3px;
+
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+  }
+
+  &__total-slides {
+    margin-left: 4px;
+  }
+}
