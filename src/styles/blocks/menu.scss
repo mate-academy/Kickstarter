@@ -6,7 +6,7 @@
   height: 100vh;
   box-sizing: border-box;
   padding: 30px 0;
-  background-color: #f7f7f7;
+  background-color: $main-background-color;
   overflow-y: auto;
 
   &__top {
@@ -18,8 +18,7 @@
 
   &__cross-button {
     display: block;
-    width: 32px;
-    height: 32px;
+    @include size(32px, 32px);
 
     background-image: url(../images/icons/cross.svg);
   }
@@ -34,18 +33,15 @@
   &__specs-link {
     display: block;
 
-    font-size: 14px;
-    line-height: 20px;
-    color: #4f4f4f;
-
-    text-decoration: none;
-    text-transform: uppercase;
+    @include font-param(14px, 20px);
+    @extend %link-font;
+    color: $gray-dark-color;
 
     transition: color 0.3s, text-shadow 0.3s;
 
     &:hover {
-      color: #131313;
-      text-shadow: 0 0 1px #131313;
+      color: $black-color;
+      text-shadow: 0 0 1px $black-color;
     }
   }
 
@@ -54,27 +50,24 @@
   }
 
   &__lang-link {
-    font-size: 14px;
-    line-height: 20px;
-    color: #bdbdbd;
-
-    text-decoration: none;
-    text-transform: uppercase;
+    @include font-param(14px, 20px);
+    @extend %link-font;
+    color: $gray-light-color;
 
     transition: color 0.3s, text-shadow 0.3s;
 
     &:hover {
-      color: #131313;
-      text-shadow: 0 0 1px #131313;
+      color: $black-color;
+      text-shadow: 0 0 1px $black-color;
     }
 
     &--en {
-      color: #333;
+      color: $title-color;
 
       &::after {
         content: "/";
         padding: 0 3px;
-        color: #333;
+        color: $title-color;
         text-shadow: none;
       }
     }
@@ -83,19 +76,17 @@
   &__buy-button {
     width: 102px;
 
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 48px;
-    color: #fff;
-    background-color: #333;
+    @include font-param(12px, 48px);
+    @extend %title-font;
+    color: $white-color;
+    background-color: $title-color;
     text-align: center;
 
     text-decoration: none;
-    text-transform: uppercase;
     transition: background-color 0.3s;
 
     &:hover {
-      background-color: #131313;
+      background-color: $black-color;
     }
   }
 
@@ -116,16 +107,14 @@
     padding-bottom: 7px;
     border-bottom: 1px solid transparent;
 
-    font-size: 18px;
-    line-height: 18px;
-    color: #333;
-    text-transform: uppercase;
-    text-decoration: none;
+    @include font-param(18px, 18px);
+    @extend %link-font;
+    color: $title-color;
 
     transition: border-color 0.3s;
 
     &:hover {
-      border-color: #333;
+      border-color: $title-color;
     }
   }
 }

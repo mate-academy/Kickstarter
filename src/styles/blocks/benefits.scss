@@ -31,8 +31,7 @@
 
   &__picture {
     display: block;
-    width: 70px;
-    height: 50px;
+    @include size(70px, 50px);
     margin-bottom: 30px;
 
     &--design {
@@ -55,12 +54,10 @@
   &__title {
     margin-bottom: 20px;
 
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 28px;
+    @include font-param(22px, 28px);
+    @extend %title-font;
     text-align: center;
-    text-transform: uppercase;
-    color: #333;
+    color: $title-color;
 
     @include onTablet {
       height: 56px;
@@ -73,9 +70,8 @@
   }
 
   &__paragraph {
-    font-size: 14px;
-    line-height: 21px;
+    @include font-param(14px, 21px);
     text-align: center;
-    color: #7c7c7c;
+    color: $paragraph-color;
   }
 }

@@ -1,25 +1,19 @@
 .get-in-touch {
   &__title {
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 40px;
-
-    text-transform: uppercase;
-
-    color: #333;
+    @include font-param(30px, 40px);
+    @extend %title-font;
+    color: $title-color;
 
     @include onMobile {
       margin-bottom: 27px;
     }
 
     @include onTablet {
-      font-size: 36px;
-      line-height: 46px;
+      @include font-param(36px, 46px);
     }
 
     @include onDesktop {
-      font-size: 56px;
-      line-height: 70px;
+      @include font-param(56px, 70px);
     }
   }
 
@@ -37,31 +31,25 @@
     justify-content: center;
     align-items: center;
 
-    width: 102px;
-    height: 40px;
+    @include size(102px, 40px);
 
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-
-    text-transform: uppercase;
-
-    color: #fff;
+    @include font-param(12px, 14px);
+    @extend %title-font;
+    color: $white-color;
 
     border: none;
 
-    background-color: #0db2b3;
+    background-color: $turquoise-color;
 
     @include onDesktop {
-      width: 124px;
-      height: 48px;
+      @include size(124px, 48px);
     }
 
     cursor: pointer;
     transition: background-color 0.3s;
 
     &:hover {
-      background-color: #0c797a;
+      background-color: $turquoise-dark-color;
     }
   }
 }

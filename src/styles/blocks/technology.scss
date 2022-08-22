@@ -15,8 +15,7 @@
 
     @include onTablet {
       position: relative;
-      width: 50%;
-      height: 415px;
+      @include size(50%, 415px);
     }
 
     @include onDesktop {
@@ -25,6 +24,7 @@
   }
 
   &__photo {
+    display: block;
     width: 100%;
 
     transition: transform 1.5s;
@@ -34,7 +34,6 @@
     }
 
     @include onMobile {
-      display: block;
       margin-bottom: 20px;
     }
 
@@ -42,7 +41,6 @@
       position: absolute;
       object-position: center;
       object-fit: cover;
-      display: block;
       height: 100%;
     }
   }
@@ -57,20 +55,16 @@
   &__title {
     margin-bottom: 30px;
 
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 40px;
-    text-transform: uppercase;
-    color: #333;
+    @include font-param(30px, 40px);
+    @extend %title-font;
+    color: $title-color;
 
     @include onTablet {
-      font-size: 36px;
-      line-height: 46px;
+      @include font-param(36px, 46px);
     }
 
     @include onDesktop {
-      font-size: 56px;
-      line-height: 70px;
+      @include font-param(56px, 70px);
     }
 
     &--mobile {
@@ -89,9 +83,8 @@
   &__paragraph {
     margin-bottom: 30px;
 
-    font-size: 14px;
-    line-height: 150%;
-    color: #7c7c7c;
+    @include font-param(14px, 150%);
+    color: $paragraph-color;
 
     @include onTablet {
       margin-bottom: 60px;
@@ -103,25 +96,21 @@
   &__button {
     position: relative;
     display: flex;
-    width: max-content;
-    height: 22px;
+    @include size(max-content, 22px);
 
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    color: #0db2b3;
+    @include font-param(12px, 14px);
+    @extend %title-font;
+    color: $turquoise-color;
 
     text-decoration: none;
-    text-transform: uppercase;
 
     &::after {
       content: "";
       position: absolute;
       bottom: 0;
-      width: 63px;
-      height: 1px;
+      @include size(63px, 1px);
 
-      background-color: #0db2b3;
+      background-color: $turquoise-color;
       transition: width 0.3s;
     }
 

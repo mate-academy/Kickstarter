@@ -10,17 +10,13 @@
   &__title {
     margin-bottom: 20px;
 
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 22px;
-    text-transform: uppercase;
-    color: #0c797a;
+    @include font-param(18px, 22px);
+    @extend %title-font;
+    color: $turquoise-dark-color;
 
     @include onDesktop {
       margin-bottom: 30px;
-
-      font-size: 34px;
-      line-height: 42px;
+      @include font-param(34px, 42px);
     }
   }
 
@@ -34,15 +30,13 @@
       margin-bottom: 10px;
     }
 
-    font-size: 14px;
-    line-height: 150%;
-    color: #333;
+    @include font-param(14px, 150%);
+    color: $title-color;
 
     &::before {
       content: "";
       display: block;
-      width: 4px;
-      height: 4px;
+      @include size(4px, 4px);
       margin: auto 0;
       margin-right: 11px;
 
