@@ -1,0 +1,35 @@
+.nav {
+  @include onMobile {
+    display: none;
+  }
+
+  display: flex;
+  justify-content: center;
+
+  &__list {
+    display: flex;
+    gap: 44px;
+    list-style: none;
+
+    @include onDesign {
+      gap: 84px;
+    }
+  }
+
+  &__item {
+    width: max-content;
+  }
+
+  &__link {
+    @include font-param(14px, 20px);
+    @extend %link-font;
+    color: $title-color;
+
+    transition: color 0.3s, text-shadow 0.3s;
+
+    &:hover {
+      color: $black-color;
+      text-shadow: 0 0 1px $black-color;
+    }
+  }
+}

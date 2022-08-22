@@ -1,0 +1,52 @@
+.feature {
+  &--desktop-only {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include font-param(18px, 22px);
+    @extend %title-font;
+    color: $turquoise-dark-color;
+
+    @include onDesktop {
+      margin-bottom: 30px;
+      @include font-param(34px, 42px);
+    }
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    @include font-param(14px, 150%);
+    color: $title-color;
+
+    &::before {
+      content: "";
+      display: block;
+      @include size(4px, 4px);
+      margin: auto 0;
+      margin-right: 11px;
+
+      background-image: url(../images/icons/bullet.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    @include onDesktop {
+      font-size: 16px;
+    }
+  }
+}

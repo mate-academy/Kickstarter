@@ -1,0 +1,120 @@
+.about-us {
+  &__content {
+    @include onTablet {
+      display: flex;
+      gap: 20px;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+    }
+  }
+
+  &__sketch-container {
+    overflow: hidden;
+
+    @include onTablet {
+      position: relative;
+      @include size(50%, 415px);
+    }
+
+    @include onDesktop {
+      height: 388px;
+    }
+  }
+
+  &__sketch {
+    display: block;
+    width: 100%;
+
+    transition: transform 1.5s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onMobile {
+      margin-bottom: 20px;
+    }
+
+    @include onTablet {
+      position: absolute;
+      object-position: center;
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+
+  &__article {
+    @include onTablet {
+      width: 50%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include font-param(30px, 40px);
+    @extend %title-font;
+    color: $title-color;
+
+    @include onTablet {
+      @include font-param(36px, 46px);
+    }
+
+    @include onDesktop {
+      @include font-param(56px, 70px);
+    }
+
+    &--mobile {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--not-mobile {
+      @include onMobile {
+        display: none;
+      }
+    }
+  }
+
+  &__paragraph {
+    margin-bottom: 30px;
+
+    @include font-param(14px, 150%);
+    color: $paragraph-color;
+
+    @include onTablet {
+      margin-bottom: 60px;
+
+      font-size: 16px;
+    }
+  }
+
+  &__button {
+    position: relative;
+    display: flex;
+    @include size(max-content, 22px);
+
+    @include font-param(12px, 14px);
+    @extend %title-font;
+    color: $turquoise-color;
+
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      @include size(63px, 1px);
+
+      background-color: $turquoise-color;
+      transition: width 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

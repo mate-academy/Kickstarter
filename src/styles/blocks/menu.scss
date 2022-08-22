@@ -1,0 +1,120 @@
+.menu {
+  @include onTablet {
+    display: none;
+  }
+
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 30px 0;
+  background-color: $main-background-color;
+  overflow-y: auto;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  &__cross-button {
+    display: block;
+    @include size(32px, 32px);
+
+    background-image: url(../images/icons/cross.svg);
+  }
+
+  &__top-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  &__specs-link {
+    display: block;
+
+    @include font-param(14px, 20px);
+    @extend %link-font;
+    color: $gray-dark-color;
+
+    transition: color 0.3s, text-shadow 0.3s;
+
+    &:hover {
+      color: $black-color;
+      text-shadow: 0 0 1px $black-color;
+    }
+  }
+
+  &__lang-switcher {
+    display: flex;
+  }
+
+  &__lang-link {
+    @include font-param(14px, 20px);
+    @extend %link-font;
+    color: $gray-light-color;
+
+    transition: color 0.3s, text-shadow 0.3s;
+
+    &:hover {
+      color: $black-color;
+      text-shadow: 0 0 1px $black-color;
+    }
+
+    &--en {
+      color: $title-color;
+
+      &::after {
+        content: "/";
+        padding: 0 3px;
+        color: $title-color;
+        text-shadow: none;
+      }
+    }
+  }
+
+  &__buy-button {
+    width: 102px;
+
+    @include font-param(12px, 48px);
+    @extend %title-font;
+    color: $white-color;
+    background-color: $title-color;
+    text-align: center;
+
+    text-decoration: none;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $black-color;
+    }
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding-bottom: 7px;
+    border-bottom: 1px solid transparent;
+
+    @include font-param(18px, 18px);
+    @extend %link-font;
+    color: $title-color;
+
+    transition: border-color 0.3s;
+
+    &:hover {
+      border-color: $title-color;
+    }
+  }
+}

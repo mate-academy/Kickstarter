@@ -1,0 +1,77 @@
+.benefits {
+  &__benefit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 65px;
+
+    @include onMobile {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include onTablet {
+      &:nth-last-child(-n + 2) {
+        margin-bottom: 0;
+      }
+
+      transition: transform 1s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__picture {
+    display: block;
+    @include size(70px, 50px);
+    margin-bottom: 30px;
+
+    &--design {
+      background-image: url(../images/icons/benefits_1.svg);
+    }
+
+    &--speaker {
+      background-image: url(../images/icons/benefits_2.svg);
+    }
+
+    &--multiroom {
+      background-image: url(../images/icons/benefits_3.svg);
+    }
+
+    &--lighting {
+      background-image: url(../images/icons/benefits_4.svg);
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include font-param(22px, 28px);
+    @extend %title-font;
+    text-align: center;
+    color: $title-color;
+
+    @include onTablet {
+      height: 56px;
+      margin-bottom: 10px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__paragraph {
+    @include font-param(14px, 21px);
+    text-align: center;
+    color: $paragraph-color;
+  }
+}

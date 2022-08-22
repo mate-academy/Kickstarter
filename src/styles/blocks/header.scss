@@ -1,0 +1,157 @@
+.header {
+  &__content {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px 0;
+
+    @include onTablet {
+      height: 100vh;
+
+      background-image: url(../images/photos/tablet/photo_1.jpg);
+      background-position: right;
+      background-repeat: no-repeat;
+    }
+
+    @include onDesign {
+      background-image: url(../images/photos/desktop/photo_1.jpg);
+      background-size: 65%;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__top-menu {
+    display: flex;
+    align-items: center;
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__specs-link {
+    display: block;
+    margin-right: 25px;
+
+    @include font-param(14px, 20px);
+    @extend %link-font;
+    color: $gray-dark-color;
+
+    transition: color 0.3s, text-shadow 0.3s;
+
+    &:hover {
+      color: $black-color;
+      text-shadow: 0 0 1px $black-color;
+    }
+  }
+
+  &__lang-switcher {
+    display: flex;
+    margin-right: 50px;
+  }
+
+  &__lang-link {
+    @include font-param(14px, 20px);
+    @extend %link-font;
+    color: $gray-light-color;
+
+    transition: color 0.3s, text-shadow 0.3s;
+
+    &:hover {
+      color: $black-color;
+      text-shadow: 0 0 1px $black-color;
+    }
+
+    &--en {
+      color: $title-color;
+
+      &::after {
+        content: "/";
+        padding: 0 3px;
+        color: $title-color;
+        text-shadow: none;
+      }
+    }
+  }
+
+  &__buy-button {
+    width: 102px;
+
+    @include font-param(12px, 48px);
+    @extend %title-font;
+    color: $white-color;
+    background-color: $title-color;
+    text-align: center;
+
+    text-decoration: none;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $black-color;
+    }
+  }
+
+  &__menu-button {
+    display: block;
+    @include size(32px, 32px);
+
+    background-image: url(../images/icons/menu.svg);
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__image {
+    @include onTablet {
+      display: none;
+    }
+
+    margin: 0 -30px 40px;
+  }
+
+  &__article {
+    @include onTablet {
+      margin: auto 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include font-param(40px, 130%);
+    @extend %title-font;
+    color: $title-color;
+
+    @include onTablet {
+      max-width: 340px;
+      margin-bottom: 30px;
+
+      font-size: 48px;
+    }
+
+    @include onDesktop {
+      max-width: 378px;
+      font-size: 62px;
+    }
+  }
+
+  &__paragraph {
+    @include font-param(16px, 150%);
+    color: $title-color;
+
+    @include onTablet {
+      max-width: 250px;
+    }
+
+    @include onDesktop {
+      max-width: 276px;
+    }
+  }
+}

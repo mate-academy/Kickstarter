@@ -1,0 +1,55 @@
+.get-in-touch {
+  &__title {
+    @include font-param(30px, 40px);
+    @extend %title-font;
+    color: $title-color;
+
+    @include onMobile {
+      margin-bottom: 27px;
+    }
+
+    @include onTablet {
+      @include font-param(36px, 46px);
+    }
+
+    @include onDesktop {
+      @include font-param(56px, 70px);
+    }
+  }
+
+  &__field {
+    margin-bottom: 20px;
+
+    &--last {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__button {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include size(102px, 40px);
+
+    @include font-param(12px, 14px);
+    @extend %title-font;
+    color: $white-color;
+
+    border: none;
+
+    background-color: $turquoise-color;
+
+    @include onDesktop {
+      @include size(124px, 48px);
+    }
+
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $turquoise-dark-color;
+    }
+  }
+}

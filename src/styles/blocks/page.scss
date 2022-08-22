@@ -1,0 +1,52 @@
+.page {
+  min-width: 320px;
+  font-family: "Inter", sans-serif;
+  background-color: $main-background-color;
+  scroll-behavior: smooth;
+
+  &__body {
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(+100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+
+    &--header {
+      @include onTablet {
+        margin-bottom: 65px;
+      }
+    }
+
+    &--footer {
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
