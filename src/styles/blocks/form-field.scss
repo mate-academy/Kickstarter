@@ -1,3 +1,48 @@
-// .form-field {
+.form-field {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 48px;
+  padding: 12px 20px;
 
-// }
+  @include onTablet {
+    padding: 12px 30px;
+  }
+
+  @include onDesktop {
+    padding: 12px 36px;
+  }
+
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+
+  border: 1px solid #828282;
+  background-color: #f7f7f7;
+
+  &::placeholder {
+    color: #bdbdbd;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:valid {
+    border-color: #0c797a;
+  }
+
+  &--textarea {
+    height: 128px;
+    resize: none;
+    font-family: inherit;
+
+    @include onTablet {
+      height: 200px;
+    }
+
+    @include onDesktop {
+      height: 128px;
+    }
+  }
+}
