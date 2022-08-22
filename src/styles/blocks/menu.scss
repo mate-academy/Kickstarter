@@ -1,0 +1,75 @@
+.menu {
+  padding: $headerTopPd 0;
+  height: 100vh;
+  background-color: #cfeff0;
+
+  @include onDesktop {
+    padding: 0;
+    height: auto;
+    background-color: inherit;
+    width: max-content;
+  }
+
+
+  &__list {
+    @include onDesktop {
+      display: flex;
+      column-gap: 84px;
+    }
+  }
+
+  &__nav {
+    @include nav-action;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__item {
+    margin-bottom: 50px;
+    height: 50px;
+    text-align: center;
+
+    @include onDesktop {
+      height: auto;
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    line-height: 50px;
+    font-weight: 500;
+    color: inherit;
+    border: 2px solid transparent;
+    transition: border-color 0.3s, color 0.3s, transform 0.3s;
+
+    &:hover {
+      border-color: $c-main-blue;
+      color: $c-main-blue;
+    }
+
+    @include onDesktop {
+      font-size: 14px;
+      line-height: 20px;
+      border: none;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__button {
+    width: $btn-wd;
+    margin: 0 auto;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}

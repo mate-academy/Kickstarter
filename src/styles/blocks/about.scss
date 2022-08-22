@@ -1,0 +1,78 @@
+.about {
+
+  &__container {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 65px 20px;
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 170px;
+    }
+  }
+
+  &__card {
+    display: none;
+    flex-direction: column;
+    flex-basis: 25%;
+
+    &:first-child {
+      display: flex;
+    }
+
+    @include onTablet {
+      display: flex;
+
+    }
+  }
+
+  &__icon {
+    height: 50px;
+    margin-bottom: 40px;
+    transition: transform 0.3s, filter 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+      filter: brightness(0) saturate(100%) invert(33%) sepia(52%)
+        saturate(1803%) hue-rotate(149deg) brightness(86%) contrast(91%);
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $c-sec-grey;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    max-width: 846px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+      -webkit-box-shadow: 0 -1px 43px 11px rgba(34, 60, 80, 0.46);
+      -moz-box-shadow: 0 -1px 43px 11px rgba(34, 60, 80, 0.46);
+      box-shadow: 0 -1px 43px 11px rgba(34, 60, 80, 0.46);
+    }
+  }
+}

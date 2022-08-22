@@ -1,0 +1,133 @@
+.header {
+  padding-top: $headerTopPd;
+
+  @include onTablet {
+    padding-top: 30px;
+  }
+
+  &__nav {
+    @include nav-action;
+
+    @include onTablet {
+      margin-bottom: 130px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 190px;
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      @include gridTablet;
+    }
+
+    @include onDesktop {
+      @include gridDesktop;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: 40px;
+    cursor: pointer;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__image-tablet {
+    display: none;
+    width: 100%;
+    transition: transform 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateX(1%) scale(1.1);
+
+      @include onTablet {
+        transform: translateX(10%) scale(1.2);
+      }
+
+      @include onDesktop {
+        transform: scale(1.1);
+      }
+    }
+
+    @include onTablet {
+      display: block;
+      width: 100%;
+      grid-column: 4 / 9;
+      margin-left: 20px;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / 13;
+    }
+  }
+
+  &__description {
+    @include onTablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    color: $c-main-grey;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 18px;
+    color: #4f4f4f;
+    text-transform: uppercase;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $c-main-blue;
+    }
+  }
+
+  &__link--en {
+    color: $c-main-grey;
+  }
+
+  &__link--ua {
+    color: #828282;
+  }
+
+  &__on-tablet {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    @include onDesktop {
+      gap: 47px;
+    }
+  }
+}

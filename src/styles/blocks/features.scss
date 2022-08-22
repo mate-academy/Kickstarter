@@ -1,0 +1,86 @@
+.features {
+  &__container {
+    background-color: $c-light-blue;
+    padding-top: 30px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr auto;
+      padding-top: 60px;
+    }
+
+    @include onDesktop {
+      row-gap: 56px;
+    }
+  }
+
+  &__card {
+
+    &:nth-child(3) {
+      margin-bottom: 50px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
+
+    &--m {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: $c-dark-blue;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @include onDesktop {
+      font-size: 34px;
+      line-height: 42px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__item {
+    list-style: disc;
+    list-style-position: inside;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 21px;
+
+    @include onDesktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    display: block;
+    background-color: $c-light-blue;
+    transition: transform 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1) translateY(-5%);
+    }
+
+    @include onTablet {
+      grid-column: 2;
+      grid-row: 2;
+    }
+  }
+
+}
