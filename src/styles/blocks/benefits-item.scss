@@ -1,0 +1,55 @@
+.benefits-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  text-align: center;
+
+  &::before {
+    content: "";
+
+    display: block;
+
+    width: 50px;
+    height: 50px;
+
+    margin-bottom: 40px;
+
+    @include mediamin(768px) {
+      margin-bottom: 50px;
+    }
+
+    @include mediamin(1024px) {
+      margin-bottom: 35px;
+    }
+  }
+
+  $modifiers: (
+    "design": 1,
+    "speaker": 2,
+    "multiroom": 3,
+    "lightning": 4,
+  );
+
+  @each $mod, $val in $modifiers {
+    &--#{$mod}::before {
+      background: url(../images/benefits-#{$val}svg.svg) center/contain no-repeat;
+    }
+  }
+
+  &__heading {
+    @extend %text-reset;
+
+    margin-bottom: 20px;
+
+    color: $color-shaft;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 127%;
+  }
+
+  &__text {
+    @extend %text-reset;
+  }
+}
