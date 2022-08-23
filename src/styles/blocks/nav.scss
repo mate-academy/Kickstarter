@@ -1,0 +1,51 @@
+.nav {
+  &__list {
+    @extend %list-reset;
+
+    @include mediamin(768px) {
+      display: flex;
+      justify-content: center;
+
+      padding: 28px;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    @include mediamin(768px) {
+      &:not(:last-child) {
+        margin-bottom: 0;
+        margin-right: 40px;
+      }
+    }
+
+    @include mediamin(1024px) {
+      &:not(:last-child) {
+        margin-right: 84px;
+      }
+    }
+  }
+
+  &__link {
+    @extend %link-reset;
+
+    color: $color-shaft;
+    font-size: 32px;
+
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-cod-gray;
+    }
+
+    @include mediamin(768px) {
+      font-size: 14px;
+
+      &:hover {
+        color: $color-niagara;
+      }
+    }
+  }
+}
