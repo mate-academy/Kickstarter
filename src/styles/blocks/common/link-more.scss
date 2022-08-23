@@ -1,0 +1,35 @@
+.link-more {
+  @extend %link-reset;
+
+  position: relative;
+
+  display: inline-block;
+
+  padding-bottom: 5px;
+
+  color: $color-green-blue;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  text-transform: uppercase;
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 45%;
+    height: 1px;
+
+    background-color: currentColor;
+    will-change: width;
+
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
