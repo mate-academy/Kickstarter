@@ -6,8 +6,8 @@
 Site is developed for:
 
 - mobile screens: >320px;
-- tablets: >600px;
-- desktop: >1024px.
+- tablets: >768px;
+- desktop: >1200px;
 
 Technologies used:
 
