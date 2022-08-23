@@ -1,6 +1,11 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin mediamax($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin mediamin($width) {
+  @media (min-width: $width) {
+    @content;
   }
 }
