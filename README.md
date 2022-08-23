@@ -1,7 +1,7 @@
 # Kickstarter
 
 - [DEMO LINK](https://alexanderkolomiiets.github.io/Kickstarter/) 
-- [Design](https://www.figma.com/file/Ujp7bCFuvuJlkn8TSbQPSZ/Kickstarter_FE-students)
+- [DESIGN](https://www.figma.com/file/Ujp7bCFuvuJlkn8TSbQPSZ/Kickstarter_FE-students)
 
 Site is developed for:
 
