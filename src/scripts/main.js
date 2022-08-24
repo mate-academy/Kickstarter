@@ -93,6 +93,7 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   const enableSwiper = () => {
+    // eslint-disable-next-line no-undef
     myBenefitsSwiper = new Swiper('.benefits__swiper', {
       loop: true,
       containerModifierClass: 'benefits__swiper',
@@ -104,6 +105,7 @@ window.addEventListener('DOMContentLoaded', () => {
       },
     });
 
+    // eslint-disable-next-line no-undef
     myFeaturesSwiper = new Swiper('.features__swiper', {
       loop: true,
       spaceBetween: 50,
