@@ -1,0 +1,217 @@
+.features {
+  &__container {
+    @extend %container;
+
+    padding-right: 0;
+    padding-left: 0;
+
+    @include mediamin(600px) {
+      padding-right: 30px;
+      padding-left: 30px;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 30px;
+    padding: 0 30px;
+
+    @include mediamin(600px) {
+      padding: 0;
+    }
+  }
+
+  &__swiper {
+    padding: 30px 30px 170px;
+
+    background: url(../images/future.png) bottom center/325px 170px no-repeat;
+    background-color: $color-swans;
+
+    @include mediamin(600px) {
+      padding: 60px 90px 120px;
+      background-position: bottom right;
+    }
+
+    @include mediamin(768px) {
+      padding: 60px 100px;
+      background-position: bottom right 50px;
+    }
+
+    @include mediamin(850px) {
+      background-size: 370px 200px;
+    }
+
+    @include mediamin(1024px) {
+      background-size: 530px 280px;
+    }
+  }
+
+  &__list {
+    @extend %list-reset;
+
+    margin-bottom: 50px;
+
+    @include mediamin(768px) {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      margin-bottom: 0;
+    }
+  }
+
+  &__item {
+    @include mediamin(768px) {
+      flex: 0 0 calc(50% - 25px);
+
+      &:not(:nth-last-child(1)) {
+        margin-bottom: 50px;
+      }
+
+      &:not(:nth-child(2n)) {
+        margin-right: 50px;
+      }
+    }
+  }
+
+  &__nav-btns {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 10px;
+
+    @include mediamin(600px) {
+      justify-content: flex-start;
+    }
+
+    @include mediamin(768px) {
+      display: none;
+    }
+  }
+
+  &__swiper-prev {
+    @extend %btn-reset;
+
+    position: relative;
+
+    display: block;
+
+    width: 48px;
+    height: 14px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: $color-shaft;
+
+      transition: background-color 0.3s ease;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 40%;
+      height: 1px;
+
+      background-color: $color-shaft;
+
+      transform-origin: top left;
+
+      transform: rotate(40deg);
+    }
+  }
+
+  &__swiper-next {
+    @extend %btn-reset;
+
+    position: relative;
+
+    display: block;
+
+    width: 48px;
+    height: 14px;
+
+    &::after {
+      content: "";
+      position: absolute;
+
+      bottom: 0;
+      right: 0;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: $color-shaft;
+
+      transition: background-color 0.3s ease;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+
+      bottom: 0;
+      right: 0;
+
+      width: 40%;
+      height: 1px;
+
+      background-color: $color-shaft;
+
+      transform-origin: bottom right;
+      transform: rotate(40deg);
+
+      transition: background-color 0.3s ease;
+    }
+  }
+
+  &__swiper-prev,
+  &__swiper-next {
+    &:hover {
+      &::after,
+      &::before {
+        background-color: $color-surfie;
+      }
+    }
+  }
+
+  &__pagination {
+    display: block;
+
+    color: $color-surfie;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 1;
+    text-align: center;
+
+    @include mediamin(600px) {
+      text-align: left;
+    }
+
+    @include mediamin(768px) {
+      display: none;
+    }
+
+    .swiper-pagination-current {
+      color: $color-shaft;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+    }
+
+    .swiper-pagination-current,
+    .swiper-pagination-total {
+      &::before {
+        content: "0";
+      }
+    }
+  }
+}
