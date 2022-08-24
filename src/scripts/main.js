@@ -93,37 +93,37 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   const enableSwiper = () => {
-    // myBenefitsSwiper = new Swiper('.benefits__swiper', {
-    //   loop: true,
-    //   containerModifierClass: 'benefits__swiper',
-    //   wrapperClass: 'benefits__list',
-    //   slideClass: 'benefits__item',
-    //   pagination: {
-    //     el: '.benefits__pagination',
-    //     clickable: true,
-    //   },
-    // });
+    myBenefitsSwiper = new Swiper('.benefits__swiper', {
+      loop: true,
+      containerModifierClass: 'benefits__swiper',
+      wrapperClass: 'benefits__list',
+      slideClass: 'benefits__item',
+      pagination: {
+        el: '.benefits__pagination',
+        clickable: true,
+      },
+    });
 
-    // myFeaturesSwiper = new Swiper('.features__swiper', {
-    //   loop: true,
-    //   spaceBetween: 50,
-    //   containerModifierClass: 'features__swiper',
-    //   wrapperClass: 'features__list',
-    //   slideClass: 'features__item',
-    //   navigation: {
-    //     nextEl: '.features__swiper-next',
-    //     prevEl: '.features__swiper-prev',
-    //   },
-    //   breakpoints: {
-    //     600: {
-    //       spaceBetween: 100,
-    //     },
-    //   },
-    //   pagination: {
-    //     el: '.features__pagination',
-    //     type: 'fraction',
-    //   },
-    // });
+    myFeaturesSwiper = new Swiper('.features__swiper', {
+      loop: true,
+      spaceBetween: 50,
+      containerModifierClass: 'features__swiper',
+      wrapperClass: 'features__list',
+      slideClass: 'features__item',
+      navigation: {
+        nextEl: '.features__swiper-next',
+        prevEl: '.features__swiper-prev',
+      },
+      breakpoints: {
+        600: {
+          spaceBetween: 100,
+        },
+      },
+      pagination: {
+        el: '.features__pagination',
+        type: 'fraction',
+      },
+    });
   };
 
   breakpointTablet.addListener(breakpointChecker);
