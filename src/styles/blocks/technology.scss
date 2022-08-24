@@ -1,0 +1,135 @@
+.technology {
+  padding: 0 30px;
+
+  @include onTablet {
+    padding: 0;
+  }
+
+  &__block {
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto 1fr;
+      column-gap: 20px;
+    }
+
+    &-future {
+      @include onTablet {
+        padding-right: 34px;
+      }
+
+      @include onDescktop {
+        padding: 0;
+      }
+    }
+
+    &-eye {
+      @include onTablet {
+        padding-left: 34px;
+      }
+
+      @include onDescktop {
+        padding: 0;
+      }
+    }
+  }
+
+  &__name {
+    margin-bottom: 30px;
+  }
+
+  .foto-design {
+    min-height: 210px;
+    background-image: url(/images/image_mobile/4.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      background-image: url(/images/image_tablet/5.jpg);
+      grid-column: 1/2;
+      grid-row: 1/4;
+      min-height: 415px;
+      margin-bottom: 0;
+    }
+
+    @include onDescktop {
+      background-image: url(/images/Image_desktop/5.jpg);
+      max-height: 400px;
+    }
+  }
+
+  .foto-eye {
+    min-height: 210px;
+    background-image: url(/images/image_mobile/2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      background-image: url(/images/image_tablet/4.jpg);
+      grid-column: 2/3;
+      grid-row: 1/4;
+      min-height: 417px;
+      margin-bottom: 0;
+    }
+
+    @include onDescktop {
+      background-image: url(/images/Image_desktop/3.jpg);
+      height: 400px;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: $c-gray-dark;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @include onDescktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
+
+.about-us {
+  position: relative;
+
+  &__link {
+    color: $c-blue;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+  }
+
+  &__link::after {
+    content: " ";
+    box-sizing: border-box;
+    background-color: $c-blue;
+    position: absolute;
+    border: 1px solid $c-blue;
+    left: 0;
+    top: 25px;
+    width: 53px;
+    height: 1px;
+  }
+
+  &__link:hover::after {
+    width: 130px;
+    transition: width 0.3s;
+  }
+
+}

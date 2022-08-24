@@ -1,0 +1,74 @@
+.header {
+  display: flex;
+  padding: 25px 30px;
+
+  @include onTablet {
+    margin-bottom: 100px;
+    height: max-content;
+  }
+
+  @include onDescktop {
+    margin-bottom: 100px; //?????
+  }
+
+  &__name {
+    display: flex;
+    height: 48px;
+    flex-grow: 1;
+    justify-content: space-between;
+
+    &-logo {
+      width: 160px;
+      height: 26px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+  }
+
+  &__menu-open {
+    display: block;
+    height: 24px;
+    width: 24px;
+
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDescktop {
+      display: none;
+    }
+
+  }
+
+  &__nav {
+    display: none;
+  }
+
+  @include onTablet {
+    &__nav {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      place-items: center;
+
+      background-color: $c-gray-white;
+    }
+  }
+
+  @include onDescktop {
+
+    &__nav {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      place-items: center;
+
+      background-color: $c-gray-white;
+    }
+  }
+
+}
