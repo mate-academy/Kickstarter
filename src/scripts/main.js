@@ -71,23 +71,29 @@ window.addEventListener('DOMContentLoaded', () => {
   const headerMenu = document.querySelector('.header__menu');
   const burgerBtn = document.querySelector('.burger');
   const myBurger = new Burger(burgerBtn, headerMenu);
-  const breakpoint = window.matchMedia('(min-width:768px)');
-  let mySwiper;
+  const breakpointTablet = window.matchMedia('(min-width:768px)');
+
+  let myBenefitsSwiper;
+  let myFeaturesSwiper;
 
   const breakpointChecker = () => {
-    if (breakpoint.matches === true) {
-      if (mySwiper !== undefined) {
-        mySwiper.destroy();
+    if (breakpointTablet.matches === true) {
+      if (myBenefitsSwiper !== undefined) {
+        myBenefitsSwiper.destroy();
+      };
+
+      if (myFeaturesSwiper !== undefined) {
+        myFeaturesSwiper.destroy();
       };
 
       return null;
-    } else if (breakpoint.matches === false) {
+    } else if (breakpointTablet.matches === false) {
       return enableSwiper();
     }
   };
 
   const enableSwiper = () => {
-    mySwiper = new Swiper('.benefits__swiper', {
+    myBenefitsSwiper = new Swiper('.benefits__swiper', {
       loop: true,
       containerModifierClass: 'benefits__swiper',
       wrapperClass: 'benefits__list',
@@ -97,9 +103,30 @@ window.addEventListener('DOMContentLoaded', () => {
         clickable: true,
       },
     });
+
+    myFeaturesSwiper = new Swiper('.features__swiper', {
+      loop: true,
+      spaceBetween: 50,
+      containerModifierClass: 'features__swiper',
+      wrapperClass: 'features__list',
+      slideClass: 'features__item',
+      navigation: {
+        nextEl: '.features__swiper-next',
+        prevEl: '.features__swiper-prev',
+      },
+      breakpoints: {
+        600: {
+          spaceBetween: 100,
+        },
+      },
+      pagination: {
+        el: '.features__pagination',
+        type: 'fraction',
+      },
+    });
   };
 
-  breakpoint.addListener(breakpointChecker);
+  breakpointTablet.addListener(breakpointChecker);
   breakpointChecker();
 
   document.body.addEventListener('click', (e) => {
