@@ -4,3 +4,33 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin icon-square($size) {
+  height: $size;
+  width: $size;
+}
+
+@mixin onDesktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 641px) {
+    @content;
+  }
+}
+
+@mixin container {
+  box-sizing: border-box;
+  max-width: 1024px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 0 auto;
+
+  @include onDesktop {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
