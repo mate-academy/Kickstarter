@@ -93,37 +93,37 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   const enableSwiper = () => {
-    myBenefitsSwiper = new Swiper('.benefits__swiper', {
-      loop: true,
-      containerModifierClass: 'benefits__swiper',
-      wrapperClass: 'benefits__list',
-      slideClass: 'benefits__item',
-      pagination: {
-        el: '.benefits__pagination',
-        clickable: true,
-      },
-    });
+    // myBenefitsSwiper = new Swiper('.benefits__swiper', {
+    //   loop: true,
+    //   containerModifierClass: 'benefits__swiper',
+    //   wrapperClass: 'benefits__list',
+    //   slideClass: 'benefits__item',
+    //   pagination: {
+    //     el: '.benefits__pagination',
+    //     clickable: true,
+    //   },
+    // });
 
-    myFeaturesSwiper = new Swiper('.features__swiper', {
-      loop: true,
-      spaceBetween: 50,
-      containerModifierClass: 'features__swiper',
-      wrapperClass: 'features__list',
-      slideClass: 'features__item',
-      navigation: {
-        nextEl: '.features__swiper-next',
-        prevEl: '.features__swiper-prev',
-      },
-      breakpoints: {
-        600: {
-          spaceBetween: 100,
-        },
-      },
-      pagination: {
-        el: '.features__pagination',
-        type: 'fraction',
-      },
-    });
+    // myFeaturesSwiper = new Swiper('.features__swiper', {
+    //   loop: true,
+    //   spaceBetween: 50,
+    //   containerModifierClass: 'features__swiper',
+    //   wrapperClass: 'features__list',
+    //   slideClass: 'features__item',
+    //   navigation: {
+    //     nextEl: '.features__swiper-next',
+    //     prevEl: '.features__swiper-prev',
+    //   },
+    //   breakpoints: {
+    //     600: {
+    //       spaceBetween: 100,
+    //     },
+    //   },
+    //   pagination: {
+    //     el: '.features__pagination',
+    //     type: 'fraction',
+    //   },
+    // });
   };
 
   breakpointTablet.addListener(breakpointChecker);
@@ -131,7 +131,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
   document.body.addEventListener('click', (e) => {
     if (e.target.classList.contains('nav__link')) {
-      myBurger.close();
+      if (!breakpointTablet.matches) {
+        myBurger.close();
+      }
+
+      document.querySelector('.nav__link--active')
+        .classList.remove('nav__link--active');
+
+      e.target.classList.add('nav__link--active');
+    }
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset !== 0) {
+      document.querySelector('.header').classList.add('header--scroll');
+    } else {
+      document.querySelector('.header').classList.remove('header--scroll');
     }
   });
 });
