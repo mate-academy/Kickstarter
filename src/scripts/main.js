@@ -71,7 +71,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const headerMenu = document.querySelector('.header__menu');
   const burgerBtn = document.querySelector('.burger');
   const myBurger = new Burger(burgerBtn, headerMenu);
-  const breakpointTablet = window.matchMedia('(min-width:768px)');
+  const breakpointTablet = window.matchMedia('(min-width: 640px)');
 
   let myBenefitsSwiper;
   let myFeaturesSwiper;
