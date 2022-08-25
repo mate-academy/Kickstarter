@@ -1,4 +1,6 @@
 .header {
+  $root: &;
+
   width: 100%;
 
   background-color: $color-albaster;
@@ -7,6 +9,10 @@
 
   &--scroll {
     border-bottom: 1px solid $color-boulder;
+
+    #{$root}__container {
+      padding: 20px 30px;
+    }
   }
 
   &__container {
@@ -17,6 +23,8 @@
     @extend %container;
 
     padding: 25px 30px;
+
+    transition: padding $transition-props;
   }
 
   &__home-link {

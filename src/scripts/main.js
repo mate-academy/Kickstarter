@@ -151,4 +151,8 @@ window.addEventListener('DOMContentLoaded', () => {
       document.querySelector('.header').classList.remove('header--scroll');
     }
   });
+
+  document.querySelector('.questions__form').addEventListener('submit', (e) => {
+    e.preventDefault();
+  });
 });
