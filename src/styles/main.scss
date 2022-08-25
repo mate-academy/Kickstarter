@@ -546,18 +546,41 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 60px;
+  gap: 30px;
+
+  @include onTablet {
+    gap: 60px;
+  }
+  @include onDesktop {
+    gap: 60px;
+  }
 
   &__logo {
-    //r
+    display: none;
+
+    @include onTablet {
+      display: initial;
+    }
   }
 
   &__terms {
+    display: inline-block;
     font-size: 14px;
     line-height: 21px;
     text-align: center;
+    max-width: 260px;
+    margin-bottom: 20px;
 
     color: $light-gray-color;
+
+    @include onTablet {
+      margin-bottom: 30px;
+      max-width: fit-content;
+    }
+    @include onDesktop {
+      margin-bottom: 30px;
+      max-width: fit-content;
+    }
   }
 }
 
