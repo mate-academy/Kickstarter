@@ -196,12 +196,81 @@ body {
   }
 }
 
-.benefits {
-  display: flex;
-  justify-content: center;
+.button {
+  outline: none;
+
+  &__slider {
+    width: 50px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    font-weight: 700;
+    color: $black-gray-color;
+
+    background-color: $cyan-light-color;
+    border: 1px solid $cyan-main-color;
+
+    &--left {
+      right: 0;
+    }
+    &--right {
+      left: 0;
+    }
+  }
+}
+
+.benefits-mobile {
+  display: inherit;
+  margin: 0 -30px;
+
+  @include onTablet {
+    display: none;
+  }
+  @include onDesktop {
+    display: none;
+  }
+  transition: display 0.5s;
 
   &__content {
+    position: relative;
+    background-color: $cyan-white-color;
+  }
+  &__item {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 200px;
+    min-height: 320px;
+    padding: 35px 65px;
+
+    border-radius: 5px;
+
+  }
+  &__pagination {
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px;
+
+    & > :not(:last-child) {
+      margin-right: 4px;
+    }
+  }
+  &__pag {
+    display: block;
+    @include icon-square(7px);
+    border-radius: 50%;
+    background-color: $cyan-main-color;
+  }
+}
+
+.benefits {
+
+  &__content {
+    display: none;
     flex-direction: row;
     justify-content: center;
     gap: 30px;
@@ -209,10 +278,14 @@ body {
     max-width: 256px;
 
     @include onTablet {
+      display: flex;
+
       min-width: 542px;
       max-width: 642px;
     }
     @include onDesktop {
+      display: flex;
+
       max-width: 1114px;
       min-width: 1024px;
       flex-wrap: nowrap;
@@ -241,8 +314,17 @@ body {
     text-transform: uppercase;
     color: $black-gray-color;
 
-    min-height: 56px;
-    margin-bottom: 52px;
+    min-height: 0;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 20px;
+      min-height: 56px;
+    }
+    @include onDesktop {
+      margin-bottom: 52px;
+      min-height: 56px;
+    }
   }
   &__text {
     font-size: 14px;
@@ -319,6 +401,7 @@ body {
 
       @include onTablet {
         max-height: 415px;
+        min-height: 350px;
 
         grid-column: 1 / 2;
         grid-row: 1 / 5;
@@ -432,6 +515,7 @@ body {
 
     @include onTablet {
       min-height: 400px;
+      min-width: 200px;
 
       margin-bottom: 0;
     }
@@ -685,6 +769,32 @@ body {
     &:focus {
       border-color: $cyan-title-color;
     }
+  }
+}
+
+.slider {
+  margin-bottom: 50px;
+
+  &__content {
+    height: 300px;
+    width: 400px;
+  }
+
+  &__item {
+    display: block;
+    background-color: #0c797a;
+    height: 100%;
+
+    &--1 {
+      background-color: #4f4f4f;
+    }
+    &--2 {
+      background-color: red;
+    }
+  }
+
+  &__button {
+    height: 40px;
   }
 }
 
