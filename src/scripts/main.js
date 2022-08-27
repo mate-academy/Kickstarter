@@ -50,7 +50,7 @@ function plusDivs2(n) {
 
 function showDivs2(n) {
   const x = document.getElementsByClassName('features__feature--slide');
-  // const y = document.getElementsByClassName('benefits-mobile__pag');
+  const y = document.getElementsByClassName('features__pag');
 
   if (n > x.length) {
     sliderIndex = 1;
@@ -62,17 +62,16 @@ function showDivs2(n) {
 
   for (let i = 0; i < x.length; i++) {
     x[i].style.display = 'none';
-    // y[i].style.backgroundColor = '#cfeff0';
+    y[i].style.display = 'none';
   }
   x[sliderIndex - 1].style.display = 'flex';
-  // y[sliderIndex - 1].style.backgroundColor = '#0db2b3';
+  y[sliderIndex - 1].style.display = 'inline-block';
 }
 
 showDivs2(sliderIndex);
 
 buttonPlus1.addEventListener('click', () => {
   plusDivs2(1);
-  console.log('click')
 });
 
 buttonMinus1.addEventListener('click', () => {
