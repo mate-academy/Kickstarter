@@ -1,0 +1,35 @@
+// NAV BLOCK:
+// Desktop navigation bar
+
+.nav {
+  display: none;
+
+  @include onTablet {
+    display: none;
+  }
+  @include onDesktop {
+    display: block;
+  }
+
+  &__list {
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    gap: 84px;
+  }
+  &__link {
+    display: inline-block;
+    box-sizing: border-box;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    color: $black-color;
+
+    transition: font-weight $transition-duration;
+
+    padding: 24px 0;
+    @include hover(font-weight, 700);
+  }
+}

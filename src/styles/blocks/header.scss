@@ -1,0 +1,84 @@
+//HEADER BLOCK:
+// Main header block
+
+.header {
+
+  &__content {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+
+    margin-top: 25px;
+
+    @include onTablet {
+      flex-direction: row;
+      align-items: end;
+      justify-content: center;
+
+      margin-top: 130px;
+    }
+    @include onDesktop {
+      flex-direction: row;
+      align-items: end;
+      justify-content: start;
+
+      margin-top: 90px;
+    }
+  }
+
+  &__picture {
+    height: 245px;
+
+    @include onTablet {
+      flex-shrink: 1;
+      height: 317px;
+    }
+    @include onDesktop {
+      height: 464px;
+    }
+  }
+
+  &__info {
+    height: max-content;
+    z-index: auto;
+
+    @include onTablet {
+      max-width: 290px;
+      min-width: 0;
+
+      z-index: 1;
+    }
+    @include onDesktop {
+      max-width: 1000px;
+      min-width: auto;
+
+      z-index: auto;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    color: $black-gray-color;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__paragraph {
+    font-size: 16px;
+    line-height: 24px;
+    color: $black-gray-color;
+  }
+}

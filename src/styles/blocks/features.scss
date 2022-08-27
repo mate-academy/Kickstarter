@@ -1,0 +1,154 @@
+//FEATURES BLOCK:
+// Block without slider on desktop
+// and a bit different sliders on
+// mobile and tablet with pagination.
+
+.features {
+
+  &__feature {
+    display: flex;
+    flex-direction: column;
+    min-height: 265px;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 70px;
+    text-transform: uppercase;
+    color: $black-gray-color;
+
+    margin-bottom: 30px;
+  }
+
+  &__slider {
+    display: initial;
+    @include onTablet {
+      display: initial;
+    }
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__content {
+    background-color: $cyan-light-color;
+    position: relative;
+
+    padding: 60px 30px;
+    margin-left: -30px;
+    margin-right: -30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-image: url("../images/desktop/5.png");
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: contain;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      background-size: initial;
+
+      padding: 60px 90px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      row-gap: 50px;
+      background-size: initial;
+
+      padding: 60px 100px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    &--desktop {
+      display: none;
+      @include onTablet {
+        display: none;
+      }
+      @include onDesktop {
+        display: grid;
+      }
+    }
+  }
+
+  &__buttons {
+    display: block;
+    margin-bottom: 180px;
+
+    @include onTablet {
+      display: block;
+    }
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__pagination-box {
+    width: max-content;
+    margin: 0 auto;
+    display: flex;
+    align-items: end;
+  }
+
+  &__pagination {
+    list-style: none;
+    display: inline-block;
+  }
+  &__pag {
+    width: max-content;
+    display: inline-block;
+    padding-right: 5px;
+
+    font-size: 16px;
+    line-height: 24px;
+    color: $black-gray-color;
+  }
+  &__pag-total {
+    height: max-content;
+    font-size: 11px;
+    line-height: 13px;
+    color: $cyan-title-color;
+  }
+
+  &__subtitle {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 42px;
+    text-transform: uppercase;
+    color: $cyan-title-color;
+
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    padding-left: 20px;
+
+    & :not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  &__item {
+    font-size: 16px;
+    line-height: 24px;
+    color: $black-gray-color;
+  }
+}

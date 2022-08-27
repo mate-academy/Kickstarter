@@ -1,0 +1,47 @@
+//TOP-NAV-ACTIONS BLOCK:
+// Right top action buttons like specs, buy etc in TOP-NAV BLOCK:
+
+.nav-top-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  margin-top: 25px;
+  padding-left: 15px;
+
+  @include onDesktop {
+    gap: 30px;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 25px;
+  }
+
+  &__specs {
+    font-size: 14px;
+    line-height: 20px;
+    color: $dark-gray-color;
+
+    @include hover(color, $cyan-main-color);
+  }
+  &__lang {
+    font-size: 14px;
+    line-height: 20px;
+    color: $gray-color;
+
+    @include hover(color, $cyan-main-color);
+
+    &--active {
+      color: $black-gray-color;
+    }
+  }
+
+  &--desktop {
+    display: none;
+    @include onTablet {
+      display: none;
+    }
+    @include onDesktop {
+      display: flex;
+    }
+  }
+}
