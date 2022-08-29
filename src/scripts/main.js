@@ -15,17 +15,27 @@ function showDivs(n) {
 
   if (n > x.length) {
     slideIndex = 1;
-  }
-
-  if (n < 1) {
+  } else if (n < 1) {
     slideIndex = x.length;
   }
 
   for (let i = 0; i < x.length; i++) {
-    x[i].style.display = 'none';
+    // x[i].style.display = 'none';
+    x[i].style.opacity = '0';
+    x[i].style.transition = 'opacity 0.5s, transform 1s';
+    y[i].style.backgroundColor = '#cfeff0';
+
+    if (i >= slideIndex) {
+      x[i].style.transform = 'translateX(100%)';
+    } else if (i <= slideIndex) {
+      x[i].style.transform = 'translateX(-100%)';
+    }
+    x[i].style.transition = 'opacity 0.5s, transform 1s';
     y[i].style.backgroundColor = '#cfeff0';
   }
-  x[slideIndex - 1].style.display = 'flex';
+  // x[i].style.display = 'flex';
+  x[slideIndex - 1].style.transform = 'translateX(0)';
+  x[slideIndex - 1].style.opacity = '1';
   y[slideIndex - 1].style.backgroundColor = '#0db2b3';
 }
 
@@ -54,9 +64,7 @@ function showDivs2(n) {
 
   if (n > x.length) {
     sliderIndex = 1;
-  }
-
-  if (n < 1) {
+  } else if (n < 1) {
     sliderIndex = x.length;
   }
 
