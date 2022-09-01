@@ -1,0 +1,23 @@
+.article {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+
+  &__title {
+    @include desktopH2;
+    margin-bottom: 30px;
+  }
+
+  &__text {
+    @include main-text;
+    margin-bottom: 60px;
+  }
+
+  &--reverse &__image {
+    grid-column: 2 / 3;
+  }
+
+  &--reverse &__content {
+    grid-row: 1 / 2;
+  }
+}

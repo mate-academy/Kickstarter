@@ -1,0 +1,35 @@
+.nav {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 84px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+
+      margin: auto;
+      width: 0%;
+      height: 2px;
+
+      background: $color-scobeloff;
+      border-radius: 5px;
+
+      transition: width $transition-duration;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
