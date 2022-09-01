@@ -72,6 +72,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const burgerBtn = document.querySelector('.burger');
   const myBurger = new Burger(burgerBtn, headerMenu);
   const breakpointTablet = window.matchMedia('(min-width: 640px)');
+  const fields = document.querySelectorAll('.main-field');
 
   let myBenefitsSwiper;
   let myFeaturesSwiper;
@@ -154,5 +155,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('.questions__form').addEventListener('submit', (e) => {
     e.preventDefault();
+
+    fields.forEach((el) => {
+      el.value = '';
+    });
   });
 });
