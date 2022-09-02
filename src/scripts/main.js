@@ -145,7 +145,6 @@ const debounceResizeFuncs = new Debounce(300, () => {
   benefitsSwiper.init();
   featuresSwiper.init();
 });
-// eslint-disable-next-line no-undef
 const benefitsSwiperParams = {
   loop: true,
   containerModifierClass: 'benefits__swiper',
@@ -159,8 +158,6 @@ const benefitsSwiperParams = {
 const benefitsSwiper = new MobileSwiper(
   'benefits__swiper', benefitsSwiperParams, breakpointTablet
 );
-
-// eslint-disable-next-line no-undef
 const featuresSwiperParams = {
   loop: true,
   spaceBetween: 50,
