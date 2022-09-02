@@ -1,0 +1,100 @@
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  &__top-actions {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+    color: $c-gray;
+
+    &:hover {
+      color: $c-aqua;
+    }
+
+    &:focus {
+      color: $c-black;
+    }
+  }
+
+  &__button {
+    background-color: $c-black-light;
+
+    &:hover {
+      background-color: $c-black;
+    }
+  }
+
+  &__line-top {
+    transform-origin: 0 0;
+  }
+
+  &__line-bottom {
+    transform-origin: 0 100%;
+  }
+
+  &__toggle {
+    display: none;
+
+    &:checked ~ .menu__lines .menu__line-top {
+      transform: rotate(45deg);
+    }
+
+    &:checked ~ .menu__lines .menu__line-bottom {
+      transform: rotate(-45deg);
+    }
+
+    &:checked ~ .menu__lines .menu__line-center {
+      width: 0;
+    }
+
+    &:checked ~ .nav__mobile {
+      visibility: visible;
+      transform: translateX(0);
+    }
+  }
+
+  &__lines {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+
+    z-index: 2;
+
+    cursor: pointer;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__line {
+    display: block;
+    height: 4px;
+    width: 100%;
+
+    background-color: $c-black;
+    border-radius: 2px;
+    transition: transform $transition-time, width $transition-time;
+  }
+}
