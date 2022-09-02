@@ -143,6 +143,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
       e.target.classList.add('nav__link--active');
     }
+
+    if (e.target.classList.contains('header__lang-link')) {
+      const activeLink = document.querySelector('.header__lang-link--active');
+
+      activeLink.classList.remove('header__lang-link--active');
+      e.target.classList.add('header__lang-link--active');
+    }
   });
 
   window.addEventListener('scroll', () => {

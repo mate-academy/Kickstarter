@@ -1,3 +1,20 @@
+%focus-visible {
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px $color-niagara;
+  }
+
+  &:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 3px $color-niagara;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: 0;
+    box-shadow: none;
+  }
+}
+
 %text-reset {
   margin: 0;
 
@@ -25,22 +42,7 @@
     text-decoration: none;
   }
 
-  &:focus {
-    outline: 0;
-    box-shadow: 0 0 0 3px $color-niagara;
-    transition: box-shadow $transition-props;
-  }
-
-  &:focus-visible {
-    outline: 0;
-    box-shadow: 0 0 0 3px $color-niagara;
-    transition: box-shadow $transition-props;
-  }
-
-  &:focus:not(:focus-visible) {
-    outline: 0;
-    box-shadow: none;
-  }
+  @extend %focus-visible;
 }
 
 %btn-reset {
@@ -53,6 +55,8 @@
   font-family: inherit;
   font-size: inherit;
   cursor: pointer;
+
+  @extend %focus-visible;
 }
 
 %container {
