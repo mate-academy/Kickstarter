@@ -1,0 +1,112 @@
+.header {
+  box-sizing: border-box;
+  padding: 28px;
+  overflow-x: hidden;
+
+  &__top {
+    @include top;
+    @include onTablet {
+      margin-bottom: 128px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 192px;
+    }
+  }
+
+  &__list {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+
+    list-style-type: none;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__item {
+    color: $color-dark-gray;
+  }
+
+  &__content {
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      display: block;
+      margin: 0;
+    }
+  }
+
+  &__image {
+    margin-bottom: 40px;
+    @include onTablet {
+      position: absolute;
+      z-index: -1;
+      left: 270px;
+      bottom: 0;
+      margin: 0;
+    }
+
+    @include onDesktop {
+      left: 378px;
+      margin: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-weight: $bold-font;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    color: $color-dark-gray;
+
+    @include onTablet {
+      max-width: 340px;
+      line-height: 62px;
+      font-size: 48px;
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      max-width: 378px;
+      line-height: 78px;
+      font-size: 62px;
+    }
+  }
+
+  &__info {
+    font-size: 16px;
+    line-height: 24px;
+
+    @include onTablet {
+      max-width: 250px;
+    }
+
+    @include onDesktop {
+      max-width: 276px;
+      margin-bottom: 200px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    right: 28px;
+    left: 28px;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    transform: translateX(100%);
+    &:target {
+      transform: translateX(0);
+    }
+  }
+}
