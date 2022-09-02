@@ -1,0 +1,70 @@
+.mobile-nav-button {
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  background: transparent;
+
+  position: relative;
+  z-index: 999;
+  width: 40px;
+  height: 30px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  @include onTablet {
+    display: flex;
+  }
+
+  &__icon {
+    display: block;
+    position: relative;
+    width: 40px;
+    height: 5px;
+    background-color: $color-chinese-black;
+    border-radius: 5px;
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: "";
+      width: 40px;
+      height: 5px;
+      background-color: $color-chinese-black;
+      border-radius: 5px;
+
+      transition: transform 0.15s ease-in,
+        top 0.15s ease-in 0.15s;
+    }
+
+    &::before {
+      left: 0;
+      top: -10px;
+    }
+
+    &::after {
+      left: 0;
+      top: 10px;
+    }
+
+    &--active {
+      background-color: transparent;
+
+      &::before {
+        transform: rotate(45deg);
+        top: 0;
+
+        transition: top 0.15s linear,
+          transform 0.15s ease-in 0.15s;
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+        top: 0;
+
+        transition: top 0.15s linear,
+          transform 0.15s ease-in 0.15s;
+      }
+    }
+  }
+}
