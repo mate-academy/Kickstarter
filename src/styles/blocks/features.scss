@@ -1,0 +1,131 @@
+.features {
+  &__header {
+    margin-bottom: 30px;
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0 0;
+    min-height: 575px;
+    width: 100%;
+    background-color: #d6ecec;
+    @include onTablet {
+      min-height: 555px;
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-areas: ". l l l . . . ."
+        ". c . i i i i i";
+    }
+    @include onDesktop {
+      min-height: 642px;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-areas: ". L2 L2 L2 L2 . L3 L3 L3 L3  . ."
+        ". L1 L1 L1 L1 . i i i i i i";
+    }
+  }
+  &__list {
+    @include onTablet {
+      grid-area: l;
+    }
+    &--desktop {
+      display: none;
+      @include onDesktop {
+        display: block;
+      }
+    }
+    &--1 {
+      @include onDesktop {
+        grid-area: L1;
+        align-self: flex-start;
+      }
+    }
+    &--2 {
+      @include onDesktop {
+        grid-area: L2;
+        align-self: flex-start;
+      }
+    }
+    &--3 {
+      @include onDesktop {
+        grid-area: L3;
+        align-self: flex-start;
+      }
+    }
+  }
+  &__list-header {
+    color: #0c797a;
+    margin-bottom: 20px;
+    padding-left: 30px;
+  }
+  &__list-list-item {
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__lense-img {
+    height: 174px;
+    width: 100%;
+    background-image: url("../images/lense-desktop_low.png");
+    background-size: contain;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    @include onTablet {
+      height: 226px;
+      grid-area: i;
+      align-self: flex-end;
+    }
+    @include onDesktop {
+      height: 302px;
+      grid-area: i;
+    }
+  }
+  &__carousel {
+    @include onTablet {
+      grid-area: c;
+      margin-top: 50px;
+      align-self: flex-start;
+    }
+    @include onDesktop {
+      display: none;
+    }
+  }
+  &__carousel-arrows-block {
+    width: 96px;
+    height: 14px;
+    display: flex;
+    margin-bottom: 8px;
+  }
+  &__carousel-arrow {
+    width: 48px;
+    height: 14px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    &--green {
+      background-image: url("../images/arrow-green.svg");
+    }
+    &--black {
+      background-image: url("../images/arrow-black.svg");
+    }
+  }
+  &__carousel-numbers {
+    display: flex;
+    justify-content: center;
+  }
+  &__carousel-firstnumber {
+    font-size: 16px;
+    color: #333;
+  }
+  &__carousel-secondnumber {
+    position: relative;
+    top: 10px;
+    font-size: 11px;
+    color: #0c797a;
+  }
+
+}
