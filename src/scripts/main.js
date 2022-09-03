@@ -1,5 +1,17 @@
 'use strict';
 
+// Form Inputs clear after submit:
+const form = document.querySelector('.contacts__form');
+const inputs = document.querySelectorAll('.js-input');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  inputs.forEach((i) => {
+    i.value = '';
+  });
+});
+
 // SLIDER TOP + PAGINATION:
 let slideIndex = 1;
 const buttonPlus = document.querySelector('button[name=slide-plus]');

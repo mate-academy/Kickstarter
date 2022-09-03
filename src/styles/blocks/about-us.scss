@@ -202,6 +202,8 @@
   }
 
   &__link {
+    position: relative;
+
     font-weight: 700;
     font-size: 12px;
     line-height: 14px;
@@ -212,9 +214,21 @@
     width: max-content;
     padding: 10px 0;
 
-    transition: color $transition-duration;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 100%;
+      height: 2px;
+      background-color: $cyan-main-color;
 
-    @include hover(color, $cyan-title-color);
+      transition: left $transition-duration;
+    }
+
+    &:hover::before {
+      left: 0;
+    }
 
   }
 }
