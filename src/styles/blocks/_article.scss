@@ -3,14 +3,45 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 
+  @include onMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__image {
+    @include onTablet {
+      justify-self: center
+    }
+  }
+
+  &__content {
+    @include onMobile {
+      max-width: 320px;
+    }
+  }
+
   &__title {
     @include desktopH2;
     margin-bottom: 30px;
+
+    @include onTablet {
+      @include tabletH2;
+    }
+
+    @include onMobile {
+      @include mobileH2;
+      text-align: center
+    }
   }
 
   &__text {
     @include main-text;
     margin-bottom: 60px;
+
+    @include onMobile {
+      margin-bottom: 30px;
+    }
   }
 
   &--reverse &__image {
@@ -19,5 +50,9 @@
 
   &--reverse &__content {
     grid-row: 1 / 2;
+
+    @include onTablet {
+      padding-left: 20px;
+    }
   }
 }

@@ -1,6 +1,51 @@
 .features {
   &__container {
     @include container;
+    margin-bottom: 170px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onMobile {
+      margin-bottom: 90px;
+      padding: 0 30px;
+    }
+  }
+
+  &__title {
+    @include desktopH2;
+    text-align: center;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      @include tabletH2;
+    }
+  }
+
+  &__content {
+    padding: 60px 100px;
+    background-color: $color-azureish-white;
+    background-image: url("../images/desktop/5.png");
+    background-repeat: no-repeat;
+    background-position: bottom right;
+
+    @include onTablet {
+      background-image: url("../images/tablet/10.png");
+
+      @include onMobile {
+        background-image: url("../images/mobile/15.png");
+      }
+    }
+  }
+
+  &__slider {
+    @include onTablet {
+      // max-height: 400px;
+      // max-width: 400px;
+      // border: 2px solid black;
+      // overflow: hidden;
+    }
   }
 
   &__article {
@@ -8,25 +53,39 @@
     grid-template-columns: 1fr 1fr;
     gap: 60px 130px;
 
-    padding: 60px 100px;
-    margin-bottom: 170px;
-
-    background-color: $color-azureish-white;
-    background-image: url("../images/desktop/5.png");
-    background-repeat: no-repeat;
-    background-position: bottom right;
+    // @include onTablet {
+    //   &--slider-line {
+    //     display: flex;
+    //     position: relative;
+    //     left: 0;
+    //     gap: 0;
+    //   }
+    // }
   }
 
-  &__title {
-    @include desktopH2;
-    text-align: center;
-    margin-bottom: 30px;
+  &__buttons {
+    display: none;
+
+    @include onTablet {
+      display: inline-block;
+    }
   }
+
+  // &__article-content {
+  //   @include onTablet {
+  //     height: 350px;
+  //     width: 350px;
+  //   }
+  // }
 
   &__article-title {
     @include desktopH3;
     color: $color-scobeloff;
     margin-bottom: 30px;
+
+    @include onTablet{
+      @include tabletH3;
+    }
   }
 
   &__article-list {

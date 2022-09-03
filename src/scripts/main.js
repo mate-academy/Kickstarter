@@ -26,3 +26,9 @@ mobileNavButon.addEventListener('click', function() {
   mobileNav.classList.toggle('mobile-nav--active');
   document.body.classList.toggle('page__body--no-scroll');
 });
+
+// FEATURE SLIDER //
+
+// eslint-disable-next-line max-len
+// const slides = document.querySelectorAll('.features__article-content--slide');
+// const sliderLine = document.querySelector('.features__article--slider-line');
