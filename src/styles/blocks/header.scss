@@ -1,7 +1,10 @@
 .header {
   box-sizing: border-box;
   padding-top: 28px;
-  overflow-x: hidden;
+
+  @include onDesktop {
+    margin-bottom: 96px;
+  }
 
   &__top {
     @include top;
@@ -32,32 +35,27 @@
   }
 
   &__content {
-    position: relative;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: block;
+    width: 100%;
 
     @include onTablet {
-      display: block;
-      margin: 0;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: start;
+      align-items: flex-end;
+    }
+
+    @include onDesktop {
+      margin-bottom: 200px;
     }
   }
 
   &__image {
     display: block;
+    width: 100%;
     margin-bottom: 40px;
 
     @include onTablet {
-      position: absolute;
-      z-index: -1;
-      left: 270px;
-      bottom: 0;
-      margin: 0;
-    }
-
-    @include onDesktop {
-      left: 378px;
       margin: 0;
     }
   }
@@ -95,7 +93,6 @@
 
     @include onDesktop {
       max-width: 276px;
-      margin-bottom: 200px;
     }
   }
 
