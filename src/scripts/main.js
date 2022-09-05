@@ -1,7 +1,7 @@
 'use strict';
 
 // eslint-disable-next-line no-undef
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper('.slider1', {
   direction: 'vertical',
 
   mousewheel: {
@@ -36,5 +36,21 @@ const swiper = new Swiper('.swiper', {
     el: '.swiper-pagination',
     dynamicBullets: true,
     clickable: true,
+  },
+});
+
+// eslint-disable-next-line no-undef, no-unused-vars
+const swiper2 = new Swiper('.slider2', {
+
+  navigation: {
+    nextEl: '.features__swiper-button-next',
+    prevEl: '.features__swiper-button-prev',
+  },
+
+  loop: true,
+
+  pagination: {
+    el: '.features__swiper-pagination',
+    type: 'fraction',
   },
 });
