@@ -1,6 +1,6 @@
 .features {
   width: 100%;
-
+  box-sizing: border-box;
   &__title {
     font-size: 56px;
     line-height: 70px;
@@ -10,25 +10,62 @@
 
   &__wraper {
     background-color: #d6ecec;
+    margin-bottom: 140px;
 
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    padding: 60px 0 0 120px ;
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      padding: 60px 0 0 120px ;
 
-    margin-bottom: 170px;
+      margin-bottom: 170px;
+    }
   }
 
   &__block {
 
     margin-bottom: 56px;
+    padding: 32px 0 0 32px;
+
+    @include onTablet {
+      padding: 60 0 0 30px;
+    }
+
+    @include onDesktop {
+      padding: 0;
+    }
 
     &:last-child {
       margin-bottom: 0;
     }
+
+    &-dis {
+      display: none;
+
+      @include onDesktop {
+        display: grid;
+      }
+    }
+  }
+
+  &__bottom {
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: none;
+      display: grid;
+    }
   }
 
   &__sub-title {
+
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 22px;
 
     @include onDesktop {
       color: #0c797a;
@@ -45,13 +82,34 @@
   }
 
   &__item {
-    font-size: 16px;
-    line-height: 24px;
+
     color: #333;
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 10px;
+
+    @include onDesktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
   &__img {
-    background-image: url(../images/image_9-removebg-preview.png);
+    height: 226px;
+    background-image: url(../images/image_9_tab-removebg-preview.png);
+    background-size: contain;
     background-repeat: no-repeat;
+    background-position: bottom;
+
+    @include onTablet {
+      background-position: bottom;
+    }
+
+    @include onDesktop {
+      height: unset;
+      background-image: url(../images/image_9-removebg-preview.png);
+      background-repeat: no-repeat;
+      background-position: bottom;
+    }
   }
 }
