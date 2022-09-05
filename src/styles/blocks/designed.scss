@@ -1,0 +1,134 @@
+@import "../utils/mixins.scss";
+@import "../utils/vars.scss";
+
+.designed {
+
+  @include tablet {
+    background-image: url(../images/designed2.jpg);
+    background-size: 50% 100% cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    z-index: 1;
+    margin-top: 130px;
+    margin-bottom: 130px;
+  }
+
+  &__wrapper {
+    padding: 150px 123px;
+    position: relative;
+
+    @include laptop {
+      padding: 150px 50px;
+    }
+
+    @include tablet {
+      padding: 8px 34px 0;
+    }
+
+    @include mobile {
+      padding: 90px 30px;
+    }
+  }
+
+  &__img-wrapper {
+    width: 100%;
+    background-image: url(../images/designed.jpg);
+    background-size: cover;
+    z-index: 1;
+
+    @include tablet {
+      background-image: none;
+    }
+
+    @include mobile {
+      display: none;
+    }
+
+  }
+
+  &__info {
+    z-index: 2;
+
+    @include tablet {
+      grid-column: 5 / 9;
+    }
+
+    @include mobile {
+      grid-column: 1 / 5;
+    }
+
+  }
+
+  &__title {
+    font-family: "DIN Pro", sans-serif;
+    font-size: 56px;
+    line-height: 130%;
+    color: #333;
+    margin-bottom: 30px;
+    height: fit-content;
+    transform: translateX(-16%);
+    width: 120%;
+
+    @include tablet {
+      width: 130%;
+    }
+
+    @include mobile {
+      transform: translateX(0);
+      width: 100%;
+      margin-bottom: 50px;
+      font-size: 37px;
+    }
+  }
+
+  &__mobile {
+    display: none;
+
+    @include mobile {
+      display: block;
+      object-fit: cover;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__text {
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+    color: #7c7c7c;
+    margin-bottom: 30px;
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+
+  &__link {
+    width: 50%;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #0db2b3;
+    text-decoration: none;
+    margin-bottom: 6px;
+    transition: $transition;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 10%;
+      height: 1px;
+      background: #0db2b3;
+      transition: $transition;
+    }
+
+    &:hover {
+      &::after {
+        width: 140px;
+      }
+    }
+  }
+
+}

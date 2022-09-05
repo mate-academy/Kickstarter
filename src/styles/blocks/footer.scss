@@ -1,0 +1,104 @@
+@import "../utils/mixins.scss";
+@import "../utils/vars.scss";
+
+.footer {
+
+  &__wrapper {
+    padding: 100px 123px 50px;
+    position: relative;
+
+    @include laptop {
+      padding: 105px 50px 50px;
+    }
+
+    @include tablet {
+      padding: 60px 34px 50px;
+    }
+
+    @include mobile {
+      padding: 50px 30px;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 60px;
+
+    @include tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 70px;
+
+    @include tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include mobile {
+      grid-column: 2 / 4;
+      width: 120%;
+    }
+  }
+
+  &__path {
+    transition: $transition;
+  }
+
+  &__svg {
+    transition: $transition;
+  }
+
+  &__link {
+    &:hover .questions__path {
+      fill: #0db2b3;
+    }
+
+    @include tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include mobile {
+      &--logo {
+        display: none;
+      }
+    }
+  }
+
+  &__arrow {
+    
+    @include tablet {
+      grid-column: 8 / 9;
+    }
+
+    @include mobile {
+      grid-column: 4 / 5;
+      justify-self: end;
+      transform: translateY(-80%);
+    }
+  }
+
+  &__copyright {
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    line-height: 150%;
+    text-align: center;
+    color: #bdbdbd;
+
+    @include tablet {
+      grid-column: 2 / 8;
+    }
+
+    @include mobile {
+      grid-column: 1 / 5;
+    }
+  }
+
+}
