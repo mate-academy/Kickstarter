@@ -194,8 +194,8 @@ document.body.addEventListener('click', (e) => {
     makeActive(e.target, 'nav__link--active');
   }
 
-  if (e.target.classList.contains('header__lang-link')) {
-    makeActive(e.target, 'header__lang-link--active');
+  if (e.target.classList.contains('header__lang-btn')) {
+    makeActive(e.target, 'header__lang-btn--active');
   }
 });
 
