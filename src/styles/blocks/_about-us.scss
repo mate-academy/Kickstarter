@@ -1,5 +1,7 @@
 .about-us {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   @include onTablet {
     display: grid;
@@ -7,17 +9,16 @@
     grid-template-rows: auto;
     column-gap: 20px;
     padding-right: 30px;
-    margin-bottom: 140px;
   }
 
   @include onDesktop {
     padding: 0 34px;
-    margin-bottom: 170px;
   }
 
   &__img {
     grid-column: 1 / 2;
     width: 100%;
+    margin-bottom: 20px;
 
     transition: transform $transition-time;
 
@@ -30,7 +31,7 @@
     z-index: 1;
   }
 
-  &__title {
+  &__title-mob {
     margin-bottom: 30px;
 
     font-size: 30px;
@@ -39,6 +40,22 @@
     color: $c-black-light;
 
     @include onTablet {
+      display: none;
+    }
+  }
+
+  &__title {
+    display: none;
+    margin-bottom: 30px;
+
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $c-black-light;
+
+    @include onTablet {
+      display: block;
+
       font-size: 36px;
       line-height: 46px;
     }
