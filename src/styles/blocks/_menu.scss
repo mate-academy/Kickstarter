@@ -6,7 +6,7 @@
   &__top-actions {
     display: none;
 
-    @include onDesktop {
+    @include onTablet {
       display: flex;
       align-items: center;
       gap: 25px;
@@ -20,7 +20,16 @@
     }
   }
 
-  &__link {
+  &__language {
+    display: flex;
+    justify-content: space-between;
+    width: 55px;
+  }
+
+  &__link,
+  &__label--ua,
+  &__label--en {
+    @extend %text;
     font-size: 14px;
     line-height: 17px;
     text-decoration: none;
@@ -28,10 +37,6 @@
 
     &:hover {
       color: $c-aqua;
-    }
-
-    &:focus {
-      color: $c-black;
     }
   }
 
@@ -70,6 +75,25 @@
       visibility: visible;
       transform: translateX(0);
     }
+
+    &--en {
+      display: none;
+
+      &:checked ~ .menu__label--en {
+        font-weight: 700;
+        color: $c-black;
+      }
+    }
+
+    &--ua {
+      display: none;
+
+      &:checked ~ .menu__label--ua {
+        font-weight: 700;
+        color: $c-black;
+      }
+    }
+
   }
 
   &__lines {
@@ -79,11 +103,11 @@
     height: 24px;
     width: 30px;
 
-    z-index: 2;
+    z-index: 3;
 
     cursor: pointer;
 
-    @include onDesktop {
+    @include onTablet {
       display: none;
     }
   }

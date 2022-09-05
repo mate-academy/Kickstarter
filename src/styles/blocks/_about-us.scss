@@ -1,0 +1,96 @@
+.about-us {
+  display: none;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    column-gap: 20px;
+    padding-right: 30px;
+    margin-bottom: 140px;
+  }
+
+  @include onDesktop {
+    padding: 0 34px;
+    margin-bottom: 170px;
+  }
+
+  &__img {
+    grid-column: 1 / 2;
+    width: 100%;
+
+    transition: transform $transition-time;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__info {
+    z-index: 1;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $c-black-light;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    font-size: 14px;
+    line-height: 21px;
+    color: $c-gray-light;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    padding-bottom: 5px;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $c-aqua;
+
+    &:hover {
+      color: $c-aqua-light;
+    }
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      display: block;
+      width: 53px;
+      height: 1px;
+
+      background-color: $c-aqua;
+    }
+  }
+}
