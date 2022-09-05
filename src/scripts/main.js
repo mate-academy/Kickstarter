@@ -7,6 +7,18 @@ const item3 = document.getElementById('item3');
 const item4 = document.getElementById('item4');
 const item5 = document.getElementById('item5');
 
+function togglePlay() {
+  const player = document.getElementById('player');
+
+  if (player.paused) {
+    player.play();
+  } else {
+    player.pause();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', togglePlay);
+
 icon.addEventListener('click', () => {
   document.getElementById('menu-container').classList.toggle('menu-opened');
 });
