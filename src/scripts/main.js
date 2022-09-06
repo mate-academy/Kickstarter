@@ -97,3 +97,11 @@ buttonPlus1.addEventListener('click', () => {
 buttonMinus1.addEventListener('click', () => {
   plusDivs2(-1);
 });
+
+const checkbox = document.querySelector('input[name=checkbox]');
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash !== '') {
+    checkbox.checked = false;
+  }
+});
