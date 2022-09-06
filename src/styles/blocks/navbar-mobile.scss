@@ -1,0 +1,51 @@
+//MOBILE NAV-BAR BLOCK:
+// Mobile alternative for navigation-bar
+
+.navbar-mobile {
+  z-index: 6;
+  position: absolute;
+  top: -25px;
+  right: 0;
+  transform: translate(170%, 0);
+
+  height: 110vh;
+  width: 70%;
+  padding: 100px 20px;
+
+  background: $nav-bg-color;
+  opacity: 0;
+
+  transition: opacity $transition-duration-slow,
+    transform $transition-duration-slow;
+
+  @include onTablet {
+    display: initial;
+    width: 40%;
+    top: -42px;
+  }
+  @include onDesktop {
+    display: none;
+  }
+
+  &__list {
+    list-style: none;
+  }
+  &__item {
+
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+  }
+  &__link {
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    color: $black-gray-color;
+
+    @include hover(color, $cyan-main-color);
+  }
+  @media (max-height: 680px) {
+    background: $nav-bg-color-small;
+  }
+}

@@ -1,0 +1,37 @@
+//MENU-CHECKBOX BLOCK:
+// Animation of elements connected to mobile nav-bar
+//   using checkbox and label.
+
+.menu-checkbox {
+  display: none;
+
+  &:checked ~ &__label .lines .lines__line--line1 {
+    transform: rotate(45deg);
+    background-color: $cyan-main-color;
+  }
+
+  &:checked ~ &__label .lines .lines__line--line2 {
+    transform: scaleY(0);
+  }
+
+  &:checked ~ &__label .lines .lines__line--line3 {
+    transform: rotate(-45deg);
+    background-color: $cyan-main-color;
+  }
+  &:checked ~ .navbar-mobile {
+    opacity: 0.9;
+    transform: translateX(17%);
+  }
+
+  &__label {
+    display: initial;
+    cursor: pointer;
+
+    @include onTablet {
+      display: initial;
+    }
+    @include onDesktop {
+      display: none;
+    }
+  }
+}

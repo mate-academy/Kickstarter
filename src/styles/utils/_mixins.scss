@@ -1,6 +1,59 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition-duration;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin icon-square($size) {
+  height: $size;
+  width: $size;
+}
+
+@mixin onDesktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 641px) {
+    @content;
+  }
+}
+
+@mixin onTabletAndDesktop {
+  @media (min-width: 641px) {
+    @content;
+  }
+}
+
+@mixin placeholder-settings {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: $light-gray-color;
+}
+
+@mixin extraSmallScreen($rule, $value, $valueSmaller) {
+  @media (max-width: 390px) {
+    #{$rule}: $value;
+  }
+  @media (max-width: 300px) {
+    #{$rule}: $valueSmaller;
+  }
+}
+
+@mixin container {
+  box-sizing: border-box;
+  max-width: 1194px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include onDesktop {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }

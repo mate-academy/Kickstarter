@@ -1,0 +1,85 @@
+//BENEFITS BLOCK:
+// Benefits block for desktop and tablets
+
+.benefits {
+  display: flex;
+  justify-content: center;
+
+  &__content {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 256px;
+
+    @include onTablet {
+      display: flex;
+
+      min-width: 542px;
+      max-width: 642px;
+    }
+    @include onDesktop {
+      display: flex;
+
+      max-width: 1114px;
+      min-width: 1024px;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    //HERE
+    min-width: 200px;
+    max-width: 256px;
+  }
+  &__img {
+    //align-self: center;
+    @include icon-square(50px);
+    margin-bottom: 34px;
+
+    transition: transform $transition-duration, animation $transition-duration;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &--sun {
+      animation: rotate 4s infinite linear;
+
+      &:hover {
+        animation: rotate 1s infinite linear;
+      }
+    }
+  }
+  &__title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: $black-gray-color;
+
+    min-height: 0;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 20px;
+      min-height: 56px;
+    }
+    @include onDesktop {
+      margin-bottom: 52px;
+      min-height: 56px;
+    }
+  }
+  &__text {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $gray-color;
+  }
+}

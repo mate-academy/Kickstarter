@@ -1,0 +1,52 @@
+// NAV BLOCK:
+// Desktop navigation bar
+
+.nav {
+  display: none;
+
+  @include onTablet {
+    display: none;
+  }
+  @include onDesktop {
+    display: block;
+  }
+
+  &__list {
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    gap: 84px;
+  }
+
+  &__item {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 100%;
+      height: 2px;
+      background-color: $cyan-main-color;
+
+      transition: left $transition-duration;
+    }
+
+    &:hover::before {
+      left: 0;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    color: $black-color;
+
+    padding: 24px 0;
+  }
+}

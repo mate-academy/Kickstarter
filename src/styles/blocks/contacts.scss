@@ -1,0 +1,92 @@
+//CONTACTS BLOCK:
+// Contact form with adaptive.
+
+.contacts {
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTabletAndDesktop {
+      flex-direction: row;
+    }
+  }
+  &__title {
+    font-weight: 700;
+
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $black-gray-color;
+
+    flex: 1 1 0;
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    flex: 1 1 0;
+  }
+  &__email {
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 24px;
+    color: $black-gray-color;
+
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 0;
+    border: 1px solid $form-border-color;
+    outline: none;
+
+    transition: border-color $transition-duration;
+
+    &::placeholder {
+      @include placeholder-settings;
+    }
+    &:hover {
+      border-color: $black-gray-color;
+    }
+    &:focus {
+      border-color: $cyan-title-color;
+    }
+
+  }
+  &__massage {
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 24px;
+    color: $black-gray-color;
+
+    width: 100%;
+    height: 260px;
+    padding: 12px 20px;
+    border-radius: 0;
+    border: 1px solid $form-border-color;
+    outline: none;
+
+    resize: none;
+
+    transition: border-color $transition-duration;
+
+    &::placeholder {
+      @include placeholder-settings;
+    }
+    &:hover {
+      border-color: $black-gray-color;
+    }
+    &:focus {
+      border-color: $cyan-title-color;
+    }
+  }
+}

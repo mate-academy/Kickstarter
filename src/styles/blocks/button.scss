@@ -1,0 +1,64 @@
+//BUTTON BLOCK:
+
+.button {
+  outline: none;
+  display: inline-block;
+  border-color: transparent;
+
+  text-transform: uppercase;
+  cursor: pointer;
+
+  transition: opacity $transition-duration;
+
+  &__slider {
+    width: 50px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    font-weight: 700;
+    color: $black-gray-color;
+
+    background-color: $cyan-white-color;
+    border: 1px solid transparent;
+
+    &--left {
+      right: 0;
+    }
+    &--right {
+      left: 0;
+    }
+
+    @include hover(opacity, 0.5);
+  }
+
+  &--primary {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $white-color;
+
+    padding: 12px 0;
+    width: 100px;
+
+    transition: transform $transition-duration-fast;
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+  }
+  &--color--black {
+    background-color: $black-gray-color;
+
+    @include hover(background-color, $black-color);
+  }
+  &--color--cyan {
+    background-color: $cyan-button;
+
+    @include hover(background-color, $cyan-title-color);
+  }
+}

@@ -1,0 +1,59 @@
+//ARROW SLIDER BLOCK:
+// Arrows for the bottom slider from mockup
+
+.arrow-slider {
+  $root: &;
+  outline: none;
+  background-color: transparent;
+  border-width: 0;
+
+  cursor: pointer;
+
+  display: inline-block;
+  position: relative;
+  width: 48px;
+  height: 20px;
+
+  &::before {
+    position: absolute;
+    bottom: 5%;
+    right: 0;
+    content: "";
+    width: 2px;
+    height: 100%;
+    background-color: $light-gray-color;
+
+    transition: background-color $transition-duration;
+    transform-origin: bottom right;
+    transform: rotate(-50deg);
+  }
+  &::after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: $light-gray-color;
+
+    transition: background-color $transition-duration;
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      background-color: $cyan-title-color;
+    }
+  }
+
+  &--left {
+    transform: rotate(180deg);
+  }
+  &--right {
+    margin-left: -10px;
+    &::before,
+    &::after {
+      background-color: $black-gray-color;
+    }
+  }
+}

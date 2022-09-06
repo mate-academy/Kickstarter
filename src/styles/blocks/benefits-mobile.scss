@@ -1,0 +1,68 @@
+//BENEFITS-MOBILE BLOCK:
+// Benefits block adaptive for mobile
+//    phones using slider.
+
+.benefits-mobile {
+  position: relative;
+  display: block;
+  padding-bottom: 320px;
+
+  @include onTabletAndDesktop {
+    display: none;
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    min-width: 200px;
+    min-height: 320px;
+
+    margin: 0 -30px;
+
+    background-color: $cyan-white-color;
+
+    @include extraSmallScreen(min-height, 420px, 520px);
+
+  }
+  &__item {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 200px;
+    min-height: 320px;
+    padding: 35px 65px;
+
+    border-radius: 5px;
+    opacity: 0;
+
+    transition: opacity $transition-duration;
+  }
+
+  &__pagination {
+    position: absolute;
+    bottom: 5px;
+    right: 50%;
+    transform: translateX(50%);
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px;
+
+    & > :not(:last-child) {
+      margin-right: 4px;
+    }
+  }
+
+  &__pag {
+    display: block;
+    @include icon-square(7px);
+    border-radius: 50%;
+    background-color: $cyan-main-color;
+  }
+}

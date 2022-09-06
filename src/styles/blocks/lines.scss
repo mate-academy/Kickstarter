@@ -1,0 +1,53 @@
+//LINES BLOCK:
+// Lines and block for animated menu icon
+
+.lines {
+  height: 26px;
+  width: 32px;
+
+  position: absolute;
+  top: 0;
+  right: 20px;
+
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  animation: wiggle 2s infinite linear;
+
+  &:hover {
+    animation: none;
+  }
+
+  @include onTablet {
+    display: flex;
+  }
+  @include onDesktop {
+    display: none;
+  }
+
+  &__line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: #0e2431;
+
+    &--line1 {
+      transform-origin: 0 0;
+      transition: transform $transition-duration-slow ease-in-out,
+        background-color $transition-duration linear;
+    }
+
+    &--line2 {
+      transition: transform $transition-duration-fast ease-in-out;
+    }
+
+    &--line3 {
+      transform-origin: 0 100%;
+      transition: transform $transition-duration-slow ease-in-out,
+        background-color $transition-duration linear;
+    }
+  }
+}
