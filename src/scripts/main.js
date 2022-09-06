@@ -186,12 +186,16 @@ benefitsSwiper.init();
 featuresSwiper.init();
 
 document.body.addEventListener('click', (e) => {
-  if (e.target.classList.contains('nav__link')) {
+  if (e.target.classList.contains('nav__link')
+    || e.target.classList.contains('header__buy-link')
+    || e.target.classList.contains('header__specs-link')) {
     if (!window.matchMedia(`(min-width: ${breakpointTablet}px)`).matches) {
       myBurger.close();
     }
 
-    makeActive(e.target, 'nav__link--active');
+    if (e.target.classList.contains('nav__link')) {
+      makeActive(e.target, 'nav__link--active');
+    }
   }
 
   if (e.target.classList.contains('header__lang-btn')) {
