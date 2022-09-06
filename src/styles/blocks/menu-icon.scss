@@ -1,0 +1,71 @@
+.menu-icon {
+  &__toggle {
+    display: none;
+  }
+
+  &__label {
+    position: relative;
+
+    display: block;
+    width: 32px;
+    height: 20px;
+
+    z-index: 10;
+  }
+
+  &__line {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: block;
+    width: 100%;
+    height: 2px;
+
+    background-color: $primaryBlackColor;
+    transition: transform 0.3s;
+
+    &::before,
+    &::after {
+      content: "";
+
+      position: absolute;
+
+      display: block;
+      width: 100%;
+      height: 2px;
+
+      background-color: $primaryBlackColor;
+    }
+
+    &::before {
+      top: -8px;
+    }
+
+    &::after {
+      top: 8px;
+    }
+  }
+
+  &__toggle:checked ~ &__label > &__line {
+    transform: rotate(45deg);
+  }
+
+  &__toggle:checked ~ &__label > &__line::before {
+    top: 0;
+    transform: rotate(0);
+  }
+
+  &__toggle:checked ~ &__label > &__line::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  &__toggle:checked ~ .header__menu-mobile {
+    transform: translateX(0);
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+}

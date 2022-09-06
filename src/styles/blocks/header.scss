@@ -1,0 +1,174 @@
+.header {
+  position: relative;
+  height: 100vh;
+  margin-bottom: 110px;
+
+  @include onDesktop {
+    margin-bottom: 60px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+
+    @include onDesktop {
+      justify-content: space-between;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 40px;
+    padding-top: 24px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+      padding-top: 30px;
+    }
+  }
+
+  &__menu--mobile {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__menu-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 60px 50px;
+
+    background-color: $primaryGreenDisabledColor;
+
+    transform: translateX(100%);
+    transition: transform 0.3s;
+  }
+
+  &__menu-list {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__menu-item {
+    margin-bottom: 50px;
+  }
+
+  &__menu-link {
+    display: inline-block;
+    padding-bottom: 8px;
+
+    font-size: 22px;
+    font-weight: 700;
+    color: #4f4f4f;
+  }
+
+  &__menu-desktop {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+
+      padding-bottom: 30px;
+    }
+  }
+
+  &__controls {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      gap: 0 40px;
+    }
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+
+    padding-bottom: 50px;
+
+    @include onTablet {
+      flex-direction: row;
+    }
+  }
+
+  &__description {
+    @include onTablet {
+      width: 40%;
+    }
+
+    @include onDesktop {
+      width: 30%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-size: 40px;
+    line-height: 52px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    @include onTablet {
+      margin-bottom: 30px;
+
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__info {
+    line-height: 24px;
+  }
+
+  &__img-container {
+    order: -1;
+    z-index: -1;
+
+    display: block;
+    max-width: 320px;
+    max-height: 245px;
+    margin-bottom: 40px;
+
+    overflow: hidden;
+
+    @include onTablet {
+      order: 1;
+
+      max-width: 430px;
+      width: 60%;
+      max-height: 317px;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      max-width: 816px;
+      max-height: 464px;
+      width: 70%;
+    }
+  }
+
+  &__image {
+    width: 100%;
+  }
+}

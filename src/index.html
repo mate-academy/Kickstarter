@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="./styles/main.scss">
     <title>Title</title>
   </head>
   <body class="page__body">
     <header class="header">
-      <div class="container">
+      <div class="header__container container">
         <div class="header__top">
           <a href="#" class="logo">
             <img
@@ -22,34 +22,147 @@
             >
           </a>
 
-          <div class="controls">
-            <a href="#specs" class="controls__item link">Specs</a>
+          <div class="header__menu header__menu--mobile">
+            <input
+              type="checkbox"
+              class="menu-icon__toggle"
+              id="menu-toggle"
+            >
+            <label for="menu-toggle" class="menu-icon__label">
+              <span class="menu-icon__line"></span>
+            </label>
+
+            <nav class="header__menu-mobile">
+              <ul class="header__menu-list">
+                <li class="header__menu-item">
+                  <a href="#our-story" class="header__menu-link link">our story</a>
+                </li>
+
+                <li class="header__menu-item">
+                  <a href="#about-us" class="header__menu-link link">about us</a>
+                </li>
+
+                <li class="header__menu-item">
+                  <a href="#technology" class="header__menu-link link">technology</a>
+                </li>
+
+                <li class="header__menu-item">
+                  <a href="#features" class="header__menu-link link">features</a>
+                </li>
+
+                <li class="header__menu-item">
+                  <a href="#contacts" class="header__menu-link link">get in touch</a>
+                </li>
+              </ul>
+              <div class="menu__controls controls">
+                <a href="#specs" class="controls__item link">Specs</a>
+                <span class="controls__item">
+                  <span class="controls__lang">
+                    <input
+                      type="radio"
+                      name="language"
+                      value="en"
+                      class="controls__input"
+                      id="menu-en"
+                      checked
+                    >
+                    <label for="menu-en" class="controls__label">en</label>
+                  </span>
+
+                  <span class="controls__lang">
+                    <input
+                      type="radio"
+                      name="language"
+                      value="ua"
+                      class="controls__input"
+                      id="menu-ua"
+                    >
+                    <label for="menu-ua" class="controls__label">ua</label>
+                  </span>
+                </span>
+                <a href="#buy" class="controls__item btn btn--primary-dark link">Buy</a>
+              </div>
+            </nav>
+          </div>
+
+          <div class="header__controls controls">
+            <a href="#specs" class="controls__item controls__item-link link">Specs</a>
             <span class="controls__item">
-              <label>
+              <span class="controls__lang">
                 <input
                   type="radio"
                   name="language"
                   value="en"
-                  class="controls__radio"
+                  class="controls__input"
+                  id="en"
+                  checked
                 >
-                en
-              </label>
-              <label>
+                <label for="en" class="controls__label">en</label>
+              </span>
+
+              <span class="controls__lang">
                 <input
                   type="radio"
                   name="language"
                   value="ua"
-                  class="controls__radio"
+                  class="controls__input"
+                  id="ua"
                 >
-                ua
-              </label>
+                <label for="ua" class="controls__label">ua</label>
+              </span>
             </span>
-            <a href="#buy" class="controls__item btn btn--primary-dark"></a>
+            <a href="#buy" class="controls__item btn btn--primary-dark link">Buy</a>
           </div>
         </div>
 
-        <div class="header__intro"></div>
-        <nav class="menu"></nav>
+        <div class="header__intro">
+          <div class="header__description">
+            <h1 class="header__title">
+              Futuristic
+              <br>
+              Wireless
+              <br>
+              Speaker
+            </h1>
+            <p class="header__info">
+              Luna's performance is balanced and smooth in all frequency ranges which makes the music both naturally pleasant and distinctly more layered.
+            </p>
+          </div>
+          <picture class="header__img-container">
+            <source srcset="./images/header-bg_desktop.jpg" media="(min-width: 1440px)">
+            <source srcset="./images/header-bg_tablet.jpg" media="(min-width: 768px)">
+            <source srcset="./images/header-bg_mobile.jpg" media="(min-width: 320px)">
+            <img
+              src="./images/header-bg_desktop.jpg"
+              alt="Wireless Speaker image"
+              class="header__image"
+            >
+          </picture>
+        </div>
+
+        <nav class="header__menu-desktop menu">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a href="#our-story" class="menu__link menu__link--active link">our story</a>
+            </li>
+
+            <li class="menu__item">
+              <a href="#about-us" class="menu__link link">about us</a>
+            </li>
+
+            <li class="menu__item">
+              <a href="#technology" class="menu__link link">technology</a>
+            </li>
+
+            <li class="menu__item">
+              <a href="#features" class="menu__link link">features</a>
+            </li>
+
+            <li class="menu__item">
+              <a href="#contacts" class="menu__link link">get in touch</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
     <script type="text/javascript" src="scripts/main.js"></script>
