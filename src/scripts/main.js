@@ -139,8 +139,8 @@ const headerMenu = document.querySelector('.header__menu');
 const burgerBtn = document.querySelector('.burger');
 const myBurger = new Burger(burgerBtn, headerMenu);
 const breakpointTablet = 640;
-const fields = document.querySelectorAll('.main-field');
 const debounceScrollFuncs = new Debounce(100, addClassOnScroll);
+const form = document.querySelector('.questions__form');
 const debounceResizeFuncs = new Debounce(300, () => {
   benefitsSwiper.init();
   featuresSwiper.init();
@@ -199,12 +199,10 @@ document.body.addEventListener('click', (e) => {
   }
 });
 
-document.querySelector('.questions__form').addEventListener('submit', (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  fields.forEach((el) => {
-    el.value = '';
-  });
+  form.reset();
 });
 
 window.addEventListener('scroll', () => {
