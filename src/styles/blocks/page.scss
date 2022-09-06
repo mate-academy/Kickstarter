@@ -5,6 +5,14 @@
     margin: 0;
 
     background-color: $colorBackground;
+
+    &--with-menu {
+      overflow: hidden;
+
+      .nav-actions {
+        display: flex;
+      }
+    }
   }
 
   &__section {
@@ -15,7 +23,28 @@
     }
 
     @include onDesktop {
-      margin-bottom: 200px;
+      margin-bottom: 170px;
+    }
+  }
+
+  &__menu {
+    padding-top: 25px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translatey(-100%);
+
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    @include onTablet {
+      padding-top: 42px;
     }
   }
 }

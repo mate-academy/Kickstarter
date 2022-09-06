@@ -2,6 +2,10 @@
   padding-top: 25px;
   width: 100%;
 
+  @include onTablet {
+    padding-top: 42px;
+  }
+
   &__content {
     display: flex;
     flex-direction: column;
@@ -18,25 +22,19 @@
     margin-bottom: 25px;
 
     @include onTablet {
-      margin-bottom: 138px;
+      margin-bottom: 130px;
     }
 
     @include onDesktop {
-      margin-bottom: 180px;
+      margin-bottom: 90px;
     }
   }
 
   &__bottom {
+    box-sizing: border-box;
     position: relative;
     width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    @include onTablet {
-      flex-direction: row;
-    }
+    overflow: hidden;
   }
 
   &__image {
@@ -45,27 +43,43 @@
 
     margin-bottom: 40px;
 
+    z-index: -1;
+
+    background-image: url(../images/img/header.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top 70% left;
+
+    transition: all 0.3s;
+
     @include onTablet {
-      height: 316px;
+      position: absolute;
+      left: 40%;
 
-      background-size: cover;
+      margin-bottom: 0;
+      height: 320px;
 
-      order: 1;
+      overflow: hidden;
+
+      background-size: contain;
+      background-position: left;
     }
 
     @include onDesktop {
-      height: 464px;
-
-      background-size: contain;
+      height: 480px;
+      left: 35%;
     }
-
-    background-image: url(../images/img/header.png);
-    background-size: contain;
-    background-repeat: no-repeat;
   }
 
   &__info {
-    // z-index: 1;
+    box-sizing: border-box;
+    width: max-content;
+
+    @include onDesktop {
+      padding-top: 90px;
+
+      margin-bottom: 170px;
+    }
   }
 
   &__title {
@@ -75,14 +89,29 @@
     font-size: 40px;
     line-height: 52px;
     text-transform: uppercase;
+
+    transition: all 0.3s;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
   }
 
   &__text {
+    max-width: 250px;
     margin: 0;
 
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+
+    transition: all 0.3s;
 
     @include onTablet {
       width: 250px;
@@ -90,6 +119,14 @@
 
     @include onDesktop {
       width: 276px;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: block;
     }
   }
 }
