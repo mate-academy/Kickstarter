@@ -23,8 +23,18 @@ const mobileNav = document.querySelector('.mobile-nav');
 
 mobileNavButon.addEventListener('click', function() {
   mobileNavIcon.classList.toggle('mobile-nav-button__icon--active');
-  mobileNav.classList.toggle('mobile-nav--active');
   document.body.classList.toggle('page__body--no-scroll');
+  mobileNav.classList.toggle('mobile-nav--active');
+});
+
+// DISABLE SCROLL WHEN MENU OPEN //
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash !== '#popup-menu') {
+    mobileNavIcon.classList.remove('mobile-nav-button__icon--active');
+    document.body.classList.remove('page__body--no-scroll');
+    mobileNav.classList.remove('mobile-nav--active');
+  }
 });
 
 // FEATURE SLIDER //
