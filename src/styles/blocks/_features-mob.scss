@@ -1,0 +1,188 @@
+.features-mob {
+  @include onTablet {
+    padding: 0 34px;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    padding: 0 30px;
+
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $c-black-light;
+  }
+
+  &__list-title {
+    margin-bottom: 20px;
+
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: $c-green;
+  }
+
+  &__list {
+    width: 256px;
+    padding-left: 20px;
+
+    list-style: disc;
+  }
+
+  &__item {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    color: $c-black-light;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__swiper {
+    height: 575px;
+
+    background: url(../images/picture/features_img.png);
+    background-repeat: no-repeat;
+    background-size: 320px;
+    background-position: 100% 100%;
+    background-color: $c-aqua-light;
+
+    @include onTablet {
+      height: 555px;
+      background-size: 430px;
+    }
+  }
+
+  &__wrapper {
+    padding: 30px;
+
+    @include onTablet {
+      padding: 60px 90px;
+    }
+  }
+
+  .swiper-button-prev {
+    top: 65%;
+    left: 50%;
+    transform: translateX(-100%);
+    height: 14px;
+    width: 48px;
+
+    @include onTablet {
+      top: 70%;
+      left: 140px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+
+      height: 1px;
+      width: 48px;
+
+      background-color: $c-black-light;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      height: 1px;
+      width: 20px;
+
+      background-color: $c-black-light;
+
+      transform-origin: 0 0;
+      transform: rotate(35deg);
+    }
+
+    &:hover::after,
+    &:hover::before {
+      background-color: $c-aqua;
+    }
+  }
+
+  .swiper-button-next {
+    top: 65%;
+    left: 50%;
+
+    height: 14px;
+    width: 48px;
+
+    @include onTablet {
+      top: 70%;
+      left: 140px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+
+      height: 1px;
+      width: 48px;
+
+      background-color: $c-black-light;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      height: 1px;
+      width: 20px;
+
+      background-color: $c-black-light;
+
+      transform-origin: 20px 0;
+      transform: rotate(35deg);
+    }
+
+    &:hover::after,
+    &:hover::before {
+      background-color: $c-aqua;
+    }
+  }
+
+  .swiper-pagination {
+    top: 65%;
+
+    color: $c-aqua;
+
+    @include onTablet {
+      top: 70%;
+      width: auto;
+      left: 140px;
+      transform: translateX(-50%);
+    }
+  }
+
+  .swiper-pagination-current {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $c-black-light;
+
+    vertical-align: super;
+  }
+
+  .swiper-pagination-total {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    color: $c-aqua;
+  }
+}
