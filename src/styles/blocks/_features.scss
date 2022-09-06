@@ -9,7 +9,6 @@
 
     @include onMobile {
       margin-bottom: 90px;
-      padding: 0 30px;
     }
   }
 
@@ -24,7 +23,7 @@
   }
 
   &__content {
-    padding: 60px 100px;
+    padding: 60px 90px;
     background-color: $color-azureish-white;
     background-image: url("../images/desktop/5.png");
     background-repeat: no-repeat;
@@ -32,10 +31,11 @@
 
     @include onTablet {
       background-image: url("../images/tablet/10.png");
+    }
 
-      @include onMobile {
-        background-image: url("../images/mobile/15.png");
-      }
+    @include onMobile {
+      padding: 10px;
+      background-image: url("../images/mobile/15.png");
     }
   }
 
@@ -53,9 +53,12 @@
     grid-template-columns: 1fr 1fr;
     gap: 60px 130px;
 
-    @include onTablet {
+    @include onMobile {
       display: flex;
       flex-direction: column;
+      .features__article:last-child {
+        margin-bottom: 200px;
+      }
     }
 
     // @include onTablet {
@@ -66,6 +69,14 @@
     //     gap: 0;
     //   }
     // }
+  }
+
+  &__article-content {
+    @include onMobile {
+      &:last-child {
+        margin-bottom: 200px;
+      }
+    }
   }
 
   &__buttons {
