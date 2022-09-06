@@ -1,7 +1,212 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+* {
+  box-sizing: border-box;
+}
 
-body {
-  background: $c-gray;
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+.page__body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background-color: #f7f7f7;
+}
+
+.header {
+  &__content {
+    margin: 0 auto;
+    max-width: 1440px;
+    padding: 25px 30px 0;
+  
+    @include onTablet {
+      padding: 30px 34px 0;
+    }
+  
+    @include onDesktop {
+      padding: 30px 124px 0;
+    }
+  }
+  
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  &__logo {
+    width: 160px;
+  }
+  
+  &__language-en,
+  &__language-ua {
+    display: none;
+
+    @include onTablet {
+      display: inline-block;
+      font-family: Inter, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      text-transform: uppercase;
+    }
+
+    @include onDesktop {
+      display: inline-block;
+      font-family: Inter, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      text-transform: uppercase;
+    }
+  }
+
+  &__language-en {
+    color: #333;
+  }
+
+  &__language-ua {
+    color: #bdbdbd;
+    margin-right: 26px;
+  }
+  
+  &__buy {
+    display: none;
+    
+
+    @include onTablet {
+      display: inline-block;
+      width: 102px;
+      background-color: #333;
+      color: #fff;
+      font-family: Inter, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 15px;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px;
+    }
+
+    @include onDesktop {
+      font-weight: 700;
+    }
+  }
+  
+  &__specs {
+    display: none;
+    margin-right: 26px;
+
+    @include onTablet {
+      display: inline-block;
+      font-family: Inter, Arial, sans-serif;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 20px;
+      color: #4f4f4f;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    @include onDesktop {
+      display: inline-block;
+      font-family: Inter, Arial, sans-serif;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 20px;
+      color: #4f4f4f;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+  }
+}
+
+.menu {
+  width: 32px;
+  height: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__line {
+    display: block;
+    height: 4px;
+    background-color: #000;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  @include onTablet {
+    display: none;
+  }
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+
+  @include onTablet {
+    flex-direction: row;
+  }
+
+  @include onDesktop {
+    flex-direction: row;
+    padding-top: 130px;
+  }
+
+  &__content {
+
+    @include onTablet {
+      order: -1;
+    }
+
+    @include onDesktop {
+      order: -1;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__paragraf {
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  
+  padding: 0 30px;
+
+  @include onTablet {
+    padding: 0 35px;
+  }
+
+  @include onDesktop {
+    padding: 0 125px;
+    max-width: 1440px;
+  }
 }
