@@ -1,0 +1,80 @@
+.story {
+  @include onTablet {
+    @include setGrid(8, 12);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+
+    margin-bottom: 64px;
+
+    transition: all 0.3s;
+
+    &--compas {
+      @include gridTablet(1, 5);
+      @include gridDesktop(1, 4);
+    }
+
+    &--volume {
+      @include gridTablet(5, 9);
+      @include gridDesktop(4, 7);
+    }
+
+    &--wifi {
+      @include gridTablet(1, 5);
+      @include gridDesktop(7, 10);
+    }
+
+    &--sun {
+      @include gridTablet(5, 9);
+      @include gridDesktop(10, 13);
+    }
+  }
+
+  &__image {
+    width: 50px;
+    height: 40px;
+    margin-bottom: 40px;
+
+    transition: all 0.3s;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 32px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__title {
+    box-sizing: border-box;
+    height: 56px;
+    margin: 0 0 24px;
+
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    text-transform: uppercase;
+    text-align: center;
+    color: $colorMainBlack;
+  }
+
+  &__text {
+    margin: 0;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $colorParag;
+  }
+}
