@@ -14,6 +14,7 @@ new Swiper(slider, {
     delay: 3000,
   },
 });
+
 /* eslint-disable */
 new Swiper('.features-mob__swiper', {
 /* eslint-enable */
@@ -32,3 +33,16 @@ new Swiper('.features-mob__swiper', {
     prevEl: '.swiper-button-prev',
   },
 });
+
+const form = document.querySelector('.form');
+const inputs = document.querySelectorAll('.form__input');
+
+function handler(event) {
+  event.preventDefault();
+
+  inputs.forEach(input => {
+    input.value = '';
+  });
+}
+
+form.addEventListener('submit', handler);
