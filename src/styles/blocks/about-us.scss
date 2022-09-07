@@ -102,9 +102,11 @@
   }
 
   &__photo {
+    perspective: 400px;
     grid-column: 1 / 2;
     grid-row: 1 / 4;
     margin-bottom: 20px;
+    overflow: hidden;
 
     &--technology {
       grid-column: 2 / 3;
@@ -116,8 +118,14 @@
   }
 
   &__image {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     object-fit: cover;
+
+    transition: transform $smooth-transition;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 }

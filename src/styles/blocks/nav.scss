@@ -14,8 +14,25 @@
   }
 
   &__link {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 36px;
+      height: 2px;
+      width: 0;
+      background-color: $color-green;
+
+      transition: width $smooth-transition;
+    }
+
     &:hover {
       transform: scale(1.1);
+    }
+
+    &:hover::before {
+      width: 100%;
     }
   }
 }
