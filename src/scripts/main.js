@@ -63,3 +63,26 @@ const swiper = new Swiper('.swiper', {
 
   grabCursor: true,
 });
+
+const swiper_features = new Swiper('.features__swiper', {
+  // configure Swiper to use modules
+  modules: [Navigation, Pagination],
+
+  loop: false,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    dynamicBullets: true,
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.features__button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  grabCursor: true,
+
+});
