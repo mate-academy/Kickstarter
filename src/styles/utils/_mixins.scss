@@ -4,3 +4,31 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onDesktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 744px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media (min-width: 320px) and (max-width: 743px) {
+    @content;
+  }
+}
+
+@mixin grid-col($times, $unit, $gap) {
+  grid-template-columns: repeat($times, $unit);
+  column-gap: $gap;
+}
+
+@mixin figure($height, $width) {
+  height: $height;
+  width: $width;
+}
