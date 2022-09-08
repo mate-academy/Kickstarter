@@ -5,9 +5,43 @@
     @include onTablet {
       padding: 0 30px;
     }
+
+    @include onMobile {
+      padding: 0;
+    }
   }
 
   &__content {
+    // display: grid;
+    // grid-template-columns: repeat(4, 1fr);
+    // gap: 30px;
+    // margin-bottom: 170px;
+
+    // @include onTablet {
+    //   grid-template-columns: repeat(2, 1fr);
+    //   gap: 20px;
+    //   justify-content: center;
+    //   margin-bottom: 140px;
+    // }
+
+    // @include onMobile {
+    //   grid-template-columns: 1fr;
+    //   margin-bottom: 110px;
+    // }
+
+    @include onMobile {
+      margin: 0 auto;
+      max-width: 350px;
+      padding: 0 30px;
+      border: 1px solid black;
+    }
+  }
+
+  &__slider-wrapper {
+    overflow: hidden;
+  }
+
+  &__slider-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
@@ -21,8 +55,10 @@
     }
 
     @include onMobile {
-      grid-template-columns: 1fr;
-      margin-bottom: 110px;
+      display: flex;
+      justify-content: flex-start;
+      gap: 0;
+      transition: transform $transition-duration;
     }
   }
 
@@ -35,6 +71,12 @@
     @include onTablet {
       max-width: 350px;
       justify-self: center;
+    }
+
+    @include onMobile {
+      border: 2px solid red;
+      flex-shrink: 0;
+      width: 100%;
     }
   }
 

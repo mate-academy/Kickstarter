@@ -37,8 +37,35 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-// FEATURE SLIDER //
+// FEATURES SLIDER //
 
-// eslint-disable-next-line max-len
-// const slides = document.querySelectorAll('.features__article-content--slide');
-// const sliderLine = document.querySelector('.features__article--slider-line');
+const list = document.querySelector('.features__article');
+const prev = document.querySelector('.features__btn-left');
+const next = document.querySelector('.features__btn-right');
+const counter = document.querySelector('.features__counter');
+
+let currentPosition = 1;
+const count = list.children.length;
+
+function moveTo(position) {
+  currentPosition = position;
+
+  if (currentPosition > count - 1) {
+    currentPosition = 0;
+  } else if (currentPosition < 0) {
+    currentPosition = count - 1;
+  }
+  counter.textContent = '0' + (currentPosition + 1).toString();
+
+  list.style.transform = `translateX(${-currentPosition * 100}%)`;
+}
+
+next.addEventListener('click', () => {
+  moveTo(currentPosition + 1);
+});
+
+prev.addEventListener('click', () => {
+  moveTo(currentPosition - 1);
+});
+
+// BENEFITS SLIDER //

@@ -9,6 +9,8 @@
     }
 
     @include onMobile {
+      padding: 0;
+      max-width: 600px;
       margin-bottom: 90px;
     }
   }
@@ -19,6 +21,10 @@
 
     @include onTablet {
       @include tabletH2;
+    }
+
+    @include onMobile {
+      padding-left: 30px;
     }
   }
 
@@ -41,10 +47,18 @@
 
   &__slider {
     @include onTablet {
-      // max-height: 400px;
-      // max-width: 400px;
-      // border: 2px solid black;
-      // overflow: hidden;
+      max-width: 400px;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__slider-wrapper {
+    @include onTablet {
+      overflow: hidden;
+    }
+
+    @include onMobile {
+      margin-bottom: 180px;
     }
   }
 
@@ -54,49 +68,76 @@
     gap: 60px 130px;
 
     @include onTablet {
-      gap: 50px;
-    }
-
-    @include onMobile {
       display: flex;
-      flex-direction: column;
-      .features__article:last-child {
-        margin-bottom: 200px;
-      }
+      gap: 0;
+      transition: $transition-duration;
     }
-
-    // @include onTablet {
-    //   &--slider-line {
-    //     display: flex;
-    //     position: relative;
-    //     left: 0;
-    //     gap: 0;
-    //   }
-    // }
   }
 
   &__article-content {
+    @include onTablet {
+      width: 100%;
+      flex-shrink: 0;
+      margin-bottom: 50px;
+    }
     @include onMobile {
-      &:last-child {
-        margin-bottom: 200px;
-      }
+      padding: 30px 0 0 30px;
+      margin-bottom: 50px;
     }
   }
 
   &__buttons {
     display: none;
+    @include onTablet {
+      display: inline-block;
+    }
 
-    // @include onTablet {
-    //   display: inline-block;
-    // }
+    @include onMobile {
+      display: flex;
+      justify-content: center;
+    }
   }
 
-  // &__article-content {
-  //   @include onTablet {
-  //     height: 350px;
-  //     width: 350px;
-  //   }
-  // }
+  &__btn-left, &__btn-right {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  &__btn-left-img, &__btn-right-img {
+    padding-left: 10px;
+    color: $color-dark-charcoal;
+    transition: transform $transition-duration,
+    color $transition-duration;
+    z-index: 990;
+
+    &:hover {
+      color: $color-scobeloff;
+      transform: scale(1.2);
+    }
+  }
+
+  &__pigination {
+    display: none;
+    @include onTablet {
+      display: block;
+      color: $color-scobeloff;
+      padding-left: 26px;
+    }
+
+    @include onMobile {
+      display: flex;
+      justify-content: center;
+      padding-left: 0;
+    }
+  }
+
+  &__counter {
+    font-size: 20px;
+    color: $color-dark-charcoal;
+  }
 
   &__article-title {
     @include desktopH3;
