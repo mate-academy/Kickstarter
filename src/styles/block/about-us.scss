@@ -1,0 +1,40 @@
+.about-us {
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30% 1fr 1fr;
+    column-gap: 20px;
+    grid-template-areas: "image title"
+      "image description"
+      "image link";
+    margin-left: $paddingContainerOnTablet;
+    transform: translateX(-$paddingContainerOnTablet);
+
+    &__title {
+      grid-area: title;
+    }
+
+    &__image-container {
+      order: -1;
+      grid-area: image;
+    }
+
+    &__description {
+      grid-area: description;
+    }
+
+    &__link {
+      grid-area: link;
+      align-self: center;
+    }
+  }
+
+  @include onDesktop {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40% 1fr 1fr;
+    column-gap: 30px;
+    transform: translateX(0);
+    margin-left: 0;
+  }
+}

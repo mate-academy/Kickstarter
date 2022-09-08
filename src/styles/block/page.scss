@@ -1,0 +1,124 @@
+.page {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: $colorGray;
+  background-color: #f7f7f7;
+    
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    overflow-x: hidden;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+  
+
+  &__section {
+    margin: 25px 0 $marginBotommPageSectionMobile;
+
+    @include onTablet {
+      margin: $marginTopPageSectionOnTablet 0 $marginBotommPageSectionTablet;
+    }
+    @include onDesktop {
+      margin: $marginTopPageSectionOnTablet 0 $marginBotommPageSectionDesktop;
+    }
+
+    &-title {
+      font-weight: bold;
+      font-size: 30px;
+      line-height: $lineHeightPageSectionTitleMobile;
+      text-transform: uppercase;
+      margin-bottom: $marginBottomPageSectionTitle;
+      
+      @include onTablet {
+        font-size: 36px;
+        line-height: $lineHeightPageSectionTitleTablet;
+      }
+
+      @include onDesktop {
+        font-size: 56px;
+        line-height: $lineHeightPageSectionTitleDesctop;
+      }
+    }
+  }
+
+  &__content {
+     
+    @include onTablet {
+      margin-top: $marginContentOnTablet;
+    }
+
+    @include onDesktop {
+      margin: $marginContentOnDesktop 0;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform $transition-speed;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__benefits {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+  }
+
+  &__presentation-image {
+    margin: 0 auto;
+  }
+
+  &__inform-block {
+    margin-bottom: $marginBotommPageSectionMobile ;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      margin-bottom: $marginBotommPageSectionTablet;
+    }
+
+    @include onDesktop {
+      margin-bottom: $marginBotommPageSectionDesktop;
+    }
+  }
+
+  &__testimonials {
+    margin: 0 auto;
+  }
+
+  &__scrollTop {
+    display: none;
+
+    @include onTablet {
+      z-index: 2;
+      display: block;
+      position: fixed;
+      right: 50px;
+      bottom: 185px;
+    }
+
+    @include onDesktop {
+      right: 125px;
+      bottom: 200px;
+    }
+  }
+}

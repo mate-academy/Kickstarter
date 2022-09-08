@@ -1,0 +1,89 @@
+.benefits {
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    width: 100%;
+
+    @include onDesktop {
+      flex-wrap: nowrap;
+      gap: 30px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 260px;
+
+    @media (min-width: 790px) {
+      &:nth-last-child(-n + 2) {
+        margin-bottom: 0;
+      }
+    }
+
+    @include onTablet {
+      width: 340px;
+      margin-bottom: 65px;
+    }
+
+    @include onDesktop {
+      width: 280px;
+      margin-bottom: 0;
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+        
+      }
+    }
+  }
+
+  &__icon {
+    background-image: url(../images/benefits/icon_1.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 50px;
+    height: 40px;
+    margin-bottom: 40px;
+
+    &--2 {
+      background-image: url(../images/benefits/icon_2.svg);
+    }
+
+    &--3 {
+      background-image: url(../images/benefits/icon_3.svg);
+    }
+
+    &--4 {
+      background-image: url(../images/benefits/icon_4.svg);
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 127%;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+    width: max-content;
+
+    @include onDesktop {
+      width: inherit;
+      height: 56px;
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+    line-height: 150%;
+    text-align: center;
+    color: #7c7c7c;
+  }
+}
