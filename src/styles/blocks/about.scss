@@ -1,37 +1,84 @@
 
 .about {
 
-  &__inner {
-    row-gap: 65px;
-  }
+  &__item {
+    display: block;
 
-  &__card {
-    display: none;
-    text-align: center;
+    margin-bottom: 110px;
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     @include onTablet {
-      display: block;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
     }
 
-    &:first-child {
-      display: block;
+    @include onDesktop {
+      margin-bottom: 213px;
     }
-  }
-
-  &__icon {
-    margin-bottom: 40px;
   }
 
   &__title {
-    font-size: 22px;
+    font-size: 30px;
+    line-height: 40px;
     font-weight: bold;
-    line-height: 28px;
+
+    margin-bottom: 30px;
+
+    @include onTablet {
+      padding-left: 28px;
+      width: 50%;
+    }
+  }
+
+  &__photo {
+    width: 100%;
     margin-bottom: 20px;
-    color: $title-color;
+    @include onTablet {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50%;
+    }
   }
 
   &__text {
-    color: $text-color;
     line-height: 21px;
+    color: $text-color;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      width: 50%;
+      padding-left: 28px;
+    }
+  }
+
+  &__link {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: bold;
+    padding-bottom: 8px;
+
+    color: $btn-color;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+
+    margin-right: 50%;
+
+    transform: translateX(121%);
+
+    &::before {
+      content: "";
+      height: 2px;
+      width: 53px;
+      background-color: $btn-color;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
   }
 }
