@@ -1,12 +1,42 @@
 .top-actions {
+  position: relative;
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: space-between;
 
+  @include tablet {
+    padding: 30px 0 130px;
+  }
+
+  @include desktop {
+    padding: 30px 0 170px;
+  }
+
   &__links {
-    display: flex;
-    align-items: center;
+    display: none;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__burger {
+    position: absolute;
+    right: 30px;
+    display: block;
+    background-image: url(../images/menu_icon.svg);
+    transition: background-image 0.3s;
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+
+    @include tablet {
+      display: none;
+    }
   }
 
   &__specs {
@@ -16,6 +46,11 @@
     color: #4f4f4f;
     font-size: 14px;
     line-height: 20px;
+
+    &:hover {
+      color: #333;
+      font-weight: 700;
+    }
   }
 
   &__label {
@@ -23,13 +58,15 @@
     font-size: 14px;
     line-height: 20px;
     color: #bdbdbd;
+    cursor: pointer;
+  }
 
-    &:first-child::after {
-      content: "/";
-    }
-
-    &--active {
-      color: #333;
+  &__input {
+    &:checked {
+      & + .top-actions__label {
+        color: #333;
+        font-weight: 700;
+      }
     }
   }
 

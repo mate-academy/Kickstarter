@@ -1,18 +1,23 @@
 .footer {
-  padding: 0 122px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-  &__container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 190px;
+  &__logo {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      margin-bottom: 60px;
+      justify-content: center;
+    }
   }
 
   &__media {
     display: flex;
     align-items: center;
+    width: 170px;
+    margin: 0 auto 34px;
   }
 
   &__link {
@@ -29,9 +34,24 @@
   }
 
   &__copyright {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 260px;
     font-size: 14px;
     line-height: 21px;
     color: #bdbdbd;
+    margin-bottom: 20px;
+
+    @include tablet {
+      width: 700px;
+      margin-bottom: 30px;
+    }
+
+    @include desktop {
+      width: 1194px;
+    }
   }
 
   &__button {
@@ -40,5 +60,10 @@
     top: 0;
     width: 20px;
     height: 20px;
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
   }
 }

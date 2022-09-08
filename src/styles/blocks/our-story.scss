@@ -1,22 +1,47 @@
 .our-story {
-  height: 286px;
-
   &__container {
-    margin-top: 62px;
     display: flex;
-    flex-direction: row;
     justify-content: center;
+
+    @include tablet {
+      flex-wrap: wrap;
+    }
+
+    @include desktop {
+      flex-wrap: nowrap;
+    }
   }
 
   &__item {
-    width: 276px;
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    align-items: center;
+    display: none;
 
-    &:not(:last-child) {
-      margin-right: 30px;
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 110px auto 0;
+
+      @include tablet {
+        margin: 0;
+      }
+    }
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 64px;
+
+      &:not(:nth-child(even)) {
+        margin-right: 20px;
+      }
+    }
+
+    @include desktop {
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
     }
   }
 
@@ -29,28 +54,44 @@
   }
 
   &__text {
-    padding-top: 30px;
+    padding-top: 40px;
     display: block;
-    margin-bottom: 24px;
+
+    @include tablet {
+      padding-top: 50px;
+    }
+
+    @include desktop {
+      padding-top: 36px;
+    }
   }
 
   &__title {
-    display: block;
-    height: 56px;
     font-weight: 700;
     font-size: 22px;
     line-height: 28px;
-
-    text-transform: uppercase;
     text-align: center;
+    text-transform: uppercase;
     color: #333;
+    display: block;
+    height: 56px;
   }
 
   &__paragraph {
+    width: 260px;
     display: block;
     font-size: 14px;
     line-height: 21px;
     text-align: center;
     color: #7c7c7c;
+
+    @include tablet {
+      width: 340px;
+    }
+
+    @include desktop {
+      width: 276px;
+      margin-top: 24px;
+    }
   }
 }
