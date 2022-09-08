@@ -16,6 +16,17 @@
     max-width: 1200px;
     padding: 25px 30px;
 
+    &--top {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+
+      margin: 0 auto;
+      background-color: $c-background;
+
+      z-index: 15;
+    }
     @include onTablet {
       margin-bottom: 110px;
       padding: 25px 34px;
@@ -30,6 +41,12 @@
     display: flex;
     flex-direction: column;
 
+    &--top {
+      margin-top: 76px;
+      @include onTablet {
+        margin-top: 210px;
+      }
+    }
     @include onTablet {
       display: grid;
       grid-template-columns: repeat(8, 1fr);
@@ -48,7 +65,6 @@
   }
 
   &__pic {
-
     @include onTablet {
       position: relative;
       grid-column: 4 / -1;
@@ -66,6 +82,8 @@
       object-fit: cover;
       object-position: center;
 
+      mix-blend-mode: darken;
+
       @include onDesktop {
         display: none;
       }
@@ -73,10 +91,13 @@
 
     &--desktop {
       display: none;
+      width: 100%;
+
+      mix-blend-mode: darken;
 
       @include onDesktop {
         display: inline-block;
-        width: 100%;
+
       }
     }
   }

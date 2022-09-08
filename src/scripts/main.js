@@ -18,16 +18,13 @@ new Swiper(slider, {
 /* eslint-disable */
 new Swiper('.features-mob__swiper', {
 /* eslint-enable */
-  // Optional parameters
   loop: true,
 
-  // If we need pagination
   pagination: {
     el: '.swiper-pagination',
     type: 'fraction',
   },
 
-  // Navigation arrows
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
@@ -46,3 +43,37 @@ function handler(event) {
 }
 
 form.addEventListener('submit', handler);
+
+const presentation = document.querySelector('.presentation');
+const headerTop = document.querySelector('.header__top');
+const headerWrap = document.querySelector('.header__wrap');
+
+const scrollAnimation = () => {
+  const windowCenter = window.innerHeight / 2 + window.scrollY;
+  const scrollOffSet = presentation.offsetTop;
+
+  if (windowCenter >= scrollOffSet) {
+    presentation.classList.add('animation');
+  }
+};
+
+const headerScroll = () => {
+  const windowMove = window.scrollY;
+  const scrollOffSet = headerTop.offsetTop + 1;
+
+  if (windowMove >= scrollOffSet) {
+    headerTop.classList.add('header__top--top');
+    headerWrap.classList.add('header__wrap--top');
+  } else {
+    headerTop.classList.remove('header__top--top');
+    headerWrap.classList.remove('header__wrap--top');
+  }
+};
+
+scrollAnimation();
+headerScroll();
+
+window.addEventListener('scroll', () => {
+  scrollAnimation();
+  headerScroll();
+});
