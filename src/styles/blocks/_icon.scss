@@ -1,0 +1,46 @@
+.icon {
+  &__menu {
+    $root: &;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+
+    &-line {
+      background-color: black;
+      height: 2px;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      transition: all 0.3s ease;
+  
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+          top: $i*9px - 9px;
+        }
+      }
+    }
+
+    &:hover{
+      transform: scale(1.1);
+      #{$root}-line:nth-child(2) {
+        width: 60%;
+      }
+      
+      #{$root}-line:first-child {
+        width: 80%;
+      }
+      #{$root}-line:last-child {
+        width: 80%;
+      }
+    }
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}
