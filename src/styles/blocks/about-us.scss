@@ -70,6 +70,10 @@
     flex: 1 1 auto;
     margin-bottom: 20px;
 
+    transition: transform $transition-duration-long linear,
+      border-radius $transition-duration-long linear;
+    z-index: 1;
+
     @media (min-width: $tab-brakepoint) {
       flex: 0 1 auto;
       margin: 0 20px 0 0;
@@ -77,10 +81,25 @@
       &--right {
         margin: 0 0 0 20px;
       }
+
+      &:hover {
+        transform: scale(1.1) translateX(40px);
+        border-radius: 40px 160px;
+      }
+
+      &--right:hover {
+        transform: scale(1.1) translateX(-40px);
+        border-radius: 40px 160px;
+      }
     }
 
     @media (min-width: $desk-brakepoint) {
       max-width: 554px;
+
+      &:hover {
+        transform: scale(1.05);
+        border-radius: 40px 160px;
+      }
     }
   }
 

@@ -18,6 +18,8 @@
     position: absolute;
     top: 4px;
 
+    animation: moveUp 1s infinite linear;
+
     @media (min-width: $tab-brakepoint) {
       display: block;
       right: 50px;
@@ -25,6 +27,16 @@
 
     @media (min-width: $desk-brakepoint) {
       right: 30px;
+    }
+
+    @keyframes moveUp {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-10px);
+      }
     }
   }
 
@@ -45,6 +57,20 @@
 
   &__link {
     text-decoration: none;
+
+    &:hover {
+      animation: littleMovingIcon 1s infinite alternate;
+    }
+
+    @keyframes littleMovingIcon {
+      from {
+        transform: rotate(-10deg);
+      }
+
+      to {
+        transform: rotate(10deg);
+      }
+    }
   }
 
   &__text {
