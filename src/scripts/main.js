@@ -63,3 +63,16 @@ const swiper = new Swiper('.swiper', {
 
   grabCursor: true,
 });
+
+const form = document.querySelector('.questions__form');
+const inputs = document.querySelectorAll('.questions__input');
+
+function handler(event) {
+  event.preventDefault();
+
+  inputs.forEach(input => {
+    input.value = '';
+  });
+}
+
+form.addEventListener('submit', handler);
