@@ -12,33 +12,19 @@
   }
 
   &__content {
-    // display: grid;
-    // grid-template-columns: repeat(4, 1fr);
-    // gap: 30px;
-    // margin-bottom: 170px;
-
-    // @include onTablet {
-    //   grid-template-columns: repeat(2, 1fr);
-    //   gap: 20px;
-    //   justify-content: center;
-    //   margin-bottom: 140px;
-    // }
-
-    // @include onMobile {
-    //   grid-template-columns: 1fr;
-    //   margin-bottom: 110px;
-    // }
-
     @include onMobile {
       margin: 0 auto;
       max-width: 350px;
-      padding: 0 30px;
-      border: 1px solid black;
+      padding: 0;
     }
   }
 
   &__slider-wrapper {
-    overflow: hidden;
+    @include onMobile {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 110px;
+    }
   }
 
   &__slider-list {
@@ -59,6 +45,7 @@
       justify-content: flex-start;
       gap: 0;
       transition: transform $transition-duration;
+      margin-bottom: 0;
     }
   }
 
@@ -74,10 +61,69 @@
     }
 
     @include onMobile {
-      border: 2px solid red;
       flex-shrink: 0;
       width: 100%;
     }
+  }
+
+  &__prev,
+  &__next {
+    @include onMobile {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -50px;
+      padding: 16px;
+      color: $color-tiffany-blue;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      transition: color $transition-duration,
+      background-color $transition-duration;
+      z-index: 5;
+
+      &:hover {
+        background-color: $color-tiffany-blue;
+        color: $color-alice-blue;
+      }
+    }
+  }
+
+  &__next {
+    @include onMobile {
+      position: absolute;
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+  }
+
+  &__dot-container {
+    @include onMobile {
+      text-align: center;
+      padding: 20px;
+      background: $color-alice-blue;
+    }
+  }
+
+  &__dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 2px;
+    background-color: $color-azureish-white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color $transition-duration ease;
+
+    &:hover {
+      background-color: $color-tiffany-blue;
+    }
+  }
+
+  .benefits__dot--active {
+    background-color: $color-blue-green;
   }
 
   &__icon {
