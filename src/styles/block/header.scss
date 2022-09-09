@@ -1,0 +1,169 @@
+.header {
+  box-sizing: border-box;
+  
+  &__top {
+    @include top-action;
+   
+
+    @include onTablet {
+      padding-bottom: 0;
+    }
+
+    &-link {
+      display: none;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: $colorGray;
+      font-size: 14px;
+      line-height: $lineHeightHeaderTopLink;
+      padding: $paddingHeaderTopLink 0;
+
+      @include onTablet {
+        display: block;
+      }
+
+      &--switch {
+        position: relative;
+        padding-left: 20px;
+      }
+    }
+  }
+
+  &__checkbox {
+    appearance: none;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      right: 70%;
+      bottom: 50%;
+      transform: translateY(50%);
+      display: inline;
+      content: "en";
+      font-size: 14px;
+      height: 14px;
+      text-transform: uppercase;
+    }
+
+    &::after {
+      position: absolute;
+      display: inline;
+      bottom: 50%;
+      transform: translateY(50%);
+      left: 45%;
+      content: "ua";
+      font-size: 14px;
+      height: 14px;
+      text-transform: uppercase;
+      color: #bdbdbd;
+    }
+
+    &:checked {
+      &::before {
+        color: #bdbdbd;
+      }
+
+      &::after {
+        color: $colorGray;
+      }
+    }
+  }
+
+  &__image-container {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 40px;
+
+    @include onTablet {
+      position: relative;
+      width: 100%;
+      margin-left: 0;
+      transform: translateX(0);
+      margin-bottom: 0;
+      grid-column: 2 / 4;
+      grid-row: 2 / 4;
+      justify-self: start;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 2;
+      grid-row: 1 / 4;
+      justify-self: center;
+    }
+  }
+
+  &__image {
+    width: 100%;
+
+    @include onTablet {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      object-position: left;
+      transition: transform $transition-speed;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 130%;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 48px;
+      grid-column: 1 / 2;
+
+      z-index: 1;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 126%;
+
+      grid-column: 1 / 2;
+      grid-row: 2 / 2;
+    }
+
+    &-description {
+      line-height: 24px;
+
+      @include onTablet {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+        align-self: end;
+        max-width: 276px;
+      }
+    }
+  }
+
+  &__content {
+    
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 35% 70px 1fr;
+      grid-template-rows: 5% 1fr 1fr;
+      min-height: 380px;
+      height: calc(100vh -
+      #{$marginContentOnTablet} * 2 - #{$paddingHeaderTopLink} * 2 -
+      #{$lineHeightHeaderTopLink} - #{$marginTopPageSectionOnTablet});
+    }
+
+    @include onDesktop {
+      grid-template-columns: 35% 1fr;
+      grid-template-rows: 15% 50% 1fr;
+      min-height: 410px;
+      height: calc(100vh -
+      #{$marginContentOnDesktop} * 2 - #{$paddingNav} * 2 - #{$lineHidhtNav} -
+      #{$paddingHeaderTopLink} * 2 - #{$lineHeightHeaderTopLink} -
+      #{$marginTopPageSectionOnTablet});
+    }
+  }
+}

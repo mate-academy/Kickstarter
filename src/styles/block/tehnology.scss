@@ -1,0 +1,40 @@
+.tehnology {
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    grid-template-rows: 20% 1fr 1fr;
+    column-gap: 20px;
+    grid-template-areas: "title image "
+      "description image "
+      "link image ";
+    margin-right: $paddingContainerOnTablet;
+    transform: translateX($paddingContainerOnTablet);
+    
+    &__title {
+      grid-area: title;
+    }
+      
+    &__image-container {
+      order: 1;
+      grid-area: image;
+    }
+      
+    &__description {
+      grid-area: description;
+    }
+      
+    &__link {
+      grid-area: link;
+      align-self: start;
+    }
+  }
+
+  @include onDesktop {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30% 1fr 1fr;
+    column-gap: 30px;
+    transform: translateX(0);
+    margin-right: 0;
+  }
+}

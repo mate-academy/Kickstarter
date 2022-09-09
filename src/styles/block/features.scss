@@ -1,0 +1,193 @@
+.features {
+  
+  &-container {
+    background-color: #d6ecec;
+    width: 100vw;
+    transform: translateX(calc(60px / -2));
+    background-image: url(../images/feature/background_tablet.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    
+    @media (min-width: 400px) {
+      background-size: inherit;
+      background-position: bottom;
+      background-position-x: 95%;
+    }
+
+    @include onTablet {
+      transform: translateX(0);
+      width: inherit;
+    }
+
+    @include onDesktop {
+      background-image: url(../images/feature/background-desktop.png);
+    }
+  }
+
+  &__content {
+     
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 50% 50%;
+    }
+  }
+
+  &__item {
+    margin-bottom: 50px;
+
+    @include onDesktop {
+      margin-bottom: 60px;
+
+      &--1-1 {
+        grid-column: 1 / 1;
+        grid-row: 1 / 1;
+      }
+
+      &--1-2 {
+        grid-column: 2 / 2;
+        grid-row: 1 / 1;
+      }
+
+      &--2-1 {
+        grid-column: 1 / 1;
+        grid-row: 2 / 2;
+      }
+    }
+  }
+
+  &__slide-switch {
+    margin: 0 auto;
+
+    @include onTablet {
+      margin: 0;
+    }
+     
+    @include onDesktop {
+      display: none;
+    }
+  }
+}
+   
+.feature {
+  width: 270px;
+
+  @include onDesktop {
+    width: 380px;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #0c797a;
+    margin-bottom: 20px;
+
+    @include onDesktop {
+      font-size: 34px;
+      line-height: 42px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    vertical-align: sub;
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 10px;
+    background: url(../images/feature/list_style.svg);
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 1em;
+
+    @include onDesktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+      
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &--desktop {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}
+
+.slide-switch {
+  width: max-content;
+  padding: 21px 0 175px 30px;
+  box-sizing: border-box;
+
+  &__link {
+    text-decoration: none;
+    font-size: 11px;
+    line-height: 14px;
+    color: #bdbdbd;
+     
+    position: relative;
+  
+
+    &-text {
+      display: inline-block;
+
+      &--start {
+        font-size: 16px;
+        line-height: 20px;
+        color: $colorGray;
+      }
+        
+      &--end {
+        font-size: 11px;
+        line-height: 14px;
+        color: #bdbdbd;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      top: -200%;
+      left: -70%;
+      content: "";
+      display: inline-block;
+      width: 48px;
+      height: 13px;
+      background-image: url(../images/feature/switch__grey.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -200%;
+      left: 50%;
+      display: inline-block;
+      width: 48px;
+      height: 13px;
+      background-image: url(../images/feature/switch_black.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    &:hover {
+      &::after {
+        background-image: url(../images/feature/switch_blue.svg);
+      }
+    }
+  }
+}
