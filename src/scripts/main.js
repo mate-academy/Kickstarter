@@ -46,7 +46,7 @@ form.addEventListener('submit', handler);
 
 const headerTop = document.querySelector('.header__top');
 const headerWrap = document.querySelector('.header__wrap');
-const presentation = document.querySelector('.presentation');
+const presentation = document.querySelector('.presentation__img');
 
 const scrollAnimation = () => {
   const windowCenter = window.innerHeight / 2 + window.scrollY;
