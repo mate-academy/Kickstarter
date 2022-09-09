@@ -1,0 +1,137 @@
+.header {
+  padding-top: 25px;
+  width: 100%;
+
+  @include onTablet {
+    padding-top: 30px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__top {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+
+    @include onTablet {
+      margin-bottom: 130px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__bottom {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__image {
+    height: 245px;
+    width: 100%;
+
+    margin-bottom: 40px;
+
+    z-index: -1;
+
+    background-image: url(../images/img/header.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top 70% left;
+
+    transition: all 0.3s;
+
+    @media (max-width: 380px) {
+      background-size: 135%;
+    }
+
+    @include onTablet {
+      position: absolute;
+      left: 40%;
+
+      margin-bottom: 0;
+      height: 320px;
+
+      overflow: hidden;
+
+      background-size: contain;
+      background-position: left;
+    }
+
+    @include onDesktop {
+      background-size: contain;
+      height: 480px;
+      left: 35%;
+    }
+  }
+
+  &__info {
+    box-sizing: border-box;
+    width: max-content;
+
+    @include onDesktop {
+      padding-top: 90px;
+
+      margin-bottom: 170px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+
+    transition: all 0.3s;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__text {
+    max-width: 250px;
+    margin: 0;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    transition: all 0.3s;
+
+    @include onTablet {
+      width: 250px;
+    }
+
+    @include onDesktop {
+      width: 276px;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}

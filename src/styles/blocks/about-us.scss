@@ -1,0 +1,176 @@
+.about-us {
+
+  @include onTablet {
+    padding-bottom: 160px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 130px;
+  }
+
+  &__container {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: all 0.3s;
+
+    &:nth-child(1) {
+      margin-bottom: 110px;
+
+      @include onTablet {
+        margin-bottom: 208px;
+      }
+    }
+
+    @include setGrid(8, 12);
+  }
+
+  &__title {
+    margin: 0 0 30px;
+
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $colorMainBlack;
+
+    transition: all 0.3s;
+
+    order: -1;
+
+    @include onTablet {
+      margin-bottom: 30px;
+
+      line-height: 46px;
+
+      order: 0;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    &--first {
+      @include gridTablet(5, 9);
+      @include gridDesktop(7, 13);
+    }
+
+    &--second {
+      font-size: 36px;
+      line-height: 46px;
+
+      @include onDesktop {
+        font-size: 56px;
+        line-height: 70px;
+      }
+
+      @include gridTablet(1, 5);
+      @include gridDesktop(1, 7);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 212px;
+
+    margin-bottom: 20px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: all 0.3s;
+
+    @include onTablet {
+      position: absolute;
+      top: 0;
+
+      height: 415px;
+
+      order: 1;
+    }
+
+    @include onDesktop {
+      height: 388px;
+    }
+
+    &--first {
+      @include gridTablet(1, 5);
+      @include gridDesktop(1, 7);
+
+      background-image: url(../images/img/map.png);
+    }
+
+    &--second {
+      @include gridTablet(5, 9);
+      @include gridDesktop(7, 13);
+
+      background-image: url(../images/img/wood.png);
+    }
+  }
+
+  &__info {
+    margin: 0 0 30px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $colorParag;
+
+    transition: all 0.3s;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+
+    &--first {
+      @include gridTablet(5, 9);
+      @include gridDesktop(7, 13);
+    }
+
+    &--second {
+      @include gridTablet(1, 5);
+      @include gridDesktop(1, 7);
+    }
+  }
+
+  &__link {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: $colorButtonTitle;
+    text-decoration: none;
+  }
+
+  &__line {
+    display: inline-block;
+
+    width: max-content;
+
+    padding-bottom: 5px;
+
+    background-image: linear-gradient($colorButtonTitle 0 0);
+    background-position: 0 100%;
+    background-size: 0 2px;
+    background-repeat: no-repeat;
+
+    transition: all 0.3s;
+
+    @include gridTablet(5, 9);
+    @include gridDesktop(7, 13);
+
+    &--second {
+      @include gridTablet(1, 5);
+      @include gridDesktop(1, 7);
+    }
+  }
+
+  &__line:hover {
+    background-position: -100% 100%;
+    background-size: 100% 1px;
+  }
+}
