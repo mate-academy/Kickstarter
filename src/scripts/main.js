@@ -8,3 +8,15 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('page__body--with-menu');
   }
 });
+
+// form actions
+const form = document.querySelector('.form');
+const inputs = document.querySelectorAll('.js-form-input');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  inputs.forEach(input => {
+    input.value = '';
+  });
+});

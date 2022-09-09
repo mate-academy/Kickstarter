@@ -9,6 +9,53 @@
     }
   }
 
+  &__box {
+    margin-bottom: 30px;
+
+    transition: all 0.3s;
+
+    &:nth-child(3) {
+      margin-bottom: 200px;
+    }
+
+    @include onTablet {
+      &:nth-child(1) {
+        margin-bottom: 200px;
+      }
+
+      &:nth-child(3) {
+        margin-bottom: 0;
+      }
+    }
+
+    @include onDesktop {
+      &:nth-child(2) {
+        margin-bottom: 56px;
+      }
+
+      &:nth-child(1) {
+        margin-bottom: 0;
+      }
+    }
+
+    &--first {
+      @include gridTablet(1, 5);
+      @include gridDesktop(2, 6);
+
+      order: 1;
+    }
+
+    &--second {
+      @include gridTablet(1, 5);
+      @include gridDesktop(2, 6);
+    }
+
+    &--third {
+      @include gridTablet(5, 9);
+      @include gridDesktop(7, 10);
+    }
+  }
+
   &__title {
     margin: 0 auto;
     margin-bottom: 30px;
@@ -39,7 +86,7 @@
   }
 
   &__content {
-    padding: 30px 0 270px;
+    padding: 30px 0;
 
     background-color: $colorFeaturesBackground;
 
@@ -48,11 +95,13 @@
     @include onTablet {
       position: relative;
 
-      padding-left: 90px;
+      padding-left: 30px;
+
+      @include setGrid(8, 12);
     }
 
     @include onDesktop {
-      padding-left: 102px;
+      padding: 60px 0 60px 90px;
     }
   }
 
