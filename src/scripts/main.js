@@ -44,36 +44,29 @@ function handler(event) {
 
 form.addEventListener('submit', handler);
 
-const presentation = document.querySelector('.presentation');
 const headerTop = document.querySelector('.header__top');
 const headerWrap = document.querySelector('.header__wrap');
+const presentation = document.querySelector('.presentation');
 
 const scrollAnimation = () => {
   const windowCenter = window.innerHeight / 2 + window.scrollY;
   const scrollOffSet = presentation.offsetTop;
 
-  if (windowCenter >= scrollOffSet) {
-    presentation.classList.add('animation');
-  }
-};
-
-const headerScroll = () => {
-  const windowMove = window.scrollY;
-  const scrollOffSet = headerTop.offsetTop + 1;
-
-  if (windowMove >= scrollOffSet) {
+  if (window.scrollY >= headerTop.offsetTop + 1) {
     headerTop.classList.add('header__top--top');
     headerWrap.classList.add('header__wrap--top');
   } else {
     headerTop.classList.remove('header__top--top');
     headerWrap.classList.remove('header__wrap--top');
   }
+
+  if (windowCenter >= scrollOffSet) {
+    presentation.classList.add('animation');
+  }
 };
 
 scrollAnimation();
-headerScroll();
 
 window.addEventListener('scroll', () => {
   scrollAnimation();
-  headerScroll();
 });
