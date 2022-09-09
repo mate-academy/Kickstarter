@@ -19,3 +19,34 @@ document.querySelector('#form').addEventListener('submit', e => {
 
   window.location.hash = '#';
 });
+
+const list = document.querySelector('.features__slides');
+const listLength = list.children.length;
+const prevBtn = document.querySelector('.feature__arrow--left');
+const nextBtn = document.querySelector('.feature__arrow--right');
+const positionSpan = document.querySelector('.feature__current-position');
+
+let currentPosition = 0;
+
+const moveTo = position => {
+  currentPosition = position;
+
+  if (currentPosition > listLength - 1) {
+    currentPosition = 0;
+  } else if (currentPosition < 0) {
+    currentPosition = listLength - 1;
+  }
+
+  list.style.transform = `translateX(-${currentPosition * 100}%)`;
+  positionSpan.textContent = `0${currentPosition + 1}`;
+};
+
+nextBtn.addEventListener('click', () => {
+  moveTo(currentPosition + 1);
+});
+
+prevBtn.addEventListener('click', () => {
+  moveTo(currentPosition - 1);
+});
+
+moveTo(0);
