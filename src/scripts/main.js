@@ -17,7 +17,7 @@ document.querySelector('#form').addEventListener('submit', e => {
     input.value = '';
   });
 
-  window.location.hash = '#';
+  window.location.replace('#');
 });
 
 function createSlider(slider) {
