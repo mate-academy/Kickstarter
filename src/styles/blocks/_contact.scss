@@ -1,0 +1,43 @@
+.contact {
+  &__container {
+    @include container;
+
+    @include onTablet {
+      padding: 0 30px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    margin-bottom: 170px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onMobile {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    @include desktopH2;
+
+    @include onTablet {
+      @include tabletH2;
+    }
+
+    @include onMobile {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__field {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}

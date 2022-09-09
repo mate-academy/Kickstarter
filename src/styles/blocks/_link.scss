@@ -1,0 +1,49 @@
+.link {
+  display: inline-block;
+
+  padding: 15px 0;
+
+  @include thirdary-text;
+  color: $color-dark-liver;
+  text-decoration: none;
+
+  transition: color $transition-duration;
+
+  &:hover {
+    color: $color-scobeloff;
+  }
+
+  &--about {
+    position: relative;
+    justify-content: flex-start;
+
+    @include article-link;
+
+    color: $color-tiffany-blue;
+
+    &:hover {
+      color: $color-tiffany-blue;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      margin: auto;
+      width: 50%;
+      height: 2px;
+
+      background: $color-tiffany-blue;
+      border-radius: 5px;
+
+      transition: width $transition-duration;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

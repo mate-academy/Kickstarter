@@ -1,0 +1,165 @@
+.features {
+  &__container {
+    @include container;
+    margin-bottom: 170px;
+
+    @include onTablet {
+      padding: 0 30px;
+      margin-bottom: 140px;
+    }
+
+    @include onMobile {
+      padding: 0;
+      max-width: 600px;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__title {
+    @include desktopH2;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      @include tabletH2;
+    }
+
+    @include onMobile {
+      padding-left: 30px;
+    }
+  }
+
+  &__content {
+    padding: 60px 90px;
+    background-color: $color-azureish-white;
+    background-image: url("../images/desktop/5.png");
+    background-repeat: no-repeat;
+    background-position: bottom right;
+
+    @include onTablet {
+      background-image: url("../images/tablet/10.png");
+    }
+
+    @include onMobile {
+      padding: 10px;
+      background-image: url("../images/mobile/15.png");
+    }
+  }
+
+  &__slider {
+    @include onTablet {
+      max-width: 400px;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__slider-wrapper {
+    @include onTablet {
+      overflow: hidden;
+    }
+
+    @include onMobile {
+      margin-bottom: 180px;
+    }
+  }
+
+  &__article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px 130px;
+
+    @include onTablet {
+      display: flex;
+      gap: 0;
+      transition: $transition-duration;
+    }
+  }
+
+  &__article-content {
+    @include onTablet {
+      width: 100%;
+      flex-shrink: 0;
+      margin-bottom: 50px;
+    }
+    @include onMobile {
+      padding: 30px 0 0 30px;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__buttons {
+    display: none;
+    @include onTablet {
+      margin-left: 10px;
+      display: inline-block;
+    }
+
+    @include onMobile {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__btn-left,
+  &__btn-right {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  &__btn-left-img,
+  &__btn-right-img {
+    color: $color-dark-charcoal;
+    transition: transform $transition-duration,
+      color $transition-duration;
+
+    &:hover {
+      color: $color-scobeloff;
+      transform: scale(1.2);
+    }
+  }
+
+  &__pigination {
+    display: none;
+    @include onTablet {
+      display: block;
+      color: $color-scobeloff;
+      padding-left: 26px;
+    }
+
+    @include onMobile {
+      display: flex;
+      justify-content: center;
+      padding-left: 0;
+    }
+  }
+
+  &__counter {
+    font-size: 20px;
+    color: $color-dark-charcoal;
+  }
+
+  &__article-title {
+    @include desktopH3;
+    color: $color-scobeloff;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      @include tabletH3;
+    }
+  }
+
+  &__article-list {
+    list-style: disc;
+    padding-left: 20px;
+    @include main-text;
+    color: $color-dark-charcoal;
+  }
+
+  &__article-item {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}
