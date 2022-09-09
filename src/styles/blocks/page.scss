@@ -1,27 +1,21 @@
 .page {
   font-family: $font-family;
+  font-weight: 400;
   scroll-behavior: smooth;
 
+  &__body {
+    background-color: $c-bg;
+  }
+
   &__section {
-    &--about {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
       margin-bottom: 170px;
-    }
-
-    &__image {
-      &--speakers {
-        position: relative;
-        transform: translateY(-10%);
-      }
-
-      &--luna {
-        display: block;
-        margin: 0 auto;
-      }
-    }
-
-    &--tech {
-      display: grid;
-      @include grid-col(2, 1fr, 30px);
     }
   }
 }
