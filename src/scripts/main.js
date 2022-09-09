@@ -68,10 +68,6 @@ featurePrev.addEventListener('click', () => {
   moveTo(currentPosition - 1);
 });
 
-setInterval(() => {
-  moveTo(currentPosition + 1);
-}, 2000);
-
 // BENEFITS SLIDER //
 
 const benefitsList = document.querySelector('.benefits__slider-list');
