@@ -44,14 +44,20 @@ function handler(event) {
 
 form.addEventListener('submit', handler);
 
+const check = document.querySelector('#menu__toggle-label');
+const menuItem = document.querySelectorAll('.nav__js-close');
+
+menuItem.forEach(el => {
+  el.addEventListener('click', () => {
+    check.checked = !check.checked;
+  });
+});
+
 const headerTop = document.querySelector('.header__top');
 const headerWrap = document.querySelector('.header__wrap');
 const presentation = document.querySelector('.presentation__img');
 
 const scrollAnimation = () => {
-  const windowCenter = window.innerHeight / 2 + window.scrollY;
-  const scrollOffSet = presentation.offsetTop;
-
   if (window.scrollY >= headerTop.offsetTop + 1) {
     headerTop.classList.add('header__top--top');
     headerWrap.classList.add('header__wrap--top');
@@ -60,7 +66,7 @@ const scrollAnimation = () => {
     headerWrap.classList.remove('header__wrap--top');
   }
 
-  if (windowCenter >= scrollOffSet) {
+  if (window.scrollY >= presentation.offsetTop - 500) {
     presentation.classList.add('animation');
   }
 };
