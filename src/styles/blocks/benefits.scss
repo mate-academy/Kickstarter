@@ -4,16 +4,27 @@
   flex-wrap: wrap;
   justify-content: center;
 
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   @include onDesktop {
+    display: flex;
     flex-wrap: nowrap;
     flex-grow: 1;
   }
 
   &__benefit {
-    max-width: 276px;
+
     text-align: center;
 
+    @include onTablet {
+      width: 100%;
+    }
+
     @include onDesktop {
+      max-width: 276px;
       margin-top: 50px;
     }
 
