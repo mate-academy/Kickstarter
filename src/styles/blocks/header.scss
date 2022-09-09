@@ -1,0 +1,116 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 25px 30px 0;
+
+  &--active {
+    justify-content: flex-start;
+  }
+
+  &__line {
+    width: 24px;
+    height: 2px;
+
+    margin: 6px 0;
+
+    background-color: black;
+    border: none;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+
+      height: 2px;
+      width: 24px;
+      background-color: black;
+    }
+
+    &--active::before {
+      transition: transform 0.3s linear;
+      transform: rotate(40deg) translateY(4px);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+
+      height: 2px;
+      width: 24px;
+      background-color: black;
+    }
+
+    &--active::after {
+      transition: transform 0.3s linear;
+      transform: rotate(-40deg) translateY(-4px);
+    }
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 25px;
+
+    @media (min-width: $tab-brakepoint) {
+      padding-bottom: 130px;
+    }
+  }
+
+  &__opener {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+    color: black;
+
+    @media (min-width: $tab-brakepoint) {
+      display: none;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @media (min-width: $tab-brakepoint) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__links {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    @media (min-width: $tab-brakepoint) {
+      gap: 14px;
+    }
+
+    @media (min-width: $desk-brakepoint) {
+      gap: 84px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $color-p-button;
+    font-size: 14px;
+    line-height: 20px;
+
+    transition: color $transition-duration linear,
+      font-weight $transition-duration linear;
+
+    &:hover {
+      color: $color-p-button-hover;
+      font-weight: 700;
+    }
+  }
+}

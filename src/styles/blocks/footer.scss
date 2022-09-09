@@ -1,0 +1,83 @@
+.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 34px;
+
+  position: relative;
+
+  padding: 0 30px 20px;
+
+  @media (min-width: $tab-brakepoint) {
+    gap: 64px;
+  }
+
+  &__move-up {
+    display: none;
+
+    position: absolute;
+    top: 4px;
+
+    animation: moveUp 1s infinite linear;
+
+    @media (min-width: $tab-brakepoint) {
+      display: block;
+      right: 50px;
+    }
+
+    @media (min-width: $desk-brakepoint) {
+      right: 30px;
+    }
+
+    @keyframes moveUp {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-10px);
+      }
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @media (min-width: $tab-brakepoint) {
+      display: block;
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 44px;
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &:hover {
+      animation: littleMovingIcon 1s infinite alternate;
+    }
+
+    @keyframes littleMovingIcon {
+      from {
+        transform: rotate(-10deg);
+      }
+
+      to {
+        transform: rotate(10deg);
+      }
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    color: $color-footer-text;
+    text-align: center;
+  }
+}

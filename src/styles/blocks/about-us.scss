@@ -1,0 +1,158 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 30px;
+
+  @media (min-width: $tab-brakepoint) {
+    padding: 0 34px 0 0;
+
+    &--right {
+      padding: 0 0 0 34px;
+    }
+  }
+
+  @media (min-width: $desk-brakepoint) {
+    padding-left: 34px;
+
+    &--right {
+      padding-right: 34px;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 110px;
+
+    @media (min-width: $tab-brakepoint) {
+      margin-bottom: 140px;
+    }
+
+    @media (min-width: $desk-brakepoint) {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__title--top {
+    @media (min-width: $tab-brakepoint) {
+      display: none;
+    }
+  }
+
+  &__title--inner {
+    display: none;
+
+    @media (min-width: $tab-brakepoint) {
+      display: block;
+    }
+  }
+
+  &__main {
+    @media (min-width: $tab-brakepoint) {
+      display: flex;
+    }
+
+    &--reverse {
+      @media (min-width: $tab-brakepoint) {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  &__picture {
+    display: flex;
+  }
+
+  &__image {
+    flex: 1 1 auto;
+    margin-bottom: 20px;
+
+    transition: transform $transition-duration-long linear,
+      border-radius $transition-duration-long linear;
+    z-index: 1;
+
+    @media (min-width: $tab-brakepoint) {
+      flex: 0 1 auto;
+      margin: 0 20px 0 0;
+
+      &--right {
+        margin: 0 0 0 20px;
+      }
+
+      &:hover {
+        transform: scale(1.1) translateX(40px);
+        border-radius: 40px 160px;
+      }
+
+      &--right:hover {
+        transform: scale(1.1) translateX(-40px);
+        border-radius: 40px 160px;
+      }
+    }
+
+    @media (min-width: $desk-brakepoint) {
+      max-width: 554px;
+
+      &:hover {
+        transform: scale(1.05);
+        border-radius: 40px 160px;
+      }
+    }
+  }
+
+  &__paragraph {
+    margin-bottom: 30px;
+
+    font-size: 14px;
+    line-height: 21px;
+    color: $color-benefits-text;
+
+    @media (min-width: $tab-brakepoint) {
+      margin-bottom: 60px;
+
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    padding-bottom: 6px;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $color-main;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 700;
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      bottom: 0;
+      left: 1px;
+      right: 4px;
+
+      height: 2px;
+      width: 100%;
+
+      background-color: $color-main;
+
+      transform: scale(0);
+      transform-origin: right;
+      transition: transform $transition-duration linear;
+    }
+
+    &:hover {
+      &::after {
+        transform: scale(1);
+        transform-origin: left;
+      }
+    }
+  }
+}
