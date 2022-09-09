@@ -21,8 +21,7 @@
     width: 260px;
     height: 212px;
     margin: 0 auto;
-    background-repeat: no-repeat;
-    background-size: contain;
+    @include image;
 
     @include tablet {
       margin: 0;
@@ -34,11 +33,9 @@
       top: -66px;
       content: "Luna Eye";
       font-family: "Inter", sans-serif;
-      font-weight: 700;
-      font-size: 36px;
-      line-height: 46px;
+      @include text(36px, 700, 46px);
       text-transform: uppercase;
-      color: #333;
+      color: $main-text-colour;
 
       @include tablet {
         display: none;
@@ -80,28 +77,23 @@
 
   &__title {
     display: none;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 46px;
+    @include text(36px, 700, 46px);
     text-transform: uppercase;
-    color: #333;
+    color: $main-text-colour;
 
     @include tablet {
       display: block;
     }
 
     @include desktop {
-      font-size: 56px;
-      line-height: 70px;
+      @include text(56px, 700, 70px);
     }
   }
 
   &__paragraph {
     padding-top: 18px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #7c7c7c;
+    @include text(16px, 400, 24px);
+    color: $secondary-text-colour;
 
     @include tablet {
       padding-top: 30px;
@@ -111,12 +103,10 @@
   &__link {
     position: relative;
     display: block;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
+    @include text(12px, 700, 14px);
     text-transform: uppercase;
     text-decoration: none;
-    color: #0db2b3;
+    color: $main-link-colour;
     margin-top: 60px;
     padding-bottom: 5px;
     margin-bottom: 116px;
@@ -132,7 +122,7 @@
       top: 19px;
       width: 64px;
       height: 1px;
-      background-color: #0db2b3;
+      background-color: $main-link-colour;
     }
   }
 }

@@ -28,9 +28,8 @@
     display: block;
     background-image: url(../images/menu_icon.svg);
     transition: background-image 0.3s;
-    background-size: contain;
     background-position: 50%;
-    background-repeat: no-repeat;
+    @include image;
     width: 18px;
     height: 18px;
 
@@ -43,28 +42,25 @@
     display: block;
     width: 70px;
     text-decoration: none;
-    color: #4f4f4f;
-    font-size: 14px;
-    line-height: 20px;
+    color: $secondary-link-color;
+    @include text(14px, 400, 20px);
 
     &:hover {
-      color: #333;
+      color: $main-text-colour;
       font-weight: 700;
     }
   }
 
   &__label {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    color: #bdbdbd;
+    @include text(14px, 400, 20px);
+    color: $main-text-hover;
     cursor: pointer;
   }
 
   &__input {
     &:checked {
       & + .top-actions__label {
-        color: #333;
+        color: $main-text-colour;
         font-weight: 700;
       }
     }
@@ -77,19 +73,14 @@
     width: 102px;
     height: 48px;
     background: #333;
-    font-weight: 700;
-    font-size: 12px;
+    @include text(12px, 700, 16px);
     text-transform: uppercase;
     text-decoration: none;
     margin-left: 46px;
-    color: #fff;
+    color: $button-text;
 
     &:hover {
-      background: #131313;
-    }
-
-    &:disabled {
-      background: #d0d0d0;
+      background: $link-hover-color;
     }
   }
 }

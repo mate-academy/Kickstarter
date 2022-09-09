@@ -4,8 +4,7 @@
     height: 196px;
     width: 296px;
     margin: 110px auto 0;
-    background-repeat: no-repeat;
-    background-size: contain;
+    @include image;
 
     @include tablet {
       background-image: url(../images/about-us/tab.png);
@@ -44,11 +43,8 @@
     background-image: url(../images/about-us/sketchmob.png);
     height: 210px;
     width: 260px;
-    background-repeat: no-repeat;
-    background-size: contain;
     margin: 220px auto 0;
-    // margin-right: 30px;
-    // height: 388px;
+    @include image;
 
     @include tablet {
       background-image: url(../images/about-us/sketchtab.png);
@@ -68,10 +64,8 @@
       position: absolute;
       font-family: "Inter", sans-serif;
       top: -110px;
-      font-weight: 700;
-      font-size: 30px;
-      line-height: 40px;
-      color: #333;
+      color: $main-text-colour;
+      @include text(30px, 700, 40px);
 
       @include tablet {
         display: none;
@@ -97,45 +91,38 @@
 
   &__title {
     display: none;
-    font-size: 36px;
-    line-height: 46px;
+    @include text(36px, 700, 46px);
     text-transform: uppercase;
-    color: #333;
+    color: $main-text-colour;
 
     @include tablet {
       display: block;
     }
 
     @include desktop {
-      font-size: 56px;
-      line-height: 70px;
+      @include text(56px, 700, 70px);
       width: 582px;
     }
   }
 
   &__paragraph {
     padding-top: 20px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    color: #7c7c7c;
+    @include text(14px, 400, 21px);
+    color: $secondary-text-colour;
 
     @include tablet {
       padding-top: 30px;
-      font-size: 16px;
-      line-height: 24px;
+      @include text(16px, 400, 24px);
     }
   }
 
   &__link {
     position: relative;
     display: block;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
+    @include text(12px, 700, 14px);
     text-transform: uppercase;
     text-decoration: none;
-    color: #0db2b3;
+    color: $main-link-colour;
     margin-top: 30px;
     padding-bottom: 5px;
 
@@ -150,7 +137,7 @@
       top: 19px;
       width: 64px;
       height: 1px;
-      background-color: #0db2b3;
+      background-color: $main-link-colour;
     }
   }
 }
