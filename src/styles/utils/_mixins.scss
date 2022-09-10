@@ -5,6 +5,29 @@
   }
 }
 
+@mixin link {
+  padding: 20px 0;
+  color: $title-color;
+  text-decoration: none;
+
+  @include hover(color, $hover-color);
+  @include hover(font-weight, bold);
+}
+
+@mixin button {
+  width: 100px;
+  outline: none;
+  padding: 13px 0;
+  border: 1px solid transparent;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform $transition-duration;
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
 @mixin onTablet {
   @media (min-width: 768px) {
     @content;
