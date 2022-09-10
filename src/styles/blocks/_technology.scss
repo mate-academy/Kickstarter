@@ -1,6 +1,7 @@
 .technology {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   @include onTablet {
     display: grid;
@@ -10,29 +11,21 @@
     padding-left: 34px;
   }
 
-  &__container {
-    max-width: 1200px;
-    margin: 0 auto 110px;
-
-    @include onTablet {
-      margin-bottom: 140px;
-    }
-
-    @include onDesktop {
-      margin-bottom: 170px;
-    }
-  }
-
-  &__img {
+  &__picture {
     grid-column: 2 / 3;
-    width: 100%;
     margin-bottom: 20px;
 
-    transition: transform $transition-time;
+    overflow: hidden;
 
     @include onTablet {
       order: 1;
     }
+  }
+
+  &__img {
+    width: 100%;
+
+    transition: transform $transition-time;
 
     &:hover {
       transform: scale(1.1);
