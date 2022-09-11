@@ -1,0 +1,169 @@
+.about-us {
+
+  &__article {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto 1fr;
+      gap: 0 20px;
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto 1fr;
+      gap: 0 30px;
+      margin-bottom: 165px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $textColor;
+
+    @include onTablet {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__title.about-us__right {
+
+    @include onTablet {
+      grid-column: 1 / 1;
+      grid-row: 1 / 2;
+    }
+    @include onDesktop {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+  }
+
+  &__image {
+    width: 100%;
+
+    @include onTablet {
+      grid-column: 1 / 2;
+      grid-row: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 2;
+      grid-row: 1 / 4;
+    }
+  }
+
+  &__picture {
+    transition: transform $timeAnimation;
+  }
+
+  &__picture:hover {
+    transform: scale(1.1);
+  }
+
+  &__image.about-us__right {
+  
+    @include onTablet {
+      grid-column: 2 / 3;
+      grid-row: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 3;
+      grid-row: 1 / 4;
+    }
+  }
+
+  &__paragraf.about-us__right {
+
+    @include onTablet {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+  }
+
+  &__paragraf {
+    font-size: 14px;
+    line-height: 21px;
+    color: #7c7c7c;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+  }
+
+  &__link.about-us__right {
+    @include onTablet {
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
+    }
+  }
+ 
+  &__link {
+    position: relative;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $blueColor;
+    text-decoration: none;
+
+    @include onTablet {
+      grid-column: 2 / 3;
+      grid-row: 3 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 3;
+      grid-row: 3 / 4;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 0;
+      display: block;
+      width: 54px;
+      height: 2px;
+      background-color: $blueColor;
+    }
+
+    &:hover:after {
+      content: "";
+      width: 100%;
+      transition: width $timeAnimation;
+    }
+  }
+}
