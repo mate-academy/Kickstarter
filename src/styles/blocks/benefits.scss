@@ -5,6 +5,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @include onTablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: normal;
+      gap: 60px 30px;
+    }
+
+    @include onDesktop {
+      flex-direction: row;
+      align-items: normal;
+      gap: 30px;
+      flex-wrap: nowrap;
+    }
   }
 
   &__item {
@@ -13,12 +27,25 @@
     align-items: center;
     min-width: 200px;
     max-width: 256px;
+
+    @include onTablet {
+      max-width: 340px;
+    }
+
+    @include onDesktop {
+      max-width: 276px;
+    }
   }
 
   &__image {
     width: 50px;
     height: 40px;
     margin-bottom: 34px;
+    transition: all 0.3s;
+
+    &:hover {
+      scale: 110%;
+    }
   }
 
   &__title {
