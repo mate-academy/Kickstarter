@@ -4,12 +4,21 @@
   &__content {
     display: block;
     width: 100%;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: start;
+      align-items: center;
+    }
   }
+
 
   &__image {
     display: block;
     width: 100%;
     margin-bottom: 40px;
+    object-fit: contain;
   }
 
   &__title {
@@ -19,10 +28,31 @@
     line-height: 52px;
     text-transform: uppercase;
     color: #333;
+
+    @include onTablet {
+      max-width: 340px;
+      line-height: 62px;
+      font-size: 48px;
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      max-width: 378px;
+      line-height: 78px;
+      font-size: 62px;
+    }
   }
 
   &__description {
     font-size: 16px;
     line-height: 24px;
+
+    @include onTablet {
+      max-width: 250px;
+    }
+
+    @include onDesktop {
+      max-width: 276px
+    }
   }
 }
