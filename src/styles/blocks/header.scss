@@ -1,0 +1,50 @@
+.header {
+  margin: 0 auto;
+  max-width: 1230px;
+  padding: 25px 30px;
+
+  background: no-repeat center url();
+
+  @include onTablet {
+    padding: 30px 55px 140px;
+  }
+
+  @include onDesktop {
+    padding: 30px 15px 180px;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__actions-desktop {
+    display: none;
+    align-items: center;
+    gap: 40px;
+    @extend %secondary-text;
+    text-transform: uppercase;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__menu--toggler {
+    z-index: 9999;
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+
+    background: no-repeat center url("../images/menu/vector.svg");
+
+    &[aria-expanded="true"] {
+      background: no-repeat center url("../images/menu/menu-close.svg");
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}

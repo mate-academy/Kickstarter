@@ -1,0 +1,153 @@
+.benefits {
+  padding-top: 100px;
+  &__container {
+    margin: 0 auto;
+    max-width: 1230px;
+    padding: 0;
+
+    @include onTablet {
+      padding: 0 30px;
+    }
+
+    @include onDesktop {
+      padding: 0 15px;
+    }
+  }
+
+  &__content {
+    margin: 0 auto;
+    max-width: 350px;
+    padding: 0 20px;
+
+    @include onTablet {
+      max-width: none;
+    }
+  }
+
+  &__slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 110px;
+  }
+
+  &__slider-list {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0;
+    transition: transform $transition-duration;
+    margin-bottom: 0;
+    transform: translateX(0%);
+
+    @include onTablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-bottom: 170px;
+    }
+  }
+
+  &__article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-shrink: 0;
+    width: 100%;
+
+    @include onTablet {
+      flex-shrink: unset;
+      max-width: 350px;
+      justify-self: center;
+    }
+  }
+
+  &__next {
+    position: absolute;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  &__prev,
+  &__next {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -50px;
+    padding: 16px;
+    color: $color-tiffany-blue;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transition: color $transition-duration,
+      background-color $transition-duration;
+    z-index: 5;
+
+    &:hover {
+      background-color: $color-tiffany-blue;
+      color: $color-alice-blue;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__dot-container {
+    display: block;
+    text-align: center;
+    padding: 20px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 2px;
+    background-color: $color-azureish-white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color $transition-duration ease;
+
+    &:hover {
+      background-color: $color-tiffany-blue;
+    }
+  }
+
+  .benefits__dot--active {
+    background-color: $color-blue-green;
+  }
+
+  &__icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 30px;
+    transition: transform $transition-duration;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__title {
+    min-height: 60px;
+    margin-bottom: 40px;
+  }
+
+  &__text {
+    @extend %secondary-text;
+  }
+}
