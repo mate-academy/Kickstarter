@@ -21,31 +21,6 @@
     }
   }
 
-  &__item {
-    text-transform: uppercase;
-    font-size: 14px;
-    line-height: 20px;
-    color: $color-gray-2;
-    text-decoration: none;
-    transition: color 0.3s;
-
-    &-active {
-      color: $black-gray-color;
-    }
-
-    &:focus {
-      color: $black-gray-color;
-    }
-
-    &:hover {
-      color: $color-green;
-    }
-
-    @include onTablet {
-      line-height: 16px;
-    }
-  }
-
   &__slider {
     background-image: url(../images/Vector.svg);
     height: 14px;
@@ -71,6 +46,69 @@
 
     &:hover {
       background-color: $color-black-2;
+    }
+  }
+
+  &__language {
+    display: flex;
+    justify-content: space-between;
+    width: 55px;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__label--ua,
+  &__label--en {
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+    color: $color-gray-4;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $color-green;
+    }
+  }
+
+  &__toggle {
+
+    &:checked ~ .menu__lines .menu__line-top {
+      transform: rotate(45deg);
+    }
+
+    &:checked ~ .menu__lines .menu__line-bottom {
+      transform: rotate(-45deg);
+    }
+
+    &:checked ~ .menu__lines .menu__line-center {
+      width: 0;
+    }
+
+    &:checked ~ .nav__mobile {
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    &--en {
+      display: none;
+
+      &:checked ~ .menu__label--en {
+        font-weight: 700;
+        color: $color-black-2;
+      }
+    }
+
+    &--ua {
+      display: none;
+
+      &:checked ~ .menu__label--ua {
+        font-weight: 700;
+        color: $color-black-2;
+      }
     }
   }
 }
