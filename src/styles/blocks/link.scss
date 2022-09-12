@@ -1,0 +1,48 @@
+.link {
+  @extend %secondary-text;
+
+  display: inline-block;
+
+  transition: color $transition-duration;
+
+  padding: 0.94rem 0;
+
+  color: $color-dark-liver;
+
+  &:hover {
+    color: $color-tiffany-blue;
+  }
+
+  &--about {
+    @extend %button-text;
+
+    position: relative;
+
+    justify-content: flex-start;
+
+    color: $color-tiffany-blue;
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      display: block;
+
+      transition: width $transition-duration;
+
+      margin: auto;
+      width: 50%;
+      height: 0.13rem;
+
+      border-radius: 0.31rem;
+
+      background: $color-tiffany-blue;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

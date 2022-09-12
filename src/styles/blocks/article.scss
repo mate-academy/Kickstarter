@@ -1,0 +1,64 @@
+.article {
+  @include onTablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.88rem;
+    display: grid;
+  }
+
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+
+  &__image {
+    @include onTablet {
+      justify-self: center;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    transition: transform $transition-duration;
+    padding-bottom: 1.88rem;
+  }
+
+  &__content {
+    @include onTablet {
+      max-width: none;
+    }
+
+    max-width: 21.88rem;
+  }
+
+  &__title {
+    @include onTablet {
+      text-align: left;
+      padding-bottom: 1.88rem;
+    }
+
+    padding-bottom: 1.25rem;
+  }
+
+  &__text {
+    @extend %main-text;
+
+    @include onTablet {
+      margin-bottom: 3.75rem;
+    }
+
+    margin-bottom: 1.88rem;
+  }
+
+  &--reverse &__image {
+    grid-column: 2 / 3;
+  }
+
+  &--reverse &__content {
+    @include onTablet {
+      grid-row: 1 / 2;
+      padding-left: 1.88rem;
+    }
+
+    padding-left: 0;
+  }
+}

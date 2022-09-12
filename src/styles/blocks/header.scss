@@ -1,0 +1,52 @@
+.header {
+  @extend %container;
+
+  @include onTablet {
+    padding: 1.88rem 3.44rem 8.75rem;
+  }
+
+  @include onDesktop {
+    padding: 1.88rem 0.94rem 11.25rem;
+  }
+
+  padding: 1.56rem 1.88rem;
+
+  &__container {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+  }
+
+  &__actions-desktop {
+    @extend %secondary-text;
+
+    @include onTablet {
+      display: flex;
+    }
+
+    align-items: center;
+    gap: 2.5rem;
+    display: none;
+
+    text-transform: uppercase;
+  }
+
+  &__menu--toggler {
+    @include onTablet {
+      display: none;
+    }
+
+    z-index: 9999;
+    position: relative;
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    background: no-repeat center url("../images/menu/vector.svg");
+    cursor: pointer;
+
+    &[aria-expanded="true"] {
+      background: no-repeat center url("../images/menu/menu-close.svg");
+    }
+  }
+}
