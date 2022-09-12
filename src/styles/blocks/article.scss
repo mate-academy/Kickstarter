@@ -1,17 +1,15 @@
 .article {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
   @include onTablet {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+    display: grid;
   }
 
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+
   &__image {
-    transition: transform $transition-duration;
-    padding-bottom: 30px;
     @include onTablet {
       justify-self: center;
     }
@@ -19,33 +17,36 @@
     &:hover {
       transform: scale(1.1);
     }
+
+    transition: transform $transition-duration;
+    padding-bottom: 30px;
   }
 
   &__content {
-    max-width: 350px;
-
     @include onTablet {
       max-width: none;
     }
+
+    max-width: 350px;
   }
 
   &__title {
-    padding-bottom: 20px;
-
     @include onTablet {
       text-align: left;
       padding-bottom: 30px;
     }
+
+    padding-bottom: 20px;
   }
 
   &__text {
-    margin-bottom: 30px;
-
-    @extend %main-text;
+    @include main-text;
 
     @include onTablet {
       margin-bottom: 60px;
     }
+
+    margin-bottom: 30px;
   }
 
   &--reverse &__image {
@@ -53,11 +54,11 @@
   }
 
   &--reverse &__content {
-    padding-left: 0;
-
     @include onTablet {
       grid-row: 1 / 2;
       padding-left: 30px;
     }
+
+    padding-left: 0;
   }
 }

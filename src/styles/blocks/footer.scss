@@ -1,35 +1,37 @@
 .footer {
-  overflow-x: hidden;
-
-  padding: 0 30px;
-
-  position: relative;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
   @include onDesktop {
     padding: 0 15px 30px;
   }
 
+  position: relative;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+  overflow-x: hidden;
+
+  margin: 0 auto;
+  padding: 0 30px;
+
   &__arrow-up {
     position: fixed;
-
     left: 95%;
     bottom: 15%;
 
-    height: 25px;
-    width: 25px;
+    display: none;
 
-    color: $color-dark-charcoal;
-    text-decoration: none;
     transition: transform $transition-duration;
 
+    width: 25px;
+    height: 25px;
+
+    color: $color-dark-charcoal;
+
     &:hover {
-      color: $color-scobeloff;
       transform: scale(1.2);
+      color: $color-scobeloff;
     }
   }
 
@@ -38,30 +40,30 @@
   }
 
   &__socials {
-    width: 160px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-
     @include onDesktop {
       margin-bottom: 60px;
     }
+
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 30px;
+    width: 160px;
   }
 
   &__social {
     display: inline-block;
+    transition: color $transition-duration;
     width: 15px;
     height: 15px;
     color: $color-dark-charcoal;
-    transition: color $transition-duration;
     &:hover {
       color: $color-scobeloff;
     }
   }
 
   &__copyrights {
+    @include secondary-text;
     text-align: center;
-    @extend %secondary-text;
     color: $color-silver-gray;
   }
 }

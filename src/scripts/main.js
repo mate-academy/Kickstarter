@@ -1,5 +1,22 @@
 'use strict';
 
+// PREVENT PAGE RELOAD WHEN SUBMIT //
+
+const form = document.querySelector('.contact__form');
+const inputs = document.querySelectorAll('.contact__field');
+
+function handler(event) {
+  event.preventDefault();
+
+  inputs.forEach((input) => {
+    input.value = '';
+  });
+}
+
+form.addEventListener('submit', handler);
+
+// HAMBURGER MENU //
+
 const menu = document.querySelector('.menu');
 const menuLinks = document.querySelectorAll('.menu__links');
 const navToggle = document.querySelector('.header__menu--toggler');
@@ -105,3 +122,19 @@ featureNext.addEventListener('click', () => {
 featurePrev.addEventListener('click', () => {
   moveTo(currentPosition - 1);
 });
+
+// TO-TOP BUTTON
+
+const arrow = document.querySelector('.footer__arrow-up');
+
+window.onscroll = function() {
+  enableButton();
+};
+
+function enableButton() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    arrow.style.display = 'block';
+  } else {
+    arrow.style.display = 'none';
+  }
+}

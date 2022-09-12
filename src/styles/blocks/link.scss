@@ -1,46 +1,45 @@
 .link {
+  @include secondary-text;
+
   display: inline-block;
-
-  padding: 15px 0;
-
-  @extend %secondary-text;
-  color: $color-dark-liver;
-  text-decoration: none;
 
   transition: color $transition-duration;
 
+  padding: 0.94rem 0;
+
+  color: $color-dark-liver;
+
   &:hover {
-    color: $color-scobeloff;
+    color: $color-tiffany-blue;
   }
 
   &--about {
-    position: relative;
-    justify-content: flex-start;
+    @include button-text;
 
-    @extend %button-text;
+    position: relative;
+
+    justify-content: flex-start;
 
     color: $color-tiffany-blue;
 
-    &:hover {
-      color: $color-tiffany-blue;
-    }
-
     &::after {
       content: "";
-      display: block;
 
       position: absolute;
       left: 0;
       bottom: 0;
 
-      margin: auto;
-      width: 50%;
-      height: 2px;
-
-      background: $color-tiffany-blue;
-      border-radius: 5px;
+      display: block;
 
       transition: width $transition-duration;
+
+      margin: auto;
+      width: 50%;
+      height: 0.13rem;
+
+      border-radius: 0.31rem;
+
+      background: $color-tiffany-blue;
     }
     &:hover::after {
       width: 100%;

@@ -1,126 +1,135 @@
 .benefits {
-  padding-top: 100px;
+  padding-top: 6.25rem;
+
   &__container {
-    margin: 0 auto;
-    max-width: 1230px;
-    padding: 0;
+    @include container;
 
     @include onTablet {
-      padding: 0 30px;
+      padding: 0 1.88rem;
     }
 
     @include onDesktop {
-      padding: 0 15px;
+      padding: 0 0.94rem;
     }
+
+    padding: 0;
   }
 
   &__content {
-    margin: 0 auto;
-    max-width: 350px;
-    padding: 0 20px;
-
     @include onTablet {
       max-width: none;
     }
+
+    margin: 0 auto;
+    max-width: 21.88rem;
+    padding: 0 1.25rem;
   }
 
   &__slider-wrapper {
     position: relative;
     overflow: hidden;
-    margin-bottom: 110px;
+    margin-bottom: 6.88rem;
   }
 
   &__slider-list {
-    display: flex;
     justify-content: flex-start;
     gap: 0;
+    display: flex;
+    transform: translateX(0%);
     transition: transform $transition-duration;
     margin-bottom: 0;
-    transform: translateX(0%);
 
     @include onTablet {
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
       justify-content: center;
-      margin-bottom: 140px;
+      gap: 1.25rem;
+      display: grid;
+      margin-bottom: 8.75rem;
     }
 
     @include onDesktop {
-      display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-      margin-bottom: 170px;
+      gap: 1.88rem;
+      margin-bottom: 10.63rem;
     }
   }
 
   &__article {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     flex-shrink: 0;
+    display: flex;
     width: 100%;
+    text-align: center;
 
     @include onTablet {
-      flex-shrink: unset;
-      max-width: 350px;
       justify-self: center;
+      flex-shrink: unset;
+      max-width: 21.88rem;
     }
   }
 
   &__next {
     position: absolute;
     right: 0;
-    border-radius: 3px 0 0 3px;
+    border-radius: 0.19rem 0 0 0.19rem;
   }
 
   &__prev,
   &__next {
-    display: block;
-    cursor: pointer;
+    @include onTablet {
+      display: none;
+    }
+
     position: absolute;
+    z-index: 5;
     top: 50%;
-    width: auto;
-    margin-top: -50px;
-    padding: 16px;
-    color: $color-tiffany-blue;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 0 3px 3px 0;
+
+    display: block;
     user-select: none;
+
     transition: color $transition-duration,
       background-color $transition-duration;
-    z-index: 5;
+
+    margin-top: -3.13rem;
+    border-radius: 0 0.19rem 0.19rem 0;
+    width: auto;
+    padding: 1rem;
+
+    cursor: pointer;
+
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: $color-tiffany-blue;
 
     &:hover {
       background-color: $color-tiffany-blue;
       color: $color-alice-blue;
     }
-
-    @include onTablet {
-      display: none;
-    }
   }
 
   &__dot-container {
-    display: block;
-    text-align: center;
-    padding: 20px;
-
     @include onTablet {
       display: none;
     }
+
+    display: block;
+    padding: 1.25rem;
+    text-align: center;
   }
 
   &__dot {
-    cursor: pointer;
-    height: 10px;
-    width: 10px;
-    margin: 0 2px;
-    background-color: $color-azureish-white;
-    border-radius: 50%;
     display: inline-block;
+
+    margin: 0 0.13rem;
+    border-radius: 50%;
+    width: 0.63rem;
+    height: 0.63rem;
+
     transition: background-color $transition-duration ease;
+
+    background-color: $color-azureish-white;
+    cursor: pointer;
 
     &:hover {
       background-color: $color-tiffany-blue;
@@ -132,9 +141,10 @@
   }
 
   &__icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 1.88rem;
+    width: 3.13rem;
+    height: 3.13rem;
+
     transition: transform $transition-duration;
 
     &:hover {
@@ -143,11 +153,11 @@
   }
 
   &__title {
-    min-height: 60px;
-    margin-bottom: 40px;
+    min-height: 3.75rem;
+    margin-bottom: 2.5rem;
   }
 
   &__text {
-    @extend %secondary-text;
+    @include secondary-text;
   }
 }

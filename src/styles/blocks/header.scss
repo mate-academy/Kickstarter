@@ -1,50 +1,52 @@
 .header {
-  margin: 0 auto;
-  max-width: 1230px;
-  padding: 25px 30px;
-
-  background: no-repeat center url();
+  @include container;
 
   @include onTablet {
-    padding: 30px 55px 140px;
+    padding: 1.88rem 3.44rem 8.75rem;
   }
 
   @include onDesktop {
-    padding: 30px 15px 180px;
+    padding: 1.88rem 0.94rem 11.25rem;
   }
 
+  padding: 1.56rem 1.88rem;
+
   &__container {
-    display: flex;
     justify-content: space-between;
     align-items: center;
+    display: flex;
   }
 
   &__actions-desktop {
-    display: none;
-    align-items: center;
-    gap: 40px;
-    @extend %secondary-text;
-    text-transform: uppercase;
+    @include secondary-text;
 
     @include onTablet {
       display: flex;
     }
+
+    align-items: center;
+    gap: 2.5rem;
+    display: none;
+
+    text-transform: uppercase;
   }
 
   &__menu--toggler {
+    @include onTablet {
+      display: none;
+    }
+
     z-index: 9999;
     position: relative;
-    width: 1.5rem;
-    height: 1.5rem;
-    cursor: pointer;
+
+    width: 24px;
+    height: 24px;
+
     background: no-repeat center url("../images/menu/vector.svg");
+    cursor: pointer;
 
     &[aria-expanded="true"] {
       background: no-repeat center url("../images/menu/menu-close.svg");
-    }
-
-    @include onTablet {
-      display: none;
     }
   }
 }
