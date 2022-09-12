@@ -19,6 +19,7 @@ menuCloseButton.addEventListener('click', (e) => {
 });
 
 // ============ Form Event ==============
+
 formSubmit.addEventListener('click', (e) => {
   e.preventDefault();
 

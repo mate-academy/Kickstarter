@@ -14,18 +14,23 @@
   @include hover(font-weight, bold);
 }
 
-@mixin button {
+@mixin button($bg) {
   width: 100px;
   outline: none;
   padding: 13px 0;
   border: 1px solid transparent;
   text-align: center;
   text-decoration: none;
+  background-color: $bg;
   cursor: pointer;
+
   transition: transform $transition-duration;
+
   &:active {
     transform: scale(0.9);
   }
+
+  @include hover(background-color, lighten($bg, $amount: 5%));
 }
 
 @mixin onTablet {
