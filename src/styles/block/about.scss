@@ -1,0 +1,120 @@
+.about {
+  margin-bottom: 116px;
+
+  @include onTablet {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__container {
+    @include onTablet {
+      padding: 0;
+      width: 340px;
+    }
+
+    @include onDesktop {
+      width: 582px;
+    }
+  }
+
+  &__foto {
+    @include onTablet {
+      background-image: url(../images/about-tablet.svg);
+      background-repeat: no-repeat;
+      width: 375px;
+      height: 415px;
+      transition: 0.5s;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(0.95);
+        filter: drop-shadow(3px 3px 12px #000);
+      }
+    }
+
+    @include onDesktop {
+      background-image: url(../images/about-descktop.svg);
+      width: 582px;
+      // height: 388px;
+      // padding-left: 123px;
+      margin-left: 123px;
+    }
+  }
+
+  &__title {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $colorBlack;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 36px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__img {
+    background-image: url(../images/about-mobile.svg);
+    height: 210px;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(3px 3px 12px #000);
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__text {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #7c7c7c;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 16px;
+      margin-bottom: 60px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #0db2b3;
+
+    &::after {
+      display: block;
+      content: "";
+      color: aliceblue;
+      height: 1.5px;
+      width: 53px;
+      background-color: #0db2b3;
+      margin-top: 5px;
+      transition: width 0.5s;
+    }
+
+    &:hover::after {
+      width: 128px;
+    }
+  }
+}
