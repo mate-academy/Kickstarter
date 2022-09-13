@@ -11,11 +11,13 @@ const formSubmit = document.querySelector('.form__button');
 menuOpenButton.addEventListener('click', (e) => {
   e.preventDefault();
   navbarMobile.classList.toggle('navbar-mobile--active');
+  document.body.classList.toggle('page__body--scroll');
 });
 
 menuCloseButton.addEventListener('click', (e) => {
   e.preventDefault();
   navbarMobile.classList.toggle('navbar-mobile--active');
+  document.body.classList.toggle('page__body--scroll');
 });
 
 // ============ Form Event ==============
