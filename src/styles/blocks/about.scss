@@ -24,11 +24,15 @@
     height: 100%;
     max-width: 582px;
     max-height: 388px;
+    overflow: hidden;
+
+    @include hover(transform, scale(1.1));
   }
 
   &__photo-container {
     height: 100%;
     grid-row: 2/3;
+    overflow: hidden;
 
     @include onTablet {
       grid-row: 1/4;
@@ -78,11 +82,16 @@
     &::before {
       content: "";
       height: 2px;
-      width: 53px;
+      width: 0;
       background-color: $btn-color;
       position: absolute;
       bottom: 0;
       left: 0;
+      transition: width $transition-duration;
+    }
+
+    &:hover::before {
+      width: 53px;
     }
   }
 }
