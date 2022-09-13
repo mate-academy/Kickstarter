@@ -25,6 +25,21 @@
     align-items: center;
   }
 
+  &__icon {
+    width: 50px;
+    height: 40px;
+    margin-bottom: 40px;
+
+    fill: $darkLightColor;
+
+    cursor: pointer;
+    transition: transform $transitionDuration;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
   &__title {
     margin-bottom: 20px;
 
@@ -36,22 +51,6 @@
 
     @include onDesktop {
       margin-bottom: 24px;
-    }
-
-    @for $title from 1 through 4 {
-      &--#{$title}::before {
-        content: "";
-
-        display: block;
-        width: 50px;
-        height: 50px;
-        margin: 0 auto 40px;
-
-        background-image: url("../images/about-icon_#{$title}.svg");
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-      }
     }
   }
 
