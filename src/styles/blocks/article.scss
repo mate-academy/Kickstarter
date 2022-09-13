@@ -1,0 +1,115 @@
+.article {
+  @include onTablet {
+    display: flex;
+    gap: 20px;
+  }
+
+  @include onDesktop {
+    gap: 30px;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    font-size: $fSize30;
+    line-height: 40px;
+    font-weight: $fWeightBold;
+    text-transform: uppercase;
+    color: $primaryBlackColor;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    &--mobile {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &__img-container {
+    display: block;
+    max-width: 260px;
+    margin-bottom: 20px;
+
+    transition: transform $transitionDuration;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onTablet {
+      max-width: 374px;
+      margin: 0;
+    }
+
+    @include onDesktop {
+      max-width: 582px;
+    }
+
+    &--reverse {
+      @include onTablet {
+        order: 2;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__description {
+    @include onTablet {
+      width: 50%;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    font-size: $fSize14;
+    line-height: 21px;
+    color: $grayDarkColor;
+  }
+
+  &__link {
+    display: block;
+    width: max-content;
+    padding-bottom: 5px;
+
+    font-size: $fSize12;
+    line-height: 14px;
+    font-weight: $fWeightBold;
+    color: $secondaryGreenHover;
+
+    &::after {
+      content: "";
+
+      display: block;
+      width: 40%;
+      height: 1px;
+
+      background-color: $secondaryGreenHover;
+      transition: width $transitionDuration;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

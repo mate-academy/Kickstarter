@@ -1,0 +1,72 @@
+.features {
+  &__title {
+    margin-bottom: 32px;
+
+    font-size: $fSize30;
+    line-height: 40px;
+    font-weight: $fWeightBold;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: $fSize36;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: $fSize56;
+      line-height: 70px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px;
+
+    background-color: $lightGreenColor;
+    background-image: url("../images/features-mobile.png");
+    background-blend-mode: darken;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+
+    @include onTablet {
+      background-size: initial;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--desktop {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 56px 0;
+
+      padding: 60px 100px;
+
+      @include onDesktop {
+        display: grid;
+
+        background-image: url("../images/features-desktop.png");
+      }
+    }
+  }
+
+  &__slides-wrapper {
+    overflow: hidden;
+  }
+
+  &__slides {
+    display: flex;
+
+    transition: transform $transitionDuration;
+  }
+
+  &__feature {
+    flex-shrink: 0;
+    width: 100%;
+  }
+}

@@ -1,0 +1,89 @@
+.feature {
+  display: flex;
+  flex-direction: column;
+
+  &--mobile {
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-size: $fSize18;
+    line-height: 22px;
+    font-weight: $fWeightBold;
+    text-transform: uppercase;
+    color: $primaryGreenHoverColor;
+
+    @include onTablet {
+      font-size: $fSize24;
+      line-height: 30px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+
+      font-size: $fSize34;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-bottom: 50px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    font-size: $fSize14;
+    line-height: 21px;
+
+    &::before {
+      content: "";
+
+      width: 4px;
+      height: 4px;
+      margin-right: 10px;
+
+      border-radius: 50%;
+      background-color: #333;
+    }
+
+    @include onDesktop {
+      font-size: $fSize16;
+      line-height: 24px;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 176px;
+  }
+
+  &__buttons {
+    margin-bottom: 20px;
+  }
+
+  &__arrow {
+    padding: 0;
+
+    background-color: transparent;
+    border: 1px solid transparent;
+    outline: none;
+  }
+
+  &__icon {
+    width: 48px;
+    height: 14px;
+
+    fill: $primaryBlackColor;
+  }
+}

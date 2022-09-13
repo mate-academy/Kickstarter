@@ -1,0 +1,82 @@
+.about {
+  --columns-count: 1;
+
+  &__content {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(var(--columns-count), minmax(260px, 340px));
+    gap: 60px;
+
+    margin-bottom: 110px;
+
+    @include onTablet {
+      --columns-count: 2;
+    }
+
+    @include onDesktop {
+      --columns-count: 4;
+      gap: 30px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 50px;
+    height: 40px;
+    margin-bottom: 40px;
+
+    fill: $darkLightColor;
+
+    cursor: pointer;
+    transition: transform $transitionDuration;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-size: $fSize22;
+    line-height: 28px;
+    font-weight: $fWeightBold;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include onDesktop {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__description {
+    font-size: $fSize14;
+    line-height: 21px;
+    text-align: center;
+    color: $grayDarkColor;
+  }
+
+  &__img-container {
+    display: block;
+    max-width: 340px;
+    width: 100%;
+    margin: 0 auto;
+
+    @include onTablet {
+      max-width: 700px;
+    }
+
+    @include onDesktop {
+      max-width: 846px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+  }
+}
