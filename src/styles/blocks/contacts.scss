@@ -5,6 +5,12 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 20px;
+    }
   }
 
   &__title {
@@ -12,7 +18,12 @@
     font-size: 30px;
     line-height: 40px;
     text-transform: uppercase;
-    color: #333;
+    color: $c-dark-gray;
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
   }
 
   &__form {
@@ -24,7 +35,7 @@
   &__email {
     font-size: 14px;
     line-height: 24px;
-    color: #333;
+    color: $c-deep-gray;
     width: 100%;
     padding: 12px 20px;
     border-radius: 0;
@@ -36,14 +47,14 @@
       font-family: "Inter", Arial, sans-serif;
       font-size: 16px;
       line-height: 24px;
-      color: #bdbdbd;
+      color: $c-light-gray;
     }
   }
 
   &__message {
     font-size: 14px;
     line-height: 24px;
-    color: #333;
+    color: $c-deep-gray;
     width: 100%;
     height: 260px;
     padding: 12px 20px;
@@ -53,11 +64,19 @@
     resize: none;
     transition: border-color 0.3s;
 
+    @include onTablet {
+      height: 200px;
+    }
+
+    @include onDesktop {
+      height: 128px;
+    }
+
     &::placeholder {
       font-family: "Inter", Arial, sans-serif;
       font-size: 16px;
       line-height: 24px;
-      color: #bdbdbd;
+      color: $c-light-gray;
     }
   }
 }
