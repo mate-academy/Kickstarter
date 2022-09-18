@@ -15,3 +15,16 @@ swiper = new Swiper('.swiper', {
     el: '.swiper-scrollbar',
   },
 });
+
+// eslint-disable-next-line no-undef
+swiper2 = new Swiper('.slider2', {
+  pagination: {
+    el: '.features__swiper-pagination',
+    type: 'fraction',
+  },
+
+  navigation: {
+    nextEl: '.features__swiper-button-next',
+    prevEl: '.features__swiper-button-prev',
+  },
+});

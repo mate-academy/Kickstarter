@@ -1,20 +1,16 @@
 .benefits {
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: none;
 
     @include onTablet {
-      flex-direction: row;
+      display: flex;
       flex-wrap: wrap;
       align-items: normal;
       gap: 60px 30px;
     }
 
     @include onDesktop {
-      flex-direction: row;
       align-items: normal;
       gap: 30px;
       flex-wrap: nowrap;
@@ -65,5 +61,28 @@
     line-height: 21px;
     text-align: center;
     color: #7c7c7c;
+  }
+
+  &__swiper {
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 0;
+    padding: 0 28px;
+    height: 300px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .swiper-pagination-bullet {
+    background-color: $c-aqua;
   }
 }
