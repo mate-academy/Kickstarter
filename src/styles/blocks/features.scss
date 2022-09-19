@@ -88,6 +88,17 @@
     }
   }
 
+  &__swiper {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 28px;
+    height: 450px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
   &__wrapper {
     display: none;
 
@@ -102,6 +113,20 @@
     }
   }
 
+  &__swiper-image {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__swiper-slide {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    min-height: 276px;
+    margin-bottom: 50px;
+  }
+
   &__swiper-elements {
     display: flex;
     justify-content: center;
@@ -113,10 +138,33 @@
   }
 
   &__swiper-button-next {
-    background-image: url(../images/icons/arrow-left.svg);
+    background-image: url(../images/icons/arrow-right.svg);
+    background-repeat: no-repeat;
   }
 
   &__swiper-button-prev {
-    background-image: url(../images/icons/arrow-right.svg);
+    display: flex;
+    position: absolute;
+    background-image: url(../images/icons/arrow-left.svg);
+    background-repeat: no-repeat;
+  }
+
+  &__swiper-pagination {
+    display: none;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    content: "";
+  }
+
+  .swiper-button-next {
+    right: 50px;
+    width: 30%;
+  }
+
+  .swiper-button-prev {
+    left: 120px;
+    width: 30%;
   }
 }

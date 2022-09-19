@@ -1,7 +1,7 @@
 'use strict';
 
-// eslint-disable-next-line no-undef
-swiper = new Swiper('.swiper', {
+// eslint-disable-next-line no-undef, no-unused-vars
+const swiper = new Swiper('.slider1', {
   pagination: {
     el: '.swiper-pagination',
   },
@@ -16,15 +16,14 @@ swiper = new Swiper('.swiper', {
   },
 });
 
-// eslint-disable-next-line no-undef
-swiper2 = new Swiper('.slider2', {
+// eslint-disable-next-line no-undef, no-unused-vars
+const swiper2 = new Swiper('.slider2', {
   pagination: {
-    el: '.features__swiper-pagination',
-    type: 'fraction',
+    el: '.swiper-pagination',
   },
 
   navigation: {
-    nextEl: '.features__swiper-button-next',
-    prevEl: '.features__swiper-button-prev',
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
   },
 });
