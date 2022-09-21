@@ -1,20 +1,26 @@
 .info {
   margin-bottom: 110px;
 
-  &__logo {
-    background-image: url(../images/image-top.png);
-    background-size: cover;
-    background-position: 10%;
-    height: 245px;
-    width: 100%;
+  @include onTablet {
+    margin-bottom: 140px;
+  }
 
-    margin-bottom: 40px;
+  @include onTablet {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    align-items: center;
   }
 
   &__text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include onTablet {
+      width: 220px;
+    }
+  }
+
+  &__logo {
+    width: 100%;
+    margin-bottom: 40px;
   }
 
   &__title {
@@ -23,12 +29,16 @@
     font-size: 40px;
     line-height: 52px;
     text-transform: uppercase;
-
-    width: 260px;
-    height: 156px;
+    min-width: 260px;
 
     color: $textColor;
     margin-bottom: 20px;
+
+    @include onTablet {
+      width: 340px;
+      font-size: 48px;
+      line-height: 62px;
+    }
   }
 
   &__paragraph {
@@ -36,10 +46,12 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-
-    width: 260px;
-    height: 120px;
+    min-width: 260px;
 
     color: $textColor;
+
+    @include onTablet {
+      width: 250px;
+    }
   }
 }

@@ -1,18 +1,25 @@
 .benefits {
   margin-bottom: 110px;
 
-  &__first {
+  @include onTablet {
+    margin-bottom: 140px;
+  }
+
+  &__content {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 60px 20px;
+    }
   }
 
-  &__logo {
-    background-image: url(../images/benefits/benefits-1.png);
-    width: 50px;
-    height: 40px;
-
-    margin-bottom: 40px;
+  &__icon {
+    display: block;
+    margin: 0 auto 40px;
   }
 
   &__title {
@@ -33,18 +40,26 @@
     font-size: 14px;
     line-height: 21px;
     text-align: center;
-    width: 260px;
+    min-width: 260px;
 
     color: #7c7c7c;
-    margin-bottom: 110px;
   }
 
-  &__image {
-    background-image: url(../images/section.png);
-    background-repeat: no-repeat;
-    background-position: 10%;
-    background-size: cover;
-    height: 195px;
+  &__image-section {
+    padding-top: 110px;
+    max-height: 600px;
     width: 100%;
+
+    @include onTablet {
+      padding-top: 140px;
+    }
+  }
+
+  &__block-tablet {
+    display: none;
+
+    @include onTablet {
+      display: unset;
+    }
   }
 }
