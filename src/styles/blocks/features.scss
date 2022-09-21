@@ -1,6 +1,10 @@
 .features {
   margin-bottom: 90px;
 
+  @include onDesktop {
+    margin-bottom: 170px;
+  }
+
   &__title {
     font-family: "Inter", Arial, sans-serif;
     font-weight: 700;
@@ -10,21 +14,43 @@
 
     color: $textColor;
     margin-bottom: 32px;
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
   }
 
-  &__block {
-    height: 575px;
-    background: #d6ecec;
-
-    background-image: url(../images/features.svg);
-    background-repeat: no-repeat;
-    background-size: 320px 170px;
-    background-position: 100% 100%;
-    background-blend-mode: darken;
+  &__container-box {
+    position: relative;
+    background-color: #d6ecec;
+    padding: 32px 32px 174px;
+    margin: 0 -30px;
 
     @include onTablet {
-      margin: 0 30px;
-      height: 500px;
+      padding: 60px 90px 224px;
+      margin: 0;
+    }
+
+    @include onDesktop {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 100px;
+      gap: 0 100px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    bottom: 0;
+    right: 1px;
+    height: 175px;
+
+    @include onDesktop {
+      height: 302px;
+      right: 48px;
     }
   }
 
@@ -41,10 +67,10 @@
     text-transform: uppercase;
 
     color: #0c797a;
-    padding: 32px 30px 20px;
 
-    @include onTablet {
-      padding: 60px 90px 0;
+    @include onDesktop {
+      font-size: 34px;
+      line-height: 42px;
     }
   }
 
@@ -57,11 +83,7 @@
     color: $textColor;
 
     margin: 0 0 50px;
-
-    @include onTablet {
-      width: 244px;
-      padding: 10px 105px 0;
-    }
+    padding: 10px 20px;
   }
 
   &__text {
@@ -79,7 +101,10 @@
 
     @include onTablet {
       align-items: flex-start;
-      padding-left: 100px;
+    }
+
+    @include onDesktop {
+      display: none;
     }
   }
 
@@ -104,5 +129,13 @@
     color: #0c797a;
     font-size: 11px;
     line-height: 13px;
+  }
+
+  &__block-desktop {
+    display: none;
+
+    @include onDesktop {
+      display: unset;
+    }
   }
 }

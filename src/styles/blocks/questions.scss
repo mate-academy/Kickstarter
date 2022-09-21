@@ -1,12 +1,17 @@
 .questions {
   margin-bottom: 110px;
 
+  @include onDesktop {
+    margin-bottom: 170px;
+  }
+
   &__block {
     display: flex;
     flex-direction: column;
 
     @include onTablet {
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
     }
   }
 
@@ -19,15 +24,17 @@
 
     color: $textColor;
     margin-bottom: 27px;
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+      width: 580px;
+    }
   }
 
   &__form {
     display: flex;
     flex-direction: column;
-
-    @include onTablet {
-      width: 400px;
-    }
   }
 
   &__email {
