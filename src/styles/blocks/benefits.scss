@@ -13,11 +13,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 110px;
 
     @include onTablet {
       display: grid;
       grid-template-columns: repeat(2,1fr);
       gap: 60px 20px;
+      margin-bottom: 140px;
     }
 
     @include onDesktop {
@@ -25,6 +27,15 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: baseline;
+      margin-bottom: 170px;
+    }
+  }
+
+  &__block {
+    @include hover(transform, 0.5s);
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
 
@@ -54,14 +65,20 @@
     min-width: 260px;
 
     color: #7c7c7c;
+
+    @include onDesktop {
+      width: 276px;
+    }
   }
 
   &__image-section {
-    padding-top: 110px;
     width: 100%;
 
-    @include onTablet {
-      padding-top: 140px;
+    @include hover(all, 0.5s);
+
+    &:hover {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 10px #000;
     }
   }
 
