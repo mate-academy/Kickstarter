@@ -1,0 +1,83 @@
+.menu {
+  box-sizing: border-box;
+  background-color: #d0d0d0;
+  opacity: 0;
+  display: block;
+  height: 100vh;
+  padding: 28px 0;
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  left: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s;
+
+  &:target {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  &__mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 36px;
+  }
+
+  &__cross {
+    width: 22px;
+    height: 26px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-image: url(../images/cross.svg);
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    margin-bottom: 100px;
+    padding: 0;
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 17px;
+    color: #4f4f4f;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include hover(color, 0.5s);
+
+    &:hover {
+      color: #39bebf;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 48px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    background-color: #333;
+
+    @include hover(all, 0.5s);
+
+    &:hover {
+      background-color: #131313;
+    }
+  }
+}
