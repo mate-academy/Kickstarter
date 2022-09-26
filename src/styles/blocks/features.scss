@@ -22,6 +22,12 @@
     line-height: 22px;
     color: $c-theme-dark;
     margin-bottom: 20px;
+
+    @include onDesktop {
+      font-size: 34px;
+      line-height: 42px;
+      margin-bottom: 30px;
+    }
   }
 
   &__list {
@@ -32,8 +38,12 @@
   &__item {
     font-size: 14px;
     line-height: 21px;
-    color: $c-gray;
+    color: $c-black-gray;
     margin-bottom: 10px;
+
+    @include onDesktop {
+      font-size: 16px;
+    }
   }
 
   &__swiper-elements {
@@ -62,6 +72,15 @@
 
     &:hover::before {
       color: $c-gray;
+    }
+  }
+
+  &__swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include onMobile {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 

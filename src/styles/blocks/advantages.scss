@@ -1,4 +1,25 @@
 .advantages {
+  &__content {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 64px 20px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include onMobile {
+    }
+  }
+
+  &__block {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
   &__icon {
     display: block;
     margin: 0 auto;
@@ -28,6 +49,8 @@
     z-index: 0;
     padding: 0 28px;
     height: 360px;
+
+    
   }
 
   .swiper-pagination-bullet {
@@ -46,30 +69,5 @@
     &__swiper {
       display: none;
     }
-  }
-
-  &__content {
-    display: none;
-
-    @include onTablet {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 64px 20px;
-    }
-
-    @include onDesktop {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    @include onMobile {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-  }
-
-  &__block {
-    width: 100%;
   }
 }
