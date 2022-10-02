@@ -21,11 +21,16 @@
     width: 260px;
     height: 212px;
     margin: 0 auto;
+    transition: 0.5s;
     @include image;
 
     @include tablet {
       margin: 0;
       order: 2;
+    }
+
+    &:hover {
+      transform: scale(1.05);
     }
 
     &::before {
@@ -112,10 +117,6 @@
     margin-bottom: 116px;
     transition: color 0.3s;
 
-    &:hover {
-      color: $secon-title-colour;
-    }
-
     @include tablet {
       margin-bottom: 0;
     }
@@ -128,6 +129,15 @@
       width: 64px;
       height: 1px;
       background-color: $main-link-colour;
+      transition: width 0.5s;
+    }
+
+    &:hover {
+      color: $secon-title-colour;
+
+      &::after {
+        width: 126px;
+      }
     }
   }
 }
