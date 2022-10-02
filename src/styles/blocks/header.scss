@@ -12,33 +12,43 @@
       padding: 30px 124px 0;
     }
   }
-  
+
+  &__menu {
+    display: none;
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+    }
+  }
   &__nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   &__logo {
     width: $logoWidth;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__language {
-    display: none;
     font-family: inherit;
     text-transform: uppercase;
-
-    @include onTablet {
-      display: inline-block;
-    }
-
-    @include onDesktop {
-      display: inline-block;
-    }
   }
 
   &__language-en {
     color: $textColor;
     text-decoration: none;
+    transition: color 0.5s;
 
     &:hover {
       color: $blueColor;
@@ -49,6 +59,7 @@
     color: $greyColor;
     margin-right: 26px;
     text-decoration: none;
+    transition: color 0.5s;
 
     &:hover {
       color: $blueColor;
@@ -56,7 +67,6 @@
   }
   
   &__buy {
-    display: none;
     width: 102px;
     background-color: $textColor;
     color: $whiteColor;
@@ -69,7 +79,7 @@
     text-decoration: none;
     padding: 16px;
     cursor: pointer;
-    transition: background-color 0.5s;
+    transition: color 0.5s;
 
     &:hover {
       background-color: #131313;
@@ -79,20 +89,16 @@
       background-color: #d0d0d0;
     }
 
-    @include onTablet {
-      display: inline-block;
-    }
-
     @include onDesktop {
       font-weight: 700;
     }
   }
+
   &__specs {
-    display: none;
     margin-right: 26px;
+    transition: color 0.5s;
 
     @include onTablet {
-      display: inline-block;
       font-family: Inter, Arial, sans-serif;
       font-style: normal;
       font-size: 14px;
@@ -103,7 +109,6 @@
     }
 
     @include onDesktop {
-      display: inline-block;
       font-family: Inter, Arial, sans-serif;
       font-style: normal;
       font-size: 14px;
