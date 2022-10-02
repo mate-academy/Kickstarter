@@ -1,0 +1,102 @@
+.our-story {
+  &__container {
+    display: flex;
+    justify-content: center;
+
+    @include tablet {
+      flex-wrap: wrap;
+    }
+
+    @include desktop {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__item {
+    display: none;
+
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 110px auto 0;
+
+      @include tablet {
+        margin: 0;
+      }
+    }
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 64px;
+
+      &:not(:nth-child(even)) {
+        margin-right: 20px;
+      }
+    }
+
+    @include desktop {
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  &__img-container {
+    width: 70px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__img {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__text {
+    padding-top: 40px;
+    display: block;
+
+    @include tablet {
+      padding-top: 50px;
+    }
+
+    @include desktop {
+      padding-top: 36px;
+    }
+  }
+
+  &__title {
+    @include text(22px, 700, 28px);
+    text-align: center;
+    text-transform: uppercase;
+    color: $main-text-colour;
+    display: block;
+    height: 56px;
+  }
+
+  &__paragraph {
+    width: 260px;
+    display: block;
+    @include text(14px, 400, 21px);
+    text-align: center;
+    color: $secondary-text-colour;
+
+    @include tablet {
+      width: 340px;
+    }
+
+    @include desktop {
+      width: 276px;
+      margin-top: 24px;
+    }
+  }
+}

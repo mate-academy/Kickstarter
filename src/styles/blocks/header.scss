@@ -1,0 +1,97 @@
+.header {
+  min-height: 100vh;
+
+  &__logo {
+    padding: 25px 0 25px 30px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include tablet {
+      padding: 0;
+    }
+  }
+
+  &__main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+  }
+
+  &__image {
+    width: 320px;
+    height: 245px;
+    order: 1;
+    margin: 0 auto;
+    background-image: url(../images/header/phoneimg.png);
+
+    @include tablet {
+      position: absolute;
+      background-image: url(../images/header/tablet.png);
+      width: 430px;
+      height: 316px;
+      order: 2;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+
+    @include desktop {
+      background-image: url(../images/header/spheres.png);
+      width: 816px;
+      height: 464px;
+      order: 2;
+    }
+  }
+
+  &__text {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 30px 0;
+
+    @include tablet {
+      padding: 0;
+      order: 1;
+    }
+  }
+
+  &__title {
+    @include text(40px, 700, 52px);
+    text-transform: uppercase;
+    color: $main-text-colour;
+    margin: 0 auto;
+    width: 260px;
+
+    @include tablet {
+      @include text(48px, 700, 62px);
+      width: 340px;
+      margin: 0;
+    }
+
+    @include desktop {
+      @include text(62px, 700, 78px);
+    }
+  }
+
+  &__paragraph {
+    margin: 0 auto;
+    padding-top: 20px;
+    @include text(16px, 400, 24px);
+    color: $main-text-colour;
+    width: 260px;
+
+    @include tablet {
+      padding-top: 30px;
+      margin: 0;
+    }
+  }
+}

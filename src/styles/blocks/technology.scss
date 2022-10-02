@@ -1,0 +1,143 @@
+.technology {
+  &__luna {
+    margin-top: 176px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include tablet {
+      flex-direction: row;
+      margin: 140px 0 136px;
+    }
+
+    @include tablet {
+      margin: 165px 0 162px;
+    }
+  }
+
+  &__img-container {
+    position: relative;
+    background-image: url(../images/tech/eyemob.png);
+    width: 260px;
+    height: 212px;
+    margin: 0 auto;
+    transition: 0.5s;
+    @include image;
+
+    @include tablet {
+      margin: 0;
+      order: 2;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &::before {
+      position: absolute;
+      top: -66px;
+      content: "Luna Eye";
+      font-family: "Inter", sans-serif;
+      @include text(36px, 700, 46px);
+      text-transform: uppercase;
+      color: $main-text-colour;
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    @include tablet {
+      background-image: url(../images/tech/eyetab.png);
+      width: 374px;
+      height: 414px;
+    }
+
+    @include desktop {
+      background-image: url(../images/tech/eyedesk.png);
+      width: 582px;
+      height: 388px;
+    }
+  }
+
+  &__text {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 260px;
+    margin: 0 auto;
+
+    @include tablet {
+      order: 1;
+      justify-content: flex-start;
+      width: 340px;
+    }
+
+    @include desktop {
+      width: 582px;
+      margin: 0 30px 0 0;
+    }
+  }
+
+  &__title {
+    display: none;
+    @include text(36px, 700, 46px);
+    text-transform: uppercase;
+    color: $main-text-colour;
+
+    @include tablet {
+      display: block;
+    }
+
+    @include desktop {
+      @include text(56px, 700, 70px);
+    }
+  }
+
+  &__paragraph {
+    padding-top: 18px;
+    @include text(16px, 400, 24px);
+    color: $secondary-text-colour;
+
+    @include tablet {
+      padding-top: 30px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    @include text(12px, 700, 14px);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $main-link-colour;
+    margin-top: 60px;
+    padding-bottom: 5px;
+    margin-bottom: 116px;
+    transition: color 0.3s;
+
+    @include tablet {
+      margin-bottom: 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 19px;
+      width: 64px;
+      height: 1px;
+      background-color: $main-link-colour;
+      transition: width 0.5s;
+    }
+
+    &:hover {
+      color: $secon-title-colour;
+
+      &::after {
+        width: 126px;
+      }
+    }
+  }
+}

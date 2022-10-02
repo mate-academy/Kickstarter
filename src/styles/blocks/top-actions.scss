@@ -1,0 +1,90 @@
+.top-actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+
+  @include tablet {
+    padding: 30px 0 130px;
+  }
+
+  @include desktop {
+    padding: 30px 0 170px;
+  }
+
+  &__links {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__burger {
+    position: absolute;
+    right: 30px;
+    display: block;
+    background-image: url(../images/menu_icon.svg);
+    transition: background-image 0.3s;
+    background-position: 50%;
+    @include image;
+    width: 18px;
+    height: 18px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__specs {
+    display: block;
+    width: 70px;
+    text-decoration: none;
+    color: $secondary-link-color;
+    @include text(14px, 400, 20px);
+    transition: font-weight 0.3s, color 0.3s;
+
+    &:hover {
+      color: $main-text-colour;
+      font-weight: 700;
+    }
+  }
+
+  &__label {
+    @include text(14px, 400, 20px);
+    color: $main-text-hover;
+    cursor: pointer;
+  }
+
+  &__input {
+    transition: color 0.3s, font-weight 0.3s;
+
+    &:checked {
+      & + .top-actions__label {
+        color: $main-text-colour;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 48px;
+    background: #333;
+    @include text(12px, 700, 16px);
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-left: 46px;
+    color: $button-text;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $link-hover-color;
+    }
+  }
+}

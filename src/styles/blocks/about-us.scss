@@ -1,0 +1,163 @@
+.about-us {
+  &__img-container {
+    background-image: url(../images/about-us/mob.png);
+    height: 196px;
+    width: 296px;
+    margin: 110px auto 0;
+    transition: transform 0.5s;
+    @include image;
+
+    @include tablet {
+      background-image: url(../images/about-us/tab.png);
+      width: 100%;
+      height: 430px;
+      margin: 140px auto;
+    }
+
+    @include desktop {
+      background-image: url(../images/about-us/desk.png);
+      width: 846px;
+      height: 520px;
+      margin: 170px auto;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__designed {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    @include desktop {
+      justify-content: center;
+      width: 1194px;
+      margin: 0 auto;
+    }
+  }
+
+  &__sketch {
+    position: relative;
+    background-image: url(../images/about-us/sketchmob.png);
+    height: 210px;
+    width: 260px;
+    margin: 220px auto 0;
+    transition: 0.5s;
+    @include image;
+
+    @include tablet {
+      background-image: url(../images/about-us/sketchtab.png);
+      width: 374px;
+      height: 416px;
+      margin: 0;
+    }
+
+    @include desktop {
+      background-image: url(../images/about-us/sketchdesk.png);
+      width: 582px;
+      height: 388px;
+    }
+
+    &::before {
+      content: "DESIGNED FOR THE FUTURE";
+      position: absolute;
+      font-family: "Inter", sans-serif;
+      top: -110px;
+      color: $main-text-colour;
+      @include text(30px, 700, 40px);
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    margin: 0 auto;
+
+    @include tablet {
+      width: 340px;
+    }
+
+    @include desktop {
+      width: 582px;
+      margin: 0 0 0 30px;
+    }
+  }
+
+  &__title {
+    display: none;
+    @include text(36px, 700, 46px);
+    text-transform: uppercase;
+    color: $main-text-colour;
+
+    @include tablet {
+      display: block;
+    }
+
+    @include desktop {
+      @include text(56px, 700, 70px);
+      width: 582px;
+    }
+  }
+
+  &__paragraph {
+    padding-top: 20px;
+    @include text(14px, 400, 21px);
+    color: $secondary-text-colour;
+
+    @include tablet {
+      padding-top: 30px;
+      @include text(16px, 400, 24px);
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    @include text(12px, 700, 14px);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $main-link-colour;
+    margin-top: 30px;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+
+    @include tablet {
+      margin-top: 60px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 19px;
+      width: 64px;
+      height: 1px;
+      background-color: $main-link-colour;
+      transition: width 0.5s;
+    }
+
+    &:hover {
+      color: $secon-title-colour;
+
+      &::after {
+        width: 126px;
+      }
+    }
+  }
+}

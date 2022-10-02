@@ -1,0 +1,39 @@
+.nav {
+  display: none;
+
+  @include desktop {
+    display: block;
+    padding-top: 170px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 76px;
+    list-style: none;
+    margin-bottom: 62px;
+  }
+
+  &__item {
+    display: block;
+
+    &:not(:last-child) {
+      margin-right: 12px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    @include text(14px, 400, 20px);
+    color: $main-text-colour;
+    padding: 17px 36px;
+    outline: 1px solid $main-background;
+    transition: outline-color 0.5s ease-out, color 0.3s;
+
+    &:hover {
+      color: $link-hover-color;
+      outline: 1px solid $main-text-colour;
+    }
+  }
+}
