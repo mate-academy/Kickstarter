@@ -1,0 +1,160 @@
+.features {
+  padding: 0;
+
+  @include onTablet {
+    padding: 0 34px;
+  }
+
+  @include onDesktop {
+    padding: 0 92px;
+  }
+  
+  &__title-container {
+    display: flex;
+    justify-content: center;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__title {
+    @extend %h2;
+    width: $widthContainerOnMobile;
+    margin-bottom: 30px;
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 125%;
+    }
+  }
+
+  &__container {
+    background-color: #d6ecec;
+
+    @include backgroundImage(url(/images/mobile/image9.png));
+    background-position: right bottom;
+
+    @include onTablet {
+      background-image: url(/images/tablet/image9.png);
+    }
+
+    @include onDesktop {
+      background-image: url(/images/desktop/image9.png);
+    }
+  }
+
+  &__position-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 30px 174px;
+
+    @include onTablet {
+      align-items: flex-start;
+      padding: 60px 90px 174px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-auto-flow: column;
+      row-gap: 56px;
+      padding: 60px 102px;
+    }
+  }
+
+  &__specification {
+    width: $widthContainerOnMobile;
+
+    @include onDesktop {
+      width: 380px;
+    }
+
+    &--connectivity,
+    &--app {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+
+  &__subtitle {
+    @extend %h3;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: $mentholColor;
+
+    @include onDesktop {
+      margin-bottom: 30px;
+      font-size: 34px;
+    }
+  }
+
+  &__list {
+    padding-left: 20px;
+
+    & > :not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    @include onDesktop {
+      font-size: 16px;
+    }
+  }
+
+  &__slider {
+    width: 102px;
+    padding-top: 50px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__slider-button {
+    width: 48px;
+    height: 14px;
+    padding: 0;
+    border: 0;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.5s;
+    transition-timing-function: ease-in;
+
+    &--left {
+      @include backgroundImage(url(/images/left.svg));
+      
+      &:hover {
+        background-image: url(/images/left-col.svg);
+        transform: scale(1.2);
+      }
+    }
+
+    &--right {
+      @include backgroundImage(url(/images/right.svg));
+
+      &:hover {
+        background-image: url(/images/right-col.svg);
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__slider-number {
+    text-align: center;
+    font-size: 11px;
+    color: $mentholColor;
+  }
+  
+  &__slider-number-change {
+    display: inline-block;
+    font-size: 16px;
+    color: $mainColorBlack;
+    transform: translateY(-5px);
+  }
+}

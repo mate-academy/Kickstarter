@@ -1,0 +1,76 @@
+.benefits {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  @include onTablet {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2,1fr);
+    column-gap: 20px;
+    row-gap: 64px;
+  }
+  
+  @include onDesktop {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  &__info {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: $widthContainerOnMobile;
+    text-align: center;
+    margin: 0 auto;
+    
+    &--position-1 {
+      display: flex;
+    }
+
+    @include onTablet {
+      display: flex;
+      width: 340px;
+    }
+
+    @include onDesktop {
+      width: 276px;
+    }
+  }
+
+  &__icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 30px;
+    
+    &--1 {
+      @include backgroundImage(url(../images/Vector.svg));
+    }
+
+    &--2 {
+      @include backgroundImage(url(../images/Vector-1.svg));
+    }
+
+    &--3 {
+      @include backgroundImage(url(../images/Vector-2.svg));
+    }
+
+    &--4 {
+      @include backgroundImage(url(../images/Vector-3.svg));
+    }
+  }
+
+  &__title {
+    @extend %h3;
+    height: 56px;
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    text-align: justify;
+    color: $paragraphColor;
+  }
+}

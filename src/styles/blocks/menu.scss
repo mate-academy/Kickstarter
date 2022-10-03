@@ -1,0 +1,39 @@
+.menu {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  transform: translateY(-100%);
+  transition: all 0.5s;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__link {
+    @extend %link;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: all 0.4s;
+
+    &:hover {
+      transform: scale(1.2);
+      color: $linkColor;
+    }
+
+    &--cross {
+      height: 16px;
+    }
+  }
+
+  &--show {
+    transform: translate(0);
+  }
+}
