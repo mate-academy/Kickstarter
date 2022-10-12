@@ -1,0 +1,41 @@
+.menu {
+  display: none;
+
+  &__list {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__link {
+    position: relative;
+    padding: 28px 0;
+    font-size: 14px;
+    line-height: 20px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background-color: transparent;
+      transition: all 0.3s;
+    }
+    &:hover::after {
+      background-color: $header-hover;
+      transition: 0.3s;
+    }
+
+    transition: all 0.3s;
+
+    &:hover {
+      font-weight: 700;
+      color: #131313;
+    }
+  }
+
+  @include onTablet {
+    display: contents;
+  }
+}
