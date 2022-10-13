@@ -1,0 +1,215 @@
+.about {
+
+  &__items {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 303px;
+    }
+  }
+  &__item {
+    max-width: 340px;
+    margin: 0 auto 110px;
+
+    @include onTablet {
+      margin: 0 auto 207px;
+      max-width: 100%;
+
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      column-gap: 30px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      grid-column: 2 / -1;
+    }
+
+    &--conversely {
+      @include onTablet {
+        grid-column: 1 / 2;
+      }
+    }
+  }
+
+  &__image {
+    margin-bottom: 20px;
+    height: 210px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    cursor: pointer;
+    transition: transform 400ms;
+
+    &:hover {
+      transform: scale(110%);
+    }
+
+    &--first {
+      background-image: url(../images/product/mobile/4.jpg);
+
+      @include onTablet {
+        background-image: url(../images/product/tablet/5.jpg);
+
+        width: 374px;
+        height: 415px;
+        position: absolute;
+        left: 0;
+        transform: translateX(-10%);
+
+        &:hover {
+          transform: translateX(-7%);
+        }
+      }
+
+      @include onDesktop {
+        background-image: url(../images/product/desktop/5.jpg);
+
+        width: 50%;
+        max-height: 388px;
+        transform: translateX(0);
+
+        &:hover {
+          transform: translateX(-20%);
+        }
+      }
+    }
+
+    &--second {
+      background-image: url(../images/product/mobile/2.jpg);
+
+      @include onTablet {
+        background-image: url(../images/product/tablet/4.jpg);
+
+        width: 374px;
+        height: 415px;
+        position: absolute;
+        right: 0;
+        transform: translateX(10%);
+
+        &:hover {
+          transform: translateX(7%);
+        }
+
+      }
+
+      @include onDesktop {
+        background-image: url(../images/product/desktop/3.jpg);
+
+        width: 50%;
+        max-height: 400px;
+        transform: translateX(0);
+
+        &:hover {
+          transform: translateX(20%);
+        }
+      }
+    }
+  }
+
+  &__description {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+      grid-column: 2 / -1;
+    }
+
+    &--conversely {
+      @include onTablet {
+        grid-column: 1 / 2;
+      }
+    }
+  }
+
+  &__link {
+    @extend %text-button;
+    font-weight: 700;
+    text-decoration: none;
+    color: $c-deepTurquoise;
+
+    &::after {
+      display: block;
+      color: #00acdc;
+      border-radius: 8px;
+      content: "";
+      height: 1px;
+      width: 15%;
+      background-color: $c-deepTurquoise;
+      transition: width 400ms;
+    }
+
+    &:hover::after {
+      width: 37%;
+    }
+
+    @include onTablet {
+      grid-column: 2 / -1;
+    }
+
+    &--conversely {
+      @include onTablet {
+        grid-column: 1 / 2;
+      }
+    }
+  }
+
+  &__autor {
+    margin: 0 auto;
+
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      max-width: 700px;
+    }
+  }
+
+  &__qoute {
+    padding-top: 50px;
+    margin-bottom: 30px;
+
+    background-image: url(../images/qute.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__avatar {
+    margin-bottom: 10px;
+
+    width: 62px;
+    height: 62px;
+
+    @include onTablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__name {
+    margin-bottom: 5px;
+  }
+
+  &__position {
+    @extend %text-secondary;
+    color: $c-Gray;
+  }
+}

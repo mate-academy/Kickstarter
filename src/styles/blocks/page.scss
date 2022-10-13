@@ -1,0 +1,60 @@
+.page {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  &__body {
+    background-color: $c-whiteGray;
+    color: $c-darkGray;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+
+    @include onTablet {
+      padding: 30px 0;
+    }
+  }
+
+  &__section {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__menu {
+    height: 320px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    background-color: rgba($color: $c-paleGray, $alpha: 0.9);
+
+    transform: translateY(-100%);
+    transition: transform 400ms;
+
+    &:target {
+      transform: translateY(0);
+    }
+
+    @include onTablet {
+      height: 210px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 62px;
+
+      position: static;
+      height: max-content;
+      background-color: transparent;
+      transform: translateY(0);
+    }
+  }
+}
