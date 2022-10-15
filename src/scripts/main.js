@@ -9,6 +9,27 @@ window.addEventListener('hashchange', () => {
 });
 
 // eslint-disable-next-line no-undef, no-unused-vars
+window.onscroll = function() {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 300
+     || document.documentElement.scrollTop > 300) {
+    document.getElementById('gotop').style.visibility = 'visible';
+  } else {
+    document.getElementById('gotop').style.visibility = 'hidden';
+  }
+}
+
+const form = document.querySelector('#form');
+
+form.addEventListener('submit', (e) => {
+  form.reset();
+  e.preventDefault();
+});
+
+// eslint-disable-next-line no-undef, no-unused-vars
 const swiper = new Swiper('.features__slider', {
 
   navigation: {

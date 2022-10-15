@@ -1,10 +1,11 @@
 .page {
-  overflow-x: hidden;
   scroll-behavior: smooth;
+  transition: all 400ms;
 
   &__body {
     background-color: $c-whiteGray;
     color: $c-darkGray;
+    padding-bottom: 30px;
 
     &--with-menu {
       overflow: hidden;
@@ -59,7 +60,13 @@
   }
 
   &__gotop {
+    visibility: hidden;
     display: none;
+    transition: all 400ms;
+
+    &:hover {
+      transform: translateY(-50%);
+    }
 
     @include onTablet {
       width: 25px;
