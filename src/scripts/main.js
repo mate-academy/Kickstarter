@@ -30,6 +30,15 @@ form.addEventListener('submit', (e) => {
 });
 
 // eslint-disable-next-line no-undef, no-unused-vars
+const swiper2 = new Swiper('.tech__slider', {
+  direction: 'vertical',
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
+
+// eslint-disable-next-line no-undef, no-unused-vars
 const swiper = new Swiper('.features__slider', {
 
   navigation: {

@@ -1,5 +1,7 @@
 .tech {
   &__items {
+    display: none;
+
     @include onTablet {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -10,14 +12,39 @@
       grid-template-columns: repeat(4, 1fr);
       column-gap: 30px;
     }
+
+    &--mobile {
+      display: block;
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__slider {
+    height: 280px;
   }
 
   &__item {
     max-width: 340px;
-    margin: 0 auto 65px;
+    margin: 0 auto;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include onTablet {
+      margin-bottom: 65px;
+    }
+
+    @include onDesktop {
+      max-width: 310px;
+    }
   }
 
   &__icon {
@@ -36,12 +63,20 @@
   &__title {
     margin-bottom: 20px;
     text-align: center;
+
+    @include onDesktop {
+      height: 56px;
+    }
   }
 
   &__description {
     @extend %text-secondary;
     color: $c-Gray;
     text-align: center;
+  }
+
+  &__pagination {
+    // --swiper-theme-color: $c-darkTurquoise;
   }
 
 }
