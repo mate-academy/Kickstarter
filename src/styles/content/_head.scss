@@ -1,0 +1,86 @@
+@import "../utils";
+
+.Head {
+  display: grid;
+  grid-template-columns: repeat(10,80px);
+  column-gap: 2%;
+  overflow: hidden;
+  margin: 30px 123px 171px 123px;
+
+  @include Tablet {
+    margin: 29px 29px 30px 29px;
+    grid-template-columns: repeat(8,50px);
+  }
+
+  @include Mobile {
+    margin: 0;
+    grid-template-columns: 50px ;
+  }
+
+  &__info-container {
+    display: flex;
+    width: fit-content;
+    justify-content: end;
+    flex-direction: column;
+
+    @include Tablet {
+      justify-content: start;
+    }
+
+    @include Mobile{
+      margin: 25px 0 25px 30px;
+      order: 2;
+    }
+  }
+
+  &__title {
+    color: $primary_color;
+    font-size: 62px;
+    font-weight: 700;
+
+    @include Tablet{
+      font-size: 48px;
+    }
+
+    @include Mobile{
+      font-size: 40px;
+    }
+  }
+
+  &__info {
+    width: 276px;
+    margin-top: 10%;
+    line-height: 1.5vw;
+    color: $primary_color;
+    font-weight: 400;
+    font-size: 16px;
+
+    @include Tablet{
+      line-height: 2.5vw;
+    }
+
+    @include Mobile{
+      line-height: 6vw;
+      
+    }
+  }
+
+  &__img-container {
+    display: block;
+    width: 100%;
+    height: auto;
+    grid-column: 5/13;
+    background: url("../images/head.svg") center left no-repeat;
+    background-size: cover;
+
+    @include Tablet{
+      height: 317px;
+      grid-column: 6/12;
+    }
+
+    @include Mobile{
+      height: 245px;
+      grid-column: 1/8;
+    }
+  }
+}

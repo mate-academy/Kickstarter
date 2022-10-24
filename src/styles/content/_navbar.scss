@@ -1,0 +1,79 @@
+@import "../utils";
+
+.Navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 123px 30px 123px;
+
+  @include Tablet {
+    margin: 29px 34px 30px 29px;
+    column-gap: 2%;
+  }
+
+  @include Mobile {
+    margin: 25px 30px 25px 30px;
+  }
+
+  &__logo {
+    display: block;
+  }
+
+  &__links-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    column-gap: 47px;
+
+    @include Tablet {
+      column-gap: 29px;
+    }
+
+    @include Mobile{
+      display: none;
+    }
+  }
+
+  &__link {
+    display: flex;
+    font-weight: 400;
+    font-size: 14px;
+    color: $secondary_color;
+    width: fit-content;
+  }
+
+  &__lang {
+    @extend .Navigation__link;
+    margin-left: 5px;
+    color: $light_color;
+  }
+
+  &__btn {
+    font-weight: 700;
+    font-size: 12px;
+    color: white;
+    width: 102px;
+    background: $primary_color;
+    border: none;
+    padding: 16px;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+      background: $btn_hover_color;
+    }
+  }
+
+  &__mobile {
+    display: none;
+    @include Mobile {
+      display: flex;
+    }
+  }
+
+  &__burger {
+    width: 10vw;
+    height: 10vw;
+  }
+}
