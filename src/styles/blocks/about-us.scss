@@ -1,0 +1,85 @@
+.about-us {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-wrap: wrap;
+  
+  @include onTablet {
+    max-width: 768px;
+    max-height: 416px;
+  }
+
+  @include onMobile {
+    max-width: 260px;
+  }
+
+  @include onDesktop {
+    max-height: 388px;
+  }
+
+  &__picture {
+    width: 100%;
+  }
+
+  &__image-container {
+    @include increaseOnHover;
+
+    @include onDesktop {
+      max-width: 49%;
+    }
+  }
+  
+  &__title {
+    margin-bottom: 10px;
+    
+    color: $dark-grey;
+    
+    @include onDesktop {
+      max-width: 49%;
+    }
+    
+    @include onTablet {
+      max-width: 50%;
+    }
+    
+    @include onMobile {
+      order: -1;
+    }
+  }
+  
+  &__paragraph {
+    margin-bottom: 50px;
+    
+    @extend %main-text;
+    color: $light-grey;
+    
+    @include onDesktop {
+      max-width: 49%;
+    }
+
+    @include onTablet {
+      max-width: 50%;
+    }
+    
+    @include onMobile {
+      @include secondary-text;
+    }
+  }
+  
+  &__link {
+    align-self: flex-start;
+    position: relative;
+    @extend %button;
+    color: $aqua;
+    
+    &::before {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: -5px;
+      width: 50%;
+      border-top: 1px solid $aqua;
+    }
+  }
+}

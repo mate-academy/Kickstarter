@@ -1,0 +1,46 @@
+.benefits {
+  width: 100%;
+  display: flex;
+  
+  justify-content: space-between;
+  gap: 30px;
+  
+  @include onTablet {
+    max-width: 700px;
+    gap: 60px 20px;
+    flex-wrap: wrap;
+  }
+  
+  @include onMobile {
+    max-width: 260px;
+    flex-direction: column;
+
+    &__collapse {
+      display: none;
+    }
+  }
+
+  &__item {
+    text-align: center;
+    flex-basis: 22%;
+    @include increaseOnHover;
+    
+    @include onTablet {
+      flex-basis: 340px;
+    }
+
+    &-title {
+      // aligning titles and paragraphs
+      height: 56px;
+
+      @include onMobile {
+        height: max-content;
+        margin: 40px 0 20px;
+      }
+    }
+
+    &-paragraph {
+      @include secondary-text;
+    }
+  }
+}

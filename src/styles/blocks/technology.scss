@@ -1,0 +1,83 @@
+.technology {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  @include onMobile {
+    max-width: 260px;
+  }
+
+  @include onTablet {
+    max-width: 768px;
+    max-height: 416px;
+
+    margin-left: 34px;
+    flex-wrap: wrap;
+  }
+
+  @include onDesktop {
+    max-height: 400px;
+  }
+
+  &__picture {
+    width: 100%;
+  }
+
+  &__image-container {
+    @include increaseOnHover;
+
+    @include onDesktop {
+      max-width: 49%;
+    }
+
+    @include onMobile {
+      order: -1;
+    }
+  }
+
+  &__title {
+    order: -2;
+    font-size: 36px;
+    line-height: 46px;
+
+    @include onDesktop {
+      max-width: 49%;
+    }
+
+    @include onTablet {
+      max-width: 50%;
+    }
+  }
+
+  &__paragraph {
+    @extend %main-text;
+    color: $light-grey;
+    margin-bottom: 10px;
+
+    @include onDesktop {
+      max-width: 49%;
+    }
+
+    @include onTablet {
+      max-width: 50%;
+    }
+  }
+
+  &__link {
+    align-self: flex-start;
+    position: relative;
+    @extend %button;
+    color: $aqua;
+
+    &::before {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: -5px;
+      width: 50%;
+      border-top: 1px solid $aqua;
+    }
+  }
+}
