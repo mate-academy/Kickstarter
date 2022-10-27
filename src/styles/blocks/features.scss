@@ -20,7 +20,7 @@
 
   &__container {
     box-sizing: border-box;
-    height: 575px;
+    height: 600px;
 
     padding: 30px;
 
@@ -29,6 +29,10 @@
 
     @include onTablet {
       padding: 60px 90px;
+    }
+
+    @include onDesktop {
+      min-height: 616px;
     }
   }
 
@@ -51,15 +55,24 @@
     position: absolute;
     width: 100%;
 
+    @media (min-width: 769px) and (max-width: 1023px) {
+      font-size: 12px;
+    }
+    
     @include onDesktop {
       position: unset;
       width: 33%;
     }
-
+    
+    
     &-title {
       margin: 0;
-
+      
       color: $ocean;
+
+      @media (min-width: 769px) and (max-width: 1023px) {
+        font-size: 28px;
+      }
     }
 
     &-list {
@@ -91,9 +104,13 @@
 
     content: "";
     background-image: url(../images/features-desktop.png);
-    background-position: bottom;
+    background-position: bottom right;
     background-repeat: no-repeat;
     background-size: contain;
+
+    @media (min-width: 769px) {
+      width: 520px;
+    }
 
     @include onTablet {
       background-image: url(../images/features-tablet.png);
