@@ -7,34 +7,48 @@
   
   @include onTablet {
     max-width: 768px;
+    height: 416px;
     max-height: 416px;
   }
-
+  
   @include onMobile {
     max-width: 260px;
   }
-
+  
   @include onDesktop {
     max-height: 377px;
   }
-
+  
   &__picture {
     width: 100%;
-  }
 
+    @include onTablet {
+      height: 100%;
+      width: unset;
+    }
+  }
+  
   &__image-container {
+    max-width: 49%;
+
+    display: flex;
+    justify-content: center;
+
+    overflow: hidden;
     @include increaseOnHover;
 
-    @include onDesktop {
-      max-width: 49%;
+    @include onTablet {
+      min-height: 100%;
+    }
+
+    @include onMobile {
+      min-width: 100%;
     }
   }
   
   &__title {
     margin-bottom: 10px;
     
-    font-size: 36px;
-    line-height: 46px;
     color: $dark-grey;
     
     @include onDesktop {
@@ -65,6 +79,8 @@
     }
     
     @include onMobile {
+      margin-bottom: 10px;
+      
       @include secondary-text;
     }
   }
