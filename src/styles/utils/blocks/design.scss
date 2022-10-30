@@ -1,0 +1,136 @@
+.design {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__block-for-4 {
+    @include tablet {
+      display: grid;
+      gap: 30px;
+
+      margin-bottom: 130px;
+    }
+
+    @include desktop {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      
+      gap: 30px;
+      margin-bottom: 170px;
+    }
+  }
+
+  &__block1 {
+    max-width: 260px;
+    margin-bottom: 110px;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+    @include tablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      margin-bottom: 0;
+    }
+
+    @include desktop {
+      position: relative;
+      bottom: 15px;
+    }
+  }
+
+  &__block2 {
+    display: none;
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(1 / 8);
+      grid-column: 5 / 8;
+      grid-row: 1;
+
+      max-width: 260px;
+      text-align: center;
+    }
+  }
+
+  &__block3 {
+    display: none;
+
+    @include tablet {
+      display: grid;
+      grid-column: 1 / 4;
+      grid-row: 2;
+
+      max-width: 260px;
+      text-align: center;
+    }
+
+    @include desktop {
+      position: relative;
+      bottom: 35px;
+    }
+  }
+
+  &__block4 {
+    display: none;
+
+    @include tablet {
+      display: grid;
+      grid-column: 5 / 8;
+      grid-row: 2;
+
+      max-width: 260px;
+      text-align: center;
+    }
+
+    @include desktop {
+      position: relative;
+      bottom: 18px;
+    }
+  }
+
+  &__title {
+    padding-bottom: 20px;
+    padding-top: 40px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    color: $black;
+    cursor: pointer;
+    transition: 0.4s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__desk {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #7c7c7c;
+  }
+
+  &__imggg {
+    margin-bottom: 110px;
+    height: 195px;
+    width: 296px;
+
+    @include tablet {
+      grid-column: 1 / 7;
+      height: 430px;
+      width: 700px;
+      margin-bottom: 140px;
+    }
+
+    @include desktop {
+      width: 846px;
+      height: 520px;
+      grid-column: 3 / 10;
+      margin-bottom: 160px;
+    }
+  }
+}
