@@ -4,3 +4,43 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin link {
+  padding: 20px 0;
+  color: $title-color;
+  text-decoration: none;
+
+  @include hover(color, $hover-color);
+  @include hover(text-shadow, $link-hover);
+}
+
+@mixin button($bg) {
+  width: 100px;
+  outline: none;
+  padding: 13px 0;
+  border: 1px solid transparent;
+  text-align: center;
+  text-decoration: none;
+  background-color: $bg;
+  cursor: pointer;
+
+  transition: transform $transition-duration;
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  @include hover(background-color, lighten($bg, $amount: 5%));
+}
+
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}

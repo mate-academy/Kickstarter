@@ -1,0 +1,54 @@
+
+.top-navigation {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+
+  margin-top: 25px;
+
+  @include onDesktop {
+    display: flex;
+    gap: 30px;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  &__specs {
+    line-height: 20px;
+    color: $title-color;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    @include hover(color, $btn-color);
+  }
+
+  &__language-radio {
+    display: none;
+  }
+
+  &__language {
+    line-height: 20px;
+    color: $terms-color;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    @include hover(color, $btn-color);
+
+    &-radio:checked + &:first-of-type {
+      color: $title-color;
+      font-weight: bold;
+    }
+  }
+
+  &__button {
+    color: $white-color;
+    @include button($title-color);
+  }
+
+  &--active {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

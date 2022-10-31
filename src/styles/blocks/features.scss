@@ -1,0 +1,80 @@
+
+.features {
+
+  &__title {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: bold;
+    margin-bottom: 32px;
+  }
+
+  &__content {
+    background-color: $green-light-color;
+    background-image: url(/images/features-mobile.png);
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    background-position: 100% bottom;
+    background-size: contain;
+
+    padding: 30px 30px 235px;
+    margin-left: -28px;
+    margin-right: -28px;
+
+    @include onTablet {
+      display: block;
+      background-size: auto 50%;
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    @include onDesktop {
+      display: grid;
+      padding-bottom: 30px;
+      background-size: auto 47%;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 260px;
+
+    &:not(:last-child) {
+      display: none;
+    }
+
+    @include onDesktop {
+
+      &:not(:last-child) {
+        display: flex;
+      }
+
+      &:first-child {
+        padding-bottom: 56px;
+      }
+    }
+
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+    color: $green-color;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    list-style: disc;
+    padding-left: 16px;
+  }
+
+  &__item {
+    line-height: 21px;
+  }
+}
