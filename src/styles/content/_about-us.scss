@@ -4,149 +4,154 @@
 .About-us {
   display: flex;
   flex-direction: column;
-  margin-top: 171px;
-  margin-left: 123px;
-  margin-right: 123px;
 
-  @include Tablet{
-    margin-left: 34px;
-    margin-right: 34px;
-  }
-
-  @include Mobile{
-    margin-left: 25px;
-    margin-right: 25px;
-  }
-
-
-   
-
-
-  &__design-container {
+  &__items {
     display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto;
-    column-gap: 10%;
-    margin: 30px 0 171px 0;
+    height: auto;
+    column-gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 171px;
+    margin-left: 123px;
+    margin-right: 123px;
 
+    text-align: left;
 
     @include Tablet {
-      grid-template-columns: auto;
+      margin-left: 0;
+      margin-right: 34px;
     }
 
     @include Mobile {
-      grid-template-columns: auto;
-      margin: 0;
+      grid-template-columns: 1fr;
+      margin-left: 25px;
+      margin-right: 25px;
     }
   }
 
-  &__luna-eye-container {
+  &__items2 {
     display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto;
-    column-gap: 10%;
-    margin: 30px 0 171px 0;
+    justify-content: space-between;
+    height: auto;
+    column-gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 171px;
+    margin-left: 123px;
+    margin-right: 123px;
+    text-align: left;
 
     @include Tablet {
-      grid-template-columns: auto;
+      margin-left: 34px;
+      margin-right: 0;
     }
 
     @include Mobile {
-      grid-template-columns: auto;
-      margin: 0;
+      grid-template-columns: 1fr;
+      margin-left: 25px;
+      margin-right: 25px;
     }
   }
 
-
-  &__img-container {
-    display: block;
+  &__image {
+    display: flex;
     object-fit: contain;
     width: 100%;
     height: 100%;
   }
 
-  &__img-container-2 {
-    order: 1;
-    @extend .About-us__img-container;
-
-    @include Tablet {
-      order: -1;
-    }
-
-    @include Mobile {
-      order: -1;
-    }
-  }
-
-  &__img {
+  &__image2 {
+    display: flex;
+    justify-content: flex-end;
+    object-fit: contain;
     width: 100%;
     height: 100%;
   }
 
-  &__info-container {
+  &__Image {
+    width: 100%;
+    height: 100%;
+
+    @include Mobile {
+      width: 100%;
+    }
+  }
+
+  &__info-con {
     display: flex;
     height: auto;
     flex-direction: column;
-    row-gap: 10%;
+    row-gap: 2vw;
 
     @include Tablet {
-      line-height: 5vw;
-      margin-top: 20px;
+      row-gap: 3vw;
     }
 
     @include Mobile {
-      margin: 110px 25px 30px 25px;
-      text-align: center;
-      line-height: 10vw;
       margin-top: 40px;
     }
   }
 
-  &__info-container-2 {
-    row-gap: 20%;
-    @extend .About-us__info-container;
+  &__info-con-2 {
+    @extend .About-us__info-con;
+    @include Mobile{
+      order: 2;
+      padding-top: 20px;
+    }
   }
 
   &__title {
     display: flex;
-    text-align: center;
     font-weight: 700;
     font-size: 56px;
+    font-family: $inter-family;
     color: $primary_color;
 
     @include Tablet {
       font-size: 32px;
-
     }
 
     @include Mobile {
+      display: none;
       font-size: 32px;
       line-height: initial;
     }
   }
 
-  &__title-2 {
-    @extend .About-us__title;
+  &__title-mobile {
+    display: none;
 
     @include Mobile {
-      justify-content: center;
+      display: flex;
+      font-weight: 700;
+      font-size: 32px;
+      margin-bottom: 30px;
+      font-family: $inter-family;
+      color: $primary_color;
     }
-
   }
 
-  &__info {
+  &__paragraph {
+    display: flex;
+    line-height: 2vw;
     font-weight: 400;
     font-size: 16px;
+    font-family: $inter-family;
     color: $benifits_color;
-  }
 
-  &__info-2 {
-    @extend .About-us__info;
+    @include Tablet {
+      line-height: 3.5vw;
+    }
+
+    @include Mobile {
+      line-height: 5vw;
+      width: 100%;
+      text-align: left;
+    }
   }
 
   &__link {
     font-weight: 700;
     font-size: 12px;
+    font-family: $inter-family;
     color: $link_see_color;
     width: fit-content;
     transition: transform 250ms ease-in-out;
@@ -154,7 +159,7 @@
     &::after {
       content: '';
       display: block;
-      width: 0;
+      width: 50%;
       height: 2px;
       background: $link_see_color;
       transition: width 0.3s;
@@ -165,13 +170,9 @@
     }
 
     @include Mobile {
-      width: 100%;
+      width: fit-content;
       margin-top: 20px;
       margin-bottom: 50px;
     }
-  }
-
-  &__link-2 {
-    @extend .About-us__link;
   }
 }
