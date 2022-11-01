@@ -1,0 +1,39 @@
+@import "./variables";
+@import "./mixins";
+
+%max-width-wrapper {
+  margin: 0 auto;
+
+  @include onTablet() {
+    max-width: 700px;
+  }
+
+  @include onDesktop() {
+    max-width: 1194px;
+  }
+}
+
+%content-wrapper {
+  margin: 0 $margin-content-side-mobile 0;
+  
+  /*it's not necessary,
+  it's only for symmetrical margin for logo on left and menu-burger on right,
+  it depends on the distance from the image inside the icon
+  to the border of the icon: margin-right =
+  (width of icon - width of image inside icon) / 2 - margin to edge of screen*/
+  margin-right: 18px;
+
+  @include onTablet() {
+    margin: 0;
+  }
+}
+
+%background-images {
+  display: block;
+  width: $height-button;
+  height: $height-button;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}

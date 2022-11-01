@@ -1,0 +1,43 @@
+.quote {
+  margin: 0 auto;
+  max-width: 786px;
+
+  text-align: center;
+
+  &__text {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+
+      margin: 0 auto;
+      width: 208px;
+      height: 150%;
+
+      @extend %background-images;
+      background-image: url("../images/quote.png");
+
+      @include onTablet() {
+        width: 233px;
+        height: 191px;
+      }
+
+      @include onDesktop() {
+        bottom: -40%;
+      }
+    }
+
+    @extend %quote;
+
+    margin-bottom: 20px;
+
+    @include onTablet() {
+      margin-bottom: 40px;
+    }
+  }
+}

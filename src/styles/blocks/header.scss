@@ -1,0 +1,51 @@
+.header {
+  @include onTablet() {
+    margin-bottom: 100px;
+  }
+
+  @include onDesktop() {
+    margin-bottom: 90px;
+  }
+
+  &__container-for-max-width {
+    @extend %max-width-wrapper;
+  }
+
+  &__content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @extend %content-wrapper;
+
+    @include onTablet() {
+      margin-right: 0;
+    }
+  }
+
+  &__links {
+    display: none;
+    align-items: center;
+
+    @extend %thirdary-text;
+
+    @include onTablet() {
+      display: flex;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    margin-right: 30px;
+
+    color: $darkgrey;
+    text-decoration: none;
+
+    &:not(.logo),
+    &:not(.icon) {
+      border-bottom: 1px solid transparent;
+    }
+
+    @include hover(border-color, inherit);
+  }
+}

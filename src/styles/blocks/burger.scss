@@ -1,0 +1,56 @@
+.burger {
+  width: calc(#{$height-button} / 2);
+  height: calc(#{$height-button} / 16);
+
+  background: $granit;
+  transform-origin: center;
+
+  transition: all 0.3s ease-in-out;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+
+    width: calc(#{$height-button} / 2);
+    height: calc(#{$height-button} / 16);
+
+    background: $granit;
+
+    transition: all 0.3s ease-in-out;
+  }
+
+  &::before {
+    transform: translateY(-300%);
+  }
+
+  &::after {
+    transform: translateY(300%);
+  }
+
+  &--animation-1 {
+    &.burger {
+      background-color: transparent;
+      transform: rotate(360deg);
+    }
+
+    &.burger::before {
+      transform: translateY(300%);
+    }
+
+    &.burger::after {
+      transform: translateY(-300%);
+    }
+  }
+
+  &--animation-2 {
+    &.burger::before {
+      transform: rotate(45deg);
+    }
+
+    &.burger::after {
+      transform: rotate(-45deg);
+    }
+  }
+}

@@ -1,0 +1,79 @@
+.nav {
+  position: fixed;
+  top: calc(#{$height-button + $padding-content-top-mobile});
+  right: 0;
+  left: 0;
+
+  height: 100vh;
+  padding: $padding-content-top-mobile 0 $padding-content-bottom-mobile;
+  background-color: $background;
+
+  opacity: 0;
+  // hide by default on mobile and tablet
+  transform: translateY(100%);
+  transition: transform 0.6s, opacity 0.6s;
+  // show on mobile
+  &--toggle {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  // show on desktop
+  @include onTablet() {
+    position: static;
+    display: none;
+
+    height: auto;
+    margin-bottom: 65px;
+    padding: 0;
+
+    transform: translateX(0);
+  }
+
+  @include onDesktop() {
+    display: block;
+    opacity: 1;
+  }
+
+  &__container-for-max-width {
+    @extend %max-width-wrapper;
+  }
+
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: $padding-content-top-mobile;
+
+    padding: $padding-content-top-mobile;
+
+    @include onDesktop() {
+      flex-direction: row;
+      justify-content: center;
+      gap: 70px;
+      padding: 0;
+      // padding-left: 220px;// according to design,
+      // but it makes more sense to just center
+    }
+  }
+
+  &__link {
+    box-sizing: border-box;
+    display: block;
+
+    color: $granit;
+    text-decoration: none;
+
+    border-bottom: 1px solid transparent;
+
+    @include hover(border-color, $granit);
+
+    @extend %thirdary-text;
+
+    &--active {
+      font-weight: 700;
+
+      pointer-events: none;
+    }
+  }
+}

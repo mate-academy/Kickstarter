@@ -1,0 +1,161 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0 20px;
+
+  @include onTablet() {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "h-1 h-1 h-1 h-1 h-2 h-2 h-2 h-2"
+      "p-1 p-1 p-1 p-1 p-2 p-2 p-2 p-2"
+      "h-3 h-3 h-3 h-3 h-4 h-4 h-4 h-4"
+      "p-3 p-3 p-3 p-3 p-4 p-4 p-4 p-4";
+  }
+
+  @include onDesktop() {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 0 30px;
+    grid-template-areas: "h-1 h-1 h-1 h-2 h-2 h-2 h-3 h-3 h-3 h-4 h-4 h-4"
+      "p-1 p-1 p-1 p-2 p-2 p-2 p-3 p-3 p-3 p-4 p-4 p-4";
+  }
+
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--tablet-#{$start}-#{$end} {
+          @include onTablet() {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--desktop-#{$start}-#{$end} {
+          @include onDesktop() {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    &--header {
+      &-1 {
+        grid-area: h-1;
+      }
+
+      &-2 {
+        grid-area: h-2;
+      }
+
+      &-3 {
+        grid-area: h-3;
+      }
+
+      &-4 {
+        grid-area: h-4;
+      }
+    }
+
+    &--paragraph {
+      &-1 {
+        grid-area: p-1;
+      }
+
+      &-2 {
+        grid-area: p-2;
+      }
+
+      &-3 {
+        grid-area: p-3;
+      }
+
+      &-4 {
+        grid-area: p-4;
+      }
+    }
+
+    &--features {
+      &-h1 {
+        grid-area: h-1;
+      }
+
+      &-h2 {
+        grid-area: h-2;
+      }
+
+      &-h3 {
+        grid-area: h-3;
+      }
+
+      &-h4 {
+        grid-area: h-4;
+      }
+
+      &-p2 {
+        grid-area: p-2;
+      }
+
+      &-p3 {
+        grid-area: p-3;
+      }
+
+      &-p4 {
+        grid-area: p-4;
+      }
+    }
+  }
+
+  &--tablet {
+    display: block;
+
+    @include onTablet() {
+      display: grid;
+    }
+  }
+
+  &--desktop {
+    display: block;
+
+    @include onDesktop() {
+      display: grid;
+    }
+  }
+
+  &--features {
+    @include onTablet() {
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas: ". h-1 h-1 h-1 h-1 h-1 h-1 ."
+        ". . . h-2 h-2 h-2 h-2 h-2"
+        ". . . p-2 p-2 p-2 p-2 p-2"
+        "h-3 h-3 h-3 h-3 h-3 . . ."
+        "p-3 p-3 p-3 p-3 p-3 . . ."
+        ". . h-4 h-4 h-4 h-4 h-4 ."
+        ". . p-4 p-4 p-4 p-4 p-4 .";
+    }
+
+    @include onDesktop() {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 0 30px;
+      grid-template-areas: ". h-1 h-1 h-1 h-1 . . . . . . ."
+        ". . . . . h-2 h-2 h-2 h-2 . . ."
+        ". . . . . p-2 p-2 p-2 p-2 . . ."
+        ". h-3 h-3 h-3 h-3 . . . . . . ."
+        ". p-3 p-3 p-3 p-3 . . . . . . ."
+        ". . . h-4 h-4 h-4 h-4 . . . . ."
+        ". . . p-4 p-4 p-4 p-4 . . . . .";
+    }
+  }
+}
