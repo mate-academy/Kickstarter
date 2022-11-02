@@ -1,0 +1,97 @@
+.technology {
+  &__items {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: auto auto 1fr;
+      column-gap: 20px;
+      grid-template-areas: "t t t t img img img img"
+        "text text text text img img img img"
+        "- - - - img img img img";
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+      
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+      grid-template-areas: "t t t t t title img img img img img img"
+        "text text text text text text img img img img img img"
+        "- - - - - - img img img img img img";
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    @extend %h2;
+    color: $dark-grey;
+    @include onTablet {
+      grid-area: t;
+    }
+  }
+
+  &__image-container {
+    @include onTablet {
+      grid-area: img;
+    }
+  }
+
+  &__image {
+    margin-bottom: 20px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s;
+    &:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 5px 5px 1px rgba($color: #000, $alpha: 0.5);
+    }
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__block-text {
+    @include onTablet {
+      grid-area: text;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    @extend %main-text;
+    color: $grey;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__more {
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    width: max-content;
+    @extend %button;
+    text-decoration: none;
+    color: $green;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      height: 1px;
+      width: 53px;
+      background-color: $green;
+    }
+    &:hover::after {
+      width: 100%;
+      transition-duration: 0.3s;
+    }
+  }
+}

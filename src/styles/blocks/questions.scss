@@ -1,0 +1,60 @@
+.questions {
+  padding-top: 10px;
+  margin-bottom: 110px;
+  @include onTablet {
+    margin-bottom: 140px;
+  }
+  @include onDesktop {
+    margin-bottom: 170px;
+  }
+  
+  &__container {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 27px;
+    @extend %h2;
+    text-transform: uppercase;
+    color: $dark-grey;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__form {
+    @include onTablet {
+      grid-column: 5 / 9;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 13;
+    }
+  }
+
+  &__form-textarea {
+    height: 130px;
+    
+    @include onTablet {
+      height: 200px;
+    }
+
+    @include onDesktop {
+      height: 130px;
+    }
+  }
+}

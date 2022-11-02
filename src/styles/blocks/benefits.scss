@@ -1,0 +1,101 @@
+.benefits {
+  padding-top: 15px;
+  margin-bottom: 110px;
+
+  @include onTablet {
+    margin-bottom: 140px;
+  }
+
+  &__items {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 20px;
+      row-gap: 65px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__item {
+    display: none;
+    transition: all 0.3s;
+    &--n1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &--n1 {
+        grid-column: 1 / 5;
+      }
+      &--n2 {
+        grid-column: 5 / 9;
+      }
+      &--n3 {
+        grid-column: 1 / 5;
+      }
+      &--n4 {
+        grid-column: 5 / 9;
+      }
+    }
+
+    @include onDesktop {
+      &--n1 {
+        grid-column: 1 / 4;
+      }
+      &--n2 {
+        grid-column: 4 / 7;
+      }
+      &--n3 {
+        grid-column: 7 / 10;
+      }
+      &--n4 {
+        grid-column: 10 / 13;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 5px 5px 1px rgba($color: #000, $alpha: 0.5);
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 50px;
+    height: 40px;
+    margin-bottom: 40px;
+    position: relative;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    @extend %h4;
+    color: $dark-grey;
+    margin-bottom: 20px;
+
+    @include onDesktop {
+      margin-bottom: 24px;
+      min-height: 56px;
+    }
+  }
+
+  &__text {
+    @extend %secondary-text;
+    text-align: center;
+    color: $grey;
+  }
+}
