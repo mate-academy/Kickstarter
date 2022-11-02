@@ -1,20 +1,14 @@
 .header {
-
-  @include onMobile {
-    max-width: 320px;
-  }
-
   &__top {
     margin: 0 auto;
 
     display: flex;
     align-items: center;
     gap: 16px;
-    padding-top: 30px;
-    
+    padding: 30px 0;
+
     @include onMobile {
-      max-width: 260px;
-      padding: 25px 0;
+      padding: 25px 30px;
     }
 
     &-logo {
@@ -50,31 +44,46 @@
 
   &__content {
     display: flex;
-    align-items: center;
     
     @include onMobile {
+      flex-wrap: wrap;
       flex-direction: column-reverse;
       gap: 40px;
     }
-
+    
     @include onTablet {
       margin-top: 130px;
+      max-height: 336px;
     }
     
     @include onDesktop {
       margin: 90px 0 170px;
     }
-
+    
+    &-image-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+    
     &-image {
       width: 100%;
     }
-
+    
     &-text {
-      max-width: 260px;
       z-index: 1;
-
+      padding: 0;
+      
+      @include onTablet {
+        max-width: 44%;
+      }
+      
       @include onDesktop {
         max-width: 30%;
+      }
+      
+      @include onMobile {
+        padding: 0 30px;
       }
     }
 
@@ -89,8 +98,12 @@
       @extend %main-text;
       color: $dark-grey;
 
-      @include onDesktop {
+      @include onTablet {
         max-width: 80%;
+      }
+
+      @include onDesktop {
+        max-width: 75%;
       }
     }
   }
@@ -124,6 +137,14 @@
     @include onTablet {
       display: none;
     }
+  }
+
+  @include onDesktop {
+    padding: 0 123px;
+  }
+
+  @include onTablet {
+    padding: 0 34px;
   }
 
   @include onMobile {

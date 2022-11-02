@@ -1,18 +1,21 @@
 .benefits {
-  width: 100%;
   display: flex;
   
   justify-content: space-between;
   gap: 30px;
+
+  @include onDesktop {
+    padding: 0 123px;
+  }
   
   @include onTablet {
-    max-width: 700px;
-    gap: 60px 20px;
+    padding: 0 34px;
+    gap: 65px 20px;
+    justify-content: center;
     flex-wrap: wrap;
   }
   
   @include onMobile {
-    max-width: 260px;
     flex-direction: column;
 
     &__collapse {
@@ -22,11 +25,18 @@
 
   &__item {
     text-align: center;
-    flex-basis: 22%;
     @include increaseOnHover;
+
+    @include onDesktop {
+      flex-basis: 25%;
+    }
     
     @include onTablet {
-      flex-basis: 340px;
+      flex-basis: 48%;
+    }
+
+    @include onMobile {
+      padding: 0 30px;
     }
 
     &-title {
