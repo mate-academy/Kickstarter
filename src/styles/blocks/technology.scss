@@ -1,4 +1,14 @@
 .technology {
+  &__wrapper {
+    padding: 0 30px;
+    @include onTablet {
+      padding: 0 0 0 34px;
+    }
+    @include onDesktop {
+      padding: 0 43px;
+    }
+  }
+
   &__items {
     margin-bottom: 110px;
 
@@ -26,7 +36,7 @@
   }
 
   &__title {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     @extend %h2;
     color: $dark-grey;
     @include onTablet {
@@ -35,6 +45,8 @@
   }
 
   &__image-container {
+    display: flex;
+    perspective: 500px;
     @include onTablet {
       grid-area: img;
     }
@@ -47,12 +59,18 @@
     height: 100%;
     transition: all 0.3s;
     &:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 5px 5px 1px rgba($color: #000, $alpha: 0.5);
+      border-radius: 10px;
+      box-shadow: 0 0 2px 2px $grey-light;
     }
 
     @include onTablet {
       margin-bottom: 0;
+      &:hover {
+        transform: rotateY(1deg);
+        transform-style: preserve-3d;
+        box-shadow: -3px 0 2px 0 $grey-light;
+        border-radius: 15px 5px 5px 15px;
+      }
     }
   }
 

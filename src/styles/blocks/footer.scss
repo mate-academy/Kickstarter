@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
 
   &__logo-link {
@@ -16,6 +17,28 @@
       &:hover {
         transform: scale(1.5);
       }
+    }
+  }
+
+  &__arrow {
+    display: none;
+    transition: all 0.3s;
+    
+    @include onTablet {
+      display: flex;
+      position: absolute;
+      top: 10px;
+      right: 50px;
+    }
+
+    @include onDesktop {
+      top: 0;
+      right: 43px;
+    }
+
+    fill: $dark-grey;
+    &:hover {
+      fill: $green;
     }
   }
 
