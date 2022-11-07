@@ -1,0 +1,115 @@
+.about-us {
+
+  &__photo {
+    width: 100%;
+    height: 210px;
+    margin: auto;
+    @extend %bg-possition;
+    @extend %transition;
+    background-size: cover;
+
+    @include onTablet {
+      width: 100%;
+      height: 415px;
+    }
+
+    @include onDesktop {
+      width: 100%;
+      height: 388px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &--1 {
+      background-image: url(/images/img_5.png);
+    }
+
+    &--2 {
+      background-image: url(/images/img_3.png);
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    @extend %font-large;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+
+    color: $dark-color;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__info {
+    margin-bottom: 20px;
+    @extend %font-small;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: #7c7c7c;
+  }
+
+  &__see-more {
+    position: relative;
+    @extend %font-large;
+    font-size: 12px;
+    line-height: 140px;
+    text-transform: uppercase;
+
+    color: $blue-color;
+
+    &::after {
+      content: "";
+      box-sizing: border-box;
+      width: 53px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-bottom: 2px solid $blue-color;
+      border-radius: 2px;
+      @extend %transition;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  &__block {
+
+    &:not(:last-child) {
+      margin-bottom: 90px;
+
+      @include onTablet {
+        margin-bottom: 140px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 160px;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 150px;
+
+      @include onTablet {
+        margin-bottom: 200px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 200px;
+      }
+    }
+  }
+}

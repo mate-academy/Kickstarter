@@ -1,0 +1,158 @@
+.header {
+  margin-bottom: 110px;
+  @extend %transition;
+
+  @include onTablet {
+    margin-bottom: 140px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 170px;
+  }
+
+  &__top {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      margin-bottom: 130px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 180px;
+    }
+
+    &-mobile {
+      display: none;
+      @extend %transition;
+
+      @media (max-width: 744px) {
+        display: flex;
+      }
+    }
+
+    &-desktop {
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      gap: 48px;
+      @extend %transition;
+
+      @media (min-width: 744px) {
+        display: flex;
+      }
+    }
+  }
+
+  &__language {
+    display: flex;
+    margin: auto;
+  }
+
+  &__logo-image {
+    width: 160px;
+    height: 25px;
+  }
+
+  &__specs {
+    @extend %font-small;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+
+    color: #4f4f4f;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  &__button {
+    width: 100px;
+    height: 48px;
+    display: flex;
+
+    @extend %font-large;
+    font-size: 12px;
+    line-height: 14px;
+
+    @extend %flex-center;
+    text-transform: uppercase;
+
+    background-color: #3d3d3d;
+    color: #fff;
+    @extend %transition;
+
+    &:hover {
+      background: #131313;
+    }
+
+    &:disabled {
+      background: #d0d0d0;
+    }
+  }
+
+  &__title {
+    margin: auto;
+    max-width: 260px;
+    @extend %font-large;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+
+    color: #333;
+
+    @include onTablet {
+      max-width: 330px;
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      max-width: 360px;
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__inner {
+    @include onMobile {
+      text-align: center;
+      max-width: 340px;
+      margin: auto;
+    }
+  }
+
+  &__info {
+    @extend %font-small;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #333;
+  }
+
+  &__image {
+    margin: auto;
+    width: 320px;
+    height: 245px;
+    background-image: url(/images/img_1.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @extend %transition;
+
+    @include onTablet {
+      width: 430px;
+      height: 320px;
+    }
+
+    @include onDesktop {
+      width: 600px;
+      height: 464px;
+      margin-top: -85px;
+    }
+  }
+}
