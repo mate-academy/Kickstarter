@@ -1,6 +1,30 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onTablet {
+  @media screen and (min-width: 768px) {
+    @content;
   }
+}
+
+@mixin onDesktop {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin buttonsParam {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+@mixin menuIconSize($size) {
+  width: #{$menu-opener-closer-size};
+  height: #{$menu-opener-closer-size};
+}
+
+@mixin menuIconBackgroundParam {
+  background-position: center;
+  background-size: auto;
+  background-repeat: no-repeat;
 }
