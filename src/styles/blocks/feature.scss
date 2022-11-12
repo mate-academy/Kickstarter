@@ -1,0 +1,90 @@
+.feature {
+  flex-shrink: 0;
+
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 30px;
+
+  transition: transform 0.3s;
+
+  @include onTablet {
+    padding: 0 90px;
+  }
+
+  @include onDesktop {
+    padding: 0;
+  }
+
+  &--connectivity {
+    grid-row: 1 / 2;
+  }
+
+  &--sound {
+    grid-row: 2 / 3;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #{$color-feature-title};
+
+    @include onDesktop {
+      margin-bottom: 30px;
+
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+
+    @include onTablet {
+      width: 260px;
+    }
+
+    @include onDesktop {
+      width: max-content;
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    margin-bottom: 10px;
+    padding-left: 16px;
+
+    font-size: 14px;
+    line-height: 19px;
+    color: #{$color-primary};
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+
+      display: block;
+      width: 6px;
+      height: 6px;
+
+      background-image: url(../images/bullet.svg);
+      background-position: center;
+      background-size: cover;
+    }
+
+    @include onDesktop {
+      font-size: 16px;
+    }
+  }
+}
