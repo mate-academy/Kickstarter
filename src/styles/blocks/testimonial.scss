@@ -42,11 +42,16 @@
 
   &__avatar {
     display: block;
-    width: 62px;
-    height: 62px;
+    @include testimonialAvatarSize(#{$testimonial-avatar-size});
     margin-bottom: 10px;
 
     border-radius: 50%;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
 
     @include onTablet {
       margin-bottom: 20px;

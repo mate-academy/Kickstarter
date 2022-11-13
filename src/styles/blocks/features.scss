@@ -56,163 +56,57 @@
   }
 
   &__to-right-to-slide-2 {
-    position: absolute;
-    left: 50%;
-    bottom: 204px;
-    transform: translateX(-1px);
+    @include featuresSliderRightBtnPosition;
     z-index: 2;
 
-    width: 48px;
-    height: 13px;
+    @include sliderBtnLeftRightSize;
 
-    background-image: url(../images/slider/to-right.svg);
-
-    cursor: pointer;
-
-    transition: background-image 0.3s;
-
-    &:hover {
-      background-image: url(../images/slider/to-right-hover.svg);
-    }
-
-    &:active {
-      background-image: url(../images/slider/to-right-hover.svg);
-    }
-
-    @include onTablet {
-      left: 136px;
-      bottom: 154px;
-    }
+    @include sliderActiveBtnRight;
   }
 
   &__to-right-to-slide-3 {
-    position: absolute;
-    left: 50%;
-    bottom: 204px;
-    transform: translateX(-1px);
+    @include featuresSliderRightBtnPosition;
     z-index: 1;
 
-    width: 48px;
-    height: 13px;
+    @include sliderBtnLeftRightSize;
 
-    background-image: url(../images/slider/to-right.svg);
-
-    cursor: pointer;
-
-    transition: background-image 0.3s;
-
-    &:hover {
-      background-image: url(../images/slider/to-right-hover.svg);
-    }
-
-    &:active {
-      background-image: url(../images/slider/to-right-hover.svg);
-    }
-
-    @include onTablet {
-      left: 136px;
-      bottom: 154px;
-    }
+    @include sliderActiveBtnRight;
   }
 
   &__to-right-non-active {
-    position: absolute;
-    left: 50%;
-    bottom: 204px;
-    transform: translateX(-1px);
+    @include featuresSliderRightBtnPosition;
     z-index: 0;
 
-    width: 48px;
-    height: 13px;
+    @include sliderBtnLeftRightSize;
 
-    background-image: url(../images/slider/to-right-non-active.svg);
-
-    pointer-events: none;
-
-    @include onTablet {
-      left: 136px;
-      bottom: 154px;
-    }
+    @include sliderNonActiveBtnRight;
   }
 
   &__to-left-non-active {
-    position: absolute;
-    right: 50%;
-    bottom: 202px;
-    transform: translateX(1px);
+    @include featuresSliderLeftBtnPosition;
     z-index: 0;
 
-    width: 48px;
-    height: 13px;
+    @include sliderBtnLeftRightSize;
 
-    background-image: url(../images/slider/to-left-non-active.svg);
-
-    pointer-events: none;
-
-    @include onTablet {
-      left: 90px;
-      bottom: 152px;
-    }
+    @include sliderNonActiveBtnLeft;
   }
 
   &__to-left-to-slide-1 {
-    position: absolute;
-    right: 50%;
-    bottom: 202px;
-    transform: translateX(1px);
+    @include featuresSliderLeftBtnPosition;
     z-index: 1;
 
-    width: 48px;
-    height: 13px;
+    @include sliderBtnLeftRightSize;
 
-    background-image: url(../images/slider/to-left.svg);
-
-    cursor: pointer;
-
-    transition: background-image 0.3s;
-
-    &:hover {
-      background-image: url(../images/slider/to-left-hover.svg);
-    }
-
-    &:active {
-      background-image: url(../images/slider/to-left-hover.svg);
-    }
-
-    @include onTablet {
-      left: 90px;
-      bottom: 152px;
-    }
+    @include sliderActiveBtnLeft;
   }
 
   &__to-left-to-slide-2 {
-    position: absolute;
-    right: 50%;
-    bottom: 202px;
-    transform: translateX(1px);
+    @include featuresSliderLeftBtnPosition;
     z-index: 2;
 
-    width: 48px;
-    height: 13px;
+    @include sliderBtnLeftRightSize;
 
-    background-image: url(../images/slider/to-left.svg);
-
-    cursor: pointer;
-
-    transition: background-image 0.3s;
-
-    &:hover {
-      background-image: url(../images/slider/to-left-hover.svg);
-    }
-
-    &:active {
-      background-image: url(../images/slider/to-left-hover.svg);
-    }
-
-    @include onTablet {
-      left: 90px;
-      bottom: 152px;
-    }
+    @include sliderActiveBtnLeft;
   }
 
   &__slide-1 {
@@ -230,35 +124,17 @@
     &:checked ~ .features__to-left-non-active::after {
       content: "01";
 
-      position: absolute;
-      top: 21px;
-      right: 5px;
+      @include currentSlideCounterPosition;
 
-      display: block;
-
-      font-size: 16px;
-      line-height: 24px;
-      font-weight: 400;
-      color: #{$color-primary};
-
-      pointer-events: none;
+      @include currentSlideCounterParam;
     }
 
     &:checked ~ .features__to-right-to-slide-2::after {
       content: "/ 03";
 
-      position: absolute;
-      top: 33px;
-      left: 0;
+      @include totalSlidesPosition;
 
-      display: block;
-
-      font-size: 11px;
-      line-height: 13px;
-      font-weight: 400;
-      color: #{$color-slider-green};
-
-      pointer-events: none;
+      @include totalSlidesParam;
     }
   }
 
@@ -278,35 +154,17 @@
     &:checked ~ .features__to-left-to-slide-1::after {
       content: "02";
 
-      position: absolute;
-      top: 21px;
-      right: 5px;
+      @include currentSlideCounterPosition;
 
-      display: block;
-
-      font-size: 16px;
-      line-height: 24px;
-      font-weight: 400;
-      color: #{$color-primary};
-
-      pointer-events: none;
+      @include currentSlideCounterParam;
     }
 
     &:checked ~ .features__to-right-to-slide-3::after {
       content: "/ 03";
 
-      position: absolute;
-      top: 33px;
-      left: 0;
+      @include totalSlidesPosition;
 
-      display: block;
-
-      font-size: 11px;
-      line-height: 13px;
-      font-weight: 400;
-      color: #{$color-slider-green};
-
-      pointer-events: none;
+      @include totalSlidesParam;
     }
   }
 
@@ -326,35 +184,17 @@
     &:checked ~ .features__to-left-to-slide-2::after {
       content: "03";
 
-      position: absolute;
-      top: 21px;
-      right: 5px;
+      @include currentSlideCounterPosition;
 
-      display: block;
-
-      font-size: 16px;
-      line-height: 24px;
-      font-weight: 400;
-      color: #{$color-primary};
-
-      pointer-events: none;
+      @include currentSlideCounterParam;
     }
 
     &:checked ~ .features__to-right-non-active::after {
       content: "/ 03";
 
-      position: absolute;
-      top: 33px;
-      left: 0;
+      @include totalSlidesPosition;
 
-      display: block;
-
-      font-size: 11px;
-      line-height: 13px;
-      font-weight: 400;
-      color: #{$color-slider-green};
-
-      pointer-events: none;
+      @include totalSlidesParam;
     }
   }
 }
