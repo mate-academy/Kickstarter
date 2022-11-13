@@ -51,3 +51,20 @@ if (document.documentElement.clientWidth >= 320
   && document.documentElement.clientWidth < 1280) {
   getFeaturesSlider();
 };
+
+const questionsForm = document.querySelector('.questions__form');
+
+questionsForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  questionsForm.reset();
+});
+
+const formButton = document.querySelector('.form__button');
+const formFieldInput = document.querySelector('.form__field--input');
+
+formFieldInput.addEventListener('change', (event) => {
+  if (event.target.value) {
+    formButton.classList.remove('form__button--disabled');
+    formButton.classList.add('form__button--active');
+  }
+});
