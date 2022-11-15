@@ -3,6 +3,11 @@
   flex-direction: column;
   margin: 0 0 116px;
 
+  @include onTablet {
+    flex-direction: row;
+    margin-bottom: 140px;
+  }
+
   &__title {
     margin: 0 0 30px;
     width: 240px;
@@ -10,6 +15,13 @@
     font-size: 30px;
     line-height: 40px;
     text-transform: uppercase;
+
+    @include onTablet {
+      min-width: 340px;
+      font-size: 36px;
+      line-height: 46px;
+      margin-bottom: 30px;
+    }
 
     &--larger {
       margin: 0 0 20px;
@@ -23,16 +35,37 @@
     height: 210px;
     margin: 0 0 20px;
     align-self: center;
+
+    @include onTablet {
+      width: 374px;
+      height: 415px;
+      margin: 0 0 0 -34px;
+    }
+
+    &--second {
+      @include onTablet {
+        width: 741px;
+        height: 417px;
+        margin: 0 0 0 54px;
+      }
+    }
   }
 
   &__text {
     box-sizing: border-box;
-    width: 260px;
+    max-width: 260px;
     margin: 0 0 30px;
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
     color: rgba(124, 124, 124, 1);
+
+    @include onTablet {
+      max-width: 340px;
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 60px;
+    }
 
     &--larger {
       font-size: 16px;

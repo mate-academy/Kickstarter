@@ -2,11 +2,20 @@
   display: flex;
   flex-direction: column;
   margin: 0 0 90px;
-  width: 320px;
+  max-width: 320px;
+
+  @include onTablet {
+    display: block;
+    margin-bottom: 140px;
+  }
+
+  &__box {
+    margin: 0 0 0 1px;
+  }
 
   &__title {
     margin: 0 0 30px;
-    width: 240px;
+    max-width: 240px;
     font-weight: 700;
     font-size: 30px;
     line-height: 40px;
@@ -17,13 +26,23 @@
     width: 320px;
     height: 575px;
     background-color: rgba(214, 236, 236, 1);
+
+    @include onTablet {
+      width: 700px;
+      height: 555px;
+    }
   }
 
   &__slider {
-    box-sizing: border-box;
-    width: 259px;
+    margin: 0 auto;
+    width: 260px;
     height: 350px;
     overflow: hidden;
+
+    @include onTablet {
+      margin: 0 0 0 90px;
+      width: 258px;
+    }
   }
 
   &__slider-wrapper {
@@ -37,5 +56,10 @@
 
   &__image {
     margin-top: -3px;
+
+    @include onTablet {
+      display: inline-block;
+      margin: -127px 0 0 284px;
+    }
   }
 }
