@@ -32,7 +32,8 @@
 
     &--mobile {
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
+      align-items: start;
       padding: 10px 0;
     }
   }
@@ -44,21 +45,22 @@
 
     font-size: 14px;
     line-height: 20px;
-    font-weight: 300;
+    font-weight: 400;
     color: #4f4f4f;
 
-    border: 1px solid #{$color-primary};
+    border: 1px solid transparent;
 
-    @include onTablet {
-      font-weight: 400;
+    transition: border-color 0.3s;
 
-      border: 1px solid transparent;
+    &:hover {
+      border-color: #{$color-primary};
+    }
 
-      transition: border-color 0.3s;
+    &--mobile {
+      width: max-content;
+      margin-bottom: 60px;
 
-      &:hover {
-        border-color: #{$color-primary};
-      }
+      border-bottom: 1px solid #{$color-primary};
     }
   }
 
@@ -220,9 +222,15 @@
     transform: translateY(-100%);
     z-index: 1;
 
+    overflow-y: auto;
+
     height: 100vh;
 
     background-color: #f7f7f7;
+    background-image: url(../images/mobile-images/luna-menu.png);
+    background-size: 40%;
+    background-position: bottom 30px right 30px;
+    background-repeat: no-repeat;
 
     transition: transform 0.3s;
 
