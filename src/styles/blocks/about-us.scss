@@ -1,0 +1,171 @@
+.about-us {
+  overflow: hidden;
+
+  &__article {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: max-content 293px;
+      column-gap: 20px;
+      margin-bottom: 140px;
+
+      &--last {
+        grid-template-rows: max-content 339px;
+      }
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: max-content 1fr;
+      column-gap: 30px;
+      margin-bottom: 170px;
+    }
+
+    &--last {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    grid-column: 2 / -1;
+    margin-bottom: 30px;
+
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    color: #{$color-primary};
+
+    &--luna-eye {
+      grid-column: 1 / 2;
+    }
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__image-container {
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
+    justify-self: end;
+
+    overflow: hidden;
+
+    @include onTablet {
+      position: absolute;
+      left: -10px;
+      width: 50%;
+
+      &--luna-eye {
+        position: absolute;
+        left: unset;
+        right: -10px;
+        width: 50%;
+      }
+    }
+
+    @include onDesktop {
+      position: static;
+      width: 100%;
+    }
+
+    &--luna-eye {
+      grid-column: 2 / -1;
+      grid-row: 1 / -1;
+      justify-self: start;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      height: 415px;
+      margin-bottom: 0;
+
+      object-fit: cover;
+      object-position: center;
+
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    @include onDesktop {
+      height: 388px;
+      width: 100%;
+    }
+  }
+
+  &__info {
+    grid-column: 2 / -1;
+
+    &--luna-eye {
+      grid-column: 1 / 2;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    font-size: 14px;
+    line-height: 21px;
+    color: #{$color-secondary};
+
+    @include onTablet {
+      margin-bottom: 60px;
+
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__more-info {
+    position: relative;
+
+    display: block;
+    width: max-content;
+    padding-bottom: 6px;
+
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #{$color-link};
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+
+      display: block;
+      width: 50%;
+      height: 1px;
+
+      background-color: #{$color-link};
+
+      transition: width 0.3s;
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}

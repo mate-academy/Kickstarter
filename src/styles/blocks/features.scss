@@ -1,0 +1,200 @@
+.features {
+  &__title {
+    margin-bottom: 30px;
+
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    color: #{$color-primary};
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    display: flex;
+    gap: 0;
+    flex-direction: row;
+    padding: 30px 0 270px;
+    overflow: hidden;
+
+    background-color: #d6ecec;
+    background-image: url(../images/mobile-images/5-1.png);
+    background-position: bottom right;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      padding: 60px 0 220px;
+
+      background-image: url(../images/tablet-images/5-1.png);
+    }
+
+    @include onDesktop {
+      display: grid;
+      padding: 60px 0;
+      gap: 56px 30px;
+
+      background-image: url(../images/desktop-images/5-1.png);
+      background-position: bottom right 50px;
+
+      & > label,
+      & > input {
+        display: none;
+      }
+    }
+  }
+
+  &__to-right-to-slide-2 {
+    @include featuresSliderRightBtnPosition;
+    z-index: 2;
+
+    @include sliderBtnLeftRightSize;
+
+    @include sliderActiveBtnRight;
+  }
+
+  &__to-right-to-slide-3 {
+    @include featuresSliderRightBtnPosition;
+    z-index: 1;
+
+    @include sliderBtnLeftRightSize;
+
+    @include sliderActiveBtnRight;
+  }
+
+  &__to-right-non-active {
+    @include featuresSliderRightBtnPosition;
+    z-index: 0;
+
+    @include sliderBtnLeftRightSize;
+
+    @include sliderNonActiveBtnRight;
+  }
+
+  &__to-left-non-active {
+    @include featuresSliderLeftBtnPosition;
+    z-index: 0;
+
+    @include sliderBtnLeftRightSize;
+
+    @include sliderNonActiveBtnLeft;
+  }
+
+  &__to-left-to-slide-1 {
+    @include featuresSliderLeftBtnPosition;
+    z-index: 1;
+
+    @include sliderBtnLeftRightSize;
+
+    @include sliderActiveBtnLeft;
+  }
+
+  &__to-left-to-slide-2 {
+    @include featuresSliderLeftBtnPosition;
+    z-index: 2;
+
+    @include sliderBtnLeftRightSize;
+
+    @include sliderActiveBtnLeft;
+  }
+
+  &__slide-1 {
+    display: none;
+
+    &:checked ~ .feature {
+      transform: translateX(0);
+    }
+
+    &:checked ~ .features__to-left-to-slide-2,
+    &:checked ~ .features__to-left-to-slide-1 {
+      display: none;
+    }
+
+    &:checked ~ .features__to-left-non-active::after {
+      content: "01";
+
+      @include currentSlideCounterPosition;
+
+      @include currentSlideCounterParam;
+    }
+
+    &:checked ~ .features__to-right-to-slide-2::after {
+      content: "/ 03";
+
+      @include totalSlidesPosition;
+
+      @include totalSlidesParam;
+    }
+  }
+
+  &__slide-2 {
+    display: none;
+
+    &:checked ~ .feature {
+      transform: translateX(-100%);
+    }
+
+    &:checked ~ .features__to-right-to-slide-2,
+    &:checked ~ .features__to-left-to-slide-3,
+    &:checked ~ .features__to-left-to-slide-2 {
+      display: none;
+    }
+
+    &:checked ~ .features__to-left-to-slide-1::after {
+      content: "02";
+
+      @include currentSlideCounterPosition;
+
+      @include currentSlideCounterParam;
+    }
+
+    &:checked ~ .features__to-right-to-slide-3::after {
+      content: "/ 03";
+
+      @include totalSlidesPosition;
+
+      @include totalSlidesParam;
+    }
+  }
+
+  &__slide-3 {
+    display: none;
+
+    &:checked ~ .feature {
+      transform: translateX(-200%);
+    }
+
+    &:checked ~ .features__to-right-to-slide-3,
+    &:checked ~ .features__to-right-to-slide-2,
+    &:checked ~ .features__to-left-to-slide-3 {
+      display: none;
+    }
+
+    &:checked ~ .features__to-left-to-slide-2::after {
+      content: "03";
+
+      @include currentSlideCounterPosition;
+
+      @include currentSlideCounterParam;
+    }
+
+    &:checked ~ .features__to-right-non-active::after {
+      content: "/ 03";
+
+      @include totalSlidesPosition;
+
+      @include totalSlidesParam;
+    }
+  }
+}

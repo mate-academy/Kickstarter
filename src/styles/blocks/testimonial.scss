@@ -1,0 +1,75 @@
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+
+  background-image: url(../images/quote.svg);
+  background-position: top center;
+  background-repeat: no-repeat;
+
+  @include onTablet {
+    padding-top: 60px;
+
+    background-image: url(../images/quote-desktop.svg);
+  }
+
+  @include onDesktop {
+    padding-top: 42px;
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    color: #{$color-primary};
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 40px;
+
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    @include onDesktop {
+      max-width: 786px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__avatar {
+    display: block;
+    @include testimonialAvatarSize(#{$testimonial-avatar-size});
+    margin-bottom: 10px;
+
+    border-radius: 50%;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include onTablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__name {
+    margin-bottom: 5px;
+
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+    color: #{$color-primary};
+  }
+
+  &__role {
+    font-size: 14px;
+    line-height: 21px;
+    color: #{$color-secondary};
+  }
+}

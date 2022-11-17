@@ -1,0 +1,66 @@
+.page {
+  &__body {
+    overflow-x: hidden;
+    background-color: #f7f7f7;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__header {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 62px;
+  }
+
+  &__section {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__scroll-to-top {
+    position: fixed;
+    bottom: 150px;
+    right: 35px;
+
+    display: block;
+    @include pageScrollToTopSize($page-scroll-to-top-size);
+
+    backdrop-filter: blur(5px);
+    background-image: url(../images/to-home-arrow.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+      background-image: url(../images/to-home-arrow-hover.svg);
+    }
+
+    &--show {
+      opacity: 1;
+      transform: rotate(1turn);
+    }
+  }
+}

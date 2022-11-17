@@ -1,6 +1,168 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onTablet {
+  @media screen and (min-width: 768px) {
+    @content;
   }
+}
+
+@mixin onDesktop {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin buttonsParam {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+@mixin languageBtnParam {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 300;
+  color: #bdbdbd;
+}
+
+@mixin menuIconSize($size) {
+  width: #{$menu-opener-closer-size};
+  height: #{$menu-opener-closer-size};
+}
+
+@mixin menuIconBackgroundParam {
+  background-position: center;
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+
+@mixin sliderBtnLeftRightSize {
+  width: 48px;
+  height: 13px;
+}
+
+@mixin sliderActiveBtnLeft {
+  background-image: url(../images/slider/to-left.svg);
+
+  cursor: pointer;
+
+  transition: background-image 0.3s;
+
+  &:hover {
+    background-image: url(../images/slider/to-left-hover.svg);
+  }
+
+  &:active {
+    background-image: url(../images/slider/to-left-hover.svg);
+  }
+}
+
+@mixin sliderNonActiveBtnLeft {
+  background-image: url(../images/slider/to-left-non-active.svg);
+
+  pointer-events: none;
+}
+
+@mixin sliderActiveBtnRight {
+  background-image: url(../images/slider/to-right.svg);
+
+  cursor: pointer;
+
+  transition: background-image 0.3s;
+
+  &:hover {
+    background-image: url(../images/slider/to-right-hover.svg);
+  }
+
+  &:active {
+    background-image: url(../images/slider/to-right-hover.svg);
+  }
+}
+
+@mixin sliderNonActiveBtnRight {
+  background-image: url(../images/slider/to-right-non-active.svg);
+
+  pointer-events: none;
+}
+
+@mixin benefitsSliderLeftBtnPosition {
+  position: absolute;
+  right: 50%;
+  bottom: 32px;
+  transform: translateX(1px);
+}
+
+@mixin benefitsSliderRightBtnPosition {
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  transform: translateX(-1px);
+}
+
+@mixin featuresSliderLeftBtnPosition {
+  position: absolute;
+  right: 50%;
+  bottom: 202px;
+  transform: translateX(1px);
+
+  @include onTablet {
+    left: 90px;
+    bottom: 152px;
+  }
+}
+
+@mixin featuresSliderRightBtnPosition {
+  position: absolute;
+  left: 50%;
+  bottom: 204px;
+  transform: translateX(-1px);
+
+  @include onTablet {
+    left: 136px;
+    bottom: 154px;
+  }
+}
+
+@mixin currentSlideCounterPosition {
+  position: absolute;
+  top: 21px;
+  right: 5px;
+}
+
+@mixin currentSlideCounterParam {
+  display: block;
+
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #{$color-primary};
+
+  pointer-events: none;
+}
+
+@mixin totalSlidesPosition {
+  position: absolute;
+  top: 33px;
+  left: 0;
+}
+
+@mixin totalSlidesParam {
+  display: block;
+
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 400;
+  color: #{$color-slider-green};
+
+  pointer-events: none;
+}
+
+@mixin testimonialAvatarSize($size) {
+  width: #{$testimonial-avatar-size};
+  height: #{$testimonial-avatar-size};
+}
+
+@mixin pageScrollToTopSize($size) {
+  width: #{$page-scroll-to-top-size};
+  height: #{$page-scroll-to-top-size};
 }
