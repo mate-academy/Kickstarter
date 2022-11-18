@@ -5,48 +5,54 @@
   margin: 0 0 116px;
 
   @include onTablet {
-    margin-bottom: 140px;
+    margin-bottom: $section-margin-bottom-onTablet;
   }
 
   @include onLaptop1280 {
-    margin-bottom: 170px;
+    margin-bottom: $section-margin-bottom-onLaptop;
+    transition: all ease 1s;
+
+    &:hover {
+      transform: scale(1.08, 1.08);
+    }
   }
 
   &__quote {
     display: flex;
     justify-content: center;
-    margin: 0 0 29px;
-    width: 260px;
+    min-width: 260px;
     height: 189px;
+    margin: 0 0 29px;
     background-image: url(../images/img_Mobile/background_quote.png);
     background-repeat: no-repeat;
     background-position: 70%;
 
     @include onTablet {
-      width: 700px;
+      min-width: 700px;
       background-image: url(../images/img_Tablet/background_quote_tablet.png);
       background-position: 50%;
     }
 
     @include onLaptop1280 {
       margin-bottom: 0;
-      width: 1034px;
+      min-width: $width-screen-onLaptop1280;
       background-image: url(../images/img_Desktop/background_quote_descktop.png);
+    }
+
+    @include onLaptop1440 {
+      min-width: $width-screen-onLaptop1440;
     }
   }
 
   &__quote-text {
     margin: 60px 0 0;
     padding: 0;
-    width: 260px;
-    height: 120px;
     font-weight: 700;
     font-size: 13.8px;
     line-height: 20px;
     text-align: center;
 
     @include onTablet {
-      width: 700px;
       font-size: 24px;
       line-height: 36px;
       quotes: none;
@@ -54,7 +60,7 @@
 
     @include onLaptop1280 {
       margin-top: 42px;
-      width: 786px;
+      max-width: 786px;
     }
   }
 

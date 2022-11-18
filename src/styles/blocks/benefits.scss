@@ -1,13 +1,14 @@
 .benefits {
   &__container {
     display: flex;
+    margin-bottom: $section-margin-bottom-onMobile;
 
     @include onTablet {
-      margin: 0 0 140px;
+      margin: 0 0 $section-margin-bottom-onTablet;
     }
 
     @include onLaptop1280 {
-     margin-bottom: 170px;
+      margin-bottom: $section-margin-bottom-onLaptop;
     }
   }
 
@@ -24,8 +25,9 @@
       margin-top: -75px;
     }
 
-    &-wrapper {
-      height: 0;
+    @include onLaptop1440 {
+      min-width: 816px;
+      margin-top: -90px;
     }
   }
 
@@ -51,29 +53,29 @@
     text-transform: uppercase;
 
     @include onTablet {
-      width: 250px;
+      min-width: 250px;
       font-size: 48px;
       line-height: 62px;
       margin-bottom: 30px;
     }
 
     @include onLaptop1280 {
-      width: 378px;
+      min-width: 378px;
       font-size: 62px;
       line-height: 78px;
     }
   }
 
   &__text {
-    margin: 0 0 110px;
+    margin: 0;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
 
     @include onTablet {
-      margin: 0;
       max-width: 250px;
+      margin: 0;
     }
 
     @include onLaptop1280 {

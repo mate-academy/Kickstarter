@@ -1,12 +1,12 @@
 .box {
+  box-sizing: border-box;
+  width: 260px;
   margin: 0;
   padding: 0;
-  width: 260px;
-  box-sizing: border-box;
 
   @include onLaptop1280 {
-    width: 378px;
-    height: 234px;
+    min-width: 378px;
+    max-height: 234px;
   }
 
   &__title {
@@ -33,15 +33,13 @@
     padding: 0;
 
     @include onLaptop1280 {
+      width: max-content;
       margin-bottom: 0;
     }
   }
 
   &__item {
-    color: rgb(51, 51, 51);
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
+    @extend %simpleText;
 
     &:not(&:last-child) {
       margin: 0 0 8px;

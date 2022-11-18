@@ -5,17 +5,21 @@
 
   @include onTablet {
     flex-direction: row;
-    margin-bottom: 140px;
+    margin-bottom: $section-margin-bottom-onTablet;
   }
 
   @include onLaptop1280 {
-    margin-bottom: 170px;
-    min-width: 1034px;
+    margin-bottom: $section-margin-bottom-onLaptop;
+    min-width: $width-screen-onLaptop1280;
+  }
+
+  @include onLaptop1440 {
+    min-width: $width-screen-onLaptop1440;
   }
 
   &__title {
-    margin: 0 0 30px;
     width: 240px;
+    margin: 0 0 30px;
     font-weight: 700;
     font-size: 30px;
     line-height: 40px;
@@ -23,19 +27,26 @@
 
     @include onTablet {
       min-width: 340px;
+      margin-bottom: 30px;
       font-size: 36px;
       line-height: 46px;
-      margin-bottom: 30px;
     }
 
     @include onLaptop1280 {
-      min-width: 582px;
+      min-width: 570px;
+      margin-bottom: 20px;
       font-size: 46px;
       line-height: 56px;
-      margin-bottom: 20px;
     }
 
-    &--larger {
+    @include onLaptop1440 {
+      min-width: 582px;
+      margin-bottom: 30px;
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    &--second {
       margin: 0 0 20px;
       font-size: 36px;
       line-height: 46px;
@@ -50,25 +61,41 @@
 
   &__img {
     display: block;
-    height: 210px;
+    max-height: 210px;
     margin: 0 0 20px;
-    align-self: center;
+    transition: all ease 1s;
+
+    &:hover {
+      @include onLaptop1280 {
+        transform: scale(1.06, 1.06);
+      }
+    }
 
     @include onTablet {
-      width: 374px;
-      height: 415px;
+      max-width: 374px;
+      min-height: 415px;
       margin: 0 0 0 -34px;
     }
 
     @include onLaptop1280 {
+      max-width: 422px;
+      min-height: 281px;
       margin: 0;
-      width: 422px;
-      height: 281px;
+    }
+
+    @include onLaptop1440 {
+      max-width: 582px;
+      min-height: 388px;
+    }
+
+    &--first {
+      @include onTablet {
+        margin-right: 30px;
+      }
     }
 
     &--second {
       @include onTablet {
-        width: 741px;
         margin: 0 0 0 54px;
       }
 
@@ -83,22 +110,24 @@
     box-sizing: border-box;
     max-width: 260px;
     margin: 0 0 30px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    color: rgba(124, 124, 124, 1);
+    @extend %simpleText;
 
     @include onTablet {
       max-width: 340px;
+      margin-bottom: 60px;
       font-size: 16px;
       line-height: 24px;
-      margin-bottom: 60px;
     }
 
     @include onLaptop1280 {
-      min-width: 582px;
+      min-width: 570px;
       margin-bottom: 20px;
       line-height: 26px;
+    }
+
+    @include onLaptop1440 {
+      min-width: 582px;
+      margin-bottom: 60px;
     }
 
     &--second {
@@ -116,12 +145,14 @@
   &__button {
     position: relative;
     display: block;
+    width: max-content;
     font-weight: 700;
     font-size: 12px;
     line-height: 14px;
     text-transform: uppercase;
     color: #0db2b3;
     text-decoration: none;
+    transition: all ease 1.5s;
 
     &::after {
       content: " ";
@@ -132,12 +163,10 @@
       background-image: url(../images/img_Mobile/button_line.svg);
       margin-top: 5px;
     }
-  }
 
-  &__content {
-    &--first {
-      @include onLaptop1280 {
-        margin-left: 30px;
+    &:hover {
+      &::after {
+        width: 128px;
       }
     }
   }

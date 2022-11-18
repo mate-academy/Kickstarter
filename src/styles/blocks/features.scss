@@ -6,11 +6,11 @@
 
   @include onTablet {
     display: block;
-    margin-bottom: 140px;
+    margin-bottom: $section-margin-bottom-onTablet;
   }
 
   @include onLaptop1280 {
-    margin-bottom: 170px;
+    margin-bottom: $section-margin-bottom-onLaptop;
   }
 
   &__box {
@@ -18,8 +18,8 @@
   }
 
   &__title {
-    margin: 0 0 30px;
     max-width: 240px;
+    margin: 0 0 30px;
     font-weight: 700;
     font-size: 30px;
     line-height: 40px;
@@ -32,35 +32,40 @@
   }
 
   &__container {
-    width: 320px;
-    height: 575px;
+    min-width: 320px;
+    max-height: 575px;
     background-color: rgba(214, 236, 236, 1);
 
     @include onTablet {
-      width: 700px;
-      height: 555px;
+      min-width: 700px;
+      max-height: 555px;
     }
 
     @include onLaptop1280 {
-      width: 1034px;
-      height: 652px;
+      min-width: $width-screen-onLaptop1280;
+      max-height: 652px;
+    }
+
+    @include onLaptop1440 {
+      min-width: $width-screen-onLaptop1440;
     }
   }
 
   &__slider {
-    margin: 0 auto;
     width: 260px;
     height: 350px;
+    margin: 0 auto;
     overflow: hidden;
 
     @include onTablet {
-      margin: 0 0 0 90px;
       width: 258px;
+      margin: 0 0 0 90px;
     }
 
     @include onLaptop1280 {
-      margin-left: 103px;
       width: 786px;
+      margin-left: 103px;
+      margin-right: 306px;
       overflow: visible;
     }
   }
@@ -80,6 +85,10 @@
       width: 378px;
       height: 523px;
     }
+
+    @include onLaptop1440 {
+      column-gap: 125px;
+    }
   }
 
   &__image {
@@ -93,6 +102,10 @@
     @include onLaptop1280 {
       margin-top: 0;
       margin-left: 450px;
+    }
+
+    @include onLaptop1440 {
+      margin-left: 605px;
     }
   }
 }

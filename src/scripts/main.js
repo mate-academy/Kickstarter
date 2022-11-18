@@ -73,10 +73,6 @@ formFieldInput.addEventListener('change', (event) => {
 
 // onTable scripts
 if (document.documentElement.clientWidth >= 768) {
-  const headerNavigation = document.querySelector('.header__navigation');
-
-  headerNavigation.hidden = false;
-
   // change position for benefits__image
   const copyBenefitImageWrapper = document.querySelector(
     '.benefits__image-wrapper'
@@ -105,12 +101,12 @@ if (document.documentElement.clientWidth >= 768) {
 
   // change positions second block__title & picture.block__img
 
-  const copyBlockTitleLarger = document.querySelector('.block__title--larger')
+  const copyBlockTitleSecond = document.querySelector('.block__title--second')
     .cloneNode(true);
   const blockContentSecond = document.querySelectorAll('.block__content')[1];
 
   document.querySelectorAll('.block__title')[1].remove();
-  blockContentSecond.prepend(copyBlockTitleLarger);
+  blockContentSecond.prepend(copyBlockTitleSecond);
 
   const copySecondPictureBlockImg = document.querySelectorAll(
     'picture.block__img'

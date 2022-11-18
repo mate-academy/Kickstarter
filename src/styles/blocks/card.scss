@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0;
   max-width: 100%;
+  margin: 0;
 
   @include onTablet {
     max-width: 340px;
@@ -14,7 +14,11 @@
   }
 
   @include onLaptop1280 {
-    width: 240px;
+    max-width: 240px;
+  }
+
+  @include onLaptop1440 {
+    min-width: 276px;
   }
 
   &__icon {
@@ -42,19 +46,15 @@
     text-transform: uppercase;
 
     @include onLaptop1280 {
-      margin-bottom: 24px;
       height: 56px;
-      align-self: flex-start;
+      margin-bottom: 24px;
     }
   }
 
   &__text {
     display: inline-block;
     margin: 0;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    color: #7c7c7c;
+    @extend %simpleText;
     text-align: center;
 
     @include onLaptop1280 {
