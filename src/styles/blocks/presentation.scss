@@ -1,0 +1,122 @@
+.presentation {
+  @extend %center;
+  @extend %margin-bottom;
+  padding: 0 30px;
+
+  @include onTablet {
+    padding: 0 34px;
+  }
+
+  @include onDesktop {
+    padding: 0 123px;
+  }
+
+  &__cards {
+    @extend %margin-bottom;
+  }
+
+  &__card {
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 65px;
+
+      &:nth-child(n + 3) {
+        margin-bottom: 0;
+      }
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 40px;
+    @include hover(transform, scale(1.2));
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__logo--signal {
+    margin-bottom: 44px;
+
+    @include onDesktop {
+      margin-bottom: 36px;
+    }
+  }
+
+  &__logo--brightness {
+    margin-bottom: 37px;
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__logo--desk {
+    @include onDesktop {
+      margin-bottom: 34px;
+    }
+  }
+
+  &__subtitle {
+    @extend %h4;
+    margin-bottom: 20px;
+
+    @include onDesktop {
+      margin-bottom: 52px;
+    }
+  }
+
+  &__subtitle--width {
+    @include onDesktop {
+      width: max-content;
+    }
+  }
+
+  &__subtitle--desk {
+    @include onDesktop {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__text {
+    @extend %text;
+    color: $colorAverageGray;
+  }
+
+  &__image {
+    width: 100%;
+    @include hover(transform, scale(1.1));
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__image-tablet {
+    display: none;
+
+    @include onTablet {
+      display: inherit;
+      @include hover(transform, scale(1.1));
+    }
+
+    @include onDesktop {
+      height: 520px;
+    }
+  }
+
+  &__card-tablet {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

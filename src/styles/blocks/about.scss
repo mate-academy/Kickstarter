@@ -1,0 +1,55 @@
+.about {
+  @extend %center;
+  @extend %margin-bottom;
+  padding: 0 30px;
+
+  @include onTablet {
+    padding: 0 34px 0 0;
+  }
+
+  @include onDesktop {
+    padding: 0 123px;
+  }
+
+  &__content {
+    height: 100%;
+  }
+
+  &__title {
+    @extend %h3;
+    margin-bottom: 30px;
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: 20px;
+    @include hover(transform, scale(1.05));
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__image-tablet {
+    display: none;
+
+    @include onTablet {
+      display: inherit;
+      height: 415px;
+    }
+
+    @include onDesktop {
+      height: 388px;
+    }
+  }
+
+  &__text {
+    @extend %text;
+    color: $colorAverageGray;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+  }
+}
