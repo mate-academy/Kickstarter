@@ -1,11 +1,10 @@
 'use strict';
 
 const form = document.querySelector('.contact-form__form');
-const textarea = document.querySelector('.form-field--texterea');
 
 form.addEventListener('submit', function(event) {
   event.preventDefault();
-  textarea.value = '';
+  form.reset();
 });
 
 window.addEventListener('hashchange', () => {
