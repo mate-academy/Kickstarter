@@ -1,0 +1,51 @@
+.nav {
+  &__list {
+    list-style: none;
+    display: none;
+  
+  
+    @include desktop {
+      display: flex;
+      width: 800px;
+      margin: 0 auto;
+      justify-content: space-between;
+      margin-top: 50px;
+    }
+  }
+  
+  &__item {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    color: $color--333;
+    text-transform: uppercase;
+  
+    &--line {
+      width: 0;
+      height: 1px;
+      background-color: $color--333;
+      transition: $smoth;
+      margin-top: 5px;
+  
+      &-active {
+        width: 100%;
+      }
+    }
+  }
+  
+  &__link {
+    text-decoration: none;
+    color: $color-grey;
+  
+    &:hover {
+      .nav__item--line {
+        width: 100%;
+      }
+    }
+  
+    &--active {
+      color: $color--333;
+      font-weight: 500;
+    }
+  }
+}
