@@ -11,8 +11,10 @@
     all: initial;
 
     box-sizing: border-box;
-    width: 260px;
-    height: 48px;
+    min-width: 100%;
+    flex-basis: 48px;
+    flex-grow: 1;
+    flex-shrink: 1;
     margin: 0;
     padding: 12px 20px;
 
@@ -23,19 +25,18 @@
     border: 1px solid rgba(130, 130, 130, 1);
 
     @include onTablet {
-      width: 340px;
+      min-width: 340px;
       padding: 12px 30px;
       font-size: 16px;
     }
 
     @include onLaptop1280 {
-      width: 503px;
+      min-width: 503px;
       padding: 12px 36px;
-
     }
 
     @include onLaptop1440 {
-      width: 582px;
+      min-width: 582px;
     }
 
     &::placeholder {
@@ -53,16 +54,16 @@
     }
 
     &--textarea {
-      height: 128px;
+      flex-basis: 128px;
       margin: 20px 0 0;
       overflow-wrap: break-word;
 
       @include onTablet {
-        height: 200px;
+        flex-basis: 200px;
       }
 
       @include onLaptop1280 {
-        height: 123px;
+        flex-basis: 123px;
       }
     }
   }

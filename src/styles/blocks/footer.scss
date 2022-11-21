@@ -1,31 +1,49 @@
 .footer {
-  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 0;
+
+  @include onTablet {
+    margin-top: $section-margin-bottom-onTablet;
+  }
+
+  @include onLaptop1280 {
+    margin-top: $section-margin-bottom-onLaptop;
+  }
 
   &__logo {
     display: none;
+    background-repeat: no-repeat;
 
     @include onTablet {
       display: block;
-      margin: 0 auto 64px;
+      margin: 0 auto;
     }
   }
 
   &__links {
     display: flex;
     justify-content: center;
-    margin: 0 0 33px;
+    margin: 114px 0 0;
 
     @include onTablet {
-      margin-bottom: 63px;
+      margin: 64px 0 0;
     }
   }
 
   &__link {
+    transition: all ease 1.5s;
     &:nth-child(-n+2) {
       margin: 0 44px 0 0;
 
       @include onTablet {
         margin-right: 53px;
+      }
+    }
+
+    &:hover {
+      @include onLaptop1280 {
+        transform: rotate(360deg);
       }
     }
 
@@ -49,8 +67,13 @@
   }
 
   &__info {
+    margin: 33px 0 30px;
     @extend %simpleText;
     text-align: center;
     color: rgb(189, 189, 189);
+
+    @include onTablet {
+      margin-top: 63px;
+    }
   }
 }

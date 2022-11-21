@@ -1,29 +1,35 @@
 .presentation {
-  margin: 0 0 $section-margin-bottom-onMobile;
+  margin: $section-margin-bottom-onMobile 0 0;
   box-sizing: border-box;
 
   @include onTablet {
-    margin-bottom: $section-margin-bottom-onTablet;
+    margin-top: $section-margin-bottom-onTablet;
   }
 
   @include onLaptop1280 {
-    margin-bottom: $section-margin-bottom-onLaptop;
+    margin-top: $section-margin-bottom-onLaptop;
+  }
+
+  &__wrapper {
+    display: flex;
+    margin: 0 -18px;
+
+    @include onTablet {
+      margin: 0;
+    }
   }
 
   &__image {
-    display: block;
-    max-height: 195px;
-    max-width: 290px;
-    margin: 0 auto;
+    flex-basis: 290px;
+    flex-grow: 1;
+    flex-shrink: 1;
 
     @include onTablet {
-      max-width: 700px;
-      max-height: 430px;
+      flex-basis: 700px;
     }
 
     @include onLaptop1280 {
-      min-width: 846px;
-      min-height: 520px;
+      flex-basis: 846px;
     }
   }
 }

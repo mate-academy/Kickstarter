@@ -1,68 +1,120 @@
 .block {
   display: flex;
   flex-direction: column;
-  margin: 0 0 116px;
 
   @include onTablet {
-    flex-direction: row;
-    margin-bottom: $section-margin-bottom-onTablet;
+    flex-basis: 415px;
+    max-height: 415px;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    flex-grow: 1;
+    column-gap: 20px;
   }
 
   @include onLaptop1280 {
-    margin-bottom: $section-margin-bottom-onLaptop;
-    min-width: $width-screen-onLaptop1280;
-  }
-
-  @include onLaptop1440 {
-    min-width: $width-screen-onLaptop1440;
+    flex-basis: 388px;
+    column-gap: 30px;
   }
 
   &__title {
-    width: 240px;
+    flex-basis: 80px;
+    flex-shrink: 1;
+    flex-grow: 1;
     margin: 0 0 30px;
     font-weight: 700;
     font-size: 30px;
     line-height: 40px;
+    color: rgb(51, 51, 51);
     text-transform: uppercase;
 
     @include onTablet {
-      min-width: 340px;
+      flex-basis: 92px;
+      max-width: 340px;
       margin-bottom: 30px;
       font-size: 36px;
       line-height: 46px;
     }
 
     @include onLaptop1280 {
-      min-width: 570px;
+      flex-basis: 140px;
+      max-width: 422px;
       margin-bottom: 20px;
       font-size: 46px;
       line-height: 56px;
     }
 
     @include onLaptop1440 {
-      min-width: 582px;
       margin-bottom: 30px;
+      max-width: 582px;
       font-size: 56px;
       line-height: 70px;
     }
 
+    &--first {
+      @include onTablet {
+        order: 2;
+      }
+    }
+
     &--second {
-      margin: 0 0 20px;
       font-size: 36px;
       line-height: 46px;
 
+      @include onTablet {
+        order: 1;
+      }
+
       @include onLaptop1280 {
-        min-width: 582px;
+        flex-basis: 70px;
         font-size: 56px;
         line-height: 70px;
       }
     }
   }
 
+  &__wrapper-img {
+    display: flex;
+    flex-basis: 210px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    object-fit: contain;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      flex-basis: 415px;
+      width: 374px;
+      margin: 0;
+    }
+
+    @include onLaptop1280 {
+      min-width: 582px;
+    }
+
+    &--first {
+      @include onTablet {
+        order: 1;
+        margin-left: -34px;
+      }
+
+      @include onLaptop1280 {
+        margin: 0;
+      }
+    }
+
+    &--second {
+      @include onTablet {
+        order: 4;
+        margin-right: -1px;
+      }
+
+      @include onLaptop1280 {
+        margin: 0;
+      }
+    }
+  }
+
   &__img {
-    display: block;
-    max-height: 210px;
-    margin: 0 0 20px;
+    min-width: 100%;
     transition: all ease 1s;
 
     &:hover {
@@ -72,47 +124,19 @@
     }
 
     @include onTablet {
-      max-width: 374px;
-      min-height: 415px;
-      margin: 0 0 0 -34px;
-    }
-
-    @include onLaptop1280 {
-      max-width: 422px;
-      min-height: 281px;
-      margin: 0;
-    }
-
-    @include onLaptop1440 {
-      max-width: 582px;
-      min-height: 388px;
-    }
-
-    &--first {
-      @include onTablet {
-        margin-right: 30px;
-      }
-    }
-
-    &--second {
-      @include onTablet {
-        margin: 0 0 0 54px;
-      }
-
-      @include onLaptop1280 {
-        margin-left: 0;
-        margin-right: 0;
-      }
+      flex-basis: 415px;
     }
   }
 
   &__text {
-    box-sizing: border-box;
-    max-width: 260px;
+    flex-basis: 150px;
+    flex-grow: 1;
+    flex-shrink: 1;
     margin: 0 0 30px;
     @extend %simpleText;
 
     @include onTablet {
+      flex-basis: 146px;
       max-width: 340px;
       margin-bottom: 60px;
       font-size: 16px;
@@ -120,23 +144,34 @@
     }
 
     @include onLaptop1280 {
-      min-width: 570px;
+      flex-basis: 96px;
+      max-width: 422px;
       margin-bottom: 20px;
       line-height: 26px;
     }
 
     @include onLaptop1440 {
-      min-width: 582px;
+      max-width: 582px;
       margin-bottom: 60px;
+    }
+
+    &--first {
+      @include onTablet {
+        order: 3;
+      }
     }
 
     &--second {
       font-size: 16px;
       line-height: 24px;
 
+      @include onTablet {
+        flex-basis: 96px;
+        order: 2;
+      }
+
       @include onLaptop1280 {
-        min-width: 582px;
-        margin-right: 30px;
+        flex-basis: 72px;
         line-height: 26px;
       }
     }
@@ -168,6 +203,18 @@
     &:hover {
       &::after {
         width: 128px;
+      }
+    }
+
+    &--first {
+      @include onTablet {
+        order: 5;
+      }
+    }
+
+    &--second {
+      @include onTablet {
+        order: 3;
       }
     }
   }

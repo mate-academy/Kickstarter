@@ -1,24 +1,28 @@
 .features {
   display: flex;
   flex-direction: column;
-  margin: 0 0 90px;
-  max-width: 320px;
+  margin: 90px 0 0;
+  row-gap: 32px;
 
   @include onTablet {
-    display: block;
-    margin-bottom: $section-margin-bottom-onTablet;
+    margin-top: $section-margin-bottom-onTablet;
+    row-gap: 30px;
   }
 
   @include onLaptop1280 {
-    margin-bottom: $section-margin-bottom-onLaptop;
+    margin-top: $section-margin-bottom-onLaptop;
   }
 
   &__title {
-    max-width: 240px;
-    margin: 0 0 30px;
+    flex-basis: 40px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 240px;
+    margin: 0;
     font-weight: 700;
     font-size: 30px;
     line-height: 40px;
+    color: rgb(51, 51, 51);
     text-transform: uppercase;
 
     @include onLaptop1280 {
@@ -28,27 +32,46 @@
   }
 
   &__container {
-    min-width: 320px;
-    max-height: 575px;
+    margin: 0 -30px;
     background-color: rgba(214, 236, 236, 1);
 
     @include onTablet {
-      min-width: 700px;
-      max-height: 555px;
+      margin: 0;
     }
 
     @include onLaptop1280 {
-      min-width: $width-screen-onLaptop1280;
-      max-height: 652px;
+      margin: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 575px;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    @include onTablet {
+      flex-basis: 555px;
+    }
+
+    @media (min-width: 800px) {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    @include onLaptop1280 {
+      min-width: $width-container-onLaptop1280;
+      flex-basis: 652px;
     }
 
     @include onLaptop1440 {
-      min-width: $width-screen-onLaptop1440;
+      min-width: $width-container-onLaptop1440;
     }
   }
 
   &__slider {
-    width: 261px;
+    width: 260px;
     height: 350px;
     margin: 0 auto;
     overflow: hidden;
@@ -75,6 +98,7 @@
     transition: all ease 1.5s;
 
     @include onLaptop1280 {
+      position: inherit;
       flex-direction: column;
       flex-wrap: wrap;
       gap: 55px;
@@ -87,11 +111,15 @@
     }
   }
 
-  &__image {
-    margin-top: -3px;
+  &__wrapper-image {
+    display: flex;
+    justify-content: center;
+    flex-basis: 174px;
+    flex-grow: 1;
+    flex-shrink: 1;
 
     @include onTablet {
-      display: inline-block;
+      justify-content: flex-start;
       margin: -127px 0 0 284px;
     }
 
@@ -103,5 +131,9 @@
     @include onLaptop1440 {
       margin-left: 605px;
     }
+  }
+
+  &__image {
+    justify-content: center;
   }
 }
