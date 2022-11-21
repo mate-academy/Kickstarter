@@ -1,0 +1,53 @@
+.questions {
+
+  &__content {
+
+    @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    }
+  }
+
+  &__title {
+    @include h2;
+    margin-bottom: 30px;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    height: 48px;
+    margin-bottom: 20px;
+    font-size: rem(14);
+    line-height: 24px;
+    color: $c-black;
+    padding: 12px 20px;
+    border: 1px solid #828282;
+
+    &::placeholder {
+      font-size: rem(16);
+      color: $c-gray;
+
+    }
+
+    &:focus {
+      border: 1px solid $c-dark-green;
+      outline: none;
+    }
+
+    &--textarea {
+      height: 128px;
+      resize: none;
+      margin-bottom: 30px;
+
+      @include onTablet {
+        height: 200px;
+      }
+
+      @include onDesktop {
+        height: 130px;
+      }
+    }
+  }
+}
