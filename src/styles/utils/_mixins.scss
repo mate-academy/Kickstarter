@@ -1,6 +1,26 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onDesktop {
+  @media (min-width: em(1200)) {
+    @content;
   }
+}
+
+@mixin onTablet {
+  @media (min-width: em(836)) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media (min-width: em(480)) {
+    @content;
+  }
+}
+
+@mixin h2 {
+    font-size: clamp(40px, 4.3vw, 62px);
+    line-height: clamp(52px, 5.4vw, 78px);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $c-black;
+    margin-bottom: 20px;
 }
