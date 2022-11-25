@@ -1,0 +1,65 @@
+.technology {
+  @extend %center;
+  @extend %margin-bottom;
+  padding: 0 30px;
+
+  @include onTablet {
+    padding: 0 0 0 34px;
+  }
+
+  @include onDesktop {
+    padding: 0 123px;
+  }
+
+  &__content {
+    @include onTablet {
+      height: 100%;
+    }
+  }
+
+  &__title {
+    @extend %h2;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: 16px;
+    @include hover(transform, scale(1.1));
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__image-tablet {
+    @include onTablet {
+      background-image: url(../images/stump-tablet.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 417px;
+      @include hover(transform, scale(1.1));
+    }
+
+    @include onDesktop {
+      background-image: url(../images/stump-desktop.jpg);
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $colorAverageGray;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+  }
+}
