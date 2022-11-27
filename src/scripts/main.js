@@ -1,6 +1,6 @@
 'use strict';
 
-const form = document.querySelector('.questions__button');
+const form = document.querySelector('.questions__form');
 const inputs = document.querySelectorAll('.questions__input');
 
 form.addEventListener('submit', (event) => {
