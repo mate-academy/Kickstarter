@@ -1,7 +1,7 @@
 'use strict';
 
-const form = document.querySelector('.contact-us__form');
-const inputs = document.querySelectorAll('.contact-us__field');
+const form = document.querySelector('.questions__button');
+const inputs = document.querySelectorAll('.questions__input');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
