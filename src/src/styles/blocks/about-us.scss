@@ -1,0 +1,105 @@
+.about-us {
+  @include onTablet {
+    background-image: url(./../images/about-us/tablet.png);
+    background-size: 49%;
+    background-repeat: no-repeat;
+    background-position: left;
+    height: 420px;
+    transition: background-size 0.3s;
+
+    &:hover {
+      background-size: 50%;
+    }
+  }
+
+  @include onDesktop {
+    background-image: none;
+  }
+
+  &__item {
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    @include onDesktop {
+      background-image: url(./../images/about-us/desktop.png);
+      background-size: 49%;
+      background-repeat: no-repeat;
+      background-position: left;
+      height: 380px;
+      transition-duration: 0.3s;
+
+      &:hover {
+        background-size: 50%;
+      }
+    }
+  }
+
+  &__container {
+    height: 210px;
+    background-image: url(./../images/about-us/mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__article {
+    @include onTablet {
+      width: 49%;
+    }
+  }
+
+  &__title {
+    @include title;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+      text-transform: uppercase;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $articleColor;
+    margin-bottom: 60px;
+  }
+
+  &__link {
+    @include link;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: #0db2b3;
+    transition-duration: 0.3s;
+
+    &:hover {
+      font-size: 13px;
+    }
+    
+    &::after {
+      display: block;
+      content: "";
+      border-bottom: 1px solid #0db2b3;
+      width: 64px;
+      padding-top: 5px;
+      transition-duration: 0.3s;
+    }
+    
+    &:hover::after {
+      width: 138px;
+    }
+  }
+}

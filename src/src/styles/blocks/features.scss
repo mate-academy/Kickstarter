@@ -1,0 +1,167 @@
+.features {
+  &__title {
+    @include title;
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__container {
+    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @include onTablet {
+      padding: 0 36px;
+    }
+
+    @include onDesktop {
+      padding: 0 120px;
+    }
+  }
+
+  &__content {
+    background-color: $featuresColor;
+    
+    padding: 30px;
+
+    @include onTablet {
+      padding: 60px 90px;
+      
+    }
+
+    @include onDesktop {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: $featuresColor;
+      padding: 60px 100px;
+      background-image: url(./../images/features/desktop.png);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+    }
+  }
+
+  &__item {
+    @include onDesktop {
+      width: 50%;
+    }
+    
+    &--hidden {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+
+  &__image {
+    background-color: $featuresColor;
+    background-image: url(./../images/features/mobile.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    height: 250px;
+
+    @include onTablet {
+      background-image: url(./../images/features/tablet.png);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      background-size: contain;
+      height: 290px;
+    }
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__subtitle {
+    color: #0c797a;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @include onDesktop {
+      font-size: 34px;
+      line-height: 42px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__list {
+    font-size: 14px;
+    line-height: 28px;
+
+    @include onTablet {
+      padding-left: 20px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 30px;
+    }
+  }
+
+  &__slider {
+    background-color: $featuresColor;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    height: 14px;
+    justify-content: center;
+    padding-bottom: 10px;
+    
+    @include onTablet {
+      justify-content: start;
+      padding-left: 90px;
+    }
+  }
+
+  &__button-left {
+    background-image: url(./../images/slider/left.png);
+    background-repeat: no-repeat;
+    width: 48px;
+    margin-right: -4px;
+  }
+
+  &__button-right {
+    background-image: url(./../images/slider/right.png);
+    background-repeat: no-repeat;
+    width: 48px;
+
+    &:hover {
+      background-image: url(./../images/slider/hover.png);
+    }
+  }
+  &__counter {
+    display: flex;
+    justify-content: center;
+    height: 24px;
+
+    @include onTablet {
+      justify-content: start;
+      padding-left: 115px;
+    }
+  }
+  &__counter-now {
+    font-size: 16px;
+    line-height: 24px;
+    color: $titleColor;
+    padding-right: 4px;
+  }
+  &__counter-all {
+    display: flex;
+    align-items: flex-end;
+    font-size: 14px;
+    line-height: 16px;
+    color: #0c797a;
+  }
+}
