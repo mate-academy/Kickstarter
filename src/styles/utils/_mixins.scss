@@ -1,6 +1,73 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onDesktop {
+  @media (min-width:1280px) {
+    @content;
   }
+}
+
+@mixin onTablet {
+  @media (min-width:640px) {
+    @content;
+  }
+}
+
+@mixin link {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+}
+
+@mixin menuButtonMobile {
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: absolute;
+  right: 0;
+  width: $buttonMobile;
+  height: $buttonMobile;
+}
+
+@mixin menuButtonTablet {
+  position: absolute;
+  bottom: 60px;
+  left: 30px;
+  height: $buttonTablet;
+  width: $buttonTablet;
+}
+
+@mixin title {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 40px;
+  margin-bottom: 30px;
+  color: $titleColor;
+  text-transform: uppercase;
+
+  @include onTablet {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  @include onDesktop {
+    font-size: 56px;
+    line-height: 70px;
+  }
+}
+
+@mixin gridMobile {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+}
+
+@mixin gridTablet {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 24px;
+}
+
+@mixin gridDesktop {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
 }
