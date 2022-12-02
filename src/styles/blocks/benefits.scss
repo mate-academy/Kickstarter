@@ -1,0 +1,80 @@
+.benefits {
+  &__content {
+    @include onTablet {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__item {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+    @include onTablet {
+      width: 48%;
+      margin-bottom: 0;
+
+      &:nth-child(-n+2) {
+        margin-bottom: 40px;
+      }
+    }
+    @include onDesktop {
+      width: 23%;
+    }
+
+    &--hidden {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &__image {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    transition: transform 0.3s;
+    
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__title-container {
+    height: 56px;
+    margin-bottom: 0;
+
+    @include onDesktop {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  &__article {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+  }
+}
