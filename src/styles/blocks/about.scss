@@ -1,0 +1,89 @@
+.about {
+
+  &__img {
+    height: 210px;
+    width: 100%;
+    margin-bottom: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../images/mob/4.png);
+    transition: all 0.5s;
+
+    @include onTab {
+      height: 415px;
+      margin-bottom: 0;
+      background-image: url(../images/tab/5.png);
+    }
+
+    @include onDesktop {
+      height: 388px;
+      background-image: url(../images/desktop/5.png);
+    }
+  }
+
+  &__img:hover {
+    @include onDesktop {
+      transform: scale(1.05);
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $_333333;
+    margin-bottom: 30px;
+
+    @include onTab {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: $_7C7C7C;
+    margin-bottom: 30px;
+
+    @include onTab {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding-bottom: 5px;
+    color: $DB2B3;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 53px;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: $DB2B3;
+    }
+
+    &:hover::after {
+      transition: all 1s;
+      width: 100%;
+    }
+  }
+}
