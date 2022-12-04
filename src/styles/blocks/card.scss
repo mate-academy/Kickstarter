@@ -1,0 +1,72 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+
+  @include onTablet {
+    flex-basis: 340px;
+    flex-shrink: 1;
+    flex-grow: 1;
+
+    &:nth-child(-n+3) {
+      margin-bottom: 65px;
+    }
+  }
+
+  @include onLaptop1280 {
+    flex-basis: 240px;
+    transition: all 650ms;
+
+    &:hover {
+      transform: scale(1.08);
+      margin: 20px 0;
+    }
+  }
+
+  @include onLaptop1440 {
+    flex-basis: 276px;
+  }
+
+  &__icon {
+    display: block;
+    max-width: 50px;
+    max-height: 40px;
+    margin: 0 0 40px;
+    align-self: center;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+
+    @include onLaptop1280 {
+      margin-bottom: 33px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    color: rgb(51, 51, 51);
+    text-align: center;
+    text-transform: uppercase;
+
+    @include onLaptop1280 {
+      height: 56px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    margin: 0;
+    @extend %simpleText;
+    text-align: center;
+
+    @include onLaptop1280 {
+      align-self: flex-start;
+    }
+  }
+}

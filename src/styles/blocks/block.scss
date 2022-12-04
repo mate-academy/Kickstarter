@@ -1,0 +1,218 @@
+.block {
+  display: flex;
+  flex-direction: column;
+
+  @include onTablet {
+    flex-basis: 415px;
+    max-height: 415px;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    flex-grow: 1;
+    column-gap: 20px;
+  }
+
+  @include onLaptop1280 {
+    flex-basis: 388px;
+    column-gap: 30px;
+  }
+
+  &__title {
+    flex-basis: 80px;
+    flex-shrink: 1;
+    flex-grow: 1;
+    margin: 0 0 30px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    color: rgb(51, 51, 51);
+    text-transform: uppercase;
+
+    @include onTablet {
+      flex-basis: 92px;
+      max-width: 340px;
+      margin-bottom: 30px;
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onLaptop1280 {
+      flex-basis: 140px;
+      max-width: 422px;
+      margin-bottom: 20px;
+      font-size: 46px;
+      line-height: 56px;
+    }
+
+    @include onLaptop1440 {
+      margin-bottom: 30px;
+      max-width: 582px;
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    &--first {
+      @include onTablet {
+        order: 2;
+      }
+    }
+
+    &--second {
+      font-size: 36px;
+      line-height: 46px;
+
+      @include onTablet {
+        order: 1;
+      }
+
+      @include onLaptop1280 {
+        flex-basis: 70px;
+        font-size: 56px;
+        line-height: 70px;
+      }
+    }
+  }
+
+  &__wrapper-img {
+    display: flex;
+    flex-basis: 210px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    object-fit: contain;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      flex-basis: 415px;
+      width: 374px;
+      margin: 0;
+    }
+
+    @include onLaptop1280 {
+      min-width: 582px;
+    }
+
+    &--first {
+      @include onTablet {
+        order: 1;
+        margin-left: -34px;
+      }
+
+      @include onLaptop1280 {
+        margin: 0;
+      }
+    }
+
+    &--second {
+      @include onTablet {
+        order: 4;
+        margin-right: -1px;
+      }
+
+      @include onLaptop1280 {
+        margin: 0;
+      }
+    }
+  }
+
+  &__img {
+    min-width: 100%;
+    transition: all ease 1s;
+
+    &:hover {
+      @include onLaptop1280 {
+        transform: scale(1.04, 1.04);
+      }
+    }
+
+    @include onTablet {
+      flex-basis: 415px;
+    }
+  }
+
+  &__text {
+    flex-basis: 150px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: 0 0 30px;
+    @extend %simpleText;
+    font-size: 16px;
+    line-height: 24px;
+
+    @include onTablet {
+      flex-basis: 146px;
+      max-width: 340px;
+      margin-bottom: 60px;
+    }
+
+    @include onLaptop1280 {
+      flex-basis: 96px;
+      max-width: 422px;
+      margin-bottom: 20px;
+      line-height: 26px;
+    }
+
+    @include onLaptop1440 {
+      max-width: 582px;
+      margin-bottom: 60px;
+    }
+
+    &--first {
+      @include onTablet {
+        order: 3;
+      }
+    }
+
+    &--second {
+      @include onTablet {
+        flex-basis: 96px;
+        order: 2;
+      }
+
+      @include onLaptop1280 {
+        flex-basis: 72px;
+        line-height: 26px;
+      }
+    }
+  }
+
+  &__button {
+    position: relative;
+    display: block;
+    width: max-content;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #0db2b3;
+    text-decoration: none;
+    transition: all ease 1.5s;
+
+    &::after {
+      content: " ";
+      left: 0;
+      display: block;
+      height: 1px;
+      width: 53px;
+      background-image: url(../images/img_Mobile/button_line.svg);
+      margin-top: 5px;
+      transition: all ease 1s;
+    }
+
+    &:hover {
+      &::after {
+        width: 128px;
+      }
+    }
+
+    &--first {
+      @include onTablet {
+        order: 5;
+      }
+    }
+
+    &--second {
+      @include onTablet {
+        order: 3;
+      }
+    }
+  }
+}

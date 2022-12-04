@@ -1,0 +1,105 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include onTablet {
+    min-width: 340px;
+  }
+
+  &__field {
+    all: initial;
+
+    box-sizing: border-box;
+    min-width: 100%;
+    flex-basis: 48px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 12px 20px;
+
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    border: 1px solid rgba(130, 130, 130, 1);
+
+    @include onTablet {
+      min-width: 340px;
+      padding: 12px 30px;
+      font-size: 16px;
+    }
+
+    @include onLaptop1280 {
+      min-width: 503px;
+      padding: 12px 36px;
+    }
+
+    @include onLaptop1440 {
+      min-width: 582px;
+    }
+
+    &::placeholder {
+      font-family: "Inter", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: rgb(189, 189, 189);
+    }
+
+    &:focus {
+      border: 1px solid rgb(12, 121, 122);
+      color: rgb(51, 51, 51);
+    }
+
+    &--textarea {
+      flex-basis: 128px;
+      margin: 20px 0 0;
+      overflow-wrap: break-word;
+
+      @include onTablet {
+        flex-basis: 200px;
+      }
+
+      @include onLaptop1280 {
+        flex-basis: 123px;
+      }
+    }
+  }
+
+  &__button {
+    all: initial;
+
+    width: 102px;
+    height: 40px;
+    margin: 30px 0 0;
+    background: rgb(13, 178, 179);
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    text-align: center;
+
+    @include onLaptop1280 {
+      width: 124px;
+      height: 48px;
+      font-weight: 700;
+    }
+
+    &--disabled {
+      background: rgb(207, 239, 240);
+      cursor: not-allowed;
+    }
+
+    &--active {
+      &:hover {
+        background: rgb(12, 121, 122);
+        cursor: pointer;
+      }
+    }
+  }
+}

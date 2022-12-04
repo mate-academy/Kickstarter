@@ -1,0 +1,78 @@
+.header {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__navigation {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    line-height: 20px;
+    color: rgb(79, 79, 79);
+    text-decoration: none;
+  }
+
+  &__languages {
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      margin-left: 26px;
+    }
+
+    @include onLaptop1280 {
+      margin-left: 47px;
+    }
+  }
+
+  &__language {
+    color: rgb(130, 130, 130);
+    text-decoration: none;
+
+    &:not(&:last-child) {
+      margin-right: 3px;
+    }
+
+    &--active {
+      color: rgb(51, 51, 51);
+    }
+  }
+
+  &__button {
+    @include onTablet {
+      all: initial;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 102px;
+      min-height: 48px;
+      margin-left: 26px;
+      color: rgba(255, 255, 255, 1);
+      font-family: "Inter", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 14px;
+      text-align: center;
+      background: rgb(51, 51, 51);
+      text-transform: uppercase;
+
+      &:hover {
+        background: rgba(19, 19, 19, 1);
+        cursor: pointer;
+      }
+    }
+
+    @include onLaptop1280 {
+      margin-left: 47px;
+    }
+  }
+}

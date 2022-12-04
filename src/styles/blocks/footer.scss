@@ -1,0 +1,70 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+
+  &__logo {
+    display: none;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    margin: 114px 0 0;
+
+    @include onTablet {
+      margin: 64px 0 0;
+    }
+  }
+
+  &__link {
+    transition: all ease 1.5s;
+    &:nth-child(-n+2) {
+      margin: 0 44px 0 0;
+
+      @include onTablet {
+        margin-right: 53px;
+      }
+    }
+
+    &:hover {
+      @include onLaptop1280 {
+        transform: rotate(360deg);
+      }
+    }
+
+    &--facebook {
+      width: 11px;
+      height: 18px;
+      background-image: url(../images/img_Mobile/icon_facebook_mobile.svg);
+    }
+
+    &--twitter {
+      width: 22px;
+      height: 17px;
+      background-image: url(../images/img_Mobile/icon_twitter_mobile.svg);
+    }
+
+    &--instagram {
+      width: 18px;
+      height: 18px;
+      background-image: url(../images/img_Mobile/icon_instagram_mobile.svg);
+    }
+  }
+
+  &__info {
+    margin: 33px 0 30px;
+    @extend %simpleText;
+    text-align: center;
+    color: rgb(189, 189, 189);
+
+    @include onTablet {
+      margin-top: 63px;
+    }
+  }
+}
