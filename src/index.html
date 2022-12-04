@@ -20,7 +20,7 @@
     >
   </head>
   <body class="page__body">
-    <header class="header">
+    <header class="header page__header">
       <div class="container container--with-padding-top">
         <div class="header__wrapper">
           <a href="https://maryna-mazur.github.io/Kickstarter/" class="logo"></a>
@@ -36,9 +36,9 @@
               <a href="https://maryna-mazur.github.io/Kickstarter/" class="header__language">UA</a>
             </div>
 
-            <button type="button" class="header__button">
+            <a href="#questions" class="header__button">
               Buy
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -46,12 +46,11 @@
 
     <main class="main">
       <div class="container">
-        <section class="benefits">
+        <section class="benefits page__benefits">
           <picture class="benefits__image-wrapper">
             <source media="(min-width: 1280px)" srcset="./images/img_Desktop/image_header_desktop.png">
-            <source media="(min-width: 768px)" srcset="./images/img_Tablet/header_image_tablet.png">
             <img
-              src="./images/img_Mobile/header_image_mobile.png"
+              src="./images/img_Tablet/header_image_tablet.png"
               alt="Futuristic Wireless Speaker"
               class="benefits__image"
             >
@@ -65,7 +64,7 @@
           </div>
         </section>
 
-        <nav class="navigation">
+        <nav class="navigation page__navigation">
           <a href="#presentation" class="navigation__link">OUR STORY</a>
           <a href="#about-us" class="navigation__link">ABOUT US</a>
           <a href="#technology" class="navigation__link">TECHNOLOGY</a>
@@ -73,7 +72,7 @@
           <a href="#questions" class="navigation__link">GET IN TOUCH</a>
         </nav>
 
-        <section class="technology" id="technology">
+        <section class="technology page__technology" id="technology">
           <div class="swiper">
             <div class="technology__cards swiper-wrapper">
               <div class="card card--1 swiper-slide">
@@ -133,19 +132,18 @@
           </div>
         </section>
 
-        <section class="presentation" id="presentation">
+        <section class="presentation page__presentation" id="presentation">
           <picture class="presentation__wrapper">
             <source media="(min-width: 1280px)" srcset="./images/img_Desktop/meetLuna_desktop.png">
-            <source media="(min-width: 768px)" srcset="./images/img_Tablet/meetLuna_tablet.png">
             <img
-              src="./images/img_Mobile/image_meetLuna_mobile.png"
+              src="./images/img_Tablet/meetLuna_tablet.png"
               alt="Meet Luna"
               class="presentation__image"
             >
           </picture>
         </section>
 
-        <section class="about-us" id="about-us">
+        <section class="about-us page__about-us" id="about-us">
           <div class="block">
             <h2 class="block__title block__title--first">DESIGNED FOR THE FUTURE</h2>
 
@@ -187,7 +185,7 @@
           </div>
         </section>
 
-        <section class="testimonial">
+        <section class="testimonial page__testimonial">
           <div class="testimonial__quote">
             <q class="testimonial__quote-text">
               It really took me by surprise honestly to have such full beautiful sound that coming out of this small compact device. And with the brush aluminum surface, it feels so familiar. Like my iPhone.
@@ -205,7 +203,7 @@
           </div>
         </section>
 
-        <section class="features" id="features">
+        <section class="features page__features" id="features">
           <h2 class="features__title">FEATURES</h2>
 
           <div class="features__container">
@@ -274,7 +272,7 @@
           </div>
         </section>
 
-        <section class="questions" id="questions">
+        <section class="questions page__questions" id="questions">
           <div class="questions__wrapper">
             <h2 class="questions__title">DO YOU HAVE ANY QUESTIONS?</h2>
             <form
@@ -341,10 +339,9 @@
 
     <script type="module">
       import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js'
+
       let screenWidth = window.innerWidth;
       let mySwiper;
-
-      console.log(mySwiper);
 
       window.addEventListener('resize', (e) => {
         screenWidth = e.target.innerWidth;
@@ -356,7 +353,6 @@
           if (mySwiper) {
             mySwiper.destroy(false, true);
             mySwiper.update();
-
           }
 
           return;
@@ -364,9 +360,12 @@
           mySwiper = new Swiper('.swiper', {
             pagination: {
               el: '.swiper-pagination',
+              type: 'bullets',
               dynamicBullets: true,
             },
           });
+
+          mySwiper.pagination.init();
         }
       }
 
