@@ -20,8 +20,15 @@ if (iconMenu) {
     iconMenu.classList.toggle('_active');
 
     if (iconMenu.classList.contains('_active')) {
+      const logoLink = document.querySelector('.logo');
+
       menuBody.classList.add('_active');
       body.classList.add('_lock');
+
+      logoLink.addEventListener('click', (elem) => {
+        elem.preventDefault();
+        menuClose();
+      });
 
       if (menuLinks.length > 0) {
         menuLinks.forEach(el => {
@@ -191,7 +198,7 @@ const slider = new Swiper('.slider', {
   simulateTouch: false,
   loop: false,
   watchOverflow: true,
-  autoHeight: true,
+  // autoHeight: true,
   observer: true,
   observeParents: true,
   observeSlideChildren: true,
