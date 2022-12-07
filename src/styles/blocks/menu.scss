@@ -1,0 +1,138 @@
+.menu {
+  background-color: $backgroundColor;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  @include onDesktop {
+    height: max-content;
+    position: static;
+    transform: translateX(0);
+    margin-bottom: 70px;
+  }
+
+  &__content {
+    position: relative;
+    height: 100vh;
+    overflow-y: auto;
+
+    @include onDesktop {
+      height: max-content;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    margin-bottom: 10vh;
+
+    @include onTablet {
+      margin-bottom: 15vh;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__logo {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__cross-icon {
+    @include menuButtonMobile;
+    background-image: url(./../images/cross.svg);
+
+    @include onTablet {
+      @include menuButtonTablet;
+    }
+    
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__list {
+    @include onDesktop {
+      display: flex;
+      justify-content: center;
+      gap: 84px;
+      height: max-content;
+
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+  }
+
+  &__item {
+    margin-bottom: 30px;
+    padding: 10px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+
+    &--hidden {
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    @include link;
+    box-sizing: border-box;
+    font-size: 24px;
+    line-height: 30px;
+    color: $titleColor;
+    transition: font-size 0.3s;
+
+    &--ua {
+      color: #bdbdbd;
+    }
+
+    &--slash {
+      font-size: 24px;
+      line-height: 30px;
+      color: $titleColor;
+      text-decoration: none;
+    }
+
+    &:hover {
+      font-size: 25px;
+      font-weight: 700;
+      border-bottom: 2px solid $titleColor;
+    }
+
+    @include onDesktop {
+      font-size: 14px;
+      line-height: 20px;
+      color: $titleColor;
+      text-decoration: none;
+      transition-duration: 0.3s;
+
+      &:hover {
+        font-size: 15px;
+        border-bottom: 1px solid $titleColor;
+      }
+    }
+  }
+}
