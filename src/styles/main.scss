@@ -394,6 +394,12 @@ a:hover {
     margin-bottom: 30px;
   }
 
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
   &__input {
     display: block;
     width: 100%;
@@ -427,10 +433,6 @@ a:hover {
 
     &:-webkit-autofill {
       box-shadow: 0 0 0 30px $colorBg inset !important;
-    }
-
-    &:not(:last-child) {
-      margin-bottom: 20px;
     }
 
     &._error {
@@ -467,6 +469,11 @@ a:hover {
       background-color: #cfeff0;
     }
   }
+}
+
+.form__error {
+  margin-top: 4px;
+  font-weight: 600;
 }
 
 //#region page
@@ -1044,12 +1051,13 @@ a:hover {
     padding-top: 50px;
 
     @include onTablet {
+      max-width: 768px;
+      margin: 0 auto;
       background-size: 233px 189px;
       padding-top: 60px;
     }
 
     @include onDesktop {
-      @include gridContainer;
       background-size: 233px 192px;
       padding-top: 42px;
     }
@@ -1059,28 +1067,6 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    @include onDesktop {
-      @include gridItem;
-    }
-
-    @include hover(all) {
-      .testimonilas__text {
-        color: $cMainHover;
-      }
-
-      .testimonilas__avatar {
-        transform: scale(1.1);
-      }
-
-      .testimonilas__user-name {
-        color: $cMainHover;
-      }
-
-      .testimonilas__user-role {
-        color: $colorIcon;
-      }
-    }
   }
 
   &__text {
@@ -1108,6 +1094,10 @@ a:hover {
     margin-bottom: 10px;
     transition: transform 0.3s;
 
+    @include hover(transform) {
+      transform: scale(1.1);
+    }
+
     @include onTablet {
       margin-bottom: 20px;
     }
@@ -1119,14 +1109,12 @@ a:hover {
     font-size: 16px;
     line-height: 22px;
     color: $colorMain;
-    transition: color 0.3s;
   }
 
   &__user-role {
     font-size: 14px;
     line-height: 21px;
     color: $colorSecond;
-    transition: color 0.3s;
   }
 }
 

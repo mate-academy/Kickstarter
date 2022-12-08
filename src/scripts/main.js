@@ -68,6 +68,35 @@ function validateEmail(email) {
   return re.test(String(email).toLowerCase());
 }
 
+function addError(input) {
+  input.classList.add('_error');
+  input.parentElement.classList.add('_error');
+
+  const inputError = input.parentElement.querySelector('.form__error');
+
+  if (inputError) {
+    input.parentElement.removeChild(inputError);
+  }
+
+  const inputErrorText = input.getAttribute('data-error');
+
+  if (inputErrorText && inputErrorText !== '') {
+    input.parentElement.insertAdjacentHTML('beforeend',
+      '<div class="form__error">' + inputErrorText + '</div>');
+  }
+}
+
+function removeError(input) {
+  input.classList.remove('_error');
+  input.parentElement.classList.remove('_error');
+
+  const inputError = input.parentElement.querySelector('.form__error');
+
+  if (inputError) {
+    input.parentElement.removeChild(inputError);
+  }
+}
+
 for (let index = 0; index < forms.length; index++) {
   const form = forms[index];
   const formInputs = document.querySelectorAll('.form__input');
@@ -102,18 +131,23 @@ for (let index = 0; index < forms.length; index++) {
       if (input.value === '' && emptyInputs.length > 0) {
         input.classList.add('_error');
 
+        addError(input);
+
         return false;
       } else {
+        removeError(input);
         input.classList.remove('_error');
         input.value = '';
       }
     });
 
     if (!validateEmail(emailVal)) {
+      addError(inputEmail);
       inputEmail.classList.add('_error');
 
       return false;
     } else {
+      removeError(inputEmail);
       inputEmail.classList.remove('_error');
     }
   };
