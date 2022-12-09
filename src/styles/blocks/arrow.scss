@@ -1,19 +1,27 @@
-.arrow-top {
-  color: $c-black;
-  position: fixed;
-  bottom: 100px;
-  right: 30px;
-  z-index: 1;
-  opacity: 0;
-  transition: all 0.4s;
+.arrow {
+  display: none;
+  background-image: url(../images/logos/arrow_up.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  transition: all 0.1s;
+
+  @media (min-width: 768px) {
+    display: block;
+    position: fixed;
+    bottom: 100px;
+    right: 50px;
+  }
+
+  @media (min-width: 1280px) {
+    bottom: 150px;
+    right: 125px;
+  }
 
   &:hover {
     transform: scale(1.2);
-    color: $c-dark-green;
-  }
-
-  &--show {
-    opacity: 1;
-    transform: rotate(360deg);
   }
 }
