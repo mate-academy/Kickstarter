@@ -1,0 +1,125 @@
+.presentation {
+  @include tablet {
+    @include grid;
+  }
+  justify-content: center;
+
+  &__block-photo {
+    position: relative;
+    order: 1;
+    overflow: hidden;
+    margin-left: -$container-padding-mobile;
+    margin-right: -$container-padding-mobile;
+    margin-bottom: 40px;
+
+    @include tablet {
+      grid-column: -1 / -6;
+      margin-left: -$gap-columns-on-tablet;
+      margin-right: 0;
+    }
+
+    @include desktop {
+      grid-column: -1 / -9;
+      width: auto;
+    }
+
+    &-2 {
+      height: 100%;
+      max-height: 350px;
+
+      @include desktop {
+        max-height: 350px;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        padding-bottom: 75%;
+
+        @include tablet {
+          padding-bottom: 50%;
+        }
+
+        @include desktop {
+          padding-bottom: 60%;
+        }
+      }
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    height: 100%;
+    max-height: 350px;
+    width: 100%;
+    object-fit: cover;
+    object-position: left;
+
+    @media (min-width: 500px) {
+      left: 10%;
+    }
+
+    @include tablet {
+      left: 0;
+      object-fit: contain;
+    }
+
+    @include desktop {
+      top: -25%;
+      max-height: 450px;
+      height: 450px;
+      object-fit: cover;
+    }
+  }
+
+  &__block-text {
+    grid-column: 1 / 4;
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      z-index: 1;
+      margin-right: -$gap-columns-on-tablet;
+    }
+
+    @include desktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__title {
+    margin: 0 0 24px;
+    font-family: DIN Pro, sans-serif;
+    font-size: 44px;
+    line-height: 130%;
+    text-align: center;
+    text-transform: uppercase;
+    color: $main-color;
+
+    @include tablet {
+      margin-bottom: 32px;
+      font-size: 48px;
+    }
+
+    @include desktop {
+      margin-bottom: 24px;
+      font-size: 64px;
+      line-height: 130%;
+      text-align: left;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: $main-color;
+
+    @include desktop {
+      width: 70%;
+      text-align: left;
+    }
+  }
+}

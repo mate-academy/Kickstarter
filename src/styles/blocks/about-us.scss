@@ -1,0 +1,116 @@
+.about-us {
+  @include grid;
+
+  &__title {
+    grid-column: 1 / 5;
+    margin: 0 0 50px;
+    font-family: DIN Pro, sans-serif;
+    font-size: 37px;
+    line-height: 55px;
+    color: $main-color;
+
+    @include tablet {
+      grid-column: 4 / 9;
+      max-width: 500px;
+      margin-bottom: 30px;
+      font-size: 56px;
+      line-height: 72px;
+    }
+
+    @include desktop {
+      grid-column: 8 / 12;
+      margin-left: -$width-columns-on-desktop - $gap-columns-on-desktop;
+    }
+  }
+
+  &__block-img {
+    grid-column: 1 / 5;
+    margin-bottom: 28px;
+
+    @include tablet {
+      position: absolute;
+      z-index: -1;
+      right: $gap-columns-on-tablet / 2;
+      transform: translateX(-50%) scale(0.7);
+      transform-origin: top right;
+      width: 100%;
+      max-height: 500px;
+    }
+
+    @include desktop {
+      position: relative;
+      grid-column: 2 / 8;
+      transform: none;
+      order: -1;
+    }
+  }
+
+  &__picture {
+    width: 100%;
+    object-fit: cover;
+
+    @include tablet {
+      max-height: 500px;
+    }
+
+    @include desktop {
+      position: absolute;
+      max-height: 400px;
+    }
+  }
+
+  &__text {
+    grid-column: 1 / 5;
+    margin: 0 0 30px;
+    font-size: 14px;
+    line-height: 21px;
+    color: $main-text-color;
+
+    @include tablet {
+      grid-column: 5 / 9;
+      max-width: 400px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @include desktop {
+      grid-column: 8 / 12;
+    }
+  }
+
+  &__link {
+    grid-column: 1 / 5;
+    display: block;
+    transition-duration: 0.3s;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $form-field-button-color;
+
+    &::after {
+      content: "";
+      display: block;
+      transition-duration: 0.3s;
+      height: 1px;
+      width: 52px;
+      margin-top: 6px;
+      background-color: $form-field-button-color;
+    }
+
+    @include tablet {
+      &:hover::after {
+        width: 100%;
+      }
+    }
+
+    @include tablet {
+      grid-column: 5 / 9;
+    }
+
+    @include desktop {
+      grid-column: 8 / 12;
+    }
+  }
+}

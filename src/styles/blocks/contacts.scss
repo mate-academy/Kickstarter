@@ -1,0 +1,94 @@
+.contacts {
+  @include tablet {
+    @include grid;
+  }
+
+  &__title {
+    margin: 0 0 30px;
+    font-family: DIN Pro, sans-serif;
+    font-size: 37px;
+    line-height: 46px;
+    text-transform: uppercase;
+    color: $main-color;
+
+    @include tablet {
+      grid-column: 1 / 5;
+      margin-bottom: 0;
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    @include desktop {
+      grid-column: 2 / 7;
+      font-size: 56px;
+      line-height: 72px;
+    }
+  }
+
+  &__formfield {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      grid-column: 5 / 9;
+    }
+
+    @include desktop {
+      grid-column: 8 / 12;
+      margin: 0 #{-$gap-columns-on-desktop};
+    }
+  }
+
+  &__email {
+    padding: 16px 30px;
+    margin-bottom: 20px;
+    border: 1px solid #828282;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+
+    &::placeholder {
+      font-size: 16px;
+      line-height: 19px;
+      color: #bdbdbd;
+    }
+  }
+
+  &__textarea {
+    height: 128px;
+    margin-bottom: 30px;
+    padding: 16px 30px;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+    font-family: inherit;
+    border: 1px solid #828282;
+    resize: none;
+
+    &::placeholder {
+      font-size: 16px;
+      line-height: 19px;
+      color: #bdbdbd;
+    }
+  }
+
+  &__button {
+    transition-duration: 0.3s;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 0;
+    background-color: $form-field-button-color;
+    font-family: inherit;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 15px;
+    color: #fff;
+
+    &:hover {
+      box-shadow: 0 4px 10px $form-field-button-color;
+    }
+
+    &:active {
+      box-shadow: 0 1px 10px $form-field-button-color;
+    }
+  }
+}
