@@ -1,0 +1,108 @@
+@import "../utils";
+
+.Benifits {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 123px 30px 123px;
+
+
+  @media(max-width:1200px){
+    margin: 140px 34px 29px 34px;
+  }
+
+
+  @include Mobile {
+    margin: 110px 25px 30px 25px;
+  }
+
+  &__top-bar {
+    display: flex;
+    justify-content: center;
+    column-gap: 5%;
+    margin-bottom: 65px;
+
+    @include Tablet {
+      display: none;
+    }
+
+    @include Mobile {
+      display: none;
+    }
+  }
+
+  &__link {
+    color: $primary_color;
+    font-family: $inter-family;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+
+    &:hover{
+      transform: scale(1.1);
+      color: #10b9bcc9;
+    }
+  }
+
+  &__types {
+    display: grid;
+    column-gap: 5%;
+    grid-template-columns: repeat(4, auto);
+
+    @media (max-width:981px) {
+      grid-template-columns: repeat(2, auto);
+      row-gap: 10%;
+    }
+
+    @include Tablet {
+      grid-template-columns: repeat(2, auto);
+      row-gap: 10%;
+    }
+
+    @include Mobile {
+      grid-template-columns: auto;
+    }
+
+
+  }
+
+  &__type-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    flex-direction: column;
+
+    @include Mobile {
+      display: none;
+      column-gap: 0;
+
+      &:nth-child(1) {
+        display: flex;
+      }
+    }
+  }
+
+  &__type-icon {
+    margin-bottom: 33px;
+    cursor: pointer;
+
+    &:hover{
+      transform: scale(1.5);
+    }
+  }
+
+  &__type-title {
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 52px;
+    font-family: $inter-family;
+    color: $primary_color;
+  }
+
+  &__type-info {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: $inter-family;
+    color: $benifits_color;
+  }
+}

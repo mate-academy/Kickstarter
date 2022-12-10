@@ -1,0 +1,111 @@
+@import "../utils";
+
+.Head {
+  display: grid;
+  box-sizing: border-box;
+  position: relative;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 30px 123px 171px 123px;
+
+  @media (max-width:1200px) {
+    margin-left: 29px;
+    margin-right: 29px;
+
+  }
+
+  @include Tablet {
+    margin: 29px 29px 30px 29px;
+
+  }
+
+  @include Mobile {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__info-container {
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+
+    @include Tablet {
+      justify-content: start;
+    }
+
+    @include Mobile {
+      padding: 25px 30px ;
+      order: 2;
+     
+    }
+  }
+
+  &__title {
+    display: flex;
+    color: $primary_color;
+    font-size: 62px;
+    font-weight: 700;
+    font-family: $inter-family;
+
+    @include Tablet {
+      font-size: 48px;
+    }
+
+    @include Mobile {
+      font-size: 40px;
+    }
+  }
+
+  &__info {
+    width: 276px;
+    margin-top: 10%;
+    line-height: 2vw;
+    font-family: $inter-family;
+    color: $primary_color;
+    font-weight: 400;
+    font-size: 16px;
+
+    @include Tablet {
+      line-height: 2.5vw;
+    }
+
+    @include Mobile {
+      line-height: 6vw;
+      width: fit-content;
+    }
+
+  }
+
+  &__image {
+    display: block;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+    width: 70%;
+
+    &--tablet{
+      display: none;
+    }
+
+    @media (max-width:1200px) {
+      display: none;
+
+      &--tablet{
+        display: block;
+        width: 50%;
+        position: absolute;
+      }
+    }
+
+    @include Mobile{
+      display: flex;
+      width: 100%;
+      position: relative;
+
+      &--tablet{
+        display: none;
+      }
+    }
+  }
+
+}
