@@ -20,7 +20,7 @@ h1 {
   align-items: center;
   margin: 30px 123px 30px 123px;
 }
-@media (max-width: 950px) {
+@media (max-width: 1200px) {
   .Navigation {
     margin: 29px 34px 30px 29px;
     -moz-column-gap: 2%;
@@ -152,6 +152,12 @@ h1 {
   padding-bottom: 3vw;
   border-bottom: 2px solid #4f4f4f;
 }
+.Menu__link:hover {
+  color: #0c797a;
+  transform: scale(1.1);
+  border-radius: 50%;
+  border-bottom: 2px solid #0c797a;
+}
 
 h1 {
   font-family: "Roboto", sans-serif;
@@ -165,7 +171,7 @@ h1 {
   grid-template-columns: repeat(2, 1fr);
   margin: 30px 123px 171px 123px;
 }
-@media (max-width: 950px) {
+@media (max-width: 1200px) {
   .Head {
     margin-left: 29px;
     margin-right: 29px;
@@ -195,9 +201,8 @@ h1 {
 }
 @media (max-width: 499px) {
   .Head__info-container {
-    padding: 25px 30px 25px 30px;
+    padding: 25px 30px;
     order: 2;
-    width: 100%;
   }
 }
 .Head__title {
@@ -234,6 +239,9 @@ h1 {
 @media (max-width: 499px) {
   .Head__info {
     line-height: 6vw;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
   }
 }
 .Head__image {
@@ -246,17 +254,19 @@ h1 {
 .Head__image--tablet {
   display: none;
 }
-@media (max-width: 768px) and (min-width: 499px) {
+@media (max-width: 1200px) {
   .Head__image {
     display: none;
   }
   .Head__image--tablet {
     display: block;
-    width: 60%;
+    width: 50%;
+    position: absolute;
   }
 }
 @media (max-width: 499px) {
   .Head__image {
+    display: flex;
     width: 100%;
     position: relative;
   }
@@ -275,7 +285,7 @@ h1 {
   flex-direction: column;
   margin: 30px 123px 30px 123px;
 }
-@media (max-width: 768px) and (min-width: 499px) {
+@media (max-width: 1200px) {
   .Benifits {
     margin: 140px 34px 29px 34px;
   }
@@ -387,7 +397,7 @@ h1 {
      object-fit: fill;
   margin: 170px 297px 30px 297px;
 }
-@media (max-width: 768px) and (min-width: 499px) {
+@media (max-width: 1200px) {
   .Meet-luna {
     margin: 140px 34px 29px 34px;
   }
@@ -423,7 +433,7 @@ h1 {
   margin-right: 123px;
   text-align: left;
 }
-@media (max-width: 768px) and (min-width: 499px) {
+@media (max-width: 1200px) {
   .About-us__items {
     margin-left: 0;
     margin-right: 34px;
@@ -448,7 +458,7 @@ h1 {
   margin-right: 123px;
   text-align: left;
 }
-@media (max-width: 768px) and (min-width: 499px) {
+@media (max-width: 1200px) {
   .About-us__items2 {
     margin-left: 34px;
     margin-right: 0;
@@ -627,7 +637,7 @@ h1 {
   text-align: center;
   margin: 30px 123px 171px 123px;
 }
-@media (max-width: 768px) and (min-width: 499px) {
+@media (max-width: 1200px) {
   .Quote {
     margin: 140px 34px 29px 34px;
   }
@@ -677,7 +687,7 @@ h1 {
   flex-direction: column;
   margin: 30px 123px 30px 123px;
 }
-@media (max-width: 768px) and (min-width: 499px) {
+@media (max-width: 1200px) {
   .Features {
     margin: 140px 34px 29px 34px;
   }
@@ -867,14 +877,13 @@ h1 {
   justify-content: space-between;
   margin: 120px 123px 30px 123px;
 }
-@media (max-width: 981px) {
-  .Talk {
-    flex-direction: column;
-  }
-}
-@media (max-width: 768px) and (min-width: 499px) {
+@media (max-width: 1200px) {
   .Talk {
     margin: 140px 34px 29px 34px;
+  }
+}
+@media (max-width: 579px) {
+  .Talk {
     flex-direction: column;
   }
 }
@@ -895,6 +904,11 @@ h1 {
     font-size: 36px;
   }
 }
+@media (max-width: 579px) {
+  .Talk__title {
+    margin-bottom: 5%;
+  }
+}
 @media (max-width: 499px) {
   .Talk__title {
     font-size: 30px;
@@ -906,16 +920,9 @@ h1 {
   row-gap: 12px;
   width: 40%;
 }
-@media (max-width: 981px) {
-  .Talk__form {
-    width: 100%;
-    margin-top: 5%;
-  }
-}
 @media (max-width: 768px) and (min-width: 499px) {
   .Talk__form {
     width: 100%;
-    margin-top: 5%;
   }
 }
 @media (max-width: 499px) {
@@ -928,9 +935,28 @@ h1 {
   font-weight: 400;
   font-size: 16px;
   font-family: "Inter", sans-serif;
-  color: #bdbdbd;
+  color: #333333;
+  border: 1px solid #828282;
   padding: 12px 36px 12px 36px;
   outline: none;
+}
+.Talk__inputs:placeholder {
+  color: #bdbdbd;
+}
+.Talk__inputs:focus {
+  border: 1px solid #0c797a;
+}
+.Talk__inputs:not(:-moz-placeholder-shown):not(:focus):invalid {
+  color: crimson;
+  border-bottom: 1px solid crimson;
+}
+.Talk__inputs:not(:-ms-input-placeholder):not(:focus):invalid {
+  color: crimson;
+  border-bottom: 1px solid crimson;
+}
+.Talk__inputs:not(:placeholder-shown):not(:focus):invalid {
+  color: crimson;
+  border-bottom: 1px solid crimson;
 }
 .Talk__inputs:nth-child(2) {
   padding-bottom: 128px;
@@ -964,9 +990,9 @@ h1 {
   margin: 130px 123px 30px 123px;
   align-items: center;
 }
-@media (max-width: 499px) {
+@media (max-width: 1200px) {
   .Foot {
-    margin: 0;
+    margin: 140px 34px 29px 34px;
   }
 }
 @media (max-width: 499px) {

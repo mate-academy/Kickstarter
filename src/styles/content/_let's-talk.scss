@@ -6,15 +6,14 @@
   justify-content: space-between;
   margin: 120px 123px 30px 123px;
 
-  @media (max-width:981px) {
-    flex-direction: column;
-  }
-
-  @include Tablet {
+  @media (max-width:1200px){
     margin: 140px 34px 29px 34px;
-
-    flex-direction: column;
   }
+
+  @media(max-width:579px){
+    flex-direction:column;
+  }
+
 
   @include Mobile {
     margin: 110px 25px 30px 25px;
@@ -32,6 +31,10 @@
       font-size: 36px;
     }
 
+    @media(max-width:579px){
+      margin-bottom:5%;
+    }
+
     @include Mobile {
       font-size: 30px;
     }
@@ -44,15 +47,15 @@
     row-gap: 12px;
     width: 40%;
 
-    @media (max-width:981px) {
-      width: 100%;
-      margin-top: 5%;
-    }
+    // @media (max-width:981px) {
+    //   width: 100%;
+    //   margin-top: 5%;
+    // }
 
     @include Tablet {
       width: 100%;
-      margin-top: 5%;
     }
+
 
     @include Mobile {
       width: 100%;
@@ -64,14 +67,30 @@
     font-weight: 400;
     font-size: 16px;
     font-family: $inter-family;
-    color: $light_color;
+    color: $primary_color;
+    border: 1px solid $input_color;
     padding: 12px 36px 12px 36px;
     outline: none;
+
+    &:placeholder{
+      color: $light_color;
+    }
+
+    &:focus{
+      border: 1px solid #0c797a;
+    }
+
+    &:not(:placeholder-shown):not(:focus):invalid {
+      color: #eb5757;
+      border: 1px solid #eb5757;
+    }
 
     &:nth-child(2) {
       padding-bottom: 128px;
       margin-bottom: 18px;
     }
+
+
   }
 
   &__sub {
