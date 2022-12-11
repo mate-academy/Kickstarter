@@ -57,13 +57,3 @@ function newSlider(slider) {
 const slider1 = document.getElementById('slider1');
 
 newSlider(slider1, true);
-
-const showArrow = document.getElementById('scrollTop');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 500) {
-    showArrow.classList.add('arrow');
-  } else {
-    showArrow.classList.remove('arrow');
-  }
-});
