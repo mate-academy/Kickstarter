@@ -726,6 +726,7 @@ a:hover {
   align-items: center;
   justify-content: start;
   height: 100%;
+  cursor: pointer;
 
   @include hover(all) {
     .card__icon::before {
@@ -815,7 +816,7 @@ a:hover {
       object-fit: contain;
     }
 
-    @include anyHoverImage(transform, 0.9);
+    @include anyHoverImage(transform, 1.1);
   }
 }
 
@@ -1168,6 +1169,8 @@ a:hover {
 
   &__image {
     display: block;
+    overflow: hidden;
+
     @include toTablet {
       margin: 0 -24px;
     }
@@ -1198,7 +1201,11 @@ a:hover {
       margin-top: 0;
     }
 
-    @include anyHoverImage(transform, 1.02);
+    @include hover(transform) {
+      & .ibg__img {
+        transform: scale(1.02);
+      }
+    }
 
     &--to-desktop {
       @include onDesktop {
