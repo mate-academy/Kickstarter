@@ -1,0 +1,132 @@
+.about-us {
+  &__img-container {
+    grid-area: picture;
+    width: 100%;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      height: 415px;
+      position: absolute;
+      left: -1px;
+      width: 49%;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      height: 388px;
+      position: static;
+      width: 100%;
+    }
+
+    &--reverse {
+      @include onTablet {
+        right: 0;
+        left: unset;
+      }
+    }
+  }
+
+  &__content {
+    display: grid;
+    margin-bottom: 110px;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+
+    grid-template-areas: "title" "picture" "text" "link";
+
+    @include onTablet {
+      height: 415px;
+      margin-bottom: 140px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: max-content max-content 1fr;
+      column-gap: 20px;
+
+      grid-template-areas: "picture title" "picture text" "picture link";
+    }
+
+    @include onDesktop {
+      height: inherit;
+      margin-bottom: 165px;
+      column-gap: 30px;
+    }
+
+    &--reverse {
+      @include onTablet {
+
+        grid-template-areas: "title picture" "text picture" "link picture";
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    grid-area: title;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__text {
+    grid-area: text;
+    color: $clr-crd-txt;
+    line-height: 21px;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__link {
+    grid-area: link;
+    display: block;
+    width: max-content;
+    color: $link-clr;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 53px;
+      margin-top: 5px;
+      background-color: $link-clr;
+      transition: width 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
