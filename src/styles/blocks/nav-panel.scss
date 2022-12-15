@@ -1,0 +1,77 @@
+.nav-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+
+  @include onTablet {
+    align-items: flex-start;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__button {
+    height: 14px;
+    width: 48px;
+
+    border: none;
+    cursor: pointer;
+
+    background-repeat: no-repeat;
+    background-color: #d6ecec;
+
+    transition: 0.1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &--prev {
+      background-image: url(../images/icons/slider_1.svg);
+    }
+
+    &--next {
+      background-image: url(../images/icons/slider_2.svg);
+    }
+  }
+
+  &__counter {
+    position: relative;
+    display: flex;
+
+    @include onTablet {
+      padding-left: 40px;
+    }
+  }
+
+  &__current {
+    line-height: 24px;
+    padding-right: 4px;
+  }
+
+  &__total {
+    display: flex;
+    gap: 3px;
+    align-items: flex-end;
+
+    height: 24px;
+    color: #0c797a;
+    font-size: 11px;
+    line-height: 13px;
+
+    &--separator {
+      transform: translateY(10px);
+    }
+
+    &--total {
+      transform: translateY(10px);
+    }
+  }
+}
