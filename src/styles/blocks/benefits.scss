@@ -1,0 +1,29 @@
+.benefits {
+  @include marginLeft ($m-hor, $m-hor, 0);
+  @include marginRight ($m-hor, $m-hor, 0);
+
+  @include onTablet {
+    display: grid;
+    gap: 60px 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  @include onDesktop {
+    display: grid;
+    gap: 0 30px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+  }
+
+  &__benefit {
+
+    &:nth-child(n+2) {
+      display: none;
+
+      @include onTablet {
+        display: grid;
+      }
+    }
+  }
+}
