@@ -1,5 +1,18 @@
 'use strict';
 
+// Prevent from submitting to (and refreshing) the page
+const formHomepageBottom = document.querySelector('#form-homepage-bottom');
+const inputs = document.querySelectorAll('.form__field');
+
+formHomepageBottom.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // Clear all input fields when submitted
+  for (const input of inputs) {
+    input.value = '';
+  }
+});
+
 // Slider functionality for `Features` section
 function newSlider(slider) {
   const buttonPrevious = slider.querySelector('.nav-panel__button--prev');
