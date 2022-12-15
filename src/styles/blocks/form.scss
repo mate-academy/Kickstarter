@@ -1,0 +1,51 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__field {
+    outline: none;
+
+    background-color: $color-light;
+    border: 1px solid $color-lightgrey_1;
+
+    transition: border-color 0.3s;
+
+    @extend %text-secondary;
+    color: $color-darkgrey_2;
+
+    &::placeholder {
+      @extend %text-main;
+      color: $color-lightgrey_2;
+    }
+
+    &:focus {
+      border-color: $color-green_5;
+    }
+  }
+
+  &__email {
+    padding: 12px 20px;
+    margin-bottom: 20px;
+  }
+
+  &__message {
+    height: 128px;
+
+    padding: 15px 20px;
+    margin-bottom: 30px;
+
+    resize: none;
+
+    @include onTablet {
+      height: 200px;
+    }
+  }
+
+  &__button {
+    width: 102px;
+
+    @include onDesktop {
+      width: 124px;
+    }
+  }
+}
