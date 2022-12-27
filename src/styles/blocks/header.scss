@@ -86,6 +86,11 @@
     flex-direction: column;
     justify-content: flex-end;
     height: 100%;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
   }
 
   &__title {
@@ -114,7 +119,6 @@
   }
 
   &__content {
-    transform: translateY(15vh);
 
     @include onTablet {
       transform: translateY(10vh);
@@ -134,11 +138,22 @@
       display: block;
       margin: 0 auto 40px;
       width: auto;
-      transform: translateY(15vh);
 
       @include onTablet {
         display: none;
       }
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: calc(100vh - 85px);
+
+    @include onTablet {
+      display: block;
+      height: auto;
     }
   }
 }
