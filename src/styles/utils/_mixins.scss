@@ -4,3 +4,44 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onDesktop {
+  @media (min-width: 1194px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin forSlider {
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  // To Child element add "scroll-snap-align: center;"
+}
+
+@mixin btnFwdHover {
+  &:hover {
+    background-image: url(../images/icons/forward_hover.svg);
+  }
+}
+
+@mixin btnBwdHover {
+  &:hover {
+    background-image: url(../images/icons/backward_hover.svg);
+  }
+}
