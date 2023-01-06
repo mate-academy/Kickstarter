@@ -1,0 +1,99 @@
+.header {
+  padding-top: 25px;
+
+  @include tablet {
+    padding-top: 30px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 30px 25px;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+
+  &__action {
+    display: none;
+
+    @include tablet {
+      width: 250px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @include desktop {
+      width: 276px;
+    }
+  }
+
+  &__specs-link {
+    font-size: 14px;
+    color: $c-light-black;
+
+    @include hover-text;
+  }
+
+  &__menu {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__content {
+    @include grid;
+    position: relative;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    @include tablet {
+      width: 430px;
+      z-index: -1;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+
+    @include desktop {
+      width: 816px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 /5;
+    margin: 40px 0 20px 30px;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+
+    @include tablet {
+      margin: 130px 0 30px;
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include desktop {
+      margin-top: 170px;
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / 4;
+    margin: 0 30px;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+}

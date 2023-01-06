@@ -1,0 +1,104 @@
+.swiper {
+  @include tablet {
+    display: none;
+  }
+
+  &--2 {
+    display: block;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &-slide {
+    width: 100% !important;
+    height: 300px !important;
+
+    &--2 {
+      height: 372px !important;
+    }
+  }
+
+  &-pagination {
+    bottom: -10px !important;
+
+    &--custom {
+      width: max-content !important;
+      bottom: 0 !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      color: $c-turquoise;
+
+      @include tablet {
+        left: 24px !important;
+        transform: initial !important;
+      }
+
+      & .swiper-pagination-current {
+        position: relative;
+        bottom: 5px;
+        font-size: 16px;
+        color: $c-black;
+      }
+
+      & .swiper-pagination-total {
+        font-size: 11px;
+      }
+    }
+
+    &-bullet {
+      margin: 0 10px !important;
+      width: 10px !important;
+      height: 10px !important;
+      opacity: 1 !important;
+      background-color: $c-light-turquoise !important;
+
+      &-active {
+        background-color: $c-turquoise !important;
+      }
+    }
+  }
+
+  &-button {
+    &-next--custom {
+      bottom: 34px;
+      left: 49.5%;
+
+      @include tablet {
+        left: 45px;
+      }
+    }
+
+    &-prev--custom {
+      bottom: 32px;
+      right: 49.5%;
+
+      @include tablet {
+        right: initial;
+        left: 0;
+      }
+    }
+
+    &-next--custom,
+    &-prev--custom {
+      position: absolute;
+      z-index: 1;
+      cursor: pointer;
+      stroke: $c-black;
+      transition: stroke $animation-time;
+
+      &:hover {
+        stroke: $c-turquoise;
+      }
+    }
+
+    &-disabled {
+      stroke: $c-light-gray;
+
+      &:hover {
+        stroke: $c-gray;
+      }
+    }
+  }
+}

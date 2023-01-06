@@ -1,0 +1,63 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 102px;
+  height: 48px;
+  background-color: $c-black;
+
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: $c-white;
+
+  transition: background-color $animation-time;
+
+  &:hover {
+    background-color: $c-true-black;
+  }
+
+  &--wide {
+    width: 124px;
+  }
+
+  &__form {
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background-color: $c-turquoise;
+
+    @include desktop {
+      width: 124px;
+      height: 48px;
+    }
+
+    &:hover {
+      background-color: #0c797a;
+    }
+  }
+
+  &__more {
+    display: block;
+    max-width: max-content;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: $c-turquoise;
+
+    &::after {
+      content: "";
+      display: block;
+      margin-top: 5px;
+      background-color: $c-turquoise;
+      width: 50%;
+      height: 1px;
+      transition: width $animation-time;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
