@@ -1,0 +1,122 @@
+.features {
+  &__content {
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "connectivity app"
+      "sound image";
+    gap: 56px 30px;
+    width: 100%;
+    padding: 60px 0 0 102px;
+
+    background-color: #d6ecec;
+
+    @include onDesktop {
+      display: grid;
+    }
+  }
+
+  &__feature {
+    &--connectivity {
+      grid-area: connectivity;
+    }
+
+    &--app {
+      grid-area: app;
+    }
+
+    &--sound {
+      grid-area: sound;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 42px;
+    text-transform: uppercase;
+    text-align: left;
+    color: $c-turquoise-dark;
+  }
+
+  &__list {
+    transform: translateX(20px);
+  }
+
+  &__item {
+    margin-bottom: 10px;
+    color: $c-main-dark;
+  }
+
+  &__image-container {
+    grid-area: image;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+
+    &--swiper {
+      @include onTablet {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        max-width: 436px;
+        max-height: 226px;
+      }
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: max-content;
+    margin: 0 auto;
+
+    @include onTablet {
+      margin: 0;
+    }
+  }
+
+  &__swiper-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  &__swiper-button {
+    height: 14px;
+    width: 48px;
+
+    background: center contain no-repeat;
+    cursor: pointer;
+
+    &-prev {
+      background-image: url(../images/svg/arrow-normal-light.svg);
+
+      &:hover {
+        background-image: url(../images/svg/arrow-hover-prev.svg);
+      }
+    }
+
+    &-next {
+      background-image: url(../images/svg/arrow-normal-dark.svg);
+
+      &:hover {
+        background-image: url(../images/svg/arrow-hover-next.svg);
+      }
+    }
+  }
+
+  &__swiper-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 4px;
+    font-size: 11px;
+    line-height: 13px;
+    color: $c-turquoise-dark;
+  }
+}

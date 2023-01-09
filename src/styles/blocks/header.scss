@@ -1,0 +1,117 @@
+.header {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-top: 24px;
+
+    @include onTablet {
+      margin-bottom: 130px;
+      padding-top: 30px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+      padding-top: 30px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    @include onMobile {
+      flex-direction: column;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+
+    @include onDesktop {
+      gap: 46px;
+    }
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__buttons-regular {
+    font-size: 14px;
+    line-height: 20px;
+    color: $c-main-light;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    @include hover(color $c-main-dark);
+  }
+
+  &__buttons-link {
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $c-main-dark;
+
+    &--ua {
+      color: $c-main-grey;
+
+      @include hover(color $c-main-dark);
+    }
+  }
+
+  &__buttons-buy {
+    background-color: $c-main-dark;
+    padding: 16px 0;
+    width: 102px;
+
+    font-family: Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+
+    @include hover(background-color $c-button-black);
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 0;
+    overflow: hidden;
+
+    @include onMobile {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__info {
+    flex: 1 1 30%;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: $c-main-dark;
+
+    @include onTablet {
+      font-size: 48px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+    }
+  }
+}
