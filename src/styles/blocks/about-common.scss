@@ -3,7 +3,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
-  color: #7c7c7c;
+  color: $c-light-grey;
   margin-bottom: 30px;
 
   @include onTablet {
@@ -25,5 +25,26 @@
   font-size: 12px;
   line-height: 14px;
   text-transform: uppercase;
-  color: #0db2b3;
+  color: $c-dark-green;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 54px;
+    height: 1px;
+    background-color: $c-dark-green;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+    cursor: pointer;
+    margin-top: 5px;
+    transition: $transitionTime;
+
+    @include onDesktop {
+      width: 64px;
+    }
+  }
+
+  &:hover::after {
+    width: 127px;
+  }
 }
