@@ -1,0 +1,82 @@
+.header {
+  padding-top: 25px;
+  height: 100%;
+  scale: 100%;
+
+  @include onTab {
+    padding-top: 40px;
+  }
+
+  &__menu {
+    display: none;
+
+    @include onTab {
+      display: flex;
+      grid-column: 6 / 9;
+      grid-row: 1 / 2;
+    }
+
+    @include onDesk {
+      grid-column: 9 / 13;
+    }
+  }
+
+  &__logo {
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+
+    @include onTab {
+      margin-top: 10px;
+      grid-column: 1 / 3;
+      grid-row: 1 / 2;
+      margin-left: 0;
+    }
+  }
+
+  &__img {
+    grid-column: 1 / 5;
+    grid-row: 2 / 3;
+    width: 100%;
+    min-height: 280px;
+    background: url("../images/header-mob.jpg") center / contain no-repeat;
+
+    @include onTab {
+      width: 100%;
+      grid-column: 4 / 9;
+      grid-row: 2 / 4;
+      margin-top: 145px;
+      background-image: url("../images/header-tab.jpg");
+      background-position: left;
+    }
+
+    @include onDesk {
+      grid-column: 5 / 13;
+      background-image: url("../images/header-desc.jpg");
+    }
+  }
+
+  &__h1 {
+    margin-top: 40px;
+    grid-column: 2 / 4;
+    grid-row: 3 / 4;
+
+    @include onTab {
+      margin-top: 145px;
+      margin-left: 0;
+      grid-column: 1 / 5;
+      grid-row: 2 / 3;
+    }
+  }
+
+  &__descr {
+    margin-top: 20px;
+    grid-column: 2 / 4;
+    grid-row: 4 / 5;
+
+    @include onTab {
+      grid-column: 1 / 4;
+      grid-row: 3 / 4;
+      margin-left: 0;
+    }
+  }
+}
