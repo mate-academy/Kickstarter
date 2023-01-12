@@ -5,64 +5,39 @@
     @include onDesk {
       display: flex;
       justify-content: center;
-      grid-column: 1 / 13;
+      grid-column: 2 / 14;
       grid-row: 1 / 2;
       gap: 85px;
     }
   }
 
+  &__wrapper {
+    display: grid;
+    gap: 30px;
+
+    grid-column: 2 / 4;
+    @include onTab {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column: 2 / 10;
+    }
+    @include onDesk {
+      grid-template-columns: repeat(4, 1fr);
+      grid-column: 2 / 14;
+    }
+  }
+
   &__card {
     display: none;
+    margin: 0 auto;
+    max-width: 275px;
     margin-top: 60px;
 
     &--1 {
       display: block;
-      grid-column: 2 / 4;
-      grid-row: 1 / 2;
     }
 
     @include onTab {
-      display: grid;
-
-      &--1 {
-        grid-column: 1 / 5;
-        grid-row: 1 / 2;
-
-        @include onDesk {
-          grid-column: 1 / 4;
-          grid-row: 2 / 3;
-        }
-      }
-
-      &--2 {
-        grid-column: 5 / 9;
-        grid-row: 1 / 2;
-
-        @include onDesk {
-          grid-column: 4 / 7;
-          grid-row: 2 / 3;
-        }
-      }
-
-      &--3 {
-        grid-column: 1 / 5;
-        grid-row: 2 / 3;
-
-        @include onDesk {
-          grid-column: 7 / 10;
-          grid-row: 2 / 3;
-        }
-      }
-
-      &--4 {
-        grid-column: 5 / 9;
-        grid-row: 2 / 3;
-
-        @include onDesk {
-          grid-column: 10 / 13;
-          grid-row: 2 / 3;
-        }
-      }
+      display: block;
     }
   }
 
@@ -90,15 +65,14 @@
   }
 
   &__subheader {
-    margin-top: 40px;
     text-align: center;
+    margin-top: 40px;
+    max-width: 260px;
   }
 
   &__descr {
-    margin: 0 auto;
-    margin-top: 20px;
-    max-width: 260px;
     text-align: center;
+    margin-top: 20px;
   }
 
   &__img {
@@ -111,13 +85,13 @@
 
     @include onTab {
       margin-top: 140px;
-      height: 550px;
-      grid-column: 1 / 9;
+      min-height: 550px;
+      grid-column: 2 / 10;
       grid-row: 3 / 4;
     }
 
     @include onDesk {
-      grid-column: 2 / 12;
+      grid-column: 3 / 14;
       grid-row: 3 / 4;
     }
   }
