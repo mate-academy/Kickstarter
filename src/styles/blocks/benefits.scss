@@ -4,36 +4,19 @@
   display: flex;
   justify-content: center;
 
-  @include onTablet {
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2,1fr);
-    column-gap: 20px;
-    row-gap: 64px;
-  }
-  
-  @include onDesktop {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-  }
-
   &__info {
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     width: $widthContainerOnMobile;
     text-align: center;
     margin: 0 auto;
-    
-    &--position-1 {
-      display: flex;
-    }
+    flex-shrink: 0;
 
     @include onTablet {
       display: flex;
       width: 340px;
+      flex-shrink: 1;
     }
 
     @include onDesktop {
@@ -70,7 +53,36 @@
   }
 
   &__description {
-    text-align: justify;
     color: $paragraphColor;
+    text-align: justify;
+  }
+
+  &__slider-wrapper {
+    max-width: 260px;
+    overflow: hidden;
+
+    @include onTablet {
+      max-width: 100%;
+    }
+  }
+
+  &__slider-position {
+    display: flex;
+    transition: transform 0.5s;
+
+    @include onTablet {
+      display: grid;
+      justify-items: center;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2,1fr);
+      column-gap: 20px;
+      row-gap: 64px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
   }
 }

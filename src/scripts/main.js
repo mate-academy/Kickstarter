@@ -46,3 +46,71 @@ window.addEventListener('scroll', () => {
     hideMenu();
   }
 });
+
+//  Features Slider
+
+const buttonRight = document.querySelector('.features__slider-button--right');
+const buttonLeft = document.querySelector('.features__slider-button--left');
+const featuresSlider = document.querySelector('.features__slider-wrapper');
+const currPosition = document.querySelector('.features__slider-number-change');
+let position = 0;
+
+const render = () => {
+  featuresSlider.style.transform = `translateX(-${position * 100}%)`;
+  currPosition.innerText = `0${position + 1}`;
+};
+
+buttonRight.addEventListener('click', () => {
+  if (position >= 2) {
+    return;
+  }
+  position++;
+  render();
+});
+
+buttonLeft.addEventListener('click', () => {
+  if (position <= 0) {
+    return;
+  }
+
+  position--;
+  render();
+});
+
+//  Benefits Slider
+
+const benefitsSlider = document.querySelector('.benefits__slider-position');
+let startTouchX;
+let endTouchX;
+let benefitsSliderPosition = 0;
+
+const renderBenefitsSlider = () => {
+  benefitsSlider.style.transform = `translateX(
+    -${benefitsSliderPosition * 100}%
+  )`;
+};
+
+if (window.innerWidth < 768) {
+  benefitsSlider.addEventListener('touchstart', (e) => {
+    startTouchX = e.changedTouches[0].clientX;
+  });
+
+  benefitsSlider.addEventListener('touchend', (e) => {
+    endTouchX = e.changedTouches[0].clientX;
+
+    const directionX = startTouchX - endTouchX;
+    const minSwipe = 20;
+
+    if (directionX > minSwipe && benefitsSliderPosition < 3) {
+      benefitsSliderPosition++;
+      renderBenefitsSlider();
+
+      return;
+    }
+
+    if (directionX < -minSwipe && benefitsSliderPosition > 0) {
+      benefitsSliderPosition--;
+      renderBenefitsSlider();
+    }
+  });
+}
