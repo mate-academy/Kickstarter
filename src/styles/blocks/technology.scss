@@ -1,0 +1,61 @@
+.technology {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 30px;
+  }
+
+  @include onDesktop {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &__item {
+    margin-bottom: 60px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+
+      flex-basis: 25%;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__icon {
+    height: 50px;
+    width: 42px;
+  }
+
+  &__title {
+    margin-top: 30px;
+    font-size: 22px;
+    line-height: 127%;
+    text-transform: uppercase;
+    color: $c-light-black;
+
+    @include onTablet {
+      height: 56px;
+    }
+  }
+
+  &__description {
+    margin-top: 30px;
+    font-size: 14px;
+    line-height: 150%;
+    color: $c-light-brown;
+  }
+}
