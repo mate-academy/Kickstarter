@@ -1,0 +1,71 @@
+.slider {
+  display: none;
+  z-index: 0;
+
+  &-features {
+    position: relative;
+    background-color: #d6ecec;
+    padding: 30px 0 0 30px;
+    overflow: hidden;
+    height: 575px;
+
+    @include onTablet {
+      // position: relative;
+      height: 556px;
+      padding: 60px 0 0 90px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  @include onMobile {
+    display: block;
+  }
+
+  &__content {
+    height: 300px;
+    width: 100%;
+
+    &-features {
+      height: 326px;
+
+      @include onMobile {
+        height: 234px;
+        margin-bottom: 50px;
+      }
+    }
+  }
+
+  &__slide {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    cursor: pointer;
+
+    @include hover(transform scale(1.05));
+  }
+
+  &__card {
+    width: 100%;
+  }
+}
+
+.swiper-pagination-current {
+  font-size: 16px;
+  line-height: 24px;
+  color: $c-main-dark;
+
+  &::before {
+    content: "0";
+  }
+}
+
+.swiper-pagination-total {
+  &::before {
+    content: "0";
+  }
+}

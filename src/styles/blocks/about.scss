@@ -1,0 +1,111 @@
+.about {
+  &__card {
+    &:first-child {
+      margin-bottom: 110px;
+
+      @include onTablet {
+        margin-bottom: 140px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 170px;
+      }
+    }
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto 1fr;
+      column-gap: 20px;
+      grid-template-areas: "image title"
+        "image info"
+        "image button";
+    }
+
+    @include onDesktop {
+      column-gap: 30px;
+    }
+  }
+
+  &__card--luna {
+    @include onTablet {
+      grid-template-areas: "title image"
+        "info image"
+        "button image";
+    }
+  }
+
+  &__title {
+    grid-area: title;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__image {
+    display: block;
+    grid-area: image;
+    width: 100%;
+
+    object-fit: cover;
+    margin-bottom: 20px;
+    max-height: 388px;
+
+    cursor: pointer;
+
+    @include onTablet {
+      margin-bottom: 0;
+      max-height: 768px;
+      align-self: center;
+    }
+
+    @include hover(transform scale(1.05));
+  }
+
+  &__info {
+    grid-area: info;
+    margin-bottom: 30px;
+
+    @include onMobile {
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__button {
+    position: relative;
+    grid-area: button;
+    max-width: fit-content;
+    height: 20px;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $c-turquoise-light;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 19px;
+      height: 1px;
+      width: 50%;
+      background-color: $c-turquoise-light;
+      transition: all 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

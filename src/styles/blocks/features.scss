@@ -1,0 +1,155 @@
+.features {
+  &__content {
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "connectivity app"
+      "sound image";
+    gap: 56px 30px;
+    width: 100%;
+    padding: 60px 0 60px 102px;
+
+    background-color: #d6ecec;
+
+    @include onDesktop {
+      display: grid;
+    }
+  }
+
+  &__feature {
+    &--connectivity {
+      grid-area: connectivity;
+    }
+
+    &--app {
+      grid-area: app;
+    }
+
+    &--sound {
+      grid-area: sound;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 42px;
+    text-transform: uppercase;
+    text-align: left;
+    color: $c-turquoise-dark;
+
+    @include onMobile {
+      margin-bottom: 20px;
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+
+  &__list {
+    transform: translateX(20px);
+  }
+
+  &__item {
+    margin-bottom: 10px;
+    color: $c-main-dark;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    grid-area: image;
+
+    &--swiper {
+      position: absolute;
+      left: -30px;
+      bottom: 0;
+      display: block;
+      width: 120%;
+      max-height: 174px;
+
+      @include onTablet {
+        right: 0;
+        left: auto;
+        margin: 0;
+        max-width: 436px;
+        max-height: 226px;
+      }
+    }
+  }
+
+  &__image {
+    position: absolute;
+    display: block;
+    width: 100%;
+    bottom: 0;
+    margin-bottom: -60px;
+
+    &--swiper {
+      display: block;
+      margin: 0 auto;
+      max-width: 320px;
+
+      @include onTablet {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: max-content;
+    margin: 0 auto;
+
+    @include onTablet {
+      margin: 0;
+    }
+  }
+
+  &__swiper-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  &__swiper-button {
+    height: 14px;
+    width: 48px;
+
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &-prev {
+      background-image: url(../images/svg/arrow-normal-light.svg);
+
+      &:hover {
+        background-image: url(../images/svg/arrow-hover-prev.svg);
+      }
+    }
+
+    &-next {
+      background-image: url(../images/svg/arrow-normal-dark.svg);
+
+      &:hover {
+        background-image: url(../images/svg/arrow-hover-next.svg);
+      }
+    }
+  }
+
+  &__swiper-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 4px;
+    font-size: 11px;
+    line-height: 13px;
+    color: $c-turquoise-dark;
+  }
+}
