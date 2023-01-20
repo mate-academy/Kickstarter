@@ -1,0 +1,85 @@
+.device {
+  display: flex;
+  flex-direction: column;
+
+  @include onTablet {
+    flex-direction: row;
+  }
+
+  &__image {
+    position: relative;
+    background-image: url(../images/Wireless-speaker-320px.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    mix-blend-mode: darken;
+    width: 270px;
+    height: 245px;
+    margin-bottom: 40px;
+    transition: $transitionTime;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+
+    @include onTablet {
+      background-image: url(../images/Wireless-speaker-tablet.png);
+      width: 430px;
+      height: 317px;
+      order: 2;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      background-image: url(../images/Wireless-speaker-1280px.png);
+      width: 816px;
+      height: 464px;
+    }
+  }
+
+  &__description {
+    position: relative;
+
+    &-title {
+      max-width: 260px;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 52px;
+      color: $c-dark;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      z-index: 1;
+
+      @include onTablet {
+        font-size: 48px;
+        line-height: 62px;
+        margin-bottom: 30px;
+        max-width: 250px;
+      }
+
+      @include onDesktop {
+        font-size: 62px;
+        line-height: 78px;
+        max-width: 276px;
+      }
+    }
+
+    &-paragraph {
+      max-width: 260px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: $c-dark;
+      z-index: 1;
+
+      @include onTablet {
+        max-width: 250px;
+      }
+
+      @include onDesktop {
+        max-width: 276px;
+      }
+    }
+  }
+}

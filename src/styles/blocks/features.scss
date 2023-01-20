@@ -1,0 +1,119 @@
+.features-title {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 40px;
+  text-transform: uppercase;
+  color: #333;
+  padding: 0 30px;
+  margin-bottom: 30px;
+
+  @include onDesktop {
+    font-size: 56px;
+    line-height: 70px;
+    padding: 0 34px;
+  }
+
+  @include onDesktop {
+    padding: 0 123px;
+  }
+}
+
+.features {
+  position: relative;
+  margin-bottom: 90px;
+  background-color: $c-light-green;
+
+  @include onTablet {
+    margin: 0 0 140px 30px;
+    padding: 60px 0 0 90px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: 12 1fr;
+    margin-left: 123px;
+    margin-bottom: 170px;
+    padding: 0;
+  }
+
+  &__sound {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 30px;
+    background-color: $c-light-green;
+
+    @include onTablet {
+      padding: 0;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-column: 2 / 5;
+      justify-content: flex-start;
+      padding: 0;
+    }
+
+    &--title {
+      padding-left: 30px;
+
+      @include onTablet {
+        padding-left: 0;
+      }
+    }
+
+    &--list {
+      padding-left: 30px;
+
+      @include onTablet {
+        padding-left: 0;
+      }
+    }
+  }
+
+  &__sound-image {
+    width: 300px;
+    height: 175px;
+    margin: 0 auto;
+    mix-blend-mode: darken;
+    transition: $transitionTime;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+
+    @include onTablet {
+      position: absolute;
+      width: 435px;
+      height: 225px;
+      bottom: 0;
+      right: 0;
+    }
+
+    @include onDesktop {
+      width: 580px;
+      height: 320px;
+    }
+  }
+
+  &__connectivity {
+    display: none;
+
+    @include onDesktop {
+      display: grid;
+      grid-column: 2 / 5;
+      padding-top: 60px;
+    }
+  }
+
+  &__app {
+    display: none;
+
+    @include onDesktop {
+      height: 42px;
+      display: grid;
+      grid-column: 7 / 10;
+      padding-top: 60px;
+    }
+  }
+}

@@ -1,0 +1,158 @@
+.benefits {
+  @include onTablet {
+    display: grid;
+    grid-template-columns: 8 1fr;
+    gap: 20px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: 12 1fr;
+    gap: 30px;
+  }
+
+  &-common {
+    &__image {
+      width: 50px;
+      height: 40px;
+      margin-bottom: 40px;
+      transition: $transitionTime;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    
+      @include onDesktop {
+        margin-bottom: 30px;
+      }
+    }
+
+    &__title {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 28px;
+      text-transform: uppercase;
+      text-align: center;
+      color: $c-dark;
+      margin-bottom: 20px;
+  
+      @include onTablet {
+        white-space: nowrap;
+      }
+  
+      @include onDesktop {
+        white-space: normal;
+      }
+    }
+
+    &__paragraph {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      text-align: center;
+      color: $c-light-grey;
+    }
+  }
+
+  &__design {
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: 1 / 5;
+
+    @include onTablet {
+      max-width: 340px;
+      grid-column: 1 / 5;
+    }
+
+    @include onDesktop {
+      max-width: 276px;
+      grid-column: 1 / 4;
+    }
+
+    &-title {
+      @include onDesktop {
+        margin-bottom: 52px;
+      }
+    }
+
+    &-paragraph {
+      @include onTablet {
+        margin-bottom: 65px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__speaker {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-column: 5 / 9;
+      max-width: 340px;
+
+      @include onDesktop {
+        grid-column: 4 / 7;
+        max-width: 276px;
+      }
+    }
+
+    &-title {
+      @include onDesktop {
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  &__multiroom {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-column: 1 / 5;
+      max-width: 320px;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 10;
+      max-width: 276px;
+    }
+
+    &-title {
+      @include onDesktop {
+        margin-bottom: 52px;
+      }
+    }
+  }
+
+  &__lighting {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-column: 5 / 9;
+      max-width: 320px;
+    }
+
+    @include onDesktop {
+      grid-column: 10 / 13;
+      max-width: 276px;
+    }
+
+    &-title {
+      @include onDesktop {
+        margin-bottom: 24px;
+      }
+    }
+  }
+}

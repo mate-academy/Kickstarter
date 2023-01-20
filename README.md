@@ -9,7 +9,7 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Uj
 - Mobile (> 320px)
 
 1. Implement the header with `nav`.
-1. Implement `Benefits` block.
+1. Implement `device` block.
 1. Implement `Presentation` block.
 1. Implement `About us` block.
 1. Implement `Technology` block.
