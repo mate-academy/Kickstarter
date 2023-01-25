@@ -1,0 +1,32 @@
+.grid {
+  display: block;
+
+  @include tablet {
+    @include useGrid(8, 24px);
+  }
+
+  @include desktop {
+    @include useGrid(12, 24px);
+  }
+
+  &__item {
+    @for $start from 1 through 8 {
+      @for $end from $start through 8 {
+        @include tablet {
+          &--tablet-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        @include desktop {
+          &--desktop-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
