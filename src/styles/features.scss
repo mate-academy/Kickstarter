@@ -30,8 +30,6 @@
 }
 
 .feature {
-  // display: flex;
-  // flex-direction: column;
   background-color: #d6ecec;
   padding: 32px 30px 0;
 
@@ -44,6 +42,7 @@
   }
 
   &__top {
+    margin-bottom: 50px;
     @include tablet {
       @include useGrid (8, 20px);
     }
@@ -51,6 +50,8 @@
     @include desktop {
       display: block;
       grid-column: 2 / 5;
+
+      margin-bottom: 0;
     }
 
     &-hidden {
@@ -109,11 +110,11 @@
 
   &__slider {
     display: block;
-    margin: 50px auto 0;
+    // margin: 50px auto 0;
+    margin: 0 auto;
 
     @include tablet {
-      grid-column: 2 / 4;
-      margin: 50px 0 0;
+      grid-column: 2 / 3;
     }
 
     @include desktop {
@@ -145,8 +146,6 @@
 
   &__image-container {
     display: flex;
-    grid-column: 4 / 9;
-    height: 100%;
   }
 
   &__image {
@@ -156,10 +155,10 @@
     object-fit: cover;
     object-position: center;
 
-    transition: transform 0.3s;
+    transition: all 0.3s;
 
     &:hover {
-      transform: scale(1.02);
+      transform: scale(1.02) translateY(-1.2%);
     }
   }
 }
