@@ -1,6 +1,6 @@
 # Kickstarter landing page (HARD)
 
-This project is a landing page about an enthusiastic project on Kickstarter. Created using HTML, SCSS, JavaScript and BEM.
+This project is a landing page about a futuristic wireless speaker. Created using HTML, SCSS, JavaScript and BEM.
 
 - [DEMO LINK](https://andrii-kovalskyi02.github.io/Kickstarter/)
 
