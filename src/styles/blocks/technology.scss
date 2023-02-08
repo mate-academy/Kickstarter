@@ -1,0 +1,116 @@
+.technology {
+  &__background {
+    position: absolute;
+    transform: translate(10%, -34%);
+    background-image: url(/images/testimonials-quotes.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    min-width: 233px;
+    min-height: 189px;
+    z-index: -1;
+
+    @include onTablet {
+      transform: translate(130%, -30%);
+      width: 233px;
+      height: 189px;
+    }
+
+    @include onDesktop {
+      transform: translate(200%, -50%);
+      width: 233px;
+      height: 192px;
+    }
+  }
+  &__title {
+    margin-bottom: 56px;
+    @include onTablet {
+      margin-bottom: 70px;
+    }
+  }
+  &__photo-container {
+    position: relative;
+    width: 100%;
+    height: 278px;
+    overflow: hidden;
+    transition: all 0.4s;
+    margin-bottom: 160px;
+
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    @include onTablet {
+      height: 546px;
+    }
+
+    @include onDesktop {
+      height: 500px;
+    }
+
+    @media (min-width: 1024px) {
+      height: 545px;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+    transition: all 0.5s;
+    transform-origin: center;
+    &:hover {
+      transform: rotate(180deg);
+    }
+
+    @include onTablet {
+      left: 34px;
+    }
+
+    @include onDesktop {
+      left: 134px;
+      object-fit: contain;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__text {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333;
+    margin-bottom: 30px;
+    @include onTablet {
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+  &__img {
+    display: block;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+    transform-origin: center;
+    &:hover {
+      transform: scale(120%);
+    }
+  }
+  &__name {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #333;
+  }
+  &__job {
+    font-size: 14px;
+    line-height: 21px;
+    color: #7c7c7c;
+  }
+}

@@ -1,0 +1,99 @@
+.header {
+  margin-bottom: 65px;
+
+  img {
+    transition: all 0.4s;
+    &:hover {
+      transform: scale(110%);
+    }
+  }
+  &__wrapper {
+    margin-bottom: 25px;
+    @include onTablet {
+      margin-bottom: 90px;
+    }
+    @include onDesktop {
+      margin-bottom: 100px;
+    }
+  }
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  &__specs {
+    display: none;
+    font-size: 14px;
+    line-height: 17px;
+    color: #4f4f4f;
+    @include onTablet {
+      display: block;
+    }
+  }
+  &__lang {
+    display: none;
+    font-size: 14px;
+    line-height: 17px;
+    color: #4f4f4f;
+    @include onTablet {
+      display: block;
+      margin-left: 27px;
+    }
+  }
+  &__button {
+    background-color: #333;
+    display: none;
+    &:hover {
+      background-color: #2a2727;
+    }
+
+    &:active {
+      background-color: #262323;
+    }
+    @include onTablet {
+      display: flex;
+      margin-left: 27px;
+    }
+    @include onDesktop {
+      margin-left: 47px;
+    }
+  }
+  &__icon-menu {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 5;
+    span,
+    &::before,
+    &::after {
+      content: "";
+      transition: all 0.3s ease 0s;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #000;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    span {
+      top: calc(50% - 1px);
+    }
+    @include onTablet {
+      display: none;
+    }
+  }
+}

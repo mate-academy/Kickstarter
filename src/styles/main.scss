@@ -1,7 +1,28 @@
 @import "utils";
-@import "fonts";
+@import "blocks";
 @import "typography";
 
-body {
-  background: $c-gray;
+[class*="__container"] {
+  margin: 0 auto;
+  padding: 0 30px;
+  max-width: 1440px;
+
+  @include onTablet {
+    padding: 0 34px;
+  }
+
+  @include onDesktop {
+    padding: 0 123px ;
+  }
+}
+@media (min-width: 744px) {
+  .sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #7c7c7c;
+    z-index: 10;
+  }
 }
