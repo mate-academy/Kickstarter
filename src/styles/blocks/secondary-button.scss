@@ -1,0 +1,40 @@
+.secondary-button {
+  width: fit-content;
+
+  display: block;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 117%;
+
+  text-transform: uppercase;
+
+  color: $darkTurquoiseColor;
+
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 42%;
+    height: 1px;
+
+    background-color: $darkTurquoiseColor;
+
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+
+    transition: width 0.3s;
+
+    @include onDesktop {
+      width: 50%;
+    }
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+}

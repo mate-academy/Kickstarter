@@ -1,0 +1,77 @@
+.technology {
+  @extend %container;
+  @extend .grid;
+
+  &__title {
+    @extend .grid__item--tablet-1-3;
+    @extend .grid__item--desktop-1-4;
+
+    font-size: 36px;
+    line-height: 128%;
+
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 125%;
+    }
+  }
+
+  &__photo-container {
+    @extend .grid__item--tablet-5-8;
+    @extend .grid__item--desktop-7-12;
+
+    margin-bottom: 18px;
+
+    @include onTablet {
+      grid-row: 1 / 5;
+      width: calc(100% + #{$tabletHorizontalePaddings});
+
+      margin-right: #{-$tabletHorizontalePaddings};
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  &__photo {
+    @include photo(100%, 212px);
+
+    @include onTablet {
+      height: 417px;
+    }
+
+    @include onDesktop {
+      height: 401px;
+    }
+  }
+  
+  &__description {
+    @extend .grid__item--tablet-1-4;
+    @extend .grid__item--desktop-1-6;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+
+    color: $darkGreyColor;
+
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__see-more-button {
+    @extend .grid__item--tablet-1-2;
+    @extend .grid__item--desktop-1-2;
+  }
+}

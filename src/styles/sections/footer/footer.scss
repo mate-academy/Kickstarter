@@ -1,0 +1,101 @@
+.footer {
+  @extend %container;
+  padding-bottom: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include onTablet {
+    padding-bottom: 30px;
+
+    position: relative;
+  }
+
+  &__top-link {
+    display: none;
+
+    transition: background-color 0.3s;
+
+    @include onTablet {
+      position: absolute;
+      top: 0;
+      right: $tabletHorizontalePaddings;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 50px;
+      height: 50px;
+
+      border-radius: 50%;
+    }
+
+    @include onDesktop {
+      right: $desktopHorizontalePaddings;
+    }
+
+    &:hover {
+      background-color: rgba($color: $blackColor, $alpha: 0.3);
+    }
+  }
+
+  &__top-arrow {
+    width: 25px;
+    height: 21px;
+
+    transition: transform 0.3s;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__home-link {
+    display: none;
+
+    @include hover(transform, scale(1.05));
+
+    @include onTablet {
+      display: block;
+
+      margin-bottom: 64px;
+    }
+  }
+
+  &__home-icon {
+    @include onTablet {
+      width: 184px;
+      height: 25px;
+    }
+
+    @include onDesktop {
+      width: 161px;
+      height: 26px;
+    }
+  }
+
+  &__social-media {
+    margin-bottom: 32px;
+
+    @include onTablet {
+      margin-bottom: 62px;
+    }
+  }
+
+  &__copyright {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+
+    text-align: center;
+    color: $greyColor;
+
+    @include onTablet {
+      font-weight: 300;
+    }
+
+    @include onDesktop {
+      font-weight: 400;
+    }
+  }
+}
