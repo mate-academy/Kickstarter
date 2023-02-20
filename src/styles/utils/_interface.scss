@@ -40,6 +40,23 @@
   }
 }
 
+.navigation {
+  display: flex;
+  justify-content: space-between;
+
+  &__link {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: $gray;
+
+    &:hover {
+      color: $black;
+      font-weight: 700;
+    }
+  }
+}
+
 .button-buy {
   background-color: $gray;
   color: #fff;
@@ -67,22 +84,40 @@
   }
 }
 
-.navigation {
+.button-about {
+  position: relative;
+  color: $green;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: min-content;
+  padding: 6px 0;
 
-  &__link {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    color: $gray;
+  &::after {
+    display: block;
+    position: absolute;
+    content: "";
+    height: 1px;
+    width: 50%;
+    background-color: $green;
+    transition: all 0.3s;
+    left: 0;
+    bottom: 0;
+  }
 
-    &:hover {
-      color: $black;
-      font-weight: 700;
+  &:hover {
+    &::after {
+      width: 100%;
     }
   }
 }
+
 // $bg: #e5e5e5;
 // $black: #131313;
 
