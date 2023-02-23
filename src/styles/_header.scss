@@ -74,49 +74,22 @@
   }
 }
 
-.header__wrapper-burger {
-  position: relative;
-  height: 50px;
-  width: 50px;
-  cursor: pointer;
-  display: none;
-
-  @media (max-width: 768px) {
-    display: block;
-    grid-column: 8 / 9;
-    justify-self: end;
-  }
-
-  @media (max-width: 460px) {
-    grid-column: 4 / 5;
-    // grid-row: 2;
-  }
-
-  &:hover * {
-    transform: scale(1.2);
-    box-shadow: 0 0 5px $black;
-  }
-
-  &-line {
-    height: 1px;
-    width: 30px;
-    background-color: $black;
-    position: absolute;
-    pointer-events: none;
-
-    &:nth-of-type(1) {
-      top: 25%;
-      left: 10px;
+.burger-active {
+  & * {
+    &:nth-of-type(1),
+    &:nth-of-type(3) {
+      top: 50%;
+      left: 0;
+      transform: rotate(-45deg);
+      width: 50px;
     }
 
     &:nth-of-type(2) {
-      top: 50%;
-      left: 10px;
+      display: none;
     }
 
     &:nth-of-type(3) {
-      top: 75%;
-      left: 10px;
+      transform: rotate(45deg);
     }
   }
 }
