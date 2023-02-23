@@ -54,10 +54,6 @@
       grid-row: 1;
       margin-bottom: 50px;
     }
-
-    @media (max-width: 460px) {
-      display: flex;
-    }
   }
 
   &__card:nth-of-type(2) {
@@ -109,5 +105,33 @@
   &__text {
     text-align: center;
     flex-grow: 1;
+  }
+
+  &__slider {
+    display: none;
+
+    @media (max-width: 460px) {
+      display: block;
+      grid-column: 1 / 5;
+      box-shadow: 0 5px 0 0 $gray-20,
+        0 -5px 0 0 $gray-20;
+      border-top: 1px solid $black;
+      border-bottom: 1px solid $black;
+    }
+  }
+
+  &__slide {
+    padding-top: 10px;
+  }
+
+  .slider-card {
+    @media (max-width: 460px) {
+      display: flex;
+
+      &:hover {
+        box-shadow: none;
+        border-color: transparent;
+      }
+    }
   }
 }

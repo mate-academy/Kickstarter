@@ -8,3 +8,11 @@ window.addEventListener('load', event => {
     e.target.reset();
   });
 });
+
+const burger = document.querySelector('.burger');
+const hiddenBlockHeader = document.querySelector('.header__wrapper');
+
+burger.addEventListener('click', e => {
+  e.target.classList.toggle('header__wrapper-burger-active');
+  hiddenBlockHeader.classList.toggle('header__wrapper-visible');
+});
