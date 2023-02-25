@@ -1,0 +1,228 @@
+.features {
+  padding: 60px 0;
+
+  &__container {
+    padding: 0;
+
+    @include onTablet {
+      padding: 34px;
+    }
+
+    @include onDesktop {
+      padding: 0 123px;
+    }
+  }
+
+  &__title {
+    margin: 35px 10px;
+  }
+
+  &__wrapper {
+    background-color: #d6ecec;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__boxForInfo {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__info-wrapper {
+    display: flex;
+    gap: 145px;
+  }
+
+  &__info {
+    display: none;
+    padding: 30px;
+
+    @include onTablet {
+      width: 380px;
+      padding-left: 90px;
+    }
+
+    @include onDesktop {
+      display: block;
+      width: 465px;
+      padding-left: 103px;
+    }
+
+    &-mobile {
+      display: block;
+    }
+  }
+
+  &__subtitle {
+    @extend %h3;
+    color: $buttonHover;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  &__text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 51px;
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    @extend %secondary-text;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 4px;
+      height: 4px;
+      background-color: #000;
+      border-radius: 50%;
+      margin-right: 11px;
+    }
+  }
+
+  &__slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      align-items: baseline;
+      padding-left: 90px;
+      padding-bottom: 123px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+  }
+
+  &__arrow {
+    display: block;
+    width: 48px;
+    height: 14px;
+    margin-bottom: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+
+    &-left {
+      background-image: url(../images/leftBl.svg);
+
+      &:disabled,
+      &.disabled {
+        background-image: url(../images/leftGrey.svg);
+      }
+
+      &:hover,
+      &:focus,
+      &:target,
+      &.active {
+        background-image: url(../images/leftGr.svg);
+      }
+
+    }
+
+    &-right {
+      background-image: url(../images/rightBl.svg);
+      margin-left: -10px;
+
+      &:disabled,
+      &.disabled {
+        background-image: url(../images/rightGrey.svg);
+      }
+
+      &:hover,
+      &:focus,
+      &:target,
+      &.active {
+        background-image: url(../images/rightGr.svg);
+      }
+    }
+  }
+
+  &__page-numbs {
+    @extend %main-text;
+  }
+
+  &__current {
+    font-size: 16px;
+
+    &:disabled,
+    &.disabled {
+      color: $greyDis;
+    }
+
+    &:hover,
+    &:focus,
+    &:target,
+    &.active {
+      color: $buttonHover;
+    }
+  }
+
+  &__slash {
+    font-size: 11px;
+    
+    &:disabled,
+    &.disabled {
+      color: $greyDis;
+    }
+
+    &:hover,
+    &:focus,
+    &:target,
+    &.active {
+      color: $buttonHover;
+    }
+  }
+
+  &__max {
+    font-size: 11px;
+
+    &:disabled,
+    &.disabled {
+      color: $greyDis;
+    }
+
+    &:hover,
+    &:focus,
+    &:target,
+    &.active {
+      color: $buttonHover;
+    }
+  }
+
+  &__image {
+    background-image: url(../images/image6.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 174px;
+    transition: all 00.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include onTablet {
+      position: absolute;
+      right: -20px;
+      bottom: 0;
+      width: 435px;
+      height: 226px;
+    }
+
+    @include onDesktop {
+      width: 582px;
+      height: 427px;
+      right: 80px;
+      bottom: -103px;
+    }
+  }
+}

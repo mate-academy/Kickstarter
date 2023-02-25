@@ -1,0 +1,140 @@
+.nav {
+  &__wrapper {
+    padding: 20px 0;
+  }
+}
+
+.top-menu {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 00.3s;
+
+  &__title {
+    width: 162px;
+    height: 26px;
+    background-image: url(../images/crazybaby.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: all 00.3s;
+
+    &:hover,
+    &:focus,
+    &:target {
+      transform: scale(1.05);
+    }
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+
+    & span {
+      transition: all 0.3s;
+    }
+
+    &.active {
+      & span {
+        transform: scale(0);
+        position: absolute;
+        right: 0;
+
+        &:first-child {
+          transform: rotate(-45deg);
+          top: calc(50% - 1px);
+        }
+
+        &:last-child {
+          transform: rotate(45deg);
+          bottom: calc(50% - 1px);
+        }
+      }
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__btn-vector {
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background-color: #000;
+  }
+
+  &__button-wrapper {
+    display: none;
+    align-items: center;
+    gap: 27px;
+    transition: all 0.3s;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__btn-specs {
+    text-decoration: none;
+    color: $black;
+    @extend %main-text;
+    text-transform: uppercase;
+    transition: all 0.3s;
+
+    &:hover,
+    &:focus,
+    &.active,
+    &.label {
+      color: $black;
+      transform: scale(1.05);
+    }
+  }
+
+  &__lang-wrapper {
+    text-decoration: none;
+    color: $black;
+    @extend %main-text;
+    text-transform: uppercase;
+  }
+
+  &__btn-lang {
+    text-decoration: none;
+    color: $greyDis;
+    @extend %main-text;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    
+
+    &:hover,
+    &:focus,
+    &.active,
+    &.label {
+      color: $black;
+      font-weight: 700;
+    }
+  }
+
+  &__lang-slash {
+    text-decoration: none;
+    color: $black;
+    font-weight: 700;
+    @extend %main-text;
+    text-transform: uppercase;
+  }
+
+  &__btn-buy {
+    transition: all 0.3s;
+  }
+}
+
+.ua {
+  &:hover,
+  &:focus,
+  &.active {
+    margin-right: -1px;
+  }
+}
