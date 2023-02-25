@@ -1,0 +1,204 @@
+.language {
+  &__wrapper {
+    color: $black;
+    display: flex;
+    gap: 3px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &__eng-label,
+  &__ua-label {
+    position: relative;
+    color: $gray-30;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__eng-input,
+  &__ua-input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+
+  &__eng-input:checked {
+    & + .language__eng-label {
+      color: $black;
+    }
+  }
+
+  &__ua-input:checked {
+    & + .language__ua-label {
+      color: $black;
+    }
+  }
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+
+  &__link {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: $gray;
+
+    &:hover {
+      color: $black;
+      font-weight: 700;
+    }
+  }
+}
+
+.button-buy {
+  background-color: $gray;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 100px;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    background-color: $black;
+  }
+
+  &:disabled {
+    background-color: $gray-20;
+    cursor: auto;
+    outline: none;
+    border: none;
+  }
+}
+
+.button-about {
+  position: relative;
+  color: $green;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: min-content;
+  padding: 6px 0;
+
+  &::after {
+    display: block;
+    position: absolute;
+    content: "";
+    height: 1px;
+    width: 50%;
+    background-color: $green;
+    transition: all 0.3s;
+    left: 0;
+    bottom: 0;
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.form-button {
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+  background-color: #39bebf;
+  width: 150px;
+  height: 48px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0c797a;
+  }
+
+  &:disabled {
+    background-color: #cfeff0;
+  }
+}
+
+.header__wrapper-burger {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    grid-column: 8 / 9;
+    justify-self: end;
+  }
+
+  @media (max-width: 460px) {
+    grid-column: 4 / 5;
+    // grid-row: 2;
+  }
+
+  &:hover * {
+    transform: scale(1.2);
+    box-shadow: 0 0 5px $black;
+  }
+
+  &-line {
+    height: 1px;
+    width: 30px;
+    background-color: $black;
+    position: absolute;
+    pointer-events: none;
+
+    &:nth-of-type(1) {
+      top: 25%;
+      left: 10px;
+    }
+
+    &:nth-of-type(2) {
+      top: 50%;
+      left: 10px;
+    }
+
+    &:nth-of-type(3) {
+      top: 75%;
+      left: 10px;
+    }
+  }
+}
+
+.scrollarrow {
+  position: fixed;
+  display: block;
+  bottom: 195px;
+  right: 120px;
+  z-index: 100;
+  cursor: pointer;
+
+  @media (max-width: 1024px) {
+    right: 50px;
+    bottom: 50px;
+  }
+  @media (max-width: 460px) {
+    display: none;
+  }
+}
