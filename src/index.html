@@ -528,6 +528,17 @@
         </p>
       </section>
     </footer>
+
+    <svg width="20" height="24"
+      viewBox="0 0 20 24" fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="scrollarrow">
+      <path d="M11.4286 24L8.57143 24L8.57143 6L2.85714
+        12L1.44819e-06 10.5L10 -4.36936e-07L20 10.5L17.1429
+        12L11.4286 6L11.4286 24Z"
+        fill="#333333"/>
+    </svg>
+
     <script type="module">
       import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js'
 
@@ -582,26 +593,23 @@
         },
       });
 
-
-      swiper.on('slideChange', function () {
-        if (swiper.slides.length < 10) {
-          const slideNumber = document.querySelector('.swiper-pagination-current');
-          const slideTotalNumber = document.querySelector('.swiper-pagination-total');
-          slideNumber.innerHTML = '0' + slideNumber.innerHTML;
-          slideTotalNumber.innerHTML = '0' + slideTotalNumber.innerHTML;
-        };
-      });
+      swiper[1].on('slideChange', function () {
+          if (swiper[1].slides.length < 10) {
+            const slideNumber = document.querySelector('.swiper-pagination-current');
+            const slideTotalNumber = document.querySelector('.swiper-pagination-total');
+            slideNumber.innerHTML = '0' + slideNumber.innerHTML;
+            slideTotalNumber.innerHTML = '0' + slideTotalNumber.innerHTML;
+          };
+        });
 
       function renderFractionSlider(currentClass, totalClass) {
-        if (swiper.slides.length < 10) {
+        if (swiper[1].slides.length < 10) {
           const currentClass = document.querySelector('.swiper-pagination-current');
           const totalClass = document.querySelector('.swiper-pagination-total');
           currentClass.innerHTML = '0' + currentClass.innerHTML;
           totalClass.innerHTML = '0' + totalClass.innerHTML;
         };
       };
-
-
 
       renderFractionSlider('swiper-pagination-current', 'swiper-pagination-total');
     </script>

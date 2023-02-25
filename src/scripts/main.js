@@ -11,8 +11,13 @@ window.addEventListener('load', event => {
 
 const burger = document.querySelector('.burger');
 const hiddenBlockHeader = document.querySelector('.header__wrapper');
+const scrollarrow = document.querySelector('.scrollarrow');
 
 burger.addEventListener('click', e => {
   e.target.classList.toggle('burger-active');
   hiddenBlockHeader.classList.toggle('header__wrapper-visible');
+});
+
+scrollarrow.addEventListener('click', e => {
+  window.scrollTo(0, 0);
 });
