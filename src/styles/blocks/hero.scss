@@ -1,0 +1,89 @@
+.hero {
+  @include onTablet {
+    @include useGrid (8, 20px);
+    grid-row-gap: 0;
+    grid-auto-flow: dense;
+    grid-template-rows: auto;
+  }
+
+  @include onDesktop {
+    @include useGrid (12, 20px);
+  }
+
+  &__image-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    max-width: 420px;
+    max-height: 250px;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      grid-column: 4 / 9;
+      margin-right: 35px;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / 10;
+      margin-top: 104px;
+      max-height: 464px;
+      max-width: 816px;
+    }
+  }
+
+  &__description {
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__title {
+    @extend %h1--mobile;
+    margin: 0 0 20px;
+    text-align: left;
+
+    @include onTablet {
+      margin-bottom: 30px;
+      @include responsive-headings(tablet, h1);
+    }
+
+    @include onDesktop {
+      @include responsive-headings(desktop, h1);
+      margin-top: 186px;
+    }
+  }
+
+  &__paragraph {
+    @extend %main-text;
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__image {
+    height: 100%;
+
+    &--mobile {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      @include onMobile {
+        display: none;
+      }
+
+      @include fromTablet {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      @include fromDesktop {
+        display: none;
+      }
+    }
+  }
+}

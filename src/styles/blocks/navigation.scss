@@ -1,0 +1,73 @@
+.navigation {
+  @include onMobile {
+    display: none;
+  }
+
+  &__specs {
+    text-transform: uppercase;
+    margin-right: 26px;
+    @include onDesktop {
+      margin-right: 46px;
+    }
+
+    &-link {
+      text-decoration: none;
+      color: $dark-gray;
+      border-bottom: 1px solid transparent;
+
+      transition: color $transition ease-in-out,
+        border-bottom $transition ease-in-out;
+
+      &:hover {
+        border-color: $black;
+      }
+    }
+  }
+
+  &__button {
+    width: 102px;
+  }
+
+  &__list {
+    @include fromDesktop {
+      display: none;
+    }
+
+    box-sizing: content-box;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 28px 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    margin-right: 84px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+    @include hover(scale, 1.05);
+  }
+
+  &__link {
+    text-decoration: none;
+    @extend %thirdary-text;
+    color: $light-black;
+    border-bottom: 1px solid transparent;
+
+    transition:
+      font-weight $transition ease-in-out,
+      border-bottom $transition ease-in-out;
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:target {
+      font-weight: 700;
+      border-color: $black;
+    }
+  }
+}
