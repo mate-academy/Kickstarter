@@ -21,6 +21,7 @@
   display: grid;
   grid-template-columns: repeat($columnsCount, 1fr);
   gap: $gap;
+  grid-row-gap: 0;
 }
 
 @mixin onMobile {
@@ -57,6 +58,12 @@
   $size: map-get(map-get($headings, $device), $heading);
   font-size: nth($size, 1);
   line-height: nth($size, 2);
+}
+
+@mixin custom-image($min-width, $max-width, $min-height) {
+  min-width: $min-width;
+  max-width: $max-width;
+  min-height: $min-height;
 }
 
 // @mixin flex-disp-justify-align ($justify, $align) {
