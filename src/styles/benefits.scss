@@ -1,4 +1,4 @@
-.info {
+.benefits {
   &__mobile {
     @include onMobile {
       height: 245px;
@@ -9,8 +9,19 @@
   }
 
   &__main-text {
+    color: $textColor;
     @include onMobile {
       margin-top: 20px;
+    }
+
+    @include onDesktop {
+      margin-top: 30px;
+      width: 280px;
+    }
+
+    @include onPad {
+      margin-top: 30px;
+      width: 250px;
     }
   }
 
@@ -26,16 +37,22 @@
     width: 100%;
     display: inline-block;
 
+    @include onMobile {
+      display: none;
+    }
+
     @include onPad {
-      height: 317px;
+      height: auto;
       background-size: cover;
+      background-repeat: no-repeat;
       background-position: center;
       background-image: url(../images/fut_p.png);
     }
 
     @include onDesktop {
-      height: 464px;
+      height: auto;
       background-size: cover;
+      background-repeat: no-repeat;
       background-position: left;
       background-image: url(../images/fut_d.png);
     }

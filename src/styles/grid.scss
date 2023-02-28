@@ -6,10 +6,11 @@
   @include onPad {
     grid-template-columns: repeat($padGridColumns, 1fr);
     column-gap: 20px;
+    row-gap: 65px;
   }
 
   @include onDesktop {
-    grid-template-columns: repeat($desctopGridColumns, 1fr);
+    grid-template-columns: repeat($DesktopGridColumns, 1fr);
     column-gap: 30px;
   }
 
@@ -41,12 +42,18 @@
     }
 
     @include onDesktop {
-      @for $start from 1 through $desctopGridColumns {
-        @for $end from $start through $desctopGridColumns {
+      @for $start from 1 through $DesktopGridColumns {
+        @for $end from $start through $DesktopGridColumns {
           &--d-#{$start}-#{$end} {
             grid-column: #{$start} / #{$end + 1};
           }
         }
+      }
+    }
+
+    @include onMobile {
+      &--mob {
+        display: none;
       }
     }
   }
