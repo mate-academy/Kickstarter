@@ -1,9 +1,10 @@
 .testimonials {
   &__photo {
-    width: 582px;
+    width: 100%;
     height: 388px;
     overflow: hidden;
   }
+
   &__photo--1 {
     background-size: cover;
     background-position: center;
@@ -23,14 +24,32 @@
 
   &__link {
     margin-top: 60px;
+
+    position: relative;
   }
 
   &__link-set {
+    width: fit-content;
+
     font-size: 12px;
     line-height: 15px;
     text-transform: uppercase;
     text-decoration: none;
     color: $c-green;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      width: 54px;
+      left: 0;
+      height: 1px;
+      background-color: $c-green;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
   }
 
   &--grid-2 {
