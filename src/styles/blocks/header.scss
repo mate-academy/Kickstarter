@@ -1,0 +1,134 @@
+.header {
+  box-sizing: border-box;
+  background-image: url(../images/background.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  padding-top: 30px;
+
+  @include onLaptop {
+    background-image: url(../images/bgrT.png);
+    background-position: 90% 20%;
+  }
+
+  @include onMobile {
+    background-image: url(../images/bgrM.png);
+    background-position: 50% 20%;
+    padding-top: 0;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 140px;
+
+    @include onLaptop {
+      margin-bottom: 130px;
+    }
+
+    @include onMobile {
+      height: 76px;
+      margin-bottom: 285px;
+    }
+  }
+
+  &__specs {
+    width: 72px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #4f4f4f;
+    text-decoration: none;
+
+    @include hover(transform, scale(1.2));
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__language {
+    font-size: 14px;
+    line-height: 20px;
+    color: $main-color;
+    cursor: pointer;
+    margin-right: 47px;
+
+    @include hover(transform, scale(1.2));
+
+    @include onLaptop {
+      margin-right: 27px;
+    }
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__ru {
+    color: #bdbdbd;
+
+    &:hover {
+      color: $main-color;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 102px;
+    height: 45px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    border: 1px transparent;
+    background-color: $main-color;
+    transition: background-color $duration;
+
+    &:hover {
+      background-color: $dark;
+    }
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__title {
+    width: 378px;
+    font-weight: 700;
+    font-size: 62px;
+    line-height: 78px;
+    text-transform: uppercase;
+    padding-bottom: 30px;
+
+    @include onLaptop {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onMobile {
+      width: 260px;
+      font-size: 40px;
+      line-height: 52px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__text {
+    width: 275px;
+    font-size: 16px;
+    line-height: 24px;
+
+    @include onMobile {
+      width: fit-content;
+    }
+  }
+}
