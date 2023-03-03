@@ -5,18 +5,6 @@
   }
 }
 
-@mixin headings ($weight) {
-  text-transform: uppercase;
-  font-weight: $weight;
-  margin: 0;
-}
-
-@mixin font-size-height-weight ($size, $line-height, $weight) {
-  font-size: $size;
-  line-height: $line-height;
-  font-weight: $weight;
-}
-
 @mixin useGrid($columnsCount, $gap) {
   display: grid;
   grid-template-columns: repeat($columnsCount, 1fr);
@@ -32,6 +20,12 @@
 
 @mixin onTablet {
   @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onlyTablet {
+  @media (min-width: 768px) and (max-width: 1439px) {
     @content;
   }
 }
@@ -54,10 +48,22 @@
   }
 }
 
+@mixin headings ($weight) {
+  text-transform: uppercase;
+  font-weight: $weight;
+  margin: 0;
+}
+
 @mixin responsive-headings($device, $heading) {
   $size: map-get(map-get($headings, $device), $heading);
   font-size: nth($size, 1);
   line-height: nth($size, 2);
+}
+
+@mixin font-size-height-weight ($size, $line-height, $weight) {
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
 }
 
 @mixin custom-image($min-width, $max-width, $min-height) {

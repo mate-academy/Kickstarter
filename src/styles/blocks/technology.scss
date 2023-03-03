@@ -7,38 +7,71 @@
     @include useGrid (2, $gap);
     grid-auto-flow: dense;
 
+    @include onlyTablet {
+      height: 415px;
+    }
+
     &--1 {
       margin-bottom: 140px;
     }
+
     &--2 {
       margin-bottom: 136px;
+    }
+
+    @include onDesktop {
+      &--1 {
+        margin-bottom: 170px;
+      }
+      &--2 {
+        margin-bottom: 162px;
+      }
     }
   }
 
   &__image {
+
+    @include onlyTablet {
+      position: absolute;
+      @include custom-image(374px, 375px, 415px);
+      object-fit: cover;
+
+      &--1 {
+        left: 0;
+        grid-column: 2 / 3;
+      }
+      &--2 {
+        right: 0;
+        grid-column: 1 / 2;
+      }
+    }
+
+    @include onDesktop {
+      &--2 {
+        grid-column: 2 / 3;
+      }
+    }
+  }
+
+  &__description {
     &--1 {
-      grid-column: 1 / 2;
+      grid-column: 2 / 3;
     }
     &--2 {
-      grid-column: 2 / 3;
+      grid-column: 1 / 2;
     }
   }
 
   &__title {
     @include responsive-headings(tablet, h2);
-    margin-bottom: 30px;
-
-    &--2 {
-      grid-column: 1 / 2;
+    @include onDesktop {
+      @include responsive-headings(desktop, h2);
     }
+    margin-bottom: 30px;
   }
 
   &__paragraph {
     @extend %main-text;
     margin-bottom: 60px;
-  }
-
-  @include onMobile {
-    display: hide;
   }
 }
