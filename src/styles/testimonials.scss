@@ -1,96 +1,64 @@
 .testimonials {
-  &__photo {
-    width: 100%;
-    height: 388px;
-    overflow: hidden;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
-  &__photo--1 {
-    background-size: cover;
-    background-position: center;
-    background-image: url(../images/test-d-1.png);
-
-    @include onPad {
-      width: 374px;
-      // transform: translateX(-34px);
-      background-size: cover;
-      background-position: center;
-      background-image: url(../images/test-p-1.png);
-    }
+  &__quote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  &__photo--2 {
-    background-size: cover;
-    background-position: center;
-    background-image: url(../images/test-d-2.png);
-
-    @include onPad {
-      width: 415px;
-      background-size: cover;
-      background-position: center;
-      background-image: url(../images/test-p-2.png);
-    }
-  }
-
-  &__description {
-    margin-top: 30px;
-    color: #7c7c7c;
-  }
-
-  &__link {
-    margin-top: 60px;
-
+  &__quote-text {
     position: relative;
-    width: fit-content;
+
+    text-align: center;
   }
 
-  &__link-set {
-    font-size: 12px;
-    line-height: 15px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: $c-green;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -6px;
-      width: 54px;
-      left: 0;
-      height: 1px;
-      background-color: $c-green;
-    }
-
-    &:hover::after {
-      width: 100%;
-    }
-  }
-
-  &__text {
-    @include onPad {
-      &--left {
-        padding-right: 20px;
-      }
-
-      &--right {
-        padding-left: 20px;
-      }
-    }
-  }
-
-  &--grid-2 {
-    @include onDesktop {
-      margin-top: 60px;
-    }
+  &__watermark {
+    position: absolute;
+    transform: translateY(-30%);
+    z-index: -1;
 
     @include onPad {
-      margin-top: 141px;
+      transform: translateY(-30%);
+    }
+
+    @include onMobile {
+      transform: translateY(-30%);
     }
   }
 
-  &--desktop {
-    @include onDesktop {
-      padding: 0 123px;
+  &__member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transform: translateY(40%);
+
+    @include onPad {
+      transform: translateY(0);
+      padding-top: 40px;
     }
+
+    @include onMobile {
+      transform: translateY(0);
+      padding-top: 29px;
+    }
+  }
+
+  &__avatar {
+    padding-bottom: 20px;
+
+    @include onMobile {
+      padding-bottom: 10px;
+    }
+  }
+
+  &__member-name {
+    padding-bottom: 5px;
   }
 }

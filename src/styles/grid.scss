@@ -51,10 +51,52 @@
       }
     }
 
-    @include onMobile {
-      &--mob {
+    &--mob {
+      @include onMobile {
         display: none;
       }
+    }
+
+    &--pad {
+      @include onPad {
+        display: flex;
+        justify-content: right;
+      }
+    }
+  }
+
+  &--features {
+    margin-top: 47px;
+
+    @include onPad {
+      margin: 0;
+    }
+
+    @include onMobile {
+      margin: 0;
+    }
+  }
+
+  &--features-d {
+    @include onPad {
+      display: none;
+    }
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &--features-p {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--features-indent {
+    @include onMobile {
+      justify-items: center;
+      padding: 0 30px;
     }
   }
 }

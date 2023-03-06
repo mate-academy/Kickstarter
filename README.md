@@ -13,7 +13,7 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Uj
 1. Implement `Presentation` block.
 1. Implement `About us` block.
 1. Implement `Technology` block.
-1. Implement `testimonials` block.
+1. Implement `Testimonials` block.
 1. Implement `Features` block.
 1. Implement `Questions` block
 1. Implement the footer.
