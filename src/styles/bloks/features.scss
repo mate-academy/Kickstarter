@@ -1,0 +1,128 @@
+.features {
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    max-width: 1200px;
+    gap: 56px 150px;
+    margin-top: 30px;
+    padding: 60px 0 59px 48px;
+    background: url("../images/desktop/Frame 11.png") no-repeat bottom right, #d6ecec;
+    background-size: 250px;
+    background-blend-mode: darken;
+   
+    @include onTablet {
+      background-size: 400px;
+    }
+
+    @include onSmaleDesktop {
+      background-size: auto;
+      padding: 60px 0 59px 116px;
+    }
+  }
+
+  &__content > :nth-child(-n+2) {
+    display: none;
+  }
+
+  @include onSmaleDesktop {
+    &__content > :nth-child(-n+2) {
+      display: flex;
+    }
+  }
+
+  &__title {
+    color: $green-hover;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 30px 0 0 15px;
+  }
+
+  &__item {
+    transition: 0.3s;
+
+    &:hover {
+      scale: (1.05);
+      transition: 0.3s;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 480px;
+    transition: 1.3s;
+    cursor: pointer;
+
+    &:hover {
+      scale: (1.05);
+      transition: 1.3s;
+    }
+
+    @include onSmaleDesktop {
+      height: auto;
+    }
+  }
+
+  &__num-list {
+    position: relative;
+    display: flex;
+    list-style: none;
+    padding-top: 50px;
+  }
+
+  &__num-list::before {
+    position: absolute;
+    content: "";
+    width: 48px;
+    height: 14px;
+    bottom: 35px;
+    left: 50px;
+    background: url("../images/arrow-slider2.svg") no-repeat;
+    background-size: 48px;
+
+    @include onSmaleDesktop {
+      display: none;
+    }
+  }
+
+  &__num-list::after {
+    position: absolute;
+    content: "";
+    width: 48px;
+    height: 14px;
+    bottom: 35px;
+    left: 0;
+    background: url("../images/arrow-slider3.svg") no-repeat;
+    background-size: 48px;
+    
+    @include onSmaleDesktop {
+      display: none;
+    }
+  }
+
+  &__num1 {
+    @include onSmaleDesktop {
+      display: none;
+    }
+  }
+
+  &__num2 {
+    padding: 5px;
+    font-size: 11px;
+    line-height: 13px;
+    color: $green-hover;
+
+    @include onSmaleDesktop {
+      display: none;
+    }
+  }
+}

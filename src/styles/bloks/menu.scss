@@ -1,0 +1,46 @@
+.menu {
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__list {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  
+  &__list > :first-child {
+    font-weight: 700;
+    color: $button-hover;
+  }
+
+  &__link {
+    display: block;
+    padding: 17px 20px;
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: $button-default;
+
+    @include onSmaleDesktop {
+      padding: 17px 35px;
+    }
+  }
+ 
+  &__item {
+    cursor: pointer;
+    list-style: none;
+    @extend %border-black;
+  }
+}
