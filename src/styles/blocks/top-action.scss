@@ -1,0 +1,103 @@
+.top-action {
+  @include onTablet {
+    margin-bottom: 140px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 90px;
+  }
+
+  &__content {
+    align-items: center;
+  }
+
+  &__logo {
+    display: block;
+    width: 161px;
+    height: 26px;
+
+    padding: 25px 0;
+  }
+
+  &__logo-hover {
+    transition: $duration;
+
+    &:hover {
+      cursor: pointer;
+      animation: vibration $duration ease-in-out infinite;
+    }
+  }
+
+  &__specs {
+    display: none;
+
+    @include onTablet {
+      display: grid;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 17px;
+      color: $color-specs;
+      text-decoration: none;
+    }
+
+    @include onDesktop {
+      font-weight: 400;
+      line-height: 20px;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include onTablet {
+      display: grid;
+      min-width: 102px;
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__select-en,
+  &__select-ua,
+  &__select-slash {
+    display: none;
+
+    @include onTablet {
+      display: inline-block;
+      font-family: "Helvetica Neue", sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 18px;
+      color: $color-top-action-text;
+      cursor: pointer;
+    }
+
+    @include onDesktop {
+      font-weight: 400;
+      line-height: 20px;
+      color: $color-text-desktop;
+    }
+  }
+
+  #top-action-en:checked ~ &__select-en,
+  &__select-slash {
+    font-weight: 400;
+    color: $color-title;
+  }
+
+  #top-action-ua:checked ~ &__select-ua {
+    font-weight: 400;
+    color: $color-title;
+  }
+}
+
+.disable-mobile {
+  display: none;
+
+  @include onTablet {
+    display: grid;
+  }
+}

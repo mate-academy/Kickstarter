@@ -1,0 +1,109 @@
+.question {
+  &__title {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__input {
+    display: block;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    width: 100%;
+    height: 48px;
+    border: 1px solid $color-top-action-text;
+    background-color: $color-background;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    transition: $duration;
+
+    &::placeholder {
+      font-family: "Inter", sans-serif;
+    }
+
+    &:focus {
+      outline: none;
+      color: $color-title;
+      border: 1px solid $color-card-title;
+    }
+
+    &:valid {
+      border: 1px solid $color-form-valid;
+      color: rgba($color: $color-form-valid, $alpha: 0.3);
+    }
+
+    @include onTablet {
+      padding: 12px 30px;
+    }
+  }
+
+  &__textarea {
+    box-sizing: border-box;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    width: 100%;
+    height: 128px;
+    padding: 12px 20px;
+    border: 1px solid $color-top-action-text;
+    outline: none;
+    color: $color-title;
+    background-color: $color-background;
+
+    margin-bottom: 30px;
+    resize: none;
+
+    @include onTablet {
+      height: 200px;
+      padding: 12px 30px;
+    }
+
+    @include onDesktop {
+      padding: 16px 36px;
+    }
+
+    &::placeholder {
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__button {
+    display: block;
+    margin: 0 auto;
+
+    @include onTablet {
+      margin: 0;
+    }
+  }
+
+  &__input:invalid ~ &__button {
+    background-color: $color-button-disable;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: $color-title;
+  -webkit-box-shadow: 0 0 0 1000px $color-background inset;
+}

@@ -1,0 +1,86 @@
+.luna {
+  &__content {
+    @include onTablet {
+      grid-template-rows: auto auto 1fr;
+    }
+  }
+
+  &__title {
+    font-size: 36px;
+    line-height: 46px;
+    text-transform: uppercase;
+    color: $color-title;
+
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__img-container {
+    width: 100%;
+    min-height: 212px;
+    height: 60vw;
+
+    overflow: hidden;
+
+    margin-bottom: 18px;
+
+    @include onTablet {
+      width: calc(100% + #{$padding-tablet});
+      height: 50vw;
+      min-height: 415px;
+      grid-row: 1 / 4;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      width: 100%;
+      height: 402px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    transition: $duration;
+
+    &:hover {
+      transform: scale(120%, 120%);
+      cursor: pointer;
+    }
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-image: url(../images/luna/luna__mobile.png);
+
+    @include onTablet {
+      background-image: url(../images/luna/luna__tablet.png);
+    }
+
+    @include onDesktop {
+      background-image: url(../images/luna/luna__desktop.png);
+    }
+  }
+
+  &__description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $color-role;
+
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+  }
+}

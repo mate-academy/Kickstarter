@@ -1,0 +1,43 @@
+.meet {
+  &__img-container {
+    width: calc(100% + (#{$padding-mobile} * 2) - 24px);
+    margin-left: calc(-#{$padding-mobile} + 12px);
+    height: 55vw;
+    transition: $duration;
+
+    &:hover {
+      transform: scale(110%, 110%);
+      cursor: pointer;
+    }
+
+    @include onTablet {
+      min-height: 430px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    @include onDesktop {
+      height: 520px;
+      max-width: 846px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-image: url(../images/meet/meet__mobile.png);
+
+    @include onTablet {
+      background-image: url(../images/meet/meet__tablet.png);
+    }
+
+    @include onDesktop {
+      background-image: url(../images/meet/meet__desktop.png);
+    }
+  }
+}
