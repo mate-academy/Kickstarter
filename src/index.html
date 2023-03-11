@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>crazybaby</title>
     <link rel="stylesheet" href="./styles/style.scss">
+
   </head>
   <body>
     <header class="header" id="header">
@@ -34,7 +35,7 @@
             </div>
           </div>
           <img
-            src="../src/images/header-main-Photo-320px-removebg-preview.png"
+            src="../src/images/header-main-Photo-320px.png"
             alt="header-main-photo"
             class="header__main-Photo-320px"
           >
@@ -77,12 +78,12 @@
               </p>
             </div>
             <img
-              src="../src/images/header-big-images-1280px-removed-bg.png"
+              src="../src/images/big-image1280px-svg.svg"
               alt="header-main-photo"
               class="header__main-photo"
             >
             <img
-              src="../src/images/header-big-images-1280px-removed-bg.png"
+              src="../src/images/big-image1280px-svg.svg"
               alt="main-photo"
               class="header__main-photo-640px"
             >
@@ -166,7 +167,7 @@
       </div>
       <div class="section2">
         <img
-          src="../src/images/section2-bigPhoto640px-removebg-preview.png"
+          src="../src/images/section2-bigPhoto640px.png"
           alt="photo"
           class="section2-bigPhoto640px"
         >
@@ -270,7 +271,7 @@
               </h5>
             </div>
             <div class="Features-big-containers">
-              <div class ="features-card first-card">
+              <div id="first-card" class ="features-card first-card">
                 <h6 class="Features-big-containers-first-title first">
                   Connectivity
                 </h6>
@@ -295,7 +296,7 @@
                   </li>
                 </div>
               </div>
-              <div class="features-card third-card">
+              <div id="second-card" class="features-card third-card">
                 <h6 class="Features-big-containers-first-title third">
                   App Features
                 </h6>
@@ -314,8 +315,8 @@
                   </li>
                 </div>
               </div>
-              <div class="features-card second-card">
-                <h6 class="Features-big-containers-first-title second">
+              <div id="third-card" class="features-card second-card">
+                <h6 class="Features-big-containers-first-title second"  id="h6">
                   Sound & Music
                 </h6>
                 <div class="Features-link-list swecond">
@@ -342,11 +343,23 @@
               <div class="Features-images-bigcontainer">
                 <div class="Features-figures display">
                   <div class="Features-figure-container">
-                    <div class="Features-figure1">
-                      <img src="../src/images/Vector (15).png" alt="Vector">
+                    <div class="Features-figure1 prev-btn">
+                      <button
+                        class="buttons scale"
+                        name="button"
+                        id="prev-btn"
+                      >
+                        <img
+                          src="../src/images/Vector (15).png"
+                          alt="Vector"
+                          onclick="changeText1"
+                        >
+                      </button>
                     </div>
-                    <div class="Features-figure2">
-                      <img src="../src/images/Vector (17).png" alt="Vector">
+                    <div class="Features-figure2 next-btn" id="button2">
+                      <button class="buttons scale" id="next-btn">
+                        <img src="../src/images/Vector (17).png" alt="Vector">
+                      </button>
                     </div>
                   </div>
                   <div class="Features-number-container">
@@ -420,9 +433,10 @@
           </form>
         </div>
         <div class="Footer-second-smallercontainer">
+
           <div class="Footer-big-small-container">
             <div class="Footer-logo-container">
-              <div >
+              <div class="Footer-smaller-logo-container">
                 <a href="#header">
                   <img
                     src="../src/images/image-logo.png"
@@ -454,15 +468,14 @@
                   </a>
                 </div>
               </div>
-              <a href="#">
-                <img
-                  src="../src/images/arrow.png"
-                  alt="arrow"
-                  class="Footer-arrow scale"
-                >
-              </a>
-
             </div>
+            <a href="#" class="Footer-arrow-link">
+              <img
+                src="../src/images/arrow.png"
+                alt="arrow"
+                class="Footer-arrow scale"
+              >
+            </a>
           </div>
           <div class="Footer-big-icon-container">
             <div class="Footer-icon-container">
@@ -497,26 +510,6 @@
         </div>
       </div>
     </footer>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script src="../src/scripts/main.js"></script>
   </body>
-  <script>
-    const name = document.getElementById('text');
-    const email = document.getElementById('email');
-    const form = document.getElementById('form')
-    form.addEventListener('submit', (event) => {
-      const messages = []
-      if (name === '' || name === null) {
-        messages.push('Name is requered');
-      }
-      if (email === '' || email === null) {
-        messages.push('email is requered');
-      }
-      if (messages.length > 0) {
-        event.preventDefault();
-      }
-
-      event.preventDefault();
-      form.reset();
-    })
-  </script>
 </html>
