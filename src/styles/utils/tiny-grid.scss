@@ -1,0 +1,100 @@
+// Tiny Grid by @alexerlandsson
+// https://alexerlandsson.com
+
+// This is a CSS grid system used to build responsive websites
+// and applications. For documentation, check out the GitHub repository:
+// https://github.com/alexerlandsson/tiny-grid
+
+@use "sass:math";
+
+@mixin tiny-grid {
+  // Settings
+  $grid-columns: 12 !default;
+  $grid-gutter: 20px !default;
+  $grid-container-max-width: 1470px !default;
+  $grid-container-gutter: 40px !default;
+
+  $grid-breakpoints: (
+    sm: 600px,
+    md: 900px,
+    lg: 1200px,
+    xl: 1800px,
+  ) !default;
+
+  // Container Elements
+  %container-base {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-left: $grid-container-gutter;
+    padding-right: $grid-container-gutter;
+    box-sizing: border-box;
+  }
+
+  .container {
+    @extend %container-base;
+    max-width: $grid-container-max-width;
+  }
+
+  .container-fluid {
+    @extend %container-base;
+  }
+
+  .row {
+    margin-left: $grid-gutter / -2 ;
+    margin-right: $grid-gutter / -2;
+    box-sizing: border-box;
+    font-size: 0;
+
+    > * {
+      font-size: 1rem;
+    }
+  }
+
+  // Columns
+  [class^="col-"],
+  [class*=" col-"] {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    min-height: 1px;
+    padding-left: $grid-gutter /  2;
+    padding-right: $grid-gutter / 2;
+    box-sizing: border-box;
+  }
+
+  // Create non-breakpoint specific columns and column offsets
+  @for $i from 1 through $grid-columns {
+    .col-#{$i} {
+      width: (100% / $grid-columns) * $i;
+    }
+    .col-offset-#{$i} {
+      margin-left: (100% / $grid-columns) * $i;
+    }
+  }
+
+  // Create breakpoint specific columns
+  @each $breakpoint-name in map-keys($grid-breakpoints) {
+    // Get each key's value
+    $breakpoint-width: map-get($grid-breakpoints, $breakpoint-name);
+
+    // Create media query for each breakpoint
+    @media (min-width: $breakpoint-width) {
+      // Add offset-0 to reset offset in specific breakpoints
+      .col-#{$breakpoint-name}-offset-0 {
+        margin-left: 0;
+      }
+
+      // Create columns and column offsets for each size in this breakpoint
+      @for $i from 1 through $grid-columns {
+        .col-#{$breakpoint-name}-#{$i} {
+          width: (100% / $grid-columns) * $i;
+        }
+        .col-#{$breakpoint-name}-offset-#{$i} {
+          margin-left: (100% / $grid-columns) * $i;
+        }
+      }
+    }
+  }
+}
+@include tiny-grid;
