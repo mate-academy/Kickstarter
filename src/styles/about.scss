@@ -5,13 +5,22 @@
 
   &__content {
     
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 
-    transition: transform 0.3s;
+    transition: transform $transitionDuration;
 
     &:hover {
       transform: scale(1.05);
     }
+
+    @include onPad {
+      max-width: 700px;
+    }
+  }
+
+  &__image {
+    max-width: 100%;
+    height: auto;
   }
 }

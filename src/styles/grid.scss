@@ -14,7 +14,7 @@
     column-gap: 30px;
   }
 
-  &--ped-desktop {
+  &--paded-desktop {
     display: block;
 
     @include onPad-onDesktop {
@@ -31,7 +31,7 @@
   &__item {
     @for $start from 1 through $mobGridColumns {
       @for $end from $start through $mobGridColumns {
-        &--m-#{$start}-#{$end} {
+        &--mobile-#{$start}-#{$end} {
           grid-column: #{$start} / #{$end + 1};
         }
       }
@@ -40,7 +40,7 @@
     @include onPad {
       @for $start from 1 through $padGridColumns {
         @for $end from $start through $padGridColumns {
-          &--p-#{$start}-#{$end} {
+          &--pad-#{$start}-#{$end} {
             grid-column: #{$start} / #{$end + 1};
           }
         }
@@ -50,20 +50,20 @@
     @include onDesktop {
       @for $start from 1 through $DesktopGridColumns {
         @for $end from $start through $DesktopGridColumns {
-          &--d-#{$start}-#{$end} {
+          &--desktop-#{$start}-#{$end} {
             grid-column: #{$start} / #{$end + 1};
           }
         }
       }
     }
 
-    &--mob {
+    &--mobileob {
       @include onMobile {
         display: none;
       }
     }
 
-    &--pad {
+    &--padad {
       @include onPad {
         display: flex;
         justify-content: right;

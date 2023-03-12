@@ -3,17 +3,24 @@
     width: 100%;
     height: 388px;
     overflow: hidden;
+
+    @include onDesktop {
+      max-width: 582px;
+    }
+
+    @include onPad {
+      max-width: 374px;
+    }
   }
 
   &__photo--1 {
-    max-width: 582px;
     width: 100%;
     height: 100%;
 
     object-fit: cover;
     object-position: center;
 
-    transition: transform 0.3s;
+    transition: transform $transitionDuration;
 
     &:hover {
       transform: scale(1.05);
@@ -21,14 +28,13 @@
   }
 
   &__photo--2 {
-    max-width: 582px;
     width: 100%;
     height: 100%;
 
     object-fit: cover;
     object-position: center;
 
-    transition: transform 0.3s;
+    transition: transform $transitionDuration;
 
     &:hover {
       transform: scale(1.05);
@@ -70,7 +76,7 @@
       left: 0;
       height: 1px;
       background-color: $c-green;
-      transition: 0.3s;
+      transition: $transitionDuration;
     }
 
     &:hover::after {
@@ -106,7 +112,7 @@
     }
 
     @include onMobile {
-      &--mob {
+      &--mobileob {
         padding-top: 116px;
       }
     }
