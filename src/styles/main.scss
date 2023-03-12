@@ -1,7 +1,103 @@
+$text-color-black: #333;
+$text-color-grey: #7c7c7c;
+$transitionTime: 0.5s;
+
+@mixin onTablet {
+  @media (max-width: 1019px) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "blocks/nav";
+@import "blocks/story";
+@import "blocks/header";
 
-body {
-  background: $c-gray;
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  background: #f7f7f7;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 62px;
+  font-family: "Inter", sans-serif;
+
+  line-height: 78px;
+  text-transform: uppercase;
+  color: $text-color-black;
+
+  @include onTablet() {
+    font-size: 48px;
+    line-height: 62px;
+  }
+
+  @include onMobile() {
+    font-size: 40px;
+    line-height: 52px;
+  }
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 70px;
+  text-transform: uppercase;
+  color: $text-color-black;
+
+  @include onTablet() {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  @include onMobile() {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 42px;
+  color: $text-color-black;
+
+  @include onTablet() {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  @include onMobile() {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+a {
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  // padding: 0 30px;
+  @include onMobile() {
+    padding: 0 30px;
+  }
 }
