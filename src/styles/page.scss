@@ -1,0 +1,99 @@
+.page {
+  font-family: "Inter", sans-serif;
+
+  background-color: $background-color;
+  color: $mainTextColor;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0 auto;
+    max-width: 1440px;
+
+    &--with-menu {
+      overflow-y: auto;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+      z-index: 1;
+    }
+  }
+
+  &__section {
+    margin-top: 110px;
+
+    @include onPad {
+      margin-top: 140px;
+    }
+
+    @include onDesktop {
+      margin-top: 170px;
+    }
+
+    &--padresentation {
+      @include onDesktop {
+        margin-top: 171px;
+      }
+    }
+
+    &--features {
+      @include onDesktop {
+        margin-top: 210px;
+      }
+    }
+
+    &--testim {
+      margin-top: 166px;
+
+      @include onPad {
+        margin-top: 197px;
+      }
+
+      @include onDesktop {
+        margin-top: 204px;
+      }
+    }
+  }
+
+  &__section-title {
+    padding: 0 123px;
+    text-transform: uppercase;
+
+    @include onPad {
+      padding: 0 34px;
+    }
+
+    @include onMobile {
+      padding: 0 30px;
+    }
+  }
+
+  &__main-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: none;
+  }
+  
+  &__quote {
+    font-size: 24px;
+    line-height: 36px;
+    color: $textColor;
+  
+    @include onMobile {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}

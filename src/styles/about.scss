@@ -1,0 +1,27 @@
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    object-fit: contain;
+    object-position: center;
+
+    transition: transform $transitionDuration;
+
+    &:hover {
+      @include onDesktop {
+        transform: scale(1.05);
+      }
+    }
+
+    @include onPad {
+      max-width: 700px;
+    }
+  }
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+  }
+}

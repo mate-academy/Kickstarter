@@ -1,0 +1,134 @@
+.features {
+  &__photo {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+
+    object-fit: contain;
+    object-position: center;
+
+    &--mob {
+      @include onPad-onDesktop {
+        display: none;
+      }
+    }
+
+    &--pad {
+      align-items: end;
+
+      @include onMobile {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      align-items: end;
+
+      @include onMobile {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    color: #0c797a;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 42px;
+    text-transform: uppercase;
+
+    @include onPad {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    @include onMobile {
+      font-size: 18px;
+      line-height: 23px;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 30px 0 0;
+
+    &--indent {
+      padding-bottom: 59px;
+
+      @include onPad {
+        padding: 30px 0 0;
+      }
+
+      @include onMobile {
+        padding: 20px 0 0;
+      }
+    }
+  }
+
+  &__item {
+    color: $textColor;
+
+    @include onPad {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+    @include onMobile {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__switch {
+    display: flex;
+    flex-direction: column;
+    box-sizing: content-box;
+
+    width: 96px;
+    height: 47px;
+
+    padding: 51px 0 0;
+
+    &__arrow {
+      position: relative;
+      width: 48px;
+      height: 14px;
+      background-size: cover;
+      background-position: center;
+      background-image: url(../images/left-arrow.svg);
+
+      &::after {
+        position: absolute;
+        content: url(../images/right-arrow-black.svg);
+        display: block;
+        left: 47px;
+        top: -2;
+      }
+
+      &:hover::after {
+        content: url(../images/right-arrow-green.svg);
+      }
+    }
+
+    &__number {
+      padding-top: 8px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+
+      transform: translateX(22%);
+
+      &::after {
+        content: "/ 03";
+        left: 22px;
+
+        font-size: 11px;
+        line-height: 13px;
+        color: $textLink;
+      }
+    }
+  }
+}

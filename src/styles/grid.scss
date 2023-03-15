@@ -1,0 +1,108 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat($mobGridColumns, 1fr);
+  column-gap: 20px;
+
+  @include onPad {
+    grid-template-columns: repeat($padGridColumns, 1fr);
+    column-gap: 20px;
+    row-gap: 65px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat($DesktopGridColumns, 1fr);
+    column-gap: 30px;
+  }
+
+  &--paded-desktop {
+    display: block;
+
+    @include onPad-onDesktop {
+      display: grid;
+    }
+  }
+
+  &--questions {
+    @include onMobile {
+      row-gap: 27px;
+    }
+  }
+
+  &__item {
+    @for $start from 1 through $mobGridColumns {
+      @for $end from $start through $mobGridColumns {
+        &--mobile-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @include onPad {
+      @for $start from 1 through $padGridColumns {
+        @for $end from $start through $padGridColumns {
+          &--pad-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @include onDesktop {
+      @for $start from 1 through $DesktopGridColumns {
+        @for $end from $start through $DesktopGridColumns {
+          &--desktop-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    &--mobile {
+      @include onMobile {
+        display: none;
+      }
+    }
+
+    &--pad {
+      @include onPad {
+        display: flex;
+        justify-content: right;
+      }
+    }
+  }
+
+  &--features {
+    margin-top: 47px;
+
+    @include onPad {
+      margin: 0;
+    }
+
+    @include onMobile {
+      margin: 0;
+    }
+  }
+
+  &--features-desktop {
+    @include onPad {
+      display: none;
+    }
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &--features-pad {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--features-indent {
+    @include onMobile {
+      justify-items: center;
+      padding: 0 30px;
+    }
+  }
+}
