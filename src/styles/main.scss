@@ -1,7 +1,122 @@
-@import "utils";
 @import "fonts";
 @import "typography";
+@import "utils";
+@import "blocks";
 
-body {
-  background: $c-gray;
+.main {
+  &__features {
+    margin-top: 300px;
+
+    @include atResolution ($r-mobile) {
+      margin-top: 90px;
+    }
+  }
+
+  &__iframe {
+    display: none;
+    position: relative;
+    margin: 150px 0;
+    width: 100%;
+    height: 504px;
+    z-index: 1;
+
+    @include atResolution (600px) {
+      height: 450px;
+      margin: 90px 0;
+    }
+
+    @include atResolution (320px) {
+      height: 320px;
+      margin: 90px 0;
+    }
+  }
+
+  &__middle-banner {
+    position: relative;
+    margin: 150px 0;
+    background-image: url("/images/Ellipse.svg"), url("/images/middle_page_banner.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%, 100%;
+    min-width: 320px;
+    min-height: 246px;
+    height: 100%;
+
+    padding: 0 0 35%;
+
+    @include atResolution ($r-tablet) {
+      margin: 130px 0;
+      background-image: url("/images/Ellipse.svg"), url("/images/middle_page_banner_tablet.png");
+      padding: 0 0 40%;
+    }
+
+    @include atResolution ($r-mobile) {
+      margin: 90px 0;
+      background-image: url("/images/Ellipse.svg"), url("/images/middle_page_banner_mobile.png");
+      padding: 0 0 75%;
+    }
+
+    &-wrapper {
+      @extend %wrapper-positioning;
+    }
+  }
+
+  &__play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-transform: uppercase;
+    @extend %h3;
+    cursor: pointer;
+
+    &:hover {
+      @include swap-play-buttons;
+    }
+
+    @include atResolution ($r-tablet) {
+      @include swap-play-buttons;
+    }
+
+    @include atResolution ($r-mobile) {
+      @include swap-play-buttons;
+    }
+
+    &--button {
+      opacity: inherit;
+
+      @include atResolution ($r-tablet) {
+        display: block;
+      }
+
+      @include atResolution ($r-mobile) {
+        display: block;
+      }
+    }
+  }
+
+  &__technology {
+    margin-top: 150px;
+
+    @include atResolution ($r-tablet) {
+      margin-top: 130px;
+    }
+
+    @include atResolution ($r-mobile) {
+      margin-top: 90px;
+    }
+  }
+
+  &__form {
+    margin-top: 188px;
+
+    @include atResolution ($r-tablet) {
+      margin-top: 138px;
+    }
+
+    @include atResolution ($r-mobile) {
+      margin-top: 45px;
+    }
+  }
 }
