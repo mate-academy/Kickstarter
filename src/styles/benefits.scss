@@ -1,15 +1,18 @@
 .benefits {
   &__mobile {
-    @include onMobile {
-      height: 245px;
-      background-size: cover;
-      background-position: center;
-      background-image: url(../images/fut_m.png);
+    margin-bottom: 40px;
+
+    object-fit: contain;
+    object-position: center;
+
+    @include onPad-onDesktop {
+      display: none;
     }
   }
 
   &__main-text {
     color: $textColor;
+
     @include onMobile {
       margin-top: 20px;
     }
@@ -34,6 +37,11 @@
     width: 378px;
   }
 
+  &__pict-mob {
+    min-width: 100%;
+    height: auto;
+  }
+
   &__pict {
     width: 100%;
     display: inline-block;
@@ -55,6 +63,27 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+    }
+
+    // @include onMinPad {
+    //   height: auto;
+    //   max-width: 420px;
+    //   object-fit: cover;
+    //   object-position: center;
+    // }
+  }
+
+  &__pict-container {
+    &--pad {
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      @include onPad {
+        display: none;
+      }
     }
   }
 }

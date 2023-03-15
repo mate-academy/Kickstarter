@@ -3,6 +3,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    padding: 0 30px;
+
+    @include onDesktop {
+      padding: 0 47px;
+    }
   }
 
   &__logo {
@@ -14,6 +20,12 @@
     &:hover {
       transform: scale(1.05);
     }
+  }
+
+  &__left {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 
   &__right {
@@ -38,12 +50,15 @@
     color: $textColor;
     text-decoration: none;
 
-    &:hover {
+    &--grey {
       color: $textLink;
     }
   }
 
   &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 25px 0;
 
     @include onPad {
@@ -52,6 +67,18 @@
 
     @include onDesktop {
       padding: 20px 0 90px;
+    }
+
+    &--mobile {
+      @include onPad-onDesktop {
+        display: none;
+      }
+    }
+
+    &--pad-desktop {
+      @include onMobile {
+        display: none;
+      }
     }
   }
 

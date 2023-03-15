@@ -1,45 +1,34 @@
 .features {
   &__photo {
-    box-sizing: border-box;
-    height: 302px;
-    width: auto;
-    object-fit: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #d6ecec;
-    background-image: url(../images/features-d.png);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
 
-    &--pad {
-      @include onPad {
-        height: 226px;
-        width: 431px;
-        background-position: right;
-        background-size: cover;
-        background-image: url(../images/features-p.png);
-      }
+    object-fit: contain;
+    object-position: center;
 
-      @include onMobile {
-        display: none;
-      }
-    }
-
-    &--mobile {
-      @include onMobile {
-        height: 174px;
-        background-size: cover;
-        background-position: unset;
-        background-image: url(../images/features-p.png);
-      }
-
+    &--mob {
       @include onPad-onDesktop {
         display: none;
       }
     }
-  }
 
-  &__photo-container {
-    display: flex;
-    justify-content: end;
+    &--pad {
+      align-items: end;
+
+      @include onMobile {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      align-items: end;
+
+      @include onMobile {
+        display: none;
+      }
+    }
   }
 
   &__title {
