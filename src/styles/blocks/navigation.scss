@@ -1,4 +1,10 @@
 .navigation {
+  @include onTablet {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   &__logo {
     width: 161px;
@@ -7,5 +13,46 @@
 
   &__controls {
     display: none;
+
+    @include onTablet {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    font-family: Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #4f4f4f;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &--is-active {
+      font-weight: 400;
+      color: #333;
+    }
+
+    &--no-active {
+      color: #828282;
+    }
+  }
+
+  &__button {
+    width: 100px;
+    height: 50px;
+    background-color: #333;
+    border: none;
+    font-family: Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
   }
 }
