@@ -1,0 +1,91 @@
+.header {
+  @include onTablet {
+    margin-bottom: 130px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 90px;
+
+  }
+
+  &__content {
+    margin-top: 30px;
+    @include onMobile {
+      margin: 25px 0;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+  }
+
+  &__links {
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #4f4f4f;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    border: none;
+    cursor: pointer;
+
+    &--specs {
+      display: inline-block;
+      color: #4f4f4f;
+      transition: font-weight $transition-duration;
+
+      &:hover {
+        font-weight: 700;
+      }
+      
+      @include onTablet {
+        width: 70px;
+        height: 17px;
+      }
+
+      @include onDesktop {
+        width: 72px;
+        height: 20px;
+      }
+    }
+  }
+
+  &__menu-opener {
+    background-image: url(../images/header_menu.svg);
+    
+    width: 18px;
+    height: 12px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: block;
+    transition: background-image $transition-duration;
+    
+    &:hover {
+      background-image: url(../images/header_menu-hover.svg);
+    }
+
+    @include onMobile {
+      &:active {
+        background-image: url(../images/header_menu-hover.svg);
+      }
+    }
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}

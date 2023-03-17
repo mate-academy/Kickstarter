@@ -1,0 +1,29 @@
+.lang-changer {
+  display: inline-block;
+  cursor: default;
+  color: #333;
+  font-size: 14px;
+  line-height: 20px;
+
+  @include onTablet {
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 300;
+  }
+
+  &__lang {
+    color: #bdbdbd;
+  }
+
+  &__input {
+    display: none;
+    &:checked ~ .lang-changer__lang {
+      color: #333;
+
+      @include onTablet {
+        font-weight: 400;
+      }
+    }
+  }
+}
