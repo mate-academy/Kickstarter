@@ -1,0 +1,95 @@
+.design {
+  &__content {
+    @include onTablet {
+      grid-template-rows: auto auto 1fr;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__img-container {
+    width: 100%;
+    min-height: 212px;
+    height: 60vw;
+    overflow: hidden;
+
+    margin-bottom: 18px;
+
+    @include onTablet {
+      margin-left: -#{$padding-tablet};
+      width: calc(100% + #{$padding-tablet});
+      min-height: 415px;
+      height: 30vw;
+      grid-row: 1 / 4;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      width: 100%;
+      margin-left: 0;
+      min-height: 388px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    transition: $duration;
+
+    &:hover {
+      transform: scale(120%, 120%);
+      cursor: pointer;
+    }
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-image: url(../images/design/design__mobile.png);
+
+    @include onTablet {
+      background-image: url(../images/design/design__tablet.png);
+    }
+
+    @include onDesktop {
+      background-image: url(../images/design/design__desktop.png);
+    }
+  }
+
+  &__description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: $color-role;
+
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__more {
+    @include onTablet {
+      margin-bottom: 67px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+}

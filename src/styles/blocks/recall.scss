@@ -1,0 +1,99 @@
+.recall {
+  &__text-container {
+    position: relative;
+  }
+
+  &__text {
+    width: 100%;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: $color-title;
+    z-index: 2;
+    transition: $duration;
+
+    margin: 0 auto 30px;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 0 0 1000px inset rgba($color: $color-send, $alpha: 0.2);
+      border-radius: 5px;
+      transform: scale(110%, 110%);
+    }
+
+    @include onTablet {
+      font-size: 24px;
+      line-height: 36px;
+
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      width: 786px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    top: -50px;
+    width: 208px;
+    height: 171px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+
+    @include onTablet {
+      width: 233px;
+      height: 192px;
+      top: -60px;
+    }
+
+    @include onDesktop {
+      top: -42px;
+    }
+  }
+
+  &__photo-container {
+    width: 62px;
+    height: 62px;
+    transition: $duration;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(110%, 110%);
+    }
+
+    margin: 0 auto 10px;
+
+    @include onTablet {
+      margin-bottom: 0 auto 20px;
+    }
+  }
+
+  &__photo,
+  &__background-img {
+    width: 100%;
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__name {
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: $color-title;
+
+    margin-bottom: 5px;
+  }
+
+  &__role {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $color-role;
+  }
+}

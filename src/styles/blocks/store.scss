@@ -1,0 +1,128 @@
+.store {
+  &__menu {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      margin: 0 auto 94px;
+    }
+  }
+  &__card {
+    &:nth-child(n + 3) {
+      display: none;
+    }
+
+    @include onTablet {
+      &:nth-child(n) {
+        display: block;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        margin-bottom: 65px;
+      }
+    }
+  }
+
+  &__card-title {
+    font-size: 22px;
+    line-height: 28px;
+    text-transform: uppercase;
+    text-align: center;
+    color: $color-title;
+
+    margin-bottom: 20px;
+
+    @include onDesktop {
+      height: 56px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__card-description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: $color-role;
+    text-align: center;
+
+    transition: $duration;
+
+    &:hover {
+      cursor: pointer;
+      color: $color-select-menu;
+      text-shadow: 4px 4px 20px rgba($color: $color-role, $alpha: 0.8);
+    }
+  }
+
+  &__icon {
+    margin: 0 auto 40px;
+
+    @include onDesktop {
+      margin: 0 auto 33px;
+    }
+
+    &--design {
+      width: 50px;
+      height: 42px;
+      transition: $duration;
+
+      &:hover {
+        cursor: pointer;
+        transform: rotate(360deg);
+      }
+
+      @include onTablet {
+        height: 40px;
+        margin: 0 auto 50px;
+      }
+    }
+
+    &--speaker {
+      width: 46px;
+      height: 42px;
+      transition: $duration;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(120%, 120%);
+      }
+
+      @include onTablet {
+        height: 40px;
+        margin: 0 auto 50px;
+      }
+    }
+
+    &--multiroom {
+      width: 46px;
+      height: 38px;
+      transition: $duration;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(120%, 120%);
+      }
+
+      @include onTablet {
+        margin: 0 auto 44px;
+      }
+    }
+
+    &--lighting {
+      width: 44px;
+      height: 46px;
+      transition: $duration;
+
+      &:hover {
+        cursor: pointer;
+        transform: rotate(360deg);
+      }
+
+      @include onTablet {
+        height: 44px;
+        margin: 0 auto 37px;
+      }
+    }
+  }
+}

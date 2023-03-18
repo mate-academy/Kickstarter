@@ -1,0 +1,148 @@
+.slider {
+  &__control {
+    display: none;
+  }
+
+  &__container {
+    overflow: hidden;
+
+    @include onDesktop {
+      overflow: auto;
+    }
+  }
+
+  &__chain {
+    display: flex;
+    width: 300%;
+    transition: $duration;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+      width: 100%;
+    }
+  }
+
+  #switch1:checked ~ &__container &__chain {
+    margin-left: 0;
+  }
+
+  #switch2:checked ~ &__container &__chain {
+    margin-left: -100%;
+  }
+
+  #switch3:checked ~ &__container &__chain {
+    margin-left: -200%;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 10px;
+
+    @include onTablet {
+      justify-content: flex-start;
+    }
+  }
+
+  &__controls-label {
+    cursor: pointer;
+  }
+
+  #switch1:checked ~ &__#{$c} &__#{$c}-left &__#{$c}-label:nth-child(3),
+  #switch2:checked ~ &__#{$c} &__#{$c}-left &__#{$c}-label:nth-child(1),
+  #switch3:checked ~ &__#{$c} &__#{$c}-left &__#{$c}-label:nth-child(2) {
+    display: inline-block;
+    width: 48px;
+    height: 14px;
+    cursor: pointer;
+    background-image: url(../images/icon/arrow-left-normal.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    transition: $duration;
+
+    &:hover {
+      background-image: url(../images/icon/arrow-left.svg);
+
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  #switch1:checked ~ &__#{$c} &__#{$c}-right &__#{$c}-label:nth-child(2),
+  #switch2:checked ~ &__#{$c} &__#{$c}-right &__#{$c}-label:nth-child(3),
+  #switch3:checked ~ &__#{$c} &__#{$c}-right &__#{$c}-label:nth-child(1) {
+    display: inline-block;
+    width: 48px;
+    height: 14px;
+    cursor: pointer;
+    background-image: url(../images/icon/arrow-right.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    transition: $duration;
+
+    &:hover {
+      background-image: url(../images/icon/arrow-right-hover.svg);
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__count-start {
+    display: inline-block;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $color-title;
+  }
+
+  #switch1:checked ~ &__count &__count-start {
+    &::after {
+      content: "01";
+    }
+  }
+
+  #switch2:checked ~ &__count &__count-start {
+    &::after {
+      content: "02";
+    }
+  }
+
+  #switch3:checked ~ &__count &__count-start {
+    &::after {
+      content: "03";
+    }
+  }
+
+  &__count {
+    text-align: center;
+
+    @include onTablet {
+      text-align: left;
+      margin-left: 35px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__count-end {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    color: $color-card-title;
+  }
+}
