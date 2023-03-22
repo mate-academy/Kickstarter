@@ -21,11 +21,33 @@
     }
   }
 
+  @include onDesktop {
+    grid-template-columns: repeat(12, 72px);
+
+    &--side-flip {
+      .about-us__title {
+        grid-column: 1 / span 6;
+      }
+
+      .about-us__image {
+        grid-column: 7 / span 6;
+      }
+
+      .about-us__text {
+        grid-column: 1 / span 6;
+      }
+    }
+  }
+
   &__title {
     margin-bottom: 30px;
 
     @include onTablet {
       grid-column: 5 / span 4;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / span 6;
     }
   }
 
@@ -43,10 +65,22 @@
       grid-row: 1 / span 3;
       margin-bottom: 0;
     }
+
+    @include onDesktop {
+      left: 0;
+      width: 100%;
+      height: 388px;
+      grid-column: 1 / span 6;
+    }
+
   }
 
   &__text {
     grid-column: 5 / span 4;
+
+    @include onDesktop {
+      grid-column: 7 / span 6;
+    }
   }
 
   &__paragraph {
