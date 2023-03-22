@@ -1,0 +1,84 @@
+.about-us {
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(8, 70px);
+    column-gap: 20px;
+    align-items: start;
+
+    &--side-flip {
+      .about-us__title {
+        grid-column: 1 / span 4;
+      }
+
+      .about-us__image {
+        left: 0;
+        grid-column: 5;
+      }
+
+      .about-us__text {
+        grid-column: 1 / span 4;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      grid-column: 5 / span 4;
+    }
+  }
+
+  &__image {
+    height: 210px;
+    width: 259px;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      width: 374px;
+      height: 415px;
+      position: relative;
+      left: -34px;
+      grid-column: 1;
+      grid-row: 1 / span 3;
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    grid-column: 5 / span 4;
+  }
+
+  &__paragraph {
+    @include fontInter(400, 14px, 21px);
+    color: #7c7c7c;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__link {
+    @include fontInter(700, 12px, 14px);
+    position: relative;
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #0db2b3;
+    padding-bottom: 5px;
+    margin-bottom: 115px;
+
+    &::after {
+      position: absolute;
+      display: block;
+      content: "";
+      width: 53px;
+      height: 1px;
+      bottom: 0;
+      background-color: #0db2b3;
+    }
+  }
+}

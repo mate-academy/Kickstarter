@@ -1,7 +1,12 @@
 .rewiev {
+  grid-column: span 4;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include onTablet {
+    grid-column: span 8;
+  }
 
   &__quote {
     height: 171px;
@@ -15,10 +20,21 @@
     color: #333;
     text-align: center;
     margin-bottom: 30px;
+
+    @include onTablet {
+      height: 189px;
+      font-size: 24px;
+      line-height: 36px;
+      margin-bottom: 40px;
+    }
   }
 
   &__image {
     margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 20px;
+    }
   }
 
   &__title {
@@ -29,5 +45,9 @@
     @include fontInter(400, 14px, 21px);
     color: #7c7c7c;
     margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
   }
 }
