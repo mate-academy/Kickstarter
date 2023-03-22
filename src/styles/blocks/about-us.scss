@@ -7,21 +7,41 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 110px;
+
+    @include tablet() {
+      flex-direction: row;
+      align-items: flex-start;
+    }
   }
 
   &__title {
-    font-size: 30px;
-    font-weight: 700;
-    text-transform: uppercase;
-    line-height: 40px;
+    // font-size: 30px;
+    // font-weight: 700;
+    // text-transform: uppercase;
+    // line-height: 40px;
     color: $c-grey-90;
     margin-bottom: 30px;
+    order: -1;
   }
 
   &__img {
     width: 260px;
     height: 210px;
     margin-bottom: 20px;
+
+    @include tablet() {
+      width: 374px;
+      height: 415px;
+      margin-right: 20px;
+      margin-left: -34px;
+
+      &-lunaeye {
+        order: 1;
+        content: url('./../images/tablet/lunaeye.jpg');
+        margin-right: -35px;
+        margin-left: 20px;
+      }
+    }
   }
 
   &__text {
@@ -29,6 +49,12 @@
     line-height: 21px;
     color: $c-grey-70;
     margin-bottom: 30px;
+
+    @include tablet() {
+      font-size: 16px;
+      margin-bottom: 60px;
+      line-height: 24px;
+    }
   }
 
   &__link {
