@@ -1,0 +1,75 @@
+.form {
+  &__button {
+    border: none;
+  }
+
+  &__input {
+    font-family: "Inter", sans-serif;
+
+    @extend %mainText;
+
+    width: 85%;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    color: $main-color;
+    background-color: transparent;
+    border: 1px solid #828282;
+
+    &:focus {
+      outline: none;
+      border-color: $button-hover-green;
+    }
+
+    &::placeholder {
+      @extend %mainText;
+
+      color: #bdbdbd;
+    }
+
+    &:not(:placeholder-shown):invalid {
+      color: $input-invalid;
+      border-color: $input-invalid;
+    }
+
+    @include tablet {
+      padding: 12px 30px;
+    }
+
+    @include desktop {
+      padding: 12px 35px;
+    }
+  }
+
+  &__textarea {
+    font-family: "Inter", sans-serif;
+
+    @extend %mainText;
+
+    width: 85%;
+    height: 130px;
+    margin-bottom: 30px;
+    padding: 12px 20px;
+    color: $main-color;
+    background-color: transparent;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      @extend %mainText;
+
+      color: #bdbdbd;
+    }
+
+    @include tablet {
+      height: 200px;
+      padding: 12px 30px;
+    }
+
+    @include desktop {
+      height: 130px;
+      padding: 12px 35px;
+    }
+  }
+}

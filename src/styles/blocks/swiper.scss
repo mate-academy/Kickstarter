@@ -1,0 +1,141 @@
+.swiper-benefits {
+  &-wrapper {
+    padding: 10px 0;
+
+    @include tablet {
+      overflow: visible;
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 20px;
+      row-gap: 60px;
+    }
+
+    @include desktop {
+      column-gap: 30px;
+      row-gap: 0;
+    }
+  }
+  
+  &-slide {
+    @include tablet {
+      flex: 1 1 40%;
+    }
+    
+    @include desktop {
+      flex: 1 1 20%;
+    }
+  }
+}
+
+.swiper-features {
+  padding-bottom: 50px;
+  max-width: 320px;
+  margin: 0;
+
+  @include desktop {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  &-wrapper {
+    @include desktop {
+      display: flex;
+      flex-wrap: wrap;
+      overflow: visible;
+      column-gap: 100px;
+    }
+  }
+
+  &-slide {
+    @include desktop {
+      max-width: 380px;
+  
+      &:first-child {
+        order: 3;
+      }
+  
+      &:nth-child(2) {
+        order: 1;
+      }
+  
+      &:last-child {
+        order: 2;
+      }
+    }
+  }
+
+  &-button-next,
+  &-button-prev {
+    width: 50px;
+    height: 15px;
+    padding: 10px 0;
+    transition: all 0.3s ease-in-out;
+  
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &-button-next {
+    top: 90%;
+    right: calc(50% - 50px);
+
+    &::after {
+      content: " ";
+      width: 48px;
+      height: 14px;
+      background-image: url("../images/arrow.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    &:hover {
+      // eslint-disable-next-line max-len
+      filter: invert(21%) sepia(83%) saturate(2893%)
+        hue-rotate(167deg) brightness(92%) contrast(90%);
+    }
+  }
+
+  &-button-prev {
+    top: 91%;
+    left: calc(50% - 50px);
+
+    &::after {
+      content: " ";
+      width: 48px;
+      height: 14px;
+      background-image: url("../images/arrow.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      transform: rotate(180deg);
+    }
+
+    &:hover {
+      // eslint-disable-next-line max-len
+      filter: invert(21%) sepia(83%) saturate(2893%)
+        hue-rotate(167deg) brightness(92%) contrast(90%);
+    }
+  }
+
+  &-pagination {
+    bottom: 0 !important;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    color: $button-hover-green;
+  
+    @include desktop {
+      display: none;
+    }
+  }
+}
+
+.swiper-pagination {
+  &-current {
+    @extend %mainText;
+
+    color: $main-color;
+  }
+}

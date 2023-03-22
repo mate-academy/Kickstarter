@@ -1,0 +1,86 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  @include desktop {
+    gap: 30px;
+    justify-content: space-between;
+  }
+
+  &--reverse {
+    @include tablet {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &-image {
+    width: 100%;
+    margin-top: 95px;
+    margin-bottom: 20px;
+
+    @include tablet {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    @include hover(scale, 1.03);
+  }
+
+  &-info {
+    @include tablet {
+      flex: 0 0 45%;
+    }
+  }
+
+  &-title {
+    position: absolute;
+    top: 0;
+
+    @include tablet {
+      position: static;
+      margin-bottom: 30px;
+    }
+  }
+
+  &-text {
+    @extend %secondaryText;
+
+    color: $secondary-color;
+    margin-bottom: 30px;
+
+    @include tablet {
+      margin-bottom: 60px;
+    }
+  }
+
+  &-link {
+    @extend %button;
+
+    position: relative;
+    text-decoration: none;
+    color: $button-green;
+    padding: 5px 0;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      width: 40%;
+      height: 1px;
+      background-color: $button-green;
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

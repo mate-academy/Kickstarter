@@ -1,0 +1,57 @@
+.header {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    padding: $header-padding-mobile;
+    gap: 25px;
+    box-sizing: border-box;
+    margin-bottom: 110px;
+
+    @include tablet {
+      height: 100vh;
+      gap: 100px;
+      padding: $header-padding-tablet;
+      margin-bottom: 140px;
+    }
+
+    @include desktop {
+      gap: 70px;
+      margin-bottom: 180px;
+    }
+  }
+  
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    &-menu {
+      display: none;
+  
+      @include tablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: $top-menu-gap-tablet;
+      }
+      
+      @include desktop {
+        gap: $top-menu-gap-desktop;
+      }
+    }
+  }
+
+  &__specs {
+    @extend %thirdaryText;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $specs-color;
+    padding: $button-padding;
+    border: 1px solid transparent;
+
+    @include hover(color, $main-color);
+    @include hover(border-color, $main-color);
+  }
+}

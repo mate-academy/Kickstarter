@@ -1,0 +1,42 @@
+.main-content {
+  @include tablet {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  
+  &__image {
+    width: 100%;
+    margin-bottom: 60px;
+
+    @include tablet {
+      margin: 0;
+      flex: 1 1 60%;
+    }
+  }
+
+  &__card {
+    @include tablet {
+      flex: 1 1 40%;
+    }
+
+    &-title {
+      margin-bottom: 20px;
+      color: $main-color;
+
+      @include tablet {
+        margin-bottom: 30px;
+      }
+    }
+
+    &-text {
+      @extend %mainText;
+
+      color: $main-color;
+
+      @include tablet {
+        width: 80%;
+      }
+    }
+  }
+}
