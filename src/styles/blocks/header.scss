@@ -1,4 +1,11 @@
 .header {
+  @include onMobile {
+    margin-bottom: 110px;
+  }
+
+  @include onTablet {
+    margin-bottom: 140px;
+  }
   &__top {
     display: flex;
     align-items: center;
@@ -65,6 +72,10 @@
     transition: background-color $traform-time;
     font-weight: 500;
 
+    @include onDesktop {
+      font-weight: 700;
+    }
+
     &:hover {
       background-color: $color-hover;
     }
@@ -126,6 +137,7 @@
     @include onDesktop {
       max-width: 730px;
     }
+
     @media (min-width: 1100px) {
       width: auto;
       max-width: none;
