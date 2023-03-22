@@ -1,0 +1,208 @@
+.about {
+  &__content {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 24px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 24px;
+    }
+  }
+
+  // TITLE
+  &__title {
+    margin: 0 0 30px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $blackCol;
+
+    &--design {
+      @include onTablet {
+        font-size: 36px;
+        line-height: 46px;
+        grid-column: 5/9;
+      }
+
+      @include onDesktop {
+        font-size: 56px;
+        line-height: 70px;
+        grid-column: 7/13;
+      }
+    }
+
+    &--luna-eye {
+      @include onTablet {
+        font-size: 36px;
+        line-height: 46px;
+        grid-column: 1/5;
+      }
+
+      @include onDesktop {
+        font-size: 56px;
+        line-height: 70px;
+        grid-column: 1/7;
+      }
+    }
+  }
+
+  // PICTURE
+  &__img-container {
+    display: block;
+    position: relative;
+
+    &--design {
+      @include onTablet {
+        grid-column: 1/5;
+        grid-row: 1/4;
+      }
+
+      @include onDesktop {
+        grid-column: 1/7;
+        grid-row: 1/4;
+      }
+    }
+
+    &--luna-eye {
+      @include onTablet {
+        grid-column: 5/9;
+        grid-row: 1/4;
+      }
+
+      @include onDesktop {
+        grid-column: 7/13;
+        grid-row: 1/4;
+      }
+    }
+  }
+
+  &__img {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto 20px;
+    transition: transform $duration;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    @include onTablet {
+      height: 415px;
+      margin: 0;
+      object-fit: cover;
+      
+
+      &--design {
+        object-position: center left;
+      }
+
+      &--luna-eye {
+        object-position: center;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-20px);
+    }
+  }
+
+  // TEXT
+  &__text {
+    @extend %small-text;
+    text-align: left;
+    margin: 0 0 30px;
+
+    &--design {
+      @include onTablet {
+        font-size: 16px;
+        line-height: 24px;
+        grid-column: 5/9;
+        margin: 0 0 60px;
+      }
+
+      @include onDesktop {
+        font-size: 16px;
+        line-height: 24px;
+        grid-column: 7/13;
+        margin: 0 0 60px;
+      }
+    }
+
+    &--luna-eye {
+      @include onTablet {
+        font-size: 16px;
+        line-height: 24px;
+        grid-column: 1/5;
+        margin: 0 0 60px;
+      }
+
+      @include onDesktop {
+        font-size: 16px;
+        line-height: 24px;
+        grid-column: 1/7;
+        margin: 0 0 60px;
+      }
+    }
+  }
+
+  // LINK
+  &__button {
+    &--design {
+      @include onTablet {
+        grid-column: 5/9;
+      }
+
+      @include onDesktop {
+        grid-column: 7/13;
+      }
+    }
+
+    &--luna-eye {
+      @include onTablet {
+        grid-column: 1/5;
+      }
+
+      @include onDesktop {
+        grid-column: 1/7;
+      }
+    }
+  }
+
+  &__link {
+    color: $greenCol;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+
+    &::after {
+      display: block;
+      margin-top: 5px;
+      content: "";
+      width: 53px;
+      height: 1px;
+      background-color: $greenCol;
+      transition: width $duration;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
