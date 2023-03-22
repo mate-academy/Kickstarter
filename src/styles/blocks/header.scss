@@ -1,9 +1,5 @@
 .header {
-  box-sizing: border-box;
-  display: grid;
-  grid-template-columns: repeat(4, 50px);
-  column-gap: 20px;
-  justify-content: center;
+  @include gridForMainContainers;
   padding-top: 25px;
 
   @include onTablet {
@@ -13,7 +9,6 @@
 
   @include onDesktop {
     grid-template-columns: repeat(12, 72px);
-    padding-top: 30px;
   }
 
   &__top-bar {
@@ -25,19 +20,19 @@
     }
 
     @include onDesktop {
-      margin-bottom: 90px;
       grid-column: span 12;
+      margin-bottom: 90px;
     }
   }
 
   &__image {
-    overflow: visible;
     height: 245px;
     width: 100%;
     object-fit: cover;
     object-position: 15%;
-    margin-bottom: 40px;
     grid-column: span 4;
+    overflow: visible;
+    margin-bottom: 40px;
 
     @include onTablet {
       height: 317px;
@@ -76,15 +71,15 @@
   }
 
   &__paragraph {
-    font-family: "Inter", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
+    @include fontInter(400, 16px, 24px);
     color: #333;
 
     @include onTablet {
       width: 250px;
+    }
+
+    @include onDesktop {
+      width: 280px;
     }
   }
 }
