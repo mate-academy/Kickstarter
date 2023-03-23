@@ -1,23 +1,37 @@
 .page {
   font-family: "Inter", sans-serif;
   scroll-behavior: smooth;
-  min-width: 320px;
-  margin: 0 auto;
   background-color: $c-grey-10;
-  padding: 0 30px;
 
-  &__arrow {
-    display: none;
+  @include desktop() {
+    max-width: 1440px;
+    margin: 0 auto;
   }
 
-  @include tablet() {
-    padding: 0 35px;
+  &__body {
+    min-width: 320px;
+    padding: 0 30px;
 
-    &__arrow {
-      display: block;
-      position: fixed;
-      bottom: 150px;
-      right: 20px;
+    &--arrow {
+      display: none;
     }
+
+    @include tablet() {
+      padding: 0 35px;
+
+      &--arrow {
+        display: block;
+        position: fixed;
+        bottom: 150px;
+        right: 20px;
+      }
+    }
+
+    @include desktop() {
+      padding: 0 123px;
+      margin: 0 auto;
+    }
+
   }
+
 }

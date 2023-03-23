@@ -4,9 +4,13 @@
   justify-content: space-between;
   padding: 25px 0;
 
+  @include tablet() {
+    margin-bottom: 130px;
+  }
+
   &__wrapper {
     visibility: hidden;
-    
+
     @include tablet() {
       display: flex;
       align-items: center;
@@ -35,5 +39,27 @@
     font-weight: 500;
     padding: 15px 37px;
     margin-left: 25px;
+  }
+
+  &__list {
+    display: none;
+    list-style: none;
+
+    @include desktop() {
+      display: flex;
+      margin: 0 auto;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $c-grey-90;
+    font-size: 14px;
+    line-height: 20px;
+    margin-right: 84px;
+
+    &-active {
+      font-weight: bold;
+    }
   }
 }

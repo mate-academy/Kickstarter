@@ -2,33 +2,62 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 -30px;
+  margin: 0 -30px 100px;
+
+  @include tablet() {
+    margin: 0 auto 130px auto;
+    width: 100%;
+  }
+
+  &__wrapper {
+    background-color: $c-green-50;
+    width: 100%;
+
+    @include tablet() {
+      padding-top: 60px;
+      padding-left: 90px;
+    }
+
+    @include desktop() {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
 
   &__article {
-    background-color: $c-green-50;
     padding: 30px 30px 20px;
 
     @include tablet() {
-      width: 700px;
-      padding: 60px 90px;
-      margin-bottom: 100px;
+      padding: 0;
+      width: 50%;
+    }
+
+    &--app-features {
+      display: none;
+
+      @include desktop() {
+        display: inline-block;
+      }
+    }
+
+    &--conectivity {
+      display: none;
+
+      @include desktop() {
+        display: inline-block;
+      }
     }
   }
 
   &__title {
-    font-size: 30px;
-    line-height: 40px;
-    font-weight: 700;
     color: $c-grey-90;
     padding: 0 30px;
     margin-bottom: 32px;
     align-self: flex-start;
+
   }
 
   &__subtitle {
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 22px;
     color: $c-green-150;
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -46,9 +75,21 @@
     color: $c-grey-90;
   }
 
+  &__wrapper-arrows {
+    @include tablet() {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
   &__arrows {
     display: flex;
     justify-content: center;
+
+    @include desktop() {
+      display: none;
+    }
 
     &--right-img {
       padding-bottom: 21px;
@@ -74,11 +115,22 @@
     }
 
   }
-  // &__img {
-  //   background-image: url("./../images/mobile/features.png");
-  //   background-repeat: no-repeat;
-  //   background-size: cover;
-  //   width: 335px;
-  //   height: 174px;
-  // }
+
+  &__img {
+    background-image: url("./../images/desktop/features.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    min-height: 174px;
+
+    @include tablet() {
+      height: 226px;
+    }
+
+    @include desktop() {
+      height: 300px;
+      width: 540px;
+    }
+  }
 }
