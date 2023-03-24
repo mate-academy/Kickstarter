@@ -81,3 +81,55 @@ window.addEventListener('scroll', () => {
     scrollToTopButton.classList.remove('scroll-to-top--show');
   }
 });
+
+const sendButton = document.querySelector('#send-button');
+
+const emailInput = document.getElementById('email');
+
+const isValidEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  return emailRegex.test(email);
+};
+
+emailInput.addEventListener('focus', () => {
+  emailInput.style.borderColor = '#0c797a';
+  emailInput.style.color = '#0c797a';
+});
+
+emailInput.addEventListener('blur', (e) => {
+  const email = e.target.value;
+
+  if (!isValidEmail(email)) {
+    emailInput.style.borderColor = '#eb5757';
+    emailInput.style.color = '#eb5757';
+
+    sendButton.disabled = true;
+    sendButton.style.backgroundColor = '#cfeff0';
+
+    emailInput.insertAdjacentElement('afterend', alertMessage);
+
+    setTimeout(() => {
+      alertMessage.remove();
+
+      emailInput.focus();
+    }, 3000);
+  } else {
+    sendButton.disabled = false;
+    sendButton.style.backgroundColor = '#39bebf';
+  }
+});
+
+sendButton.addEventListener('mouseover', () => {
+  sendButton.style.backgroundColor = '#0c797a';
+});
+
+sendButton.addEventListener('mouseout', () => {
+  sendButton.style.backgroundColor = '#39bebf';
+});
+
+const alertMessage = document.createElement('span');
+
+alertMessage.setAttribute('class', 'alert-message');
+alertMessage.textContent =
+  'Please enter the correct email form: "username@domain.com"';
