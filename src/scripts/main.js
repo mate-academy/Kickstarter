@@ -131,5 +131,6 @@ sendButton.addEventListener('mouseout', () => {
 const alertMessage = document.createElement('span');
 
 alertMessage.setAttribute('class', 'alert-message');
-alertMessage.textContent =
-  'Please enter the correct email form: "username@domain.com"';
+
+alertMessage.textContent = 
+  `Please enter the correct email form: "username@domain.com"`;
