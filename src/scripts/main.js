@@ -13,45 +13,68 @@ listItems.forEach(item => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  // eslint-disable-next-line no-undef, no-unused-vars
-  const benefits = new Swiper('.swiper-benefits', {
-    slidesPerView: 1,
-    loop: true,
-    autoplay: {
-      delay: 2000,
-    },
-    speed: 700,
-    spaceBetween: 100,
-  });
+  let benefits;
+  let features;
 
-  if (window.innerWidth >= 740) {
-    benefits.destroy();
-  }
-
-  // eslint-disable-next-line no-undef, no-unused-vars
-  const features = new Swiper('.swiper-features', {
-    slidesPerView: 1,
-    speed: 700,
-    spaceBetween: 100,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'fraction',
-      formatFractionCurrent: function(number) {
-        return '0' + number;
+  const initializeBenefits = () => {
+    // eslint-disable-next-line no-undef, no-unused-vars
+    benefits = new Swiper('.swiper-benefits', {
+      slidesPerView: 1,
+      loop: true,
+      autoplay: {
+        delay: 2000,
       },
-      formatFractionTotal: function(number) {
-        return '0' + number;
-      },
-    },
-  });
+      speed: 700,
+      spaceBetween: 100,
+    });
+  };
 
-  if (window.innerWidth >= 1280) {
-    features.destroy();
-  }
+  const initializeFeatures = () => {
+    // eslint-disable-next-line no-undef, no-unused-vars
+    features = new Swiper('.swiper-features', {
+      slidesPerView: 1,
+      speed: 700,
+      spaceBetween: 100,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'fraction',
+        formatFractionCurrent: function(number) {
+          return '0' + number;
+        },
+        formatFractionTotal: function(number) {
+          return '0' + number;
+        },
+      },
+    });
+  };
+
+  const destroyBenefits = () => {
+    if (window.innerWidth >= 740) {
+      benefits.destroy();
+    }
+  };
+
+  const destroyFeatures = () => {
+    if (window.innerWidth >= 1280) {
+      features.destroy();
+    }
+  };
+
+  initializeBenefits();
+  initializeFeatures();
+  destroyBenefits();
+  destroyFeatures();
+
+  window.addEventListener('resize', () => {
+    destroyBenefits();
+    destroyFeatures();
+    initializeBenefits();
+    initializeFeatures();
+  });
 });
 
 const form = document.querySelector('#form');
@@ -132,5 +155,5 @@ const alertMessage = document.createElement('span');
 
 alertMessage.setAttribute('class', 'alert-message');
 
-alertMessage.textContent = 
-  `Please enter the correct email form: "username@domain.com"`;
+alertMessage.textContent
+  = `Please enter the correct email form: "username@domain.com"`;
