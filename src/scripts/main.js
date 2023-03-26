@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-/* runawat contact button */
+/* runaway contact button */
 const button = document.querySelector('.contact__send');
 const wrapper = document.querySelector('.contact__button-wrapper');
 const emailInput = document.querySelector('#email-input');
@@ -45,9 +45,9 @@ function moveButton(event) {
 /* ----end---- */
 
 /* features slider */
-let slider = document.querySelector('.features__slider');
+const slider = document.querySelector('.features__slider');
+const numberLabel = document.querySelector('.features__current');
 let sliderSize = slider.offsetWidth;
-let numberLabel = document.querySelector('.features__current');
 let currentSlide = 1;
 let steps = [0, sliderSize, sliderSize * 2];
 
@@ -99,3 +99,5 @@ function changeArrowColor() {
     arrowNext.classList.add('arrow--disabled');
   }
 }
+
+/* ----end---- */
