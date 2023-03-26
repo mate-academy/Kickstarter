@@ -1,6 +1,14 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin device ($breakpoint) {
+
+  @if $breakpoint == tablet {
+  @media only screen and (max-width: 1024px) {
+    @content;
   }
+}
+
+@if $breakpoint == smartphone {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
 }

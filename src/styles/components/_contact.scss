@@ -1,0 +1,74 @@
+.contact {
+  display: flex;
+  padding: 170px 120px 0;
+  gap: 30px;
+
+  @include device(tablet) {
+    padding: 170px 30px 0;
+    font-size: 36px;
+  }
+  @include device(smartphone) {
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 56px;
+    font-weight: 700;
+    width: 50%;
+
+    @include device(tablet) {
+      font-size: 36px;
+    }
+    @include device(smartphone) {
+      width: 100%;
+    }
+  }
+
+  &__form {
+    width: 50%;
+    @include device(smartphone) {
+      width: 100%;
+    }
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px 36px;
+    resize: none;
+    border: 1px solid $c-bw5;
+    box-sizing: border-box;
+    transition: 0.3s linear;
+
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+
+    &:focus {
+      border: 1px solid $c-green1;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $c-bw4;
+    }
+  }
+
+  &__send {
+    padding: 17px 42px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 0;
+    border: none;
+    color: white;
+    background-color: $c-green2;
+    transition: 0.3s linear;
+
+    &:hover {
+      background-color: $c-green1;
+      cursor: pointer;
+    }
+  }
+}
