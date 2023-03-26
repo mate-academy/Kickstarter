@@ -13,7 +13,6 @@
     font-size: 56px;
     margin-bottom: 30px;
     text-transform: uppercase;
-
     @include device(tablet) {
       font-size: 36px;
     }
@@ -30,9 +29,7 @@
     background-repeat: no-repeat;
     padding-bottom: 60px;
     background-size: 40%;
-
     @include device(tablet) {
-      display: block;
       background-size: 50%;
       padding: 0 30px 120px;
     }
@@ -45,27 +42,27 @@
   }
 
   &__wrapper {
+    overflow: hidden;
+  }
+
+  &__slider {
     display: flex;
     flex-wrap: wrap;
     padding: 0 100px;
-
-    @include device(smartphone) {
+    transition: .3s ease-in-out;
+    @include device(tablet) {
+      flex-wrap: nowrap;
       padding: 0;
+    }
+    @include device(smartphone) {
     }
   }
 
   &__types {
     width: 50%;
     padding-top: 60px;
-
     @include device(tablet) {
-      &--1,
-      &--2 {
-        display: none;
-      }
-    }
-    @include device(smartphone) {
-      width: 100%;
+      min-width: 100%;
     }
   }
 
@@ -98,10 +95,9 @@
 
   &__nav {
     display: none;
-
     @include device(tablet) {
       display: block;
-      margin: 50px 0 0 100px;
+      margin: 50px 0 0 80px;
     }
     @include device(smartphone) {
       margin-left: 30%;
@@ -122,4 +118,15 @@
     color: $c-green1;
     font-size: 12px;
   }
+
+  &__arrow {
+    padding: 10px 0;
+    cursor: pointer;
+
+  }
+}
+
+.arrow--disabled {
+  filter: invert(33%) sepia(98%) saturate(394%) hue-rotate(132deg)
+          brightness(93%) contrast(94%);
 }

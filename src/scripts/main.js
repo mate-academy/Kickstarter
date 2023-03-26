@@ -1,9 +1,9 @@
 "use strict";
 
+/* runawat contact button */
 const button = document.querySelector('.contact__send');
 const wrapper = document.querySelector('.contact__button-wrapper');
 const emailInput = document.querySelector('#email-input');
-const messageInput = document.querySelector('#message-input');
 
 button.addEventListener('mouseenter', () => {
   wrapper.addEventListener('mousemove', moveButton);
@@ -39,5 +39,63 @@ function moveButton(event) {
     }
 
     button.style.left = newPosition + 'px';
+  }
+}
+
+/* ----end---- */
+
+/* features slider */
+let slider = document.querySelector('.features__slider');
+let sliderSize = slider.offsetWidth;
+let numberLabel = document.querySelector('.features__current');
+let currentSlide = 1;
+let steps = [0, sliderSize, sliderSize * 2];
+
+const arrowPrev = document.querySelector('#arrow-prev');
+arrowPrev.addEventListener('click', sliderPrev);
+
+const arrowNext = document.querySelector('#arrow-next');
+arrowNext.addEventListener('click', sliderNext);
+
+window.onresize = changeSize;
+
+function changeSize() {
+  sliderSize = document.querySelector('.features__slider').offsetWidth;
+  steps = [0, sliderSize, sliderSize * 2];
+}
+
+function sliderPrev() {
+  if (currentSlide >= 2) {
+    currentSlide--;
+    renderNumber();
+    slider.style.transform = `translateX(-${steps[currentSlide - 1]}px)`;
+    changeArrowColor();
+  }
+}
+
+function sliderNext() {
+  if (currentSlide <= 2) {
+    currentSlide++;
+    renderNumber();
+    slider.style.transform = `translateX(-${steps[currentSlide - 1]}px)`;
+    changeArrowColor();
+  }
+}
+
+function renderNumber() {
+  numberLabel.innerText = '0' + currentSlide;
+}
+
+function changeArrowColor() {
+  if (currentSlide > 1) {
+    arrowPrev.classList.remove('arrow--disabled');
+  } else {
+    arrowPrev.classList.add('arrow--disabled');
+  }
+
+  if (currentSlide < 3) {
+    arrowNext.classList.remove('arrow--disabled');
+  } else {
+    arrowNext.classList.add('arrow--disabled');
   }
 }
