@@ -41,34 +41,42 @@ function moveButton(event) {
     button.style.left = newPosition + 'px';
   }
 }
-
 /* ----end---- */
 
-/* features slider */
-const slider = document.querySelector('.features__slider');
-const numberLabel = document.querySelector('.features__current');
-let sliderSize = slider.offsetWidth;
-let currentSlide = 1;
-let steps = [0, sliderSize, sliderSize * 2];
-
-const arrowPrev = document.querySelector('#arrow-prev');
-arrowPrev.addEventListener('click', sliderPrev);
-
-const arrowNext = document.querySelector('#arrow-next');
-arrowNext.addEventListener('click', sliderNext);
-
+/* change size for both sliders on resize */
 window.onresize = changeSize;
 
 function changeSize() {
-  sliderSize = document.querySelector('.features__slider').offsetWidth;
-  steps = [0, sliderSize, sliderSize * 2];
+  // features slider
+  feSliderSize = feSlider.offsetWidth;
+  steps = [0, feSliderSize, feSliderSize * 2];
+
+  if (window.innerWidth <= 1024) {
+    feSlider.style.transform = `translateX(-${steps[currentSlide - 1]}px)`;
+  } else {
+    feSlider.style.transform = `translateX(0px)`;
+  }
 }
+/* ----end---- */
+
+/* features slider */
+const feSlider = document.querySelector('.features__slider');
+const numberLabel = document.querySelector('.features__current');
+let feSliderSize = feSlider.offsetWidth;
+let currentSlide = 1;
+let steps = [0, feSliderSize, feSliderSize * 2];
+
+const arrowPrev = document.querySelector('#arrow-prev');
+const arrowNext = document.querySelector('#arrow-next');
+
+arrowPrev.addEventListener('click', sliderPrev);
+arrowNext.addEventListener('click', sliderNext);
 
 function sliderPrev() {
   if (currentSlide >= 2) {
     currentSlide--;
     renderNumber();
-    slider.style.transform = `translateX(-${steps[currentSlide - 1]}px)`;
+    feSlider.style.transform = `translateX(-${steps[currentSlide - 1]}px)`;
     changeArrowColor();
   }
 }
@@ -77,7 +85,7 @@ function sliderNext() {
   if (currentSlide <= 2) {
     currentSlide++;
     renderNumber();
-    slider.style.transform = `translateX(-${steps[currentSlide - 1]}px)`;
+    feSlider.style.transform = `translateX(-${steps[currentSlide - 1]}px)`;
     changeArrowColor();
   }
 }
@@ -101,3 +109,6 @@ function changeArrowColor() {
 }
 
 /* ----end---- */
+
+/* icons-section slider */
+
