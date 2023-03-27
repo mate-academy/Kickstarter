@@ -49,13 +49,16 @@ window.onresize = changeSize;
 function changeSize() {
   // features slider
   feSliderSize = feSlider.offsetWidth;
-  steps = [0, feSliderSize, feSliderSize * 2];
+  feSteps = [0, feSliderSize, feSliderSize * 2];
 
   if (window.innerWidth <= 1024) {
-    feSlider.style.transform = `translateX(-${steps[currentSlide - 1]}px)`;
+    feSlider.style.transform = `translateX(-${feSteps[feCurrentSlide - 1]}px)`;
   } else {
     feSlider.style.transform = `translateX(0px)`;
   }
+
+  // icons slider
+  resizeSlider();
 }
 /* ----end---- */
 
@@ -63,8 +66,8 @@ function changeSize() {
 const feSlider = document.querySelector('.features__slider');
 const numberLabel = document.querySelector('.features__current');
 let feSliderSize = feSlider.offsetWidth;
-let currentSlide = 1;
-let steps = [0, feSliderSize, feSliderSize * 2];
+let feCurrentSlide = 1;
+let feSteps = [0, feSliderSize, feSliderSize * 2];
 
 const arrowPrev = document.querySelector('#arrow-prev');
 const arrowNext = document.querySelector('#arrow-next');
@@ -73,35 +76,35 @@ arrowPrev.addEventListener('click', sliderPrev);
 arrowNext.addEventListener('click', sliderNext);
 
 function sliderPrev() {
-  if (currentSlide >= 2) {
-    currentSlide--;
+  if (feCurrentSlide >= 2) {
+    feCurrentSlide--;
     renderNumber();
-    feSlider.style.transform = `translateX(-${steps[currentSlide - 1]}px)`;
+    feSlider.style.transform = `translateX(-${feSteps[feCurrentSlide - 1]}px)`;
     changeArrowColor();
   }
 }
 
 function sliderNext() {
-  if (currentSlide <= 2) {
-    currentSlide++;
+  if (feCurrentSlide <= 2) {
+    feCurrentSlide++;
     renderNumber();
-    feSlider.style.transform = `translateX(-${steps[currentSlide - 1]}px)`;
+    feSlider.style.transform = `translateX(-${feSteps[feCurrentSlide - 1]}px)`;
     changeArrowColor();
   }
 }
 
 function renderNumber() {
-  numberLabel.innerText = '0' + currentSlide;
+  numberLabel.innerText = '0' + feCurrentSlide;
 }
 
 function changeArrowColor() {
-  if (currentSlide > 1) {
+  if (feCurrentSlide > 1) {
     arrowPrev.classList.remove('arrow--disabled');
   } else {
     arrowPrev.classList.add('arrow--disabled');
   }
 
-  if (currentSlide < 3) {
+  if (feCurrentSlide < 3) {
     arrowNext.classList.remove('arrow--disabled');
   } else {
     arrowNext.classList.add('arrow--disabled');
@@ -112,3 +115,26 @@ function changeArrowColor() {
 
 /* icons-section slider */
 
+setInterval(nextIcon, 5000);
+
+const iSlider = document.querySelector('.icons-section__wrapper');
+const iCard = document.querySelector('.icons-section__card');
+
+let iSliderSize = iCard.offsetWidth;
+
+function nextIcon() {
+  if (window.innerWidth < 768) {
+    iSlider.style.transition = '0.2s ease-in-out';
+    iSlider.style.transform = `translateX(${-iSliderSize}px)`;
+
+    setTimeout(() => {
+      iSlider.style.transition = 'none';
+      iSlider.style.transform = `translateX(0)`;
+      iSlider.appendChild(iSlider.firstElementChild);
+    }, 200);
+  }
+}
+
+function resizeSlider() {
+  iSliderSize = iCard.offsetWidth;
+}

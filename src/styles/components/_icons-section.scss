@@ -1,32 +1,38 @@
 .icons-section {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  padding: 100px 120px 0;
 
-  @include device(tablet) {
-    padding: 100px 30px 0;
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 60px;
-  }
   @include device(smartphone) {
-    display: flex;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
   }
-
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 100px 120px 30px;
+    @include device(tablet) {
+      padding: 100px 30px 30px;
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 60px;
+    }
+    @include device(smartphone) {
+      display: flex;
+      gap: 30;
+      flex-wrap: nowrap;
+    }
+  }
   &__card {
     text-align: center;
-    min-width: 100%;
     border-radius: 50px;
     transition: 0.3s ease-in-out;
     padding: 10px;
     text-decoration: none;
     color: $c-bw2;
+    @include device(smartphone) {
+      display: block;
+      min-width: calc(100% - 20px);
+    }
     &:hover {
-      -webkit-box-shadow: 0px 0px 30px -10px rgba(66, 68, 90, 1);
-      -moz-box-shadow: 0px 0px 30px -10px rgba(66, 68, 90, 1);
-      box-shadow: 0px 0px 30px -10px rgba(66, 68, 90, 1);
+      -webkit-box-shadow: 0px 0px 20px -10px rgba(66, 68, 90, 1);
+      -moz-box-shadow: 0px 0px 20px -10px rgba(66, 68, 90, 1);
+      box-shadow: 0px 0px 20px -10px rgba(66, 68, 90, 1);
       cursor: pointer;
       transform: scale(1.05);
 
@@ -34,12 +40,6 @@
         filter: invert(33%) sepia(98%) saturate(394%) hue-rotate(132deg)
           brightness(93%) contrast(94%);
       }
-    }
-
-    @include device(smartphone) {
-      flex: 1 0 50%;
-      min-height: 150px;
-      margin-bottom: 20px;
     }
   }
 
@@ -59,6 +59,10 @@
   &__content {
     font-size: 14px;
     color: $c-bw4;
-    line-height: 20px;
+    line-height: 24px;
+    @include device(smartphone) {
+      max-width: 400px;
+      margin: 0 auto;
+    }
   }
 }
