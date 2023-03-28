@@ -16,24 +16,23 @@ form.addEventListener('submit', function handleSubmit(event) {
   form.reset();
 });
 
-
 // button up
-document.addEventListener("DOMContentLoaded", () => {
-  let to_top_btn = document.querySelector(".icon--up");
+document.addEventListener('DOMContentLoaded', () => {
+  const toTopBtn = document.querySelector('.icon--up');
 
-  window.onscroll = function () {
-      if (window.pageYOffset > 360) {
-          to_top_btn.style.display = "block"
-      } else {
-          to_top_btn.style.display = "none"
-      }
-  }
+  window.onscroll = function() {
+    if (window.pageYOffset > 360) {
+      toTopBtn.style.display = 'block';
+    } else {
+      toTopBtn.style.display = 'none';
+    }
+  };
 
   // smooth scroll up
-  to_top_btn.addEventListener("click", function () {
-      window.scrollBy({
-          top: -document.documentElement.scrollHeight,
-          behavior: "smooth"
-      });
+  toTopBtn.addEventListener('click', function() {
+    window.scrollBy({
+      top: -document.documentElement.scrollHeight,
+      behavior: 'smooth',
+    });
   });
 });
