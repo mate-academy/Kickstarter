@@ -19,6 +19,7 @@
   }
 
   &__picture-tablet-desktop {
+    transition: transform $duration;
     @include onMobile {
       display: none;
     }
@@ -31,6 +32,9 @@
       grid-column: 5/13;
     }
 
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   &__picture-mob {
@@ -75,7 +79,6 @@
 
   &__lang {
     margin-right: 27px;
-    font-weight: 400;
     font-size: 14px;
     line-height: 18px;
     color: $disabledCol;
@@ -110,13 +113,13 @@
     @include onTablet {
       display: grid;
       grid-template-columns: repeat(8, 1fr);
-      column-gap: 24px;
+      column-gap: $size24;
     }
 
     @include onDesktop {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      column-gap: 24px;
+      column-gap: $size24;
     }
   }
 
@@ -154,7 +157,6 @@
   }
 
   &__subtitle {
-    font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     color: $darkCol;

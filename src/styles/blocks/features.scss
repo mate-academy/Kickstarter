@@ -3,13 +3,13 @@
     @include onTablet {
       display: grid;
       grid-template-columns: repeat(8, 1fr);
-      column-gap: 24px;
+      column-gap: $size24;
     }
 
     @include onDesktop {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      column-gap: 24px;
+      column-gap: $size24;
     }
   }
 
@@ -18,11 +18,11 @@
     @extend %title-text;
 
     @include onDesktop {
+      display: flex;
+      align-items: center;
       font-weight: 700;
       font-size: 56px;
       line-height: 70px;
-      display: flex;
-      align-items: center;
     }
   }
 
@@ -33,7 +33,6 @@
     z-index: 10;
     margin: 0;
     padding-left: 30px;
-    // transition: all $duration ease-out;
 
     @include onTablet {
       top: 60px;
@@ -72,14 +71,14 @@
   }
 
   &__subtitle {
+    display: flex;
+    align-items: center;
+    margin: 0 0 20px;
     font-weight: 700;
     font-size: 18px;
     line-height: 22px;
-    display: flex;
-    align-items: center;
     text-transform: uppercase;
-    color: $greenArrowCol;
-    margin: 0 0 20px;
+    color: $greenDarkCol;
     transition: all $duration;
 
     @include onDesktop {
@@ -99,12 +98,11 @@
   }
 
   &__item {
-    margin: 0 0 10px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
     display: flex;
     align-items: center;
+    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 21px;
     color: $darkCol;
 
     &::before {
@@ -146,6 +144,10 @@
       width: 543px;
       height: 301px;
       align-self: end;
+    }
+
+    &:hover {
+      filter: hue-rotate(320deg);
     }
   }
 }

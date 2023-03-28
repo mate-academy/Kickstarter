@@ -20,10 +20,34 @@
     background-repeat: no-repeat;
   }
 
+  &__up {
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &--up {
+    position: fixed;
+    bottom: 80px;
+    right: 35px;
+    cursor: pointer;
+    filter: opacity(20%);
+    transition: $duration all;
+
+    &:hover {
+      transform: translateY(-3px);
+      filter: opacity(100%);
+    }
+  
+    &:active {
+      filter: opacity(50%);
+    }
+
+
+  }
+
   &--facebook {
-    // @include square($size24);
-    width: 24px;
-    height: 24px;
+    @include square($size24);
     transition: transform $duration;
 
     &:hover {
@@ -32,8 +56,7 @@
   }
 
   &--instagram {
-    width: 24px;
-    height: 24px;
+    @include square($size24);
     transition: transform $duration;
 
     &:hover {
@@ -42,9 +65,7 @@
   }
 
   &--twitter {
-    // @include square($size24);
-    width: 24px;
-    height: 24px;
+    @include square($size24);
     transition: transform $duration;
 
     &:hover {
