@@ -4,60 +4,51 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    margin-bottom: 110px;
     
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
   }
   
   &__cards {
     display: flex;
-    flex-wrap: wrap;
     box-sizing: border-box;
+    flex-wrap: wrap;
     
     @include onDesktop {
       gap: 30px;
+      flex-wrap: nowrap;
     }
-
-    @include onTablet {
-      gap: 20px;
-    }
-
-    
   }
   
-  &__card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-basis: 100%;
-    box-sizing: border-box;
-    
+  
 
-    @include onTablet {
-      flex-basis: 50%;
-      max-width: 320px;
-    }
+  &__photos {
+    display: flex;
+    justify-content: center;
+  }
+
+  
+  &__photo-container {
+    width: 100%;
 
     @include onDesktop {
-      flex-basis: 25%;
-      max-width: 276px;
+      max-width: 846px;
     }
+
+    @include onTablet {
+      max-width: 700px;
+    }
+    
   }
 
-  &__icon {
-    width: 50px;
-    height: 42.25px;
-  }
-
-  &__title {
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 28px;
-  }
-
-  &__description {
-    font-size: 14px;
-    line-height: 21px;
-    color: #7c7c7c;
+  &__photo {
+    width: 100%;
   }
 }
