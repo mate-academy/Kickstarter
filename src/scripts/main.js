@@ -1,26 +1,25 @@
-'use strict';
 
 import Swiper, { Navigation, Pagination } from 'swiper';
 
-  const swiper = new Swiper('.swiper', {
-    modules: [Navigation, Pagination],
-    loop: true,
+// eslint-disable-next-line
+const swiper = new Swiper('.swiper', {
+  modules: [Navigation, Pagination],
+  loop: true,
 
-    pagination: {
+  pagination: {
     el: '.swiper-pagination',
     type: 'fraction',
     currentClass: 'features-slider__pagination-current',
     totalClass: 'features-slider__pagination-total',
   },
 
-    navigation: {
+  navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
 
-    scrollbar: {
+  scrollbar: {
     el: '.swiper-scrollbar',
   },
-    
-  });
-  
+
+});

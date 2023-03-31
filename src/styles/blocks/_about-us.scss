@@ -30,7 +30,7 @@
     font-weight: 700;
     font-size: 12px;
     line-height: 14px;
-    color: #0db2b3;
+    color: $color-turquoise;
     text-decoration: none;
     text-transform: uppercase;
     position: relative;
@@ -61,6 +61,7 @@
   &__photo-container {
     position: relative;
     box-sizing: border-box;
+    overflow: hidden;
 
     width: 100%;
 
@@ -85,11 +86,11 @@
     @include onDesktop {
       height: 388px;
       padding-bottom: 0;
-      overflow: hidden;
     }
 
     @include onTablet {
       height: 417px;
+      overflow: visible;
     }
 
     @include onMobile {
@@ -103,23 +104,29 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    
-    @include onDesktop {
-      transition: $transition-duration;
-
-      &:hover {
-        transform: $scale;
-      }
+    transition: $transition-duration;
+       
+    &:hover {
+      transform: $scale;
     }
 
     @include onTablet {
       right: 34px;
+
+      &:hover {
+        transform: translateX(34px);
+      }
     }
 
     &--2 {
       @include onTablet {
-        left: 68px;
+        left: 34px;
+
+        &:hover {
+          transform: translateX(-34px);
+        }
       }
+      
     }
    
   }
