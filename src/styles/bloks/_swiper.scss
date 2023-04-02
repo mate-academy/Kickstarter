@@ -1,0 +1,114 @@
+.swiper {
+  display: none;
+  background-color: $bg-color-features;
+  height: 555px;
+  position: relative;
+
+  @include tablet {
+    display: block;
+  }
+
+  @include mobile {
+    height: 575px;
+  }
+}
+
+.swiper-wrapper {
+  padding-left: 90px;
+  padding-top: 60px;
+
+  @include mobile {
+    padding-left: 32px;
+    padding-top: 30px;
+  }
+}
+
+.swiper-bg {
+  background-image: url(../images/feuture-bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  max-width: 435px;
+  width: 100%;
+  height: 226px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  @include mobile {
+    height: 174px;
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: static;
+  width: 48px;
+  height: 14px;
+
+  &::after {
+    content: "";
+  }
+}
+
+.swiper-button-prev svg {
+  fill: $light-gray;
+
+  &:hover {
+    fill: $green-color;
+  }
+}
+
+.swiper-button-next svg {
+  fill: $dark-color;
+
+  &:hover {
+    fill: $green-color;
+  }
+}
+
+.swiper-action {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  bottom: 123px;
+  left: 90px;
+
+  @include mobile {
+    bottom: 160px;
+    left: 115px;
+  }
+}
+
+.swiper-button {
+  display: flex;
+}
+ 
+
+.swiper-pagination-current {
+  font-size: 16px;
+  line-height: 24px;
+  color: $dark-color;
+}
+
+.swiper-pagination-total,
+.swiper-pagination-total + span {
+  font-size: 11px;
+  line-height: 13px;
+  color: $green-color;
+}
+
+.swiper-pagination {
+  display: flex;
+  gap: 4px;
+  align-items: end;
+  position: relative;
+  transform: translateX(25%);
+  color: $green-color;
+}
+
+.swiper-pagination-current::before,
+.swiper-pagination-total::before {
+  content:"0";
+}

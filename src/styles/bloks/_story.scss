@@ -1,0 +1,86 @@
+.story {
+  padding-bottom: 170px;
+  position: relative;
+
+  @include tablet {
+    padding-bottom: 140px;
+  }
+
+  @include mobile {
+    padding-bottom: 110px;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    background-image: url(../images/quotes-bg.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: -42px;
+    left: 50%;
+    width: 233px;
+    height: 192px;
+    transform: translateX(-50%);
+    z-index: -1;
+
+    @include tablet {
+      height: 189px;
+      top: -60px;
+    }
+
+    @include mobile {
+      width: 208px;
+      height: 171px;
+      top: -50px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__text {
+    color: $dark-color;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 700;
+    max-width: 786px;
+    margin-bottom: 30px;
+
+    @include tablet {
+      margin-bottom: 40px;
+    }
+
+    @include mobile {
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__avatar {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+
+    @include mobile {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__author {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+    color: $dark-color;
+    margin-bottom: 5px;
+  }
+
+  &__avatar-job-title {
+    font-size: 14px;
+  }
+}

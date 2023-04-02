@@ -1,0 +1,45 @@
+.features-column {
+   &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+  }
+
+   &__title {
+    font-size: 34px;
+    font-weight: 700;
+    color: $green-color;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+
+    @include tablet {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  }
+
+   &__item {
+    position: relative;
+    font-size: 16px;
+    color: $dark-color;
+    left: 14px;
+    
+    &::before {
+      position: absolute;
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: $dark-color;
+      top: 50%;
+      left: -14px;
+      transform: translateY(-50%);
+    }
+
+    @include tablet {
+      max-width: 244px;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+}

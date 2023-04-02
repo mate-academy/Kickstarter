@@ -1,0 +1,142 @@
+.about-product {
+  padding-bottom: 204px;
+
+  @include tablet {
+    padding-bottom: 197px;
+  }
+
+  @include mobile {
+    padding-bottom: 116px;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 165px 0;
+
+    @include tablet {
+      gap: 141px 0;
+    }
+  }
+
+  &__card {
+    display: flex;
+    gap: 0 30px;
+
+    &--revers {
+      flex-direction: row-reverse;
+    }
+
+    @include tablet {
+     gap: 0 20px;
+
+    &:nth-child(1) {
+      padding-right: 34px;
+    }
+
+    &:nth-child(2) {
+      padding-left: 34px;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      gap: 116px 0;
+
+    &:nth-child(1) {
+      flex-direction: column-reverse;
+    }
+  }
+
+      @include mobile {
+        &:nth-child(1),
+        &:nth-child(2) {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+  &__card-title {
+    margin-bottom: 30px;
+  }
+
+  &__card-info {
+
+    @include mobile {
+      max-width: 100%;
+    }
+  }
+
+  &__card-img {
+    position: relative;
+    display: block;
+    max-width: 50%;
+    object-position: center;
+    object-fit: cover;
+    height: 388px;
+    transition: transform 0.3s;
+    
+    @include tablet {
+      max-width: 374px;
+      min-height: 415px;
+      object-position: 40%;
+    }
+
+    @include mobile {
+      display: none;
+    }
+
+    @include hover {
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__card-img-mobile {
+    display: none;
+
+    @include mobile {
+      display: block;
+      width: 100%;
+      height: calc(clamp(13.125rem, 5.804rem + 36.61vw, 23.375rem));
+      object-fit: cover;
+      object-position: center;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__card-desc {
+    margin-bottom: 60px;
+    font-size: 16px;
+    line-height: 24px;
+
+    @include mobile {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__card-link {
+    position: relative;
+    font-weight: 700;
+    color: $light-green;
+    font-size: 12px;
+    text-transform: uppercase;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 65px;
+      height: 1px;
+      background-color: $light-green;
+      transition: width 0.3s;
+    }
+    
+    &:hover::after{
+      width: 100%;
+    }
+  }
+}
