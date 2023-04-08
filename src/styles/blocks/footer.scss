@@ -1,0 +1,126 @@
+.footer {
+  padding-bottom: 20px;
+
+  @include onTablet {
+    display: flex;
+    padding-bottom: 30px;
+  }
+
+  @include onDesktop {
+    display: block;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > :not(:last-child) {
+      margin-bottom: 30px;
+    }
+
+    @include onTablet {
+      position: relative;
+      width: 700px;
+
+      & > :not(:last-child) {
+        margin-bottom: 60px;
+      }
+    }
+
+    @include onDesktop {
+      width: 100%;
+    }
+  }
+
+  &__top {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__socials {
+    display: flex;
+
+    & > :not(:last-child) {
+      margin-right: 41px;
+    }
+
+    @include onTablet {
+      & > :not(:last-child) {
+        margin-right: 50px;
+      }
+    }
+
+    @include onDesktop {
+      & > :not(:last-child) {
+        margin-right: 41px;
+      }
+    }
+  }
+
+  &__social {
+    &-link {
+      display: flex;
+      width: 24px;
+      height: 24px;
+      fill: #4f4f4f;
+      transition: 0.3s;
+
+      &:hover {
+        fill: $colorThird;
+      }
+    }
+  }
+
+  &__description {
+    text-align: center;
+    color: #bdbdbd;
+
+    @include onTablet {
+      font-weight: 300;
+    }
+
+    @include onDesktop {
+      font-weight: 400;
+    }
+  }
+
+  &__logo {
+    @include onTablet {
+      width: 184px;
+      height: 25px;
+    }
+
+    @include onDesktop {
+      width: 161px;
+      height: 26px;
+    }
+  }
+
+  &__arrow-top {
+    &-link {
+      @include onTablet {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        width: 21px;
+        height: 25px;
+        fill: $colorPrimary;
+        transition: 0.3s;
+
+        @include onDesktop {
+          top: 0;
+          right: 0;
+        }
+
+        &:hover {
+          fill: $colorThird;
+        }
+      }
+    }
+  }
+}
