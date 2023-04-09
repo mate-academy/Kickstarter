@@ -4,6 +4,7 @@ const slider = document.querySelector('.features__slide');
 const sliderStyle = window.getComputedStyle(slider, null);
 const slides = document.getElementsByClassName('features__group');
 const counter = slider.getElementsByClassName('features__number')[0];
+const counterTotal = slider.getElementsByClassName('features__number')[1];
 let slideIndex = 1;
 let isActive = false;
 
@@ -55,6 +56,8 @@ function plusSlides(n) {
 }
 
 function showSlides(n) {
+  const totalSlides = slides.length < 10 ? `0${slides.length}` : slides.length;
+
   if (n > slides.length) {
     slideIndex = 1;
   }
@@ -69,4 +72,5 @@ function showSlides(n) {
 
   slides[slideIndex - 1].style.display = 'block';
   counter.innerHTML = `0${slideIndex}`;
+  counterTotal.innerHTML = `<span>/</span> ${totalSlides}`;
 }
