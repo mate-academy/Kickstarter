@@ -15,6 +15,10 @@
     display: none;
     @include onDesktop {
       display: block;
+      .wrapper {
+        display: flex;
+        gap: 132px;
+      }
     }
   }
   .mobile__background-img {
@@ -79,6 +83,12 @@
       background-color: transparent;
       border: none;
       cursor: pointer;
+      &-svg {
+        path {
+          fill: #bdbdbd;
+          transition: 0.3s ease;
+        }
+      }
       &.active {
         .slider--btn-svg {
           path {
@@ -86,16 +96,7 @@
           }
         }
       }
-      &-svg {
-        path {
-          fill: #bdbdbd;
-        }
-      }
-      &-svg {
-        path {
-          transition: 0.3s ease;
-        }
-      }
+
       &:hover .slider--btn-svg {
         path {
           fill: #0c797a;
@@ -111,7 +112,7 @@
     }
   }
   .slide {
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
     font-style: normal;
     &__current {
       font-size: 16px;
@@ -167,14 +168,6 @@
       background-color: black;
       position: absolute;
       bottom: 0;
-    }
-  }
-  &--desktop {
-    @include onDesktop {
-      .wrapper {
-        display: flex;
-        gap: 132px;
-      }
     }
   }
 }
