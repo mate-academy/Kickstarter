@@ -65,15 +65,12 @@ btn.addEventListener('click', (event) => {
   if (Email.value.length === 0 || Email.value.indexOf('@') === -1) {
     document.querySelector('.error').textContent
       = 'please enter valid email ID';
-  } else if (comment.value.trim().length === 0) {
-    document.querySelector('.error').textContent
-      = 'please enter atleast 10 character in message';
   }
 
   if (
     Email.value.indexOf('@') !== -1
     && Email.value.length > 0
-    && comment.value.length > 0
+
   ) {
     document.querySelector('.error').textContent = '';
     document.querySelector('.success__sent').style.display = 'block';
