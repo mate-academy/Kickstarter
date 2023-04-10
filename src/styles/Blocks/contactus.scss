@@ -1,0 +1,104 @@
+.contactus {
+  margin-bottom: 110px;
+  @include onTablet {
+    margin-bottom: 140px;
+  }
+  @include onDesktop {
+    margin-bottom: 170px;
+  }
+  &__title {
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 27px;
+    color: $secondary-color;
+    text-transform: uppercase;
+    @include onTablet {
+      min-width: 339px;
+      font-size: 36px;
+      line-height: 46px;
+    }
+    @include onDesktop {
+      min-width: 600px;
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    width: 100%;
+  }
+  .input {
+    padding: 12px 20px;
+    border: 1px solid #828282;
+    font-family: "Inter";
+    font-style: normal;
+    &.success {
+      border: 1px solid #eb5757;
+    }
+    &.success::placeholder {
+      font-family: "Inter";
+      font-style: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: #eb5757;
+    }
+    &:hover {
+      border-color: $primary-color;
+    }
+    &::placeholder {
+      font-family: "Inter";
+      font-style: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: #bdbdbd;
+    }
+
+    &__email {
+      &:focus {
+        outline: none;
+        border: 1px solid $primary-color;
+      }
+    }
+    &__message {
+      resize: none;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .error {
+    display: block;
+    color: red;
+  }
+  .success__sent {
+    display: none;
+    color: rgb(2, 117, 2);
+    font-weight: 800;
+  }
+  .button {
+    background-color: $primary-color;
+    color: white;
+    padding: 13px 35px;
+    border: none;
+    width: 102px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      background-color: #0c797a;
+    }
+    @include onDesktop {
+      width: 123px;
+    }
+  }
+  .flex {
+    @include onTablet {
+      display: flex;
+      gap: 20px;
+    }
+    @include onDesktop {
+      gap: 30px;
+    }
+  }
+}
