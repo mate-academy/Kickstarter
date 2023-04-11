@@ -24,8 +24,45 @@
     height: 0;
   }
 
+  &__form {
+    font-family: 'Inter', sans-serif;
+    width: 102px;
+    height: 40px;
+
+    @extend %button-style;
+    color: $white;
+    background-color: $green;
+    border: none;
+
+    text-transform: uppercase;
+
+    margin-bottom: 30px;
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+
+    transition: background-color $transition ease-in-out;
+
+    &:hover {
+      box-shadow: 1px 4px 16px rgba(232, 232, 240, 0.4);
+      background-color: $green-dark-button;
+    }
+
+    &:active {
+      box-shadow: 1px 4px 16px rgba(232, 232, 240, 0.64);
+    }
+
+  }
+
   &__link {
     @extend %button-style;
+
+    @include onDesktop {
+      font-size: 14px;
+    }
     text-decoration: none;
     color: $white;
     width: 100%;
@@ -51,8 +88,6 @@
       &:hover::after {
         width: 128px;
       }
-
     }
-
   }
 }

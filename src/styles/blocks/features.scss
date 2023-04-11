@@ -1,30 +1,76 @@
 .features {
+  position: relative;
+  margin-bottom: 88px;
+
   &__title {
     margin-bottom: 32px;
     @include onTablet {
       margin-bottom: 30px;
+      grid-column: 1 / 4;
     }
     @include responsive-headings(mobile, h2);
     text-transform: uppercase;
+
+    @include onDesktop {
+      // display: flex;
+      // justify-content: flex-start;
+      @include responsive-headings(desktop, h2);
+    }
   }
 
   &__content {
-    margin-left: 90px;
+    @include onTablet {
+      position: relative;
+      margin-left: 90px;
+    }
+
+
+
+    @include onDesktop {
+      @include useGrid(12, $gap-desktop);
+      margin-left: 102px;
+    }
   }
 
   &__feature {
+    padding-top: 30px;
+
+    @include fromDesktop {
       &--2, &--3 {
         display: none;
       }
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+      &--1 {
+        margin-bottom: 60px;
+      }
+      &--1, &--2 {
+        grid-column: 1 / 4;
+      }
+
+      &--3 {
+        grid-column: 7 / 10;
+        grid-row: 1;
+        margin-bottom: 110px;
+      }
+
+      &--2, &--3 {
+        padding-top: 60px;
+      }
+    }
 
     margin-bottom: 50px;
   }
 
   &__navigation {
+    @include onDesktop {
+      display: none;
+    }
+
     display: flex;
     flex-flow: column wrap;
-    // justify-content: center;
-
     text-decoration: none;
     margin: 0 auto;
     &-arrows {
@@ -38,8 +84,6 @@
       }
 
       &-link-wrapper {
-        // display: flex;
-
         &:hover {
           .features__navigation-pointer--forward,
           .features__navigation-pointer--back {
@@ -56,14 +100,13 @@
     &-count {
       display: flex;
       justify-content: center;
-
       font-size: 11px;
       line-height: 24px;
 
-      // @include onTablet {
-      //   // justify-content: flex-start;
-      //   // margin-left: 24px;
-      // }
+      @include onTablet {
+        justify-content: flex-start;
+        margin-left: 28px;
+      }
 
       &-separator {
         color: $green-dark-button;
@@ -75,18 +118,43 @@
         &--current {
           color: $light-black;
           font-size: 16px;
-          margin-top: -4px;
+          margin-top: -5px;
         }
       }
     }
   }
 
+  &__hero {
+    @include onTablet {
+      height: 142px;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 13;
+    }
+  }
+
   &__image {
+    max-width: 335px;
+    max-height: 174px;
+
+    @include onTablet {
+      position: absolute;
+      right: 8px;
+      top: 332px;
+      min-width: 436px;
+      min-height: 226px;
+    }
+
+    @include onDesktop {
+      position: static;
+      min-width: 582px;
+      min-height: 302px;
+    }
+
     &-container {
       display: flex;
       justify-content: center;
-      background-color: #CFEFF0;
     }
-    min-width: 335px;
   }
 }
