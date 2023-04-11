@@ -1,0 +1,85 @@
+.header {
+  @include gridForMainContainers;
+  padding-top: 25px;
+
+  @include onTablet {
+    grid-template-columns: repeat(8, 70px);
+    padding-top: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 72px);
+  }
+
+  &__top-bar {
+    margin-bottom: 25px;
+
+    @include onTablet {
+      grid-column: span 8;
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      grid-column: span 12;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__image {
+    height: 245px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 15%;
+    grid-column: span 4;
+    overflow: visible;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      height: 317px;
+      grid-row: 2;
+      grid-column: 4 / span 5;
+      object-position: left;
+    }
+
+    @include onDesktop {
+      width: 816px;
+      grid-column: 5 / -1;
+    }
+  }
+
+  &__wrapper {
+    grid-column: span 4;
+    margin-bottom: 110px;
+
+    @include onTablet {
+      grid-row: 2;
+      grid-column: 1 / span 4;
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__paragraph {
+    @include fontInter(400, 16px, 24px);
+    color: #333;
+
+    @include onTablet {
+      width: 250px;
+    }
+
+    @include onDesktop {
+      width: 280px;
+    }
+  }
+}

@@ -1,0 +1,140 @@
+.features {
+  position: relative;
+  left: -30px;
+  width: 320px;
+  padding-top: 30px;
+  background-color: #d6ecec;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include onTablet {
+    width: 700px;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(8, 70px);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    width: 1095px;
+    grid-template-columns: repeat(12, 72px);
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    align-self: flex-start;
+
+    @include onTablet {
+      grid-column: 2 / span 3;
+    }
+  }
+
+  &__list {
+    width: 260px;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      grid-column: 2 / span 3;
+    }
+
+    @include onDesktop {
+      width: 378px;
+      grid-column: 2 / span 4;
+      grid-row: 2;
+      margin-bottom: 60px;
+    }
+
+    &--one {
+      @include onDesktop {
+        // margin-bottom: 0;
+      }
+    }
+
+    &--two {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-row: 1;
+      }
+    }
+
+    &--three {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 7 / span 4;
+        grid-row: 1;
+        align-self: flex-start;
+        margin-bottom: 110px;
+      }
+    }
+  }
+
+  &__controls {
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 93px;
+
+    @include onTablet {
+      grid-column: 2;
+      align-self: self-start;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--left {
+      fill: #bdbdbd;
+
+      &:hover {
+        fill: #0c797a;
+      }
+    }
+
+    &--right {
+      fill: #333;
+      margin-left: -10px;
+
+      &:hover {
+        fill: #0c797a;
+      }
+    }
+  }
+
+  &__page {
+    display: flex;
+    align-items: end;
+    @include fontInter(400, 11px, 13px);
+    color: #0c797a;
+
+    &--active {
+      font-size: 16px;
+      line-height: 24px;
+      color: #333;
+    }
+  }
+
+  &__image {
+    height: 175px;
+    object-fit: contain;
+
+    @include onTablet {
+      margin-top: -50px;
+      height: 226px;
+      grid-column: 4;
+    }
+
+    @include onDesktop {
+      height: 300px;
+      grid-column: 7;
+      align-self: flex-end;
+    }
+  }
+}
