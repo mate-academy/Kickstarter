@@ -8,10 +8,23 @@
   flex-direction: column;
   align-items: center;
 
+  @include onTablet {
+    width: 700px;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(8, 70px);
+    column-gap: 20px;
+  }
+
   &__title {
     margin-left: 32px;
     margin-bottom: 20px;
     align-self: flex-start;
+
+    @include onTablet {
+      margin-left: 0;
+      grid-column: 2 / span 3;
+    }
   }
 
   &__list {
@@ -21,6 +34,11 @@
     gap: 10px;
     list-style: disc;
     margin-bottom: 50px;
+
+    @include onTablet {
+      margin-left: 16px;
+      grid-column: 2 / span 3;
+    }
   }
 
   &__items {
@@ -31,6 +49,15 @@
   &__controls {
     cursor: pointer;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 93px;
+
+    @include onTablet {
+      grid-column: 2;
+      align-self: self-start;
+    }
 
     &--left {
       fill: #bdbdbd;
@@ -52,7 +79,6 @@
 
   &__page {
     display: flex;
-    justify-content: center;
     align-items: end;
     @include fontInter(400, 11px, 13px);
     color: #0c797a;
@@ -67,5 +93,11 @@
   &__image {
     height: 175px;
     object-fit: contain;
+
+    @include onTablet {
+      margin-top: -50px;
+      height: 226px;
+      grid-column: 4;
+    }
   }
 }
