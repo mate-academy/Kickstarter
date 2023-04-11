@@ -16,34 +16,61 @@
     column-gap: 20px;
   }
 
+  @include onDesktop {
+    width: 1095px;
+    grid-template-columns: repeat(12, 72px);
+  }
+
   &__title {
-    margin-left: 32px;
     margin-bottom: 20px;
     align-self: flex-start;
 
     @include onTablet {
-      margin-left: 0;
       grid-column: 2 / span 3;
     }
   }
 
   &__list {
     width: 260px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    list-style: disc;
     margin-bottom: 50px;
 
     @include onTablet {
-      margin-left: 16px;
       grid-column: 2 / span 3;
     }
-  }
 
-  &__items {
-    @include fontInter (400, 14px, 21px);
-    color: #333;
+    @include onDesktop {
+      width: 378px;
+      grid-column: 2 / span 4;
+      grid-row: 2;
+      margin-bottom: 60px;
+    }
+
+    &--one {
+      @include onDesktop {
+        // margin-bottom: 0;
+      }
+    }
+
+    &--two {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-row: 1;
+      }
+    }
+
+    &--three {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 7 / span 4;
+        grid-row: 1;
+        align-self: flex-start;
+        margin-bottom: 110px;
+      }
+    }
   }
 
   &__controls {
@@ -57,6 +84,10 @@
     @include onTablet {
       grid-column: 2;
       align-self: self-start;
+    }
+
+    @include onDesktop {
+      display: none;
     }
 
     &--left {
@@ -98,6 +129,12 @@
       margin-top: -50px;
       height: 226px;
       grid-column: 4;
+    }
+
+    @include onDesktop {
+      height: 300px;
+      grid-column: 7;
+      align-self: flex-end;
     }
   }
 }
