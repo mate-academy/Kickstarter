@@ -1,0 +1,82 @@
+.header {
+  padding: 25px 0;
+
+  @include onTablet {
+    padding: 30px 0 0;
+    margin-bottom: 129px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 90px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+    }
+  }
+
+  &__logo {
+    grid-column: 1 / 4;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-family: "Helvetica", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #4f4f4f;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    flex-grow: 1;
+
+    &--buy {
+      height: 48px;
+      width: 102px;
+
+      background-color: $colorBlack;
+      color: #fff;
+      flex-grow: 0;
+
+      &:hover {
+        background-color: $colorBlackHover;
+      }
+
+      &:focus {
+        background-color: #d0d0d0;
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      grid-column: 6 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 10 / -1;
+    }
+  }
+}
