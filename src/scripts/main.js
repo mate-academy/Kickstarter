@@ -62,14 +62,20 @@ function reset() {
 btn.addEventListener('click', (event) => {
   event.preventDefault();
 
-  if (Email.value.length === 0 || Email.value.indexOf('@') === -1) {
-    document.querySelector('.error').textContent
-      = 'please enter valid email ID';
+  if (comment.value.trim().length === 0
+  || Email.value.length === 0
+  || Email.value.indexOf('@') === -1) {
+    document.querySelector(".error").textContent = "Invalid message";
+
+    setInterval(() => {
+      document.querySelector(".error").textContent = "";
+    }, 3000);
   }
 
   if (
     Email.value.indexOf('@') !== -1
     && Email.value.length > 0
+    && comment.value.length > 0
 
   ) {
     document.querySelector('.error').textContent = '';
