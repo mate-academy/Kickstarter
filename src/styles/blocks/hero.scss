@@ -5,7 +5,7 @@
 
     grid-auto-flow: dense;
     grid-template-rows: auto;
-    margin-bottom: 140px;
+    // margin-bottom: 140px;
   }
 
   @include onDesktop {
@@ -13,24 +13,37 @@
   }
 
   &__image-container {
-    margin: auto;
     display: flex;
     justify-content: center;
-    max-width: 420px;
-    max-height: 250px;
+    margin: auto;
+    max-width: 320px;
+    max-height: 245px;
     margin-bottom: 40px;
+
+    // top: 50%;
+    // max-width: 100%;
+    // max-height: 100%;
 
     @include onTablet {
       grid-column: 4 / 9;
-      margin-right: 35px;
-      margin-bottom: auto;
+      position: absolute;
+      left: 50%;
+      transform: translate(-20%, -25%);
+      overflow: hidden;
+      margin: inherit;
+      min-height: 318px;
+      min-width: 430px;
+      margin-right: 50px;
     }
 
     @include onDesktop {
+      top: 22%;
+      left: 15%;
       grid-column: 5 / 10;
-      margin-top: 104px;
-      max-height: 464px;
-      max-width: 816px;
+      min-height: 464px;
+      min-width: 816px;
+      margin-bottom: 170px;
+      margin-left: 500px;
     }
   }
 
@@ -44,6 +57,7 @@
     @extend %h1--mobile;
     margin: 0 0 20px;
     text-align: left;
+    color: $light-black;
 
     @include onTablet {
       margin-bottom: 30px;
@@ -52,13 +66,16 @@
 
     @include onDesktop {
       @include responsive-headings(desktop, h1);
-      margin-top: 186px;
+      // margin-top: 186px;
     }
   }
 
   &__paragraph {
     @extend %main-text;
     margin-bottom: 110px;
+    @include onTablet {
+      margin-bottom: 140px;
+    }
 
     @include onDesktop {
       margin-bottom: 170px;
@@ -67,6 +84,12 @@
 
   &__image {
     height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+
     &--mobile {
       @include onTablet {
         display: none;
