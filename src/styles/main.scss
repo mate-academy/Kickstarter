@@ -40,7 +40,7 @@ p {
 }
 
 .header {
-  margin: 30px 0;
+  padding: 30px 0;
 
   &__container {
     display: flex;
@@ -80,6 +80,7 @@ p {
       margin: 0 3px;
     }
   }
+
   &__button {
     margin-left: 25px;
     background-color: #333;
@@ -158,10 +159,21 @@ p {
 
   &__item {
     text-transform: uppercase;
+    transition: 0.5s ease;
 
     &:last-child {
       margin-right: 0;
     }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    font-size: 14px;
   }
 }
 
@@ -172,7 +184,7 @@ p {
   &__container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 60px 30px;
   }
 
   &__item {
@@ -192,7 +204,7 @@ p {
       font-size: 22px;
       line-height: 28px;
       color: $title-color;
-      margin-bottom: 52px;
+      margin-bottom: 25px;
       height: 60px;
     }
 
@@ -206,7 +218,7 @@ p {
 }
 
 .presentation {
-  margin: 80px 0;
+  padding: 80px 0;
 
   &__container {
     text-align: center;
@@ -225,7 +237,13 @@ p {
     }
   }
 
+  &__img {
+    width: 50%;
+  }
+
   &__description {
+
+    width: 50%;
 
     &-title {
       font-weight: 700;
@@ -284,7 +302,7 @@ p {
     font-weight: 700;
     font-size: 24px;
     line-height: 36px;
-    color: #333333;
+    color: #333;
     max-width: 800px;
   }
 
@@ -296,7 +314,7 @@ p {
       font-weight: 700;
       font-size: 16px;
       line-height: 22px;
-      color: #333333;
+      color: #333;
     }
 
     &-position {
@@ -328,7 +346,6 @@ p {
     background-image: url("../images/luna-features.png");
     background-repeat: no-repeat;
     background-position: bottom right;
-
   }
 
   &__block {
@@ -349,7 +366,16 @@ p {
 
     &-item {
       list-style: disc;
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
+  }
+
+  &__arrow {
+    display: none;
   }
 }
 
@@ -408,5 +434,148 @@ p {
     color: #fff;
     border: none;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #0c797a;
+    }
+  }
+}
+
+.footer {
+  text-align: center;
+  margin: 80px 0 40px;
+  position: relative;
+
+  &__home-link {
+
+    &::after {
+      content: " ";
+      position: absolute;
+      background: url("../images/arrow-home.svg") no-repeat center;
+      width: 24px;
+      height: 24px;
+      right: 120px;
+      top: 0;
+      transition: 0.5s;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 60px;
+    cursor: pointer;
+  }
+
+  &__social {
+
+    &-link {
+      display: inline-block;
+      margin-right: 40px;
+      line-height: 0;
+      margin-bottom: 60px;
+      cursor: pointer;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__terms {
+    font-size: 14px;
+    line-height: 21px;
+    color: #bdbdbd;
+  }
+}
+
+@media (max-width: 990px) {
+
+  .product {
+    padding: 60px 0;
+    background-size: 70%;
+    background-position: 20em 5em;
+
+    &__description {
+      &-title {
+        font-size: 48px;
+        line-height: 62px;
+      }
+    }
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .benefits {
+    padding: 70px 0;
+
+    &__container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px 20px;
+    }
+  }
+
+  .presentation {
+    padding: 70px 0;
+  }
+
+  .about {
+    overflow: hidden;
+
+    &__item {
+      margin-left: -5%;
+
+      &--reverse {
+        margin-left: 0;
+        margin-right: -5%;
+      }
+    }
+
+    &__description {
+      &-title {
+        font-size: 36px;
+        line-height: 46px;
+      }
+    }
+  }
+
+  .features {
+
+    padding: 70px 0;
+
+    &__content {
+      display: block;
+      background-size: 60%;
+    }
+
+    &__title {
+      font-size: 30px;
+      line-height: 40px;
+    }
+
+    &__block {
+      max-width: 360px;
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+
+    &__arrow {
+      margin: 50px 0 115px;
+      display: block;
+    }
+  }
+
+  .question {
+    padding: 70px 0;
+
+    &__title {
+      font-size: 36px;
+      line-height: 46px;
+    }
   }
 }
