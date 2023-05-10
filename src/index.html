@@ -6,7 +6,7 @@
     <title>Crazybaby</title>
     <link rel="stylesheet" href="./styles/main.scss">
     <link href="./images/favicon.png" rel="icon">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   </head>
   <body id="home">
     <header class="header" id="header">
@@ -24,9 +24,9 @@
               specs
             </div>
             <div class="header__switch">
-              <div class="header__switch--en">en</div>
+              <div class="header__switch--lang">en</div>
               <span class="header__switch--separator">/</span>
-              <div class="header__switch--ua">ua</div>
+              <div class="header__switch--lang active">ua</div>
             </div>
             <button class="button header__button">
               buy
@@ -51,12 +51,6 @@
                 Luna’s performance is balanced and smooth in all frequency ranges which makes the music both naturally pleasant and distinctly more layered.
               </p>
             </div>
-            <!--<div class="product__img">
-               <img
-              src="./images/product-img.jpg"
-              alt="Luna's"
-              class="product__img-luna">
-            </div>-->
           </div>
         </div>
       </section>
@@ -259,10 +253,22 @@
               </div>
 
               <div class="features__arrow">
-                <img
-                  src="./images/splide-slide.svg"
+                <div class="features__arrow-area">
+                  <img
+                  src="./images/arrow-left.svg"
                   alt="slider-arrow"
-                  class="features__arrow-img"
+                  class="features__arrow-left"
+                  >
+                  <img
+                    src="./images/arrow-right.svg"
+                    alt="slider-arrow"
+                    class="features__arrow-right"
+                  >
+                </div>
+                <img
+                  src="./images/step-slide.svg"
+                  alt="step-slide"
+                  class="features__step"
                 >
               </div>
             </div>
@@ -377,6 +383,20 @@
         e.preventDefault();
       })
 
+      let switchLang = document.querySelectorAll(".header__switch--lang");
+      // let switchBtn = document.querySelector(".header__switch");
+
+
+        switchLang.forEach(elem => {
+          elem.addEventListener("click", () => {
+            if (elem.classList.contains("active")) {
+              return false;
+            } else {
+              document.querySelector(".header__switch--lang.active").classList.remove("active");
+              elem.classList.add("active");
+            }
+          })
+        })
 
     </script>
   </body>

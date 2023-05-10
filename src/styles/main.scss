@@ -80,6 +80,15 @@ p {
     line-height: 17px;
     text-transform: uppercase;
 
+    &--lang {
+      cursor: pointer;
+      color: #bdbdbd;
+
+      &.active {
+        color: #333;
+      }
+    }
+
     &--separator {
       margin: 0 3px;
     }
@@ -89,6 +98,8 @@ p {
     margin-left: 25px;
     background-color: #333;
     color: #fff;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
 
     &:hover {
       background-color: #131313;
@@ -101,6 +112,7 @@ p {
   font-size: 12px;
   line-height: 15px;
   text-transform: uppercase;
+  border: none;
   cursor: pointer;
 }
 
@@ -434,6 +446,7 @@ p {
     padding: 17px 43px;
     font-weight: 700;
     font-size: 12px;
+    font-family: "Inter", sans-serif;
     background-color: #0db2b3;
     color: #fff;
     border: none;
@@ -490,6 +503,13 @@ p {
     font-size: 14px;
     line-height: 21px;
     color: #bdbdbd;
+  }
+}
+
+@media (max-width: 2560px) {
+  .product {
+    background-size: contain;
+    background-position: right;
   }
 }
 
@@ -570,7 +590,18 @@ p {
 
     &__arrow {
       margin: 50px 0 115px;
-      display: block;
+      display: inline-block;
+      text-align: center;
+
+      &-left,
+      &-right {
+        transition: 0.5s;
+        cursor: pointer;
+
+        &:active {
+          transform: scale(1.1);
+        }
+      }
     }
   }
 
@@ -584,7 +615,7 @@ p {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 760px) {
   .container {
     padding: 0 30px;
   }
@@ -597,14 +628,11 @@ p {
   }
 
   .product {
-
     background-size: 70%;
     background-position: 20em 5em;
 
-
     &__container {
       justify-content: flex-start;
-
     }
 
     &__description {
