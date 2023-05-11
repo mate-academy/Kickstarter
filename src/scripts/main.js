@@ -17,63 +17,63 @@ document.addEventListener('DOMContentLoaded', () => {
   let features;
 
   const initializeBenefits = () => {
-    // eslint-disable-next-line no-undef, no-unused-vars
-    benefits = new Swiper('.swiper-benefits', {
-      slidesPerView: 1,
-      loop: true,
-      autoplay: {
-        delay: 2000,
-      },
-      speed: 700,
-      spaceBetween: 100,
-    });
-  };
-
-  const initializeFeatures = () => {
-    // eslint-disable-next-line no-undef, no-unused-vars
-    features = new Swiper('.swiper-features', {
-      slidesPerView: 1,
-      speed: 700,
-      spaceBetween: 100,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'fraction',
-        formatFractionCurrent: function(number) {
-          return '0' + number;
-        },
-        formatFractionTotal: function(number) {
-          return '0' + number;
-        },
-      },
-    });
-  };
-
-  const destroyBenefits = () => {
     if (window.innerWidth >= 740) {
-      benefits.destroy();
+      if (benefits) {
+        benefits.destroy();
+      }
+      benefits = undefined;
+    } else {
+      if (!benefits) {
+        benefits = new Swiper('.swiper-benefits', {
+          slidesPerView: 1,
+          loop: true,
+          autoplay: {
+            delay: 2000,
+          },
+          speed: 700,
+          spaceBetween: 100,
+        });
+      }
     }
   };
 
-  const destroyFeatures = () => {
-    if (window.innerWidth >= 1280) {
-      features.destroy();
+  const initializeFeatures = () => {
+    if (window.innerWidth < 1280) {
+      if (!features) {
+        features = new Swiper('.swiper-features', {
+          slidesPerView: 1,
+          speed: 700,
+          spaceBetween: 100,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            type: 'fraction',
+            formatFractionCurrent: function(number) {
+              return '0' + number;
+            },
+            formatFractionTotal: function(number) {
+              return '0' + number;
+            },
+          },
+        });
+      }
+    } else {
+      if (features) {
+        features.destroy();
+      }
+      features = undefined;
     }
   };
 
   initializeBenefits();
   initializeFeatures();
-  destroyBenefits();
-  destroyFeatures();
 
   window.addEventListener('resize', () => {
     initializeBenefits();
     initializeFeatures();
-    destroyBenefits();
-    destroyFeatures();
   });
 });
 
@@ -140,13 +140,13 @@ emailInput.addEventListener('blur', (e) => {
 
       emailInput.focus();
     }, 3000);
-  } 
-  
+  }
+
   if (email.length === 0) {
     sendButton.disabled = true;
     sendButton.style.backgroundColor = '#cfeff0';
     emailInput.style.borderColor = '#828282';
-    emailInput.style.color = '#828282'
+    emailInput.style.color = '#828282';
   }
 
   if (isValidEmail(email)) {
