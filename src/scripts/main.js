@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       benefits = undefined;
     } else {
       if (!benefits) {
+        // eslint-disable-next-line no-undef, no-unused-vars
         benefits = new Swiper('.swiper-benefits', {
           slidesPerView: 1,
           loop: true,
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const initializeFeatures = () => {
     if (window.innerWidth < 1280) {
       if (!features) {
+        // eslint-disable-next-line no-undef, no-unused-vars
         features = new Swiper('.swiper-features', {
           slidesPerView: 1,
           speed: 700,
