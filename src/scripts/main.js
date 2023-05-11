@@ -70,10 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
   destroyFeatures();
 
   window.addEventListener('resize', () => {
-    destroyBenefits();
-    destroyFeatures();
     initializeBenefits();
     initializeFeatures();
+    destroyBenefits();
+    destroyFeatures();
   });
 });
 
@@ -107,6 +107,9 @@ window.addEventListener('scroll', () => {
 
 const sendButton = document.querySelector('#send-button');
 
+sendButton.disabled = true;
+sendButton.style.backgroundColor = '#cfeff0';
+
 const emailInput = document.getElementById('email');
 
 const isValidEmail = (email) => {
@@ -123,7 +126,7 @@ emailInput.addEventListener('focus', () => {
 emailInput.addEventListener('blur', (e) => {
   const email = e.target.value;
 
-  if (!isValidEmail(email)) {
+  if (!isValidEmail(email) && email.length !== 0) {
     emailInput.style.borderColor = '#eb5757';
     emailInput.style.color = '#eb5757';
 
@@ -137,7 +140,16 @@ emailInput.addEventListener('blur', (e) => {
 
       emailInput.focus();
     }, 3000);
-  } else {
+  } 
+  
+  if (email.length === 0) {
+    sendButton.disabled = true;
+    sendButton.style.backgroundColor = '#cfeff0';
+    emailInput.style.borderColor = '#828282';
+    emailInput.style.color = '#828282'
+  }
+
+  if (isValidEmail(email)) {
     sendButton.disabled = false;
     sendButton.style.backgroundColor = '#39bebf';
   }
