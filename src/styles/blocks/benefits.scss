@@ -1,0 +1,103 @@
+.benefits {
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      margin-bottom: 94px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 84px;
+    justify-content: center;
+  }
+
+  &__list-link {
+    display: inline-block;
+    padding: 5px 0;
+    width: 110px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: $color-black;
+    transition: text-shadow $smooth-time;
+
+    &:hover {
+      text-shadow: 0 0 0.65px $color-black, 0 0 0.65px $color-black;
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px 20px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__item {
+    text-align: center;
+  }
+
+  &__item-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: filter $smooth-time;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 34px;
+    }
+
+    &:hover {
+      filter: drop-shadow(0 0 5px $color-green);
+    }
+
+    &--num--1 {
+      background-image: url(../images/futuristic-design-icon.svg);
+    }
+    &--num--2 {
+      background-image: url(../images/tweeter-speaker-system-icon.svg);
+    }
+    &--num--3 {
+      background-image: url(../images/multiroom-system-icon.svg);
+    }
+    &--num--4 {
+      background-image: url(../images/intuitive-lighting-system-icon.svg);
+    }
+  }
+
+  &__item-title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: $color-black;
+
+    @include onDesktop {
+      height: 2em;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__item-text {
+    @extend %text;
+  }
+}
