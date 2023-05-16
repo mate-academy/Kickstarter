@@ -1,0 +1,97 @@
+.questions {
+  @include tablet {
+    display: flex;
+    gap: 20px;
+  }
+
+  @include desktop {
+    gap: 30px;
+  }
+
+  &__title {
+    margin-bottom: 27px;
+    font-weight: $weight;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $dark;
+
+    @include tablet {
+      margin-bottom: 0;
+      width: calc(50% - 10px);
+      font-size: $major-line-height;
+      line-height: 46px;
+    }
+
+    @include desktop {
+      width: calc(50% - 15px);
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__form {
+    @include tablet {
+      width: calc(50% - 10px);
+    }
+
+    @include desktop {
+      width: calc(50% - 15px);
+    }
+  }
+
+  &__label {
+    display: none;
+  }
+
+  &__email {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 12px 30px;
+    width: 100%;
+    border: 1px solid #828282;
+
+    &--message {
+      margin-bottom: 30px;
+      resize: none;
+      height: 128px;
+
+      &::-webkit-scrollbar {
+        width: 15px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #828282;
+        border: 5px solid $white;
+        border-radius: 20px;
+      }
+    }
+
+    &::placeholder {
+      font-family: inherit;
+      font-size: $bigger-size;
+      line-height: $major-size;
+      color: $light-gray;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__button {
+    padding: 13px 34px;
+    font-family: inherit;
+    font-weight: $weight;
+    font-size: 12px;
+    line-height: $main-size;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    background-color: $aqua;
+
+    @include desktop {
+      padding: 17px 42px;
+    }
+  }
+}

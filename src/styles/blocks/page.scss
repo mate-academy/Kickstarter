@@ -1,7 +1,9 @@
 .page {
+  position: relative;
   font-family: Inter, sans-serif;
   font-weight: 400;
   color: $dark;
+  background-color: $white;
 
   &__header {
     margin-bottom: 110px;
@@ -24,6 +26,41 @@
       margin: 0 auto;
       padding: 0;
       max-width: 1194px;
+    }
+  }
+
+  &__footer {
+    padding-bottom: 20px;
+
+    @include tablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__arrow {
+    position: sticky;
+    bottom: 100px;
+    display: none;
+    margin: 0 34px 0 auto;
+    width: 50px;
+    height: 50px;
+    background: url(../images/icons/arrow.svg) no-repeat center;
+    background-color: $white;
+    transform: translateY(100%);
+
+    @include tablet {
+      display: block;
+    }
+
+    @include desktop {
+      bottom: 74px;
+      margin-right: 123px;
+      width: 24px;
+      height: 24px;
+    }
+
+    @include design {
+      margin-right: calc(50% - 597px);
     }
   }
 }
