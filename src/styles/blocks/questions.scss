@@ -45,11 +45,13 @@
   }
 
   &__email {
+    font-family: inherit;
     box-sizing: border-box;
     margin-bottom: 20px;
     padding: 12px 30px;
     width: 100%;
     border: 1px solid #828282;
+    background-color: $white;
 
     &--message {
       margin-bottom: 30px;
@@ -73,9 +75,14 @@
       line-height: $major-size;
       color: $light-gray;
     }
-
+    
+    &:hover {
+      border-color: $blue;
+    }
+    
     &:focus {
       outline: none;
+      border-color: $aqua;
     }
   }
 
@@ -89,9 +96,15 @@
     color: #fff;
     border: none;
     background-color: $aqua;
+    transition: background-color $trans, color $trans;
 
     @include desktop {
       padding: 17px 42px;
+    }
+
+    &:hover {
+      color: $aqua;
+      background-color: $blue;
     }
   }
 }
