@@ -1,0 +1,52 @@
+.footer {
+  &__content {
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+
+  }
+
+  &__nav {
+    display: none;
+    @include onTablet {
+      @include useGrid(8, $gap);
+    }
+
+    @include onDesktop {
+      @include useGrid(12, $gap-desktop);
+    }
+  }
+
+  &__logo {
+    grid-column: 4 / 6;
+    margin-bottom: 60px;
+    @include onDesktop {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__arrow {
+    grid-column: 8 / 9;
+    scroll-behavior: smooth;
+    @include onDesktop {
+      grid-column: 12 / 13;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    &--twitter {
+      margin: 0 40px;
+    }
+  }
+
+  &__copyright {
+    margin: 0 30px 20px;
+    text-align: center;
+    color: $light-gray;
+  }
+
+}
