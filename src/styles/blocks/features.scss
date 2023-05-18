@@ -30,6 +30,17 @@
   }
 
   &__feature {
+    @include untilDesktop {
+      opacity: 0;
+      display: none;
+      transition: opacity 0.3s ease-in-out;
+
+      &.active {
+        opacity: 1;
+        display: block;
+      }
+    }
+
     padding-top: 30px;
     height: 212px;
 
@@ -71,10 +82,10 @@
       display: none;
     }
 
-    display: flex;
     flex-flow: column wrap;
     text-decoration: none;
     margin: 0 auto;
+
     &-arrows {
       display: flex;
       flex-flow: row wrap;
@@ -86,6 +97,7 @@
       }
 
       &-link-wrapper {
+        margin-top: 64px;
         &:hover {
           .features__navigation-pointer--forward,
           .features__navigation-pointer--back {
@@ -143,7 +155,7 @@
     @include onTablet {
       position: absolute;
       right: 8px;
-      top: 332px;
+      top: 323px;
       min-width: 436px;
       min-height: 226px;
     }
@@ -156,7 +168,7 @@
 
     &-container {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
     }
   }
 }
