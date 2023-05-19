@@ -34,7 +34,7 @@ function switchFeature(direction) {
   }
 
   features.forEach(function(feature) {
-    if (feature.getAttribute('data-feature') == currentFeature) {
+    if (feature.getAttribute('data-feature') === String(currentFeature)) {
       feature.classList.add('active');
     } else {
       feature.classList.remove('active');
