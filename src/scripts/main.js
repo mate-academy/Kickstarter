@@ -4,6 +4,7 @@ const slides = document.querySelector('.features__slides');
 const previousButton = document.querySelector('.features__previous-button');
 const nextButton = document.querySelector('.features__next-button');
 const activeSlideBlock = document.querySelector('.features__active-slide');
+const form = document.querySelector('.get-in-touch__form');
 let activeSlide = 0;
 
 const moveSlides = () => {
@@ -37,4 +38,9 @@ nextButton.addEventListener('click', () => {
 
     previousButton.classList.remove('features__previous-button--not-active');
   }
+});
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  form.reset();
 });
