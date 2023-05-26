@@ -1,0 +1,97 @@
+.footer {
+  padding-bottom: 20px;
+
+  @include onTablet {
+    padding-bottom: 30px;
+  }
+
+  &__content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 34px;
+
+    @include onTablet {
+      row-gap: 64px;
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+  }
+
+  &__link {
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    transition: background-image $duration;
+    will-change: background-image;
+
+    &--facebook {
+      background-image: url(../images/icons/facebook.svg);
+
+      &:hover {
+        background-image: url(../images/icons/facebook-green.svg);
+      }
+    }
+
+    &--twitter {
+      background-image: url(../images/icons/twitter.svg);
+
+      &:hover {
+        background-image: url(../images/icons/twitter-green.svg);
+      }
+    }
+
+    &--instagram {
+      background-image: url(../images/icons/instagram.svg);
+
+      &:hover {
+        background-image: url(../images/icons/instagram-green.svg);
+      }
+    }
+
+    &--arrow-up {
+      display: none;
+
+      @include onTablet {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        display: block;
+        width: 50px;
+        height: 50px;
+
+        background-image: url(../images/icons/arrow-up.svg);
+
+        &:hover {
+          background-image: url(../images/icons/arrow-up-green.svg);
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    font-size: 14px;
+    text-align: center;
+    color: $gray;
+  }
+}
