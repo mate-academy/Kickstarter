@@ -1,0 +1,115 @@
+.header {
+  position: relative;
+
+  &__top {
+    padding: 30px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+
+    @include onTablet {
+      margin-bottom: 142px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  &__buy-button {
+    margin-right: 34px;
+
+    @include onDesktop {
+      margin-right: 0;
+    }
+  }
+
+  &__specs {
+    display: none;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: $specColor;
+    text-transform: uppercase;
+    margin-right: 30px;
+
+    @include onTablet {
+      display: block;
+    }
+
+    &:hover {
+      color: $mainDark;
+      font-weight: 400;
+    }
+  }
+
+  &__content {
+    box-sizing: border-box;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    height: 245px;
+    background-image: url("../images/photos/header-photo-s.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      background-image: url("../images/photos/header-photo-m.png");
+      left: 20%;
+      z-index: -1;
+      height: 317px;
+      background-size: contain;
+    }
+
+    @include onDesktop {
+      background-image: url("../images/photos/header-photo-l.png");
+      height: 468px;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    top: 360px;
+    margin-bottom: 110px;
+
+    @include onTablet {
+      position: static;
+      width: 40%;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    color: $mainDark;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__description {
+    width: 248px;
+    line-height: 24px;
+  }
+}
