@@ -1,0 +1,105 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  @include onTablet {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+  }
+
+  @include onDesktop {
+    gap: 28px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    color: $mainDark;
+    margin-bottom: 28px;
+
+    @include onTablet {
+      flex: 1;
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__field {
+    box-sizing: border-box;
+    border-radius: 0;
+    outline: none;
+    border: 1px solid $langNotFocused;
+    height: 48px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $mainDark;
+    background-color: $background;
+
+    &::placeholder {
+      margin-left: 20px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &--textarea {
+      background-color: $background;
+      padding: 20px;
+      resize: none;
+      height: 128px;
+      margin-bottom: 30px;
+      font-family: "Inter";
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: $mainDark;
+
+      &::placeholder {
+        font-family: "Inter";
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &__button {
+    border: 0;
+    background-color: $mainBlue;
+    width: 102px;
+    height: 40px;
+    color: $mainWhite;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+
+    @include onDesktop {
+      width: 124px;
+      height: 48px;
+    }
+
+    &:hover {
+      background-color: $mainGreen;
+    }
+  }
+}
