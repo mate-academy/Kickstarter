@@ -1,0 +1,155 @@
+.header {
+  &__top {
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 30px 0;
+
+    @include onMobile {
+      padding: 25px 30px;
+    }
+
+    &-logo {
+      margin-right: auto;
+    }
+
+    &-link {
+      width: max-content;
+
+      padding: 18px 0;
+
+      text-transform: uppercase;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 20px;
+      color: $grey;
+    }
+
+    &-sub-link {
+      text-decoration: inherit;
+      color: inherit;
+
+      &--active {
+        color: $silver;
+      }
+
+      &:last-child {
+        margin-right: 24px;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    
+    @include onMobile {
+      flex-wrap: wrap;
+      flex-direction: column-reverse;
+      gap: 40px;
+    }
+    
+    @include onTablet {
+      margin-top: 130px;
+      max-height: 336px;
+    }
+    
+    @include onDesktop {
+      margin: 90px 0 170px;
+    }
+    
+    &-image-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+    
+    &-image {
+      width: 100%;
+    }
+    
+    &-text {
+      z-index: 1;
+      padding: 0;
+      
+      @include onTablet {
+        max-width: 44%;
+      }
+      
+      @include onDesktop {
+        max-width: 30%;
+      }
+      
+      @include onMobile {
+        padding: 0 30px;
+      }
+    }
+
+    &-title {
+      margin: 0;
+      padding-bottom: 20px;
+
+      color: $dark-grey;
+    }
+
+    &-paragraph {
+      @extend %main-text;
+      color: $dark-grey;
+
+      @include onTablet {
+        max-width: 80%;
+      }
+
+      @include onDesktop {
+        max-width: 75%;
+      }
+    }
+  }
+
+  &__nav {
+    &-bar {
+      margin: 0;
+      display: flex;
+      justify-content: space-evenly;
+
+      list-style: none;
+    }
+
+    &-link {
+      height: 76px;
+
+      display: flex;
+      align-items: center;
+
+      @extend %h6;
+      font-weight: 400;
+      color: $dark-grey;
+      text-decoration: none;
+      
+      &:hover {
+        font-weight: 700;
+        color: $black;
+      }
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  @include onDesktop {
+    padding: 0 123px;
+  }
+
+  @include onTablet {
+    padding: 0 34px;
+  }
+
+  @include onMobile {
+    &__collapse {
+      display: none;
+    }
+  }
+}

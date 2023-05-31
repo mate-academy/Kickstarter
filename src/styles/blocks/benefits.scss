@@ -1,0 +1,56 @@
+.benefits {
+  display: flex;
+  
+  justify-content: space-between;
+  gap: 30px;
+
+  @include onDesktop {
+    padding: 0 123px;
+  }
+  
+  @include onTablet {
+    padding: 0 34px;
+    gap: 65px 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  @include onMobile {
+    flex-direction: column;
+
+    &__collapse {
+      display: none;
+    }
+  }
+
+  &__item {
+    text-align: center;
+    @include increaseOnHover;
+
+    @include onDesktop {
+      flex-basis: 25%;
+    }
+    
+    @include onTablet {
+      flex-basis: 48%;
+    }
+
+    @include onMobile {
+      padding: 0 30px;
+    }
+
+    &-title {
+      // aligning titles and paragraphs
+      height: 56px;
+
+      @include onMobile {
+        height: max-content;
+        margin: 40px 0 20px;
+      }
+    }
+
+    &-paragraph {
+      @include secondary-text;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+.questions {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 34px;
+  display: flex;
+  justify-content: space-between;
+  
+  @include onMobile {
+    flex-direction: column;
+    padding: 0 30px;
+    gap: 28px;
+  }
+  
+  @include onDesktop {
+    padding: 0 123px;
+  }
+  &__title {
+    flex-basis: 49%;
+  }
+
+  &__form {
+    flex-basis: 49%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input {
+    margin-bottom: 18px;
+    padding: 12px 36px;
+
+    @extend %main-text;
+    font-family: inherit;
+    border: 1px solid #828282;
+    background-color: inherit;
+    
+    &--textarea {
+      flex-basis: 128px;
+      
+      margin-bottom: 32px;
+      padding: 16px 36px;
+      
+      resize: none;
+    }
+    
+    &::placeholder {
+      color: $silver;
+    }
+
+    &:focus {
+      border-color: $ocean;
+      font-size: 14px;
+      color: $dark-grey;
+      outline: none;
+    }
+    
+    &:valid {
+      border-color: $redish;
+      font-size: 16px;
+      color: $redish;
+    }
+  }
+}
