@@ -1,11 +1,46 @@
 .benefits {
   &__item {
+    @include onTablet {
+      width: 340px;
+    }
+
+    @include onDesktop {
+      width: 276px;
+    }
+
+    &--display-no {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+
     &::before {
       content: url("../images/benefits-1.svg");
       width: 50px;
       height: 40px;
       display: block;
       margin: 0 auto 40px;
+    }
+
+    &--2::before {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        content: url("../images/benefits-2.svg");
+        width: 46px;
+        height: 40px;
+      }
+    }
+
+    &--3::before {
+      content: url("../images/benefits-3.svg");
+    }
+
+    &--4::before {
+      content: url("../images/benefits-4.svg");
     }
   }
 
@@ -24,6 +59,5 @@
     line-height: 21px;
     text-align: center;
     color: $fontGray;
-    text-align: center;
   }
 }
