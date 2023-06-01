@@ -214,13 +214,8 @@ formSubmit.addEventListener('submit', function(event) {
   event.preventDefault();
   formSubmit.reset();
   setSuccessState();
+  setTimeout(unsetSuccessState, 200);
 });
-
-for (const i of inputs) {
-  i.addEventListener('click', () => {
-    unsetSuccessState();
-  });
-};
 
 function slider(
   sliderItemsContainer, backButton,
@@ -284,13 +279,13 @@ function slider(
   });
 
   function updateSliderLayout() {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 1024) {
       sliderItems.forEach((item) => {
         item.style.display = 'block';
       });
     }
 
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 1024) {
       for (let sl = 0; sl < sliderItems.length; sl++) {
         sliderItems[sl + 1].style.display = 'none';
         sliderItems[sl + 2].style.display = 'none';
@@ -298,9 +293,9 @@ function slider(
     }
   }
 
-  updateSliderLayout();
-
   window.addEventListener('resize', updateSliderLayout);
+
+  updateSliderLayout();
 }
 
 slider(

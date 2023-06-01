@@ -17,6 +17,11 @@
     text-transform: uppercase;
     margin: 0;
 
+    @include onLaptop {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
     @include onMobile {
       margin-bottom: 27px;
       font-size: 30px;
@@ -30,13 +35,15 @@
   }
 
   &__input {
-    width: 400px;
+    width: 450px;
     font-size: 14px;
     line-height: 24px;
     border: 1px solid #828282;
     background-color: inherit;
     padding: 14px 36px;
     margin-bottom: 20px;
+    transition: all $duration;
+    box-sizing: border-box;
 
     @include onLaptop {
       width: 340px;
@@ -44,6 +51,10 @@
 
     @include onMobile {
       width: 260px;
+    }
+
+    &:hover {
+      cursor: pointer;
     }
 
     &:focus {
@@ -57,6 +68,10 @@
       color: #bdbdbd;
     }
 
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 80px #f7f7f7 inset !important;
+    }
+
     &--success {
       outline: transparent;
       border: 1px solid #eb5757;
@@ -67,21 +82,26 @@
     }
 
     &--email {
-      height: 24px;
+      height: 48px;
     }
 
     &--textarea {
-      height: 96px;
+      height: 128px;
       resize: none;
 
       @include onLaptop {
         height: 200px;
       }
+
+      @include onMobile {
+        height: 128px;
+      }
     }
   }
 
   &__button {
-    width: 123.66px;
+    box-sizing: border-box;
+    width: 123px;
     height: 48px;
     background: $blue;
     border-color: transparent;
@@ -95,6 +115,11 @@
     &:hover {
       background-color: $lightblue;
       cursor: pointer;
+    }
+
+    @include onLaptop {
+      width: 102px;
+      height: 40px;
     }
   }
 }
