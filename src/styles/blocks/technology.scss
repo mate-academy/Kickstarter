@@ -1,0 +1,93 @@
+.technology {
+  margin-bottom: 156px;
+  &__card {
+    @include pageGrid;
+    margin-bottom: 116px;
+    @include onTablet {
+      margin-bottom: 141px;
+      grid-template-rows: auto auto 1fr;
+    }
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    @include onTablet {
+      grid-column: 5 / 9;
+      font-size: 36px;
+      line-height: 46px;
+    }
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+      grid-column: 7 / 13;
+    }
+  }
+  &__subtitle {
+    color: #7c7c7c;
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 30px;
+    @include onTablet {
+      grid-column: 5 / 9;
+      font-size: 16px;
+      line-height: 24px;
+    }
+    @include onDesktop {
+      grid-column: 7 / 13;
+    }
+  }
+  &__images {
+    margin-bottom: 20px;
+    @include hover(transform, scale(1.02));
+    @include onTablet {
+      height: 100%;
+      grid-column: 1 / 5;
+      grid-row: 1/4;
+    }
+    @include onDesktop {
+      grid-column: 1 / 7;
+      width: 582px;
+    }
+  }
+  &__image {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__button {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #0DB2B3;
+      &::after {
+        border-bottom: solid 1px #0DB2B3;
+        bottom: 0;
+        content: "";
+        display: block;
+        transition: all .3s ease;
+        -webkit-transition: all .3s ease;
+        width: 0;
+    }
+      &:hover::after {
+        width: 50%;
+      }
+    @include onTablet {
+      grid-column: 5 / 7;
+    }
+    @include onTablet {
+      grid-column: 5 / 9;
+    }
+    @include onDesktop {
+      grid-column: 7 / 10;
+    }
+
+  }
+}
