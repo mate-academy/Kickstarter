@@ -1,8 +1,8 @@
 'use strict';
 
-const enButton = document.querySelector('.header__en');
-const uaButton = document.querySelector('.header__ua');
-const toggle = document.querySelector('.header__languages');
+const enButton = document.querySelector('.languages--en');
+const uaButton = document.querySelector('.languages--ua');
+const toggle = document.querySelector('.languages');
 const title = document.querySelector('.header__title');
 const questionButton = document.querySelector('.questions__button');
 const textarea = document.querySelector('.questions__input--textarea');
@@ -29,18 +29,18 @@ function unsetSuccessState() {
 
 const translations = {
   'EN': {
-    'header__en': 'EN',
-    'header__ua': 'UA',
-    'header__button': 'Buy',
+    'languages--en': 'EN',
+    'languages--ua': 'UA',
+    'top-actions__button': 'Buy',
     'header__title': 'Futuristic Wireless Speaker',
     'header__text': 'Luna\'s performance is balanced and smooth'
     + ' in all frequency ranges which makes the music'
     + ' both naturally pleasant and distinctly more layered.',
-    'benefits__story': 'OUR STORY',
-    'benefits__about': 'ABOUT US',
-    'benefits__tech': 'TECHNOLOGY',
-    'benefits__features': 'FEATURES',
-    'benefits__getintouch': 'GET IN TOUCH',
+    'list__story': 'OUR STORY',
+    'list__about': 'ABOUT US',
+    'list__tech': 'TECHNOLOGY',
+    'list__features': 'FEATURES',
+    'list__getintouch': 'GET IN TOUCH',
     'benefit__title__design': 'Futuristic Design',
     'benefit__text__design': 'To give Luna a truly flawless look,'
     + ' we specifically picked aircraft grade aluminum as its material and'
@@ -102,18 +102,18 @@ const translations = {
 
   },
   'UA': {
-    'header__en': 'АНГ',
-    'header__ua': 'УКР',
-    'header__button': 'Купити',
+    'languages--en': 'АНГ',
+    'languages--ua': 'УКР',
+    'top-actions__button': 'Купити',
     'header__title': 'БЕЗДРОТОВА АКУСТИЧНА СИСТЕМА МАЙБУТНЬОГО',
     'header__text': 'Звучання Луни збалансоване і плавне'
     + ' у всіх діапазонах частот,'
     + ' що робить музику природно приємною і помітно багатшою.',
-    'benefits__story': 'НАША ІСТОРІЯ',
-    'benefits__about': 'ПРО НАС',
-    'benefits__tech': 'ТЕХНОЛОГІЯ',
-    'benefits__features': 'ОСОБЛИВОСТІ',
-    'benefits__getintouch': 'КОНТАКТИ',
+    'list__story': 'НАША ІСТОРІЯ',
+    'list__about': 'ПРО НАС',
+    'list__tech': 'ТЕХНОЛОГІЯ',
+    'list__features': 'ОСОБЛИВОСТІ',
+    'list__getintouch': 'КОНТАКТИ',
     'benefit__title__design': 'Футуристичний дизайн',
     'benefit__text__design': 'Щоб надати Луні по-справжньому бездоганний вигляд'
     + ', ми спеціально вибрали алюміній авіаційного класу як матеріал'
@@ -189,7 +189,7 @@ function changeLanguage(lang) {
 }
 
 toggle.addEventListener('click', (e) => {
-  if (e.target.className.includes('header__ua')) {
+  if (e.target.className.includes('languages--ua')) {
     uaButton.style.color = '#333';
     enButton.style.color = '#bdbdbd';
     title.style.fontSize = '50px';
@@ -285,11 +285,10 @@ function slider(
       });
     }
 
-    if (window.innerWidth < 1024) {
-      for (let sl = 0; sl < sliderItems.length; sl++) {
-        sliderItems[sl + 1].style.display = 'none';
-        sliderItems[sl + 2].style.display = 'none';
-      }
+    if (window.innerWidth <= 1024) {
+      sliderItems.forEach((item, index) => {
+        item.style.display = index === sliderPosition ? 'block' : 'none';
+      });
     }
   }
 
@@ -301,3 +300,15 @@ function slider(
 slider(
   featuresCategories, backBtn, forwardBtn, sliderFirst, sliderLast
 );
+
+if (window.location.hash === '#menu') {
+  document.body.classList.add('page__body--with-menu');
+}
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
