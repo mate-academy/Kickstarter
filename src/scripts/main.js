@@ -3,6 +3,9 @@
 const enButton = document.querySelector('.languages--en');
 const uaButton = document.querySelector('.languages--ua');
 const toggle = document.querySelector('.languages');
+const enButtonMob = document.querySelector('.languages--eng');
+const uaButtonMob = document.querySelector('.languages--ukr');
+const toggleMob = document.querySelector('.languages--menu');
 const title = document.querySelector('.header__title');
 const questionButton = document.querySelector('.questions__button');
 const textarea = document.querySelector('.questions__input--textarea');
@@ -32,6 +35,7 @@ const translations = {
     'languages--en': 'EN',
     'languages--ua': 'UA',
     'top-actions__button': 'Buy',
+    'menu__button': 'Buy',
     'header__title': 'Futuristic Wireless Speaker',
     'header__text': 'Luna\'s performance is balanced and smooth'
     + ' in all frequency ranges which makes the music'
@@ -41,6 +45,11 @@ const translations = {
     'list__tech': 'TECHNOLOGY',
     'list__features': 'FEATURES',
     'list__getintouch': 'GET IN TOUCH',
+    'list--story': 'OUR STORY',
+    'list--about': 'ABOUT US',
+    'list--tech': 'TECHNOLOGY',
+    'list--features': 'FEATURES',
+    'list--getin': 'GET IN TOUCH',
     'benefit__title__design': 'Futuristic Design',
     'benefit__text__design': 'To give Luna a truly flawless look,'
     + ' we specifically picked aircraft grade aluminum as its material and'
@@ -105,6 +114,7 @@ const translations = {
     'languages--en': 'АНГ',
     'languages--ua': 'УКР',
     'top-actions__button': 'Купити',
+    'menu__button': 'Купити',
     'header__title': 'БЕЗДРОТОВА АКУСТИЧНА СИСТЕМА МАЙБУТНЬОГО',
     'header__text': 'Звучання Луни збалансоване і плавне'
     + ' у всіх діапазонах частот,'
@@ -114,6 +124,11 @@ const translations = {
     'list__tech': 'ТЕХНОЛОГІЯ',
     'list__features': 'ОСОБЛИВОСТІ',
     'list__getintouch': 'КОНТАКТИ',
+    'list--story': 'НАША ІСТОРІЯ',
+    'list--about': 'ПРО НАС',
+    'list--tech': 'ТЕХНОЛОГІЯ',
+    'list--features': 'ОСОБЛИВОСТІ',
+    'list--getin': 'КОНТАКТИ',
     'benefit__title__design': 'Футуристичний дизайн',
     'benefit__text__design': 'Щоб надати Луні по-справжньому бездоганний вигляд'
     + ', ми спеціально вибрали алюміній авіаційного класу як матеріал'
@@ -201,6 +216,28 @@ toggle.addEventListener('click', (e) => {
   } else {
     enButton.style.color = '#333';
     uaButton.style.color = '#bdbdbd';
+    title.style.fontSize = '62px';
+    title.style.lineHeight = '78px';
+    questionButton.value = 'Send';
+    textarea.placeholder = 'Your message...';
+    email.placeholder = 'Your email';
+    changeLanguage('EN');
+  }
+});
+
+toggleMob.addEventListener('click', (e) => {
+  if (e.target.className.includes('languages--ukr')) {
+    uaButtonMob.style.color = '#333';
+    enButtonMob.style.color = '#bdbdbd';
+    title.style.fontSize = '50px';
+    title.style.lineHeight = '60px';
+    questionButton.value = 'Надіслати';
+    textarea.placeholder = 'Ваше повідомлення...';
+    email.placeholder = 'Ваша пошта';
+    changeLanguage('UA');
+  } else {
+    enButtonMob.style.color = '#333';
+    uaButtonMob.style.color = '#bdbdbd';
     title.style.fontSize = '62px';
     title.style.lineHeight = '78px';
     questionButton.value = 'Send';
