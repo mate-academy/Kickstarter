@@ -1,0 +1,131 @@
+.features {
+  padding: 200px 120px 0;
+
+  @include device(tablet) {
+    padding: 200px 30px 0;
+  }
+  @include device(smartphone) {
+    padding: 200px 0 0;
+  }
+
+  &__section-headline {
+    font-weight: 700;
+    font-size: 56px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    @include device(tablet) {
+      font-size: 36px;
+    }
+    @include device(smartphone) {
+      font-size: 32px;
+      padding: 0 30px;
+    }
+  }
+
+  &__container {
+    background-color: $c-green3;
+    background-image: url("../images/pictures/features.png");
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    padding-bottom: 60px;
+    background-size: 40%;
+    @include device(tablet) {
+      background-size: 50%;
+      padding: 0 30px 120px;
+    }
+    @include device(smartphone) {
+      padding: 0 30px 120px;
+      background-position: center bottom;
+      background-size: 100%;
+      padding-bottom: 60%;
+    }
+  }
+
+  &__wrapper {
+    overflow: hidden;
+  }
+
+  &__slider {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 100px;
+    transition: 0.3s ease-in-out;
+    @include device(tablet) {
+      flex-wrap: nowrap;
+      padding: 0;
+    }
+    @include device(smartphone) {
+    }
+  }
+
+  &__types {
+    width: 50%;
+    padding-top: 60px;
+    @include device(tablet) {
+      min-width: 100%;
+    }
+  }
+
+  &__title {
+    color: $c-green1;
+    font-weight: 700;
+    font-size: 34px;
+    text-transform: uppercase;
+    @include device(tablet) {
+      font-size: 18px;
+    }
+  }
+
+  &__list {
+    margin-top: 30px;
+    list-style: disc inside;
+    line-height: 28px;
+    @include device(tablet) {
+      font-size: 14px;
+    }
+
+    &-element {
+      transition: 0.2s ease-in-out;
+      &:hover {
+        transform: scale(1.05) translateX(10px);
+        color: $c-green1;
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+    @include device(tablet) {
+      display: block;
+      margin: 50px 0 0 80px;
+    }
+    @include device(smartphone) {
+      margin-left: 30%;
+    }
+  }
+
+  &__numbers {
+    transform: translate(30px, 15px);
+  }
+
+  &__current {
+    display: inline-block;
+    transform: translateY(-5px);
+  }
+
+  &__total,
+  &__slash {
+    color: $c-green1;
+    font-size: 12px;
+  }
+
+  &__arrow {
+    padding: 10px 0;
+    cursor: pointer;
+  }
+}
+
+.arrow--disabled {
+  filter: invert(33%) sepia(98%) saturate(394%) hue-rotate(132deg)
+    brightness(93%) contrast(94%);
+}

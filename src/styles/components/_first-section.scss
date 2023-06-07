@@ -1,0 +1,62 @@
+.first-section {
+  display: flex;
+  padding-top: 90px;
+  overflow: hidden;
+  @include device(smartphone) {
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 35%;
+    padding: 0 120px;
+
+    @include device(tablet) {
+      padding: 0 30px;
+      width: 100%;
+    }
+  }
+
+  &__headline {
+    font-weight: 700;
+    font-size: 62px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+
+    @include device(tablet) {
+      font-size: 48px;
+      line-height: 50px;
+    }
+
+    @include device(smartphone) {
+      font-size: 40px;
+      line-height: 50px;
+      max-width: 80%;
+    }
+  }
+
+  &__paragraph {
+    max-width: 280px;
+    line-height: 24px;
+  }
+
+  &__image-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__image {
+    width: 100%;
+    animation: shiftColor 5s linear infinite;
+    transition: 0.3s ease-in-out;
+    @include device(smartphone) {
+      margin-left: 10%;
+    }
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

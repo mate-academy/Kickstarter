@@ -1,0 +1,114 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 120px 0;
+
+  @include device(tablet) {
+    padding: 40px 30px 0;
+  }
+  @include device(smartphone) {
+    padding: 25px 30px 0;
+  }
+
+  &__navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    gap: 20px;
+
+    @include device(smartphone) {
+      display: none;
+    }
+  }
+
+  &__specs {
+    color: $c-bw3;
+    padding: 12px 0;
+    transition: 0.1s linear;
+    width: 100px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+
+    &::before,
+    &::after {
+      width: 0%;
+      height: 0%;
+      opacity: 0;
+      transition: width 0.2s 0.15s linear,
+        height 0.15s linear,
+        opacity 0s 0.35s;
+      position: absolute;
+      content: "";
+    }
+
+    &::before {
+      top: 0;
+      right: 0;
+      border-top: 1px solid $c-bw2;
+      border-left: 1px solid $c-bw2;
+    }
+    &::after {
+      bottom: 0;
+      left: 0;
+      border-bottom: 1px solid $c-bw2;
+      border-right: 1px solid $c-bw2;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      width: 99%;
+      height: 97%;
+      opacity: 1;
+      transition: width 0.2s linear, height 0.15s 0.2s linear, opacity 0s;
+      position: absolute;
+      content: "";
+    }
+  }
+
+  &__lang {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    #lang__input--en:checked ~ #lang__label--en {
+      color: $c-bw2;
+    }
+    #lang__input--pl:checked ~ #lang__label--pl {
+      color: $c-bw2;
+    }
+  }
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    color: $c-bw5;
+    cursor: pointer;
+    padding: 12px 5px;
+    display: block;
+  }
+
+  &__btn-buy {
+    background-color: $c-bw2;
+    color: white;
+    width: 100px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
+    border: 1px solid $c-bw2;
+    transition: 0.2s linear;
+    text-decoration: none;
+
+    &:hover {
+      border: 1px solid $c-bw2;
+      background-color: inherit;
+      color: $c-bw2;
+    }
+  }
+}
