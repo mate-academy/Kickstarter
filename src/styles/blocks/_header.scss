@@ -1,0 +1,43 @@
+.header {
+  padding: $header-padding-sticky 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  @include onDesktop {
+    box-shadow: none;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+  }
+
+  &__link {
+    padding: 10px 0;
+    @extend %f-helvetica-neue-14;
+    color: $c-darkgrey;
+
+    @include transitions(text-shadow);
+
+    @include onHover {
+      text-shadow: 0.25px 0 0.1px, -0.25px 0 0.1px;
+    }
+  }
+
+  &__menu-opener {
+    width: 24px;
+    @include onTablet {
+      display: none;
+    }
+  }
+}

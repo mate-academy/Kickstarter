@@ -1,0 +1,68 @@
+.video-section {
+  $ROOT: &;
+
+  position: relative;
+
+  pointer-events: none;
+
+  background: url(../images/video-preview-1024w.jpg) ;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding-bottom: 85%;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000, $alpha: 0);
+
+    @include transitions(background-color);
+  }
+
+  @include onHover {
+    &::after {
+      background-color: rgba($color: #000, $alpha: 0.4);
+    }
+  }
+
+  @include onTablet {
+    padding-bottom: 50%;
+  }
+
+  @include onDesktop {
+    padding-bottom: MIN(40%, 599px); //css min()
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__play-button {
+    width: 34%;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+
+    pointer-events: auto;
+
+    @include onTablet {
+      width: 25%;
+    }
+
+    @include onDesktop {
+      width: MIN(20%, 350px); //css min()
+    }
+  }
+
+  &__video {
+    display: none;
+  }
+}

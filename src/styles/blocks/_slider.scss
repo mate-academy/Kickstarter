@@ -1,0 +1,71 @@
+.slider {
+  overflow: hidden;
+
+  &__control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 8px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__items {
+    transition: transform ease-in-out 0.3s;
+    position: relative;
+  }
+
+  &__buttons {
+    margin-bottom: 10px;
+  }
+
+  &__prev-button,
+  &__next-button {
+    display: inline-block;
+    width: 48px;
+    height: 13px;
+
+    border: none;
+
+    transform: translateX(10%);
+
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    background-image: url(../images/icons/other/slider-arrow.svg);
+
+    &[disabled] {
+      background: url(../images/icons/other/slider-arrow-inact.svg);
+    }
+  }
+
+  &__next-button {
+    transform: translateX(-10%) rotateZ(180deg);
+    @include onHover {
+      background-image: url(../images/icons/other/slider-arrow-hover.svg);
+    }
+  }
+
+  &__prev-button {
+    @include onHover {
+      background-image: url(../images/icons/other/slider-arrow-hover.svg);
+    }
+  }
+
+  &__page-num {
+    @extend %f-din-pro;
+    font-size: 11px;
+    line-height: 125%;
+    color: $c-lightgrey;
+  }
+
+  &__page-current {
+    @extend %f-din-pro-medium;
+    font-size: 16px;
+    color: $c-granit;
+  }
+}

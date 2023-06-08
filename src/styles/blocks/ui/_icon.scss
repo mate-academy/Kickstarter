@@ -1,0 +1,174 @@
+.icon {
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &--contain {
+    background-size: contain;
+  }
+
+  &--facebook {
+    background-image: url(../images/icons/social/facebook.svg);
+    @include onHover {
+      background-image: url(../images/icons/social/facebook-hover.svg);
+    }
+  }
+
+  &--instagram {
+    background-image: url(../images/icons/social/instagram.svg);
+    @include onHover {
+      background-image: url(../images/icons/social/instagram-hover.svg);
+    }
+  }
+
+  &--twitter {
+    background-image: url(../images/icons/social/twitter.svg);
+    @include onHover {
+      background-image: url(../images/icons/social/twitter-hover.svg);
+    }
+  }
+
+  &--visa {
+    background-image: url(../images/icons/other/visa.svg);
+  }
+
+  &--american-express {
+    background-image: url(../images/icons/other/american-express.svg);
+  }
+
+  &--apple-pay {
+    background-image: url(../images/icons/other/apple-pay.svg);
+  }
+
+  &--mastercard {
+    background-image: url(../images/icons/other/masterCard.svg);
+  }
+
+  &--delivery {
+    background-image: url(../images/icons/other/delivery.svg);
+  }
+
+  &--cart {
+    background-image: url(../images/icons/other/cart.svg);
+  }
+
+  &--menu-opener {
+    height: max-content;
+    padding: 0;
+
+    span {
+      float: right;
+
+      display: block;
+      width: 100%;
+      height: 3px;
+      border-radius: 3px;
+
+      background-color: $c-granit;
+      margin-bottom: 4px;
+
+      @include transitions(width);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include onHover {
+      span {
+        &:first-child {
+          width: 70%;
+        }
+
+        &:last-child {
+          width: 50%;
+        }
+      }
+    }
+  }
+
+  &--cross {
+    background-image: url(../images/icons/other/cross.svg);
+  }
+
+  &--cross-grey {
+    background-image: url(../images/icons/other/cross-grey.svg);
+  }
+
+  &--play-button {
+    border: 1px solid $c-white;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    @include transitions(transform);
+
+    &::after,
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      @include transitions(transform);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 12.5px 0 12.5px 20px;
+      border-color: transparent transparent transparent $c-white;
+
+      transform: translate(-50%, -50%) scale(1);
+
+      @include onDesktop {
+        transform: translate(-50%, -50%) scale(0);
+      }
+    }
+
+    &::before {
+      content: "play";
+
+      @extend %f-din-pro-bold-24;
+      text-transform: uppercase;
+      color: $c-white;
+
+      transform: translate(-50%, -50%) scale(0);
+      @include onDesktop {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    @include onHover {
+      &::before {
+        transform: translate(-50%, -50%) scale(0);
+      }
+
+      &::after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    &:active {
+      @include transitions(transform, 0.1s);
+
+      transform: scale(0.85);
+    }
+  }
+
+  &--go-top {
+    background-image: url(../images/icons/other/top-arrow.svg);
+  }
+
+  &--left-arrow {
+    background-image: url(../images/icons/other/left-arrow.svg);
+  }
+}

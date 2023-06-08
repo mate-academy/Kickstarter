@@ -1,0 +1,79 @@
+.first-screen {
+  overflow: hidden;
+
+  &__content {
+    flex-direction: column;
+    text-align: center;
+
+    @include onTablet {
+      align-items: center;
+      text-align: left;
+    }
+  }
+
+  &__image-conatiner {
+    width: 100vw;
+
+    position: relative;
+    left: -#{$container-side-paddning};
+
+    overflow: visible;
+    z-index: -1;
+
+    order: 1;
+
+    margin-bottom: 40px;
+
+    @include onTablet {
+      left: auto;
+      right: -#{$container-side-paddning};
+
+      width: 100%;
+
+      margin-bottom: 0;
+
+      order: 0;
+    }
+
+    @include onDesktop {
+      position: static;
+    }
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__text {
+    order: 2;
+
+    @include onTablet {
+      order: 0;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    position: relative;
+  }
+
+  &__cart {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    width: 48px;
+    padding: 12px;
+    border-radius: 50%;
+    background-color: $c-turquoise;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__description {
+    @extend %f-helvetica-neue-st-16;
+    color: $c-granit;
+  }
+}

@@ -1,0 +1,37 @@
+.link {
+  @extend %f-helvetica-neue-14;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: $c-granit;
+
+  &--active {
+    font-weight: 500;
+  }
+
+  &--green {
+    font-weight: 500;
+    color: $c-turquoise;
+  }
+
+  &--bottom-line {
+    display: block;
+    width: max-content;
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: $c-turquoise;
+      margin-top: 6px;
+      width: 30%;
+      height: 1px;
+
+      @include transitions(width);
+    }
+
+    @include onHover {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}

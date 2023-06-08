@@ -1,0 +1,150 @@
+.features {
+  --bullet-size: 4px;
+  overflow: hidden;
+
+  position: relative;
+
+  background-color: $c-lightgrey2;
+
+  @include onTablet {
+    background-color: transparent;
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    z-index: -2;
+
+    display: none;
+
+    background: $c-lightgrey2;
+
+    @include onTablet {
+      display: block;
+      width: 87vw;
+      height: 62%;
+      bottom: 15%;
+    }
+
+    @include onDesktop {
+      width: 77vw;
+      height: 70%;
+      bottom: 60px;
+    }
+  }
+
+  &__title {
+    @extend %f-h2;
+
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__items {
+    display: flex;
+    margin: 0 auto;
+    gap: 0;
+    width: max-content;
+
+    @include onTablet {
+      display: grid;
+      width: auto;
+    }
+  }
+
+  &__item {
+    width: calc(100vw - #{$container-side-paddning});
+    @include onTablet {
+      width: auto;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__item-title {
+    @extend %f-din-pro-medium;
+    font-size: 30px;
+    color: $c-green;
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    margin-bottom: 50px;
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__list-item {
+    position: relative;
+
+    padding-left: 10px;
+
+    margin-bottom: 10px;
+
+    @extend %f-helvetica-neue-14;
+
+    @include onTablet {
+      font-size: 16px;
+    }
+
+    &::before {
+      content: "";
+      position: relative;
+      transform: translate(-10px, -100%);
+
+      left: 0;
+      display: inline-block;
+      width: var(--bullet-size);
+      height: var(--bullet-size);
+
+      border-radius: 50%;
+
+      background: $c-black;
+    }
+  }
+
+  &__image-container {
+    z-index: -1;
+    height: MAX(65vw, 220px); //css max()
+
+    @include onTablet {
+      height: MIN(50vw, 500px); //css min()
+      grid-row: 2 / 3;
+      position: absolute;
+      right: 0;
+      top: 60%;
+      transform: translateY(-50%);
+    }
+
+    @include onDesktop {
+      height: MIN(50vw, 600px); //css min()
+    }
+  }
+
+  &__image {
+    object-fit: contain;
+    width: 100vw;
+    position: absolute;
+
+    right: -$container-side-paddning;
+
+    @include onTablet {
+      width: auto;
+      height: 100%;
+    }
+
+    @include onDesktop {
+      position: static;
+    }
+  }
+}

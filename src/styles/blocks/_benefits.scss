@@ -1,0 +1,50 @@
+.benefits {
+  &__content {
+    align-content: start;
+  }
+
+  &__item {
+    display: none;
+
+    padding: 0 10px;
+    margin-bottom: 50px;
+
+    text-align: center;
+
+    flex-direction: column;
+    justify-items: center;
+
+    grid-template-rows: 90px auto 1fr;
+
+    &:first-child {
+      display: grid;
+    }
+
+    @include onTablet {
+      display: grid;
+
+      &:nth-last-child(-n + 2) {
+        margin-bottom: 0;
+      }
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__icon {
+    // margin-bottom: 40px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__discription {
+    align-self: baseline;
+
+    @extend %f-helvetica-neue-14;
+    color: $c-grey;
+  }
+}

@@ -1,0 +1,39 @@
+.navigation {
+  display: none;
+
+  @include onDesktop {
+    display: block;
+  }
+
+  &__list {
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__item {
+    padding: 27px 0;
+    font-weight: 300;
+
+    @include transitions(transform);
+
+    &--active {
+      font-weight: 500;
+    }
+  }
+
+  &__link {
+    display: block;
+    height: 100%;
+
+    font-weight: inherit;
+
+    @include transitions((transform, text-shadow));
+
+    @include onHover {
+      transform: translateY(-0.3rem) scale(1.1);
+      text-shadow: 0.25px 0 0.1px, -0.25px 0 0.1px;
+    }
+  }
+}

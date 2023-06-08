@@ -1,0 +1,29 @@
+.label {
+  width: 100%;
+  position: relative;
+
+  &__text {
+    &--required {
+      position: relative;
+      
+      &::after {
+        content: "*";
+        position: absolute;
+        top: 0;
+        right: -10px;
+
+        display: inline-block;
+        @extend %f-helvetica-neue-medium;
+        color: $c-red;
+      }
+    }
+  }
+
+  &--inside &__text {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: max-content;
+  }
+}

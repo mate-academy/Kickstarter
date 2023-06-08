@@ -1,0 +1,30 @@
+.lang-swicher {
+  &__label {
+    cursor: pointer;
+    @extend %f-helvetica-neue-14;
+    font-weight: 400;
+    color: $c-lightgrey;
+
+    &::after {
+      content: "/";
+      @extend %f-helvetica-neue-14;
+      font-weight: 500;
+      color: $c-granit;
+    }
+
+    &:last-child {
+      &::after {
+        content: "";
+      }
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__input:checked ~ &__text {
+    color: $c-granit;
+    font-weight: 500;
+  }
+}

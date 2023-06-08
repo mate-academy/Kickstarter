@@ -1,0 +1,98 @@
+.buy {
+  &__header {
+    margin-bottom: 40px;
+    order: 0;
+
+    @include onTablet {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__logo {
+    display: none;
+    width: max-content;
+
+    @include onTablet {
+      display: block;
+      margin-bottom: 52px;
+      height: auto;
+    }
+  }
+
+  &__back {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      width: 16px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__cross {
+    margin-left: auto;
+    width: 16px;
+
+    &--margin-bottom {
+      margin-bottom: 40px;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__bullets {
+    position: relative;
+
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    max-width: 520px;
+
+    &--hidden {
+      display: none;
+    }
+
+    @include onDesktop {
+      max-width: 590px; // переписати на відносні одиниці
+    }
+  }
+
+  &__bullet-input {
+    display: none;
+  }
+
+  &__bullet {
+    margin: 0 auto 16px;
+    width: 16px;
+    padding: 1px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+  }
+
+  &__bullet-content--current &__bullet {
+    border: 1px solid $c-darkgrey;
+  }
+
+  &__bullet-inner {
+    width: 100%;
+    padding-bottom: 100%;
+    background: $c-lightgrey-e;
+    border-radius: 50%;
+  }
+
+  &__bullet-content--active &__bullet-inner {
+    background: $c-darkgrey;
+  }
+
+  &__bullet-text {
+    @extend %f-helvetica-neue-medium-16;
+    color: $c-lightgrey-e;
+  }
+
+  &__bullet-content--active &__bullet-text {
+    color: $c-darkgrey;
+  }
+}

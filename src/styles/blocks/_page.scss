@@ -1,0 +1,90 @@
+.page {
+  @extend %f-helvetica-neue;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    padding: ($header-top-paddning - $header-padding-sticky) 0 50px;
+
+    background-color: $c-light;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+
+    @include onTablet {
+      padding-top: ($header-top-paddning / 2) - $header-padding-sticky;
+    }
+
+    @include onDesktop {
+      padding-bottom: 100px;
+    }
+  }
+
+  &__header {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    background-color: $c-light;
+
+    @include onTablet {
+      margin-bottom: 90px;
+    }
+
+    @include onDesktop {
+      position: static;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transform: translateX(-100%);
+
+    @include transitions(transform);
+
+    &--open {
+      transform: translate(0);
+    }
+  }
+
+  &__section {
+    padding-top: $section-top-paddning;
+    margin-top: -$section-top-paddning;
+
+    margin-bottom: 88px;
+
+    @include onTablet {
+      margin-bottom: 128px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 144px;
+    }
+
+    &--nav {
+      padding-top: 0;
+      margin-top: 0;
+      margin-bottom: 44px;
+      background-color: $c-light;
+
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+  }
+
+  &__go-top {
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+  }
+
+  &--with-menu {
+    overflow: hidden;
+  }
+}

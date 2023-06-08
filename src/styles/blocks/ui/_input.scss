@@ -1,0 +1,44 @@
+.input {
+  display: block;
+  width: 100%;
+  padding: 0 10px;
+
+  outline: none;
+
+  @extend %f-helvetica-neue-medium-14;
+  color: $c-granit;
+  caret-color: $c-granit;
+
+  background-color: transparent;
+
+  @include transitions((border-color, color));
+
+  &::placeholder {
+    @extend %f-helvetica-neue-12;
+  }
+
+  &:focus {
+    border-color: $c-granit;
+  }
+
+  &--one-line {
+    border: none;
+    border-bottom: 1px solid $c-lightgrey;
+
+    &[type="text"] {
+      text-transform: uppercase;
+    }
+  }
+
+  &--outline {
+    border: 1px solid $c-lightgrey;
+  }
+
+  &--valid {
+    border-color: $c-green;
+  }
+
+  &--error {
+    border-color: $c-red-d;
+  }
+}
