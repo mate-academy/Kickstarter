@@ -1,0 +1,166 @@
+.about-us {
+  &__title {
+    font-size: 36px;
+    line-height: 46px;
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onMobile {
+      margin-bottom: 30px;
+    }
+
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 24px;
+    padding-bottom: 60px;
+
+    @include onMobile {
+      font-size: 14px;
+      line-height: 21px;
+      padding-bottom: 30px;
+    }
+  }
+
+  &__link {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: $color-turquoise;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 54px;
+      height: 1px;
+      background-color: $color-turquoise;
+      display: block;
+      margin-top: 5px;
+      cursor: auto;
+      transition: width $transition-duration;
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+
+    @include onMobile {
+      order: 4;
+    }
+  }
+
+  &__photo-container {
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    width: 100%;
+
+    @include onMobile {
+      max-height: 388px;
+    }
+
+    @include onMobile {
+      max-height: 210px;
+    }
+
+    @include onTablet {
+      max-height: 417px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    @include onDesktop {
+      height: 388px;
+      padding-bottom: 0;
+    }
+
+    @include onTablet {
+      height: 417px;
+      overflow: visible;
+    }
+
+    @include onMobile {
+      height: 210px;
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: $transition-duration;
+       
+    &:hover {
+      transform: $scale;
+    }
+
+    @include onTablet {
+      right: 34px;
+
+      &:hover {
+        transform: translateX(34px);
+      }
+    }
+
+    &--2 {
+      @include onTablet {
+        left: 34px;
+
+        &:hover {
+          transform: translateX(-34px);
+        }
+      }
+      
+    }
+   
+  }
+
+  &__grid {
+    &--mobile {
+      margin-bottom: 20px;
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      @include onMobile {
+        display: none;
+      }
+    }
+  }
+
+  &__place {
+    &:first-child {
+      margin-bottom: 110px;
+
+      @include onTablet {
+        margin-bottom: 140px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 170px;
+      }
+    }
+  }
+}

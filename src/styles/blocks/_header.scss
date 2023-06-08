@@ -1,0 +1,60 @@
+.header {
+  @include onTablet {
+    margin-bottom: 130px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 90px;
+
+  }
+
+  &__content {
+    margin-top: 30px;
+    @include onMobile {
+      margin: 25px 0;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+  }
+
+  &__links {
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-midnight-gray;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    border: none;
+    cursor: pointer;
+
+    &--specs {
+      display: inline-block;
+      color: $color-midnight-gray;
+      transition: font-weight $transition-duration;
+
+      &:hover {
+        font-weight: 700;
+      }
+      
+      @include onTablet {
+        width: 70px;
+        height: 17px;
+      }
+
+      @include onDesktop {
+        width: 72px;
+        height: 20px;
+      }
+    }
+  }
+}

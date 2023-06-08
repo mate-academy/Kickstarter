@@ -1,0 +1,100 @@
+.features-slider {
+  background-color: $color-blue-gray;
+  padding-top: 60px;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  @include onMobile {
+    padding-top: 30px;
+  }
+
+  &__description-title {
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 20px;
+  }
+
+  &__description-list-item {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  &__buttons {
+    display: flex;
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  &__buttons-container {
+    margin-top: 51px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__button {
+    position: static;
+    margin: 0;
+    background-position: center;
+    cursor: pointer;
+    &::after {
+      display: none;
+    }
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 48px;
+    height: 13px;
+  }
+
+  &__button-prev {
+    background-image: url(../images/slider/button-prev.svg);
+
+    &:hover {
+      background-image: url(../images/slider/button-prev_hover.svg);
+    }
+  }
+
+  &__button-next {
+    background-image: url(../images/slider/button-next.svg);
+
+    &:hover {
+      background-image: url(../images/slider/button-next_hover.svg);
+    }
+  }
+
+  &__pagination {
+    position: static;
+    color: $color-teal;
+    font-size: 11px;
+    line-height: 13px;
+    width: max-content;
+  }
+
+  &__pagination-current {
+    font-size: 16px;
+    line-height: 24px;
+    color: $color-dark-gray;
+    padding-right: 3px;
+    position: relative;
+    bottom: 7px;
+  }
+
+  &__pagination-total {
+    padding-left: 4px;
+  }
+
+  &__photo {
+    height: auto;
+    width: 100%;
+    display: block;
+  }
+
+  &__slide {
+    @include onMobile {
+      padding-left: 30px;
+    }
+    box-sizing: border-box;
+  }
+}

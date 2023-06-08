@@ -1,0 +1,124 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-basis: 100%;
+  box-sizing: border-box;
+  height: 100%;
+
+  &--mobile {
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  @include onTablet {
+    flex-basis: 50%;
+    padding-right: 20px;
+
+    &:nth-child(1) {
+      padding-bottom: 65px;
+    }
+
+    &:nth-child(2) {
+      padding-right: 0;
+      padding-bottom: 65px;
+    }
+
+    &:nth-child(4) {
+      padding-right: 0;
+    }
+
+  }
+
+  @include onDesktop {
+    flex-basis: 25%;
+    max-width: 276px;
+  }
+
+  &__icon {
+    width: 50px;
+    height: 42.25px;
+    padding-bottom: 40px;
+    transition: transform $transition-duration;
+    animation: wiggle 2s linear infinite;
+
+    @keyframes wiggle {
+      0%,
+      7% {
+        transform: rotateZ(0);
+      }
+
+      15% {
+        transform: rotateZ(-15deg);
+      }
+
+      20% {
+        transform: rotateZ(10deg);
+      }
+
+      25% {
+        transform: rotateZ(-10deg);
+      }
+
+      30% {
+        transform: rotateZ(6deg);
+      }
+
+      35% {
+        transform: rotateZ(-4deg);
+      }
+      
+      40%,
+      100% {
+        transform: rotateZ(0);
+      }
+    }
+  
+    @include onTablet {
+      padding-bottom: 50px;
+    }
+  
+    @include onDesktop {
+      padding-bottom: 34px;
+    }
+  }
+  
+  &__title {
+    font-size: 22px;
+    line-height: 28px;
+    margin: 0;
+    padding-bottom: 20px;
+  
+    @include onDesktop {
+      padding-bottom: 24px;
+      min-width: 276px;
+    }
+  
+    &--desktop {
+      @include onDesktop {
+        padding-bottom: 52px;
+      }
+    }
+  
+    &--tablet-fut-des {
+      @media (min-width: 640px) and (max-width: 691px) {
+        padding-bottom: 48px;
+      }
+    }
+  
+    &--tablet-mul-sis {
+      @media (min-width: 640px) and (max-width: 705px) {
+        padding-bottom: 48px;
+      }
+    }
+  }
+  
+  &__description {
+    font-size: 14px;
+    line-height: 21px;
+    margin: 0;
+  }
+}

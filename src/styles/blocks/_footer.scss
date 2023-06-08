@@ -1,0 +1,70 @@
+.footer {
+  display: flex;
+  margin-bottom: 30px;
+
+  @include onMobile {
+    margin-bottom: 20px;
+  }
+  
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    @include onMobile {
+      gap: 33px;
+    }
+  }
+
+  &__social-media {
+    display: flex;
+    gap: 44px;
+  }
+  
+
+  &__upper {
+    width: 24px;
+    height: 20px;
+    position: absolute;
+    padding: 10px;
+    
+    @include onDesktop {
+      right: 123px;
+    }
+
+    @include onTablet {
+      right: 34px;
+    }
+
+    transition: transform $transition-duration;
+
+    &:hover {
+      transform: translateY(-50%);
+    }
+  }
+
+  &__logo-and-upper {
+    
+    
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__information {
+    font-size: 14px;
+    line-height: 21px;
+
+    color: $color-gray;
+  }
+
+  &__social-media-icon {
+    transition: transform $transition-duration;
+
+    &:hover {
+      transform: $scale;
+    }
+  }
+}
