@@ -1,0 +1,66 @@
+.features {
+  padding-bottom: 170px;
+  @include tablet {
+    padding-bottom: 140px;
+  }
+
+  @include mobile {
+    padding-bottom: 90px;
+  }
+
+  &__content {
+    position: relative;
+    background-color: $bg-color-features;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 56px 30px;
+    padding: 60px 0;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include tablet {
+      font-size: 30px;
+      line-height: 40px;
+    }
+
+    @include mobile {
+      padding-left: 30px;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__column {
+    grid-column: 2 / 6;
+  }
+  
+  &__column:nth-child(2){
+    grid-column: 7 / 10;
+  }
+  
+  &__bg {
+    background-image: url(../images/feuture-bg.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 302px;
+    max-width: 582px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    @include tablet {
+      max-width: 435px;
+      width: 100%;
+      max-height: 226px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}

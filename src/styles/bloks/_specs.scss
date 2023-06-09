@@ -1,0 +1,67 @@
+.specs {
+  padding-bottom: 170px;
+
+  @include tablet {
+    padding-bottom: 140px;
+  }
+
+  @include mobile {
+    padding-bottom: 110px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0 30px;
+    text-align: center;
+    align-items: baseline;
+
+    @include tablet {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 65px 20px;
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__desc {
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  &__title {
+    min-height: 56px;
+    margin-bottom: 24px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    color: $dark-color;
+    text-transform: uppercase;
+
+    @include tablet {
+      margin-bottom: 20px;
+      min-height: 0;
+    }
+  }
+
+  &__item svg {
+    margin-bottom: 35px;
+
+    @include mobile {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__item {
+    grid-column: 3 span;
+
+    @include mobile {
+      &:not(:first-child) {
+        display: none;
+      }
+    }
+  }
+}
