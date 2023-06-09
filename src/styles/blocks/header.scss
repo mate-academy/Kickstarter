@@ -1,0 +1,216 @@
+.header {
+
+  &__top {
+    padding: 25px 30px;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 129px;
+    }
+
+    @include onDesktop {
+      padding: 30px 123px;
+      margin-bottom: 90px;
+    }
+
+    &--logo {
+      cursor: pointer;
+
+      &--image {
+        transition: all 0.7s ease;
+        
+        &:hover {
+          scale: 1.1;
+          fill: $colorGreen;
+
+          path {
+            stroke: #a02525;
+          }
+        }
+      }
+    }
+  }
+
+  &__top-tablet {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      gap: 26px;
+      height: 48px;
+      align-items: center;
+    }
+
+    &--specs {
+      display: flex;
+      height: 48px;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 18px;
+      color: $colorIcons;
+      text-transform: uppercase;
+      transition: all 0.7s ease;
+      border-bottom: solid 1px transparent;
+
+      @include onDesktop {
+        line-height: 20px;
+      }
+
+      &:hover {
+        color: $colorAzure;
+        border-bottom: solid 1px $colorAzure;
+      }
+    }
+
+    &--lang {
+      display: flex;
+      align-items: center;
+      
+      &--link {
+        display: flex;
+        align-items: center;
+        height: 48px;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: $colroFontLightGray;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        transition: all 0.7s ease;
+
+        @include onDesktop {
+          line-height: 20px;
+        }
+        
+        &:hover {
+          border-bottom: 2px solid $colorAzure;
+          color: $colorAzure;
+        }
+
+        &:focus {
+          border-bottom: 2px solid $colorFontBlack;
+          color: $colorFontBlack;
+        }
+      }
+
+      &--slash {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: $colroFontLightGray;
+      }
+    }
+
+    &--button {
+      display: flex;
+      width: 102px;
+      height: 48px;
+      text-decoration: none;
+      cursor: pointer;
+      background-color: $colorFontBlack;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 15px;
+      text-transform: uppercase;
+      color: #fff;
+      transition: all 0.7s ease;
+
+      &:hover {
+        background-color: $colorIcons;
+        color: $colorAzure;
+        border-radius: 8px;
+      }
+    }
+
+    &--element {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__image--mobile {
+    width: 100%;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $colorFontGray;
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__container {
+
+    @include onTablet {
+      position: relative;
+      margin-bottom: 140px;
+    }
+
+    &--image {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        position: absolute;
+        min-height: 317px;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--image-desktop {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 123px;
+        z-index: -1;
+      }
+    }
+  }
+}
