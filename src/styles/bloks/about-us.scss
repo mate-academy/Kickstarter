@@ -1,0 +1,136 @@
+.about-us {
+  .container {
+    @include onTablet {
+      padding: 0;
+    }
+    @include onSmaleDesktop {
+      padding: 0 123px;
+    }
+  }
+    
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    overflow: hidden;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      align-items: start;
+      gap: 20px;
+      min-height: 350px;
+    }
+
+    @include onSmaleDesktop {
+      gap: 30px;
+    }
+  }
+
+  &__big-box1 {
+    padding-bottom: 140px;
+  }
+
+  &__empty-left {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-basis: 50%;
+      width: 580px;
+      height: 380px;
+      background: url("../images/desktop/2.png") no-repeat;
+      background-size: 100%;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: all 0.3s;
+      }
+    }
+  }
+
+  &__box-right {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+
+    @include onTablet {
+      padding: 0 34px;
+    }
+  }
+
+  &__box {
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__text {
+    padding: 20px 0 30px;
+    color: $grey2;
+  }
+
+  &__title {
+    padding-bottom: 30px;
+  }
+
+  &__link {
+    display: flex;
+    position: relative;
+    padding-bottom: 6px;
+    text-decoration: none;
+    color: $green-default;
+    
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      width: 54px;
+      height: 1px;
+      background-color: $green-default;
+    }
+  }
+
+  &__link:hover::after {
+    width: 128px;
+    transition: 0.8s;
+  }
+
+  &__image {
+    width: 100%;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: all 0.3s;
+    }
+  }
+
+  &__box-left {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+
+    @include onTablet {
+      padding: 0 35px;
+    }
+  }
+
+  &__empty-right {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-basis: 50%;
+      width: 580px;
+      height: 380px;
+      background: url("../images/desktop/Frame7.png") no-repeat;
+      background-size: 100%;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: all 0.3s;
+      }
+    }
+  }
+}

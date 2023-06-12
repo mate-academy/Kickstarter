@@ -1,0 +1,71 @@
+.benefits {
+  &__content {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 40px;
+    padding-top: 25px;
+    
+    @include onTablet {
+      flex-direction: row;
+      gap: 35px;
+      padding: 90px 0 140px;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: 30%;
+    flex-shrink: 1;
+    flex-grow: 1;
+  }
+  
+  &__list {
+    padding-bottom: 30px;
+  }
+
+  &__text {
+    
+    @include onSmaleDesktop {
+      width: 276px;
+    }
+  }
+
+  &__imagedesk {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      width: 100%;
+      // min-width: 520px;
+      object-fit: contain;
+    }
+  }
+
+  &__image-box {
+    object-fit: contain;
+    overflow: hidden;
+    display: flex;
+    flex-basis: 70%;
+    flex-shrink: 1;
+    flex-grow: 1;
+    transition: 0.3s;
+    
+    &:hover {
+      scale: (1.1);
+      transition: 0.3s;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    min-width: 285px;
+    max-height: 500px;
+    object-fit: contain;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+.menu {
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__list {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  
+  &__list > :first-child {
+    font-weight: 700;
+    color: $button-hover;
+  }
+
+  &__link {
+    display: block;
+    padding: 17px 20px;
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: $button-default;
+
+    @include onSmaleDesktop {
+      padding: 17px 35px;
+    }
+  }
+ 
+  &__item {
+    cursor: pointer;
+    list-style: none;
+    @extend %border-black;
+  }
+}
+
+.menu.active {
+  opacity: 1;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  visibility: visible;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 70px 0;
+  background-color: $green-disabled;
+  z-index: 150;
+}
+
+.menu.active .menu__list {
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  align-items: center;
+  z-index: 100;
+}

@@ -1,0 +1,92 @@
+.footer {
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    gap: 33px;
+    padding: 0 0 20px;
+
+    @include onSmaleDesktop {
+      gap: 63px;
+      padding: 0 0 30px;
+    }
+  }
+ 
+  &__social-box {
+    display: flex;
+    gap: 45px;
+ 
+    @include onTablet {
+      gap: 53px;
+    }
+  }
+
+  &__copy {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 21px;
+    color: $grey1;
+  }
+
+  &__arrow-top {
+    display: none;
+  
+    @include onTablet {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      animation: arrow 2s infinite ease;
+      transition: all 0.3s;
+
+      @keyframes arrow {
+        0% {
+          top: 0;
+        }
+        50% {
+          top: 20px;
+        }
+        100% {
+          top: 0;
+        }
+      }
+    }
+  }
+  &__img {
+    transition: all 0.3s;
+  }
+
+  &__arrow-top:hover .footer__img {
+    transform: scale(1.3);
+    transition: all 0.3s;
+  }
+
+  &__icon {
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.3);
+      transition: all 0.3s;
+    }
+
+    &:hover.icon-facebook::before {
+      color: $green-default;
+      transition: all 0.3s;
+    }
+
+    &:hover.icon-twitter::before {
+      color: $green-default;
+      transition: all 0.3s;
+    }
+
+    &:hover.icon-instagram::before {
+      color: $green-default;
+      transition: all 0.3s;
+    }
+  }
+}

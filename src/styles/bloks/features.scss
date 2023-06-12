@@ -1,0 +1,153 @@
+.features {
+  &__background {
+    background: url("../images/desktop/Frame11.png") 100% 100% no-repeat;
+    background-color: #d6ecec;
+    background-blend-mode: darken;
+    background-size: 250px;
+    transition: background-size 0.3s;
+
+    &:hover {
+      background-size: 280px;
+      transition: all 0.3s;
+    }
+
+    @include onTablet {
+      background: none;
+      background-color: $light;
+      background-size: auto;
+      background-blend-mode: normal;
+    }
+  }
+
+  &__content {
+    margin-top: 30px;
+    padding: 30px 0 59px 18px;
+    min-height: 575px;
+
+    @include onTablet {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline;
+      max-width: 1200px;
+      gap: 56px 150px;
+     
+      padding: 60px 0 59px 48px;
+      background: url("../images/desktop/Frame11.png") 100% 100% no-repeat;
+      background-color: #d6ecec;
+      background-blend-mode: darken;
+      background-size: 350px;
+      transition: background-size 0.3s;
+
+      &:hover {
+        background-size: 370px;
+        transition: all 0.3s;
+      }
+      
+    }
+
+    @include onSmaleDesktop {
+      // background-size: auto;
+      padding: 60px 0 59px 116px;
+    }
+  }
+
+  &__content > :nth-child(-n+2) {
+    display: none;
+  }
+
+  @include onSmaleDesktop {
+    &__content > :nth-child(-n+2) {
+      display: flex;
+    }
+  }
+
+  &__title {
+    color: $green-hover;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 30px 0 0 15px;
+  }
+
+  &__item {
+    transition: 0.3s;
+
+    &:hover {
+      scale: (1.05);
+      transition: 0.3s;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 480px;
+    transition: 0.3s;
+    cursor: pointer;
+
+    @include onSmaleDesktop {
+      height: auto;
+    }
+  }
+
+  &__num-list {
+    position: relative;
+    display: flex;
+    list-style: none;
+    margin: 60px auto;
+  }
+
+  &__num-list::before {
+    position: absolute;
+    content: "";
+    width: 48px;
+    height: 14px;
+    bottom: 35px;
+    left: 50px;
+    background: url("../images/arrow-slider2.svg") no-repeat;
+    background-size: 48px;
+
+    @include onSmaleDesktop {
+      display: none;
+    }
+  }
+
+  &__num-list::after {
+    position: absolute;
+    content: "";
+    width: 48px;
+    height: 14px;
+    bottom: 35px;
+    left: 0;
+    background: url("../images/arrow-slider3.svg") no-repeat;
+    background-size: 48px;
+    
+    @include onSmaleDesktop {
+      display: none;
+    }
+  }
+
+  &__num1 {
+    @include onSmaleDesktop {
+      display: none;
+    }
+  }
+
+  &__num2 {
+    padding: 5px;
+    font-size: 11px;
+    line-height: 13px;
+    color: $green-hover;
+
+    @include onSmaleDesktop {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,113 @@
+.header {
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 0;
+  }
+
+  &__box {
+    display: none;
+
+    @include onTablet {
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__menu-leng {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 15px 47px 15px 5px;
+    list-style: none;
+  }
+  
+  &__item {
+    padding: 0 4px;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  &__menu-leng > :first-child::after {
+    position: absolute;
+    content: "/";
+    font-weight: 400;
+    color: $button-default;
+    padding: 0 2px;
+  }
+ 
+  &__link-leng {
+    text-decoration: none;
+    color: $grey1;
+
+    &:hover {
+      color: $button-default;
+    }
+  }
+
+  &__menu-leng li.header__item--active .header__link-leng {
+    font-weight: 400;
+    color: $button-default;
+  }
+
+  &__link {
+    display: block;
+    padding: 17px 35px;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: $grey3;
+    text-decoration: none;
+    @extend %border-black;
+  }
+
+  &__burger {
+    position: sticky;
+    display: block;
+    top: 36px;
+    right: 40px;
+    width: 20px;
+    height: 15px;
+    opacity: 1;
+    visibility: visible;
+    cursor: pointer;
+    z-index: 200;
+    
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__burger::before {
+    @include lineBurger-menu;
+    top: 0;
+    z-index: 200;
+  }
+
+  &__burger::after {
+    @include lineBurger-menu;
+    top: 6px;
+    z-index: 200;
+  }
+
+  &__burger.active::before {
+    transform: rotate(45deg);
+    top: 3px;
+    z-index: 200;
+  }
+
+  &__burger.active::after {
+    transform: rotate(-45deg);
+    top: 3px;
+    z-index: 200;
+  }
+}
