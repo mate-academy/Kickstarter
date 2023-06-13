@@ -1,0 +1,82 @@
+.menu {
+  display: none;
+  box-sizing: border-box;
+  height: 100vh;
+  width: $width;
+  background-color: #e5e5e5;
+
+  @include onLaptop {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__cross {
+    background-image: url(../images/cross.svg);
+    width: 16px;
+    height: 16px;
+    display: none;
+  
+    @include onLaptop {
+      display: flex;
+      transition: all $duration;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__specs {
+    @include onLaptop {
+      display: none;
+    }
+
+    @include onMobile {
+      display: flex;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 17px;
+      color: $specscolor;
+      text-decoration: none;
+      margin-right: 20px;
+      transition: all $duration;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__button {
+    @include onLaptop {
+      display: none;
+    }
+
+    @include onMobile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 45px;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      text-transform: uppercase;
+      color: #fff;
+      text-decoration: none;
+      border: 1px transparent;
+      background-color: $main-color;
+      transition: all $duration;
+    
+      &:hover {
+        background-color: $dark;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    margin-bottom: 160px;
+  }
+}

@@ -1,0 +1,136 @@
+.questions {
+  &__page {
+    display: flex;
+    justify-content: space-between;
+
+    @include onMobile {
+      width: $width;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 70px;
+    text-transform: uppercase;
+    margin: 0;
+
+    @include onLaptop {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onMobile {
+      margin-bottom: 27px;
+      font-size: 30px;
+      line-height: 40px;
+    }
+  }
+
+  &__forms {
+    @include onMobile {
+      width: $width;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    @include onMobile {
+      width: $width;
+    }
+  }
+
+  &__input {
+    width: 450px;
+    font-size: 14px;
+    line-height: 24px;
+    border: 1px solid #828282;
+    background-color: inherit;
+    padding: 14px 36px;
+    margin-bottom: 20px;
+    transition: all $duration;
+    box-sizing: border-box;
+
+    @include onLaptop {
+      width: 340px;
+    }
+
+    @include onMobile {
+      width: $width;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: transparent;
+      border: 1px solid #0c797a;
+    }
+
+    &::placeholder {
+      font-size: 16px;
+      line-height: 24px;
+      color: #bdbdbd;
+    }
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 80px #f7f7f7 inset !important;
+    }
+
+    &--success {
+      outline: transparent;
+      border: 1px solid #eb5757;
+    }
+
+    &--default {
+      border: 1px solid #828282;
+    }
+
+    &--email {
+      height: 48px;
+    }
+
+    &--textarea {
+      height: 128px;
+      resize: none;
+
+      @include onLaptop {
+        height: 200px;
+      }
+
+      @include onMobile {
+        height: 128px;
+      }
+    }
+  }
+
+  &__button {
+    box-sizing: border-box;
+    width: 123px;
+    height: 48px;
+    background: $blue;
+    border-color: transparent;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #fff;
+    transition: all $duration;
+
+    &:hover {
+      background-color: $lightblue;
+      cursor: pointer;
+    }
+
+    @include onLaptop {
+      width: 102px;
+      height: 40px;
+    }
+  }
+}

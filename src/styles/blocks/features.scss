@@ -1,0 +1,185 @@
+.features {
+  &__title {
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 70px;
+    text-transform: uppercase;
+    margin: 0 0 30px;
+
+    @include onMobile {
+      font-size: 30px;
+      line-height: 40px;
+      margin-left: 30px;
+    }
+  }
+
+  &__blocks {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 100%;
+    background-color: #d6ecec;
+    background-image: url(../images/bgitechnology.png);
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+
+    @include onLaptop {
+      grid-template-columns: repeat(8, 1fr);
+    }
+
+    @include onMobile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url(../images/featuresBG.png);
+      background-position: 50% 100%;
+    }
+  }
+
+  &__block {
+    @include onLaptop {
+      height: 376px;
+      margin-bottom: 50px;
+    }
+
+    @include onMobile {
+      width: 300px;
+      margin-bottom: 25px;
+    }
+  }
+
+  &__block--1 {
+    grid-column: 2 / 7;
+    grid-row: 1 / 2;
+
+    @include onLaptop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__block--2 {
+    grid-column: 2 / 7;
+    grid-row: 2 / 3;
+
+    @include onLaptop {
+      grid-column: 2 / 6;
+      grid-row: 1 / 2;
+      display: none;
+    }
+  }
+
+  &__block--3 {
+    grid-column: 7 / 12;
+    grid-row: 1 / 2;
+
+    @include onLaptop {
+      grid-column: 2 / 6;
+      display: none;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 42px;
+    text-transform: uppercase;
+    color: #0c797a;
+    margin: 60px 0 30px;
+
+    @include onMobile {
+      font-size: 18px;
+      line-height: 22px;
+      margin: 30px 0 20px;
+    }
+  }
+
+  &__list {
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  &__item {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 10px;
+  }
+
+  &__sliders {
+    display: none;
+
+    @include onLaptop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  &__btn {
+    width: 48px;
+    height: 13px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    transition: background-image $duration;
+    cursor: pointer;
+
+    &--right {
+      background-image: url(../images/SliderR.svg);
+      background-repeat: no-repeat;
+
+      &:hover {
+        background-image: url(../images/sliderHoverR.svg);
+      }
+
+      &:disabled {
+        background-image: url(../images/sliderRDis.svg);
+      }
+    }
+
+    &--left {
+      background-image: url(../images/sliderL.svg);
+      background-repeat: no-repeat;
+
+      &:hover {
+        background-image: url(../images/sliderHoverL.svg);
+      }
+
+      &:disabled {
+        background-image: url(../images/sliderLDis.svg);
+      }
+    }
+  }
+
+  &__order {
+    width: fit-content;
+    margin-bottom: 150px;
+  }
+
+  &__first-num {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 24px;
+    transform: translateY(-3px);
+  }
+
+  &__last-num {
+    font-size: 11px;
+    line-height: 13px;
+    color: $lightblue;
+  }
+
+  &__slash {
+    font-size: 11px;
+    line-height: 13px;
+    color: $lightblue;
+  }
+}
