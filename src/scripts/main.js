@@ -1,5 +1,6 @@
 'use strict';
 
+// eslint-disable-next-line
 AOS.init();
 
 const pageBody = document.querySelector('.page__body');
@@ -26,6 +27,7 @@ window.addEventListener('scroll', function() {
   }
 });
 
+// eslint-disable-next-line
 const swiper = new Swiper('.swiper', {
 
   direction: 'horizontal',
