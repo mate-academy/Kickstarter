@@ -29,6 +29,18 @@
       margin-bottom: 30px;
       font-family: inherit;
       height: 128px;
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 50px;
+        background-color: $c-acent;
+        scroll-behavior: smooth;
+        transition: background-color $transition-duration;
+        &:hover {
+          background-color: $c-swiper;
+        }
+      }
     }
     &::placeholder {
       font-weight: 400;
@@ -45,6 +57,7 @@
     border: none;
     display: flex;
     flex-direction: column;
+    scrollbar-color: $c-swiper;
   }
   &__button {
     width: 124px;
@@ -55,6 +68,8 @@
     font-size: 12px;
     line-height: 14px;
     color: #fff;
+    cursor: pointer;
+    transition: background $transition-duration;
     &:hover {
       background: $c-swiper;
     }
