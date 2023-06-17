@@ -13,20 +13,20 @@
 
   &__top {
     display: grid;
-    grid-template-columns: 1fr 25px;
+    grid-template-columns: $header-menu-top-grid-columns-mobile;
     margin-bottom: 25px;
 
     @include onTablet {
-      grid-template-columns: 1fr 47px 49px 100px 25px;
-      column-gap: 30px;
+      grid-template-columns: $header-top-grid-columns-tablet;
+      column-gap: $header-top-column-gap-tablet;
       align-items: center;
       margin-bottom: 142px;
     }
 
     @include onDesktop {
       margin-bottom: 180px;
-      grid-template-columns: 1fr 52px 53px 102px;
-      column-gap: 47px;
+      grid-template-columns: $header-top-grid-columns-desktop;
+      column-gap: $header-top-column-gap-desktop;
     }
   }
 
@@ -96,34 +96,34 @@
       position: absolute;
 
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      column-gap: 20px;
+      grid-template-columns: $grid-three-columns;
+      column-gap: $grid-column-gap-tablet;
     }
 
     @include onDesktop {
       grid-column: 1 / 5;
-      grid-template-columns: repeat(4, 1fr);
-      column-gap: 30px;
+      grid-template-columns: $grid-four-columns;
+      column-gap: $grid-column-gap-desktop;
     }
   }
 
   &__title {
     margin: 0 0 20px;
-    font-size: 40px;
-    line-height: 52px;
+    font-size: $font-size-header-title-mobile;
+    line-height: $line-height-header-title-mobile;
     text-transform: uppercase;
     color: $dark-gray-color;
 
     @include onTablet {
       margin: 0 0 30px;
-      font-size: 48px;
-      line-height: 62px;
+      font-size: $font-size-header-title-tablet;
+      line-height: $line-height-header-title-tablet;
       grid-column: 1 / 4;
     }
 
     @include onDesktop {
-      font-size: 62px;
-      line-height: 78px;
+      font-size: $font-size-header-title-desktop;
+      line-height: $line-height-header-title-desktop;
       grid-column: 1 / 5;
     }
   }
@@ -158,9 +158,9 @@
     padding: 0;
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(4, 110px);
+    grid-template-columns: $desktop-menu-grid-columns;
     justify-items: center;
-    column-gap: 64px;
+    column-gap: $desktop-menu-column-gap;
   }
 
   &__desktop-menu-link {
