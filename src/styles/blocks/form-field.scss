@@ -1,0 +1,63 @@
+.form-field {
+  margin: 0 0 20px;
+  box-sizing: border-box;
+  display: block;
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  width: 100%;
+  height: 48px;
+  border: 1px solid $disabledCol;
+  padding: 12px 20px;
+  background-color: transparent;
+  color: $darkCol;
+
+  text-transform: initial;
+
+  &::placeholder {
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 24px;
+    color: $greyLightCol;
+  }
+
+  &:focus {
+    border-color: $greenDarkCol;
+    outline: none;
+  }
+
+  &--email {
+    &:valid {
+      border: 1px solid $greenCol;
+    }
+
+    &:not(:placeholder-shown):not(:focus):invalid {
+      border: 1px solid #eb5757;
+      color: #eb5757;
+    }
+  }
+
+  &--textarea {
+    margin: 0 0 30px;
+    height: 128px;
+    overflow: hidden;
+    white-space: normal;
+    resize: none;
+
+    @include onTablet {
+      height: 201px;
+    }
+
+    @include onDesktop {
+      height: 128px;
+    }
+  }
+
+  @include onTablet {
+    padding: 12px 30px;
+  }
+
+  @include onDesktop {
+    padding: 12px 36px;
+  }
+}

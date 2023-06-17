@@ -1,0 +1,115 @@
+.slider {
+  @include onTablet {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__control {
+    display: none;
+  }
+
+  #switch1:checked~&__#{$c} &__#{$c}-left &__#{$c}-label:nth-child(3),
+  #switch2:checked~&__#{$c} &__#{$c}-left &__#{$c}-label:nth-child(1),
+  #switch3:checked~&__#{$c} &__#{$c}-left &__#{$c}-label:nth-child(2) {
+    display: inline-block;
+    width: 48px;
+    height: 14px;
+    cursor: pointer;
+    background-image: url(/images/Vector-slider-grey.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    transition: all $duration;
+  }
+
+  #switch1:checked ~ &__#{$c} &__#{$c}-right &__#{$c}-label:nth-child(2),
+  #switch2:checked~ &__#{$c} &__#{$c}-right &__#{$c}-label:nth-child(3),
+  #switch3:checked ~ &__#{$c} &__#{$c}-right &__#{$c}-label:nth-child(1) {
+    display: inline-block;
+    width: 48px;
+    height: 14px;
+    cursor: pointer;
+    background-image: url(../images/Vector-slider-normal.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    transition: all $duration;
+
+    &:hover {
+      background-image: url(../images/Vector-slider-hover.svg);
+    }
+  }
+
+  &__controls-label {
+    cursor: pointer;
+  }
+
+  #switch1:checked ~ &__count &__count-start:after {
+    content: "01";
+  }
+
+  #switch2:checked ~ &__count &__count-start:after {
+    content: "02";
+  }
+
+  #switch3:checked ~ &__count &__count-start:after {
+    content: "03";
+  }
+
+  &__count-start {
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: $darkCol;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      display: flex;
+      justify-content: start;
+      margin-left: 90px;
+      grid-column: 1/3;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__count {
+    text-align: center;
+
+    @include onTablet {
+      text-align: start;
+      margin-left: 114px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__count-end {
+    display: flex;
+    font-size: 11px;
+    line-height: 13px;
+    align-self: flex-end;
+    color: $greenDarkCol;
+    justify-content: center;
+    margin-left: 48px;
+    margin-top: -12px;
+
+    @include onTablet {
+      justify-content: start;
+      margin-left: 22px;
+      margin-top: -12px;
+    }
+  }
+}

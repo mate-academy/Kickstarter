@@ -1,0 +1,42 @@
+.contact-us {
+  &__content {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: $size24;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: $size24;
+    }
+  }
+
+  &__title {
+    margin: 0 0 27px;
+    @extend %title-text;
+
+    @include onTablet {
+      grid-column: 1/5;
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      grid-column: 1/7;
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__form {
+    @include onTablet {
+      grid-column: 5/9;
+    }
+
+    @include onDesktop {
+      grid-column: 7/13;
+    }
+  }
+}

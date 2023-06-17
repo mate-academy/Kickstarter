@@ -1,0 +1,164 @@
+.header {
+  // PICTURE
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 40px;
+
+    @include onTablet {
+      margin-bottom: 0;
+      z-index: 0;
+      max-width: 460px;
+      max-height: 350px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__picture-tablet-desktop {
+    transition: transform $duration;
+    @include onMobile {
+      display: none;
+    }
+
+    @include onTablet {
+      grid-column: 4/9;
+    }
+
+    @include onDesktop {
+      grid-column: 5/13;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__picture-mob {
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+  // ----- PICTURE
+  &__top {
+    display: flex;
+    align-items: center;
+    margin: 25px auto 25px 0;
+
+    @include onTablet {
+      margin: 30px 0 129px;
+    }
+
+    @include onDesktop {
+      margin: 30px 0 90px;
+    }
+  }
+
+  &__top-nav {
+    @include onMobile {
+      display: none;
+    }
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__lang-label {
+    display: inline-block;
+    padding: 0 3px;
+    cursor: pointer;
+  }
+
+  &__lang {
+    margin-right: 27px;
+    font-size: 14px;
+    line-height: 18px;
+    color: $disabledCol;
+  }
+
+  &__lang-input {
+    display: none;
+    color: aqua;
+
+    &:checked + label {
+      color: $darkCol;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &--specs {
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 17px;
+      color: $greyDarkCol;
+      margin-right: 27px;
+    }
+
+    &--span {
+      color: $darkCol;
+    }
+  }
+
+  &__container {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: $size24;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: $size24;
+    }
+  }
+
+  &__text {
+    z-index: 1;
+
+    @include onTablet {
+      grid-column: 1/4;
+    }
+
+    @include onDesktop {
+      grid-column: 1/5;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    color: $darkCol;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    line-height: 24px;
+    color: $darkCol;
+  }
+}

@@ -1,0 +1,112 @@
+.advantages {
+  &__logo {
+    display: block;
+    margin-bottom: 50px;
+    width: 50px;
+    height: 40px;
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__container {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: $size24;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: $size24;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform $duration;
+
+    &--design {
+      grid-column: 1/5;
+      margin-bottom: 65px;
+
+      @include onMobile {
+        display: flex;
+        margin-bottom: 0;
+      }
+
+      @include onDesktop {
+        grid-column: 1/4;
+        margin-bottom: 0;
+      }
+    }
+
+    &--twitter-speaker {
+      grid-column: 5/9;
+      margin-bottom: 65px;
+
+      @include onMobile {
+        display: none;
+      }
+
+      @include onDesktop {
+        grid-column: 4/7;
+        margin-bottom: 0;
+      }
+    }
+
+    &--multiroom {
+      grid-column: 1/5;
+      margin-bottom: 0;
+
+      @include onMobile {
+        display: none;
+      }
+
+      @include onDesktop {
+        grid-column: 7/10;
+        margin-bottom: 0;
+      }
+    }
+
+    &--lighting {
+      grid-column: 5/9;
+      margin-bottom: 0;
+
+      @include onMobile {
+        display: none;
+      }
+
+      @include onDesktop {
+        grid-column: 10/13;
+        margin-bottom: 0;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+
+    @include onDesktop {
+      height: 56px;
+    }
+  }
+
+  &__subtitle {
+    @extend %small-text;
+    margin: 0;
+  }
+}

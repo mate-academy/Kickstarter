@@ -1,0 +1,47 @@
+.dekstop-menu {
+  &__nav {
+    display: flex;
+    padding: 28px 0;
+    margin: 0 0 62px;
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 30px;
+
+    @include onDesktop {
+      gap: 84px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    margin: 0;
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    color: $darkCol;
+    text-transform: uppercase;
+
+    &::after {
+      display: block;
+      margin-top: 4px;
+      content: "";
+      width: 0;
+      height: 1px;
+      background-color: $greenCol;
+      transition: width $duration;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
