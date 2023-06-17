@@ -1,0 +1,126 @@
+.technology {
+  
+  @include onTablet {
+    display: none;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &--tablet {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $c-darkgrey-one;
+
+    @include onDesktop {
+      font-weight: 700;
+      font-size: 52px;
+      line-height: 125%;
+    }
+    
+  }
+
+  &__image {
+    height: 210px;
+    margin-bottom: 20px;
+
+    background-image: url(images/mobile/4.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      margin-bottom: 0;
+      background-image: url(images/tablet/4.png);
+      background-size: cover;
+      background-position: center;
+      height: 415px;
+      width: 60%;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+      background-image: url(images/desktop/4.png);
+      background-size: cover;
+      background-position: center;
+      height: 390px;
+      width: 50%;
+    }
+  }
+
+  &__paragraph {
+    margin-bottom: 30px;
+    
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: $c-darkgrey-three;
+
+    @include onTablet {
+      margin-bottom: 60px;
+      font-size: 14px;
+      line-height: 150%;
+    }
+  }
+
+  &__link {
+    padding-bottom: 5px;
+
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: $c-aquamarine;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 53px;
+      border-bottom: 1px solid $c-aquamarine;
+    }
+
+    &:hover::after {
+      width: 128px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    column-gap: 20px;
+    align-items: flex-start;
+
+    @include onDesktop {
+      display: flex;
+      column-gap: 30px;
+    }
+  }
+
+  &__description {
+    width: 50%;
+  }
+
+  & .container {
+
+    @include onTablet {
+      padding-right: 0;
+    }
+  }
+}

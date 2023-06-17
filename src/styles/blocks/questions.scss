@@ -1,0 +1,122 @@
+.questions {
+
+  &__content {
+    
+    @include onTablet {
+      display: flex;
+    }
+
+    @include onDesktop {
+      display: flex;
+      column-gap: 25px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 25px;
+    
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $c-darkgrey-one;
+
+    @include onDesktop {
+      margin-bottom: 0;
+      width: 50%;
+      font-size: 50px;
+      line-height: 70px;
+    }
+  }
+
+  &__form {
+    @include onDesktop {
+      width: 50%;
+    }
+  }
+
+  &__form-field {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 12px 0 12px 20px;
+    font-family: "Inter", sans-serif;
+
+    height: 48px;
+    width: 100%;
+    border: 1px solid #828282;
+
+    &::placeholder {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: $c-lightgrey-one;
+    }
+
+    &:focus {
+      border: 1px solid #0c797a;
+      border-radius: 0;
+      outline: none;
+    }
+
+    &:not(:placeholder-shown):invalid {
+      border: 1px solid #eb5757;
+    }
+
+    
+    &--large {
+      box-sizing: border-box;
+      margin-bottom: 30px;
+      padding: 12px 20px;
+      height: 128px;
+      width: 100%;
+
+      font-family: "Inter", sans-serif;
+      border: 1px solid #828282;
+
+      &::placeholder {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: $c-lightgrey-one;
+      }
+
+      &:focus {
+        border: 1px solid #0c797a;
+        border-radius: 0;
+        outline: none;
+      }
+
+      @include onTablet {
+        height: 170px;
+      }
+    }
+  }
+
+  &__button {
+    display: block;
+    width: 102px;
+    height: 40px;
+    outline: none;
+    background-color: $c-aquamarine;
+    border: none;
+
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #fff;
+
+    &:hover {
+      background-color: #0c797a;
+    }
+
+    &:disabled {
+      background-color: $c-blue;
+    }
+  }
+  
+}

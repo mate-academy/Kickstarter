@@ -1,0 +1,70 @@
+.presentation {
+
+  &__content {
+    margin-bottom: 140px;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    column-gap: 20px;
+    row-gap: 60px;
+    justify-content: space-between;
+
+    @include onDesktop {
+      margin-bottom: 190px;
+      
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      column-gap: 30px;
+    }
+  }
+
+  &__image {
+    height: 195px;
+    width: 100%;
+
+    background-image: url(images/mobile/2.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 430px;
+      background-image: url(images/tablet/2.png);
+    }
+
+    @include onDesktop {
+      height: 520px;
+      background-image: url(images/desktop/2.png);
+    }
+  }
+
+  &__description {
+    margin-bottom: 110px;
+  }
+
+  &--mobile {
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--tablet {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+  
+}
