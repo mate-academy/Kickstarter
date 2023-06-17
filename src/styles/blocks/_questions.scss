@@ -1,0 +1,151 @@
+.questions {
+
+  &__content {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin-bottom: 27px;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__form {
+    grid-column: 5 / -1;
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__button {
+    width: 102px;
+    height: 40px;
+    background-color: #39bebf;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+
+    @include onDesktop {
+      width: 124px;
+    }
+
+    &:hover {
+      background-color: $colorGreenTitle;
+    }
+
+    &:focus {
+      background-color: #cfeff0;
+    }
+  }
+
+  &__form-field {
+    display: block;
+    width: 100%;
+    background-color: $colorBackground;
+    border: 1px solid $colorFormBorder;
+    font-family: "Helvetica", sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: $colorBlack;
+
+    &--email {
+      height: 48px;
+      margin-bottom: 20px;
+      padding: 12px 20px;
+
+      @include onTablet {
+        padding: 12px 30px;
+      }
+
+      @include onDesktop {
+        padding: 12px 36px;
+      }
+
+      &:focus {
+        border: 1px solid $colorGreenTitle;
+      }
+    }
+
+    &--textarea {
+      height: 128px;
+      margin-bottom: 30px;
+      resize: none;
+      padding: 12px 20px;
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+
+      @include onTablet {
+        height: 201px;
+        padding: 12px 30px;
+      }
+
+      @include onDesktop {
+        height: 128px;
+        padding: 16px 36px;
+      }
+    }
+
+    &::placeholder {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: $colorPlaceholder;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+      cursor: auto;
+    }
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px $colorBackground inset;
+      -webkit-text-fill-color: $colorBlack;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px $colorGreenBackground;
+    border-radius: 15px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $colorGreenBackground;
+    border-radius: 15px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: $colorGreenLink;
+  }
+}
