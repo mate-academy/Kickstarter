@@ -1,0 +1,73 @@
+.benefits {
+  margin-top: 100px;
+
+  &__wrapper {
+    @include pageGrid;
+  }
+  &__title {
+    font-size: 22px;
+    line-height: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+  }
+  &__card {
+    @include hover(transform, scale(1.2));
+    transition: all 0.5s;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 110px;
+    @include onTablet {
+      margin-bottom: 140px;
+      grid-column: 1 / 5;
+    }
+    @include onDesktop {
+      margin-bottom: 170px;
+      grid-column: 1 / 4;
+    }
+    &-grid--2,
+    &-grid--3,
+    &-grid--4 {
+      display: none;
+      @include onTablet {
+        display: inline;
+      }
+    }
+    &-grid--2 {
+      @include onTablet {
+        grid-column: 5 / 9;
+      }
+      @include onDesktop {
+        grid-column: 4 / 7;
+      }
+    }
+    &-grid--3 {
+      @include onTablet {
+        grid-column: 1 / 5;
+      }
+      @include onDesktop {
+        grid-column: 7 / 10;
+      }
+    }
+    &-grid--4 {
+      @include onTablet {
+        grid-column: 5 / 9;
+      }
+      @include onDesktop {
+        grid-column: 10 / 13;
+      }
+    }
+  }
+  &__logo-image {
+    width: 50px;
+    height: 40px;
+    margin-bottom: 40px;
+  }
+
+}
