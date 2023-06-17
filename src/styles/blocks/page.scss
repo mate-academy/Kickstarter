@@ -1,0 +1,104 @@
+.page {
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    padding: 0 0 50px;
+    background-color: $backgroundColor;
+
+    @include onTablet {
+      padding-top: 6px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 100px;
+    }
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__header {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    background-color: $backgroundColor;
+
+    @include onTablet {
+      margin-bottom: 90px;
+    }
+
+    @include onDesktop {
+      position: static;
+    }
+  }
+
+  &__section {
+    padding-top: 30px;
+    margin-top: -30px;
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+
+    &--nav {
+      padding-top: 0;
+      margin-top: 0;
+      margin-bottom: 44px;
+      background-color: $backgroundColor;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transform: translateX(-100%);
+    transition-property: transform;
+    transition-duration: 0.3s;
+
+    &:target {
+      transform: translate(0);
+    }
+  }
+
+  &__buttonTop {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    border: none;
+    outline: none;
+    background-color: $backgroundColor;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 40px;
+    width: 60px;
+    height: 60px;
+
+    @include onPhone {
+      opacity: 0;
+    }
+
+    @include onTablet {
+      bottom: 50px;
+      right: 50px;
+    }
+
+    @include onDesktop {
+      bottom: 70px;
+      right: 125px;
+    }
+  }
+}

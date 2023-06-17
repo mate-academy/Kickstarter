@@ -1,0 +1,131 @@
+.features {
+  --bullet-size: 4px;
+  overflow: hidden;
+  position: relative;
+
+  @include onPhone {
+    background-color: $featuresBackground;
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    font-size: 37px;
+    line-height: 130%;
+    text-transform: uppercase;
+
+    font-weight: 700;
+
+    @include onDesktop {
+      font-size: 56px;
+    }
+  }
+
+  &__items {
+    display: flex;
+    margin: 0 auto;
+    gap: 0;
+    width: max-content;
+
+    @include onDesktop {
+      display: grid;
+      width: auto;
+    }
+  }
+
+  &__item {
+    width: calc(100vw - 30px);
+
+    @include onDesktop {
+      width: auto;
+    }
+
+    &-title {
+      font-size: 30px;
+      color: #0c797a;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: 700;
+
+      @include onTablet {
+        margin-left: 90px;
+      }
+
+      @include onDesktop {
+        margin-left: 0;
+        font-size: 34px;
+      }
+    }
+  }
+
+  &__list {
+    margin-bottom: 50px;
+
+    @include onPhone {
+      align-items: center;
+    }
+
+    @include onTablet {
+      margin-left: 90px;
+    }
+
+    @include onDesktop {
+      margin-left: 0;
+      margin-bottom: 0;
+    }
+
+    &-item {
+      position: relative;
+      padding-left: 10px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 150%;
+
+      @include onDesktop {
+        font-size: 16px;
+      }
+
+      &::before {
+        content: "";
+        position: relative;
+        transform: translate(-10px,-100%);
+        left: 0;
+        display: inline-block;
+        width: var(--bullet-size);
+        height: var(--bullet-size);
+        border-radius: 50%;
+        background: $featuresItemBefore;
+      }
+    }
+  }
+
+  &__slider {
+    @include onTablet {
+      background-color: $featuresBackground;
+    }
+  }
+
+  &__image-container {
+    @include onTablet {
+      background-color: $featuresBackground;
+      margin-top: -100px;
+      display: flex;
+      justify-content: end;
+    }
+
+    @include onDesktop {
+      margin-top: -300px;
+    }
+  }
+
+  &__picture {
+    @include onPhone {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

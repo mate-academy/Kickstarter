@@ -1,0 +1,44 @@
+.link {
+  display: inline-block;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: $menuOpener;
+  border-bottom: 1px solid transparent;
+
+  font-size: 16px;
+  line-height: 150%;
+  width: max-content;
+
+  transition: border-bottom 0.3s;
+
+  &--active {
+    font-weight: 500;
+  }
+
+  &--green {
+    color: $aboutLinkColor;
+    font-weight: 700;
+  }
+
+  &--bottom-line {
+    display: block;
+    width: max-content;
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: $aboutLinkColor;
+      margin-top: 6px;
+      width: 30%;
+      height: 1px;
+
+      @include transitions(width);
+    }
+
+    @include onHover {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}

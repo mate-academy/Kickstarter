@@ -1,0 +1,84 @@
+.slider {
+  overflow: hidden;
+
+  &__item {
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+
+    @include onTablet {
+      margin-top: 60px;
+    }
+
+    @include onDesktop {
+      margin: 60px 0;
+
+      &:last-child {
+        margin-top: 0;
+      }
+    }
+
+  }
+
+  &__control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+
+    @include onPhone {
+      align-items: center;
+    }
+
+    @include onTablet {
+      margin-left: 90px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    margin-bottom: 10px;
+  }
+
+  &__next-button,
+  &__prev-button {
+    display: inline-block;
+    width: 48px;
+    height: 13px;
+    border: none;
+    background-position: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: $featuresBackground;
+  }
+
+  &__next-button {
+    background-image: url(../images/Vector333.png);
+
+    &:hover {
+      background-image: url(../images/Vector444.png);
+    }
+  }
+
+  &__prev-button {
+    background-image: url(../images/Vector555.png);
+
+    &:hover {
+      background-image: url(../images/Vector444.png);
+      transform: rotate(180deg);
+    }
+  }
+
+  &__page-current {
+    font-size: 16px;
+    color: $menuOpener;
+    font-weight: 500;
+  }
+
+  &__page-num {
+    font-size: 11px;
+    line-height: 125%;
+    color: $sliderPageNumber;
+  }
+}
