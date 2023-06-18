@@ -1,0 +1,150 @@
+.about {
+  &__container {
+    @include tablet {
+      display: flex;
+      gap: 20px;
+    }
+
+    @include desktop {
+      padding-top: 60px;
+      gap: 30px;
+    }
+
+    &--reverse {
+      @include tablet {
+        flex-direction: row-reverse;
+      }
+    }
+
+    &:first-child {
+      margin-bottom: 116px;
+
+      @include tablet {
+        margin-bottom: 140px;
+      }
+
+      @include desktop {
+        margin-bottom: 110px;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    font-weight: $weight;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $dark;
+
+    @include tablet {
+      display: none;
+    }
+
+    &--2 {
+      margin-bottom: 20px;
+      font-size: $major-line-height;
+      line-height: 46px;
+    }
+
+    &--tablet {
+      display: none;
+
+      @include tablet {
+        display: block;
+        margin-bottom: 30px;
+        font-size: $major-line-height;
+        line-height: 46px;
+      }
+
+      @include desktop {
+        font-size: 56px;
+        line-height: 70px;
+      }
+    }
+  }
+
+  &__picture {
+    width: 50%;
+  }
+
+  &__image {
+    margin-bottom: 20px;
+    width: 100%;
+
+    &--2 {
+      margin-bottom: 18px;
+    }
+
+    @include tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__block {
+    @include tablet {
+      width: 50%;
+      margin-right: 34px;
+    }
+    
+    &--2 {
+      @include tablet {
+        margin-right: 0;
+        margin-left: 34px;
+      }
+    }
+
+    @include desktop {
+      margin: 0;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-size: $main-size;
+    line-height: $main-line-height;
+    color: $gray;
+
+    &--2 {
+      font-size: $bigger-size;
+      line-height: $major-size;
+    }
+
+    @include tablet {
+      margin-bottom: 60px;
+      font-size: $bigger-size;
+      line-height: $major-size;
+    }
+  }
+
+  &__link {
+    font-weight: $weight;
+    font-size: 12px;
+    line-height: $main-size;
+    text-transform: uppercase;
+    color: $aqua;
+    transition: color $trans;
+
+    &::after {
+      content: "";
+      display: block;
+      margin-top: 5px;
+      height: 1px;
+      width: 53px;
+      background-color: $aqua;
+      transition: background-color $trans;
+
+      @include desktop {
+        width: 65px;
+      }
+    }
+
+    &:hover {
+      color: $blue;
+
+      &::after {
+        background-color: $blue;
+      }
+    }
+  }
+}

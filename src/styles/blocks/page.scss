@@ -1,0 +1,71 @@
+.page {
+  position: relative;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  color: $dark;
+  background-color: $white;
+
+  &__header {
+    margin-bottom: 110px;
+
+    @include tablet {
+      margin-bottom: 140px;
+    }
+
+    @include desktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__main {
+    @include desktop {
+      padding: 0 123px;
+    }
+
+    @include design {
+      margin: 0 auto;
+      padding: 0;
+      max-width: 1194px;
+    }
+  }
+
+  &__footer {
+    padding-bottom: 20px;
+
+    @include tablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__arrow {
+    position: sticky;
+    bottom: 100px;
+    display: none;
+    margin: 0 34px 0 auto;
+    width: 50px;
+    height: 50px;
+    background: url(../images/icons/arrow.svg) no-repeat center;
+    transform: translateY(100%);
+    transition: background $trans;
+
+    @include tablet {
+      display: block;
+    }
+
+    @include desktop {
+      bottom: 100px;
+      margin-right: 123px;
+      width: 50px;
+      height: 50px;
+    }
+
+    @include design {
+      margin-right: calc(50% - 597px);
+    }
+
+    &:hover {
+      background: url(../images/icons/arrow-hover.svg) no-repeat center;
+      background-color: $blue;
+    }
+  }
+}
