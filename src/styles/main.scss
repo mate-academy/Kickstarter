@@ -1,7 +1,1483 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "home";
 
-body {
-  background: $c-gray;
+@function getAdaptImgTo($percImage) {
+  @return calc(((100vw - 68px) * #{$percImage}) + 34px);
 }
+
+@function getAdaptOver($padding) {
+  @return calc(((100vw - #{$maxWidthContainer + px}) / 2) + #{$padding});
+}
+
+//#region reset
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+ol li,
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+//#endregion
+
+//#region icon-font
+[class^="_icon-"]::before,
+[class*="_icon-"]::before {
+  /* use !important to prevent issues with browser
+  extensions that change fonts */
+  font-family: "icon-font", sans-serif !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  transition: all 0.3s;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+._icon-arrow-left:before {
+  content: "\e900";
+}
+
+._icon-arrow-right:before {
+  content: "\e901";
+}
+
+._icon-arrow-top:before {
+  content: "\e902";
+}
+
+._icon-compass:before {
+  content: "\e903";
+}
+
+._icon-dott:before {
+  content: "\e904";
+}
+
+._icon-facebook:before {
+  content: "\e905";
+}
+
+._icon-insta:before {
+  content: "\e906";
+}
+
+._icon-speaker:before {
+  content: "\e907";
+}
+
+._icon-sun:before {
+  content: "\e908";
+}
+
+._icon-twitter:before {
+  content: "\e909";
+}
+
+._icon-wi-fi:before {
+  content: "\e90a";
+}
+
+//#endregion
+
+._container {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  padding: 0 30px;
+
+  @include onTablet {
+    padding: 0 34px;
+  }
+}
+
+.ibg {
+  position: relative;
+
+  &__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    object-fit: cover;
+    transition: all 0.3s ease 0s;
+  }
+}
+
+.logo {
+  position: relative;
+  z-index: 5;
+  display: inline-block;
+  width: 162px;
+  padding: 0 2px;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: 16.5%;
+  }
+}
+
+.top-action {
+
+  &__spec {
+    margin-right: 26px;
+    font-family: $fontSecond;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 143%;
+    text-transform: uppercase;
+    color: #4f4f4f;
+
+    @include onDesktop {
+      margin-right: 30px;
+    }
+
+    @include hover(color) {
+      color: $colorMain;
+    }
+  }
+
+  &__lang {
+    margin-right: 26px;
+
+    @include onDesktop {
+      margin-right: 46px;
+    }
+  }
+
+  &__item {
+    padding: 2px;
+    font-family: $fontMain;
+    font-size: 14px;
+    line-height: 143%;
+    color: #bdbdbd;
+
+    @include hover(color) {
+      color: #7c7c7c;
+    }
+
+    &._active {
+      color: $colorMain;
+    }
+  }
+
+  &__button {
+    background-color: $colorMain;
+
+    @include hover(background-color) {
+      background-color: $cMainHover;
+    }
+
+    &:disabled {
+      background-color: #d0d0d0;
+    }
+  }
+}
+
+.button-main {
+  font-family: $fontSecond;
+  min-width: 102px;
+  padding: 18px 0;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.button-secondary {
+  display: inline-block;
+  position: relative;
+  padding: 4px 0;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: #0db2b3;
+  transform: translateY(-4px);
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 53px;
+    height: 1px;
+    margin-top: 6px;
+    background-color: #0db2b3;
+    transition: all 0.3s;
+  }
+
+  @include hover(width) {
+    &::after {
+      content: "";
+      width: 100%;
+    }
+  }
+}
+
+.menu {
+  @include onTablet {
+    display: none;
+  }
+
+  &__body {
+    display: block;
+    position: fixed;
+    z-index: 3;
+    left: -100%;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    padding-top: 110px;
+    background-color: #eefafa;
+    overflow: auto;
+    transition: all 0.3s;
+
+    &::before {
+      content: "";
+      position: fixed;
+      z-index: 4;
+      left: -100%;
+      width: 100%;
+      top: 0;
+      height: 74px;
+      background-color: #eefafa;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+    }
+
+    &._active {
+      left: 0;
+
+      &::before {
+        left: 0;
+      }
+    }
+
+  }
+
+  &__list {
+    display: grid;
+    justify-items: center;
+    row-gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  &__link {
+    font-family: $fontMain;
+    font-size: 18px;
+    line-height: 150%;
+    font-weight: 600;
+    color: $colorMain;
+    transition: text-shadow 0.3s;
+
+    &:hover {
+      text-shadow: 0 0 1px $cMainHover;
+    }
+
+    &:active {
+      text-shadow: 0 0 1px $cMainHover;
+    }
+  }
+}
+
+.social {
+  display: grid;
+  grid-template-columns: repeat(3, 24px);
+  justify-content: center;
+  place-items: center;
+  column-gap: 30px;
+
+  &__link {
+    place-self: center;
+    padding: 4px;
+    font-size: 18px;
+    color: $colorIcon;
+
+    @include hover(all) {
+      color: $cMainHover;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.icon-menu {
+  display: none;
+
+  @include toTablet {
+    display: block;
+    box-sizing: content-box;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 24px;
+    height: 14px;
+    cursor: pointer;
+    z-index: 5;
+    transform: translateY(-50%);
+
+    & span {
+      transition: all 0.3s ease 0s;
+      top: calc(50% - 1px);
+      left: 0;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #000;
+
+      &:first-child {
+        top: 0;
+      }
+
+      &:last-child {
+        top: auto;
+        bottom: 0;
+      }
+    }
+
+    &._active {
+      span {
+        transform: scale(0);
+
+        &:first-child {
+          transform: rotate(-45deg);
+          top: calc(50% - 1px);
+        }
+
+        &:last-child {
+          transform: rotate(45deg);
+          bottom: calc(50% - 1px);
+        }
+      }
+    }
+  }
+}
+
+.form {
+
+  &__fields-questions {
+    margin-bottom: 30px;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    font-family: $fontMain;
+    font-size: 16px;
+    line-height: 150%;
+    color: $colorMain;
+    background-color: $colorBg;
+    border: 1px solid #828282;
+    outline: none;
+
+    @include onTablet {
+      padding: 12px 30px;
+    }
+
+    @include onDesktop {
+      padding: 12px 36px;
+    }
+
+    &::placeholder {
+      font-size: 16px;
+      line-height: 150%;
+      color: #bdbdbd;
+    }
+
+    &:focus {
+      color: $colorMain;
+      border-color: #0c797a;
+    }
+
+    &:-webkit-autofill {
+      box-shadow: 0 0 0 30px $colorBg inset !important;
+    }
+
+    &._error {
+      color: #eb5757;
+      border-color: #eb5757;
+
+      &::placeholder {
+        color: #eb5757;
+      }
+    }
+  }
+
+  &__input--textarea {
+    min-height: 128px;
+    resize: none;
+
+    @include onTablet {
+      max-height: 200px;
+    }
+
+    @include onDesktop {
+      height: 128px;
+    }
+  }
+
+  &__button {
+    background-color: #39bebf;
+
+    @include hover(background-color) {
+      background-color: #0c797a;
+    }
+
+    &:disabled {
+      background-color: #cfeff0;
+    }
+  }
+}
+
+.form__error {
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+//#region page
+.page {
+  height: 100vh;
+  scroll-behavior: smooth;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-family: $fontMain;
+    background-color: $colorBg;
+
+    &._lock {
+      overflow: hidden;
+    }
+  }
+
+  &__main {
+    flex: 1 1 auto;
+  }
+
+  &__header {
+
+    @include onTablet {
+      margin-bottom: 100px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__section {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+  }
+}
+
+//#endregion
+
+//#region header
+.header {
+
+  &__body {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 26px;
+    padding: 24px 0;
+
+    @include onTablet {
+      min-height: 48px;
+      padding: 30px 0;
+    }
+  }
+
+  &__top-action {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+//#endregion
+
+//#region section
+.section {
+  &__nav {
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 62px;
+    }
+  }
+}
+
+//#endregion
+
+//#region home
+// .home {
+
+//   &__body {
+//     @include onTablet {
+//       @include container(30px, 34px);
+//       @include gridContainer;
+//     }
+//   }
+
+//   &__image {
+//     display: flex;
+//     @include gridItem;
+//     grid-row: 1 / 2;
+//     max-height: 245px;
+
+//     &::before {
+//       content: "";
+//       display: block;
+//       padding-bottom: 76.6%;
+//     }
+
+//     @include onTablet {
+//       max-height: 336px;
+//       margin-left: -8px;
+//     }
+
+//     @include onDesktop {
+//       z-index: 2;
+//       max-height: 464px;
+//       margin-left: -30px;
+//     }
+
+//     & .ibg__img {
+//       object-fit: contain;
+//     }
+
+//     @include anyHoverImage(transform, 0.9);
+//   }
+
+//   &__contant {
+//     @include toTablet {
+//       @include container(30px, 34px);
+//     }
+
+//     @include gridItem;
+//     grid-row: 1 / 2;
+//     z-index: 1;
+
+//     @include onDesktop {
+//       padding-top: 80px;
+//     }
+//   }
+
+//   &__title {
+//     margin-bottom: 20px;
+//     font-weight: 700;
+//     font-size: 40px;
+//     line-height: 130%;
+//     text-transform: uppercase;
+//     color: $colorMain;
+
+//     @include onTablet {
+//       font-size: 48px;
+//       line-height: 62px;
+//     }
+
+//     @include onDesktop {
+//       font-size: 62px;
+//       line-height: 78px;
+//     }
+//   }
+
+//   &__text {
+//     font-size: 16px;
+//     line-height: 150%;
+//     color: $colorMain;
+
+//     @include onDesktop {
+//       padding-right: 100px;
+//     }
+//   }
+// }
+
+//#endregion
+
+//#region menu-section
+
+.menu-section {
+  display: none;
+
+  @include onTablet {
+    display: block;
+  }
+
+  &__list {
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__item {
+
+    @include onTablet {
+      &:not(:last-child) {
+        margin-right: 70px;
+      }
+    }
+
+    @include onDesktop {
+      &:not(:last-child) {
+        margin-right: 84px;
+      }
+    }
+
+    @include hover(text-shadow) {
+      text-shadow: 0 0 1px $cMainHover;
+    }
+
+    &:active {
+      text-shadow: 0 0 1px $cMainHover;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    color: $colorMain;
+  }
+}
+
+//#endregion
+
+//#region benefits
+.benefits {
+
+  &__body {
+    display: none;
+
+    @include onTablet {
+      @include gridContainer;
+
+      @include toDesktop {
+        row-gap: 64px;
+      }
+    }
+  }
+}
+
+.card {
+  @include gridItem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  height: 100%;
+  cursor: pointer;
+
+  @include hover(all) {
+    .card__icon::before {
+      font-size: 42px;
+      color: $cMainHover;
+    }
+
+    .card__title {
+      color: $cMainHover;
+    }
+
+    .card__text {
+      color: $colorMain;
+    }
+  }
+
+  &__icon {
+    margin-bottom: 30px;
+    @include square(50px);
+    text-align: center;
+
+    &::before {
+      font-size: 40px;
+      color: $colorIcon;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $colorMain;
+    transition: all 0.3s;
+
+    @include onDesktop {
+      flex-basis: 56px;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $colorSecond;
+    transition: all 0.3s;
+  }
+
+}
+
+.swiper {
+  @include onTablet {
+    display: none;
+  }
+}
+
+//#endregion
+
+//#region presentation
+.presentation {
+
+  &__body {
+    @include container(12px, 34px);
+  }
+
+  &__image {
+    display: block;
+    max-height: 195px;
+
+    &::before {
+      content: "";
+      display: block;
+      padding-bottom: 66%;
+    }
+
+    @include onTablet {
+      max-height: 430px;
+    }
+
+    @include onDesktop {
+      max-height: 520px;
+    }
+
+    & .ibg__img {
+      object-fit: contain;
+    }
+
+    @include anyHoverImage(transform, 1.1);
+  }
+}
+
+//#endregion
+
+//#region about-us
+.about-us {
+  position: relative;
+
+  &__body {
+    @include container(30px, 34px) {
+      @include onTablet {
+        padding: 0 34px;
+      }
+    }
+
+    @include onTablet {
+      @include gridContainer;
+    }
+  }
+
+  &__title {
+    display: none;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $colorMain;
+
+    @include toTablet {
+      &--mob {
+        display: block;
+      }
+    }
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+
+      &--tab {
+        display: block;
+      }
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__image {
+    display: block;
+
+    &::before {
+      content: "";
+      display: block;
+      padding-bottom: 81%;
+
+      @include onDesktop {
+        padding-bottom: 66.7%;
+      }
+    }
+
+    @include anyHoverImage(transform, 1.1);
+
+    @include toTablet {
+      max-height: 415px;
+      margin-bottom: 20px;
+    }
+
+    @include toDesktop {
+      @include onTablet {
+        position: absolute;
+        left: -2px;
+        top: 0;
+        height: 100%;
+        width: getAdaptImgTo(0.49);
+      }
+    }
+
+    @include onTablet {
+      @include gridItem;
+    }
+  }
+
+  &__contant {
+    @include onTablet {
+      @include gridItem;
+
+      @include toDesktop {
+        padding-bottom: 66px;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 21px;
+    color: $colorSecond;
+
+    @include onTablet {
+      margin-bottom: 62px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
+
+//#endregion
+
+//#region technology
+.technology {
+  position: relative;
+
+  &__body {
+    @include container(30px, 34px) {
+      @include onTablet {
+        padding: 0 34px;
+      }
+    }
+
+    @include onTablet {
+      @include gridContainer;
+    }
+  }
+
+  &__title {
+    display: none;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $colorMain;
+
+    @include toTablet {
+      &--mob {
+        display: block;
+      }
+    }
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+
+      &--tab {
+        display: block;
+      }
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__image {
+    display: block;
+
+    &::before {
+      content: "";
+      display: block;
+      padding-bottom: 81%;
+
+      @include onDesktop {
+        padding-bottom: 66.7%;
+      }
+    }
+
+    @include anyHoverImage(transform, 1.1);
+
+    @include toTablet {
+      max-height: 415px;
+      margin-bottom: 20px;
+    }
+
+    @include toDesktop {
+      @include onTablet {
+        position: absolute;
+        right: -2px;
+        top: 0;
+        height: 100%;
+        width: getAdaptImgTo(0.49);
+      }
+    }
+
+    @include onTablet {
+      @include gridItem;
+    }
+  }
+
+  &__contant {
+
+    @include onTablet {
+      @include gridItem;
+
+      @include toDesktop {
+        padding-bottom: 162px;
+      }
+    }
+
+    @include onDesktop {
+      grid-row: 1 / 2;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 21px;
+    color: $colorSecond;
+
+    @include onTablet {
+      margin-bottom: 62px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
+
+//#endregion
+
+//#region testimonilas
+.testimonilas {
+
+  &__body {
+    background-image: url("../images/testimonilas/bg.svg");
+    background-repeat: no-repeat;
+    background-size: 208px 170px;
+    background-position: center 0;
+    padding-top: 50px;
+
+    @include onTablet {
+      max-width: 768px;
+      margin: 0 auto;
+      background-size: 233px 189px;
+      padding-top: 60px;
+    }
+
+    @include onDesktop {
+      background-size: 233px 192px;
+      padding-top: 42px;
+    }
+  }
+
+  &__contant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: $colorMain;
+    transition: color 0.3s;
+
+    @include onTablet {
+      margin-bottom: 30px;
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__avatar {
+    @include square(62px);
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+
+    @include hover(transform) {
+      transform: scale(1.1);
+    }
+
+    @include onTablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__user-name {
+    margin-bottom: 6px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: $colorMain;
+  }
+
+  &__user-role {
+    font-size: 14px;
+    line-height: 21px;
+    color: $colorSecond;
+  }
+}
+
+//#endregion
+
+//#region features
+.features {
+
+  &__body {
+    @include container(0, 34px);
+  }
+
+  &__title {
+    @include container(30px, 0);
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 133%;
+    text-transform: uppercase;
+    color: $colorMain;
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 125%;
+    }
+  }
+
+  &__contant {
+    background-color: #d6ecec;
+    padding: 30px 30px 0;
+
+    @include onTablet {
+      padding: 60px 0 0;
+
+      @include toDesktop {
+        @include gridContainer;
+      }
+    }
+
+    min-width: 0;
+  }
+
+  &__cards {
+    display: none;
+
+    @include onDesktop {
+      @include gridContainer;
+      row-gap: 56px;
+    }
+  }
+
+  &__image {
+    display: block;
+    overflow: hidden;
+
+    @include toTablet {
+      margin: 0 -24px;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      padding-bottom: 54.1%;
+
+      @include onDesktop {
+        padding-bottom: 55.5%;
+      }
+    }
+
+    @include toDesktop {
+      @include onTablet {
+        @include gridItem;
+      }
+    }
+
+    @include onTablet {
+      margin-top: -100px;
+    }
+
+    @include onDesktop {
+      @include gridItem;
+      max-width: 543px;
+      margin-top: 0;
+    }
+
+    @include hover(transform) {
+      & .ibg__img {
+        transform: scale(1.02);
+      }
+    }
+
+    &--to-desktop {
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+}
+
+.card-features {
+
+  @include onDesktop {
+    @include gridItem;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 122%;
+    text-transform: uppercase;
+    color: #0c797a;
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 150%;
+    color: $colorMain;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &::before {
+      font-size: 5px;
+      margin-right: 10px;
+    }
+
+    @include onDesktop {
+      font-size: 16px;
+      line-height: 150%;
+    }
+  }
+}
+
+.slider {
+  max-width: 260px;
+  overflow: hidden;
+
+  @include toDesktop {
+    @include onTablet {
+      @include gridItem;
+    }
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__wrapper {
+    padding-bottom: 50px;
+    height: max-content;
+  }
+
+  &__action {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+
+    @include toTablet {
+      margin: 0 auto;
+    }
+  }
+
+  &__fraction {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    font-size: 11px;
+    line-height: 120%;
+  }
+
+  &__arrows {
+    margin-bottom: 16px;
+  }
+
+  &__next,
+  &__prev {
+    cursor: pointer;
+    display: inline-flex;
+
+    &::before {
+      font-size: 14px;
+      color: $colorMain;
+    }
+
+    @include hoverBefore(color, #0c797a);
+
+    &.swiper-button-disabled {
+      &::before {
+        color: #bdbdbd;
+      }
+    }
+  }
+
+  &__next {
+    margin-left: -10px;
+  }
+}
+
+.swiper-pagination-current,
+.swiper-pagination-total {
+  display: inline-block;
+}
+
+.swiper-pagination-current {
+  font-size: 16px;
+  line-height: 150%;
+  margin-top: -10px;
+}
+
+//#endregion
+
+//#region questions
+.questions {
+
+  &__body {
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 133%;
+    text-transform: uppercase;
+    color: $colorMain;
+
+    @include toTablet {
+      margin-bottom: 26px;
+    }
+
+    @include onTablet {
+      flex-basis: 50%;
+      margin-right: 20px;
+      font-size: 36px;
+      line-height: 128%;
+    }
+
+    @include onDesktop {
+      margin-right: 30px;
+      font-size: 56px;
+      line-height: 125%;
+    }
+  }
+
+  &__form {
+    @include onTablet {
+      flex-basis: 50%;
+    }
+  }
+}
+
+//#endregion
+
+//#region footer
+.footer {
+  text-align: center;
+
+  &__body {
+    padding-bottom: 20px;
+
+    @include onTablet {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include onTablet {
+      display: inline-block;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__social {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__copy {
+    font-size: 14px;
+    line-height: 150%;
+    color: #bdbdbd;
+
+    @include onTablet {
+      font-weight: 300;
+    }
+
+    @include onDesktop {
+      font-weight: 400;
+    }
+  }
+}
+
+.up {
+  display: none;
+
+  &::before {
+    font-size: 20px;
+    color: $colorMain;
+    line-height: 50px;
+    transition: all 0.3s;
+  }
+
+  &._up-show {
+    display: block;
+    position: fixed;
+    bottom: 116px;
+    right: 30px;
+    z-index: 20;
+    @include square(50px);
+    border-radius: 15%;
+    transition: all 0.3s;
+
+    @include onTablet {
+      bottom: 196px;
+      right: 34px;
+    }
+
+    @include onDesktop {
+      right: getAdaptOver(26px);
+    }
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      cursor: pointer;
+      // background-color: #1a5a4c;
+
+      &::before {
+        color: $cMainHover;
+        font-size: 24px;
+      }
+    }
+  }
+
+  &:active {
+    background-color: #1a5a4c;
+
+    &._icon-arrow-top::before {
+      color: #fff;
+      font-size: 24px;
+    }
+  }
+}
+
+//#endregion

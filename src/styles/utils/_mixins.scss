@@ -1,6 +1,130 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
+@mixin hover($property) {
+  transition: #{$property} 0.3s;
+
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin anyHoverImage($property, $value) {
+  overflow: visible;
+  transition: #{$property} 0.3s;
+
+  @media (any-hover: hover) {
+    &:hover {
+      & .ibg__img {
+        #{$property}: scale(#{$value});
+      }
+    }
+  }
+}
+
+@mixin hoverBefore($_property, $_toValue) {
+  transition: $_property 0.3s;
+  &:hover::before {
+    @content;
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin square($size) {
+  height: $size;
+  width: $size;
+}
+
+@mixin toTablet {
+  @media (max-width: 767.98px) {
+    @content;
+  }
+}
+
+@mixin toDesktop {
+  @media (max-width: 1439.98px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 767.98px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1439.98px) {
+    @content;
+  }
+}
+
+@mixin container($paddingM, $paddingT) {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  padding: 0 #{$paddingM};
+
+  @include onTablet {
+    padding: 0 #{$paddingT};
+  }
+
+  @content;
+}
+
+@mixin gridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+  @content;
+
+  @include onTablet {
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 20px;
+    @content;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+    @content;
+  }
+
+  &--tablet {
+    display: block;
+
+    @include onTablet {
+      display: grid;
+      @content;
+    }
+  }
+
+  &--desktop {
+    display: block;
+
+    @include onDesktop {
+      display: grid;
+      @content;
+    }
+  }
+}
+
+@mixin gridItem {
+  @for $start from 1 through 12 {
+    @for $end from $start through 12 {
+      &--#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end + 1};
+      }
+
+      &--tablet-#{$start}-#{$end} {
+        @include toDesktop {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+
+      &--desktop-#{$start}-#{$end} {
+        @include onDesktop {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
   }
 }
