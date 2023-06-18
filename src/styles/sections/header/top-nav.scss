@@ -1,0 +1,118 @@
+.top-nav {
+  @include onTablet {
+    display: flex;
+    align-items: center;
+  
+    height: fit-content;
+  }
+
+  &__specs-link {
+    @include onTablet {
+      display: inline-block;
+      width: fit-content;
+
+      font-family: $secondaryFontFamily;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 17px;
+      text-transform: uppercase;
+
+      color: $lightBlackColor;
+
+      margin-right: 25px;
+
+      position: relative;
+    }
+
+    @include onDesktop {
+      font-family: $mainFontFamily;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+
+      margin-right: 27px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $lightBlackColor;
+
+      position: absolute;
+      bottom: -3px;
+      right: 0;
+      left: 0;
+
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    &:hover {
+      &::after {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &__languages-switch {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+
+    @include onTablet {
+      margin-right: 27px;
+    }
+
+    @include onDesktop {
+      margin-right: 47px;
+    }
+  }
+
+  &__language-label {
+    cursor: pointer;
+
+    @include onTablet {
+      font-family: $secondaryFontFamily;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 18px;
+
+      color: #828282;
+    }
+
+    @include onDesktop {
+      font-family: $mainFontFamily;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+
+      color: $greyColor;
+    }
+  }
+
+  &__language-input {
+    display: none;
+
+    &:checked + .top-nav__language-label {
+      @include onTablet {
+        font-weight: 400;
+        color: $blackColor;
+      }
+
+      @include onDesktop {
+        color: $blackColor;
+      }
+    }
+  }
+
+  &__languages-devide {
+    font-family: $secondaryFontFamily;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: $blackColor;
+  }
+}
