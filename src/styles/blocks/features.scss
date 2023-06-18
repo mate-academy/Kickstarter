@@ -1,0 +1,162 @@
+.features {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 720px;
+
+  @include onTablet {
+    height: 780px;
+  }
+
+  &__lists {
+    @include onDesktop {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__list-container {
+    flex-basis: 100%;
+
+    &--off {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        flex-basis: 50%;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 640px;
+    padding: 30px 0 0;
+    background-color: #d6ecec;
+
+    background-image: url("../images/photos/features-img.png");
+    background-position: bottom;
+    background-size: 335px 174px;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      position: relative;
+      background-position: bottom right;
+      background-size: 435px 226px;
+    }
+
+    @include onDesktop {
+      background-size: 582px 302px;
+    }
+  }
+
+  &__list-title {
+    box-sizing: border-box;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #0c797a;
+    margin-bottom: 20px;
+
+    @include onDesktop {
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    margin-bottom: 50px;
+  }
+
+  &__list-item {
+    list-style-position: inside;
+    list-style-type: disc;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 10px;
+    row-gap: 20px;
+
+    @include onTablet {
+      align-items: center;
+      max-width: 93px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__arrows-container {
+    display: flex;
+    max-width: 92px;
+    justify-content: space-between;
+  }
+
+  &__arrow {
+    width: 48px;
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__numbers {
+    // text-align: center;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+
+    color: #0c797a;
+    &--active {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: $mainDark;
+    }
+
+    &--not-active {
+      font-weight: 400;
+      font-size: 11px;
+      line-height: 13px;
+      color: #0c797a;
+    }
+  }
+}

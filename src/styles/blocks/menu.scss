@@ -1,0 +1,62 @@
+.menu {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 30px 0 0;
+  background-color: $background;
+  z-index: 10;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 56px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__submenu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__specs {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: $specColor;
+    text-transform: uppercase;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &:hover {
+      color: $mainDark;
+      font-weight: 400;
+    }
+  }
+
+  &__lang {
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+  }
+}
