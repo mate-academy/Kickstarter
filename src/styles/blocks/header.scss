@@ -1,0 +1,64 @@
+.header {
+  margin-bottom: 110px;
+
+  @include tablet {
+    margin-bottom: 140px;
+  }
+
+  @include desktop {
+    margin-bottom: 180px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    padding: $header-padding-mobile;
+    gap: 25px;
+    box-sizing: border-box;
+
+    @include tablet {
+      max-height: 650px;
+      gap: 100px;
+      padding: $header-padding-tablet;
+    }
+
+    @include desktop {
+      gap: 15%;
+    }
+  }
+  
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    &-menu {
+      display: none;
+  
+      @include tablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: $top-menu-gap-tablet;
+      }
+      
+      @include desktop {
+        gap: $top-menu-gap-desktop;
+      }
+    }
+  }
+
+  &__specs {
+    @extend %thirdaryText;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $specs-color;
+    padding: $button-padding;
+    border: 1px solid transparent;
+
+    @include hover(color, $main-color);
+    @include hover(border-color, $main-color);
+  }
+}
