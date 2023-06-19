@@ -1,0 +1,53 @@
+.specs {
+  &__content {
+    @include desktop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 90px;
+      padding-top: 28px;
+    }
+  }
+
+  &__cards {
+    display: none;
+
+    @include tablet {
+      @include grid;
+      grid-template-rows: min-content;
+      row-gap: 65px;
+    }
+
+    & :nth-child(1) {
+      grid-column: 1 / 5;
+
+      @include desktop {
+        grid-column: 1 / 4;
+      }
+    }
+
+    & :nth-child(2) {
+      grid-column: 5 / -1;
+
+      @include desktop {
+        grid-column: 4 / 7;
+      }
+    }
+
+    & :nth-child(3) {
+      grid-column: 1 / 5;
+
+      @include desktop {
+        grid-column: 7 / 10;
+      }
+    }
+
+    & :nth-child(4) {
+      grid-column: 5 / -1;
+
+      @include desktop {
+        grid-column: 10 / -1;
+      }
+    }
+  }
+}

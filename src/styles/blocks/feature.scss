@@ -1,0 +1,81 @@
+.feature {
+  &__title {
+    margin: 0 0 30px 30px;
+
+    @include tablet {
+      margin-left: 0;
+    }
+  }
+
+  &__content {
+    background-color: $c-light-turquoise;
+    height: max-content;
+    padding-top: 30px;
+    position: relative;
+
+    @include tablet {
+      height: 556px;
+      padding-top: 60px;
+    }
+
+    @include desktop {
+      height: 642px;
+    }
+  }
+
+  &__cards {
+    display: none;
+
+    @include desktop {
+      display: block;
+      @include grid;
+      grid-template-rows: max-content;
+      row-gap: 56px;
+    }
+
+    & :nth-child(1) {
+      grid-column: 2 / 6;
+    }
+
+    & :nth-child(2) {
+      grid-column: 7 / 10;
+    }
+
+    & :nth-child(3) {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__slider {
+    margin: 0 30px;
+
+    @include tablet {
+      @include grid;
+    }
+
+    @include desktop {
+      display: none;
+    }
+
+    & :nth-child(1) {
+      grid-column: 2 / 5;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    @include tablet {
+      width: max-content;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+
+    @include desktop {
+      right: 46px;
+    }
+  }
+}
