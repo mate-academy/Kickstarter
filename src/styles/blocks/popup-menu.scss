@@ -1,0 +1,79 @@
+.popup-menu {
+  background: $white-color-body;
+  box-sizing: border-box;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__content {
+    height: 100vh;
+    padding-top: 25px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      padding-top: 29px;
+    }
+
+    @include onDesktop {
+      padding-top: 30px;
+    }
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: $header-menu-top-grid-columns-mobile;
+    margin-bottom: 55px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    margin-bottom: 50px;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    margin: 0 0 25px;
+
+    @include onTablet {
+      margin: 0 0 40px;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: $dark-gray-color;
+    transition: font-weight 0.3s;
+
+    &:hover {
+      font-weight: 700;
+      text-shadow: 8px 13px 15px $dark-gray-color;
+    }
+
+    @include onTablet {
+      font-size: 22px;
+      line-height: 28px;
+    }
+  }
+
+  &__icons {
+    display: grid;
+    grid-template-columns: $popup-menu-icons-grid-columns;
+    column-gap: $grid-column-gap-tablet;
+    margin-bottom: 162px;
+  }
+}

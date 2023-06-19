@@ -1,0 +1,85 @@
+.page {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+
+  &__body {
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: $white-color-body;
+    font-family: "Inter", sans-serif;
+    color: $gray-color;
+
+    @include onMobileLess320 {
+      min-width: 319px;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-title-mobile;
+    line-height: $line-height-title-mobile;
+    text-transform: uppercase;
+    color: $dark-gray-color;
+  }
+
+  &__tablet-title {
+    font-size: $font-size-title-tablet;
+    line-height: $line-height-title-tablet;
+    text-transform: uppercase;
+    color: $dark-gray-color;
+  }
+
+  &__header {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__section {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+
+    &:nth-child(2) {
+      margin-bottom: 89px;
+
+      @include onTablet {
+        margin-bottom: 141px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 171px;
+      }
+    }
+  }
+}

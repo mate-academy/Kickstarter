@@ -1,0 +1,57 @@
+.form-field {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid $gray-color-border-input;
+  padding: 12px 20px;
+  font-size: 16px;
+  line-height: 24px;
+  color: $dark-gray-color;
+  background-color: $white-color-body;
+
+  @include onTablet {
+    padding: 12px 30px;
+  }
+
+  @include onDesktop {
+    padding: 12px 36px;
+  }
+
+  &:-webkit-autofill {
+    -webkit-text-fill-color: $dark-gray-color;
+    -webkit-box-shadow: 0 0 0 1000px $white-color-body inset;
+  }
+
+  &::placeholder {
+    color: $light-gray-color;
+  }
+
+  &:focus {
+    outline: none;
+    font-size: 14px;
+    border: 1px solid $green-color;
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+
+  &:not(:focus):not(:placeholder-shown):invalid {
+    color: $terracota-color;
+    border: 1px solid $terracota-color;
+  }
+
+  &--textarea {
+    height: 128px;
+    font-family: inherit;
+    resize: none;
+
+    @include onTablet {
+      height: 200px;
+    }
+
+    @include onDesktop {
+      height: 128px;
+      padding: 16px 36px;
+    }
+  }
+}
