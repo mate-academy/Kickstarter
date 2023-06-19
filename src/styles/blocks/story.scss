@@ -1,13 +1,5 @@
 .story {
-  padding: 110px 0;
-
-  @include onTablet {
-    padding: 145px 0;
-  }
-
-  @include onDesktop {
-    padding: 145px 0;
-  }
+  @include blockMargin;
 
   &__container {
     overflow: hidden;
@@ -43,10 +35,12 @@
 
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
 
     &_image {
       display: block;
       margin: 0 auto;
+      flex: 0 0 15%;
       margin-bottom: 35px;
     }
 
@@ -56,15 +50,21 @@
       font-size: 22px;
       line-height: 28px;
       text-transform: uppercase;
+      flex: 0 0 20%;
+      margin-bottom: 20px;
+
+      @include onDesktop {
+        margin-bottom: 24px;
+      }
     }
 
     &_paragraf {
+      display: block;
       text-align: center;
       font-weight: 400;
       font-size: 14px;
       line-height: 21px;
       color: #7c7c7c;
-      margin: auto;
     }
   }
 }
