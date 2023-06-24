@@ -1,0 +1,68 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $c-grey-90;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+
+    &-title {
+      width: 260px;
+      align-self: center;
+
+      @include desktop() {
+        width: 380px;
+      }
+    }
+
+    @include tablet() {
+      flex-direction: row;
+    }
+
+    @include desktop() {
+      margin-bottom: 150px;
+    }
+  }
+
+  &__speakers {
+    background-image: url("./../images/mobile/speakers.jpg");
+    background-size: cover;
+    width: 320px;
+    height: 245px;
+    margin-bottom: 40px;
+
+    @include tablet() {
+      order: 1;
+      content: url(./../images/tablet/speakers.jpg);
+      width: 430px;
+      height: 317px;
+      z-index: -1;
+    }
+
+    @include desktop() {
+      content: url(./../images/desktop/speakers.jpg);
+      width: 815px;
+      height: 460px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include desktop() {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 110px;
+
+    @include desktop() {
+      width: 280px;
+    }
+  }
+}

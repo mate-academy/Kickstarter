@@ -1,0 +1,65 @@
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
+
+  &__text {
+    width: 265px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: $c-grey-90;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "";
+      background-image: url(./../images/apo.svg);
+      width: 208px;
+      height: 171px;
+      bottom: 0;
+      right: 10%;
+    }
+
+    @include tablet() {
+      width: 700px;
+      padding: 0 20px;
+      font-size: 24px;
+      line-height: 36px;
+
+      &::after {
+        right: 35%;
+      }
+    }
+
+    @include desktop() {
+      width: 800px;
+
+      &::after {
+        bottom: -30px;
+      }
+    }
+  }
+
+  &__img {
+    margin-bottom: 10px;
+  }
+
+  &__name {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    margin-bottom: 5px;
+    color: $c-grey-90;
+  }
+
+  &__position {
+    font-size: 14px;
+    line-height: 21px;
+    color: $c-grey-70;
+    margin-bottom: 110px;
+  }
+}
