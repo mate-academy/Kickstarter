@@ -1,0 +1,75 @@
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  padding: 10px;
+
+  text-align: center;
+
+  outline: solid 1px transparent;
+
+  cursor: pointer;
+
+  transition: transform $transitionTime,
+    outline-width $transitionTime,
+    background-color $transitionTime;
+
+  &__title {
+    min-height: 56px;
+    margin-bottom: 20px;
+
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: $c-3;
+
+    @include onDesktop {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__paragraph {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: $c-5;
+  }
+
+  &:hover {
+    transform: scale(1.1) translateY(-15%);
+
+    background-color: #d6ecec;
+    outline-color: #096163;
+
+    .info-item__title {
+      color: $c-9;
+    }
+
+    .info-item__paragraph {
+      color: $c-3;
+    }
+  }
+
+  &__image {
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 34px;
+    }
+  }
+
+  &--tablet-display {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+}

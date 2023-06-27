@@ -1,0 +1,51 @@
+.scrollTop {
+  position: fixed;
+  bottom: 70px;
+  right: 50px;
+
+  width: 32px;
+  height: 32px;
+
+  display: none;
+  padding: 20px;
+
+  border: 2px solid transparent;
+  border-radius: 50%;
+
+  opacity: 0;
+
+  &__button {
+    padding: 10px;
+
+    &--image {
+      fill: $c-3;
+
+      transition: fill $transitionTime;
+    }
+  }
+
+  @include onTablet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include onDesktop {
+    bottom: 100px;
+    right: 125px;
+  }
+
+  transition: transform $transitionTime,
+    border-color $transitionTime,
+    opacity $transitionTime;
+
+  &:hover {
+    transform: scale(1.2);
+
+    border-color: $c-8;
+
+    .scrollTop__button--image {
+      fill: $c-8;
+    }
+  }
+}

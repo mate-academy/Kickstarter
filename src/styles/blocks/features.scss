@@ -1,0 +1,113 @@
+.features {
+  &__content {
+    position: relative;
+
+    min-height: 555px;
+    padding: 30px 30px 0;
+
+    @include onDesktop {
+      padding-top: 60px;
+    }
+
+    background-color: #d6ecec;
+
+    &--desktop {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &--tablet {
+      display: block;
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__block {
+    display: none;
+    min-height: 340px;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      min-height: 320px;
+    }
+
+    @include onDesktop {
+      display: block;
+      margin-bottom: 56px;
+    }
+  }
+
+  &__subTitle {
+    margin-bottom: 30px;
+
+    color: $c-9;
+  }
+
+  &__item {
+    margin-bottom: 10px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: $c-3;
+
+    @include onDesktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+
+      transform: translateY(-75%);
+
+      margin-right: 12px;
+
+      width: 4px;
+      height: 4px;
+
+      background-color: #000;
+      border-radius: 50%;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: -4px;
+
+    @media (max-width: 360px) {
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+      bottom: 4px;
+    }
+
+    @include onTablet {
+      position: static;
+    }
+
+    @include onDesktop {
+      position: absolute;
+      right: 30px;
+      bottom: 0;
+
+      width: max-content;
+      margin-bottom: 0;
+    }
+  }
+}

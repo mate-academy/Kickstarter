@@ -1,0 +1,29 @@
+.screen-image {
+  &--show {
+    &-desktop {
+      display: none;
+
+      @include onDesktop {
+        display: inline;
+      }
+    }
+
+    &-tablet {
+      display: none;
+
+      @include onTablet {
+        display: inline;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &-phone {
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+}
