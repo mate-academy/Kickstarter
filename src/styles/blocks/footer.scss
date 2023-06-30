@@ -5,6 +5,16 @@
     justify-content: center;
     gap: 40px;
     margin-bottom: 30px;
+    perspective: 400px;
+
+    &-item {
+      width: 50px;
+      transition: transform 0.3s;
+    
+      &:hover {
+        transform: translateZ(+40px);
+      }
+    }
   }
 
   &__credentials {
@@ -19,6 +29,7 @@
 
   &__logo {
     display: none;
+    perspective: 200px;
 
     @include onTablet {
       display: flex;
@@ -43,6 +54,11 @@
     }
 
     &-arrow {
+      transition: transform 0.3s;
+    
+      &:hover {
+        transform: translateZ(+5px);
+      }
 
       @include onTablet {
         position: absolute;
