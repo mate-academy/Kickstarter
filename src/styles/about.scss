@@ -1,0 +1,167 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+
+  @include tablet {
+    gap: 140px;
+  }
+
+  @include desktop {
+    max-width: 1280px;
+    padding: 0 43px;
+    margin: auto;
+    gap: 170px;
+  }
+
+  &__blok {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+
+    @include tablet {
+      display: grid;
+      align-items: stretch;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+      padding: 0 34px 0 0;
+    }
+
+    @include desktop {
+      padding: 0;
+      column-gap: 30px;
+     }
+  }
+
+  &__blok-2 {
+    padding-left: 34px;
+
+
+    @include tablet {
+      padding-right: 0;
+    }
+
+    @include desktop {
+     padding: 0;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 0;
+    padding-bottom: 81.08%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+
+    @include tablet {
+      min-width: 374px;
+      min-height: 415px;
+      padding-bottom: 81.08%;
+      margin-bottom: 0;
+    }
+
+    @include desktop {
+      width: 582px;
+      height: 388px;
+      padding: 0;
+    }
+  }
+
+  &__img-future {
+    background-image: url(../images/about-image/future.png);
+
+    @include tablet {
+      background-image: url(../images/about-image/future-mobile.png);
+    }
+    @include desktop {
+      background-image: url(../images/about-image/future.png);
+    }
+  }
+  &__img-luna {
+    background-image: url(../images/about-image/luna.png);
+
+      @include tablet {
+        order: 2;
+        background-image: url(../images/about-image/luna-mobile.png);
+      }
+      @include desktop {
+        background-image: url(../images/about-image/luna.png);
+      }
+    }
+
+
+  &__title-top {
+    width: 260px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+
+    @include tablet {
+     display: none;
+    }
+  }
+
+  &__title {
+    display: none;
+
+    @include tablet {
+      display: block;
+      font-size: 36px;
+      line-height: 46px;
+      margin-bottom: 30px;
+      max-width: 340px;
+    }
+
+    @include desktop {
+      line-height: 70px;
+      font-size: 56px;
+      max-width: 100%;
+     }
+  }
+
+  &__title-2 {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  &__deckription {
+    color: $deskriptin-text-color;
+    margin-bottom: 30px;
+
+    @include tablet {
+      line-height: 24px;
+      font-size: 16px;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__link {
+    width: 128px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    color: $third-color-page;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 38%;
+      height: 1px;
+      background-color: $third-color-page;
+      transition: all 0.3s ease;
+    }
+
+    @include desktop {
+      &:hover::before {
+        width: 100%;
+      }
+    }
+  }
+}

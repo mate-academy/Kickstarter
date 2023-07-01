@@ -1,0 +1,108 @@
+.benefits {
+
+  @include desktop {
+   max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 90px;
+  }
+
+  &__menu {
+    display: none;
+
+    @include desktop {
+      display: flex;
+      gap: 84px;
+    }
+  }
+
+  &__item {
+    @include desktop {
+      line-height: 20px;
+    }
+  }
+
+  &__item-first {
+    color: #131313;
+    font-weight: 700;
+  }
+
+  &__link {
+    @include desktop {
+      padding: 28px 0;
+    }
+  }
+
+  &__list {
+    & > :nth-child(n+2) {
+      display: none;
+
+      @include tablet {
+        display: flex;
+      }
+    }
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      column-gap: 20px;
+      row-gap: 65px;
+      justify-items: center;
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(1, 1fr);
+      column-gap: 30px;
+      row-gap: 0;
+      align-items: baseline;
+    }
+  }
+
+  &__blok {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__icon {
+    width: 50px;
+    height: 40px;
+    margin-bottom: 40px;
+
+    @include tablet {
+      margin-bottom: 50px;
+    }
+
+    @include desktop {
+      width: 70px;
+      height: 50px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    line-height: 28px;
+    font-size: 22px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @include desktop {
+      margin-bottom: 24px;
+      height: 56px;
+    }
+  }
+
+  &__description {
+    color: $deskriptin-text-color;
+    max-width: 260px;
+
+    @include tablet {
+      max-width: 340px;
+    }
+  }
+}
