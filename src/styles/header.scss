@@ -10,22 +10,14 @@
   }
 
   @include desktop {
-    margin-bottom: 70px;
     max-width: 1280px;
     padding: 30px 43px;
-    margin: auto;
+    margin: 0 auto 70px;
   }
 
-&__bar :not(:last-child) {
-  display: none;
+  &__bar :not(:last-child) {
+    display: none;
 
-  @include tablet {
-    display: flex;
-    align-items: center;
-  }
-}
-
-  &__bar {
     @include tablet {
       display: flex;
       align-items: center;
@@ -36,11 +28,10 @@
     color: $secondary-text-color;
     font-weight: 300;
     font-size: 14px;
-  }
 
-  &__burger {
-    @include desktop {
-      display: none;
+    @include tablet {
+      display: flex;
+      align-items: center;
     }
   }
 
@@ -73,13 +64,17 @@
   &__burger {
     width: 32px;
     height: 32px;
+
+    @include desktop {
+      display: none;
+    }
   }
 
   &__buy {
     margin-right: 30px;
 
     @include desktop {
-     margin-right: 0;
+      margin-right: 0;
 
       &:hover {
         background-color: $button-hover-color;

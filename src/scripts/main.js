@@ -20,5 +20,3 @@ function toggleScroll() {
     body.style.overflow = 'hidden';
   }
 }
-
-
