@@ -1,0 +1,247 @@
+.header {
+  padding: 25px 0 110px;
+
+  & > :first-child {
+    margin-bottom: 25px;
+  }
+
+  @include onTablet {
+    padding: 30px 0 140px;
+
+    & > :first-child {
+      margin-bottom: 147px;
+    }
+  }
+
+  @include onDesktop {
+    padding: 30px 0 90px;
+
+    & > :first-child {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__top {
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__languages {
+    margin-right: 27px;
+
+    @include onDesktop {
+      margin-right: 47px;
+    }
+
+    &-container {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  &__specs {
+    margin-right: 27px;
+
+    font-weight: 300;
+    line-height: 17px;
+    text-decoration: none;
+    color: #4f4f4f;
+    transition: 0.3s;
+
+    &:hover {
+      color: #131313;
+      font-weight: 700;
+    }
+
+    @include onDesktop {
+      font-weight: 400;
+      line-height: 20px;
+    }
+  }
+
+  &__language {
+    line-height: 18px;
+    color: #828282;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+      color: $colorPrimary;
+    }
+
+    @include onDesktop {
+      line-height: 20px;
+    }
+
+    &--active {
+      color: $colorPrimary;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 48px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $colorSixth;
+    background-color: $colorPrimary;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #131313;
+    }
+
+    &:disabled {
+      background-color: #d0d0d0;
+    }
+
+    @include onDesktop {
+      font-weight: 700;
+      line-height: 14px;
+    }
+  }
+
+  &__middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      position: relative;
+      flex-direction: row-reverse;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    @include onDesktop {
+      max-width: 1194px;
+      margin: 0 auto 200px;
+    }
+  }
+
+  &__image {
+    &-container {
+      margin-bottom: 40px;
+
+      width: 320px;
+      height: 245px;
+
+      background-image: url(../images/header/image-320w.png);
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @include onTablet {
+        margin-bottom: 0;
+
+        width: 430px;
+        height: 317px;
+        flex-shrink: 0;
+
+        background-image: url(../images/header/image-431w.png);
+      }
+
+      @include onDesktop {
+        width: 816px;
+        height: 464px;
+
+        background-image: url(../images/header/image-816w.png);
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      margin-bottom: 30px;
+
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 24px;
+
+    @include onTablet {
+      width: 250px;
+    }
+
+    @include onDesktop {
+      width: 276px;
+    }
+
+    &-container {
+      padding: 0 30px;
+
+      @include onTablet {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 300px;
+        padding: 0;
+      }
+
+      @include onDesktop {
+        width: 380px;
+      }
+    }
+  }
+
+  &__nav {
+    & > :not(:last-child) {
+      margin-right: 84px;
+    }
+
+    &-container {
+      display: none;
+
+      @include onDesktop {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    &-link {
+      color: $colorPrimary;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: 0.3s;
+
+      &:hover {
+        color: #131313;
+        font-weight: 700;
+      }
+
+      &--active {
+        font-weight: 700;
+        color: #131313;
+      }
+    }
+  }
+}

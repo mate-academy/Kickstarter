@@ -1,0 +1,147 @@
+.about-us {
+  padding-bottom: 110px;
+
+  @include onTablet {
+    display: flex;
+    padding-bottom: 140px;
+  }
+
+  @include onDesktop {
+    display: block;
+    padding-bottom: 170px;
+  }
+
+  &__content {
+    @include onTablet {
+      position: relative;
+      display: flex;
+      justify-content: end;
+      width: 700px;
+      height: 415px;
+    }
+
+    @include onDesktop {
+      width: 100%;
+      height: 388px;
+    }
+  }
+
+  &__article {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      width: 340px;
+    }
+
+    @include onDesktop {
+      width: 582px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__image {
+    &-container {
+      align-self: center;
+      margin-bottom: 20px;
+
+      width: 259px;
+      height: 210px;
+
+      background-image: url(../images/about-us/image-259w.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: 0.3s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      @include onTablet {
+        position: absolute;
+        top: 0;
+        left: -34px;
+
+        margin-bottom: 0;
+        width: 374px;
+        height: 415px;
+
+        background-image: url(../images/about-us/image-374w.png);
+      }
+
+      @include onDesktop {
+        left: 0;
+
+        width: 582px;
+        height: 388px;
+
+        background-image: url(../images/about-us/image-582w.png);
+      }
+    }
+  }
+
+  &__description {
+    margin-bottom: 25px;
+    color: $colorSecondary;
+
+    @include onTablet {
+      margin-bottom: 55px;
+
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__button {
+    position: relative;
+    padding: 5px 0;
+    width: max-content;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $colorThird;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+
+    &:hover {
+      border-color: $colorThird;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+
+      display: block;
+      width: 53px;
+      height: 1px;
+      background-color: $colorThird;
+
+      @include onDesktop {
+        width: 64px;
+      }
+    }
+  }
+}
