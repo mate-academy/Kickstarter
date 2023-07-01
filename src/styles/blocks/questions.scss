@@ -16,6 +16,8 @@
     font-weight: 700;
     line-height: 40px;
     text-transform: uppercase;
+    margin: 0 auto 24px;
+    width: fit-content;
 
     @include onTablet {
       grid-column: 1 / span 4;
@@ -33,6 +35,9 @@
   }
 
   &__form {
+    margin: 0 auto;
+    width: fit-content;
+
     @include onTablet {
       grid-column: 5 / span 4;
       grid-row: 1;
@@ -73,6 +78,11 @@
   &__textarea {
     height: 128px;
     width: 280px;
+    color: #333;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
 
     &:focus {
       border-color: #0c797a;
@@ -98,6 +108,15 @@
   }
 
   &__email {
+    color: #333;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+
+    &::placeholder {
+      font-size: 14px;
+    }
     &:focus {
       outline: #0c797a;
       border-color: #0c797a;
@@ -108,10 +127,10 @@
       line-height: 24px;
     }
 
-    &:valid {
-      outline: #eb5757;
-      border-color: #eb5757;
-    }
+    // &:invalid {
+    //   outline: #eb5757;
+    //   border-color: #eb5757;
+    // }
   }
 
   &__button {
@@ -125,10 +144,13 @@
     line-height: 40px;
     text-transform: uppercase;
     border: none;
+    cursor: pointer;
 
-    &:hover {
-      background-color: #0c797a;
-      cursor: pointer;
+    @include onDesktopMore {
+      &:hover {
+        background-color: #0c797a;
+        cursor: pointer;
+      }
     }
   }
 
