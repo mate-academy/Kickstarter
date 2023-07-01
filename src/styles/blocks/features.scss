@@ -1,0 +1,118 @@
+.features {
+  margin-bottom: 110px;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
+    grid-row-gap: 65px;
+    margin-bottom: 140px;
+  }
+
+  @include onDesktopMore {
+    display: grid;
+    grid-template-columns: repeat(12, 72px);
+    gap: 20px;
+    grid-column-gap: 30px;
+    margin: 0 auto 170px;
+    width: fit-content;
+  }
+
+  &-title {
+    color: $darkgrey;
+    text-align: center;
+    font-size: 22px;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    line-height: 28px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+
+  &-paragraph {
+    color: $lightgrey;
+    text-align: center;
+    font-size: 14px;
+    font-family: "Inter", sans-serif;
+    line-height: 21px;
+  }
+
+  &-img {
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s;
+    
+    @include onDesktopMore {
+      &:hover {
+        transform: translateZ(+40px);
+      }
+    }
+  }
+
+  &__design {
+    perspective: 400px;
+
+    @include onTablet {
+      grid-column: 1 / span 4;
+      grid-row: 1;
+    }
+
+    @include onDesktopMore {
+      grid-column: 1 / span 3;
+      grid-row: 1;
+    }
+  }
+
+  &__lightning {
+    display: none;
+    perspective: 400px;
+
+    @include onTablet {
+      display: block;
+      grid-column: 5 / span 4;
+      grid-row: 2;
+    }
+
+    @include onDesktopMore {
+      display: block;
+      grid-column: 4 / span 3;
+      grid-row: 1;
+    }
+  }
+
+  &__multiroom {
+    display: none;
+    perspective: 400px;
+
+    @include onTablet {
+      display: block;
+      grid-column: 1 / span 4;
+      grid-row: 2;
+    }
+
+    @include onDesktopMore {
+      display: block;
+      grid-column: 7 / span 3;
+      grid-row: 1;
+    }
+  }
+
+  &__speaker {
+    display: none;
+    perspective: 400px;
+
+    @include onTablet {
+      display: block;
+      grid-column: 5 / span 4;
+      grid-row: 1;
+    }
+
+    @include onDesktopMore {
+      display: block;
+      grid-column: 10 / span 3;
+      grid-row: 1;
+    }
+  }
+
+}

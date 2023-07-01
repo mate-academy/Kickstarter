@@ -1,0 +1,184 @@
+.header {
+  padding-top: 25px;
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTabletMore {
+      margin-bottom: 80px;
+    }
+
+    @include onDesktopMore {
+      margin-bottom: 120px;
+      padding: 0 34px;
+    }
+
+    &-logo {
+      transition: scale 0.3s;
+      @include onDesktopMore {
+        &:hover {
+          scale: 1.1;
+        }
+      }
+    }
+
+    &-item {
+      margin-right: 30px;
+    }
+
+    &-block {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    &-span {
+      display: none;
+      @include onTabletMore {
+        // font-family: "Inter";
+        display: inline-block;
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+      }
+    }
+
+    &-lang-en {
+      display: none;
+      @include onTabletMore {
+        display: inline-block;
+        color: #333;
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+
+    &-lang-ua {
+      display: none;
+      @include onTabletMore {
+        display: inline-block;
+        color: #bdbdbd;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 18px;
+      }
+    }
+
+    &-button {
+      display: none;
+      @include onTabletMore {
+        display: inline-block;
+        width: 100px;
+        height: 48px;
+        background-color: #333;
+        color: white;
+        text-align: center;
+        line-height: 48px;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        text-decoration: none;
+        // font-family: "Inter";
+        transition: background-color 0.3s;
+
+        @include onDesktopMore {
+          &:hover {
+            background-color: #131313;
+          }
+        }
+      }
+    }
+
+    &-icon {
+      @include onDesktopMore {
+        display: none;
+      }
+    }
+  }
+
+  &__container {
+
+    margin-bottom: 110px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 140px;
+    }
+
+    @include onDesktopMore {
+      display: grid;
+      grid-template-columns: repeat(12, 72px);
+      gap: 20px;
+      grid-column-gap: 30px;
+      margin: 0 auto 170px;
+      width: fit-content;
+    }
+
+    &-picture {
+      @include onTablet {
+        grid-column: 4 / span 5;
+        grid-row: 1;
+      }
+
+      @include onDesktopMore {
+        grid-column: 5 / span 5;
+        grid-row: 1;
+      }
+    }
+  }
+
+  &__earphones {
+    @include onMobile {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__block {
+    @include onTablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      width: 100%;
+    }
+
+    @include onDesktopMore {
+      grid-column: 1 / span 3;
+      grid-row: 1;
+    }
+    // padding: 0 30px;
+
+    &-title {
+      margin: 0 auto;
+      font-size: 40px;
+      // font-family: Inter;
+      font-weight: 700;
+      line-height: 52px;
+      text-transform: uppercase;
+
+      @include onTablet {
+        font-size: 48px;
+        line-height: 62px;
+      }
+
+      @include onDesktopMore {
+        font-size: 62px;
+        line-height: 78px;
+      }
+    }
+
+    &-paragraph {
+      color: #333;
+      font-size: 16px;
+      // font-family: Inter;
+      line-height: 24px;
+    }
+  
+  }
+
+}
