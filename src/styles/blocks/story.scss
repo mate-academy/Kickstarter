@@ -1,0 +1,80 @@
+.story {
+  background-image: url(../images/story/quotes-mobile.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  padding-top: 50px;
+
+  @include tablet {
+    background-image: url(../images/story/quotes.svg);
+    padding-top: 60px;
+  }
+
+  @include desktop {
+    padding-top: 42px;
+  }
+
+  &__content {
+    @include tablet {
+      @include grid;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+
+    @include tablet {
+      grid-column: 1 / -1;
+      margin-bottom: 40px;
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    @include desktop {
+      grid-column: 3 / 11;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include desktop {
+      grid-column: 6 / 8;
+    }
+
+    &-photo {
+      width: 62px;
+      transition: transform $animation-time;
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+
+    &-name {
+      margin: 10px 0 5px;
+      font-weight: 700;
+      line-height: 22px;
+
+      @include tablet {
+        margin-top: 20px;
+      }
+    }
+
+    &-post {
+      font-size: 14px;
+      line-height: 21px;
+      color: $c-gray;
+    }
+  }
+}
