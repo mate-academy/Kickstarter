@@ -1,0 +1,116 @@
+.menu {
+  @media (max-width:1279px) {
+
+    position: fixed;
+    flex-direction: column;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    background: $bgrColor;
+
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+
+    overflow: auto;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    &__cross {
+      transform: translateY(-20%);
+      margin-left: auto;
+      background-image: url(../images/cross.svg);
+
+      @include onDesktop {
+        top: 50px;
+      }
+    }
+
+    &__container-top {
+      display: flex;
+      align-items: center;
+      position: sticky;
+      padding: 35px 30px;
+      z-index: 4;
+      top: 0;
+
+      background-color: $bgrColor;
+      box-shadow: 2px 16px 19px -14px rgba(0,0,0,0.29);
+      overflow: hidden;
+    }
+  }
+
+  &__list {
+    @extend %flexColumn;
+    gap: 32px;
+    padding: 20px 30px;
+    list-style: none;
+
+    @include onDesktop {
+      justify-content: center;
+      flex-direction: row;
+      padding-bottom: 0;
+      gap: 84px;
+    }
+  }
+
+  &__languages {
+    display: block;
+    border-top: 1px solid;
+    padding-top: 5px;
+
+    &::after {
+      content: "";
+    }
+  }
+
+  &__lang-button {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-size: 1rem;
+    color: $colorDune;
+    text-decoration: none;
+    line-height: 22px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    &::after {
+      position: absolute;
+      display: flex;
+      margin-top: 8px;
+      content: "";
+      height: 1px;
+      text-decoration: solid;
+      background-color: $colorBlack;
+      width: 0;
+      transition: width 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    @include onDesktop {
+      font-size: 0.88rem;
+      line-height: 20px;
+      transition: 0.1s;
+
+      &--is-active {
+        font-weight: $fontWeight700;
+      }
+    }
+  }
+}

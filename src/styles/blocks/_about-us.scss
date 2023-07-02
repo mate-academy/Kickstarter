@@ -1,0 +1,104 @@
+.about-us {
+  @extend %flexColumn;
+
+  @include mainArticleBlockTablet;
+
+  @include onDesktop {
+    gap: 30px;
+  }
+
+  &__article {
+
+    @include onTablet {
+      max-width: auto;
+    }
+
+    @include onDesktop {
+      max-width: 582px;
+    }
+  }
+
+  &__headline {
+    font-size: 1.88rem;
+    line-height: 40px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      scroll-padding-bottom: 30px;
+      font-size: 2.5rem;
+      line-height: 46px;
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      font-size: 3.5rem;
+      line-height: 70px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__paragraph {
+    padding-bottom: 30px;
+    font-size: 0.88rem;
+    line-height: 21px;
+    color: $colorConcord;
+
+    @include onTablet {
+      padding-bottom: 60px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 0;
+      font-size: 1rem;
+      line-height: 24px;
+    }
+  }
+
+  &__pctr {
+    @include mainArticlePicture;
+    @extend %transitionPointer;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__see-more {
+    @extend %seeMoreDefaultStyle;
+
+    margin: 30px 0 110px;
+
+    @include onTablet {
+      margin: 0;
+    }
+
+    @include onDesktop {
+      display: block;
+      margin: 60px 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      margin-top: 5px;
+      height: 1px;
+      width: 53px;
+
+      background-color: #0db2b3;
+      transition: 0.3s;
+
+      @include onDesktop {
+        width: 65px;
+      }
+    }
+
+    &:hover::after {
+      width: 100%;
+
+      @include onDesktop {
+        width: 125px;
+      }
+    }
+  }
+}
