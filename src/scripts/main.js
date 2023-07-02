@@ -7,16 +7,26 @@ form.addEventListener('submit', (e) => {
   form.reset();
 });
 
-window.addEventListener('hashchange', toggleScroll);
+const menuToggle = document.getElementById('menu-toggle');
+const menuClose = document.getElementById('menu-close');
+const pageMenu = document.getElementById('page-menu');
 
-function toggleScroll() {
-  const body = document.body;
-  const menu = document.getElementById('page-menu');
-  const menuComputedStyle = window.getComputedStyle(menu);
+menuToggle.addEventListener('click', function() {
+  openMenu();
+});
 
-  if (menuComputedStyle.opacity === '1') {
-    body.style.overflow = 'auto';
-  } else {
-    body.style.overflow = 'hidden';
-  }
+menuClose.addEventListener('click', function() {
+  closeMenu();
+});
+
+function openMenu() {
+  pageMenu.style.opacity = '1';
+  pageMenu.style.pointerEvents = 'auto';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMenu() {
+  pageMenu.style.opacity = '0';
+  pageMenu.style.pointerEvents = 'none';
+  document.body.style.overflow = 'auto';
 }
