@@ -10,6 +10,7 @@ form.addEventListener('submit', (e) => {
 const menuToggle = document.getElementById('menu-toggle');
 const menuClose = document.getElementById('menu-close');
 const pageMenu = document.getElementById('page-menu');
+const menuLinks = pageMenu.querySelectorAll('a');
 
 menuToggle.addEventListener('click', function() {
   openMenu();
@@ -17,6 +18,12 @@ menuToggle.addEventListener('click', function() {
 
 menuClose.addEventListener('click', function() {
   closeMenu();
+});
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', function() {
+    closeMenu();
+  });
 });
 
 function openMenu() {
