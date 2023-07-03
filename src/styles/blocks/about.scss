@@ -1,0 +1,139 @@
+.about {
+  padding: 55px 0;
+
+  &__nav {
+    display: none;
+    gap: 84px;
+    justify-content: center;
+    margin-bottom: 90px;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $greyDis;
+    font-weight: 400;
+    @extend %main-text;
+    text-transform: uppercase;
+    transition: all 00.3s;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: $black;
+      transform: scale(1.05);
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 65px;
+    justify-content: center;
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      flex-direction: row;
+      margin-bottom: 170px;
+      gap: 30px;
+    }
+  }
+
+  &__wrapp {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+
+    @include onDesktop {
+      gap: 30px;
+    }
+  }
+
+  &__info {
+    text-align: center;
+    align-items: center;
+    display: none;
+    flex-direction: column;
+    max-width: 260px;
+
+    &-mobile {
+      display: flex;
+    }
+
+    @include onTablet {
+      display: flex;
+      max-width: 340px;
+    }
+  }
+
+  &__img {
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 40px;
+    transition: all 00.3s;
+    margin-bottom: 40px;
+    
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &-design {
+      background-image: url(../images/design.svg);
+    }
+
+    &-volume {
+      background-image: url(../images/volume.svg);
+    }
+
+    &-wifi {
+      background-image: url(../images/wifi.svg);
+    }
+
+    &-lightning {
+      background-image: url(../images/lightning.svg);
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    @extend %secondary-text;
+  }
+
+  &__image {
+    background-image: url(../images/image2mob.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 296px;
+    height: 195px;
+    transition: all 00.3s;
+    margin: auto;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include onTablet {
+      background-image: url(../images/image2tabl.jpg);
+      width: 700px;
+      height: 430px;
+    }
+
+    @include onDesktop {
+      background-image: url(../images/photo2.jpg);
+      width: 846px;
+      height: 520px;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+.header {
+  padding: 55px 0;
+
+  @include onTablet {
+    // padding: 100px 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+
+    @include onTablet {
+      padding: 100px 0;
+      flex-direction: row;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      text-align: left;
+      align-items: center;
+    }
+  }
+
+  &__image {
+    background-image: url(../images/image1mob.jpg);
+    width: 100%;
+    height: 245px;
+    z-index: -1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    margin: 0 0 40px;
+
+    @include onTablet {
+      background-image: url(../images/image1tabl.jpg);
+      grid-column: 4 / 7;
+      width: 430px;
+      height: 317px;
+    }
+
+    @include onDesktop {
+      background-image: url(../images/photo1.jpg);
+      width: 816px;
+      height: 464px;
+    }
+  }
+
+  &__text {
+    @include onTablet {
+      grid-column: 1 / 4;
+      padding-bottom: 40px;
+
+      @include onDesktop {
+        max-width: 378px;
+      }
+    }
+  }
+
+  &__title {
+    @extend %h1;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+
+    @include onTablet {
+      max-width: 470px;
+    }
+  }
+
+  &__main-text {
+    @extend %main-text;
+
+    @include onTablet {
+      width: 250px;
+    }
+  }
+}
