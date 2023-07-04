@@ -1,0 +1,84 @@
+.benefits {
+  display: block;
+  
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__paragraph {
+    font-size: 0.88rem;
+    line-height: 21px;
+
+    text-align: center;
+    color: $colorConcord;
+  }
+
+  &__item {
+    @extend %flexColumn;
+    align-items: center;
+    text-align: center;
+
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 767px) {
+      &:not(:nth-child(1)) {
+        display: none;
+      }
+    }
+  }
+
+  &__icon {
+    height: 44px;
+    width: 50px;
+
+    @extend %BackgroundNoRepeatContain;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__icon-design {
+    margin-bottom: 40px;
+    background-image: url(../images/icon-futuristic-design.svg);
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__icon-speaker {
+    background-image: url(../images/icon-speaker.svg);
+  }
+
+  &__icon-multiroom {
+    background-image: url(../images/icon-multiroom.svg);
+  }
+
+  &__icon-lighting {
+    background-image: url(../images/icon-lighting.svg);
+  }
+
+  &__headline {
+    margin-bottom: 20px;
+
+    font-size: 1.38rem;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: $colorDune;
+
+    @include onDesktop {
+      min-height: 56px;
+    }
+  }
+}

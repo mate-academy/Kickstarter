@@ -1,0 +1,178 @@
+.header {
+  position: relative;
+
+  &__check-lang--en {
+    font-weight: $fontWeight700;
+    &::after {
+      content: "/";
+      padding: 0 3px;
+    }
+  }
+
+  &__check-lang--ua {
+    transition: text-shadow 0.2s;
+
+    &:hover {
+      text-shadow: 1px 0 0 black;
+    }
+  }
+
+  &__menu {
+    margin-bottom: 94px;
+  }
+
+  &__nav {
+    @extend %flexAlignCenter;
+    justify-content: space-between;
+    padding: 25px 0;
+
+    @include onDesktop {
+      padding: 30px 0;
+    }
+
+    &-func {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        gap: 27px;
+      }
+
+      @include onDesktop {
+        gap: 47px;
+      }
+
+      &-item {
+        text-decoration: none;
+        font-family: $fontFamilyHelvetica;
+        font-size: 0.88rem;
+        color: $colorLiver;
+        text-transform: uppercase;
+
+        &--specs {
+          position: relative;
+
+          &::after {
+            position: absolute;
+            display: flex;
+            margin-top: 8px;
+            content: "";
+            height: 1px;
+            text-decoration: solid;
+            background-color: $colorBlack;
+            width: 0;
+            transition: width 0.3s;
+          }
+
+          &:hover::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &__nav-languages {
+    display: flex;
+  }
+
+  &__content {
+    @extend %flexColumn;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin: 0 auto 110px;
+    padding: 0 30px;
+    min-height: 660px;
+    max-width: 1060px;
+
+    background-image: url(/images/header-bgr-mob.jpg);
+    background-position: center 20%;
+    @extend %BackgroundNoRepeatContain;
+
+    @include onMobileL {
+      background-size: 400px;
+    }
+
+    @include onTablet {
+      padding: 0 34px;
+      margin: 0 auto 140px;
+
+      justify-content: left;
+      min-height: 0;
+
+      background-image: url(/images/header-bgr-tablet.png);
+      background-position: 100% 95%;
+      background-size: 55%;
+    }
+
+    @include onDesktop {
+      padding: 0;
+      margin: 0 auto 170px;
+
+      max-width: 100%;
+
+      background-image: url(/images/header-bgr.png);
+      background-position: 95% 100%;
+      background-size: 65%;
+    }
+  }
+
+  &__lead-section {
+    @extend %flexColumn;
+    gap: 20px;
+
+    @include onTablet {
+      display: flex;
+      max-width: 340px;
+      margin-top: 110px;
+    }
+
+    @include onDesktop {
+      margin-top: 180px;
+      max-width: 378px;
+    }
+  }
+
+  &__title {
+    font-weight: $fontWeight700;
+    font-size: 2.5rem;
+    line-height: 52px;
+    color: $colorDune;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 3rem;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 3.88rem;
+      line-height: 78px;
+    }
+  }
+
+  &__introduction {
+    font-size: 1rem;
+    line-height: 24px;
+    color: $colorDune;
+
+    @include onTablet {
+      max-width: 250px;
+    }
+
+    @include onTablet {
+      max-width: 276px;
+    }
+  }
+
+  &__menu-opener {
+    display: block;
+    background-image: url(/images/menu.svg);
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}

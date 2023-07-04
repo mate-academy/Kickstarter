@@ -1,8 +1,21 @@
 'use strict';
 
-const form = document.querySelector('form');
+const preventSubmit = require('./prevent-submit');
+const scrollUpArrow = require('./scroll-up');
+const activeLink = require('./active-menu-link');
+const matchMedia = require('./match-media');
+const featureSlider = require('./feature-slider');
 
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
-  form.reset();
+preventSubmit();
+scrollUpArrow();
+activeLink();
+matchMedia();
+featureSlider();
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
 });

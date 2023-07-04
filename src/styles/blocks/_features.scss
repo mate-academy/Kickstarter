@@ -1,0 +1,196 @@
+.features {
+
+  &__headline {
+    margin-bottom: 32px;
+    padding-left: 30px;
+    font-weight: $fontWeight700;
+    font-size: 1.88rem;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $colorDune;
+
+    @include onDesktopS {
+      font-size: 2.5rem;
+    }
+
+    @include onDesktop {
+      font-size: 3.5rem;
+      line-height: 70px;
+      padding-left: 0;
+    }
+  }
+
+  &__list-block {
+    padding: 30px 0 174px;
+    margin-bottom: 89px;
+    background-image: url(/images/features-bgr.png);
+    background-color: $colorPaleBlueLily;
+    background-position: center bottom;
+    background-size: 320px;
+    @extend %BackgroundNoRepeatContain;
+
+    @include onMobileL {
+      background-position: right bottom;
+    }
+
+    @include onTablet {
+      padding: 60px 30px 123px 0;
+      margin-bottom: 140px;
+      background-position: 95% 100%;
+      background-image: url(/images/features-bgr-tablet.png);
+      background-size: 55%;
+    }
+
+    @include onDesktopS {
+      padding: 60px 30px 30px 0;
+      margin-bottom: 170px;
+      background-position: 92% 100%;
+      background-image: url(/images/slider-bgr.png);
+      background-size: auto 302px;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 0;
+    }
+
+    @include onDesktop {
+      padding: 60px 102px;
+      background-position: 92% 100%;
+      background-image: url(/images/slider-bgr.png);
+      gap: 56px 0;
+    }
+  }
+
+  &__name {
+    margin-bottom: 20px;
+    padding-left: 32px;
+    font-weight: $fontWeight700;
+    font-size: 1.13rem;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: $colorSurfieGreen;
+
+    @include onTablet {
+      padding-left: 90px;
+    }
+
+    @include onDesktopS {
+      margin-bottom: 30px;
+      padding-left: 90px;
+      font-size: 1.5rem;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+      padding-left: 0;
+      font-size: 2.13rem;
+    }
+  }
+
+  &__list {
+    @extend %flexColumn;
+    gap: 10px;
+    padding: 0 27px 50px 48px;
+    min-height: 240px;
+    list-style-position: outside;
+
+    @include onMobileL {
+      max-width: 244px;
+    }
+
+    @include onTablet {
+      padding: 0 0 50px 106px;
+      max-width: 244px;
+    }
+
+    @include onDesktop {
+      padding: 0 0 18px;
+      max-width: 378px;
+    }
+
+    &-item {
+      font-size: 0.88rem;
+      line-height: 21px;
+      color: $colorDune;
+
+      @include onDesktopS {
+        font-size: 1rem;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &__control {
+    @extend %flexJustifyCenter;
+
+    @include onMobileL {
+      justify-content: start;
+      margin-left: 90px;
+    }
+
+    @include onDesktopS {
+      display: none;
+    }
+
+    &--left {
+
+      &::after {
+        content: "";
+        display: block;
+        width: 48px;
+        height: 14px;
+        background-image: url(/images/arrow-left.svg);
+        @extend %BackgroundNoRepeatContain;
+        transition: 0.2s;
+      }
+
+      &:hover::after {
+        content: "";
+        background-image: url(/images/arrow-left-hover.svg);
+      }
+    }
+
+    &--right {
+
+      &::after {
+        content: "";
+        display: block;
+        width: 48px;
+        height: 14px;
+        background-image: url(/images/arrow-right.svg);
+        @extend %BackgroundNoRepeatContain;
+        transition: 0.2s;
+      }
+
+      &:hover::after {
+        content: "";
+        background-image: url(/images/arrow-right-hover.svg);
+      }
+    }
+  }
+
+  &__numbers {
+    @extend %flexJustifyCenter;
+
+    @include onMobileL {
+      justify-content: start;
+      margin-left: 114px;
+    }
+
+    @include onDesktopS {
+      display: none;
+    }
+
+    &--fist {
+      display: block;
+      margin-top: 8px;
+      color: $colorDune;
+    }
+
+    &--last {
+      display: block;
+      margin: 16px 0 0 3px;
+      font-size: 0.7rem;
+      color: $colorSurfieGreen;
+    }
+  }
+}
