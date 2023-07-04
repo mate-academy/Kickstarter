@@ -1,0 +1,88 @@
+.header {
+  font-family: "Helvetica Neue", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+
+  @include tablet {
+    padding: 30px 0;
+  }
+
+  @include desktop {
+    max-width: 1280px;
+    padding: 30px 43px;
+    margin: 0 auto 70px;
+  }
+
+  &__bar :not(:last-child) {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__bar {
+    color: $secondary-text-color;
+    font-weight: 300;
+    font-size: 14px;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__specs {
+    margin-right: 30px;
+    color: $secondary-text-color;
+    cursor: pointer;
+  }
+
+  &__en {
+    color: $primary-text-color;
+    margin-right: 1px;
+    cursor: pointer;
+  }
+
+  &__slesh {
+    color: $primary-text-color;
+    margin-right: 1px;
+  }
+
+  &__ua {
+    margin-right: 30px;
+    color: #828282;
+    cursor: pointer;
+
+    @include desktop {
+      margin-right: 42px;
+    }
+  }
+  &__burger {
+    width: 32px;
+    height: 32px;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__buy {
+    margin-right: 30px;
+
+    @include desktop {
+      margin-right: 0;
+
+      &:hover {
+        background-color: $button-hover-color;
+      }
+
+      &:disabled {
+        background-color: $button-disabled-color;
+      }
+    }
+  }
+}

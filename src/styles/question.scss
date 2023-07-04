@@ -1,0 +1,99 @@
+.question {
+  @include desktop {
+    max-width: 1280px;
+    padding: 0 43px;
+    margin: auto;
+
+  }
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  @include desktop {
+    gap: 30px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-size: 30px;
+    margin-bottom: 27px;
+
+    @include tablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include desktop {
+      line-height: 70px;
+      font-size: 56px;
+    }
+  }
+
+  &__input-email {
+    height: 48px;
+    border: 1px solid $input-color;
+    line-height: 24px;
+    color: $primary-text-color;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 14px;
+
+    &::placeholder {
+      font-weight: 400;
+    }
+
+    &:focus-visible {
+      border: 1px solid #eb5757;
+
+      &::placeholder {
+        color: #eb57574d;
+      }
+    }
+
+    &:valid {
+      border: 1px solid $features-title-color;
+      color: $primary-text-color;
+    }
+  }
+
+  &__input-text {
+    border: 1px solid $input-color;
+    line-height: 24px;
+    height: 128px;
+    padding: 12px 20px;
+    margin-bottom: 30px;
+  }
+
+  &__button {
+    width: 102px;
+    height: 40px;
+    background-color: $third-color-page;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    font-size: 12px;
+    transition: all 0.3s ease ;
+
+    &:hover {
+      background-color: $features-title-color;
+    }
+
+    &:disabled {
+      background-color: $button-disabled-bottom-color;
+    }
+  }
+}

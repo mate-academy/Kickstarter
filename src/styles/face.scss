@@ -1,0 +1,95 @@
+.face {
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+
+  @include tablet {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
+    padding: 100px 35px 0;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+    max-width: 1280px;
+    margin: auto;
+    padding: 159px 43px 0;
+    align-self: end;
+  }
+
+  &__picture {
+    width: 100%;
+    height: 0;
+    padding-bottom: 76.56%;
+    background-image: url(../images/images/original.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+    margin-bottom: 40px;
+
+    @include tablet {
+      width: 429.38px;
+      height: 317px;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      bottom: 0;
+      transform-origin: bottom;
+      position: absolute;
+      z-index: -1;
+      grid-column-start: 4;
+      grid-column-end: 9;
+    }
+
+    @include desktop {
+      width: 808px;
+      height: 457px;
+      right: calc(-100% + 70px);
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 0 25px;
+
+    @include tablet {
+      grid-column-start: 1;
+      grid-column-end: 5;
+      padding: 0;
+      gap: 30px;
+    }
+
+    @include desktop {
+      grid-column-start: 1;
+      grid-column-end: 5;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    line-height: 52px;
+    text-transform: uppercase;
+    font-size: 40px;
+
+    @include tablet {
+      line-height: 62px;
+      font-size: 48px;
+    }
+
+    @include desktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__information {
+    line-height: 24px;
+    font-size: 16px;
+    max-width: 260px;
+  }
+}
