@@ -1,0 +1,42 @@
+.menu {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $page-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateX(-100%);
+
+  transition: transform 1s;
+
+  &:target {
+    transform: translateX(0);
+    overflow: auto;
+  }
+
+  &__top {
+    margin-bottom: 30px;
+  }
+
+  &__specs {
+    @extend %text-thirdary;
+    color: rgb(130, 130, 130);
+    margin-bottom: 40px;
+  }
+
+  &__lang {
+    padding: 10px 0;
+  }
+
+  &__lang:focus {
+    font-weight: 400;
+    color: rgb(51, 51, 51);
+  }
+
+  &__button {
+    margin-bottom: 30px;
+  }
+}

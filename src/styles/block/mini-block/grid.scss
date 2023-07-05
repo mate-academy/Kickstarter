@@ -1,0 +1,39 @@
+.grid {
+  display: grid;
+  grid-column-gap: 20px;
+
+  @include mobile {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 30px;
+  }
+
+  @for $start from 1 through 13 {
+    @for $end from $start through 13 {
+      @include mobile {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end};
+        }
+      }
+
+      @include tablet {
+        &--tablet--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end};
+        }
+      }
+
+      @include desktop {
+        &--desktop--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end};
+        }
+      }
+    }
+  }
+}
