@@ -1,0 +1,135 @@
+.touch {
+  background-color: $color-backround;
+  padding-bottom: 110px;
+
+  @include smartphone {
+    padding-bottom: 140px;
+  }
+
+  @include smalldesktop {
+    padding-bottom: 170px;
+  }
+
+  &__content {
+    @include gridPage;
+  }
+
+  &__top {
+    grid-column: 1 / -1;
+
+    @include smartphone {
+      grid-column: 1 / 5;
+    }
+
+    @include smalldesktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__main {
+    grid-column: 1 / -1;
+
+    @include smartphone {
+      grid-column: 5 / -1;
+    }
+
+    @include smalldesktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__title {
+    color: $color-title;
+
+    font-family: $font-family;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin-bottom: 27px;
+
+    @include smartphone {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include smalldesktop {
+      font-size: 50px;
+      line-height: 70px;
+    }
+  }
+
+  &__field {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    color: black;
+    background-color: $color-backround;
+
+    font-family: $font-family;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    height: 48px;
+    border: 1px solid #828282;
+    margin-bottom: 20px;
+
+    @include smartphone {
+      padding: 12px 30px;
+    }
+
+    @include smalldesktop {
+      padding: 12px 36px;
+    }
+
+    &::placeholder {
+      color: $color-lg;
+    }
+  }
+
+  &__fields {
+    border: 1px solid $color-lg;
+    height: 128px;
+
+    resize: none;
+    padding: 12px 20px 40px;
+
+    &::placeholder {
+      color: $color-bottom;
+    }
+
+    @include smartphone {
+      height: 200px;
+    }
+
+    @include smalldesktop {
+      height: 128px;
+      padding: 16px 36px;
+    }
+  }
+
+  &__button {
+    width: 102px;
+    height: 40px;
+    background-color: $color-green;
+
+    color: $color-white;
+    font-family: $font-family;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    cursor: pointer;
+
+    @include hover(transform, scale(1.1));
+
+    @include smalldesktop {
+      width: 124px;
+      height: 48px;
+    }
+  }
+}
