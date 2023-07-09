@@ -1,0 +1,82 @@
+.header {
+  margin-bottom: 25px;
+
+  @include onTablet {
+    margin-bottom: 130px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 90px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 22px;
+
+    @include onTablet {
+      padding-top: 29px;
+    }
+
+    @include onDesktop {
+      padding-top: 30px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &__bar {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    @include onDesktop {
+      gap: 0;
+    }
+
+    &-link {
+      font-family: inherit;
+      @extend %tertiary-text;
+      color: $color-text-grey;
+      font-weight: 300;
+      transition: $transition;
+
+      &--active {
+        color: $color-dark-main;
+        font-weight: 400;
+        pointer-events: none;
+      }
+
+      &:hover {
+        color: $color-dark-main;
+        text-decoration: underline 1px $color-dark-main;
+        text-underline-offset: 5px;
+      }
+    }
+
+    &-button {
+      @include onDesktop {
+        margin-left: 50px;
+      }
+    }
+
+  }
+
+  &__lang {
+    @include onDesktop {
+      margin-left: 30px;
+    }
+  }
+
+  &__icon {
+    margin-left: 30px;
+  }
+}

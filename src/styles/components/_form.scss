@@ -1,0 +1,54 @@
+.form-field {
+  display: block;
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 12px 20px;
+  border: none;
+  border: 1px solid $color-text-grey;
+  font-size: 1.4rem;
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.4rem;
+  color: $color-dark-main;
+
+
+  @include onDesktop {
+   padding: 12px 36px 10px;
+  }
+
+  &:focus,
+  &:-webkit-autofill {
+    outline: none;
+    border: 1px solid $color-button-hover;
+    color: $color-dark-main;
+    -webkit-text-fill-color: $color-dark-main;
+    box-shadow: 0 0 0 1000px $color-white inset;
+  }
+
+  // &:required:focus:invalid {
+  //   color: rgba(235, 87, 87, 0.30);
+  //   border: 1px solid rgba(235, 87, 87, 0.30);
+  // }
+
+  &--textarea {
+    min-height: 128px;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      min-height: 201px;
+    }
+
+    @include onDesktop {
+      min-height: 128px;
+      padding-top: 16px;
+    }
+  }
+
+  &::placeholder {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: $color-light;
+  }
+
+}

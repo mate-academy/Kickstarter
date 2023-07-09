@@ -1,0 +1,72 @@
+.button {
+  display: flex;
+  @extend %button;
+  align-items: center;
+  box-sizing: border-box;
+  border: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all $transition;
+
+  &--colored-dark {
+    justify-content: center;
+    width: 102px;
+    height: 48px;
+    background: $color-dark-main;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-darkest;
+    }
+
+    &:disabled {
+      background-color: $color-light;
+    }
+  }
+
+  &--borderless {
+    color: $color-button;
+    position: relative;
+    padding-bottom: 5px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 53px;
+      height: 1px;
+      background-color: $color-button;
+
+      @include onDesktop {
+        width: 65px;
+      }
+    }
+
+    &:hover:after {
+      width: 128px;
+    }
+  }
+
+  &--colored {
+    justify-content: center;
+    width: 102px;
+    height: 40px;
+    background: $color-button;
+    color: $color-white;
+
+    @include onDesktop {
+      width: 123.663px;
+      height: 48px;
+    }
+
+    &:hover {
+      background-color: $color-button-hover;
+    }
+
+    &:disabled {
+      background-color: $color-button-disable;
+    }
+  }
+}
