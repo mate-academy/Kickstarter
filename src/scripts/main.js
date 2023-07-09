@@ -248,3 +248,52 @@ document.getElementById('uaLink').addEventListener('click', function(event) {
   event.preventDefault();
   toggleLanguage('ua');
 });
+
+const cards = document.querySelectorAll('.seventh-block__container-card');
+const prevBtns = document.querySelectorAll('.prev-btn');
+const nextBtns = document.querySelectorAll('.next-btn');
+const currentSlide = document.querySelector('.current-slide');
+const totalSlides = document.querySelector('.total-slides');
+
+let currentIndex = 0;
+
+function showCard(index) {
+  cards.forEach((card, i) => {
+    if (i === index) {
+      card.classList.add('active');
+    } else {
+      card.classList.remove('active');
+    }
+  });
+
+  currentSlide.textContent = (index + 1).toString().padStart(2, '0');
+}
+
+function showNextCard() {
+  currentIndex++;
+
+  if (currentIndex >= cards.length) {
+    currentIndex = 0;
+  }
+  showCard(currentIndex);
+}
+
+function showPrevCard() {
+  currentIndex--;
+
+  if (currentIndex < 0) {
+    currentIndex = cards.length - 1;
+  }
+  showCard(currentIndex);
+}
+
+prevBtns.forEach(btn => {
+  btn.addEventListener('click', showPrevCard);
+});
+
+nextBtns.forEach(btn => {
+  btn.addEventListener('click', showNextCard);
+});
+
+currentSlide.textContent = '01';
+totalSlides.textContent = cards.length.toString().padStart(2, '0');
