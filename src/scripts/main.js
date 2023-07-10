@@ -297,3 +297,15 @@ nextBtns.forEach(btn => {
 
 currentSlide.textContent = '01';
 totalSlides.textContent = cards.length.toString().padStart(2, '0');
+
+document.querySelector('.burger-menu').addEventListener('click', function() {
+  document.querySelector('.nav__list').classList.add('nav__list--open');
+  document.querySelector('.close-menu').style.display = 'block';
+  document.querySelector('.burger-menu').style.display = 'none';
+});
+
+document.querySelector('.close-menu').addEventListener('click', function() {
+  document.querySelector('.nav__list').classList.remove('nav__list--open');
+  document.querySelector('.close-menu').style.display = 'none';
+  document.querySelector('.burger-menu').style.display = 'block';
+});
