@@ -1,0 +1,139 @@
+.menu {
+  display: block;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  height: 100vh;
+
+  background-color: $background-color;
+
+  opacity: 0;
+  z-index: -1;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  @include transition;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &:target {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 50px;
+    margin-top: 10px;
+
+    @include onTablet {
+      margin-top: 40px;
+    }
+  }
+
+  &__logo {
+    display: block;
+    height: 26px;
+    width: 161px;
+
+    background-image: url(../../src/images/nav/logo--nav.png);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onTablet {
+      margin-right: 27vw;
+    }
+
+    @include onDesktop {
+      margin-right: 50vw;
+    }
+  }
+
+  &__cross {
+    position: relative;
+
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    background-image: url(../../src/images/nav/cross.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__element {
+    display: block;
+
+    @include thirdary-text;
+    margin-bottom: 2.5vh;
+
+    @include onTablet {
+      @include menu-tablet;
+    }
+
+    &--story {
+      @include h6-all;
+
+      margin-top: 10vh;
+
+      @include onTablet {
+        @include h4-all;
+      }
+    }
+
+    &--last {
+      margin-bottom: 5vh;
+    }
+  }
+
+  &__settings {
+    width: 40vw;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__specs {
+    @include nav-light;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__languages {
+    display: flex;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &--en {
+      @include nav-light;
+      color: $black-color;
+    }
+
+    &--ua {
+      @include nav-light;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin-top: 40vh;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+.features {
+  &--mobile {
+    position: relative;
+
+    height: 600px;
+    background-color: $green-background-color;
+
+    @include onTablet {
+      height: 550px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--desktop {
+    position: relative;
+
+    display: none;
+
+    @include onDesktop {
+      height: 880px;
+      display: block;
+
+      background-color: $green-background-color;
+    }
+  }
+
+  &__list {
+    height: 300px;
+
+    @include onDesktop {
+      height: 400px;
+    }
+  }
+
+  &__headline {
+    margin-bottom: 8vh;
+
+    @include h2-mobile;
+
+    @include onTablet {
+      margin-bottom: 4vh;
+    }
+
+    @include onDesktop {
+      margin-bottom: 2vh;
+
+      @include h2-desktop;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    bottom: 0;
+    width: 335px;
+    height: 175px;
+
+    background-image: url(../../src/images/features/features-mobile.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include onTablet {
+      width: 436px;
+      height: 226px;
+      background-image: url(../../src/images/features/features-desktop.png);
+
+      right: 0;
+    }
+
+    @include onDesktop {
+      width: 582px;
+      height: 302px;
+    }
+
+    &--container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
