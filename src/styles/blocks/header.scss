@@ -1,0 +1,142 @@
+.header {
+  padding-top: 25px;
+
+  @include onTablet {
+    padding-top: 30px;
+  }
+
+  &__content {
+    @include onDesktop {
+      margin-bottom: 155px;
+    }
+  }
+
+  &__tablet {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 27px;
+
+      @include onDesktop {
+        gap: 47px;
+      }
+    }
+  }
+
+  &__mobile {
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__menu-opener {
+    display: block;
+    width: 24px;
+    height: 14px;
+    background-image: url(../images/menu.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__cross {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background-image: url(../images/cross.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__image-container {
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__image-mobile {
+    width: 100%;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__image-desktop {
+    display: none;
+    transition: transform 0.3s;
+    cursor: pointer;
+
+    @include onDesktop {
+      display: block;
+      width: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__description {
+    grid-row: 1;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    cursor: pointer;
+
+    @include onTablet {
+      margin-bottom: 30px;
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+
+    &:hover {
+      color: $colorGreen;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__link {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #4f4f4f;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s;
+
+    &:hover {
+      color: $colorGreen;
+    }
+
+    &--active {
+      color: $colorBlack;
+    }
+
+    &--disabled {
+      color: $colorWhite;
+    }
+  }
+}

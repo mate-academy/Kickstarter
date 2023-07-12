@@ -1,0 +1,66 @@
+.benefits {
+  &__wrapper {
+    overflow: hidden;
+    margin-bottom: 35px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__image {
+    display: block;
+    height: 40px;
+    margin: 0 auto 40px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $colorBlack;
+    transition: color 0.3s;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #7c7c7c;
+  }
+
+  &__card {
+    width: 100%;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+    cursor: pointer;
+
+    &--hidden {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.2);
+
+      .benefits__title {
+        color: $colorGreen;
+      }
+    }
+  }
+}
