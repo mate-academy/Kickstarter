@@ -1,0 +1,196 @@
+.slider {
+  background: $color-bg;
+  position: relative;
+
+  @include onTablet {
+    background-color: #f7f7f7;
+  }
+
+  &__content {
+    padding-top: 30px;
+    padding-bottom: 174px;
+    @extend %grid-system;
+    background: $color-bg;
+
+    @include onTablet {
+      padding-top: 60px;
+      padding-bottom: 0;
+    }
+
+    @include onDesktop {
+      row-gap: 53px;
+    }
+  }
+
+  &__card {
+    &:nth-child(1) {
+      grid-column: 2/9;
+      grid-row: 1/2;
+
+      @include onDesktop {
+        grid-row: 2/3;
+        grid-column: 2/6;
+      }
+    }
+
+    &:nth-child(2) {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 2/9;
+        grid-row: 1/2;
+      }
+
+    }
+
+    &:nth-child(3) {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 7/13;
+        grid-row: 1/2;
+      }
+    }
+  }
+
+  &__title {
+    color: $color-button-hover;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+    }
+
+    @include onDesktop {
+      margin-bottom: 26px;
+      font-size: 3.4rem;
+      line-height: 4.2rem;
+    }
+  }
+
+  &__list {
+    margin: 0 0 50px;
+
+    @include onTablet {
+      margin-bottom: 0;
+      max-width: 260px;
+    }
+
+    @include onDesktop {
+      max-width: none;
+    }
+  }
+
+  &__item {
+    @extend %secondary-text;
+
+    &:not(:last-child) {
+      margin-bottom: 9px;
+
+      @include onDesktop {
+        margin-bottom: 5px;
+      }
+    }
+
+    &::before {
+      content: url(../images/svg/bullet.svg);
+      width: 6px;
+      height: 6px;
+      margin-right: 10px;
+    }
+
+    @include onDesktop {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+  }
+
+  &__pagination {
+    width: fit-content;
+    grid-column: 2/4;
+    grid-row: 2/3;
+    align-self: center;
+    margin: 0 auto;
+
+    @include onTablet {
+      margin: 50px 0 0;
+      align-self: unset;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &-buttons {
+      margin-bottom: 5px;
+
+      @include onTablet {
+        margin-bottom: 7px;
+      }
+    }
+
+    &-button {
+      width: 48px;
+      height: 14px;
+    }
+
+    &--disable {
+      pointer-events: none;
+    }
+
+    &-count {
+      display: flex;
+      justify-content: center;
+      align-items: end;
+
+    }
+
+    &-number {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &-total {
+      color: $color-button-hover;
+      font-size: 1.1rem;
+      line-height: normal;
+    }
+  }
+
+  &__img-container {
+    min-width: 320px;
+    height: 174px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: $transition;
+
+    @include onTablet {
+      position: static;
+      width: 430px;
+      height: 220px;
+      grid-column: 4/9;
+      grid-row: 2/3;
+    }
+
+    @include onDesktop {
+      grid-row: 2/3;
+      grid-column: 7/13;
+      width: 537px;
+      height: 293px;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  &__img {
+    @extend %img-fit;
+    object-position: left;
+  }
+}

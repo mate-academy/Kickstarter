@@ -1,0 +1,73 @@
+.testimonials {
+  padding-top: 50px;
+
+  @include onTablet {
+    padding-top: 55px;
+  }
+
+  @include onDesktop {
+    padding-top: 40px;
+  }
+
+  &__quote {
+    margin: 0 auto;
+    position: relative;
+    @extend %quote;
+    text-align: center;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      width: 786px;
+      margin-bottom: 30px;
+    }
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: calc(50% - 104px);
+      z-index: -1;
+      content: url(../images/svg/quote/quote-mobile.svg);
+      width: 208px;
+      height: 171px;
+
+      @include onTablet {
+        left: calc(50% - 116.5px);
+        bottom: 15px;
+        content: url(../images/svg/quote/quote-tablet.svg);
+        width: 233px;
+        height: 189px;
+      }
+
+      @include onDesktop {
+        bottom: -35%;
+      }
+    }
+  }
+
+  &__person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &-photo {
+      margin-bottom: 10px;
+
+      @include onTablet {
+        margin-bottom: 20px;
+      }
+    }
+
+    &-name {
+      margin-bottom: 5px;
+    }
+
+    &-position {
+      @extend %secondary-text;
+    }
+  }
+}

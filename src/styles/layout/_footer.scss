@@ -1,0 +1,56 @@
+.footer {
+  padding-bottom: 20px;
+
+  &__logo {
+    @include onTablet {
+      background-image: url(../images/svg/logo/logo-tablet.svg);
+    }
+
+    @include onDesktop {
+      width: 161px;
+      height: 26px;
+      background-image: url(../images/svg/logo/logo.svg);
+    }
+  }
+
+  &__top {
+    display: none;
+
+    @include onTablet {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+
+    &-icon {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  &__socials {
+    display: grid;
+    grid-template-columns: repeat(3, 24px);
+    grid-template-rows: 24px;
+    column-gap: 40px;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+      column-gap: 50px;
+    }
+
+    @include onDesktop {
+      column-gap: 40px;
+    }
+  }
+
+  &__copyright {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $color-light;
+  }
+}

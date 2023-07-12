@@ -1,0 +1,126 @@
+.benefits {
+  &__menu {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__items {
+    @extend %grid-system;
+    row-gap: 64px;
+
+    @include onTablet {
+      row-gap: 53px;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    transition: $transition;
+    cursor: pointer;
+
+    @include onTablet {
+      grid-template-rows: auto auto 1fr;
+    }
+
+    @include onDesktop {
+      grid-template-rows: auto 80px 1fr;
+      min-height: 286px;
+    }
+
+    &:not(:first-child) {
+      display: none;
+
+      @include onTablet {
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+      }
+
+      @include onDesktop {
+        grid-template-rows: auto 80px 1fr;
+        align-items: start;
+      }
+    }
+
+    @include onTablet {
+      &:nth-child(1) {
+        grid-column: 1 / 5;
+        grid-row: 1 / 2;
+      }
+
+      &:nth-child(2) {
+        grid-column: 5 / 9;
+        grid-row: 1 / 2;
+      }
+
+      &:nth-child(3) {
+        grid-column: 1 / 5;
+        grid-row: 2 / 3;
+      }
+
+      &:nth-child(4) {
+        grid-column: 5 / 9;
+        grid-row: 2 / 3;
+      }
+    }
+
+    @include onDesktop {
+      &:nth-child(1) {
+        grid-column: 1 / 4;
+        grid-row: 1 / 2;
+      }
+
+      &:nth-child(2) {
+        grid-column: 4 / 7;
+        grid-row: 1 / 2;
+      }
+
+      &:nth-child(3) {
+        grid-column: 7 / 10;
+        grid-row: 1 / 2;
+      }
+
+      &:nth-child(4) {
+        grid-column: 10 / 13;
+        grid-row: 1 / 2;
+      }
+    }
+
+    &-img {
+      margin: 0 auto 36px;
+      transition: $transition;
+
+      @include onTablet {
+        margin: 0 auto 44px;
+      }
+
+      @include onDesktop {
+        margin: 0 auto 30px;
+      }
+    }
+
+    &-title {
+      text-align: center;
+      margin-bottom: 20px;
+
+      @include onDesktop {
+        margin-bottom: 24px;
+      }
+    }
+
+    &-desc {
+      @extend %secondary-text;
+      text-align: center;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      background: linear-gradient(#f9f9f9, #fff);
+      border-radius: 20px;
+    }
+  }
+}
