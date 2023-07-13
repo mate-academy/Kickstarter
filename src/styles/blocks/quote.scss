@@ -1,0 +1,77 @@
+.quote {
+  &__text {
+    position: relative;
+
+    margin: 0 4vw 4vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    @include quote-mobile;
+
+    @include onTablet {
+      @include quote-desktop;
+    }
+
+    @include onDesktop {
+      margin: 0 10vw 4vh;
+    }
+  }
+
+  &__text::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 208px;
+    height: 171px;
+
+    z-index: 0;
+
+    background-image: url(../../src/images/quote/quote-background.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onTablet {
+      bottom: 1vh;
+
+      width: 233px;
+      height: 189px;
+    }
+
+    @include onDesktop {
+      bottom: -50%;
+
+      height: 195px;
+    }
+  }
+
+  &__icon {
+    margin: 0 auto 2vh;
+
+    width: 62px;
+    height: 62px;
+    background-image: url(../../src/images/quote/icon.png);
+  }
+
+  &__name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto 1vh;
+
+    @include h5-all;
+  }
+
+  &__position {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include secondary-text;
+  }
+}

@@ -1,0 +1,118 @@
+.story {
+  &--mobile {
+    display: block;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &--tablet {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__nav {
+    @include onMobile {
+      display: none;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      width: 40vw;
+      height: 9vh;
+
+      margin: 0 auto 5vh;
+
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+
+  &__text {
+    @include thirdary-text;
+
+    &--highlighted {
+      @include h6-all;
+    }
+  }
+
+  &__logo {
+    display: block;
+
+    background-repeat: no-repeat;
+    background-position: center;
+
+    margin: 0 auto 7vh;
+
+    width: 50px;
+    height: 50px;
+    background-image: url(../../src/images/story/design.svg);
+
+    @include onTablet {
+      margin: 0 auto 4vh;
+    }
+
+    &--1 {
+      background-image: url(../../src/images/story/design.svg);
+    }
+
+    &--2 {
+      background-image: url(../../src/images/story/speaker.svg);
+    }
+
+    &--3 {
+      background-image: url(../../src/images/story/multiroom.svg);
+    }
+
+    &--4 {
+      background-image: url(../../src/images/story/lighting.svg);
+    }
+  }
+
+  &__headline {
+    margin: 0 auto 3.5vh;
+
+    @include h4-all;
+    text-align: center;
+
+    @include onTablet {
+      margin: 0 auto 2vh;
+    }
+
+    @include onDesktop {
+      margin-bottom: 3vh;
+    }
+
+    &--long {
+      @include onDesktop {
+        margin-bottom: 5.3vh;
+      }
+    }
+  }
+
+  &__description {
+    margin: 0 auto;
+
+    @include secondary-text;
+    text-align: center;
+  }
+
+  &__separator {
+    @include onTablet {
+      display: block;
+      height: 6vh;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+.header {
+  &__cover {
+    &--mobile {
+      margin: 15vh auto 0;
+
+      width: 320px;
+      height: 245px;
+      background-image: url(../../src/images/header/header-mobile.png);
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      @include onTablet {
+        margin: 16vh auto 0;
+
+        width: 429.39px;
+        height: 317px;
+        background-image: url(../../src/images/header/header-tablet.png);
+        background-repeat: no-repeat;
+        background-position: center;
+
+        position: relative;
+        z-index: -1;
+      }
+
+      @include onDesktop {
+        width: 816px;
+        height: 464px;
+        background-image: url(../../src/images/header/header-desktop.png);
+      }
+    }
+  }
+
+  &__headline {
+    margin-top: 7vh;
+    @include h1-mobile;
+
+    @include onTablet {
+      margin-top: 15vh;
+      @include h1-tablet;
+    }
+
+    @include onDesktop {
+      margin-top: 20vh;
+      @include h1-desktop;
+    }
+  }
+
+  &__description {
+    margin-top: 3vh;
+    @include main-text;
+
+    @include onTablet {
+      margin-top: 5vw;
+    }
+  }
+}

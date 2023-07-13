@@ -1,0 +1,102 @@
+.contact-us {
+  &__headline {
+    margin-bottom: 4vh;
+    @include h2-mobile;
+
+    @include onTablet {
+      @include h2-tablet;
+    }
+
+    @include onDesktop {
+      @include h2-desktop;
+    }
+  }
+
+  &__label {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+  }
+
+  &__input {
+    margin: 0;
+    padding: 0 0 0 20px;
+    outline: 0;
+    border: 1px solid #828282;
+
+    display: block;
+    width: calc(100% - 20px);
+    background-color: transparent;
+
+    cursor: pointer;
+
+    @include main-text;
+
+    @include transition;
+
+    &:focus {
+      border: 1px solid $green-color-color;
+    }
+  }
+
+  &__input::placeholder {
+    @include main-text;
+
+    color: $placeholder-color;
+  }
+
+  &__input:focus::placeholder {
+    @include main-text;
+  }
+
+  &__email {
+    &--input {
+      margin-bottom: 3vh;
+      height: 8vh;
+
+      @include onTablet {
+        margin-bottom: 1.5vh;
+        height: 4vh;
+      }
+
+      @include onDesktop {
+        height: 6vh;
+      }
+    }
+  }
+
+  &__message {
+    &--input {
+      margin-bottom: 6vh;
+      padding-top: 12px;
+      height: calc(24vh - 15px);
+      resize: none;
+
+      @include onTablet {
+        margin-bottom: 3vh;
+        height: 20vh;
+      }
+
+      @include onDesktop {
+        height: 15vh;
+      }
+    }
+  }
+
+  &__button {
+    width: 35%;
+    height: 6vh;
+
+    cursor: pointer;
+
+    @include onTablet {
+      height: 4vh;
+    }
+
+    @include onDesktop {
+      width: 25%;
+      height: 6vh;
+    }
+  }
+}
