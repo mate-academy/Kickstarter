@@ -249,63 +249,90 @@ document.getElementById('uaLink').addEventListener('click', function(event) {
   toggleLanguage('ua');
 });
 
-const cards = document.querySelectorAll('.seventh-block__container-card');
-const prevBtns = document.querySelectorAll('.prev-btn');
-const nextBtns = document.querySelectorAll('.next-btn');
-const currentSlide = document.querySelector('.current-slide');
-const totalSlides = document.querySelector('.total-slides');
+window.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.seventh-block__container-card');
+  const prevBtns = document.querySelectorAll('.prev-btn');
+  const nextBtns = document.querySelectorAll('.next-btn');
+  const currentSlide = document.querySelector('.current-slide');
+  const totalSlides = document.querySelector('.total-slides');
 
-let currentIndex = 0;
+  let currentIndex = 0;
 
-function showCard(index) {
-  cards.forEach((card, i) => {
-    if (i === index) {
-      card.classList.add('active');
-    } else {
-      card.classList.remove('active');
+  function showCard(index) {
+    cards.forEach((card, i) => {
+      if (i === index) {
+        card.classList.add('active');
+      } else {
+        card.classList.remove('active');
+      }
+    });
+
+    currentSlide.textContent = (index + 1).toString().padStart(2, '0');
+  }
+
+  function showNextCard() {
+    currentIndex++;
+
+    if (currentIndex >= cards.length) {
+      currentIndex = 0;
     }
+    showCard(currentIndex);
+  }
+
+  function showPrevCard() {
+    currentIndex--;
+
+    if (currentIndex < 0) {
+      currentIndex = cards.length - 1;
+    }
+    showCard(currentIndex);
+  }
+
+  prevBtns.forEach(btn => {
+    btn.addEventListener('click', showPrevCard);
   });
 
-  currentSlide.textContent = (index + 1).toString().padStart(2, '0');
-}
+  nextBtns.forEach(btn => {
+    btn.addEventListener('click', showNextCard);
+  });
 
-function showNextCard() {
-  currentIndex++;
+  showCard(0); // Добавляем эту строку, чтобы показать первую карточку при загрузке страницы
 
-  if (currentIndex >= cards.length) {
-    currentIndex = 0;
-  }
-  showCard(currentIndex);
-}
-
-function showPrevCard() {
-  currentIndex--;
-
-  if (currentIndex < 0) {
-    currentIndex = cards.length - 1;
-  }
-  showCard(currentIndex);
-}
-
-prevBtns.forEach(btn => {
-  btn.addEventListener('click', showPrevCard);
+  currentSlide.textContent = '01';
+  totalSlides.textContent = cards.length.toString().padStart(2, '0');
 });
 
-nextBtns.forEach(btn => {
-  btn.addEventListener('click', showNextCard);
+// Получите все ссылки внутри nav__list
+const navLinks = document.querySelectorAll('.nav__link');
+
+// Добавьте обработчик события для каждой ссылки
+navLinks.forEach(function(navLink) {
+  navLink.addEventListener('click', function() {
+    document.querySelector('.nav__list').classList.remove('nav__list--open');
+    document.querySelector('.close-menu').style.display = 'none';
+    document.querySelector('.burger-menu').style.display = 'block';
+    document.querySelector('.nav__list').style.opacity = '0';
+    document.querySelector('.nav__list').style.visibility = 'hidden';
+  });
 });
 
-currentSlide.textContent = '01';
-totalSlides.textContent = cards.length.toString().padStart(2, '0');
-
+// Добавьте обработчик события для кнопки бургера
 document.querySelector('.burger-menu').addEventListener('click', function() {
   document.querySelector('.nav__list').classList.add('nav__list--open');
   document.querySelector('.close-menu').style.display = 'block';
   document.querySelector('.burger-menu').style.display = 'none';
+  document.querySelector('.nav__list').style.opacity = '1';
+  document.querySelector('.nav__list').style.visibility = 'visible';
 });
 
+// Добавьте обработчик события для кнопки закрытия меню
 document.querySelector('.close-menu').addEventListener('click', function() {
-  document.querySelector('.nav__list').classList.remove('nav__list--open');
-  document.querySelector('.close-menu').style.display = 'none';
-  document.querySelector('.burger-menu').style.display = 'block';
+  document.querySelector('.nav__list').style.opacity = '0';
+  document.querySelector('.nav__list').style.visibility = 'hidden';
+
+  setTimeout(function() {
+    document.querySelector('.nav__list').classList.remove('nav__list--open');
+    document.querySelector('.close-menu').style.display = 'none';
+    document.querySelector('.burger-menu').style.display = 'block';
+  }, 300);
 });
