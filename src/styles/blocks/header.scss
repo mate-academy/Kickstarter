@@ -1,0 +1,115 @@
+.header {
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 76px;
+
+    @include onTablet {
+      margin-bottom: 120px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 160px;
+    }
+  }
+
+  &__top-desktop {
+    @include onTablet {
+      width: 300px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    @extend %logo;
+  }
+
+  &__specs {
+    @extend %link;
+
+    color: #4f4f4f;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__language {
+    display: flex;
+  }
+
+  &__button {
+    @extend %flex-center;
+    @extend %link;
+    @extend %button;
+
+    height: 48px;
+    width: 102px;
+    background-color: $dark-color;
+    transition: background 0.3s;
+
+    &:hover {
+      background: #131313;
+    }
+
+    &:disabled {
+      background: #d0d0d0;
+    }
+  }
+
+  &__info {
+    color: $dark-color;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__description {
+    @extend %medium-font;
+  }
+
+  &__photo {
+    width: 320px;
+    height: 245px;
+    margin: 0 auto 40px;
+    background-image: url(/images/img_1.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include onTablet {
+      width: 430px;
+      height: 317px;
+      grid-column: 4 / 9;
+    }
+
+    @include onDesktop {
+      width: 816px;
+      height: 464px;
+      margin-top: -80px;
+    }
+  }
+}

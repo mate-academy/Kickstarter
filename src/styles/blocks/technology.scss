@@ -1,0 +1,75 @@
+.technology {
+
+  &__title {
+    @extend %title;
+
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__description {
+    margin: 20px 0 30px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__photo {
+    @extend %bg-center;
+
+    width: 100%;
+    height: 210px;
+    transition: transform 0.4s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &--luna {
+      background-image: url(/images/img_3.png);
+    }
+
+    @include onTablet {
+      height: 415px;
+      background-size: cover;
+    }
+  }
+
+  &__link {
+    @extend %link;
+
+    position: relative;
+    padding-bottom: 5px;
+    color: $blue-color;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+
+    &::after {
+      content: "";
+      width: 53px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-bottom: 1px solid $blue-color;
+      opacity: 1;
+      transition: width 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

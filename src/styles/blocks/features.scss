@@ -1,0 +1,135 @@
+.features {
+
+  &__content {
+    background-color: #d6ecec;
+  }
+
+  &__info {
+    height: 218px;
+    margin-bottom: 50px;
+
+    @include onDesktop {
+      height: fit-content;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__title {
+    @extend %title;
+    margin-bottom: 30px;
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 20px;
+    color: #0c797a;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+
+    @include onDesktop {
+      margin-bottom: 30px;
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    list-style: inside;
+  }
+
+  &__item {
+    margin-bottom: 10px;
+    color: $dark-color;
+
+    @include onDesktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__slider {
+    height: 10px;
+    width: 100px;
+    position: relative;
+    margin: 0 auto 40px;
+    cursor: pointer;
+
+    @include onTablet {
+      margin: 0;
+    }
+  }
+
+  &__slide {
+    width: 50px;
+    position: absolute;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s;
+
+    &--prev {
+      left: 0;
+      margin-right: 40px;
+      background-image: url(/images/svg/arrow-prev.svg);
+
+      &:hover {
+        background-image: url(/images/svg/arrow-prev-hover.svg);
+      }
+    }
+
+    &--next {
+      right: 0;
+      background-image: url(/images/svg/arrow-next.svg);
+
+      &:hover {
+        background-image: url(/images/svg/arrow-next-hover.svg);
+      }
+    }
+
+    &--current {
+      @extend %medium-font;
+
+      margin-top: 17px;
+      margin-left: 30px;
+      color: $dark-color;
+    }
+
+    &--total {
+      margin-top: 28px;
+      margin-left: 2px;
+      color: #0c797a;
+      font-size: 11px;
+      line-height: 13px;
+    }
+  }
+
+  &__photo {
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &__photo-wrapper {
+    height: 174px;
+    position: relative;
+
+    @include onTablet {
+      height: 226px;
+    }
+
+    @include onDesktop {
+      float: right;
+      height: 300px;
+      margin-top: -300px;
+    }
+  }
+
+  &__sound {
+    order: 3;
+  }
+}

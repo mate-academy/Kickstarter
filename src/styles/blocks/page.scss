@@ -1,0 +1,88 @@
+.page {
+  @extend %font;
+
+  background-color: #f6f6f6;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.4s;
+
+    &:target {
+      transform: translateX(0);
+      transition: transform 0.4s;
+    }
+  }
+
+  &__section {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.hide {
+  display: none;
+
+  @include onTablet {
+    display: block;
+  }
+}
+
+.hide--desktop {
+  display: none;
+
+  @include onDesktop {
+    display: block;
+  }
+}
+
+.visible {
+  @include onTablet {
+    display: none;
+  }
+}
+
+.visible--desktop {
+  @include onDesktop {
+    display: none;
+  }
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
