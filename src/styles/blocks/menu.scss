@@ -1,0 +1,150 @@
+.menu {
+  $root: &;
+
+  width: 100%;
+  height: 100%;
+  background-color: $color-light;
+  z-index: 11;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    margin: 0 30px 25px;
+
+    border-bottom: 1px solid $color-lightgrey_3;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__logo {
+    flex-shrink: 0;
+  }
+
+  &__closer {
+    flex-shrink: 0;
+    background-image: url("../images/icons/menu_2.svg");
+  }
+
+  &__options {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 30px 50px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 30px;
+    padding: 0;
+    list-style: none;
+
+    & :last-child {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      flex-direction: row;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    @include onDesktop {
+      width: 70%;
+    }
+  }
+
+  &__item {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      padding: 28px 0 20px;
+      margin: 0;
+    }
+
+  }
+
+  &__link {
+    display: block;
+    width: max-content;
+    @extend %text-secondary;
+    color: $color-darkgrey_2;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    transition: color 0.3s;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 0%;
+      margin-top: 6px;
+      border-bottom: 1px solid $color-darkgrey_1;
+
+      transition: width 0.3s;
+    }
+
+    &:hover {
+      color: $color-darkgrey_1;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &--active {
+      font-weight: 700;
+      color: $color-darkgrey_1;
+    }
+  }
+
+  &__sticky-icon {
+    width: $icon-size;
+    height: 0;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+    background-color: transparent;
+    background-image: url(../images/icons/double-down.svg);
+
+    transition: height 0.3s;
+  }
+
+  &--sticky {
+    @include onTablet {
+      transform: translateY(-76px);
+      background-color: transparent;
+    }
+
+    #{$root}__sticky-icon {
+      @include onTablet {
+        height: $icon-size;
+      }
+    }
+
+    &:hover {
+      @include onTablet {
+        background-color: $color-light;
+        transform: translateY(0);
+      }
+
+      #{$root}__sticky-icon {
+        @include onTablet {
+          height: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    outline: none;
+    background-color: $color-light;
+    border: 1px solid $color-lightgrey_1;
+    transition: border-color 0.3s;
+
+    @extend %text-secondary;
+    color: $color-darkgrey_2;
+
+    &::placeholder {
+      @extend %text-main;
+      color: $color-lightgrey_2;
+    }
+
+    &:focus {
+      border-color: $color-green_5;
+    }
+
+    &:valid {
+      border-color: $color-red_1;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      border: 1px solid $color-red_1;
+      -webkit-text-fill-color: $color-darkgrey_2;
+      box-shadow: none;
+      // l
+      -webkit-box-shadow: 0 0 0 1000px $color-green_3 inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  &__email {
+    padding: 12px 20px;
+    margin-bottom: 20px;
+  }
+
+  &__message {
+    height: 128px;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    resize: none;
+
+    @include onTablet {
+      height: 200px;
+    }
+  }
+
+  &__button {
+    width: 102px;
+
+    @include onDesktop {
+      width: 124px;
+    }
+  }
+}

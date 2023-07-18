@@ -1,0 +1,33 @@
+.contactus {
+  display: flex;
+  flex-direction: column;
+
+  @include onTablet {
+    flex-direction: row;
+    gap: 0 20px;
+  }
+
+  @include onDesktop {
+    gap: 0 30px;
+  }
+
+  &__title {
+    @include marginLeft ($m-hor, $m-hor, 0);
+    @include marginRight ($m-hor, 0, 0);
+
+    @extend %h2;
+
+    @include onTablet {
+      width: 50%;
+    }
+  }
+
+  &__form {
+    @include marginLeft ($m-hor, 0, 0);
+    @include marginRight ($m-hor, $m-hor, 0);
+
+    @include onTablet {
+      width: 50%;
+    }
+  }
+}

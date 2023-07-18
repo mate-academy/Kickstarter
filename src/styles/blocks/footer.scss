@@ -1,0 +1,75 @@
+.footer {
+
+  &__content {
+    @include marginLeft ($m-hor, $m-hor, 0);
+    @include marginRight ($m-hor, $m-hor, 0);
+  }
+
+  &__nav {
+    position: relative;
+    display: none;
+    margin-bottom: 64px;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__logo {
+    margin: 0 auto;
+  }
+
+  &__goup {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url("../images/icons/goup.svg");
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: space-around;
+    width: 200px;
+    margin: 0 auto 32px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+  }
+
+  &__social {
+    display: flex;
+    height: 20px;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
+
+  &__copy {
+    text-align: center;
+    margin-bottom: 20px;
+
+    @extend %text-secondary;
+    color: $color-lightgrey_2;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__terms {
+    @extend %text-secondary;
+    color: $color-lightgrey_2;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s;
+
+    &:hover {
+      border-color: $color-lightgrey_1;
+      color: $color-lightgrey_1;
+    }
+  }
+}

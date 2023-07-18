@@ -1,0 +1,54 @@
+.slider {
+  width: max-content;
+
+  &__buttons {
+    display: flex;
+    margin-bottom: 8px;
+  }
+
+  &__button {
+    display: flex;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+
+    &--prev {
+      color: $color-darkgrey_2;
+      transform: translate(1px, 1px);
+    }
+
+    &--next {
+      color: $color-darkgrey_2;
+      transform: translate(-1px, -1px);
+    }
+
+    //slider__button--inactive
+    &--inactive {
+      color: $color-lightgrey_2;
+      pointer-events: none;
+    }
+
+    &:hover {
+      transform: translate(0, 0);
+      color: $color-green_5;
+    }
+  }
+
+  &__counter {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+  }
+
+  &__current {
+    @extend %text-main;
+    color: $color-darkgrey_2;
+  }
+
+  &__total {
+    font-size: 11px;
+    line-height: 13px;
+    font-weight: 400;
+    color: $color-green_5;
+  }
+}

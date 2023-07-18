@@ -1,0 +1,78 @@
+.features {
+
+  &__title {
+    @extend %h2;
+    @include marginLeft ($m-hor, $m-hor, 0);
+    @include marginRight ($m-hor, $m-hor, 0);
+  }
+
+  &__wrapper {
+    box-sizing: border-box;
+    height: 575px;
+    padding-top: 30px;
+    @include marginLeft (0, $m-hor, 0);
+    @include marginRight (0, $m-hor, 0);
+    background-color: $color-green_3;
+    background-image: url(../images/photos/features_m.jpg);
+    background-position: bottom right;
+    background-size: auto 30%;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 555px;
+      padding-top: 60px;
+      background-image: url(../images/photos/features_t.jpg);
+      background-size: auto 40%;
+    }
+
+    @include onDesktop {
+      height: 640px;
+      background-image: url(../images/photos/features_d.jpg);
+      background-position: bottom right 30px;
+      background-size: auto 50%;
+    }
+  }
+
+  &__content {
+    padding: 0 30px;
+    max-width: 360px;
+    height: 45%;
+
+    @include onTablet {
+      height: 35%;
+      padding: 0 90px;
+    }
+
+    @include onDesktop {
+      height: 35%;
+      max-width: 100%;
+      padding: 0 90px;
+    }
+
+    // & > :nth-child(-n+2) {
+    //   display: none;
+    // }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 56px 0;
+
+      // & > :nth-child(-n+2) {
+      //   display: block;
+      // }
+    }
+  }
+
+  &__slider {
+    margin: 50px auto 0;
+
+    @include onTablet {
+      margin: 50px 0 0;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}

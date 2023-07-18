@@ -1,0 +1,48 @@
+.page {
+  font-family: $font-main;
+  background-color: $color-light;
+  scroll-behavior: smooth;
+
+  &__body {
+    max-width: 1194px;
+    margin: 0 auto;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translate(-100%);
+    overflow-y: auto;
+
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translate(0);
+    }
+
+    @include onTablet {
+      position: sticky;
+      top: 0;
+      transform: translate(0);
+      margin-bottom: 64px;
+    }
+  }
+
+  &__section {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+  }
+}
