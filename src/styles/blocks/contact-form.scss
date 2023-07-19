@@ -1,0 +1,57 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include onDesktop {
+    max-width: 438px;
+  }
+
+  &__field {
+    padding-left: 30px;
+    width: 100%;
+    font-family: $main-font;
+    color: $main-color;
+    border: 1px solid #828282;
+    outline: none;
+
+    &::placeholder {
+      font-family: $main-font;
+      font-size: 16px;
+      line-height: 19px;
+      color: #bdbdbd;
+    }
+
+    &:focus {
+      border: 1px solid #828282;
+    }
+
+    &:valid {
+      border: 1px solid #0c797a;
+    }
+
+    &:focus-within:invalid {
+      border: 1px solid #eb5757;
+    }
+
+    @include onDesktop {
+      min-width: 438px;
+    }
+
+    &--input {
+      margin-bottom: 19px;
+      height: 48px;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    &--textarea {
+      margin-bottom: 30px;
+      padding-top: 16px;
+      height: 128px;
+      font-size: 16px;
+      line-height: 19px;
+      resize: none;
+    }
+  }
+}
