@@ -1,9 +1,16 @@
 .about {
   &__img {
     transition: all $traform-time;
+    overflow: hidden;
 
     &:hover {
-      transform: scale(1.02);
+      @include onTablet {
+        transform: translateY(-7px);
+      }
+
+      @include onDesktop {
+        transform: scale(1.05);
+      }
     }
     @include onMobile {
       display: none;

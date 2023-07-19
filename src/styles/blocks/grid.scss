@@ -1,0 +1,32 @@
+.grid {
+  display: block;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &--about-section {
+    grid-template-rows: auto auto 1fr;
+  }
+
+  &--desktop {
+    display: block;
+
+    @include onDesktop {
+      display: grid;
+    }
+  }
+
+  &--features-section {
+    @include onDesktop {
+      row-gap: 56px;
+    }
+  }
+}
