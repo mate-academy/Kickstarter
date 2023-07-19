@@ -21,9 +21,19 @@
     margin-bottom: 94px;
   }
 
+  &__wrapper {
+    display: flex;
+    column-gap: 20px;
+    margin-bottom: 160px;
+  }
+
   &__nav {
-    @extend %flexAlignCenter;
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 160px;
+
+    @extend %flexAlignCenter;
     padding: 25px 0;
 
     @include onDesktop {
@@ -50,9 +60,15 @@
         font-size: 0.88rem;
         color: $colorLiver;
         text-transform: uppercase;
+        margin-left: 5px;
 
         &--specs {
           position: relative;
+          transition: all 0.3s;
+          transition-duration: 0.3s;
+          transition-timing-function: ease;
+          transition-delay: 0s;
+          transition-property: all;
 
           &::after {
             position: absolute;
@@ -76,6 +92,7 @@
 
   &__nav-languages {
     display: flex;
+    align-items: center;
   }
 
   &__content {
@@ -173,6 +190,25 @@
 
     @include onTablet {
       display: none;
+    }
+  }
+}
+
+.specs {
+  column-gap: 20px;
+
+  &__link {
+    padding-right: 20px;
+    transition: text-shadow 0.2s;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 17px;
+    color: #333;
+    &:hover {
+      text-shadow: 1px 0 0 black;
     }
   }
 }
