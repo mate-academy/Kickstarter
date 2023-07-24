@@ -1,0 +1,84 @@
+.header {
+  padding-top: 25px;
+
+  @include onTablet {
+    padding-top: 42px;
+    margin-bottom: 140px;
+  }
+
+  &__logo {
+    height: 27px;
+    background-repeat: no-repeat;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      align-items: stretch;
+    }
+  }
+
+  &__list {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      gap: 25px;
+    }
+  }
+
+  &__link {
+    font-family: "Inter", Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+    text-transform: uppercase;
+    height: 20px;
+
+    color: #4f4f4f;
+    @include hover(all, 0.5s);
+
+    &-special {
+
+      &:hover {
+        color: #39bebf;
+        border-bottom: 1px solid #39bebf;
+      }
+    }
+  }
+
+  &__link-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    width: 100px;
+    height: 48px;
+    transform: translateY(-15px);
+
+    color: #fff;
+
+    @include hover (background-color, 0.5s);
+
+    &:hover {
+      background-color: #39bebf;
+    }
+  }
+
+  &__menu-icon {
+    width: 24px;
+    height: 14px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    cursor: pointer;
+    background-image: url(../images/menu.svg);
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}

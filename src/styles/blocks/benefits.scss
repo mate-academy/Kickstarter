@@ -1,0 +1,92 @@
+.benefits {
+  margin-bottom: 110px;
+
+  @include onTablet {
+    margin-bottom: 140px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 170px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 110px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 60px 20px;
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 170px;
+    }
+  }
+
+  &__block {
+    @include hover(transform, 0.5s);
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__icon {
+    display: block;
+    margin: 0 auto 40px;
+  }
+
+  &__title {
+    font-family: "Inter", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    text-transform: uppercase;
+    text-align: center;
+
+    color: $textColor;
+    margin-bottom: 20px;
+  }
+
+  &__paragraph {
+    font-family: "Inter", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    min-width: 260px;
+
+    color: #7c7c7c;
+
+    @include onDesktop {
+      width: 276px;
+    }
+  }
+
+  &__image-section {
+    width: 100%;
+
+    @include hover(all, 0.5s);
+
+    &:hover {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 10px #000;
+    }
+  }
+
+  &__block-tablet {
+    display: none;
+
+    @include onTablet {
+      display: unset;
+    }
+  }
+}
