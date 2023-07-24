@@ -1,0 +1,115 @@
+.menu {
+  display: none;
+  align-items: center;
+
+  @include onTablet {
+    display: flex;
+  }
+
+  &__link {
+    display: block;
+    width: 72px;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 20px;
+    color: $color-gray-4;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $color-green;
+    }
+  }
+
+  &__slider {
+    background-image: url(../images/Vector.svg);
+    height: 14px;
+    width: 24px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__button {
+    display: block;
+    margin-left: 47px;
+
+    padding: 16px 40px;
+    background-color: $black-gray-color;
+
+    text-transform: uppercase;
+    color: $color-white;
+    font-size: 12px;
+    line-height: 14px;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $color-black-2;
+    }
+  }
+
+  &__language {
+    display: flex;
+    justify-content: space-between;
+    width: 55px;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__label--ua,
+  &__label--en {
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+    color: $color-gray-4;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $color-green;
+    }
+  }
+
+  &__toggle {
+
+    &:checked ~ .menu__lines .menu__line-top {
+      transform: rotate(45deg);
+    }
+
+    &:checked ~ .menu__lines .menu__line-bottom {
+      transform: rotate(-45deg);
+    }
+
+    &:checked ~ .menu__lines .menu__line-center {
+      width: 0;
+    }
+
+    &:checked ~ .nav__mobile {
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    &--en {
+      display: none;
+
+      &:checked ~ .menu__label--en {
+        font-weight: 700;
+        color: $color-black-2;
+      }
+    }
+
+    &--ua {
+      display: none;
+
+      &:checked ~ .menu__label--ua {
+        font-weight: 700;
+        color: $color-black-2;
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+.benefits {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include onDesktop {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+  }
+
+  &__benefit {
+
+    text-align: center;
+
+    @include onTablet {
+      width: 100%;
+    }
+
+    @include onDesktop {
+      max-width: 276px;
+      margin-top: 50px;
+    }
+
+    &:nth-child(n + 2) {
+      display: none;
+
+      @include onTablet {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__img {
+    height: 46px;
+    width: 50px;
+    margin-bottom: 32px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: 48px;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: bold;
+    color: $black-gray-color;
+  }
+
+  &__title-l {
+    margin-bottom: 24px;
+  }
+
+  &__info {
+    font-size: 14px;
+    line-height: 21px;
+    color: $color-gray;
+  }
+}
