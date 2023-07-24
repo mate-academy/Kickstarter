@@ -1,0 +1,127 @@
+.options {
+  &__links-box {
+    display: none;
+
+    @include onDesk {
+      display: flex;
+      justify-content: center;
+      grid-column: 2 / 14;
+      grid-row: 1 / 2;
+      gap: 85px;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    gap: 30px;
+
+    grid-column: 2 / 4;
+    @include onTab {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column: 2 / 10;
+    }
+    @include onDesk {
+      grid-template-columns: repeat(4, 1fr);
+      grid-column: 2 / 14;
+    }
+  }
+
+  &__card {
+    display: none;
+    margin: 0 auto;
+    max-width: 275px;
+    margin-top: 60px;
+
+    &--1 {
+      display: block;
+      transition: $time;
+
+      &:hover {
+        scale: 105%;
+      }
+    }
+
+    &--2 {
+      transition: $time;
+
+      &:hover {
+        scale: 105%;
+      }
+    }
+
+    &--3 {
+      transition: $time;
+
+      &:hover {
+        scale: 105%;
+      }
+    }
+
+    &--4 {
+      transition: $time;
+
+      &:hover {
+        scale: 105%;
+      }
+    }
+
+    @include onTab {
+      display: block;
+    }
+  }
+
+  &__icon {
+    width: 50px;
+    height: 40px;
+    background: center / cover no-repeat;
+    margin: 0 auto;
+
+    &--1 {
+      background-image: url("../images/icons/opt1.svg");
+    }
+
+    &--2 {
+      background-image: url("../images/icons/opt2.svg");
+    }
+
+    &--3 {
+      background-image: url("../images/icons/opt3.svg");
+    }
+
+    &--4 {
+      background-image: url("../images/icons/opt4.svg");
+    }
+  }
+
+  &__subheader {
+    text-align: center;
+    margin-top: 40px;
+    max-width: 260px;
+  }
+
+  &__descr {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  &__img {
+    margin-top: 100px;
+    width: 100%;
+    height: 220px;
+    background: url("../images/options-img.jpg") center / contain no-repeat;
+    grid-column: 1 / 5;
+    grid-row: 2 / 3;
+
+    @include onTab {
+      margin-top: 140px;
+      min-height: 550px;
+      grid-column: 2 / 10;
+      grid-row: 3 / 4;
+    }
+
+    @include onDesk {
+      grid-column: 3 / 14;
+      grid-row: 3 / 4;
+    }
+  }
+}
