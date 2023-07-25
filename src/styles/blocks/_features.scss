@@ -1,4 +1,15 @@
 .features {
+  @media screen and (min-width: 1024px) {
+    .feature__section {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 1023px) {
+    .feature__section:not(:first-child) {
+      display: none;
+    }
+  }
 
   &__headline {
     margin-bottom: 32px;
@@ -43,7 +54,7 @@
 
     @include onDesktopS {
       padding: 60px 30px 30px 0;
-      margin-bottom: 140px;
+      margin-bottom: 170px;
       background-position: 92% 100%;
       background-image: url(/images/slider-bgr.png);
       background-size: auto 302px;
@@ -121,6 +132,11 @@
 
   &__control {
     @extend %flexJustifyCenter;
+
+    @include onTablet {
+      justify-content: start;
+      margin-left: 90px;
+    }
 
     @include onMobileL {
       justify-content: start;
