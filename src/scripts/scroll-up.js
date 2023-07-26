@@ -8,8 +8,8 @@ window.onscroll = function() {
 };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20
-    || document.documentElement.scrollTop > 20) {
+  if (document.body.scrollTop > 4000
+    || document.documentElement.scrollTop > 4000) {
     scrollUp.style.display = 'block';
   } else {
     scrollUp.style.display = 'none';
