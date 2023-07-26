@@ -137,116 +137,69 @@ const languageData = {
 };
 
 function toggleLanguage(language) {
-  // Обновление текстовых элементов на странице
-  document.getElementById('title').innerText = languageData[language].title;
-  document.getElementById('description').innerText = languageData[language].description;
+  const elementsToUpdate = document.querySelectorAll('[data-lang]');
 
-  document.getElementById('nav1').innerText = languageData[language].nav1;
-  document.getElementById('nav2').innerText = languageData[language].nav2;
-  document.getElementById('nav3').innerText = languageData[language].nav3;
-  document.getElementById('nav4').innerText = languageData[language].nav4;
+  elementsToUpdate.forEach((element) => {
+    const key = element.dataset.lang;
 
-  document.getElementById('secondBlock__tittle1').innerText = languageData[language].secondBlock__tittle1;
-  document.getElementById('secondBlock__tittle2').innerText = languageData[language].secondBlock__tittle2;
-  document.getElementById('secondBlock__tittle3').innerText = languageData[language].secondBlock__tittle3;
-  document.getElementById('secondBlock__tittle4').innerText = languageData[language].secondBlock__tittle4;
+    element.innerText = languageData[language][key];
 
-  document.getElementById('secondBlock__text1').innerText = languageData[language].secondBlock__text1;
-  document.getElementById('secondBlock__text2').innerText = languageData[language].secondBlock__text2;
-  document.getElementById('secondBlock__text3').innerText = languageData[language].secondBlock__text3;
-  document.getElementById('secondBlock__text4').innerText = languageData[language].secondBlock__text4;
+    if (language === 'ua') {
+      element.classList.add('margin-ua');
 
-  document.getElementById('forthBlock__tittle').innerText = languageData[language].forthBlock__tittle;
-  document.getElementById('fifthBlock__tittle').innerText = languageData[language].fifthBlock__tittle;
-  document.getElementById('forthBlock__text').innerText = languageData[language].forthBlock__text;
-  document.getElementById('fifthBlock__text').innerText = languageData[language].fifthBlock__text;
+      if (window.innerWidth > 1200) {
+        element.classList.add('large-font');
+        element.classList.remove('medium-font', 'small-font', 'smallest-font');
+      } else if (window.innerWidth <= 1200 && window.innerWidth > 800) {
+        element.classList.add('medium-font');
+        element.classList.remove('large-font', 'small-font', 'smallest-font');
+      } else if (window.innerWidth <= 800 && window.innerWidth > 642) {
+        element.classList.add('small-font');
+        element.classList.remove('large-font', 'medium-font', 'smallest-font');
+      } else if (window.innerWidth <= 642 && window.innerWidth > 0) {
+        element.classList.add('smallest-font');
+        element.classList.remove('large-font', 'medium-font', 'small-font');
+      } else {
+        element.classList.remove('large-font', 'medium-font', 'small-font', 'smallest-font');
+      }
+    } else {
+      element.classList.remove('margin-ua');
+      element.classList.remove('large-font', 'medium-font', 'small-font', 'smallest-font');
+    }
+  });
 
-  document.getElementById('learn1').innerText = languageData[language].learn1;
-  document.getElementById('learn2').innerText = languageData[language].learn2;
-
-  document.getElementById('sixthBlock__text').innerText = languageData[language].sixthBlock__text;
-  document.getElementById('sixthBlock__name').innerText = languageData[language].sixthBlock__name;
-  document.getElementById('sixthBlock__prof').innerText = languageData[language].sixthBlock__prof;
-
-  document.getElementById('seventhBlock__tittle').innerText = languageData[language].seventhBlock__tittle;
-  document.getElementById('seventhBlock__tittleList1').innerText = languageData[language].seventhBlock__tittleList1;
-  document.getElementById('seventhBlock__tittleList2').innerText = languageData[language].seventhBlock__tittleList2;
-  document.getElementById('seventhBlock__tittleList3').innerText = languageData[language].seventhBlock__tittleList3;
-
-  document.getElementById('seventhBlock__text1_1').innerText = languageData[language].seventhBlock__text1_1;
-  document.getElementById('seventhBlock__text1_2').innerText = languageData[language].seventhBlock__text1_2;
-  document.getElementById('seventhBlock__text1_3').innerText = languageData[language].seventhBlock__text1_3;
-  document.getElementById('seventhBlock__text1_4').innerText = languageData[language].seventhBlock__text1_4;
-  document.getElementById('seventhBlock__text1_5').innerText = languageData[language].seventhBlock__text1_5;
-  document.getElementById('seventhBlock__text1_6').innerText = languageData[language].seventhBlock__text1_6;
-
-  document.getElementById('seventhBlock__text2_1').innerText = languageData[language].seventhBlock__text2_1;
-  document.getElementById('seventhBlock__text2_2').innerText = languageData[language].seventhBlock__text2_2;
-  document.getElementById('seventhBlock__text2_3').innerText = languageData[language].seventhBlock__text2_3;
-  document.getElementById('seventhBlock__text2_4').innerText = languageData[language].seventhBlock__text2_4;
-  document.getElementById('seventhBlock__text2_5').innerText = languageData[language].seventhBlock__text2_5;
-  document.getElementById('seventhBlock__text2_6').innerText = languageData[language].seventhBlock__text2_6;
-
-  document.getElementById('seventhBlock__text3_1').innerText = languageData[language].seventhBlock__text3_1;
-  document.getElementById('seventhBlock__text3_2').innerText = languageData[language].seventhBlock__text3_2;
-  document.getElementById('seventhBlock__text3_3').innerText = languageData[language].seventhBlock__text3_3;
-  document.getElementById('seventhBlock__text3_4').innerText = languageData[language].seventhBlock__text3_4;
-
-  document.getElementById('eightBlock_tittle').innerText = languageData[language].eightBlock_tittle;
-
-  // Установка нового языка для корневого элемента (может потребоваться для стилей)
   document.documentElement.lang = language;
 
-  // Удаление класса "active" у всех языковых ссылок
-  document.getElementById('enLink').classList.remove('active');
-  document.getElementById('uaLink').classList.remove('active');
+  const activeLinks = document.querySelectorAll('.lang.active');
 
-  // Добавление класса "active" к выбранной языковой ссылке
-  document.getElementById(language + 'Link').classList.add('active');
+  activeLinks.forEach((link) => {
+    link.classList.remove('active');
+  });
 
-  const title = document.getElementById('title');
+  const selectedLink = document.querySelector(`.lang.${language}Link`);
 
-  // Проверка языка и ограничение ширины
-  if (language === 'en') {
-    title.style.width = '350px'; // Ограничение ширины на английском языке до 378px
-  } else if (language === 'ua') {
-    title.style.width = '510px'; // Ограничение ширины на украинском языке до 510px
-  }
-
-  const secondBlockTittle4 = document.getElementById('secondBlock__tittle4');
-
-  if (language === 'ua') {
-    secondBlockTittle4.style.marginBottom = '22px'; // Добавление нижнего отступа 30px на украинском языке
-  } else {
-    secondBlockTittle4.style.marginBottom = '28px'; // Удаление нижнего отступа на других языках
-  }
-
-  const secondBlockTittle2 = document.getElementById('secondBlock__tittle2');
-
-  if (language === 'ua') {
-    secondBlockTittle2.style.marginBottom = '52px';
-  } else {
-    secondBlockTittle2.style.marginBottom = '26px';
-  }
-
-  const secondBlockTittle3 = document.getElementById('secondBlock__tittle3');
-
-  if (language === 'ua') {
-    secondBlockTittle3.style.marginBottom = '77px';
-  } else {
-    secondBlockTittle3.style.marginBottom = '52px';
-  }
+  selectedLink.classList.add('active');
 }
 
-// Назначение обработчиков событий для языковых ссылок
-document.getElementById('enLink').addEventListener('click', function(event) {
-  event.preventDefault();
-  toggleLanguage('en');
+// Set styles for the default language (English) from CSS
+toggleLanguage('en');
+
+// Update styles when the window is resized
+window.addEventListener('resize', () => {
+  toggleLanguage(document.documentElement.lang);
 });
 
-document.getElementById('uaLink').addEventListener('click', function(event) {
-  event.preventDefault();
-  toggleLanguage('ua');
+// Add event listeners for language links
+const languageLinks = document.querySelectorAll('.lang');
+
+languageLinks.forEach((link) => {
+  link.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    const language = link.classList.contains('enLink') ? 'en' : 'ua';
+
+    toggleLanguage(language);
+  });
 });
 
 window.addEventListener('DOMContentLoaded', function() {

@@ -25,14 +25,21 @@
   @include LearnStyles;
   position: relative;
   padding-bottom: 5px;
+  width: fit-content;
+  overflow: hidden;
 }
 
 .learn__more::after {
-  position: absolute;
   content: "";
-  width: 12%;
+  position: absolute;
+  width: 40%; /* Изначально устанавливаем нулевую ширину для линии */
   background-color: #0db2b3;
   left: 0;
   bottom: 0;
   height: 1px;
+  transition: width 0.3s ease; /* Добавляем плавный переход для ширины */
+}
+
+.learn__more:hover::after {
+  width: 100%; /* При наведении увеличиваем ширину линии до 100% */
 }
