@@ -3,18 +3,20 @@
 
 const scrollUp = document.querySelector('.scroll-up');
 
-window.onscroll = function() {
-  scrollFunction();
-};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 4000
-    || document.documentElement.scrollTop > 4000) {
+// Функція для показу/приховування знака scroll-up
+function toggleScrollUp() {
+  if (window.scrollY > 4000) {
     scrollUp.style.display = 'block';
   } else {
     scrollUp.style.display = 'none';
   }
 }
+
+// Викликаємо функцію при завантаженні сторінки
+toggleScrollUp();
+
+// Додаємо подію прокручування сторінки
+window.addEventListener('scroll', toggleScrollUp);
 
 const arrowRight = document.querySelector('.features__control--right');
 const arrowLeft = document.querySelector('.features__control--left');
