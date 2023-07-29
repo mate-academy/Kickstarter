@@ -2,11 +2,11 @@
   margin-bottom: 110px;
 
   @include tablet {
-    margin-bottom: 140px;
+    margin-bottom: 75px;
   }
 
   @include desktop {
-    margin-bottom: 170px;
+    margin-bottom: 105px;
   }
 
   &__gallery {
@@ -17,13 +17,29 @@
 
     @include desktop {
       display: flex;
+      flex-wrap: wrap;
     }
   }
 
   &__cell {
     text-align: center;
+
+    @include desktop {
+      padding-bottom: 65px;
+      flex: 1 0 22%;
+
+      &:not(:nth-child(4n)) {
+        margin-right: 30px;
+      }
+    }
+
     @include tablet {
-      flex: 1 1 45%;
+      padding-bottom: 65px;
+      flex: 1 0 47%;
+
+      &:not(:nth-child(2n)) {
+        margin-right: 20px;
+      }
     }
   }
 
