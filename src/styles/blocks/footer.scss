@@ -1,0 +1,81 @@
+.footer {
+  margin-top: 110px;
+  padding-bottom: 20px;
+
+  @include onTablet {
+    margin-top: 140px;
+    padding-bottom: 30px;
+  }
+
+  @include onDesktop {
+    margin-top: 170px;
+  }
+
+  &__top {
+    display: none;
+
+    @include onTablet {
+      display: grid;
+      align-items: center;
+      grid-template-columns: repeat(2,1fr);
+      margin-bottom: 65px;
+    }
+  }
+
+  &__logo {
+    @include hover(transform, scale(1.1));
+  }
+
+  &__icon-block {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__privacy-text {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: $main-text-color;
+    text-align: center;
+  }
+
+  &__icon {
+    fill: #4f4f4f;
+    cursor: pointer;
+
+    &:hover {
+      fill: $main-green-color;
+    }
+  }
+
+  &__link {
+    justify-self: center;
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  &__icon-link {
+    justify-self: end;
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  &__arrow {
+    width: 24px;
+    height: 20px;
+    fill: $main-black-color;
+    transition: all 0.3s;
+
+    &:hover {
+      fill: $main-green-color;
+      transform: scale(1.1);
+    }
+  }
+}

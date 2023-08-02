@@ -1,0 +1,169 @@
+.product {
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $main-black-color;
+
+    @include onTablet {
+      grid-column: 5 / 9;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 13;
+      font-size: 55px;
+      line-height: 70px;
+    }
+
+    &--left {
+      @include onTablet {
+        grid-column: 1 / 5;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+
+  &__photocards {
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    @include onTablet {
+      margin: 0;
+      margin-left: -35px;
+      grid-column: 1 / 5;
+      grid-row: 1 / -9;
+    }
+
+    @include onDesktop {
+      margin: 0;
+      grid-column: 1 / 7;
+    }
+
+    &--left {
+      @include onTablet {
+        grid-column: 5 / 9;
+        margin: 0;
+        margin-right: -35px;
+      }
+
+      @include onDesktop {
+        margin: 0;
+        grid-column: 7 / 13;
+      }
+    }
+  }
+
+  &__photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s;
+    @include hover(transform,scale(1.1));
+
+    @include onTablet {
+      height: 415px;
+    }
+
+    @include onDesktop {
+      height: 388px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: $main-text-color;
+
+    @include onTablet {
+      grid-column: 5 / 9;
+      margin-bottom: 60px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 13;
+    }
+
+    &--left {
+      @include onTablet {
+        grid-column: 1 / 5;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    margin: 0;
+    width: max-content;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $main-green-color;
+
+    @include onTablet {
+      grid-column: 5 / 9;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 13;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 50%;
+      height: 1px;
+      background-color: $main-green-color;
+      transition: width 0.3s;
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &--left {
+      @include onTablet {
+        grid-column: 1 / 5;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+}
