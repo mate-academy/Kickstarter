@@ -1,0 +1,250 @@
+.header {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+
+  height: 100px;
+
+  &__logo {
+    position: absolute;
+    display: block;
+    top: 38px;
+    left: 34px;
+
+    @include onPhone {
+      top: 28px;
+    }
+  }
+
+  &__nav {
+    @include onPhone {
+      display: none;
+    }
+
+    &-list {
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+      align-items: center;
+
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      row-gap: 80px;
+      padding: 0;
+    }
+
+    &-link {
+      text-decoration: none;
+      margin: 13px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &-item {
+      position: relative;
+      color: #4f4f4f;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:target {
+        font-weight: bold;
+      }
+
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+    height: 46px;
+    line-height: 46px;
+
+    color: #fff;
+    background-color: $secondary-gray;
+    border: 1px solid $secondary-gray;
+    transition: background-color 0.3s, border-color 0.3s;
+
+    &:hover {
+      background-color: #131313;
+      border-color: #131313;
+      color: #fff;
+    }
+
+    &:active {
+      visibility: hidden;
+    }
+  }
+
+  &__menu {
+    background-image: url(../images/svg/menu.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 14px;
+    top: -30px;
+    right: 30px;
+
+    @include onPhone {
+      top: 30px;
+    }
+  }
+}
+
+.bar-menu {
+  z-index: 3;
+  position: relative;
+
+  @include onPhone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: linear-gradient(103deg, rgba(57,57,57,1) 0%,
+    rgba(187,187,187,1) 30%,
+    rgba(187,187,187,1) 80%,
+    rgba(73,73,73,1) 100%);
+
+    transition: transform 0.3s;
+    transform: translateX(100%);
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__nav {
+    list-style: none;
+    height: 100%;
+
+    &-cross {
+      position: absolute;
+      width: 24px;
+      height: 14px;
+      top: 30px;
+      right: 30px;
+
+      @include onTablet {
+        display: none;
+      }
+
+      .cross {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        fill: $secondary-gray;
+      }
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      gap: 40px;
+      height: 100%;
+
+      @include onTablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+        align-items: center;
+        list-style: none;
+      }
+
+      &-wraper {
+        display: flex;
+      }
+    }
+
+    &-item {
+      display: block;
+    }
+
+    &-link {
+      text-align: center;
+      color: $secondary-gray;
+      text-decoration: none;
+
+      text-transform: uppercase;
+      font-family: "DINPro-Regular", Helvetica, sans-serif;
+      font-size: 24px;
+      line-height: 30px;
+      transition: color 0.2s;
+
+      @include onDesktop {
+        font-size: 24px;
+      }
+
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
+
+  .special {
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    align-items: center;
+
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    row-gap: 14px;
+    // padding: 0;
+
+    &:first-child {
+      margin-right: 20px;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+
+    &__link {
+      text-decoration: none;
+      margin: 13px;
+    }
+
+    &__item {
+      position: relative;
+      color: #4f4f4f;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:target {
+        font-weight: bold;
+      }
+
+      &:hover {
+        color: $accent;
+      }
+    }
+    &__button {
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+}

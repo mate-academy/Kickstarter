@@ -1,0 +1,158 @@
+.our-story {
+  width: 100%;
+  position: relative;
+
+  &__anchor {
+    display: block;
+    z-index: 2;
+    position: sticky;
+    top: 90vh;
+    left: 90vw;
+    width: 20px;
+    height: 24px;
+
+    &-link {
+      display: block;
+      width: 20px;
+      height: 24px;
+
+      background-image: url(../images/svg/anchor.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .swiper-container {
+    @include onPhone {
+      width: 100%;
+      scroll-snap-type: x proximity;
+      overflow-x: scroll;
+    }
+  }
+
+  &__benefits {
+    transition: transform 0.2s;
+    @include onPhone {
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: row;
+    }
+
+    @include onDesktop {
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    &-section {
+      flex: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 70px;
+
+      @include onPhone {
+        width: 100vw;
+      }
+    }
+
+    &-h {
+      font-family: "DINPro-Regular", Helvetica, sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    &-p {
+      font-family: "DINPro-Regular", Helvetica, sans-serif;
+      text-align: center;
+      padding: 0 30px;
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+
+  &__svg {
+    &--fill {
+      fill: #4f4f4f;
+      transition: fill 0.3s;
+
+      &:hover {
+        fill: $accent;
+      }
+      &-sub {
+        fill: #4f4f4f;
+
+        &:hover {
+          fill: $accent;
+        }
+      }
+    }
+  }
+
+  &__video {
+    position: relative;
+    margin-top: 20px;
+    max-width: 100%;
+    max-height: 590px;
+
+    .video {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: center;
+      border: none;
+
+      @include onTablet {
+        height: 400px;
+      }
+      @include onDesktop {
+        height: 590px;
+      }
+    }
+
+    .play-button {
+      position: absolute;
+      overflow: hidden;
+      @include toCentr;
+
+      width: 110px;
+      height: 110px;
+      border: 1px solid #f3f4f5;
+      background-color: #0000;
+
+      border-radius: 50%;
+
+      color: #fff;
+      font-size: 24px;
+
+      cursor: pointer;
+
+      @include onTablet {
+        width: 200px;
+        height: 200px;
+        line-height: 190px;
+      }
+
+      &--opasity {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+      }
+
+      &--visiable {
+        opacity: 1;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+
+        @include onTablet {
+          width: 200px;
+          height: 200px;
+        }
+      }
+    }
+  }
+}

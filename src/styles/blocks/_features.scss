@@ -1,0 +1,119 @@
+.features {
+  overflow: hidden;
+
+  &--phone {
+    @include onTablet {
+      display: none;
+    }
+
+    .slider {
+      position: relative;
+
+      &__wraper {
+        &--overflow {
+          display: flex;
+          transition: transform 0.3s;
+
+          .slider__item {
+            flex-shrink: 0;
+            width: 100%;
+          }
+        }
+      }
+
+      &__buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 30px;
+
+        &-prev {
+
+          &:active {
+            background-color: $accent;
+            -webkit-mask: url(../images/svg/prev.svg) no-repeat center;
+            mask: url(../images/svg/prev.svg) no-repeat center;
+          }
+        }
+
+        &-next {
+          &:active {
+            background-color: $accent;
+            -webkit-mask: url(../images/svg/next.svg) no-repeat center;
+            mask: url(../images/svg/next.svg) no-repeat center;
+          }
+        }
+      }
+
+      &__dots {
+        z-index: 2;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 30px;
+
+        &-dot {
+          height: 24px;
+          width: 24px;
+        }
+      }
+    }
+
+    .features__imega {
+      margin-top: 50px;
+      width: 100%;
+    }
+  }
+
+  &--tablet {
+    background-image: url(../images/4.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+
+    @include onPhone {
+      display: none;
+    }
+
+    @include onTablet {
+      background-position: right 90%;
+      background-size: 60% auto;
+    }
+
+    @include onDesktop {
+      background-position: right bottom;
+    }
+  }
+
+  &-h {
+    color: $secondary-gray;
+    font-weight: 700;
+    font-size: 56px;
+    text-transform: uppercase;
+    padding: 0 30px;
+
+    @include onPhone {
+      font-size: 30px;
+    }
+  }
+
+  &__list {
+    &-main {
+      color: $accent;
+      font-weight: 700;
+      font-size: 34px;
+      line-height: 42px;
+
+      
+      @include onPhone {
+        font-size: 18px;
+      }
+    }
+
+    &-item {
+      color: $secondary-gray;
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
