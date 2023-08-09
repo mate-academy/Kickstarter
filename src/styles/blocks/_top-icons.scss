@@ -1,0 +1,116 @@
+.top-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+  
+  @include onTablet {
+    margin-bottom: 130px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 90px;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+    align-items: center;
+
+    @include onDesktop {
+      column-gap: 47px;
+    }
+  }
+
+  &__specs {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      color: $color-extra-gray;
+      transition: scale $transition-duration-speed ease,
+        color $transition-duration-speed ease;
+
+      &:hover {
+        scale: 1.1;
+        color: $color-black;
+      }
+    }
+
+    &-nav {
+      display: flex;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+
+  &__lang {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      column-gap: 3px;
+      color: $color-second-main;
+
+      &--color {
+        color: $color-light-gray;
+        transition: scale $transition-duration-speed ease,
+          color $transition-duration-speed;
+
+        &:hover {
+          scale: 1.1;
+          color: $color-black;
+        }
+
+        &:focus {
+          color: $color-black;
+        }
+      }
+    }
+
+    &-nav {
+      display: flex;
+      column-gap: 3px;
+      color: $color-second-main;
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 102px;
+      height: 48px;
+      border: none;
+      background-color: $color-second-main;
+      transition: scale $transition-duration-speed ease,
+        color $transition-duration-speed ease,
+        background-color $transition-duration-speed ease;
+
+      &:hover {
+        scale: 1.1;
+        background-color: $color-black;
+      }
+      
+      &:disabled {
+        background-color: $color-gray;
+      }
+    }
+  }
+
+  &__nav {
+    margin-bottom: 55px;
+  }
+}

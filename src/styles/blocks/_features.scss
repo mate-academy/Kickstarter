@@ -1,0 +1,83 @@
+.features {
+  &__title {
+    padding-bottom: 30px;
+  }
+
+  &__cover {
+    background-color: $color-features-bg;
+    padding: 30px 30px 0;
+    min-height: 575px;
+    background-image: url(/images/features.jpg);
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-size: 400px;
+
+    @include onTablet {
+      padding: 60px 0 0 90px;
+    }
+
+    @include onDesktop {
+      padding: 60px 0 0 102px;
+      background-size: 582px;
+    }
+  }
+
+  &--display {
+    display: none;
+
+    @include onDesktop {
+      display: grid;
+    }
+  }
+
+  &__list-title {
+    color: $color-main;
+    padding-bottom: 20px;
+  }
+
+  &__list {
+    padding-left: 20px;
+  }
+
+  &__item {
+    list-style: disc;
+
+    &:not(:last-child) {
+      padding-bottom: 10px;
+    }
+  }
+
+  &__block:not(:last-child) {
+    padding-bottom: 56px;
+  }
+
+  &__arrows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 8px;
+  }
+
+  &__arrows-item {
+    transition: scale $transition-duration-speed ease,
+      color $transition-duration-speed ease;
+
+    &:hover {
+      scale: 1.1;
+      color: $color-features-main;
+    }
+  }
+  
+  &__nums {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    height: 24px;
+  }
+
+  &__nums-item:not(:first-child) {
+    color: $color-features-main;
+    padding-top: 5px;
+    font-size: 11px;
+  }
+}
