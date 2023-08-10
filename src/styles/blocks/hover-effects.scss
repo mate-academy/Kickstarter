@@ -30,6 +30,19 @@
   transition-duration: $traform-time;
   transition-property: transform;
 
+  @include onMobile {
+    &--mob {
+      position: static;
+      transform: none;
+      &::before {
+        position: static;
+      }
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+
   &:before {
     pointer-events: none;
     position: absolute;

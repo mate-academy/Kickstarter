@@ -69,3 +69,46 @@ nextButton.addEventListener('click', () => {
 });
 
 document.body.style.overflowX = 'hidden';
+
+document.addEventListener('DOMContentLoaded', function() {
+  const slider = document.querySelector('.benefits__slider-mob');
+  const dots = document.querySelectorAll('.sliders__dots');
+
+  let currentSlideIndex = 0;
+
+  function showSlide(index) {
+    slider.style.transform = `translateX(-${index * 25}%)`;
+
+    dots[currentSlideIndex].classList.remove('sliders__dots--active');
+    dots[index].classList.add('sliders__dots--active');
+
+    currentSlideIndex = index;
+  }
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showSlide(index);
+    });
+  });
+
+  function adjustSlider() {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth >= 768) {
+      slider.style.transform = 'translateX(0)';
+    } else {
+      showSlide(currentSlideIndex);
+    }
+  }
+  adjustSlider();
+
+  window.addEventListener('resize', adjustSlider);
+});
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
