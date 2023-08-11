@@ -1,0 +1,60 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__link {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__specs {
+    @extend %link;
+    line-height: 17px;
+    color: #4f4f4f;
+    margin-right: 27px;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $linkColor;
+    }
+  }
+
+  &__item {
+    @extend %link;
+    width: 21px;
+    height: 18px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &--en {
+      @include backgroundImage(url(../images/EN.svg));
+    }
+
+    &--ua {
+      @include backgroundImage(url(../images/UA.svg));
+      margin-right: 27px;
+    }
+  }
+
+  &__opener {
+    color: $mainColorBlack;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+      color: $linkColor;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}

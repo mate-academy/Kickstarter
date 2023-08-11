@@ -1,0 +1,99 @@
+.benefits {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: $widthContainerOnMobile;
+    text-align: center;
+    margin: 0 auto;
+    flex-shrink: 0;
+
+    @include onTablet {
+      display: flex;
+      width: 340px;
+      flex-shrink: 1;
+    }
+
+    @include onDesktop {
+      width: 276px;
+    }
+  }
+
+  &__icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 30px;
+    transition: scale 0.3s;
+    
+    &--1 {
+      @include backgroundImage(url(../images/Vector.svg));
+    }
+    
+    &--2 {
+      @include backgroundImage(url(../images/Vector-1.svg));
+    }
+
+    &--3 {
+      @include backgroundImage(url(../images/Vector-2.svg));
+    }
+
+    &--4 {
+      @include backgroundImage(url(../images/Vector-3.svg));
+    }
+  }
+
+  &__title {
+    @extend %h3;
+    height: 56px;
+    margin-bottom: 24px;
+    transition: color 0.3s;
+  }
+
+  &__description {
+    color: $paragraphColor;
+    text-align: justify;
+  }
+
+  &__slider-wrapper {
+    max-width: 260px;
+    overflow: hidden;
+
+    @include onTablet {
+      max-width: 100%;
+    }
+  }
+
+  &__slider-position {
+    display: flex;
+    transition: transform 0.5s;
+
+    @include onTablet {
+      display: grid;
+      justify-items: center;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2,1fr);
+      column-gap: 20px;
+      row-gap: 64px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+  }
+
+  &__info:hover {
+    .benefits__icon {
+      scale: 1.2;
+    }
+    .benefits__title {
+      color: $linkColor;
+    }
+  }
+}
