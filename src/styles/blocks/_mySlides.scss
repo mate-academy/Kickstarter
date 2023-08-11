@@ -1,0 +1,52 @@
+.slider {
+  position: relative;
+  margin-bottom: 110px;
+
+  &-inner {
+    margin-bottom: 0;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  @include onTablet {
+    display: none;
+  }
+}
+
+.mySlides {
+  display: none;
+  min-height: 250px;
+
+  @media (max-width: 400px) {
+    min-height: 300px;
+  }
+  
+  &:first-child {
+    display: flex;
+  }
+
+  &__button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: transform $animationTime;
+
+    &-right {
+      position: absolute;
+      top: 40%;
+      right: -10%;
+    }
+
+    &-left {
+      position: absolute;
+      top: 40%;
+      left: -10%;
+    }
+    
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+}
