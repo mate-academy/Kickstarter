@@ -1,6 +1,80 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin fontParam($fontSize, $lineHeight) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+}
+
+@mixin mainLayout {
+  @media (max-width: $mainBreakPoint) {
+    @content;
   }
+}
+
+@mixin notebookLayout {
+  @media (max-width: $notebookBreakPoint) {
+    @content;
+  }
+}
+
+@mixin notebookNarrowLayout {
+  @media (max-width: $notebookNarrowBreakPoint) {
+    @content;
+  }
+}
+
+@mixin tabletWideLayout {
+  @media (max-width: $tabletWideBreakPoint) {
+    @content;
+  }
+}
+
+@mixin tabletLayout {
+  @media (max-width: $tabletBreakPoint) {
+    @content;
+  }
+}
+
+@mixin mobileHDLayout {
+  @media (max-width: $mobileHDBreakPoint) {
+    @content;
+  }
+}
+
+@mixin mobileWideLayout {
+  @media (max-width: $mobileWideBreakPoint) {
+    @content;
+  }
+}
+
+@mixin mobile480Layout {
+  @media (max-width: $mobile480BreakPoint) {
+    @content;
+  }
+}
+
+@mixin mobileLayout {
+  @media (max-width: $mobileBreakPoint) {
+    @content;
+  }
+}
+
+@mixin limitContentWidthMain {
+  margin: 0 auto;
+  max-width: $maxContentWidthMain;
+}
+
+@mixin limitContentWidthTablet {
+  margin: 0 auto;
+  max-width: $maxContentWidthTablet;
+}
+
+@mixin limitContentWidthMobile {
+  margin: 0 auto;
+  max-width: $maxContentWidthMobile;
+}
+
+@mixin buttonCentering {
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
 }

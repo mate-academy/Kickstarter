@@ -1,0 +1,85 @@
+.technology {
+  padding: 0 0 116px 89px;
+
+  @include notebookNarrowLayout {
+    padding: 0;
+  }
+
+  @include mobileWideLayout {
+    padding-bottom: 78px;
+  }
+
+  &__wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+
+    @include mobileWideLayout {
+      max-width: 623px;
+    }
+  }
+
+  &__title {
+    padding-left: 136px;
+    max-width: 378px;
+
+    @include fontParam(56px, 70px);
+    text-transform: uppercase;
+    color: $c-darkGray-default;
+
+    @include mobileWideLayout {
+      padding: 0 30px;
+      margin: 0 auto;
+      @include fontParam(37px, 46px);
+
+    }
+  }
+
+  &__image-container {
+    overflow: hidden;
+  }
+
+  &__image {
+    padding-bottom: auto;
+    height: 775px;
+    transform: rotate(-7.85deg);
+
+    @include tabletLayout {
+      transform: matrix(0.99, -0.14, 0.14, 0.99, 0, 0);
+      height: 709px;
+    }
+
+    @include mobileWideLayout {
+      height: 277px;
+    }
+
+    &::after {
+      content: "";
+      z-index: 1;
+      position: absolute;
+      left: 307px;
+      top: 573px;
+      width: 754.68px;
+      height: 21.25px;
+      background: rgba(152, 152, 152, 0.18);
+      box-shadow: 0 5px 100px #989898;
+
+      transform: rotate(-5.14deg);
+
+      border-radius: 50%;
+      filter: blur(10px);
+
+      @include mobileWideLayout {
+        display: none;
+      }
+    }
+  }
+
+  &__speaker-image {
+    padding-top: 66px;
+
+    @include mobileWideLayout {
+      height: 100%;
+
+    }
+  }
+}

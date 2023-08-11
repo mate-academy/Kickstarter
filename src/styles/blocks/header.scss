@@ -1,0 +1,197 @@
+.header {
+  padding: 0 34px 120px;
+
+  @include mobileLayout {
+    padding: 0 30px 128px;
+  }
+
+  &__wrapper {
+    @include limitContentWidthMain;
+
+    @include mobileWideLayout {
+      // @include maxContentWidthTablet;
+    }
+  }
+
+  &__controls {
+    height: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 89px;
+
+    @include mobileWideLayout {
+      margin-bottom: 0;
+    }
+  }
+
+  &__menu-toggler {
+    display: none;
+    width: 24px;
+    height: 14px;
+    background-image: url("/images/menu.svg");
+    background-color: transparent;
+    background-repeat: no-repeat;
+
+    @include mobileWideLayout {
+      display: block;
+    }
+  }
+
+  &__content {
+    display: flex;
+    overflow: hidden;
+
+    @include mobileWideLayout {
+      flex-direction: column;
+      overflow: visible;
+    }
+  }
+
+  &__content-text {
+    z-index: 1;
+
+    padding: 81px 0 11px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 27px;
+
+    @include notebookNarrowLayout {
+      padding: 55px 0 5px;
+    }
+
+    @include tabletLayout {
+      padding: 29px 0 0;
+      max-width: 250px;
+    }
+
+    @include mobileWideLayout {
+      order: 1;
+      margin: 0 auto;
+      padding: 0;
+    }
+  }
+
+  &__title {
+    max-width: 378px;
+
+    @include fontParam(64px, 130%);
+    text-transform: uppercase;
+
+    @include tabletWideLayout {
+      max-width: 359px;
+
+      @include fontParam(54px, 130%);
+    }
+
+    @include tabletLayout {
+      max-width: 340px;
+
+      @include fontParam(48px, 130%);
+    }
+
+    @include mobileWideLayout {
+      max-width: 260px;
+
+      @include fontParam(40px, 130%);
+      text-align: center;
+    }
+  }
+
+  &__description {
+    max-width: 276px;
+
+    @include fontParam(16px, 150%);
+
+    @include mobileWideLayout {
+      text-align: center;
+    }
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+    object-position: left;
+
+    @include notebookNarrowLayout {
+      margin-left: -19px;
+    }
+
+    @include tabletWideLayout {
+      margin-left: 0;
+    }
+
+    @include mobileWideLayout {
+      margin: 0 auto;
+      // margin-left: 50px;
+      height: 245px;
+      max-width: 400px;
+
+      margin-bottom: 40px;
+    }
+
+    @include mobileLayout {
+      margin-left: -30px;
+      height: 245px;
+      width: 300px;
+    }
+  }
+
+  &__items {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-transform: uppercase;
+
+    @include mobileWideLayout {
+      display: none;
+    }
+
+  }
+
+  &__links-top {
+    width: 174px;
+    display: flex;
+    gap: 12px;
+
+  }
+
+  &__controls-link {
+    color: #4f4f4f;
+
+    &:active {
+      color: #333;
+    }
+  }
+
+  &__specs {
+    width: 72px;
+  }
+
+  &__language {
+    display: flex;
+    width: 70px;
+  }
+
+  &__buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 48px;
+    background-color: #333;
+    color: #fff;
+    transition: background-color $transitionDuration;
+
+    &:hover {
+      background-color: #131313;
+    }
+
+    @include fontParam(12px, 15px);
+
+  }
+}

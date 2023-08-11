@@ -1,0 +1,38 @@
+.benefits {
+  padding: 0 34px 150px;
+
+  @include tabletLayout {
+    padding: 0 34px 130px;
+  }
+  @include mobileWideLayout {
+    padding: 0 30px 90px;
+  }
+
+  &__wrapper {
+    @include limitContentWidthMain;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+
+    @include notebookLayout {
+      @include limitContentWidthTablet;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+    }
+
+    @include mobileWideLayout {
+      @include limitContentWidthMobile;
+      grid-template-columns: repeat(1, 1fr);
+      column-gap: 20px;
+    }
+  }
+
+  &__cards {
+    &:not(:first-child) {
+      @include mobileWideLayout {
+        display: none;
+      }
+    }
+  }
+}
