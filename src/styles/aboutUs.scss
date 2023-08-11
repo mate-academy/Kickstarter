@@ -1,0 +1,116 @@
+.aboutUs {
+  margin-bottom: 100px;
+
+  @include onTablet {
+    position: relative;
+    height: 400px;
+    margin-bottom: 130px;
+  }
+
+  @include onDesktop {
+    position: static;
+    margin-bottom: 150px;
+  }
+
+  &__title {
+    position: relative;
+    margin-bottom: 50px;
+    z-index: 1;
+
+    font-family: "DIN Pro", sans-serif;
+    font-size: 37px;
+    line-height: 55px;
+    text-align: center;
+
+    color: #333;
+
+    @include onTablet {
+      font-size: 56px;
+      line-height: 72px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 72px;
+    }
+  }
+
+  &__img {
+    margin-bottom: 29px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    @include onTablet {
+      position: absolute;
+      object-position: right;
+      height: 415px;
+      right: 50%;
+      top: 0;
+    }
+
+    @include onDesktop {
+      position: static;
+      object-position: right;
+      height: 415px;
+      right: 50%;
+      top: 0;
+    }
+
+    &--wraper {
+
+      overflow: hidden;
+
+      @include onDesktop {
+        position: relative;
+        bottom: 45%;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #7c7c7c;
+
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+      text-align: left;
+    }
+  }
+
+  &__link {
+    font-size: 12px;
+    line-height: 15px;
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    color: #0db2b3;
+
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 54px;
+      height: 1.5px;
+      background-color: #0db2b3;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    &:hover {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

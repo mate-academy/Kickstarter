@@ -1,7 +1,54 @@
 @import "utils";
 @import "fonts";
-@import "typography";
+@import "./container.scss";
+@import "./nav.scss";
+@import "./grid.scss";
+@import "./direction.scss";
+@import "./header.scss";
+@import "./benefits.scss";
+@import "./presentation.scss";
+@import "./aboutUs.scss";
+@import "./technology.scss";
+@import "./testimonilas.scss";
+@import "./features.scss";
+@import "./questions.scss";
+@import "./footer.scss";
 
-body {
-  background: $c-gray;
+.page {
+  scroll-behavior: smooth;
+}
+
+.page__body {
+  background-color: #f7f7f7;
+
+  &--with-menu {
+    overflow: hidden;
+  }
+}
+
+.link--mod {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #00acdc;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: #00acdc;
+    transition: color 0.3s;
+
+    &::after {
+      transform: scaleX(100%);
+    }
+  }
+
 }
