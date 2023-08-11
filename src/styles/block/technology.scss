@@ -1,0 +1,135 @@
+.technology {
+  @include onTablet {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    max-width: 850px;
+    margin: 0 auto 137px;
+  }
+
+  @include onDesktop {
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+
+  &__container {
+    @include onTablet {
+      padding: 0;
+      margin: 0;
+      width: 352px;
+      margin-left: 34px;
+    }
+
+    @include onDesktop {
+      margin-left: 0;
+    }
+  }
+
+  &__block {
+    margin-bottom: 116px;
+  }
+
+  &__title {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 46px;
+    text-transform: uppercase;
+    color: $colorBlack;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__img {
+    background-image: url(../images/technology-mobile.svg);
+    height: 212px;
+    width: 250px;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    margin-bottom: 18px;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(3px 3px 12px #000);
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__img-tablet {
+    @include onTablet {
+      background-image: url(../images/technology-tablet.svg);
+      background-repeat: no-repeat;
+      height: 417px;
+      width: 360px;
+      transition: 0.5s;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(0.95);
+        filter: drop-shadow(3px 3px 12px #000);
+      }
+    }
+
+    @include onDesktop {
+      background-image: url(../images/technology-descktop.svg);
+      background-repeat: no-repeat;
+      width: 550px;
+
+    }
+  }
+
+  &__text {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #7c7c7c;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+
+    @include onDesktop {
+      width: 582px;
+    }
+  }
+
+  &__link {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #0db2b3;
+    text-decoration: none;
+
+    &::after {
+      display: block;
+      content: "";
+      color: aliceblue;
+      height: 1.5px;
+      width: 53px;
+      background-color: #0db2b3;
+      margin-top: 5px;
+      transition: width 0.5s;
+    }
+
+    &:hover::after {
+      width: 128px;
+    }
+  }
+}
