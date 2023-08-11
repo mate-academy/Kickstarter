@@ -1,0 +1,34 @@
+.benefits {
+  &__card {
+    @include onMobile {
+      position: relative;
+      overflow: hidden;
+      max-width: 767px;
+      padding-top: 6px;
+    }
+  }
+
+  &__slider-mob {
+    @include onMobile {
+      display: flex;
+      width: 400%;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 30px;
+      grid-row-gap: 65px;
+      justify-items: center;
+    }
+
+    @media (min-width: 1280px) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 30px;
+    }
+  }
+}

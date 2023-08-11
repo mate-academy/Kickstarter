@@ -1,0 +1,117 @@
+.questions {
+  &__grid {
+    display: block;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 20px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 20px;
+    }
+  }
+
+  &__title-wraper {
+    @include onTablet {
+      grid-area: 1 / 1 / 2 / 5;
+    }
+    @include onDesktop {
+      grid-area: 1 / 1 / 2 / 7;
+    }
+  }
+
+  &__form-wrapper {
+    @include onTablet {
+      grid-area: 1 / 5 / 2 / 9;
+    }
+    @include onDesktop {
+      grid-area: 1 / 7 / 2 / 13;
+    }
+  }
+
+  &__title {
+    margin-bottom: 27px;
+    font-size: 30px;
+    line-height: 40px;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__form {
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    display: block;
+    margin-bottom: 20px;
+    height: 48px;
+    width: 100%;
+    text-indent: 0;
+    padding: 12px 30px;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 24px;
+    border: 1px solid $color-border-form;
+    background-color: $page-color;
+    color: $color-fonts-button;
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px $page-color inset;
+    }
+
+    @include onDesktop {
+      grid-area: 1 / 7 / 2 / 13;
+    }
+
+    &::placeholder {
+      font-family: "Inter", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: $color-lang-ua;
+    }
+
+    &:focus {
+      border-color: $color-subtitle-slide-features;
+      outline: none;
+    }
+
+    &:hover::placeholder {
+      color: $color-fonts-button;
+    }
+
+    &--text {
+      margin-bottom: 30px;
+      resize: none;
+      height: 128px;
+      box-sizing: border-box;
+    }
+  }
+
+  &__button {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    background: $color-hover-link;
+    cursor: pointer;
+    border: none;
+    transition: all $traform-time;
+
+    &:hover {
+      background: $color-subtitle-slide-features;
+    }
+  }
+}
