@@ -1,0 +1,56 @@
+.footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+
+  &__icon {
+    height: 24px;
+    width: 24px;
+    transition: scale 0.3s;
+
+    &:hover {
+      scale: 110%;
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    max-width: 260px;
+    margin-bottom: 20px;
+    color: $c-light-gray;
+
+    @include onTablet {
+      max-width: 100%;
+    }
+  }
+
+  &__arrow {
+    display: none;
+
+    @include onTablet {
+      position: absolute;
+      display: flex;
+      bottom: 166px;
+      right: 50px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        scale: 110%;
+      }
+    }
+
+  }
+}

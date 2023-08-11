@@ -1,13 +1,670 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="page">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Kickstarter</title>
+    <link rel="icon" href="images/icons/favicon.ico">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+      integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    >
     <link rel="stylesheet" href="./styles/main.scss">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    >
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
+  <body class="page__body">
+    <header class="page__header header" hidden>
+      <div class="container">
+        <div class="header__top">
+          <a href="#" class="logo">
+            <img src="images/icons/logo.svg" alt="crazybaby logo">
+          </a>
+
+          <a class="icon icon--menu" href="#menu"></a>
+
+
+          <ul class="header__list">
+            <li class="header__item">
+              <a href="#" class="link">specs</a>
+            </li>
+            <li class="header__item">
+              <input
+                type="radio"
+                checked
+                name="language"
+                class="link__radio"
+                id="en-menu"
+              >
+              <label for="en-menu" class="link link--lang">en</label>
+              /
+              <input
+                type="radio"
+                name="language"
+                class="link__radio"
+                id="ua-menu"
+              >
+              <label for="ua-menu" class="link link--lang">ua</label>
+            </li>
+            <li class="header__item">
+              <a href="#contacts" class="btn btn--primary btn--c-grey">buy</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="header__content">
+          <picture>
+            <source srcset="images/image-1-desk.jpg" media="(min-width: 1024px)">
+            <source srcset="images/image-1-tab.jpg" media="(min-width: 768px)">
+            <img
+              class="header__image"
+              src="images/image-1-mob.jpg"
+              alt="luna">
+          </picture>
+
+          <div class="header__text">
+            <h1 class="header__title">
+              Futuristic Wireless Speaker
+            </h1>
+
+            <p class="header__description">
+              Luna’s performance is balanced and smooth in all frequency ranges which makes the music both naturally
+              pleasant and distinctly more layered.
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <nav class="nav header__nav">
+        <div class="container">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#our-story" class="link nav__link">
+                our story
+              </a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#" class="link nav__link">
+                about us
+              </a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#testimonials" class="link nav__link">
+                testimonials
+              </a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#features" class="link nav__link">
+                features
+              </a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#contacts" class="link nav__link">
+                get in touch
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <nav class="page__menu menu" id="menu">
+      <div class="container">
+        <div class="menu__content">
+          <div class="menu__top">
+            <a href="#" class="logo">
+              <img src="images/icons/logo.svg" alt="crazybaby logo">
+            </a>
+
+            <a href="#" class="icon icon--cross header__menu-opener"></a>
+          </div>
+
+          <div class="menu__list">
+            <div class="menu__item">
+              <a href="#our-story" class="link">our story</a>
+            </div>
+            <div class="menu__item">
+              <a href="#about-us" class="link">about us</a>
+            </div>
+            <div class="menu__item">
+              <a href="#testimonials" class="link">technology</a>
+            </div>
+            <div class="menu__item">
+              <a href="#features" class="link">features</a>
+            </div>
+            <div class="menu__item">
+              <a href="#contacts" class="link">get in touch</a>
+            </div>
+            <div class="menu__item">
+              <a href="#our-story" class="link">specs</a>
+            </div>
+            <div class="menu__item">
+              <input
+                type="radio"
+                checked
+                name="language"
+                class="link__radio"
+                id="en"
+              >
+              <label for="en" class="link link--lang">en</label>
+              /
+              <input
+                type="radio"
+                name="language"
+                class="link__radio"
+                id="ua"
+              >
+              <label for="ua" class="link link--lang">ua</label>
+            </div>
+          </div>
+          <a href="#contacts" class="btn btn--primary btn--c-grey">buy</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="page__main">
+      <section class="benefits section container" >
+        <div class="benefits__swiper swiper mySwiper slider1">
+          <div class="benefits__swiper-wrapper swiper-wrapper">
+            <div class="benefits__swiper-slide swiper-slide">
+              <img
+                class="benefits__image"
+                src="images/icons/divider.svg"
+                alt="divider"
+              >
+
+              <h4 class="benefits__title">
+                Futuristic Design
+              </h4>
+
+              <p class="benefits__description">
+                To give Luna a truly flawless look, we specifically picked aircraft grade aluminum as its material
+                and
+                adopted both three-dimensional stretch-bending testimonials and a high precision cold forging
+                technique.
+              </p>
+            </div>
+            <div class="benefits__swiper-slide swiper-slide">
+              <img
+                class="benefits__image"
+                src="images/icons/sound.svg"
+                alt="sound"
+              >
+
+              <h4 class="benefits__title">
+                Tweeter Speaker System
+              </h4>
+
+              <p class="benefits__description">
+                To deliver a more layered sound performance better than a sole full-range speaker, our team equipped
+                Luna with one more tweeter speaker responsible for high-frequency sound independently.
+              </p>
+            </div>
+            <div class="benefits__swiper-slide swiper-slide">
+              <img
+                class="benefits__image"
+                src="images/icons/radio.svg"
+                alt="radio"
+              >
+
+              <h4 class="benefits__title">
+                Multiroom System
+              </h4>
+
+              <p class="benefits__description">
+                Luna is natively compatible with your home Wi-Fi. Set up multiple speakers in different rooms to
+                expand your music experience into the entire house.
+              </p>
+            </div>
+            <div class="benefits__swiper-slide swiper-slide">
+              <img
+                class="benefits__image"
+                src="images/icons/sun.svg"
+                alt="sun"
+              >
+
+              <h4 class="benefits__title">
+                Intuitive Lighting System
+              </h4>
+
+              <p class="benefits__description">
+                An intuitive user interface allows you to adjust the hue and saturation of color for lighting that
+                fits any mood and situation.
+              </p>
+            </div>
+          </div>
+          <div class="benefits__swiper-pagination swiper-pagination"></div>
+        </div>
+
+        <div class="benefits__content">
+          <div class="benefits__item">
+            <img
+              class="benefits__image"
+              src="images/icons/divider.svg"
+              alt="divider"
+            >
+
+            <h4 class="benefits__title">
+              Futuristic Design
+            </h4>
+
+            <p class="benefits__description">
+              To give Luna a truly flawless look, we specifically picked aircraft grade aluminum as its material
+              and
+              adopted both three-dimensional stretch-bending testimonials and a high precision cold forging
+              technique.
+            </p>
+          </div>
+
+          <div class="benefits__item">
+            <img
+              class="benefits__image"
+              src="images/icons/sound.svg"
+              alt="sound"
+            >
+
+            <h4 class="benefits__title">
+              Tweeter Speaker System
+            </h4>
+
+            <p class="benefits__description">
+              To deliver a more layered sound performance better than a sole full-range speaker, our team equipped
+              Luna with one more tweeter speaker responsible for high-frequency sound independently.
+            </p>
+          </div>
+
+          <div class="benefits__item">
+            <img
+              class="benefits__image"
+              src="images/icons/radio.svg"
+              alt="radio"
+            >
+
+            <h4 class="benefits__title">
+              Multiroom System
+            </h4>
+
+            <p class="benefits__description">
+              Luna is natively compatible with your home Wi-Fi. Set up multiple speakers in different rooms to
+              expand your music experience into the entire house.
+            </p>
+          </div>
+
+          <div class="benefits__item">
+            <img
+              class="benefits__image"
+              src="images/icons/sun.svg"
+              alt="sun"
+            >
+
+            <h4 class="benefits__title">
+              Intuitive Lighting System
+            </h4>
+
+            <p class="benefits__description">
+              An intuitive user interface allows you to adjust the hue and saturation of color for lighting that
+              fits any mood and situation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="page__section presentation">
+        <div class="container">
+          <picture>
+            <source srcset="images/image-2-desk.jpg" media="(min-width: 768px)">
+            <img
+              class="presentation__image"
+              src="images/image-2-mob.jpg"
+              alt="luna">
+          </picture>
+        </div>
+
+      </section>
+
+      <section class="about-us">
+        <div class="
+        about-us__content
+        about-us__content--reverse
+        about-us__content--no-left-padding
+        section"
+        >
+          <h2 class="about-us__title" id="our-story">
+            Designed for
+            <br>
+            the future
+          </h2>
+
+          <img
+            class="about-us__image"
+            src="images/image-4-mob.jpg"
+            alt="luna"
+          >
+
+          <p class="about-us__description">
+            In 2014, a group of geeky industrial designers, engineering veterans and acoustic experts formed crazybaby. This is a bunch of passionate people who are crazy enough to think they can challenge the industry with disruptive audio products.
+          </p>
+
+          <a href="#about-us" class="about-us__link">
+            See more about us
+          </a>
+        </div>
+
+        <div class="about-us__content about-us__content--no-right-padding" id="about-us">
+          <h2 class="about-us__title about-us__title--reverse">
+            Luna Eye
+          </h2>
+
+          <img
+            class="about-us__image about-us__image--reverse"
+            src="images/image-3-mob.jpg"
+            alt="luna"
+          >
+
+          <p class="about-us__description about-us__description--reverse">
+            Luna Eye is to the essence of this innovative light and audio system. It comprises an independent tweeter speaker, a light guiding component, a dome and a ring ornament.
+          </p>
+
+          <a href="#about-us" class="about-us__link about-us__link--reverse">
+            See more about us
+          </a>
+        </div>
+      </section>
+
+      <section class="page__section testimonials" id="testimonials">
+        <div class="testimonials__content">
+          <p class="testimonials__text">
+            It really took me by surprise honestly to have such full beautiful sound that coming out of this small compact device. And with the brush aluminum surface, it feels so familiar. Like my iPhone.
+          </p>
+
+          <img
+            src="images/avatar.png"
+            alt="photo of Garret Martin"
+            class="testimonials__img"
+          >
+
+          <span class="testimonials__name">
+            Garret Martin
+          </span>
+          <span class="testimonials__position">
+            Creative Director
+          </span>
+        </div>
+      </section>
+
+      <section class="features container section" id="features">
+        <h2 class="features__title">
+          Features
+        </h2>
+
+        <div class="features__content">
+          <div class="features__swiper swiper mySwiper slider2">
+            <div class="features__swiper-wrapper swiper-wrapper">
+              <div class="features__swiper-slide swiper-slide">
+                <h3 class="features__subtitle">
+                  Sound & Music
+                </h3>
+
+                <ul class="features__list">
+                  <li class="features__item">
+                    Feel-in-chest Base Power
+                  </li>
+
+                  <li class="features__item">
+                    Lossless Digital Audio Transmission
+                  </li>
+
+                  <li class="features__item">
+                    Easy & Stable Stereo Pairing
+                  </li>
+
+                  <li class="features__item">
+                    Crisp and Clear High Frequency Sound
+                  </li>
+
+                  <li class="features__item">
+                    Streams from Cloud Music and Local Library
+                  </li>
+
+                  <li class="features__item">
+                    Auto Music from Last Song Stopped
+                  </li>
+                </ul>
+              </div>
+              <div class="features__swiper-slide swiper-slide">
+                <h3 class="features__subtitle">
+                  Connectivity
+                </h3>
+
+                <ul class="features__list">
+                  <li class="features__item">
+                    Hands Free Wireless Audio
+                  </li>
+
+                  <li class="features__item">
+                    Bluetooth 4.0 LE
+                  </li>
+
+                  <li class="features__item">
+                    Wi-Fi 2.4 GHz (802.11 b/g/n)
+                  </li>
+
+                  <li class="features__item">
+                    Smart Multiroom System Set Up
+                  </li>
+
+                  <li class="features__item">
+                    Party Mode with 6.0 Units and above
+                  </li>
+
+                  <li class="features__item">
+                    MESHNET Multi Speaker Network
+                  </li>
+                </ul>
+              </div>
+              <div class="features__swiper-slide swiper-slide">
+                <h3 class="features__subtitle">
+                  App Features
+                </h3>
+
+                <ul class="features__list">
+                  <li class="features__item">
+                    Customize Music Schedule
+                  </li>
+
+                  <li class="features__item">
+                    Wake Up with Favorite Songs
+                  </li>
+
+                  <li class="features__item">
+                    Home Detection Auto Wake Up
+                  </li>
+
+                  <li class="features__item">
+                    Color Wheel
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="features__swiper-elements">
+              <div class="features__swiper-button-prev swiper-button-prev">
+
+              </div>
+
+              <div class="features__swiper-button-next swiper-button-next">
+
+              </div>
+            </div>
+
+            <div class="features__swiper-pagination swiper-pagination">
+
+            </div>
+          </div>
+
+          <img
+            src="images/image-5-tab.png"
+            alt="luna"
+            class="features__image features__swiper-image"
+          >
+        </div>
+
+        <div class="features__wrapper">
+          <div class="features__content">
+            <div class="features__feature">
+              <h3 class="features__subtitle">
+                Connectivity
+              </h3>
+
+              <ul class="features__list">
+                <li class="features__item">Hands Free Wireless Audio</li>
+                <li class="features__item">Bluetooth 4.0 LE</li>
+                <li class="features__item">Wi-Fi 2.4 GHz (802.11 b/g/n)</li>
+                <li class="features__item">Smart Multiroom System Set Up</li>
+                <li class="features__item">Party Mode with 6.0 Units and above</li>
+                <li class="features__item">MESHNET Multi Speaker Network</li>
+              </ul>
+            </div>
+
+            <div class="features__feature">
+              <h3 class="features__subtitle">
+                App Features
+              </h3>
+
+              <ul class="features__list">
+                <li class="features__item">Customize Music Schedule</li>
+                <li class="features__item">Wake Up with Favorite Songs</li>
+                <li class="features__item">Home Detection Auto Wake Up</li>
+                <li class="features__item">Color Wheel </li>
+              </ul>
+            </div>
+
+            <div class="features__feature">
+              <h3 class="features__subtitle">
+                Sound & Music
+              </h3>
+
+              <ul class="features__list">
+                <li class="features__item">Feel-in-chest Base Power</li>
+                <li class="features__item">Lossless Digital Audio Transmission</li>
+                <li class="features__item">Easy & Stable Stereo Pairing</li>
+                <li class="features__item">Crisp and Clear High Frequency Sound</li>
+                <li class="features__item">Streams from Cloud Music and Local Library</li>
+                <li class="features__item">Auto Music Playback from Last Song Stopped</li>
+              </ul>
+            </div>
+
+            <div>
+              <img
+                src="images/image-5-tab.png"
+                alt="luna"
+                class="features__image"
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contacts section container" id="contacts">
+        <div class="contacts__content">
+          <h2 class="contacts__title">
+            Do you have any questions?
+          </h2>
+
+          <form action="#" class="contacts__form form">
+            <input
+              placeholder="Your email"
+              class="contacts__email form-field"
+              name="email"
+              type="email"
+              required
+            >
+            <textarea
+              placeholder="Your message..."
+              class="contacts__message form-field"
+              name="message"
+              required
+            ></textarea>
+
+            <button
+              class="btn btn--primary btn--c-aqua"
+              type="submit"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <a href="#" class="logo logo--footer">
+          <img src="images/icons/logo.svg" alt="crazybaby logo">
+        </a>
+
+        <a href="#" class="footer__arrow">
+          <img src="images/icons/arrow-footer.svg" alt="go to top arrow">
+        </a>
+
+        <div class="footer__links">
+          <a
+            class="footer__link"
+            href="https://facebook.com"
+            target="_blank"
+          >
+            <img
+              class="footer__icon"
+              src="images/icons/facebook.svg"
+              alt="facebook logo"
+            >
+          </a>
+
+          <a
+            class="footer__link"
+            href="https://twitter.com"
+            target="_blank"
+          >
+            <img
+              class="footer__icon"
+              src="images/icons/twitter.svg"
+              alt="twitter logo"
+            >
+          </a>
+
+          <a
+            class="footer__link"
+            href="https://instagram.com"
+            target="_blank"
+          >
+            <img
+              class="footer__icon"
+              src="images/icons/instagram.svg"
+              alt="instagram logo"
+            >
+          </a>
+        </div>
+
+        <p class="footer__text">
+          © 2019 All rights reserved. Terms of Use & Privacy Policy
+        </p>
+      </footer>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>

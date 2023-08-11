@@ -1,0 +1,90 @@
+.contacts {
+  padding: 0 30px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 20px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $c-dark-gray;
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__email {
+    font-size: 14px;
+    line-height: 24px;
+    color: $c-deep-gray;
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 0;
+    border: 1px solid #828282;
+    transition: border-color 0.3s;
+    outline: none;
+
+    &:focus {
+      border-color: $c-dark-aqua;
+    }
+
+    &::placeholder {
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: $c-light-gray;
+    }
+  }
+
+  &__message {
+    font-size: 16px;
+    line-height: 24px;
+    color: $c-deep-gray;
+    width: 100%;
+    height: 260px;
+    padding: 12px 20px;
+    border-radius: 0;
+    border: 1px solid #828282;
+    outline: none;
+    resize: none;
+    transition: border-color 0.3s;
+    font-family: "Inter", Arial, sans-serif;
+
+    &:focus {
+      border-color: $c-dark-aqua;
+    }
+
+    &::placeholder {
+      font: inherit;
+      line-height: 24px;
+      color: $c-light-gray;
+    }
+
+    @include onTablet {
+      height: 200px;
+    }
+
+    @include onDesktop {
+      height: 128px;
+    }
+  }
+}
