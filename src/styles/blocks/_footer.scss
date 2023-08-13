@@ -12,11 +12,27 @@
     }
   }
 
-  &__logo {
+  &__top {
     display: none;
 
     @include onTablet {
-      display: flex;
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+      
+      &-logo {
+        justify-self: center;
+        grid-column: 1/-1;
+        grid-row: 1;
+      }
+
+      &-icon {
+        justify-self: end;
+        grid-column: 2/2;
+        grid-row: 1;
+        scroll-behavior: smooth;
+        @include hover(transform, scale(1.1));
+      }
     }
   }
 
