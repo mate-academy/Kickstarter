@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html:has(.page__menu:target) {
+  overflow: hidden;
+}
+
+.page {
+  &__body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-color: $background-main-color;
+    min-width: 320px;
+    overflow-x: hidden;
+  }
+
+  &__header {
+    max-width: 1194px;
+    margin: 0 auto;
+  }
+
+  &__main {
+    max-width: 1194px;
+    margin: 0 auto;
+  }
+
+  &__footer {
+    max-width: 1194px;
+    margin: 0 auto;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: $menu-white-color;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+      overflow: hidden;
+    }
+  }
+}
