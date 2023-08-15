@@ -1,0 +1,70 @@
+.lang-button-buy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 162px;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 18px;
+
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &--tablet-desktop {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      padding-right: 30px;
+    }
+
+    @include onDesktop {
+      padding: 0;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: 20px;
+
+    @include onTablet {
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+
+  &__specs {
+    text-decoration: none;
+    color: $color-text-specs;
+  }
+
+  &__switchener {
+    &--lang {
+      cursor: pointer;
+      color: $color-text-enabled;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      text-transform: uppercase;
+    }
+
+    &--radio {
+      appearance: none;
+      position: absolute;
+    }
+
+    &--radio:checked + &--lang {
+      color: $color-text-black;
+    }
+  }
+}
