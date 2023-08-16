@@ -1,15 +1,15 @@
-# Kickstarter Lanfing Page - Figma Design Landing Page Implementation 
+# Kickstarter's Landing Page - Figma Design Implementation 
 
-This project is for implementing a responsive landing page according to the Figma design. The design is built with BEM methodology and styled using SCSS. The design supports multiple screen sizes:
-
- - The design, 1440px
- - Desktop, 1280px
- - Tablet, 640px
- - Mobile, (> 320px)
+This project is for implementing a responsive landing page according to the Figma design. The design is built with BEM methodology and styled using SCSS. It's responsive and fits different sizes of screens (Desktop, Tablet, Mobile). 
 
 ## Technologies Used
 
-For this project, we are using HTML, SCSS, and JavaScript technologies.
+- HTML5 and CSS3
+- SASS/SCSS
+- BEM Methodology
+- JavaScript
+- Normalize CSS
+- Font Awesome
 
 ## Preview Link
 
@@ -19,7 +19,7 @@ You can preview the implemented design via [this link](https://zynk.tech/landing
 
 To cpature more details about the design, check the [Figma layout](https://www.figma.com/file/Ujp7bCFuvuJlkn8TSbQPSZ/Kickstarter_FE-students?type=design&node-id=19655-32&mode=design)
 
-## Some additional information
+## Some additional information about the implementation
 
 1. **Responsive Design:** The landing page is fully responsive and scales beautifully on devices with screen sizes - 1440px, 1280px, 640px, 320px.
 
@@ -45,11 +45,9 @@ To cpature more details about the design, check the [Figma layout](https://www.f
 
 7. **No Horizontal Scrolling on Mobile Devices:** Ensuring a neat and clean look on mobile devices without horizontal scrolling.
    
-8. **Favicon:** Favicon added to the website tab for better identification and branding. 
+8. **Favicon:** Favicon added to the website tab for better identification and branding.
 
-9. **Copyright Information:** Updated copyright information in the footer.
-
-10. **Deployed using GitHub Pages:** A live demo of the project is available, thanks to GitHub Pages.
+9. **Clear and Organized Folder Structure**: This ensures quick navigation and understanding of the project structure, both for developers and automated services like search engine crawlers improving SEO.
 
 
 ## Installation
