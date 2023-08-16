@@ -1,0 +1,134 @@
+.features {
+  cursor: context-menu;
+
+  // Hides overflowing cards
+  &__wrapper {
+    overflow: hidden;
+
+    @include onDesktop {
+      overflow: visible;
+    }
+  }
+
+  &__title {
+    @include marginLeft($m-hor, $m-hor, 0);
+    margin-bottom: 32px;
+  }
+
+  &__cards {
+    width: 100%;
+    display: flex;
+    transition: 0.3s;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      column-gap: 30px;
+      row-gap: 56px;
+
+      padding-bottom: 59px;
+    }
+  }
+
+  &__card {
+    flex-shrink: 0;
+    width: 100%;
+    transition: 0.3s;
+
+    margin-bottom: 51px;
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__card--1 {
+    grid-column: 2 / 6;
+    grid-row: 1 / 2;
+  }
+
+  &__card--2 {
+    grid-column: 7 / 12;
+    grid-row: 1/2;
+  }
+
+  &__card--3 {
+    grid-column: 2/6;
+  }
+
+  &__container {
+    position: relative;
+    background-color: #d6ecec;
+    padding: 30px 41px 0 32px;
+
+    @include onTablet {
+      padding: 60px 0 220px 90px;
+      margin: 0 $m-hor;
+    }
+
+    @include onDesktop {
+      padding: 60px 0 0;
+      margin: 0; // reset again on Desktop
+    }
+
+    @include onDesktop {
+      padding: 60px 0 0;
+    }
+  }
+
+  &__block-title {
+    margin: 0 0 20px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #0c797a;
+  }
+
+  &__list {
+    // removes dots on the right (other cards)
+    padding-left: 16px;
+
+    @include onTablet {
+      max-width: 260px;
+    }
+
+    @include onDesktop {
+      max-width: 100%;
+    }
+  }
+
+  &__list-item {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 10px;
+
+    &:last-child {
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__image {
+    width: 106%;
+    transform: translateY(3px);
+
+    @include onTablet {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+
+      width: 60%;
+      transform: translateX(-16px);
+    }
+
+    @include onDesktop {
+      transform: translateX(-35px);
+      width: 45%;
+    }
+  }
+}

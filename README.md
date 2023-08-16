@@ -1,40 +1,60 @@
-# Kickstarter landing page (HARD)
+# Kickstarter's Landing Page - Figma Design Implementation 
 
-**⚠️ Attention: this is a hard landing page for development. We highly recommend choosing this landing page only if you didn't have a lot of troubles with previous homework tasks and if you sent all homework in time (didn't miss deadlines).** 
+This project is for implementing a responsive landing page according to the Figma design. The design is built with BEM methodology and styled using SCSS. It's responsive and fits different sizes of screens (Desktop, Tablet, Mobile). 
 
-Implement landing page according to [Figma design](https://www.figma.com/file/Ujp7bCFuvuJlkn8TSbQPSZ/%E2%84%9611-(kickstarter)?node-id=19655%3A33) - Use BEM and SCSS
-- The design 1440px
-- Desktop 1280px
-- Tablet 640px
-- Mobile (> 320px)
+## Technologies Used
 
-1. Implement the header with `nav`.
-1. Implement `Benefits` block.
-1. Implement `Presentation` block.
-1. Implement `About us` block.
-1. Implement `Technology` block.
-1. Implement `Testimonilas` block.
-1. Implement `Features` block.
-1. Implement `Questions` block
-1. Implement the footer.
+- HTML5 and CSS3
+- SASS/SCSS
+- BEM Methodology
+- JavaScript
+- Normalize CSS
+- Font Awesome
+
+## Preview Link
+
+You can preview the implemented design via [this link](https://zynk.tech/landing/crazybaby/)
+
+## Layout Link
+
+To cpature more details about the design, check the [Figma layout](https://www.figma.com/file/Ujp7bCFuvuJlkn8TSbQPSZ/Kickstarter_FE-students?type=design&node-id=19655-32&mode=design)
+
+## Some additional information about the implementation
+
+1. **Responsive Design:** The landing page is fully responsive and scales beautifully on devices with screen sizes - 1440px, 1280px, 640px, 320px.
+
+2. **BEM & SCSS:** The project has been designed using Block Element Modifier (BEM) methodology to structure the CSS for easy navigation and understanding. SCSS has been used to style the app, allowing the usage of variables, nested rules, mixins, and functions.
+
+3. **Multiple Blocks:** The landing page incorporates multiple blocks, which include:
+    - Header with Navigation
+    - Benefits Block
+    - Presentation Block
+    - About Us Block
+    - Technology Block
+    - Testimonials Block
+    - Features Block
+    - Questions Block
+    - Contact Us section with a Form
+    - Footer
+
+4. **Slider Functionality:** A sliding menu for smaller screen sizes (mobile devices) to offer a great user experience. In addition to this, the Features block also includes a slider for navigating through the different features.
+
+5. **Custom Fonts and Icons:** The project includes custom fonts (Inter-family) and various icons, providing a unique look and feel.
+
+6. **Placeholder Form Information:** Placeholder information provided in the form fields to guide the user on what data they need to input.
+
+7. **No Horizontal Scrolling on Mobile Devices:** Ensuring a neat and clean look on mobile devices without horizontal scrolling.
+   
+8. **Favicon:** Favicon added to the website tab for better identification and branding.
+
+9. **Clear and Organized Folder Structure**: This ensures quick navigation and understanding of the project structure, both for developers and automated services like search engine crawlers improving SEO.
 
 
-## Github flow
+## Installation
 
-1. **Fork** the repo.
-2. **Clone** the forked one. (The project link should have your name but not `mate-academy`)
-3. Run `npm install` (or just `npm i`)
-4. Run `npm start`.
-5. Open one more terminal window for the next steps
-6. `git checkout -b develop` - to create new branch and switch on it
-7. Write you code in `src` folder
-8. Run `npm run lint` and fix code style errors.
-9. Run `npm run deploy` to deploy your solution to `gh-pages`
-10. `git add . && git commit -m 'solution'` to save your changes
-11. `git push origin develop` - to send you code for PR
-12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
-13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/Kickstarter/)
-14. Copy `DEMO LINK` to the PR description
+To start using this project:
 
-> To update you PR repeat steps 7-11
+1. Clone this repository `git clone https://github.com/insert-repository-link`
+2. Move to the project directory `cd project-directory-name`
+3. Install the necessary dependencies `npm install`
+4. Start your project `npm start`

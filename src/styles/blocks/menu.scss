@@ -1,0 +1,51 @@
+.menu {
+  display: none;
+
+  @include onTablet {
+    display: block;
+  }
+
+  &__container {
+    height: 76px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto 64px;
+  }
+
+  &__list {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      column-gap: 40px;
+    }
+
+    @include onDesktop {
+      column-gap: 84px;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    box-sizing: content-box;
+  }
+
+  &__link {
+    display: block;
+    padding: 4px 0;
+
+    border-bottom: 1px solid transparent;
+    color: #333;
+
+    transition: 0.2s;
+
+    &:hover {
+      color: $color-green_1;
+      border-bottom: 1px solid $color-green_1;
+    }
+  }
+}
