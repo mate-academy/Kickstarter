@@ -1,0 +1,74 @@
+.footer {
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  &__logo-link {
+    display: none;
+    @include onTablet {
+      display: flex;
+      margin-bottom: 60px;
+      transition: transform 0.3s;
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+  }
+
+  &__arrow {
+    display: none;
+    transition: all 0.3s;
+    
+    @include onTablet {
+      display: flex;
+      position: absolute;
+      top: 10px;
+      right: 50px;
+    }
+
+    @include onDesktop {
+      top: 0;
+      right: 43px;
+    }
+
+    fill: $dark-grey;
+    &:hover {
+      fill: $green;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      gap: 50px;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__social-link {
+    fill: #4f4f4f;
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.5);
+      fill: $green;
+    }
+  }
+
+  &__copyright {
+    @extend %helv-500;
+    color: $grey-light;
+    text-align: center;
+    margin-bottom: 20px;
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+}

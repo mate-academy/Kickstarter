@@ -1,0 +1,165 @@
+.header {
+  height: 100%;
+  margin-bottom: 110px;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 25px;
+    margin-bottom: 25px;
+    @include onTablet {
+      margin-bottom: 129px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__block-tr {
+    display: none;
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 18px;
+      text-decoration: none;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    width: 161px;
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__specs {
+    @extend %helv-300;
+    line-height: 18px;
+    color: #4f4f4f;
+  }
+
+  &__languages {
+    display: flex;
+    @extend %helv-300;
+    line-height: 18px;
+
+  }
+
+  &__en {
+    margin-right: 3px;
+    color: $dark-grey;
+    text-decoration: none;
+  }
+
+  &__ua {
+    margin-left: 3px;
+    color: #828282;
+    text-decoration: none;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column-reverse;
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 20px;
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      column-gap: 30px;
+      grid-template-columns: repeat(12, 1fr);
+      margin-bottom: 170px;
+    }
+  }
+
+  &__block-img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    width: 100%;
+    @include onTablet {
+      grid-column: 4 / 9;
+      margin-bottom: 0;
+    }
+    @include onDesktop {
+      grid-column: 5 / 13;
+      transform: translateX(-15px);
+    }
+  }
+
+  &__image {
+    object-fit: contain;
+  }
+
+  &__block-text {
+    @include onTablet {
+      grid-column: 1 / 4;
+      z-index: 1;
+    }
+    @include onDesktop {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    @extend %h1;
+    color: $dark-grey;
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__text {
+    @extend %main-text;
+    color: $dark-grey;
+  }
+
+  &__nav {
+    display: none;
+    @include onDesktop {
+      display: block;
+      padding: 28px 0;
+      margin-bottom: 62px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item {
+    position: relative;
+    margin-right: 84px;
+    width: max-content;
+    overflow: hidden;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    @extend %h6;
+    color: $dark-grey;
+    transition-duration: 0.3s;
+    &--bold {
+      font-weight: 700;
+      color: $dark;
+    }
+
+    &:hover {
+      color: $green;
+    }
+  }
+}

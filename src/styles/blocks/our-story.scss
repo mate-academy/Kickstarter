@@ -1,0 +1,116 @@
+.our-story {
+  &__wrapper {
+    padding: 0 30px;
+    @include onTablet {
+      padding: 0 34px 0 0 ;
+    }
+    @include onDesktop {
+      padding: 0 43px;
+    }
+  }
+  &__items {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: auto auto 1fr;
+      column-gap: 20px;
+      grid-template-areas: "img img img img t t t t" 
+        "img img img img text text text text" 
+        "img img img img - - - -";
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto auto 1fr;
+      column-gap: 30px;
+      grid-template-areas: "img img img img img img t t t t t t" 
+        "img img img img img img text text text text text text" 
+        "img img img img img img - - - - - -";
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    @extend %h2;
+    color: $dark-grey;
+    @include onTablet {
+      grid-area: t;
+    }
+  }
+
+  &__image-container {
+    perspective: 500px;
+    @include onTablet {
+      grid-area: img;
+
+    }
+  }
+
+  &__image {
+    margin-bottom: 20px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s;
+    &:hover {
+      border-radius: 10px;
+      box-shadow: 0 0 2px 2px $grey-light;
+    }
+
+    @include onTablet {
+      margin-bottom: 0;
+      &:hover {
+        transform: rotateY(-1deg);
+        transform-style: preserve-3d;
+        box-shadow: 3px 0 2px 0 $grey-light;
+        border-radius: 5px 15px 15px 5px;
+      }
+    }
+  }
+
+  &__block-text {
+    @include onTablet {
+      grid-area: text;
+    }
+  }
+
+  &__text {
+    display: flex;
+    margin-bottom: 30px;
+    @extend %secondary-text;
+    color: $grey;
+
+    @include onTablet {
+      margin-bottom: 60px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__more {
+    position: relative;
+    width: max-content;
+    @extend %button;
+    text-decoration: none;
+    color: $green;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      height: 1px;
+      width: 53px;
+      background-color: $green;
+    }
+    &:hover::after {
+      width: 100%;
+      transition-duration: 0.3s;
+    }
+  }
+}
