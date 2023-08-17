@@ -1,0 +1,41 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0 auto;
+    max-width: 1440px;
+    background: $color-white-gray;
+    font-family: $font-inter-regular;
+    
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    transition: transform $transition-duration-speed;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+
+  &__section {
+    margin-bottom: $space-btw-blocks-mobile;
+
+    @include onTablet {
+      margin-bottom: $space-btw-blocks-tablet;
+    }
+
+    @include onDesktop {
+      margin-bottom: $space-btw-blocks-desktop;
+    }
+  }
+}

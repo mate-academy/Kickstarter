@@ -1,0 +1,82 @@
+.menu {
+  background-color: $color-menu-bgr;
+  overflow-y: auto;
+  height: 100vh;
+  
+  @include onTablet {
+    padding-bottom: 39px;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__content {
+    padding: $header-top-padding-mobile 0 30px;
+    display: flex;
+    flex-direction: column;
+    
+    & > button {
+      align-self: center;
+    }
+
+    @include onTablet {
+      padding-top: $header-top-padding-desktop;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 50px;
+    perspective: 500px;
+    display: flex;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__item {
+    transition: scale $transition-duration-speed ease,
+      color $transition-duration-speed ease,
+      font-weight $transition-duration-speed ease;
+  
+    &:hover {
+      scale: 1.1;
+      color: $color-black;
+      font-weight: 700;
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 20px;
+    color: $color-second-main;
+  }
+
+  &__cover-links {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 162px;
+  }
+
+  &__button {
+    border: none;
+    width: 260px;
+    height: 48px;
+    background-color: $color-second-main;
+    transition: scale $transition-duration-speed ease,
+      color $transition-duration-speed ease,
+      background-color $transition-duration-speed ease;
+
+    &:hover {
+      scale: 1.1;
+      background-color: $color-black;
+    }
+    
+    &:disabled {
+      background-color: $color-gray;
+    }
+  }
+}

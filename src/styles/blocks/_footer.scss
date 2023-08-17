@@ -1,0 +1,54 @@
+.footer {
+  margin-bottom: 30px;
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+
+    @include onTablet {
+      gap: 60px;
+    }
+  }
+
+  &__top {
+    display: none;
+
+    @include onTablet {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+      
+      &-logo {
+        justify-self: center;
+        grid-column: 1/-1;
+        grid-row: 1;
+      }
+
+      &-icon {
+        justify-self: end;
+        grid-column: 2/2;
+        grid-row: 1;
+        scroll-behavior: smooth;
+        @include hover(transform, scale(1.1));
+      }
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 40px;
+
+    @include onTablet {
+      gap: 50px;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 21px;
+    color: $color-light-gray;
+    text-align: center;
+  }
+}
