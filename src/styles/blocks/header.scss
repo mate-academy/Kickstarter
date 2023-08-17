@@ -1,0 +1,95 @@
+.header {
+  @include onDesktop {
+    height: 100vh;
+    margin-bottom: 0;
+  }
+
+  &__top {
+    @include topStyle;
+
+    @include onTablet {
+      margin-bottom: 129px;
+      height: max-content;
+      padding: 0;
+    }
+  }
+
+  &__logo {
+    width: max-content;
+
+  }
+
+  &__top-items {
+    display: flex;
+    gap: 26px;
+    align-items: center;
+
+  }
+
+  &__actions {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+    }
+  }
+
+  &__menu {
+    width: 20px;
+    height: 20px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__image {
+    height: 245px;
+    margin: 0 auto;
+
+    background-image: url(../images/product/mobile/1.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onTablet {
+      width: 430px;
+      height: 317px;
+      position: absolute;
+      left: 40%;
+      z-index: -1;
+      background-image: url(../images/product/tablet/1.jpg);
+    }
+
+    @include onDesktop {
+      width: 816px;
+      height: 464px;
+      left: 35%;
+      background-image: url(../images/product/desktop/1.jpg);
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      @include gridTablet;
+    }
+
+    @include onDesktop {
+      @include gridDesktop;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / 4;
+  }
+}

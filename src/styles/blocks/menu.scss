@@ -1,0 +1,95 @@
+.menu {
+
+  &__top {
+    @include topStyle;
+
+    @include onTablet {
+      padding-top: 55px;
+    }
+
+    @include onDesktop {
+      display: none;
+      // padding: 0;
+      // margin: 0;
+    }
+  }
+
+  &__logo {
+    visibility: hidden;
+  }
+
+  &__cross {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__items {
+    width: 100%;
+    padding: 0;
+    margin: 0 0 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+
+    @include onTablet {
+      margin-top: -45px;
+    }
+
+    @include onDesktop {
+      height: 76px;
+      margin: 0;
+      flex-direction: row;
+    }
+  }
+
+  &__item {
+    margin-bottom: 10px;
+
+    @include onDesktop {
+      margin: 0 84px 0 0;
+    }
+  }
+
+  &__link {
+    box-sizing: border-box;
+
+    text-decoration: none;
+    @extend %text-thirdary;
+    color: $c-deepGray;
+    font-size: 16px;
+    border-bottom: 1px solid transparent;
+    transition: all 400ms;
+
+    @include onDesktop {
+      color: $c-darkGray;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &:hover {
+      color: $c-deepTurquoise;
+      border-color: $c-deepTurquoise;
+    }
+
+    &:active {
+      color: $c-darkTurquoise;
+      border-color: $c-darkTurquoise;
+    }
+
+    &:focus {
+      font-weight: 700;
+      color: $c-darkGray;
+      border-color: transparent;
+    }
+  }
+
+  &__actions {
+    @include onTablet {
+      display: none;
+    }
+  }
+}

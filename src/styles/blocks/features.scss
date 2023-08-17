@@ -1,0 +1,166 @@
+.features {
+
+  &__title {
+    margin-bottom: 32px;
+  }
+
+  &__content {
+    box-sizing: border-box;
+    padding-top: 30px;
+
+    background-color: $c-Turquoise;
+
+    @include onTablet {
+      padding: 60px 0 125px;
+      margin: 0 34px;
+
+      background-image: url(../images/slider/bgi.png);
+      background-repeat: no-repeat;
+      background-position: right bottom;
+      background-size: 60%;
+    }
+
+    @include onDesktop {
+      margin: 0;
+      padding: 60px 0 0;
+
+      background-position: 95% bottom;
+      background-size: 40%;
+    }
+
+    &--tablet {
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__item {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 30px;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      padding: 0 90px;
+    }
+  }
+
+  &__name {
+    margin-bottom: 20px;
+
+    color: $c-darkTurquoise;
+
+    @include onTablet {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    @include onDesktop {
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__options {
+    margin: 0;
+    padding-left: 18px;
+
+    @include onTablet {
+      width: 40%;
+    }
+
+    @include onDesktop {
+      width: 100%;
+    }
+  }
+
+  &__option {
+    margin-bottom: 10px;
+
+    @extend %text-secondary;
+
+    @include onDesktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__navigations {
+    margin: 0 auto;
+    width: 95px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @include onTablet {
+      margin-left: 90px;
+    }
+  }
+
+  &__buttons {
+    width: 95px;
+    margin: 0 auto 8px;
+    display: flex;
+  }
+
+  &__button {
+    width: 48px;
+    height: 14px;
+
+    cursor: pointer;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: all 400ms;
+
+    &--next {
+      background-image: url(../images/slider/black.png);
+
+      &:hover {
+        background-image: url(../images/slider/blue-green.png);
+      }
+    }
+
+    &--prev {
+      background-image: url(../images/slider/grey.png);
+
+      &:hover {
+        background-image: url(../images/slider/blue-green-prev.png);
+      }
+    }
+  }
+
+  &__pagination-box {
+    display: block;
+    margin: 0 auto;
+    width: 50px;
+  }
+
+  &__pagination {
+    text-align: center;
+  }
+
+  &__background {
+    width: 100%;
+    display: block;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}

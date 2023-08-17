@@ -1,0 +1,83 @@
+.tech {
+  &__items {
+    display: none;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+    }
+
+    &--mobile {
+      display: block;
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__slider {
+    height: 280px;
+  }
+
+  &__item {
+    max-width: 340px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      margin-bottom: 65px;
+    }
+
+    @include onDesktop {
+      max-width: 310px;
+    }
+  }
+
+  &__icon {
+    margin-bottom: 40px;
+    height: 40px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 33px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    text-align: center;
+
+    @include onDesktop {
+      height: 56px;
+    }
+  }
+
+  &__description {
+    @extend %text-secondary;
+    color: $c-Gray;
+    text-align: center;
+  }
+
+  &__pagination {
+    @media (max-width: 440px) {
+      margin-top: -115px;
+    }
+  }
+}
