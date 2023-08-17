@@ -1,0 +1,83 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: $color-white;
+
+  transition: background-color 0.3s;
+
+  &--primary {
+    height: var(--button-height);
+    width: 102px;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    line-height: 15px;
+
+    background-color: #333;
+
+    @include tablet {
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 14px;
+    }
+
+    &:hover {
+      background-color: #131313;
+    }
+  }
+
+  &--secondary {
+    display: block;
+    width: max-content;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+
+    color: #0db2b3;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 50px;
+      background-color: #0db2b3;
+      margin-top: 5px;
+
+      transition: 0.3s;
+
+      @include desktop {
+        width: 64px;
+      }
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  &--tertiary {
+    font-weight: 700;
+    line-height: 14px;
+
+    height: 40px;
+    width: 100px;
+    border: none;
+
+    background-color: #0db2b3;
+
+    @include desktop {
+      width: 120px;
+    }
+
+    &:hover {
+      background-color: #0c797a;
+    }
+  }
+}
