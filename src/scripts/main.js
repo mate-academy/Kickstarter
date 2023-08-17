@@ -23,3 +23,17 @@ window.onhashchange = (e) => {
 
   return menu;
 };
+
+const windowElement = window;
+
+// Функція, яка додоє клас container при ширині вікна більше мібльного
+function handleResize() {
+  const windowWidth = window.innerWidth;
+  const element = document.querySelector('.features__container');
+
+  windowWidth > 744
+    ? element.classList.add('container')
+    : element.classList.remove('container');
+}
+
+windowElement.addEventListener('resize', handleResize);
