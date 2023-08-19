@@ -1,0 +1,131 @@
+.header {
+  &__top {
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+  }
+  &__logo {
+    &-image {
+      width: 161px;
+      height: 26px;
+      @include hover(transform, scale(1.2));
+    }
+  }
+
+  &__burger-button--opened {
+    background-image: url(../icons/icon-burger.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    display: block;
+    @include hover(transform, scale(1.2));
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__burger-button--closed {
+    background-image: url(../icons/icon-burger-closed.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    display: block;
+  }
+
+  &__wrapper-button {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: $color-min-gray;
+  }
+  &__title {
+
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
+
+    &--margin {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__subtitle {
+    line-height: 24px;
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+  }
+
+  &__bottom {
+    @include pageGrid;
+    @include onTablet {
+      margin-top: 142px;
+    }
+
+    &-background {
+      margin-bottom: 40px;
+      @include onTablet {
+        grid-column: 4 / 9;
+      }
+      @include onDesktop {
+        grid-column: 5 / 11;
+      }
+    }
+    &-image {
+      height: 100%;
+      width: 100%;
+      @include onDesktop {
+        background-image: url(../images/image-bg-desktop.png);
+        width: 600px;
+        height: 464px;
+        display: block;
+      }
+    }
+  }
+  &__language {
+    gap: 30px;
+    display: none;
+    @include onTablet {
+      display: flex;
+    }
+  }
+  &__button {
+    width: 100px;
+    display: none;
+    &-link {
+      transition: all 0.5s;
+    }
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__nav-wrapper {
+    justify-content: center;
+    display: none;
+    @include onDesktop {
+      display: flex;
+      margin-top: 170px;
+    }
+  }
+  &__menu {
+    flex-direction: row;
+    gap: 84px;
+  }
+}
+
+.title__wrapper {
+  @include onTablet {
+    grid-row: 1;
+    grid-column: 1 / 4;
+  }
+}
+
+span {
+  color: $color-light-black;
+}
