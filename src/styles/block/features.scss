@@ -2,6 +2,11 @@
 
   &__title {
     margin-bottom: 30px;
+    padding: 0 30px;
+
+    @include tablet {
+      padding: 0;
+    }
   }
 
   &__content {
@@ -10,6 +15,29 @@
 
   &__gallery {
     padding: 30px 30px 0;
+
+    @include tablet {
+      padding: 60px 90px 0;
+      max-width: 500px;
+    }
+
+    @include desktop {
+      display: flex;
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+      padding: 60px 120px;
+
+      background-image: url(../images/features-removebg-preview.png);
+      background-repeat: no-repeat;
+      background-position: 90% 100%;
+    }
+  }
+
+  &__cell {
+    @include desktop {
+      flex: 1 0 40%;
+      margin-bottom: 56px;
+    }
   }
 
   &__name {
@@ -41,7 +69,34 @@
     transform: translateY(-50%);
   }
 
+  &__numb {
+    text-align: center;
+    margin-top: 45px;
+
+    @include tablet {
+      padding-left: 90px;
+    }
+  }
+
+  &__pictures {
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
   &__image {
-    margin-top: 100px;
+    @include tablet {
+      flex: 0 1 60%;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    margin-bottom: -4px;
   }
 }
