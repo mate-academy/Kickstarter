@@ -48,9 +48,9 @@ window.onhashchange = (e) => {
   return menu;
 };
 
+// Функція, яка додоє клас container при ширині вікна більше мібльного
 const windowElement = window;
 
-// Функція, яка додоє клас container при ширині вікна більше мібльного
 function handleResize() {
   const windowWidth = window.innerWidth;
   const element = document.querySelector('.features__main');
