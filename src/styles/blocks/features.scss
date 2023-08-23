@@ -1,0 +1,211 @@
+.features {
+  &__content {
+    margin: 0;
+    padding: 0;
+    @include pageGrid;
+    justify-items: center;
+
+    @include contentPadingInline;
+    max-width: $max-width;
+    
+    box-sizing: border-box;
+    position: relative;
+    background-color: #d6ecec;
+    min-width: 380px;
+    width: 100vw;
+    right: 30px;
+
+    
+
+    @include onTablet {
+      right: 34px;
+
+      justify-items: start;
+    }
+
+    @include onDesktop {
+      align-items: stretch;
+      right: 123px;
+
+      row-gap: 50px;
+    }
+
+  }
+
+  &__section {
+    margin-top: 30px;
+
+    justify-items: center;
+
+    grid-column: 1/-1;
+
+    @include onTablet {
+      margin-top: 60px;
+      justify-items: flex-start;
+
+      grid-column: 2/6;
+    }
+
+    &--title {
+      color: #0c797a;
+      padding: 0;
+      margin: 0;
+      margin-bottom: 20px;
+
+      @include onDesktop {
+        margin-bottom: 30px;
+      }
+    }
+
+    &--item {
+      padding: 0;
+      margin: 0;
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &--list {
+      position: relative;
+      padding-left: 13px;
+      
+      @include secondaryText;
+
+      list-style: none;
+      color: $title-color;
+
+      @include onDesktop {
+        @include mainText;
+      }
+    }
+
+    &--list::before {
+      content: "";
+      margin-right: 10px;
+      position: absolute;
+      left: -1px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background-color: black;
+      border-radius: 50%;
+    }
+
+    &--1 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 2/6;
+
+      }
+    }
+
+    &--2 {
+      @include onDesktop {
+        grid-column: 2/6;
+        margin-top: 0;
+      }
+    }
+
+    &--3 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+
+        grid-column: 7/-1;
+      }
+    }
+
+    @include transform;
+    cursor: pointer;
+  }
+
+  &__switch {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 50px;
+
+    grid-column: 1/-1;
+
+    @include onTablet {
+      justify-items: flex-start;
+
+      grid-column: 2/4;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--slider {
+      display: flex;
+      flex-direction: row;
+      gap: 0;
+
+      &-l {
+        cursor: pointer;
+
+        transition: 0.6s;
+
+        &:hover {
+          transform: scale(1.15);
+        }
+      }
+
+      &-r {
+        cursor: pointer;
+
+        transition: 0.6s;
+
+        &:hover {
+          transform: scale(1.15);
+        }
+      }
+    }
+
+    &--page {
+      position: relative;
+      grid-column: 2/4;
+
+      &-last {
+        position: relative;
+        bottom: 4px;
+        @include mainText;
+
+        color: $title-color;
+      }
+
+      &-second {
+        color: #0c797a;
+        font-family: Inter, sans-serif;
+        font-size: 11px;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+  }
+  
+
+  &__image {
+    width: -webkit-fill-available;
+
+    grid-column: 1/-1;
+
+    @include onTablet {
+      grid-column: 4/-1;
+    }
+
+    @include onDesktop {
+      grid-column: 7/-1;
+    }
+  }
+}
