@@ -1,0 +1,30 @@
+.arrow-to-top {
+  display: none;
+  position: fixed;
+  // color: $c-green;
+  z-index: 1;
+  cursor: pointer;
+  transform: rotate(180deg);
+  transition: transform 0.3s;
+  opacity: 0;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  @include onTablet {
+    display: block;
+    right: 50px;
+    bottom: 180px;
+  }
+
+  @include onDesktop {
+    right: 125px;
+    bottom: 125px;
+  }
+
+  &--show {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
