@@ -1,0 +1,74 @@
+.footer {
+  &__socials {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-bottom: 32px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+  }
+
+  &__top {
+    display: none;
+    margin: 0 auto 64px;
+
+    @include onTablet {
+      display: grid;
+      justify-items: center;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__top-logo {
+    grid-column: 2 / 3;
+  }
+
+  &__top-arrow {
+    justify-self: end;
+    grid-column: 3 / 4;
+
+    transition: transform $smooth-transition;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  &__top-link {
+    text-decoration: none;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__icon {
+
+    &::before {
+      font-size: 18px;
+
+      transition: color $smooth-transition;
+    }
+
+    &:hover::before {
+      color: $color-green;
+    }
+  }
+
+  &__terms {
+    display: block;
+    margin-bottom: 20px;
+
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 21px;
+    color: $color-light-gray;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+}

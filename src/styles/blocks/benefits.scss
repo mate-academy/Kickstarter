@@ -1,0 +1,84 @@
+.benefits {
+  &__icon {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    transition: transform $smooth-transition;
+
+    @include onTablet {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: $color-dark-gray;
+    text-align: center;
+  }
+
+  &__text {
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+    color: $color-gray;
+  }
+
+  &__swiper {
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 0;
+    padding: 0 28px;
+    height: 360px;
+  }
+
+  .swiper-pagination-bullet {
+    background-color: $color-green;
+    font-size: 20px;
+  }
+
+  &__swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  @include onTablet {
+    &__swiper {
+      display: none;
+    }
+  }
+
+  &__content {
+    display: none;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 64px 20px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__block {
+    width: 100%;
+    transition: transform $smooth-transition;
+
+    @include onTablet {
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
