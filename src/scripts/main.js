@@ -4,7 +4,7 @@ const article = document.querySelectorAll('.technology__article--slider');
 const technology = document.getElementById('technology');
 let count = 0;
 let width;
-const number = document.querySelector('.features__slide-aktiv');
+const number = document.querySelector('.features__slider-aktiv');
 let switcher = 0;
 
 function init() {
@@ -21,7 +21,7 @@ function init() {
 window.addEventListener('resize', init);
 init();
 
-document.querySelector('.features__technology-slide-next')
+document.querySelector('.features__technology-slider-next')
   .addEventListener('click', function() {
     count++;
     switcher = count + 1;
@@ -38,7 +38,7 @@ document.querySelector('.features__technology-slide-next')
     rollSlider();
   });
 
-document.querySelector('.features__technology-slide-prev')
+document.querySelector('.features__technology-slider-prev')
   .addEventListener('click', function() {
     count--;
     switcher = count + 1;
