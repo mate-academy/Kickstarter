@@ -1,4 +1,11 @@
 .header {
+  .disp {
+    display: flex;
+    flex-direction: column;
+    @include onTablet {
+      flex-direction: row-reverse;
+    }
+  }
   .img1 {
     display: flex;
     overflow: hidden;
@@ -12,13 +19,14 @@
     background-image: url(../images/image1mob.png);
     @include onTablet {
       justify-content: center;
-      width: 714px;
-      height: 500px;
-      background-image: url(../images/image1.png);
+      width: 430px;
+      height: 317px;
+      background-image: url(../images/image1Tab.png);
     }
     @include onDesktop {
-      width: 650px;
-      height: 451px;
+      width: 816px;
+      height: 464px;
+      background-image: url(../images/image1.png);
     }
     &:hover {
       transform: scale(1.07);
@@ -30,10 +38,15 @@
     line-height: 52px;
     color: $colorH1;
     text-transform: uppercase;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+      padding-bottom: 30px;
+    }
   }
   &__title-e {
-    font-style: "semibold";
+    font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;

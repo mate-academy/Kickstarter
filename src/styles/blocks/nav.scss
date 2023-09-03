@@ -4,12 +4,10 @@
   justify-content: space-between;
   margin: 25px 30px;
   @include onTablet {
-    margin-top: 28px;
-    padding-bottom: 36px;
+    margin: 30px 30px 148px;
   }
   @include onDesktop {
-    margin-top: 40px;
-    padding-bottom: 90px;
+    margin: 45px 123px 100px;
   }
   .Moblogo {
     display: block;
@@ -23,7 +21,7 @@
       transform: scale(1.07);
     }
   }
-  .Mobmenu {
+  .page_logo {
     display: block;
     width: 27px;
     height: 27px;
@@ -34,10 +32,40 @@
       transition: 0.5s;
       transform: scale(1.07);
     }
+    @include onDesktop {
+      display: none;
+    }
+  }
+  .close_logo {
+    display: block;
+    width: 27px;
+    height: 27px;
+    background-repeat: no-repeat;
+    transition: all 0.3s;
+    background-image: url(../images/Icon-Close.svg);
+    &:hover {
+      transition: 0.5s;
+      transform: scale(1.07);
+    }
+  }
+  .navTab {
+    @include onTablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .dispTab {
+    display: none;
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      padding-right: 30px;
+    }
   }
 }
 
-.menu_shopF {
+.menu_target {
   z-index: 1;
   position: fixed;
   top: 0;
@@ -45,8 +73,137 @@
   right: 0;
   transform: translateY(-100%);
   transition: transform 0.5s;
-  background-color: #333;
+  background-color: #f9f9f9;
   &:target {
     transform: translateX(0);
+  }
+}
+
+.menu_right {
+  display: block;
+  box-sizing: border-box;
+  top: 0;
+  height: 100vh;
+  z-index: 9;
+  overflow: auto;
+}
+
+.menu__list {
+  display: flex;
+  flex-direction: column;
+  padding-top: 31px;
+  gap: 25px;
+  @include onTablet {
+    padding-top: 31px;
+    gap: 61px;
+  }
+}
+
+.menu__item {
+  display: block;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  color: var(--333333, #333);
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 260px;
+  text-align: left;
+  &:hover {
+    transition: 0.5s;
+    color: #131313;
+    font-weight: 700;
+  }
+  @include onTablet {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
+
+.lang-select {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding-top: 50px;
+  @include onTablet {
+    padding: 0;
+  }
+}
+
+.lang-select--disp {
+  display: flex;
+  @include onTablet {
+    display: none;
+  }
+}
+
+.select {
+  display: flex;
+  flex-direction: row;
+}
+
+.title-select2 {
+  cursor: pointer;
+  &:hover {
+    transition: 0.5s;
+    color: #131313;
+    font-weight: 700;
+  }
+}
+
+.title-select3 {
+  cursor: pointer;
+  &:hover {
+    transition: 0.5s;
+    color: #131313;
+    font-weight: 700;
+  }
+}
+
+.header__link-shop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid $c-button;
+  background-color: $c-button;
+  font-family: inherit;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  color: $grantext;
+  text-decoration: none;
+  cursor: pointer;
+  height: 60px;
+  width: 100%;
+  margin-bottom: 30px;
+  transition: 0.5s;
+  @include onTablet {
+    width: 100px;
+    margin: 0;
+  }
+  &:hover {
+    transition: 0.5s;
+    background-color: $buttonhover;
+    border: 1px solid $buttonhover;
+    transform: scale(1.07);
+  }
+}
+
+.button_pad {
+  padding-top: 160px;
+  @include onTablet {
+    padding: 0;
+  }
+}
+
+.button_pad--disp {
+  display: flex;
+  @include onTablet {
+    display: none;
   }
 }
