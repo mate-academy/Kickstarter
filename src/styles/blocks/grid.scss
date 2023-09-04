@@ -2,11 +2,11 @@
   display: grid;
 
   @include onMobiles {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
   }
   @include onTablet {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     column-gap: 30px;
   }
   @include onDesktop {
@@ -15,8 +15,8 @@
   }
 
   &__item {
-    @for $start from 1 through 2 {
-      @for $end from $start through 2 {
+    @for $start from 1 through 4 {
+      @for $end from $start through 4 {
         &--mobiles-#{$start}-#{$end} {
           @include onMobiles {
             grid-column: #{$start} / #{$end + 1};
@@ -26,8 +26,8 @@
       }
     }
 
-    @for $start from 1 through 6 {
-      @for $end from $start through 6 {
+    @for $start from 1 through 8 {
+      @for $end from $start through 8 {
         &--tablet-#{$start}-#{$end} {
           @include onTablet {
             grid-column: #{$start} / #{$end + 1};
