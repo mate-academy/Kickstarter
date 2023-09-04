@@ -58,6 +58,8 @@
     padding: 12px 20px;
     height: 128px;
     width: 100%;
+
+    resize: none;
     font-family: Inter, sans-serif;
     border: 1px solid #828282;
 
@@ -68,6 +70,18 @@
     @include onDesktop {
       padding-inline: 36px;
     }
+    
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+    }
 
     &:focus {
       border-radius: 0;
@@ -77,6 +91,10 @@
     &::placeholder {
       @include mainText;
       color: #bdbdbd;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
     }
   }
 
