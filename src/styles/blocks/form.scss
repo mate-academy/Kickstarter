@@ -1,0 +1,129 @@
+.form {
+  margin: 0;
+  padding: 0;
+
+  &__input {
+    box-sizing: border-box;
+    margin-top: 27px;
+    padding: 12px 20px;
+
+    width: 100%;
+    height: 48px;
+
+    color: $title-color;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+
+    border: 1px solid #828282;
+
+    @include onTablet {
+      margin-top: 0;
+      padding-inline: 30px;
+    }
+
+    @include onDesktop {
+      padding-inline: 36px;
+    }
+
+    &:focus {
+      border: 1px solid #0c797a;
+      border-radius: 0;
+      outline: none;
+    }
+
+    &:-webkit-autofill {
+      box-shadow: none;
+      -webkit-box-shadow: 0 0 0 1000px white inset;
+      
+      background-color: white;
+    }
+
+    &:not(:placeholder-shown):invalid {
+      border: 1px solid #eb5757;
+    }
+
+    &::placeholder {
+      @include mainText;
+      color: #bdbdbd;
+    }
+
+  }
+
+  &__textarea {
+    box-sizing: border-box;
+    margin: 20px 0 30px;
+    padding: 12px 20px;
+    height: 128px;
+    width: 100%;
+
+    resize: none;
+    font-family: Inter, sans-serif;
+    border: 1px solid #828282;
+
+    @include onTablet {
+      padding-inline: 30px;
+    }
+
+    @include onDesktop {
+      padding-inline: 36px;
+    }
+    
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    &:focus {
+      border-radius: 0;
+      outline: none;
+    }
+
+    &::placeholder {
+      @include mainText;
+      color: #bdbdbd;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+
+  &__button {
+    display: block;
+
+    cursor: pointer;
+
+    width: 102px;
+    height: 40px;
+    
+    outline: none;
+    background-color: #0db2b3;
+    border: none;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #fff;
+
+    @include onDesktop {
+      width: 124px;
+      height: 48px;
+    }
+
+    &:hover {
+      background-color: #0c797a;
+    }
+  }
+}

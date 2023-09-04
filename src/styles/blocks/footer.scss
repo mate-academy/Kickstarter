@@ -1,0 +1,157 @@
+.footer {
+  &__content {
+    padding: 0;
+    margin: 0;
+    min-width: 320px;
+    
+    margin-top: 110px;
+
+    @include contentPadingInline;
+    @include pageGrid;
+
+    @include onTablet {
+      margin-top: 140px;
+    }
+
+    @include onDesktop {
+      margin-top: 170px;
+    }
+  }
+
+  &__title {
+    padding: 0;
+    margin: 0;
+
+    grid-column: 1/-1;
+
+    @include onTablet {
+      grid-column: 1/5;
+    }
+
+    @include onDesktop {
+      grid-column: 1/7;
+    }
+  }
+
+  &__form {
+    padding: 0;
+    margin: 0;
+
+    grid-column: 1/-1;
+
+    @include onTablet {
+      grid-column: 5/-1;
+    }
+
+    @include onDesktop {
+      grid-column: 7/-1;
+    }
+  }
+
+  &__botom {
+    position: relative;
+
+    margin: 0;
+    padding: 0;
+    margin-top: 110px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    grid-column: 1/-1;
+
+    @include onTablet {
+      gap: 60px;
+      margin-top: 140px;
+    }
+
+    @include onDesktop {
+      margin-top: 170px;
+    }
+
+    &--arow {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 0;
+      cursor: pointer;
+
+      transition: 0.6s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      animation: jumpAndPause 3s linear infinite;
+      transform-origin: center bottom;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+
+    &--logo {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+
+    &--social {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+
+      text-decoration: none;
+
+      @include onTablet {
+        gap: 49px;
+      }
+
+      @include onDesktop {
+        gap: 40px;
+      }
+    }
+
+    &--info {
+      margin: 0;
+      padding: 0;
+      margin-bottom: 20px;
+      text-align: center;
+
+      color: #bdbdbd;
+      @include secondaryText;
+
+      @include onTablet {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__icon-fb {
+    transition: 0.6s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__icon-tw {
+    transition: 0.6s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__icon-in {
+    transition: 0.6s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
