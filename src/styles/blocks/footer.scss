@@ -1,0 +1,100 @@
+.footer {
+  font-size: 14px;
+  line-height: 21px;
+  color: $color-white-gray; //колір ©
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;  //відстань між іконками соц. мереж та ©
+
+  @include contentPaddingInlineMinWidth;
+
+  @include onTablet {
+    gap: 60px;
+  }
+
+  &--margin {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      max-width: $max-width;
+      margin: 0 auto 30px;
+    }
+  }
+
+  &__logo {
+    display: none;
+    @include onTablet {
+      @include contentGrid;
+    }
+  }
+
+  &__top {
+    grid-column: span 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    @include onTablet {
+      gap: 50px;
+    }
+
+    @include onDesktop {
+      gap: 40px;
+    }
+  }
+
+  &__link {
+    width: 24px;
+    height: 24px;
+
+    &--facebook {
+      background-image: url("../images/social/facebook.svg");
+      @include backgroundSizePosition;
+
+      transition-delay: $transition-time;
+      @include hover (transform,scale(1.2));
+
+      &:hover {
+        background-image: url("../images/social/facebook-red.svg");
+        background-size: contain;
+      }
+    }
+
+    &--twitter {
+
+      background-image: url("../images/social/twitter.svg");
+
+      background-position: center;
+      @include backgroundSizePosition;
+
+      transition-delay: $transition-time;
+      @include hover (transform, scale(1.2));
+
+      &:hover {
+        background-image: url("../images/social/twitter-red.svg");
+        background-size: contain;
+      }
+    }
+
+    &--instagram {
+      background-image: url("../images/social/instagram.svg");
+      @include backgroundSizePosition;
+
+      transition-delay: $transition-time;
+      @include hover (transform,scale(1.2));
+
+      &:hover {
+        background-image: url("../images/social/instagram-red.svg");
+        background-size: contain;
+      }
+    }
+  }
+}
