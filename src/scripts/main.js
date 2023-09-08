@@ -3,29 +3,24 @@
 // eslint-disable-next-line no-undef
 AOS.init();
 
-const pageBody = document.querySelector('.page__body');
-
 window.addEventListener('hashchange', () => {
-  if (window.location.hash === '#menu-mobile') {
-    document.body.classList.add('page__body--with-menu');
-  } else {
-    document.body.classList.remove('page__body--with-menu');
-  }
+  window.location.hash === '#menu-mobile'
+    ? document.body.classList.add('page__body--with-menu')
+    : document.body.classList.remove('page__body--with-menu');
 });
 
+const pageBody = document.querySelector('.page__body');
 const scrollToTop = document.querySelector('.scroll-to-top');
 
-window.addEventListener('scroll', function() {
-  if (pageBody.getBoundingClientRect().top < -250) {
-    scrollToTop.classList.add('scroll-to-top--show');
-  } else {
-    scrollToTop.classList.remove('scroll-to-top--show');
-  }
+window.addEventListener('scroll', () => {
+  pageBody.getBoundingClientRect().top < -250
+    ? scrollToTop.classList.add('scroll-to-top--show')
+    : scrollToTop.classList.remove('scroll-to-top--show');
 });
 
-// eslint-disable-next-line no-undef, no-unused-vars
+/* global Swiper */
+// eslint-disable-next-line no-unused-vars
 const swiper = new Swiper('.swiper', {
-
   direction: 'horizontal',
   slidesPerView: 1,
   spaceBetween: 30,
@@ -34,12 +29,8 @@ const swiper = new Swiper('.swiper', {
   pagination: {
     el: '.swiper-pagination--custom',
     type: 'fraction',
-    formatFractionCurrent: function(number) {
-      return '0' + number;
-    },
-    formatFractionTotal: function(number) {
-      return '0' + number;
-    },
+    formatFractionCurrent: number => '0' + number,
+    formatFractionTotal: number => '0' + number,
   },
 
   navigation: {
@@ -50,7 +41,7 @@ const swiper = new Swiper('.swiper', {
 
 const form = document.querySelector('#form');
 
-form.addEventListener('submit', function(event) {
+form.addEventListener('submit', (event) => {
   event.preventDefault();
   form.reset();
 });
