@@ -1,0 +1,82 @@
+.benefits {
+  @include consentPaddingInline;
+
+  &__container {
+    display: grid;
+    row-gap: 90px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  display: flex;
+  flex-direction: row;
+  overflow-y: scroll;
+  gap: 30px;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 64px;
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: auto;
+    cursor: pointer;
+    min-width: 100%;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__title-block {
+    margin-top: 40px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 128%;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__description-block {
+    margin-top: 20px;
+
+    &--52 {
+      @include onDesktop {
+        margin-top: 52px;
+        // margin: 0 auto;
+      }
+    }
+  }
+
+
+
+
+  &__description {
+    // margin: 0;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: center;
+    color: #7c7c7c;
+  }
+}
