@@ -1,22 +1,8 @@
 'use strict';
 
-// eslint-disable-next-line no-undef
-AOS.init();
-
-window.addEventListener('hashchange', () => {
-  window.location.hash === '#menu-mobile'
-    ? document.body.classList.add('page__body--with-menu')
-    : document.body.classList.remove('page__body--with-menu');
-});
-
 const pageBody = document.querySelector('.page__body');
 const scrollToTop = document.querySelector('.scroll-to-top');
-
-window.addEventListener('scroll', () => {
-  pageBody.getBoundingClientRect().top < -250
-    ? scrollToTop.classList.add('scroll-to-top--show')
-    : scrollToTop.classList.remove('scroll-to-top--show');
-});
+const form = document.querySelector('#form');
 
 /* global Swiper */
 // eslint-disable-next-line no-unused-vars
@@ -39,9 +25,22 @@ const swiper = new Swiper('.swiper', {
   },
 });
 
-const form = document.querySelector('#form');
+window.addEventListener('hashchange', () => {
+  window.location.hash === '#menu-mobile'
+    ? document.body.classList.add('page__body--with-menu')
+    : document.body.classList.remove('page__body--with-menu');
+});
+
+window.addEventListener('scroll', () => {
+  pageBody.getBoundingClientRect().top < -250
+    ? scrollToTop.classList.add('scroll-to-top--show')
+    : scrollToTop.classList.remove('scroll-to-top--show');
+});
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   form.reset();
 });
+
+// eslint-disable-next-line no-undef
+AOS.init();
