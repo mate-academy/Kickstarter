@@ -1,0 +1,51 @@
+.menu-mobile {
+  height: 100vh;
+  padding: $header-top-padding-mobile 0;
+
+  background-color: $c-background;
+
+  overflow-y: auto;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &__top {
+    @include top-actions;
+    margin-bottom: 44px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 35px;
+  }
+
+  &__list {
+    text-align: right;
+    list-style: none;
+  }
+
+  &__item {
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    padding-bottom: 5px;
+
+    font-size: 20px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: $c-main;
+
+    border-bottom: 1px solid transparent;
+
+    @include hover(border-color, $c-main);
+  }
+}
