@@ -58,9 +58,31 @@
     }
     &-current {
       position: relative;
-      bottom: 5px;
+      bottom: 6px;
       font-size: 16px;
       color: $c-dark;
     }
   }
+}
+
+@mixin onMobile {
+  @media (max-width: 320px) {
+    @content;
+    margin-bottom: 1px;
+  }
+}
+
+@include onMobile {
+  .swiper-button-prev--custom,
+  .swiper-button-next--custom {
+    bottom: 1px;
+  }
+}
+
+.swiper-button-next--custom {
+  left: calc(50% + 50px);
+}
+
+.swiper-button-prev--custom {
+  left: calc(50% + 20px);
 }
