@@ -1,0 +1,55 @@
+.link {
+  @extend %thirdary-text;
+
+  &--specs {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: $c-dark-grey;
+    border: 1px solid transparent;
+    transition: border-color 0.3s;
+
+    &:hover {
+      border-color: $c-dark-grey;
+    }
+
+    &:active {
+      font-weight: 700;
+    }
+
+    @include onTablet {
+      display: flex;
+      width: 102px;
+      height: 48px;
+    }
+
+    &--menu {
+      color: $c-dark-grey;
+      display: flex;
+      position: relative;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -5px;
+        height: 2px;
+        width: 100%;
+        background-color: $c-dark-grey;
+        border-radius: 4px;
+
+        transition: transform $effectDuration;
+        transform: scale(0);
+        transform-origin: left;
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+}

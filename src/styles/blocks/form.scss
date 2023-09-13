@@ -1,0 +1,61 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &-field {
+    box-sizing: border-box;
+    height: 48px;
+    font-family: Inter, sans-serif;
+    color: $secondary-text-color;
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 171%;
+    padding: 12px 0 12px 20px;
+    background-color: transparent;
+    border: 1px solid #828282;
+
+    transition: all $effectDuration;
+
+    @include onLaptop {
+      padding: 12px 0 12px 30px;
+    }
+
+    &:focus,
+    &:hover {
+      border-color: #0c797a;
+    }
+
+    &:-webkit-autofill {
+      transition: background-color 999999s;
+      -webkit-text-fill-color: $secondary-text-color;
+    }
+
+    &::placeholder {
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 150%;
+      color: $c-light-grey-1;
+    }
+
+    &--textarea {
+      resize: none;
+      overflow: hidden;
+      height: 128px;
+
+      @include onTablet {
+        height: 200px;
+      }
+
+      @include onLaptop {
+        height: 128px;
+      }
+    }
+  }
+
+  &-button {
+    margin-top: 10px;
+  }
+}

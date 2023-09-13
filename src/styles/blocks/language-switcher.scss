@@ -1,0 +1,42 @@
+.language-switcher {
+  gap: 3px;
+
+  &--header {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &--menu {
+    display: flex;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:checked + label {
+      color: $secondary-text-color;
+    }
+  }
+
+  &__label {
+    display: block;
+    @extend %thirdary-text;
+    color: $c-light-grey-1;
+    cursor: pointer;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__slash {
+    color: $secondary-text-color;
+    @extend %thirdary-text;
+    user-select: none;
+  }
+}
