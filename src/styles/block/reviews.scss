@@ -1,0 +1,84 @@
+.reviews {
+  @include sectionIndents;
+
+  &__container {
+    @include container;
+  }
+
+  &__box {
+    box-sizing: border-box;
+    display: block;
+    width: auto;
+    height: 171px;
+    background-image: url(../images/reviews-bg.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+
+    @include onTablet {
+      height: 189px;
+    }
+
+    @include onDesktop {
+      height: 192px;
+    }
+  }
+
+  &__text {
+    @extend %p;
+    text-align: center;
+    color: $text-color;
+
+    &--main {
+      position: absolute;
+      bottom: 0;
+
+      @include onTablet {
+        font-size: 24px;
+        line-height: 36px;
+      }
+
+      @include onDesktop {
+        width: 786px;
+        bottom: 20%;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+    }
+
+    &--bold {
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 22px;
+
+      @include onTablet {
+        margin-top: 20px;
+      }
+    }
+
+    &--regular {
+      margin-top: 5px;
+      font-weight: 400;
+      line-height: 21px;
+    }
+  }
+
+  &__img {
+    display: block;
+    margin: 30px auto 0;
+    width: 62px;
+    height: 62px;
+    cursor: pointer;
+
+    @include onTablet {
+      margin-top: 40px;
+    }
+
+    @include onDesktop {
+      margin-top: -20px;
+    }
+
+    @include hover(transform, scale(1.2));
+  }
+}
