@@ -1,0 +1,27 @@
+.button {
+  &__text {
+    @extend %p;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: $blue-color;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 1px;
+      width: 50%;
+      background-color: $blue-color;
+      left: 0;
+      bottom: -5px;
+
+      transition: $effectDuration;
+
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

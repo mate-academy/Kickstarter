@@ -1,0 +1,97 @@
+.footer {
+  @include sectionIndents;
+
+  &__top {
+    @include onTablet {
+      @include container;
+      @include pageGrid;
+    }
+  }
+
+  &__logo-link {
+    @include onTablet {
+      grid-column: 4 / 6;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include onTablet {
+      height: 25px;
+      display: flex;
+    }
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__arrow-link {
+    display: none;
+
+    @include onTablet {
+      grid-column: 8 / -1;
+      display: block;
+      text-align: right;
+    }
+
+    @include onDesktop {
+      grid-column: 12 / -1;
+    }
+  }
+
+  &__arrow {
+    transition: $effectDuration;
+    &:hover {
+      fill: $blue-color;
+      transform-origin: center center;
+      transform: scale(1.1);
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    @include onTablet {
+      margin-top: 60px;
+      gap: 49px;
+    }
+
+    @include onDesktop {
+      gap: 40px;
+    }
+  }
+
+  &__text {
+    @extend %p;
+    font-weight: 400;
+    line-height: 21px;
+    color: $placeholder-color;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-top: 60px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__img {
+    transition: $effectDuration;
+
+    &:hover {
+      fill: $blue-color;
+      transform-origin: center center;
+      transform: scale(1.2);
+    }
+  }
+}

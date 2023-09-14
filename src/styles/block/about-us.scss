@@ -1,0 +1,85 @@
+.about-us {
+  @include sectionIndents;
+
+  &__container {
+    @include container;
+
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__title {
+    @extend %h2;
+    color: $text-color;
+  }
+
+  &__photo {
+    margin-top: 30px;
+    overflow: hidden;
+    cursor: pointer;
+
+    @include onTablet {
+      margin-left: -40px;
+      grid-column: span 4;
+      margin-top: 0;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+      margin-left: 0;
+    }
+  }
+
+  &__img {
+    width: 100%;
+
+    @include hover(transform, scale(1.2));
+
+    &--1 {
+      display: none;
+
+      @include onTablet {
+        display: grid;
+      }
+    }
+
+    &--2 {
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__info {
+    @include onTablet {
+      grid-column: 5 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__text {
+    margin-top: 20px;
+    @extend %p;
+    font-weight: 400;
+    line-height: 21px;
+    color: $benefits-text-color;
+
+    @include onTablet {
+      margin-top: 30px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__button {
+    margin-top: 30px;
+
+    @include onTablet {
+      margin-top: 60px;
+    }
+  }
+}
