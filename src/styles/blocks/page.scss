@@ -9,6 +9,18 @@
 
   cursor: url(../images/cursor.svg), auto;
 
+  &__header {
+    margin-bottom: $section-margin-bottom-mobile;
+
+    @include onTablet {
+      margin-bottom: $section-margin-bottom-tablet;
+    }
+
+    @include onDesktop-1200 {
+      margin-bottom: $section-margin-bottom-desktop-1200;
+    }
+  }
+
   &__body {
     &:has(.menu:target) {
       overflow: hidden;
@@ -21,7 +33,7 @@
     right: 0;
     left: 0;
 
-    transition: all 0.3s;
+    transition: all $transition-duration;
     opacity: 0;
     transform: translateX(-100%);
     pointer-events: none;
