@@ -1,0 +1,114 @@
+.header {
+  padding: 25px 0 0;
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+
+    @include onTablet {
+      margin-bottom: 129px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 100px;
+    }
+  }
+
+  &__menu {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__content {
+    z-index: 1;
+
+    @include onDesktop {
+      align-self: center;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-grey;
+
+    @extend %a;
+
+    &--specs {
+      width: 70px;
+      color: $color-grey;
+      text-decoration: none;
+
+      @extend %a;
+    }
+
+    &--slash {
+      color: $color-dark-text;
+      margin-right: 3px;
+    }
+
+    &--en {
+      margin-right: 3px;
+    }
+
+    &--ua {
+      color: $color-disabled-grey;
+      margin-right: 27px;
+    }
+  }
+
+  &__image {
+    object-fit: contain;
+    position: relative;
+    display: block;
+    left: -30px;
+    right: -30px;
+    width: 100vw;
+    height: 100%;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      position: static;
+      width: 100%;
+      height: 100%;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      position: relative;
+      left: -20px;
+      max-height: 464px;
+    }
+  }
+
+  &__title {
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__paragraph {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

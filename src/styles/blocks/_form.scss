@@ -1,0 +1,57 @@
+.form {
+
+  &__title {
+    margin-bottom: 27px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    border: 1px solid $color-grey-border;
+    padding: 12px 20px;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    outline: none;
+
+    background-color: $color-background;
+
+    &::placeholder {
+      font-family: Helvetica, sans-serif;
+      color: $color-placeholder;
+    }
+
+    &:focus {
+      border: 1px solid $color-mint-text;
+    }
+
+    &:valid {
+      border: 1px solid #eb5757;
+    }
+
+    &--textarea {
+      overflow: hidden;
+      white-space: normal;
+      resize: none;
+      height: 128px;
+
+      @include onTablet {
+        height: 201px;
+      }
+
+      @include onDesktop {
+        height: 128px;
+      }
+    }
+  }
+}
