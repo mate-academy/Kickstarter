@@ -1,0 +1,62 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  @include onTablet {
+    gap: 60px;
+  }
+
+  position: relative;
+
+  &__top {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__logo {
+    @include hover(transform, scale(1.2));
+  }
+
+  &__icon {
+    @include onTablet {
+      position: absolute;
+      right: $padding-inline-tablet;
+    }
+
+    @include onDesktop-1200 {
+      right: $padding-inline-desktop;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+  }
+
+  &__bottom {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__official-info {
+    font-size: 14px;
+    color: $color-grey-copyright;
+    text-align: center;
+  }
+
+  &__terms {
+    color: inherit;
+    text-decoration: none;
+  }
+}

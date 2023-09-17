@@ -1,0 +1,112 @@
+.about-us-fact {
+  @include onTablet {
+    display: grid;
+    --columns: 2;
+    column-gap: 20px;
+    grid-template-columns: repeat(var( --columns), 1fr);
+    grid-template-rows: auto auto 1fr;
+  }
+
+  @include onDesktop-1200 {
+    column-gap: 30px;
+  }
+
+  &__title {
+    @include onTablet {
+      grid-column: 2 / 3;
+      padding-right: $padding-inline-tablet;
+
+      &--left {
+        grid-column: 1 / 2;
+        padding-right: 0;
+        padding-left: $padding-inline-tablet;
+      }
+    }
+
+    @include onDesktop-1200 {
+      padding: 0;
+
+      &--left {
+        padding: 0;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+    @include hover(transform, scale(1.05));
+
+    @include onTablet {
+      @include hover(transform, scale(1.1));
+
+      grid-column: 1 / 2;
+      grid-row: 1 / 4;
+
+      height: 415px;
+      margin-bottom: 0;
+
+      &--right {
+        grid-column: 2 / 3;
+      }
+
+      &--scetch {
+        content: url("../images/img-scetch-tablet.png");
+        width: 100%;
+        height: 100%;
+      }
+
+      &--right-luna {
+        content: url("../images/img-luna-tablet.png");
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    @include onDesktop-1200 {
+      &--scetch {
+        content: url("../images/img-scetch-desktop.png");
+      }
+
+      &--right-luna {
+        content: url("../images/img-luna-desktop.png");
+      }
+    }
+  }
+
+  &__description {
+    @include onTablet {
+      grid-column: 2 / 3;
+      padding-right: $padding-inline-tablet;
+
+      &--left {
+        grid-column: 1 / 2;
+        padding-right: 0;
+        padding-left: $padding-inline-tablet;
+      }
+    }
+
+    @include onDesktop-1200 {
+      padding: 0;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    color: $color-grey-secondary-text;
+
+    @include onDesktop-1200 {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__button {
+    @include onTablet {
+      grid-column: 2 / 3;
+    }
+  }
+}

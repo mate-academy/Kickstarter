@@ -1,0 +1,138 @@
+.features {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: $color-medium-green;
+    padding-block: 60px;
+    padding-inline: 30px;
+
+    min-height: 575px;
+    background-image: url(../images/img-feature-product-mobile.png);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+
+    @include onTablet {
+      background-image: url(../images/img-feature-product-tablet.png);
+      padding-inline: 90px;
+      align-items: flex-start;
+      min-height: 555px;
+      background-position: bottom right 20px;
+    }
+
+    @include onDesktop-1200 {
+      flex-wrap: wrap;
+      column-gap: 60px;
+      flex-direction: row;
+    }
+
+    @include onDesktop-1440 {
+      column-gap: 200px;
+    }
+  }
+
+  &__block {
+    display: none;
+    max-width: 100%;
+    height: 260px;
+    margin-bottom: 50px;
+
+    &--active {
+      display: block;
+      animation: fadeImg 0.8s;
+
+      @keyframes fadeImg {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+    }
+
+    @include onDesktop-1200 {
+      display: block;
+      min-width: 380px;
+    }
+  }
+
+  &__control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onDesktop-1200 {
+      display: none;
+    }
+  }
+
+  &__slider-btn {
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 0;
+    width: 48px;
+    height: 13px;
+    border: none;
+
+    cursor: pointer;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__prev-btn {
+    background-image: url(../images/button/btn-next-slider-active.svg);
+    transform: rotate(180deg);
+
+    &:hover {
+      background-image: url(../images/button/btn-prev-slider-hover.svg);
+      transform: rotate(0);
+    }
+
+    &:disabled {
+      background-image: url(../images/button/btn-prev-slider-disabled.svg);
+      transform: rotate(0);
+    }
+  }
+
+  &__next-btn {
+    background-image: url(../images/button/btn-next-slider-active.svg);
+
+    &:hover {
+      background-image: url(../images/button/btn-next-slider-hover.svg);
+    }
+
+    &:disabled {
+      background-image: url(../images/button/btn-prev-slider-disabled.svg);
+      transform: rotate(180deg);
+    }
+  }
+
+  &__title {
+    color: $color-green-accent;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 120%;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+
+    @include onDesktop-1200 {
+      font-size: 34px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__list {
+    list-style: disc;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 20px;
+  }
+
+  &__page-count {
+    font-size: 11px;
+  }
+}

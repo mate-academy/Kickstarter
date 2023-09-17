@@ -1,0 +1,66 @@
+.button {
+  height: 48px;
+  min-width: 100px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  color: $color-white-buttons-text;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  &--primary-black {
+    background-color: $color-dark-grey-body-buttons;
+
+    @include onTablet {
+      max-width: 100px;
+    }
+
+    &:hover {
+      background-color: $color-black;
+    }
+  }
+
+  &--primary-green {
+    background-color: $color-dark-green;
+
+    &:hover {
+      background-color: $color-green-accent;
+    }
+
+    @include onDesktop-1200 {
+      width: 123px;
+    }
+  }
+
+  &--secondary {
+    color: $color-dark-green;
+    background-color: transparent;
+    position: relative;
+    font-size: 12px;
+    font-weight: 700;
+    min-width: 130px;
+    min-height: 15px;
+    height: 15px;
+    max-width: fit-content;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      height: 1px;
+      display: block;
+      width: 50%;
+      background-color: $color-dark-green;
+      transition: width $transition-duration;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
