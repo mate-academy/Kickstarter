@@ -1,0 +1,232 @@
+.header {
+  box-sizing: border-box;
+
+  &__content {
+    position: relative;
+
+    @include onTablet {
+      display: grid;
+
+      gap: toRem(130);
+      padding-top: toRem(29);
+
+      @include contentPaddingInLine;
+    }
+
+    @include onDesktop {
+      gap: toRem(90);
+    }
+  }
+
+  &__top-bar {
+    height: toRem(76);
+
+    padding-inline: toRem(30);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+
+    @include onTablet {
+      height: toRem(48);
+
+      padding-inline: 0;
+    }
+  }
+
+  &__logo {
+    cursor: pointer;
+
+    @include hover (transform, scale(1.1));
+  }
+
+  &__settings {
+    @include onTablet {
+      display: flex;
+      gap: toRem(30);
+    }
+
+    @include onDesktop {
+      gap: toRem(47);
+    }
+  }
+
+  &__specs {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+
+      font-weight: 300;
+      font-size: toRem(14);
+      line-height: 121.43%;
+      color: $darkGrayColor;
+
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+
+  &__lang {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+
+      gap: toRem(3);
+
+      font-size: toRem(14);
+      line-height: 128.58%;
+    }
+  }
+
+  &__lang--en {
+    cursor: pointer;
+    color: $mainColor;
+  }
+
+  &__lang--ua {
+    cursor: pointer;
+    color: $grayColor;
+
+    font-weight: 300;
+    &:hover {
+      color: $mainColor;
+      font-weight: 400;
+    }
+  }
+
+  &__lang--ua:hover ~ &__lang--en,
+  &__lang--ua:hover ~ &__lang--ua {
+    color: $placeholderColor;
+  }
+
+  &__button {
+    display: none;
+
+    transition: $transitionTime;
+
+    &:hover {
+      background-color: $blackColor;
+    }
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+
+      width: toRem(100);
+      height: toRem(48);
+
+      background-color: $mainColor;
+      cursor: pointer;
+
+    }
+
+    @include onDesktop {
+      width: toRem(102);
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__main {
+    position: relative;
+
+    display: grid;
+    gap: toRem(40);
+
+    @include onTablet {
+      display: flex;
+
+      gap: 0;
+    }
+
+    @include onDesktop {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__image {
+    @include onTablet {
+      position: absolute;
+
+      bottom: 0;
+      right: 0;
+      z-index: -1;
+    }
+
+    @include onDesktop {
+      position: static;
+    }
+  }
+
+  &__image-content {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+
+    @include onTablet {
+      content: url(../images/photos/header-image-tablet.png);
+    }
+
+    @include onDesktop {
+      content: url(../images/photos/header-image-desktop.png);
+    }
+  }
+
+  &__main-text {
+    display: grid;
+    gap: toRem(20);
+
+    padding-inline: toRem(30);
+
+    @include onTablet {
+      padding-inline: 0;
+      gap: toRem(30);
+    }
+
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: toRem(40);
+    line-height: 130%;
+
+    text-transform: uppercase;
+
+    @include onTablet {
+      font-size: toRem(48);
+      line-height: 129.17%;
+
+    }
+
+    @include onDesktop {
+      font-size: toRem(62);
+      line-height: 125.81%;
+
+      padding-top: toRem(81);
+    }
+  }
+
+  &__text {
+    line-height: 150%;
+
+    @include onTablet {
+      max-width: toRem(250);
+    }
+
+    @include onDesktop {
+      max-width: toRem(280);
+    }
+  }
+}

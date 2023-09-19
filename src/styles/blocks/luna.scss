@@ -1,0 +1,169 @@
+.luna {
+  padding-top: toRem(110);
+
+  @include onTablet {
+    padding-top: toRem(140);
+  }
+
+  @include onDesktop {
+    padding-top: toRem(170);
+  }
+
+  &__content {
+    position: relative;
+    padding-inline: toRem(30);
+
+    @include onTablet {
+      padding-inline: 0;
+
+      @include pageGrid;
+    }
+
+    @include onDesktop {
+      padding-inline: toRem(123);
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: toRem(36);
+    line-height: 127.78%;
+
+    text-transform: uppercase;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      grid-row: 1;
+
+      font-size: toRem(36);
+      line-height: 127.78%;
+
+      padding-left: toRem(30);
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+
+      font-size: toRem(56);
+      line-height: 125%; /* 70/56 */
+
+      padding-left: 0;
+    }
+  }
+
+  &__image {
+    padding-top: toRem(20);
+
+    @include onTablet {
+      position: absolute;
+
+      grid-column: 5 / -1;
+      grid-row: 1;
+
+      padding-top: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+    }
+
+    &-size {
+      width: 100%;
+
+      @include onTablet {
+        content: url(../images/photos/luna-image-tablet.png);
+      }
+
+      @include onDesktop {
+        content: url(../images/photos/luna-image-desktop.png);
+      }
+    }
+  }
+
+  &__text {
+    line-height: 150%; /* 24/16 */
+
+    padding-top: toRem(18);
+
+    color: $lightGrayColor;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+
+      font-size: toRem(16);
+      line-height: 150%; /* 24/16 */
+
+      padding-top: toRem(30);
+      padding-left: toRem(30);
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+
+      padding-left: 0;
+    }
+  }
+
+  &__button {
+    position: relative;
+    display: inline-block;
+
+    margin-top: toRem(30);
+
+    @include onTablet {
+      max-width: toRem(160);
+
+      grid-column: 1 / 5;
+
+      margin-top: toRem(60);
+      margin-bottom: toRem(163);
+      padding-left: toRem(30);
+    }
+
+    @include onDesktop {
+      max-width: toRem(135);
+      grid-column: 1 / 7;
+
+      margin-bottom: toRem(136);
+      padding-left: 0;
+    }
+
+    &:before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+
+      bottom: 0;
+
+      width: toRem(53);
+      height: 1px;
+
+      background-color: $buttonSecondaryColor;
+
+      @include onTablet {
+        bottom: 0;
+      }
+
+      @include onDesktop {
+        bottom: 0;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+
+      margin-top: toRem(5);
+
+      height: toRem(1);
+
+      background-color: $buttonSecondaryColor;
+      transition: $transitionTime;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}

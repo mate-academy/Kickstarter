@@ -1,0 +1,132 @@
+.footer {
+  padding-top: toRem(110);
+
+  @include contentPaddingInLine;
+  @include onTablet {
+    padding-top: toRem(140);
+  }
+
+  @include onDesktop {
+    padding-top: toRem(170);
+  }
+  &__content {
+    position: relative;
+
+    padding-bottom: toRem(20);
+
+    @include onTablet {
+      padding-bottom: toRem(29.1);
+    }
+
+    @include onDesktop {
+      padding-bottom: toRem(30);
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+    }
+
+    &--icon {
+      content: url(../images/icons/footer-logo-tablet.svg);
+      
+      @include hover(transform, scale(1.1));
+
+      @include onDesktop {
+        content: url(../images/icons/footer-logo-desktop.svg);
+      }
+    }
+  }
+
+  &__messengers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: toRem(40);
+    @include onTablet {
+      padding-top: toRem(60.7);
+    }
+
+    @include onDesktop {
+      padding-top: toRem(60);
+    }
+
+    &--1 {
+      cursor: pointer;
+
+      @include hover(transform, scale(1.2));
+    }
+
+    &--2 {
+      cursor: pointer;
+
+      @include hover(transform, scale(1.2));
+    }
+
+    &--3 {
+      cursor: pointer;
+
+      @include hover(transform, scale(1.2));
+    }
+  }
+
+  &__text {
+    font-size: toRem(14);
+    line-height: 150%; /* 21/14 */
+
+    padding-top: toRem(30);
+
+    color: $grayColor;
+    text-align: center;
+
+    @include onTablet {
+      padding-top: toRem(59.79);
+    }
+
+    @include onDesktop {
+      padding-top: toRem(60);
+    }
+  }
+
+  &__icon {
+    display: none;
+
+    cursor: pointer;
+
+    @include hover(transform, scale(1.1));
+
+    @include onTablet {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: toRem(50);
+      height: toRem(50);
+    }
+
+    @include onDesktop {
+      width: toRem(24);
+      height: toRem(24);
+    }
+
+    &--size {
+      position: absolute;
+      bottom: 15px;
+      width: toRem(24);
+      height: toRem(24);
+
+      @include onDesktop {
+        position: static;
+      }
+    }
+  }
+}
