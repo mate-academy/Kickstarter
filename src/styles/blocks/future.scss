@@ -1,0 +1,182 @@
+.future {
+  padding-top: toRem(110);
+  padding-bottom: toRem(20);
+
+  @include onTablet {
+    padding-top: toRem(140);
+  }
+
+  @include onDesktop {
+    padding-top: toRem(170);
+  }
+
+  &__content {
+    position: relative;
+
+    padding-inline: toRem(30);
+
+    @include onTablet {
+      padding-inline: 0;
+
+      @include pageGrid;
+    }
+
+    @include onDesktop {
+      padding-inline: toRem(123);
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: toRem(30);
+    line-height: 133.33%;
+
+    text-transform: uppercase;
+
+    @include onTablet {
+      grid-column: 5 / -1;
+      grid-row: 1;
+
+      font-size: toRem(36);
+      line-height: 127.78%;
+
+      padding-right: toRem(30);
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+
+      font-size: toRem(56);
+      line-height: 125%; /* 70/56 */
+
+      padding-right: 0;
+    }
+  }
+
+  &__image {
+    padding-top: toRem(30);
+
+    @include onTablet {
+      position: absolute;
+
+      max-width: toRem(374);
+
+      grid-column: 1 / 5;
+      grid-row: 1;
+
+      padding-top: 0;
+    }
+
+    @include onDesktop {
+      max-width: toRem(582);
+
+      grid-row: 1;
+      grid-column: 1 / 7;
+    }
+    &-size {
+      width: 100%;
+
+      @include onTablet {
+        content: url(../images/photos/future-image-tablet.png);
+      }
+
+      @include onDesktop {
+        content: url(../images/photos/future-imafe-desktop.png);
+      }
+    }
+  }
+
+  &__text {
+    font-size: toRem(14);
+    line-height: 150%; /* 21/14 */
+
+    padding-top: toRem(20);
+
+    color: $lightGrayColor;
+
+    @include onTablet {
+      max-width: toRem(370);
+
+      grid-column: 5 / -1;
+      grid-row: 2;
+
+      font-size: toRem(16);
+      line-height: 150%; /* 24/16 */
+
+      padding-top: toRem(30);
+      padding-right: toRem(30);
+    }
+
+    @include onDesktop {
+      max-width: toRem(582);
+
+      padding-right: 0;
+
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__button {
+    position: relative;
+    display: inline-block;
+    margin-top: toRem(30);
+
+    @include onTablet {
+      max-width: toRem(160);
+
+      grid-column: 5 / -1;
+      grid-row: 3;
+
+      margin-top: toRem(60);
+      margin-bottom: toRem(67);
+      padding-right: toRem(30);
+    }
+    @include onDesktop {
+      max-width: toRem(135);
+
+      grid-column: 7 / -1;
+
+      padding-right: 0;
+      margin-bottom: toRem(40);
+    }
+
+    &:before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+
+      bottom: 0;
+
+      width: toRem(53);
+      height: 1px;
+
+      background-color: $buttonSecondaryColor;
+
+      @include onTablet {
+        bottom: 0;
+      }
+
+      @include onDesktop {
+        bottom: 0;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+
+      margin-top: toRem(5);
+
+      height: toRem(1);
+
+      background-color: $buttonSecondaryColor;
+      transition: $transitionTime;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+  }
+}

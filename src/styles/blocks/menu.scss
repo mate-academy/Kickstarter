@@ -1,0 +1,117 @@
+.menu {
+  background-color: $menuBgColor;
+  box-sizing: border-box;
+  height: 100vh;
+  margin: 0 auto;
+
+  overflow-y: hidden;
+
+  @include contentPaddingInLine;
+
+  &__top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: toRem(74);
+  }
+
+  &__main {
+    padding-top: toRem(31);
+
+    @include onTablet {
+      padding-top: toRem(40);
+    }
+  }
+
+  &__nav-list {
+    font-size: toRem(14);
+    line-height: 142.86%;
+
+    display: grid;
+    gap: toRem(25);
+
+    @include onTablet {
+      font-size: toRem(22);
+      line-height: 127.27%;
+
+      gap: toRem(40);
+    }
+  }
+
+  &__nav-link--active {
+    font-weight: 700;
+
+    color: $blackColor;
+
+    @include onTablet {
+      font-size: toRem(22);
+      line-height: 127.27%;
+    }
+  }
+
+  &__setting {
+    display: flex;
+
+    gap: toRem(20);
+    padding-top: toRem(50);
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__specs {
+    font-weight: 300;
+    font-size: toRem(14);
+    line-height: 121.43%;
+    text-transform: uppercase;
+  }
+
+  &__lang {
+    font-size: toRem(14);
+    line-height: 128.57%;
+
+    display: flex;
+    gap: toRem(3);
+
+    color: $mainColor;
+  }
+
+  &__lang-en {
+    cursor: pointer;
+  }
+
+  &__lang-ua {
+    cursor: pointer;
+  }
+
+  &__lang--color {
+    font-weight: 300;
+
+    color: $grayColor;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+
+    width: toRem(260);
+    height: toRem(48);
+
+    margin-top: toRem(162);
+
+    background-color: $mainColor;
+    cursor: pointer;
+
+    transition: $transitionTime;
+
+    &:hover {
+      background-color: $blackColor;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+.questions {
+  padding-top: toRem(110);
+
+  @include onTablet {
+    padding-top: toRem(140);
+  }
+
+  @include onDesktop {
+    padding-top: toRem(170);
+  }
+
+  &__content {
+    @include pageGrid;
+
+    @include contentPaddingInLine;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: toRem(30);
+    line-height: 133.33%;
+
+    grid-column: 1 / -1;
+
+    max-width: toRem(240);
+
+    @include onTablet {
+      grid-column: 1 / 5;
+
+      max-width: toRem(339);
+
+      font-size: toRem(36);
+      line-height: 127.78%;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+
+      min-width: toRem(580);
+
+      font-size: toRem(56);
+      line-height: 125%; /* 70/56 */
+    }
+  }
+
+  &__form-field {
+    padding-top: toRem(27);
+
+    @include onTablet {
+      grid-column: 5 / -1;
+
+      padding-top: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__field {
+    width: toRem(260);
+    height: toRem(48);
+    background-color: $mainBgColor;
+    border: 1px solid $grayColor;
+    padding: 12px 0;
+    padding-left: toRem(20);
+    outline: none;
+
+    @include onTablet {
+      width: toRem(340);
+
+      padding-left: toRem(30);
+    }
+
+    @include onDesktop {
+      width: 100%;
+
+      padding-left: toRem(36.37);
+    }
+
+    &::placeholder {
+      color: $placeholderColor;
+    }
+
+    &:focus {
+      border-color: $subtitleFeaturesColor;
+    }
+  }
+
+  &__textarea {
+    height: toRem(104);
+    margin-top: toRem(20);
+    padding-right: toRem(20);
+
+    @include onTablet {
+      height: toRem(201);
+      padding-right: toRem(30);
+    }
+
+    @include onDesktop {
+      height: toRem(128);
+
+      padding-top: toRem(16);
+      padding-right: toRem(36.37);
+    }
+  }
+
+  &__button {
+    width: toRem(102);
+    height: toRem(40);
+
+    margin-top: toRem(30);
+
+    background-color: $buttonSecondaryColor;
+    transition: $transitionTime;
+    &:hover {
+      background-color: $subtitleFeaturesColor;
+    }
+    @include onDesktop {
+      width: toRem(123.66);
+    }
+  }
+}
