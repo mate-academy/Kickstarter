@@ -1,6 +1,24 @@
+@mixin onTablet {
+  @media (min-width: 744px) {
+    @content;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin paddingInline {
+  padding-inline: 30px;
+
+  @include onTablet {
+    padding-inline: 34px;
+  }
+}
+
+@mixin paddingTop {
+  padding-top: 25px;
 }

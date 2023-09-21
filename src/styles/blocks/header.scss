@@ -1,0 +1,81 @@
+.header {
+  height: 100vh;
+  // margin-bottom: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__buttons {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+
+    @include paddingInline;
+
+    @include paddingTop;
+
+    @include onTablet {
+      padding-top: 40px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    // height: 100%;
+    gap: 40px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 70px);
+      grid-gap: 20px;
+      // margin-inline: 30px;
+      justify-content: center;
+      align-items: flex-end;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    @include onTablet {
+      order: 1;
+      grid-column: span 5;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    @include paddingInline;
+
+    @include onTablet {
+      grid-column: span 3;
+    }
+  }
+
+  &__title {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+  }
+
+  &--lang {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      gap: 30px;
+    }
+  }
+
+}
