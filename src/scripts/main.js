@@ -23,3 +23,16 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('page__body--with-menu');
   }
 });
+
+function changeContainerFeature() {
+  const feature = document.getElementById('features-body');
+
+  if (window.innerWidth >= 768) {
+    feature.classList.add('container');
+  } else {
+    feature.classList.remove('container');
+  }
+};
+
+changeContainerFeature();
+window.addEventListener('resize', changeContainerFeature);
