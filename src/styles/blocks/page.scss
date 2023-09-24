@@ -1,0 +1,33 @@
+.page {
+  font-family: "Inter", sans-serif;
+  color: $primary-color;
+  background-color: #f7f7f7;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.5s ease-in-out;
+    overflow: auto;
+
+    &:target {
+      pointer-events: all;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}
