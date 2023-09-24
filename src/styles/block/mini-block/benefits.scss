@@ -1,0 +1,47 @@
+.benefits {
+  &__gallery {
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    @include desktop {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__cell {
+    text-align: center;
+
+    @include desktop {
+      padding-bottom: 65px;
+      flex: 1 0 22%;
+
+      &:not(:nth-child(4n)) {
+        margin-right: 30px;
+      }
+    }
+
+    @include tablet {
+      padding-bottom: 65px;
+      flex: 1 0 47%;
+
+      &:not(:nth-child(2n)) {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  &__img {
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    @extend %text-secondary;
+  }
+}

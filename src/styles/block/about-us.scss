@@ -1,0 +1,91 @@
+.about-us {
+  display: block;
+
+  &__main:not(:last-child) {
+    margin-bottom: 110px;
+
+    @include tablet {
+      margin-bottom: 140px;
+    }
+
+    @include desktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    height: max-content;
+  }
+
+  &__image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 80%;
+    transition: transform 0.4s;
+
+    @include mobile {
+      margin-bottom: 20px;
+    }
+
+    @include tablet {
+      grid-row: 1 / 5;
+    }
+
+    @include desktop {
+      padding-top: 65%;
+      grid-row: 1 / 5;
+    }
+  }
+
+  &__image:hover {
+    transform: scale(1.08);
+    border-radius: 2%;
+  }
+
+  &__image--des {
+    background-image: url(../images/about-us.png);
+
+    @include tablet {
+      margin-left: -30px;
+    }
+  }
+
+  &__image--luna {
+    background-image: url(../images/eye.png);
+
+    @include tablet {
+      margin-right: -30px;
+    }
+  }
+
+  &__description {
+    @extend %text-main;
+    color: rgb(125, 125, 125);
+    margin-bottom: 60px;
+
+    @include mobile {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__link {
+    @extend %text-button;
+    color: $blue-color;
+    display: inline-block;
+    width: max-content;
+  }
+
+  &__link::after {
+    content: "";
+    display: block;
+    width: 50%;
+    border-bottom: 1px solid rgb(13, 178, 179);
+    transition: width 0.3s linear;
+  }
+
+  &__link:hover::after {
+    width: 100%;
+  }
+}
