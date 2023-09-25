@@ -52,7 +52,7 @@
       line-height: 130%;
       height: max-content;
       width: 20px;
-      color: $lightGreen;
+      color: rgba(52, 79, 16, 0.5);
       text-transform: lowercase;
     }
 
@@ -202,6 +202,11 @@
 
     &-right {
       display: none;
+
+      &:hover {
+        transition: transform 0.3s;
+        transform: scale(110%);
+      }
 
       @include onIpad {
         display: block;
@@ -354,8 +359,10 @@
         letter-spacing: 0.7px;
         text-transform: uppercase;
         padding-bottom: 10px;
+        transition: border-bottom 0.3s;
 
-        &:hover {
+        &:hover,
+        &--is-active {
           color: $black;
           border-bottom: 2px solid $black;
         }
@@ -562,6 +569,7 @@
         display: block;
         width: 80px;
         height: 80px;
+
       }
 
       &-block {
@@ -570,6 +578,11 @@
         justify-content: center;
         align-items: center;
         gap: 20px;
+
+        &:hover {
+          transition: transform 0.3s;
+          transform: scale(110%);
+        }
 
         @include onIpad {
           width: 33%;
@@ -680,6 +693,14 @@
           }
         }
 
+        &:-webkit-autofill {
+          transition: background-color 600000s 0s, color 600000s 0s;
+        }
+
+        &[data-autocompleted] {
+          background-color: transparent !important;
+        }
+
         &:focus {
           border-bottom: 1px solid $black;
 
@@ -692,6 +713,7 @@
         &--message {
           padding-top: 45px;
           margin-bottom: 30px;
+          resize: none;
 
           @include onDesktop {
             padding-top: 60px;
