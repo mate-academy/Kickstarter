@@ -5,9 +5,10 @@
   &__content {
     @include onTablet {
       @include contentPaddingInline;
-      background: url(../images/header-photo-tablet.png) no-repeat right;
-      background-size: contain;
-      height: 318px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
     }
   }
 
@@ -17,20 +18,47 @@
     @include onTablet {
       padding-inline: 0;
       display: grid;
-      grid: repeat(2, auto) / repeat(8, 1fr);
+      grid: 186px 120px / repeat(8, 1fr);
       gap: 30px 20px;
+    }
+
+    @include onDesktop {
+      grid: 234px 120px / repeat(12, 1fr);
     }
   }
 
   &__photo {
-    width: 100%;
-    height: 245px;
-    background: url(../images/header-photo-mobile.png) center;
-    background-size: cover;
-    margin-bottom: 40px;
+    &--small-screen {
+      width: 100%;
+      height: 245px;
+      background: url(../images/header-photo-mobile.png) no-repeat;
+      background-position: center;
+      background-size: cover;
+      margin-bottom: 40px;
 
-    @include onTablet {
-      display: none;
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--big-screen {
+      @include onTablet {
+        background: url(../images/header-photo-tablet.png) no-repeat;
+        background-position: center;
+        background-size: contain;
+        grid-row: 1/3;
+        grid-column: -1/-6;
+        height: 318px;
+        z-index: -1;
+      }
+
+      @include onDesktop {
+        background: url(../images/header-photo.png) no-repeat;
+        background-position: center 0;
+        background-size: contain;
+        grid-column: -1/-9;
+        height: 464px;
+      }
     }
   }
 
@@ -42,11 +70,17 @@
     margin-block: 0 20px;
 
     @include onTablet {
-      grid-column: span 4;
+      grid-column: 1/5;
       grid-row: 1/2;
       font-size: 48px;
       line-height: 62px;
       margin: 0;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      font-style: normal;
+      line-height: 78px;
     }
   }
 
@@ -58,6 +92,15 @@
     @include onTablet {
       grid-column: span 3;
       grid-row: 2/3;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      justify-content: center;
     }
   }
 }
