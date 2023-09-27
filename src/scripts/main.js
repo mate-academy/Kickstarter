@@ -36,3 +36,9 @@ function changeContainerFeature() {
 
 changeContainerFeature();
 window.addEventListener('resize', changeContainerFeature);
+
+// document.getElementById('form').addEventListener('submit', function(event) {
+//   event.preventDefault();
+
+//   document.getElementById('email').style.border = '#828282';
+// });
