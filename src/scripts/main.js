@@ -146,9 +146,9 @@ $(document).ready(() => {
     const totalItems = event.item.count;
 
     // Форматирование числа текущего слайда
-    let formattedCurrentItem = currentItem < 10 ? '0' + currentItem : currentItem;
+    const formattedCurrentItem = currentItem < 10 ? '0' + currentItem : currentItem;
     // Форматирование общего количества слайдов
-    let formattedTotalItems = totalItems < 10 ? '0' + totalItems : totalItems;
+    const formattedTotalItems = totalItems < 10 ? '0' + totalItems : totalItems;
 
     $('.features__current-slide').text(formattedCurrentItem);
     $('.features__total-slides').text(formattedTotalItems);
