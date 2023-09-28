@@ -1,9 +1,14 @@
 .benefits {
   @include contentPaddingInline;
+  @include contentMarginBottom;
 
   display: grid;
-  grid-template-columns: repeat(8, auto);
-  gap: 64px 20px;
+  grid-template-columns: repeat(4, auto);
+
+  @include onTablet {
+    grid-template-columns: repeat(8, auto);
+    gap: 65px 20px;
+  }
 
   @include onDesktop {
     grid-template-columns: repeat(12, auto);
@@ -11,7 +16,10 @@
   }
 
   &__item {
-    grid-column: span 4;
+
+    @include onTablet {
+      grid-column: span 4;
+    }
 
     @include onDesktop {
       grid-column: span 3;
