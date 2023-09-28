@@ -37,8 +37,25 @@ function changeContainerFeature() {
 changeContainerFeature();
 window.addEventListener('resize', changeContainerFeature);
 
-// document.getElementById('form').addEventListener('submit', function(event) {
-//   event.preventDefault();
+/* ---------------reset_button----------------------- */
 
-//   document.getElementById('email').style.border = '#828282';
-// });
+const sendButton = document.getElementById('sendButton');
+
+sendButton.addEventListener('click', function(event) {
+  event.preventDefault();
+  resetFormAndBlurInputs();
+});
+
+function resetFormAndBlurInputs() {
+  const form = document.getElementById('form');
+
+  form.reset();
+
+  const inputs = form.getElementsByTagName('input');
+
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[i].blur();
+  }
+}
+
+resetFormAndBlurInputs();
