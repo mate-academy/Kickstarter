@@ -1,6 +1,98 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+
+  }
+}
+
+@mixin pageGrid {
+  --columns: 4;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 8;
+  }
+
+  @include onDesktop {
+    --columns: 12;
+    column-gap: 30px;
+  }
+}
+
+@mixin contentPadingInline() {
+  padding-inline: 30px;
+
+  @include onTablet() {
+    padding-inline: 34px;
+  }
+
+  @include onDesktop() {
+    padding-inline: 123px;
+  }
+}
+
+@mixin mainText {
+  color: $title-color;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@mixin secondaryText {
+  color: #7c7c7c;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+@mixin thirdaryText {
+  color: $title-color;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@mixin transform {
+  transition: 0.6s;
+
   &:hover {
-    #{$_property}: $_toValue;
+    transform: scale(1.07);
+  }
+}
+
+@keyframes rotateImage {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes jumpAndPause {
+  0%,
+  100% {
+    transform: translateY(0) rotateX(0);
+  }
+  25%,
+  75% {
+    transform: translateY(-20px) rotateX(0);
+  }
+  50% {
+    transform: translateY(0) rotateX(0);
   }
 }
