@@ -1,0 +1,128 @@
+.about-us {
+  &--margin-bottom-110 {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+  }
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__title--mobile {
+    display: block;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__row {
+    @include onTablet {
+      display: flex;
+      gap: 20px;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+    }
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition-duration: 300ms;
+
+    @include onTablet {
+      width: calc(100% + 30px);
+      transform: translateX(-30px);
+    }
+
+    @include onDesktop {
+      width: 100%;
+      transform: translateX(0);
+    }
+  }
+  &__item {
+    flex: 1 1 48%;
+
+    &:hover {
+      .about-us__image {
+        transform: scale(1.02);
+      }
+    }
+  }
+  &__image-box {
+    margin-bottom: 20px;
+    height: 210px;
+    overflow: hidden;
+
+    @include onTablet {
+      height: 415px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__title--tablet {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+  &__text {
+    color: $light-grey;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 16px;
+    }
+  }
+  &__button {
+    width: fit-content;
+    display: block;
+    color: $green-light;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+
+    padding-bottom: 5px;
+    position: relative;
+
+    &:visited {
+      color: $green-light;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 45%;
+      height: 1px;
+      background-color: $green-light;
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      transition-duration: 300ms;
+    }
+
+    &:hover {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+}
