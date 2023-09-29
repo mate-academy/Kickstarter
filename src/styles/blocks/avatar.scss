@@ -1,0 +1,61 @@
+.avatar {
+  display: flex; /* Використовуємо flex-контейнер */
+  flex-direction: column;
+  // justify-content: center; /* Горизонтальне вирівнювання по центру */
+  // align-items: center; /* Вертикальне вирівнювання по центру */
+
+  &__bc {
+    position: relative;
+
+    &-photo {
+      background-image: url(../images/avatarbc.svg);
+      width: 208px;
+      height: 171px;
+      background-repeat: no-repeat;
+      position: relative;
+      margin: auto;
+    }
+
+    &-text {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      // width: 100%; /* Займати всю ширину батьківського контейнера */
+      z-index: 1; /* Встановлюємо z-index, щоб текст був поверх фотографії */
+
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 20px;
+      padding-inline: 30px;
+
+      @include onDesktop {
+        padding-inline: 327px;
+
+        font-size: 24px;
+        line-height: 36px;
+      }
+    }
+  }
+}
+
+.person {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__portret {
+    padding-bottom: 10px;
+    @include hover(transform, scale(1.2));
+  }
+
+  &__name {
+    padding-bottom: 5px;
+  }
+
+  &__position {
+    font-size: 14px;
+    color: $main-text-color;
+  }
+}

@@ -4,6 +4,12 @@
   }
 }
 
+@mixin onDesktop {
+  @media (min-width: 1279px) {
+    @content;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
@@ -16,6 +22,10 @@
 
   @include onTablet {
     padding-inline: 34px;
+  }
+
+  @include onDesktop() {
+    padding-inline: 123px;
   }
 }
 

@@ -1,9 +1,7 @@
 .header {
   height: 100vh;
-  // margin-bottom: 110px;
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
 
   &__buttons {
     display: flex;
@@ -32,26 +30,34 @@
   &__content {
     display: flex;
     flex-direction: column;
-    // height: 100%;
+    align-items: center;
     gap: 40px;
 
     @include onTablet {
       display: flex;
       flex-direction: row-reverse;
       grid-gap: 20px;
-      // margin-inline: 30px;
       justify-content: center;
-      // align-items: flex-end;
     }
   }
 
   &__image {
+    background-image: url(../images/headerbc-mobile.png);
     width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 245px;
 
     @include onTablet {
+      background-image: url(../images/headerbc-tablet.png);
       width: 430px;
       height: 317px;
-      grid-column: span 5;
+    }
+
+    @include onDesktop {
+      background-image: url(../images/headerbc-desk.png);
+      width: 816px;
+      height: 464px;
     }
   }
 
@@ -59,10 +65,16 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
+
     @include paddingInline;
 
     @include onTablet {
-      grid-column: span 3;
+      width: 230px;
+    }
+
+    &-text {
+      font-size: 16px;
+      line-height: 24px;
     }
   }
 
@@ -71,6 +83,16 @@
     font-weight: 700;
     font-size: 40px;
     line-height: 52px;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
   }
 
   &--lang {
@@ -82,4 +104,35 @@
     }
   }
 
+  &__list {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      margin: auto;
+      padding: 0;
+      gap: 85px;
+      margin-bottom: 55px;
+    }
+  }
+
+  &__item {
+    text-decoration: none;
+    @include hover(transform, scale(1.2));
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    color: inherit;
+
+    @include hover(color, #131313);
+  }
+
+  &__logo-image {
+    @include hover(transform, scale(1.2));
+  }
 }
