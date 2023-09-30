@@ -1,0 +1,60 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include onTablet {
+    grid-column: span 4;
+  }
+
+  @include onDesktop {
+    grid-column: span 6;
+  }
+
+  &__input {
+    font-family: inherit;
+    color: $primary-color;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 12px 20px;
+    border: 1px solid #828282;
+    outline: none;
+
+    &::placeholder {
+      color: #bdbdbd;
+    }
+
+    &:focus {
+      border-color: #0c797a;
+    }
+
+    &--message {
+      height: 128px;
+    }
+  }
+
+  &__button {
+    color: #fff;
+    background-color: #39bebf;
+    border: none;
+    padding: 13px 34px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    align-self: flex-start;
+
+    @include onDesktop {
+      padding: 17px 42px;
+    }
+
+    &:hover {
+      background-color: #0c797a;
+    }
+
+    &:disabled {
+      background-color: #cfeff0;
+    }
+  }
+}

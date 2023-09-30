@@ -1,0 +1,28 @@
+.questions {
+  @include contentPaddingInline;
+  @include contentMarginBottom;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &__title {
+    margin-bottom: 27px;
+
+    @include onTablet {
+      grid-column: span 4;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+}
