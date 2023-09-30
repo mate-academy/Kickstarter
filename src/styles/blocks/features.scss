@@ -1,0 +1,40 @@
+.features {
+  @include onTablet {
+    @include contentPaddingInline;
+  }
+
+  &__title {
+    @include contentPaddingInline;
+    margin-block: 0 32px;
+
+    @include onTablet {
+      padding: 0;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__content {
+    background-color: $features-bg-color;
+    background-image: url(../images/features.png);
+    background-position: right bottom;
+    background-size: 335px 174px;
+    background-repeat: no-repeat;
+    padding-block: 30px 270px;
+    display: grid;
+    grid-template: repeat(2, auto) / repeat(4, 1fr);
+    gap: 50px 20px;
+
+    @include onTablet {
+      background-size: 436px 226px;
+      padding-block: 60px 123px;
+      grid-template: repeat(2, auto) / repeat(8, 1fr);
+    }
+
+    @include onDesktop {
+      background-size: 582px 302px;
+      padding-block: 60px;
+      grid-template: repeat(2, auto) / repeat(12, 1fr);
+      gap: 56px 30px;
+    }
+  }
+}

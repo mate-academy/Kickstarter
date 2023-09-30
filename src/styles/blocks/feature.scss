@@ -1,0 +1,69 @@
+.feature {
+  grid-area: 1 / 1 / 2 / 5;
+  @include contentPaddingInline;
+
+  @include onTablet {
+    padding-inline: 0;
+    grid-area: 1 / 2 / 2 / 6;
+
+    @include onDesktop {
+
+      &:first-child {
+        grid-area: 1 / 2 / 2 / 6;
+      }
+
+      &:nth-child(2) {
+        grid-area: 1 / 7 / 2 / 10;
+      }
+
+      &:nth-child(3) {
+        grid-area: 2 / 2 / 3 / 6;
+      }
+    }
+  }
+
+  &--screen-l {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__subtitle {
+    color: $accent-color-dark;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    text-transform: uppercase;
+    margin-block: 0 20px;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: url(../images/icons/bullet.svg);
+      display: block;
+      width: 6px;
+      height: 6px;
+      padding-right: 10px;
+      position: relative;
+      top: -10px;
+    }
+  }
+}
