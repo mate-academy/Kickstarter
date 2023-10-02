@@ -4,14 +4,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   const sliderCounter = document.getElementById('sliderCounter');
+  const switched = document.querySelector('.language__switcher');
+  const spans = switched.querySelectorAll('.language__text');
+
+  switched.addEventListener('click', function() {
+    spans.forEach(span => {
+      span.classList.toggle('language__text--active');
+    });
+  });
 
   let currentSlide = 0;
 
   function showSlide(index) {
-    slides.forEach((slide, i) => {
-      // slide.style.display = i === index ? 'block' : 'none';
-    });
-
     // Перевірка для вимкнення кнопки "попередній"
     if (index === 0) {
       prevBtn.disabled = true;
