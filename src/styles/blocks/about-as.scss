@@ -1,0 +1,138 @@
+.about-as {
+  &__future {
+    @include onTablet {
+      margin-right: 30px;
+    }
+  }
+
+  &__luna {
+    @include onTablet {
+      margin-left: 30px;
+    }
+  }
+
+  &__item {
+    width: fit-content;
+    @include hover(transform, scale(1.2));
+  }
+
+  &__info {
+    padding-inline: 30px;
+    margin-bottom: 110px;
+
+    @include onTablet {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(2 , 1fr);
+      grid-template-rows: auto auto 1fr;
+      padding-inline: 0;
+    }
+
+    @include onDesktop {
+      margin: 123px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    font-size: 30px;
+    line-height: 40px;
+
+    @include onTablet {
+      grid-column: 2 / 3;
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    &--left {
+      grid-column: 1 / 2;
+    }
+  }
+
+  &__photo {
+    margin-bottom: 20px;
+    height: 210px;
+    width: 259px;
+
+    @include onTablet {
+      &--luna {
+        content: url(../images/lunatablet.png);
+      }
+    }
+
+    @include onDesktop {
+      &--luna {
+        content: url(../images/lunadesktop.png);
+      }
+
+      &--future {
+        content: url(../images/futuredesktop.png);
+      }
+    }
+
+    @include onTablet {
+      grid-column: 1 / 2;
+      grid-row: 1 / 4;
+      width: 100%;
+      height: 100%;
+    }
+
+    &--left {
+      @include onTablet {
+        grid-column: 2 / 3;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    color: $main-text-color;
+    line-height: 24px;
+
+    &--left {
+      @include onTablet {
+        grid-column: 1 / 2;
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $buttons-green-color;
+    max-width: fit-content;
+
+    &-text {
+      max-width: fit-content;
+      position: relative;
+      font-size: 12px;
+      font-weight: 700;
+      min-height: 15px;
+      height: 15px;
+      text-transform: uppercase;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        height: 1px;
+        display: block;
+        width: 50%;
+        background-color: $buttons-green-color;
+        transition: width 0.3s;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.luna__item {
+  height: fit-content;
+}

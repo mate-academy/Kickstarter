@@ -1,0 +1,152 @@
+.header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  @include onTablet {
+    min-height: 0;
+  }
+
+  @include onDesktop {
+    min-height: 100vh;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    height: 48px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+
+    @include paddingInline;
+
+    @include paddingTop;
+
+    @include onTablet {
+      padding-top: 40px;
+      margin-bottom: 140px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    overflow: hidden;
+
+    // @include paddingInline;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+      grid-gap: 20px;
+      justify-content: space-between;
+    }
+  }
+
+  &__image {
+    background-image: url(../images/headerbc-mobile.png);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 245px;
+
+    @include hover(transform, scale(1.2));
+
+    @include onTablet {
+      background-image: url(../images/headerbc-tablet.png);
+      width: 430px;
+      height: 317px;
+    }
+
+    @include onDesktop {
+      background-image: url(../images/headerbc-desk.png);
+      width: 816px;
+      height: 464px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include paddingInline;
+
+    @include onTablet {
+      width: 230px;
+    }
+
+    &-text {
+      font-size: 16px;
+      line-height: 24px;
+      color: #4f4f4f;
+    }
+  }
+
+  &__title {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &--lang {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      gap: 30px;
+    }
+  }
+
+  &__list {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      margin: auto;
+      padding: 0;
+      gap: 85px;
+      margin-bottom: 55px;
+    }
+  }
+
+  &__item {
+    text-decoration: none;
+    @include hover(transform, scale(1.2));
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    color: inherit;
+
+    @include hover(color, #131313);
+  }
+
+  &__logo-image {
+    @include hover(transform, scale(1.2));
+  }
+}

@@ -1,0 +1,117 @@
+.questions {
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+  }
+
+  &__main {
+    margin-bottom: 110px;
+  }
+
+  &__title {
+    margin-bottom: 27px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+      grid-column: span 4;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+      grid-column: span 6;
+    }
+  }
+
+  @include paddingInline;
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      grid-column: span 4;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__input {
+    border: 1px solid #828282;
+    color: black;
+    padding-left: 12px;
+    font-size: 14px;
+    line-height: 24px;
+    width: 260px;
+    box-sizing: border-box;
+    // font-family: "Helvetica", sans-serif;
+
+    @include onTablet {
+      width: 340px;
+    }
+
+    @include onDesktop {
+      width: 580px;
+    }
+
+    &::placeholder {
+      font-family: "Inter", sans-serif;
+      color: #bdbdbd;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &:focus {
+      // border: transparent;
+      outline: 1px solid #0c797a;
+
+      &::placeholder {
+        color: black;
+      }
+    }
+  }
+
+  &__email {
+    height: 48px;
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    resize: none;
+    height: 128px;
+    margin-bottom: 30px;
+    padding-top: 20px;
+  }
+
+  &__button {
+    width: 102px;
+    height: 40px;
+    border: none;
+    background-color: $buttons-green-color;
+    color: white;
+    cursor: pointer;
+
+    @include hover(background-color, #0c797a);
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}

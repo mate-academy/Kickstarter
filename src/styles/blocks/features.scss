@@ -1,0 +1,100 @@
+.features {
+  &__content {
+    background-color: #d6ecec;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 575px;
+    background-image: url(../images/features-bc.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    position: relative;
+    gap: 30px;
+
+    @include onTablet {
+      background-position: bottom right;
+      align-items: baseline;
+
+      margin-inline: 34px;
+      background-image: url(../images/features-bc-tablet.png);
+      padding-inline: 90px;
+    }
+
+    @include onDesktop {
+      margin-inline: 124px;
+      background-image: url(../images/features-bc-desktop.png);
+      height: 640px;
+    }
+  }
+
+  &__title {
+    @include paddingInline;
+    font-size: 30px;
+    line-height: 40px;
+
+    margin-bottom: 32px;
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__main {
+    margin-top: 110px;
+    margin-bottom: 90px;
+  }
+
+  &__block {
+    display: none;
+    padding-inline: 30px;
+    height: 275px;
+
+    @include onTablet {
+      padding-inline: 0;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &--active {
+      display: block;
+    }
+
+    &-title {
+      color: #0c797a;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 22px;
+      margin: 0;
+      padding-top: 30px;
+      padding-bottom: 20px;
+      text-transform: uppercase;
+
+      @include onTablet {
+        padding-top: 0;
+        margin-top: 60px;
+      }
+    }
+
+    &--rigth {
+      @include onDesktop {
+        position: absolute;
+        right: 306px;
+      }
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &-item {
+      font-size: 14px;
+    }
+  }
+}
