@@ -1,0 +1,48 @@
+.button {
+  flex-shrink: 0;
+  color: #fff;
+  text-align: center;
+  font-family: Helvetica Neue, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+  background-color: #333;
+  display: block;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    @include onDesktop {
+      background-color: #131313;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &:disabled {
+    background-color: #d0d0d0;
+  }
+
+  &--header {
+    display: none;
+    width: 100px;
+    height: 48px;
+    @include onTablet {
+      display: block;
+      cursor: pointer;
+    }
+  }
+
+  &--menu {
+    @include onMobile {
+      height: 48px;
+      width: 100%;
+    }
+    @include onTablet {
+      display: none;
+    }
+  }
+}

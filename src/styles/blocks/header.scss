@@ -1,0 +1,140 @@
+.header {
+  @include pageGrid;
+  margin-bottom: 110px;
+
+  @include onTablet {
+    margin-bottom: 140px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
+
+  &__top {
+    order: -1;
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px 0;
+    margin-bottom: 25px;
+
+    @include onTablet {
+      margin-bottom: 120px;
+      padding: 30px 30px 0;
+    }
+  }
+
+  &__logo {
+    height: 26px;
+    width: 161px;
+    transition: all 0.3s;
+
+    &:hover {
+      @include onDesktop {
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__photo-block--mobile {
+    @include onMobile {
+      display: block;
+      grid-column: 1 / -1;
+    }
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__photo-block--tablet {
+    display: none;
+    @include onTablet {
+      order: 1;
+      display: block;
+      grid-column: span 4;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__photo-block--desktop {
+    display: none;
+    @include onDesktop {
+      order: 1;
+      display: block;
+      grid-column: span 8;
+      transition: all 0.3s;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+    display: grid;
+    @include onMobile {
+      padding-inline: 30px;
+    }
+
+    @include onTablet {
+      grid-column: span 4;
+    }
+
+    @include onDesktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__title {
+    color: #333;
+    font-family: Inter, sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 52px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    z-index: 1;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      line-height: 78px;
+      font-size: 53px;
+    }
+
+    @include onLargeScreen {
+      line-height: 78px;
+      font-size: 62px;
+    }
+  }
+
+  &__words {
+    color: #333;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    z-index: 1;
+
+    @include onDesktop {
+      max-width: 270px;
+    }
+  }
+}
