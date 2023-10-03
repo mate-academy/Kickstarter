@@ -1,0 +1,63 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include onTablet {
+    grid-column: span 4;
+  }
+
+  @include onDesktop {
+    grid-column: span 6;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    font-family: inherit;
+    line-height: inherit;
+    font-size: inherit;
+    color: $primary-color;
+    padding: 12px 20px;
+    border: 1px solid $input-bg-color;
+    outline: none;
+    resize: none;
+    transition: all $effect-duration ease;
+
+    &::placeholder {
+      color: $gray-color;
+    }
+
+    &:focus {
+      border-color: $accent-color-dark;
+    }
+
+    &--message {
+      height: 200px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__button {
+    color: $white-color;
+    background-color: $accent-color;
+    border: none;
+    padding: 13px 34px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    align-self: flex-start;
+
+    @include hover(background-color, $accent-color-dark);
+
+    @include onDesktop {
+      padding: 17px 42px;
+    }
+
+    &:disabled {
+      background-color: $accent-color-light;
+    }
+  }
+}

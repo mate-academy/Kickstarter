@@ -1,0 +1,71 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+  @include contentMarginBottom;
+  @include contentPaddingInline;
+
+  @include onTablet {
+    padding-inline: 0;
+    @include pageGrid;
+  }
+
+  &__photo {
+    box-sizing: border-box;
+
+    @include onTablet {
+      height: 415px;
+      width: 100%;
+      grid-column: span 4;
+      object-fit: cover;
+    }
+
+    @include onDesktop {
+      height: 388px;
+      grid-column: span 6;
+      padding-left: 123px;
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      grid-column: span 4;
+      padding-right: 34px;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+      padding-right: 123px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    &--screen-m-l {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+      }
+    }
+
+    &--screen-s {
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__description {
+    color: $secondary-text-color;
+    font-size: 14px;
+    line-height: 21px;
+    margin-block: 20px 24px;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+      margin-block: 0 60px;
+    }
+  }
+}

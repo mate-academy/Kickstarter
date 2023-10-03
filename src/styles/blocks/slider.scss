@@ -1,0 +1,50 @@
+.slider {
+  grid-area: 2 / 2 / 3 / 4;
+  text-align: center;
+
+  @include onTablet {
+    grid-area: 2 / 2 / 3 / 4;
+    text-align: left;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__arrow {
+    cursor: pointer;
+
+    &--left {
+      content: url(../images/icons/slider-left.svg);
+      @include hover(content, url(../images/icons/slider-left-hover.svg));
+    }
+
+    &--right {
+      content: url(../images/icons/slider-right.svg);
+      @include hover(content, url(../images/icons/slider-right-hover.svg));
+    }
+  }
+
+  &__pages {
+    margin-top: 10px;
+
+    @include onTablet {
+      margin-left: 26px;
+    }
+
+  }
+
+  &__page {
+    &--back {
+      font-size: 16px;
+      line-height: 24px;
+      height: 24px;
+      vertical-align: bottom;
+    }
+
+    &--forward {
+      color: $accent-color-dark;
+      font-size: 11px;
+    }
+  }
+}

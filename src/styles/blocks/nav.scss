@@ -1,0 +1,57 @@
+.nav {
+  margin-bottom: 50px;
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 28px;
+      margin-inline: auto;
+    }
+  }
+
+  &__item {
+    margin-bottom: 25px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+      align-items: center;
+      align-self: center;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    font-size: 14px;
+    line-height: 20px;
+    transition: all $effect-duration ease;
+
+    @include onTablet {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    @include onDesktop {
+      font-size: 14px;
+      line-height: 20px;
+      padding: 28px;
+    }
+
+    &:hover,
+    &:active {
+      color: $hover-btn-color;
+      font-weight: 700;
+    }
+  }
+}

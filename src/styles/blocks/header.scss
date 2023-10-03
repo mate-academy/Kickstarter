@@ -1,0 +1,100 @@
+.header {
+  @include contentMarginBottom;
+
+  @include onDesktop {
+    margin-bottom: 0;
+  }
+
+  &__content {
+    @include onTablet {
+      @include contentPaddingInline;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__bottom {
+    @include contentPaddingInline;
+
+    @include onTablet {
+      padding-inline: 0;
+      @include pageGrid;
+      row-gap: 30px;
+    }
+  }
+
+  &__photo {
+    &--screen-s {
+      width: 100%;
+      height: 245px;
+      background: url(../images/header-photo-mobile.png) no-repeat;
+      background-position: center;
+      background-size: cover;
+      margin-bottom: 40px;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--screen-m-l {
+      @include onTablet {
+        background-image: url(../images/header-photo-tablet.png);
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: contain;
+        grid-row: 1/3;
+        grid-column: -1/-6;
+        height: 318px;
+        z-index: -1;
+      }
+
+      @include onDesktop {
+        background-image: url(../images/header-photo.png);
+        grid-column: -1/-9;
+        height: 464px;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 52px;
+    text-transform: uppercase;
+    margin-block: 0 20px;
+    align-self: end;
+
+    @include onTablet {
+      grid-column: 1/5;
+      grid-row: 1/2;
+      font-size: 48px;
+      line-height: 62px;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__description {
+    margin: 0;
+
+    @include onTablet {
+      grid-column: span 3;
+      grid-row: 2/3;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: grid;
+    }
+  }
+}
