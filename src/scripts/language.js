@@ -10,7 +10,6 @@ const uaButtonMobile = document.querySelector('.language__ukrainian--mobile');
 const translations = {
   en: {
     buy: 'buy',
-    crazybaby: 'crazybaby',
     specs: 'specs',
     futuristic: 'Futuristic Wireless Speaker',
     lunas: 'Luna’s performance is balanced and smooth'
@@ -83,7 +82,6 @@ const translations = {
   },
   ua: {
     buy: 'купити',
-    crazybaby: 'божевільна дитина',
     specs: 'специфікації',
     futuristic: 'Сучасний мобільний динамік',
     lunas: 'Гра Luna збалансована та плавна у всіх '
