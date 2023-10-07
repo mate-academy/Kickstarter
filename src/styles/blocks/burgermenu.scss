@@ -1,0 +1,122 @@
+.burgermenu {
+  display: none;
+  background-color: #fff;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateX(100%);
+  pointer-events: none;
+  transition: all $transition;
+
+  &:target {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+
+  &:has(.burgermenu:target) {
+    overflow: hidden; /* not to scroll the page */
+  }
+
+  @include onTablet {
+    display: block;
+  }
+
+  @include onMobile {
+    display: block;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
+    padding-bottom: 30px;
+    height: 100vh;
+
+    @include onTablet {
+      padding-top: 30px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 55px;
+    height: 32px;
+
+    @include onTablet {
+      height: 3rem;
+      margin-bottom: 64px;
+    }
+
+    &--img {
+      width: 161px;
+      height: 26px;
+      @include hoverTransformScale;
+    }
+  }
+
+  &__close {
+    margin-right: 3px;
+    @include hoverTransformScale;
+  }
+
+  &__menu {
+
+    &--item {
+      text-transform: uppercase;
+      line-height: 20px;
+      margin-bottom: 25px;
+      @include hoverColorLink;
+
+      @include onTablet {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    margin-top: 25px;
+    margin-bottom: 114px;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &--text {
+      text-transform: uppercase;
+      cursor: pointer;
+
+      @include hoverColorLink;
+    }
+
+    &--translate {
+      margin-left: 20px;
+    }
+  }
+
+  &__button {
+    background: $colorTitle;
+    height: 48px;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    transition: all $transition;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #131313;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}

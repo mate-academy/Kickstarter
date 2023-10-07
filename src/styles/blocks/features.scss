@@ -1,0 +1,219 @@
+.features {
+
+  &__title {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 70px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 30px;
+      line-height: 40px;
+    }
+
+    @include onMobile {
+      font-size: 30px;
+    }
+  }
+
+  &__bg-mobile {
+    @include onMobile {
+      background-color: #d6ecec;
+    }
+  }
+
+  &__image-mobile {
+
+    @include onMobile {
+      background-image: url(../images/mobile/photo5.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+
+      width: 100%;
+      height: 174px;
+    }
+  }
+
+  &__content {
+    background-color: #d6ecec;
+    padding: 60px 120px;
+    position: relative;
+
+    @include onTablet {
+      height: 525px;
+    }
+
+    @include onMobile {
+      padding: 0;
+      padding-top: 30px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onMobile {
+      display: none;
+    }
+
+    &--mobile {
+      display: none;
+      margin-bottom: 50px;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onMobile {
+        display: block;
+      }
+    }
+  }
+
+  &__body {
+    position: relative;
+    z-index: 2;
+
+    &:first-child {
+      margin-right: 132px;
+      margin-bottom: 56px;
+
+      @include onTablet {
+        margin: 0;
+      }
+
+      @include onMobile {
+        margin: 0 auto;
+      }
+    }
+
+    &-title {
+      color: #0c797a;
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 42px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+
+      @include onMobile {
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 20px;
+      }
+    }
+
+    &-item {
+      list-style: inside;
+      font-size: 16px;
+      line-height: 24px;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      @include onTablet {
+        width: 270px;
+      }
+
+      @include onMobile {
+        width: 260px;
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+  }
+
+  &__btn {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: start;
+      margin-bottom: 15px;
+    }
+
+    @include onMobile {
+      display: flex;
+      justify-content: start;
+      margin-bottom: 10px;
+      margin-left: 70px;
+    }
+
+    &--prev {
+      height: 14px;
+      background-color: #d6ecec;
+      cursor: pointer;
+
+      &-color {
+        @include hover(fill, $colorLink);
+      }
+    }
+
+    &--next {
+      background-color: #d6ecec;
+      height: 14px;
+      cursor: pointer;
+
+      &-color {
+        @include hover(fill, $colorLink);
+      }
+    }
+  }
+
+  &__page {
+    display: none;
+
+    font-size: 16px;
+    line-height: 24px;
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      width: 100px;
+      column-gap: 5px;
+    }
+
+    @include onMobile {
+      display: flex;
+      justify-content: start;
+      margin-left: 100px;
+    }
+
+    &-three {
+      transform: translateY(10px);
+      color: #0c797a;
+      font-size: 11px;
+      line-height: normal;
+      margin-left: 3px;
+    }
+  }
+
+  &__img {
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+
+    &--bg {
+      width: 582px;
+      height: 302px;
+
+      @include onTablet {
+        width: 435px;
+        height: 226px;
+      }
+
+      @include onMobile {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+.technology {
+
+  &__content {
+    display: flex;
+    column-gap: 30px;
+
+    &:not(:last-child) {
+      margin-bottom: 170px;
+
+      @include onTablet {
+        margin-bottom: 140px;
+      }
+
+      @include onMobile {
+        margin-bottom: 110px;
+      }
+    }
+
+    @include onMobile {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__img {
+
+    @include hoverTransformScale;
+
+    &--photo {
+      width: 582px;
+      height: 388px;
+
+      @include onTablet {
+        width: 374px;
+        height: 415px;
+        object-fit: cover;
+      }
+
+      @include onMobile {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 70px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onMobile {
+      font-size: 30px;
+      line-height: 40px;
+    }
+  }
+
+  &__mobile-img-one {
+
+    @include onMobile {
+      background-image: url(../images/mobile/photo4.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 210px;
+      width: 100%;
+      margin-bottom: 20px;
+      @include hoverTransformScale;
+    }
+  }
+
+  &__mobile-img-two {
+
+    @include onMobile {
+      background-image: url(../images/mobile/photo2.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 210px;
+      width: 100%;
+      margin-bottom: 20px;
+      @include hoverTransformScale;
+    }
+  }
+
+  &__paragraph {
+    color: $colorParagpaph;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 60px;
+
+    @include onMobile {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__link {
+    width: max-content;
+    color: $colorLink;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+
+    &::after {
+      content: "";
+      margin-top: 5px;
+      display: block;
+      width: 65px;
+      border-bottom: 1px solid $colorLink;
+      transition: width $transition;
+    }
+
+    &:hover::after {
+      width: 130px;
+    }
+  }
+}
