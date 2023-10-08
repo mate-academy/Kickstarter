@@ -1,0 +1,91 @@
+.header {
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    @include onMobile {
+      padding-top: 25px;
+    }
+  }
+
+  &__logo {
+    @include hoverTransformScale;
+
+    &--img {
+      width: 161px;
+      height: 26px;
+    }
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__text {
+    line-height: 20px;
+    color: #4f4f4f;
+    margin-right: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    @include hoverColorLink;
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__translate {
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__button {
+    background: $colorTitle;
+    width: 102px;
+    height: 48px;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    transition: background-color $transition;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #131313;
+    }
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__menu {
+    margin-left: 30px;
+    display: none;
+    cursor: pointer;
+    @include hoverTransformScale;
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onMobile {
+      display: block;
+    }
+
+    &--img {
+      height: 32px;
+      width: 32px;
+    }
+  }
+}

@@ -1,5 +1,33 @@
+@mixin onTablet {
+  @media (min-width: $tablet-min-width)and (max-width: $tablet-max-width) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media (min-width: $mobile-min-width) and (max-width: $mobile-max-width) {
+    @content;
+  }
+}
+
+@mixin hoverColorLink {
+  transition: all $transition;
+
+  &:hover {
+    color: $colorLink;
+  }
+}
+
+@mixin hoverTransformScale {
+  transition: transform $transition;
+
+  &:hover {
+    transform: scale($scale);
+  }
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition;
   &:hover {
     #{$_property}: $_toValue;
   }
