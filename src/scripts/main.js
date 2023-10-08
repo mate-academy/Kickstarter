@@ -1,4 +1,16 @@
 'use strict';
+const burgerMenu = document.querySelector(".header__menu--img");
+const burgerScrollHidden = document.querySelectorAll(".burger-scroll-hidden");
+
+burgerMenu.addEventListener("click", function() {
+  document.body.style.overflow = "hidden";
+});
+
+burgerScrollHidden.forEach(function(element) {
+  element.addEventListener("click", function() {
+    document.body.style.overflow = "auto";
+  });
+});
 
 // eslint-disable-next-line no-undef
 $(function() {
