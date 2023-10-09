@@ -3,10 +3,12 @@
 const form = document.querySelector('.get-in-touch__form');
 const input = document.querySelector('.get-in-touch__input-email');
 const button = document.querySelector('.get-in-touch__button');
+const message = document.querySelector('.get-in-touch__input-message')
 
 form.addEventListener('submit', function(event) {
   event.preventDefault();
   form.reset();
+  input.reset();
 });
 
 input.addEventListener('change', function() {
@@ -19,14 +21,20 @@ input.addEventListener('change', function() {
   }
 });
 
-function isValidEmail(email) {
-  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-
-  return emailPattern.test(email);
-}
+message.addEventListener('change', function() {
+  if (!message.checkValidity()) {
+    message.style.border = '1px solid #eb5757';
+  } else {
+    message.style.border = '1px solid #0c797a';
+  }
+});
 
 button.onclick = () => {
-  if (isValidEmail(input.value)) {
+  if (input.checkValidity()) {
     input.style.border = '1px solid #828282';
+  }
+
+  if (message.checkValidity()) {
+    message.style.border = '1px solid #828282';
   }
 };
