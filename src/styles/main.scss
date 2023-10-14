@@ -162,6 +162,7 @@ html {
   opacity: 0;
   pointer-events: none;
   transition: 0.3s;
+  overflow: scroll;
 
   &__top-bar {
     display: flex;
@@ -174,6 +175,11 @@ html {
   &:target {
     opacity: 1;
     pointer-events: all;
+  }
+
+  &__content {
+    padding-bottom: 30px;
+    position: relative;
   }
 }
 
@@ -917,22 +923,8 @@ html {
     width: 80vw;
   }
 
-  .header__text {
-    width: 80vw;
-  }
-
-  .header__sub {
-    width: 80vw;
-  }
-
-  .header__content {
-    flex-direction: column;
-    align-items: start;
-  }
-
-  .header__img {
-    width: 90vw;
-    height: auto;
+  .header__header {
+    font-size: 50px;
   }
 
   .section__container {
@@ -954,6 +946,24 @@ html {
 @media (max-width: 730px) {
   .features__content {
     padding-left: 30px;
+  }
+
+  .header__content {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .header__img {
+    width: 90vw;
+    height: auto;
+  }
+
+  .header__text {
+    width: 80vw;
+  }
+
+  .header__sub {
+    width: 80vw;
   }
 }
 
@@ -1059,15 +1069,18 @@ html {
   }
 
   .menu__buy-link {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
     display: flex;
-    width: 100%;
-    margin: 0;
+    width: 87.5vw;
+    margin-left: 6.25vw;
+    margin-right: 6.25vw;
     height: 48px;
-
   }
 
   .menu__content {
-    height: 89vh;
+    height: 85vh;
     @include contentPaddingInline;
     display: flex;
     flex-direction: column;
