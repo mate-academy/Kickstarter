@@ -17,21 +17,21 @@ const navItems = document.querySelectorAll('.nav__link');
 const topBarItems = document.querySelectorAll('.top-bar__link');
 
 openMenuButton.addEventListener('click', () => {
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflowY = 'hidden';
 });
 
 closeMenuButton.addEventListener('click', () => {
-  document.body.style.overflow = 'auto';
+  document.body.style.overflowY = 'auto';
 });
 
 navItems.forEach((item) => {
   item.addEventListener('click', () => {
-    document.body.style.overflow = 'auto';
+    document.body.style.overflowY = 'auto';
   });
 });
 
 topBarItems.forEach((item) => {
   item.addEventListener('click', () => {
-    document.body.style.overflow = 'auto';
+    document.body.style.overflowY = 'auto';
   });
 });
