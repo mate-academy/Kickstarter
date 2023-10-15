@@ -1,0 +1,83 @@
+.benefits {
+  font-size: 16px;
+  line-height: 24px;
+  color: $color-gray;
+  &--margin {
+    @include marginBetweenBloks;
+  }
+
+  @include onTablet {
+    @include contentPaddingInlineMinWidth;
+  }
+
+  &__article {
+    @include contentGrid;
+  }
+
+  &__photo {
+    padding-left: 5px;
+    height: 245px;
+    background-size: cover;
+    background-image: url(../images/benefits/benefits__img--mobile.png);
+
+    background-repeat: no-repeat;
+    grid-column: span 4;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      background-image: url(../images/benefits/a347db2baba6b808980fb0422ff7f7f2_original.png);
+      height: 317px;
+      margin-bottom: 0;
+      grid-column: 4 / -1;
+      grid-row: 1 / 2;
+    }
+
+    @include onDesktop {
+      background-image: url(../images/benefits/benefits__img--desktop.png);
+      background-position: none;
+      height: 464px;
+      grid-column: 5 / -1;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 4;
+    padding-inline: $padding-inlline-mobile;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 20px;
+      padding-inline: 0;
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__title {
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      display: flex;
+      align-items: end;
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__description {
+
+    @include onTablet {
+      width: 95%;
+      grid-column: 1 / 4;
+    }
+  }
+}
