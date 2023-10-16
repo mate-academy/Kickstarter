@@ -1,0 +1,95 @@
+.systems {
+
+  &__icons {
+    margin-bottom: 40px;
+    transition: transform 1s, rotate 0.5s,;
+
+    @include onTablet {
+      margin-bottom: 50px;
+      &:hover {
+        transform: scale(1.4) rotate(1turn);
+      }
+    }
+  }
+
+  &__cards {
+    display: none;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 60px 20px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 0 30px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    @include onTablet {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      justify-content: center;
+      align-items: flex-start;
+      justify-items: center;
+    }
+
+    &-title {
+      font-size: 24px;
+      color: $darkerColor;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      font-weight: 500;
+
+      @include onTablet {
+        margin-bottom: 20px;
+      }
+    }
+
+    &-text {
+      font-family: "Helvetica Neue", sans-serif;
+      line-height: 21px;
+      color: $textColor;
+    }
+
+    &-design {
+      grid-column: 1 / 5;
+
+      @include onDesktop {
+        grid-column: 1 / 4;
+      }
+    }
+
+    &-tweeter {
+      grid-column: 5 / 9;
+
+      @include onDesktop {
+        grid-column: 4 / 7;
+      }
+    }
+
+    &-multiroom {
+      grid-column: 1 / 5;
+
+      @include onDesktop {
+        grid-column: 7 / 10;
+      }
+    }
+
+    &-lighting {
+      grid-column: 5 / 9;
+
+      @include onDesktop {
+        grid-column: 10 / 13;
+      }
+    }
+  }
+}

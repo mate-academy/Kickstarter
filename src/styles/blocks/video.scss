@@ -1,0 +1,85 @@
+.video {
+  position: relative;
+
+  &__player {
+    width: 100%;
+    height: 246px;
+
+    @include onTablet {
+      height: 400px;
+    }
+
+    @include onTablet {
+      height: 590px;
+    }
+  }
+
+  &__first {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    height: 246px;
+    width: 100%;
+    background-image: url(../images/video.png);
+    background-position: right;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 400px;
+      background-image: url(../images/video_tablet.png);
+      background-position: center;
+    }
+
+    @include onTablet {
+      height: 590px;
+      background-image: url(../images/video_desktop.png);
+
+    }
+
+    &-wrapper {
+      box-sizing: content-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 108px;
+      width: 108px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+
+      @include onTablet {
+        height: 190px;
+        width: 190px;
+      }
+    }
+
+    &-icon {
+      border: 9px solid transparent;
+      border-left: 14px solid #fff;
+      border-right: 0;
+      display: block;
+      width: 0;
+      height: 0;
+
+      @include onTablet {
+        transform: scale(1.4);
+      }
+    }
+
+    &-wrapper:hover {
+      cursor: pointer;
+      border-color: #00fff2;
+    }
+
+    &-wrapper:hover &-icon {
+      cursor: pointer;
+      border-left-color: #00fff2;
+    }
+
+    &:target {
+      display: none;
+    }
+  }
+}

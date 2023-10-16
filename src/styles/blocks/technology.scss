@@ -1,0 +1,96 @@
+.technology {
+
+  &__title {
+    font-size: 37px;
+    line-height: 46px;
+    color: $darkerColor;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__image {
+
+    &-photo-mobile {
+      width: 100%;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &-photo-tablet {
+      display: none;
+      width: 100%;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &-photo-desktop {
+      display: none;
+      width: 100%;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+
+  &__quote {
+    background-image: url(../images/technology-bg.png);
+    background-repeat: no-repeat;
+    background-position: top;
+
+    @include onTablet {
+      background-image: url(../images/technology-bg_tablet.png);
+    }
+
+    &-text {
+      line-height: 21px;
+      margin-bottom: 40px;
+      font-weight: bold;
+      color: $darkerColor;
+
+      @include onTablet {
+        font-size: 24px;
+        line-height: 36px;
+      }
+    }
+
+    &-portrait {
+      margin: 20px;
+      transition: transform 0.5s;
+
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+
+    &-persone-name {
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 16px;
+      line-height: 27px;
+      color: $darkerColor;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    &-persone-speciality {
+      font-family: "Helvetica Neue", sans-serif;
+      line-height: 120%;
+      color: $textColor;
+    }
+  }
+
+}

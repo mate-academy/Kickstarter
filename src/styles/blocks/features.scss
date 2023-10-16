@@ -1,0 +1,115 @@
+.features {
+  position: relative;
+  background-color: #f2f2f2;
+
+  @include onTablet {
+    background-color: #f7f7f7;
+  }
+
+  &__title {
+    font-size: 37px;
+    line-height: 60px;
+    color: $darkerColor;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__cards {
+    margin-bottom: 9px;
+    @include onTablet {
+      display: none;
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+      }
+    }
+  }
+
+  &__card {
+    margin-bottom: 50px;
+
+    &-title {
+      color: #0c797a;
+      font-size: 30px;
+      line-height: 37px;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+
+      @include onTablet {
+        font-size: 34px;
+        line-height: 42px;
+      }
+    }
+
+    &-sound {
+      z-index: 2;
+      grid-column: 4 / 8;
+      margin-bottom: 58px;
+    }
+    &-connectivity {
+      z-index: 2;
+      grid-column: 1 / 5;
+      margin-bottom: 78px;
+    }
+    &-app {
+      z-index: 2;
+      grid-column: 3 / 7;
+    }
+
+    &-list {
+      list-style: inside;
+    }
+
+    &-item {
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 14px;
+      line-height: 21px;
+      margin-bottom: 10px;
+
+      @include onTablet {
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+  }
+  &__image {
+    @include onTablet {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 1;
+      right: 0;
+      top: 20%;
+      height: 620px;
+      width: 85%;
+      grid-column: 2 / 5;
+      background-color: #f2f2f2;
+    }
+  }
+
+  &__photo {
+    height: 379px;
+    width: 100%;
+    background-image: url(../images/features.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onTablet {
+      background-image: url(../images/features_tablet.png);
+
+    }
+  }
+}
