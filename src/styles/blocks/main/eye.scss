@@ -1,6 +1,13 @@
 .eye {
   &__content {
     @include grid;
+    margin-bottom: 170px;
+    position: relative;
+
+    @include onMobile {
+      grid-template-rows: auto 1fr;
+      margin-bottom: 110px;
+    }
   }
 
   &__description {
@@ -9,16 +16,62 @@
     @include onTablet {
       grid-column: 1/5;
     }
+
+    @include onMobile {
+      grid-column: 1/-1;
+      grid-row: 3;
+    }
+
+    &--2 {
+      grid-column: -1/-7;
+      grid-row: 3 / 4;
+
+      @include onTablet {
+        grid-column: -1/-5;
+      }
+
+      @include onMobile {
+        grid-column: 1/-1;
+      }
+    }
+
+    @include onMobile {
+      grid-column: 1/-1;
+    }
   }
 
   &__title {
     @include font-h2;
     margin-bottom: 30px;
+    grid-column: 1/6;
+
+    @include onMobile {
+      grid-row: 1;
+      grid-column: 1/-1;
+      margin-bottom: 20px;
+    }
+
+    &--2 {
+      grid-column: -1/-7;
+      grid-row: 1;
+
+      @include onTablet {
+        grid-column: -1/-5;
+      }
+
+      @include onMobile {
+        font-size: 30px;
+      }
+    }
   }
 
   &__text {
     @include font-text;
     margin-bottom: 60px;
+
+    @include onMobile {
+      margin-bottom: 30px;
+    }
   }
 
   &__link {
@@ -31,7 +84,7 @@
     width: fit-content;
 
     &::after {
-      content: '';
+      content: "";
       height: 1px;
       position: absolute;
       top: 20px;
@@ -48,13 +101,34 @@
 
   &__imgbox {
     grid-column: -1/-7;
+    grid-row: 1 / 4;
     overflow: hidden;
 
     @include onTablet {
       position: absolute;
       top: 0;
-      right: 0;
-      width: 50%;
+      right: -34px;
+      width: 70%;
+    }
+
+    @include onMobile {
+      position: static;
+      width: 100%;
+      grid-row: 2;
+      grid-column: 1/-1;
+      margin-bottom: 18px;
+    }
+
+    &--2 {
+      grid-column: 1 / 7;
+
+      @include onTablet {
+        left: -34px;
+      }
+
+      @include onMobile {
+        grid-column: 1/-1;
+      }
     }
   }
 

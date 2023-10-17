@@ -1,0 +1,184 @@
+.slider {
+  &__title {
+    @include font-h2;
+    margin-bottom: 30px;
+  }
+
+  &__content {
+    @include grid;
+    background: #d6ecec;
+    box-shadow: -3px 4px 12px 0 rgba(99, 110, 111, 0);
+    padding-top: 60px;
+    position: relative;
+
+    @include onTablet {
+      height: 555px;
+      padding-top: 0;
+    }
+
+    @include onMobile {
+      height: 575px;
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &__item {
+    &--1 {
+      grid-column: 2/7;
+      margin-bottom: 56px;
+    }
+
+    &--2 {
+      grid-column: 2/7;
+      margin-bottom: 27px;
+    }
+
+    &--3 {
+      grid-column: 7/span 4;
+      grid-row: 1;
+    }
+
+    @include onTablet {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      height: 276px;
+      margin-bottom: 0;
+      opacity: 1;
+      transition: all ease-in-out $transition-duration;
+
+      &--1 {
+        margin-bottom: 0;
+      }
+
+      &--2 {
+        opacity: 0;
+      }
+
+      &--3 {
+        grid-column: 2/7;
+        opacity: 0;
+      }
+    }
+
+    @include onMobile {
+      top: 30px;
+      left: 30px;
+      grid-column: 1/-1;
+    }
+  }
+
+  &__img {
+    background-image: url(../images/slider/slider-img.webp);
+    @include background-sets;
+    background-size: contain;
+    grid-column: 7/-1;
+    width: 582px;
+    height: 302px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    @include onTablet {
+      width: 435px;
+      height: 226px;
+    }
+
+    @include onMobile {
+      width: 100vw;
+      height: 174px;
+    }
+  }
+
+  &__item-title {
+    color: $color-slider;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 42px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+
+    @include onMobile {
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__list {
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  &__list-item {
+    color: $color-text-primary;
+    line-height: 24px;
+    margin-bottom: 10px;
+
+    @include onMobile {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__btnbox {
+    display: none;
+    grid-column: 2/4;
+
+    @include onTablet {
+      position: absolute;
+      bottom: 130px;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include onMobile {
+      bottom: 231px;
+      left: 23%;
+    }
+  }
+
+  &__btn-wrap {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  &__btn {
+    width: 48px;
+    height: 14px;
+    cursor: pointer;
+
+    &--left {
+      background-image: url(../images/slider/arrow-left.svg);
+
+      @include hover(transform, scale($transform-scale));
+    }
+    &--right {
+      background-image: url(../images/slider/arrow-right.svg);
+
+      @include hover(transform,scale($transform-scale));
+    }
+  }
+
+  &__num-wrap {
+    width: 47px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__num {
+    color: $color-text-primary;
+    line-height: 24px;
+
+    &--total {
+      color: $color-slider;
+      font-size: 11px;
+      margin-left: 5px;
+      margin-top: 5px;
+    }
+  }
+}
