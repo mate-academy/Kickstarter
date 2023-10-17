@@ -1,18 +1,9 @@
 .menu {
   background-color: #f9f9f9;
+  overflow-y: auto;
 
   @include onDesktop {
     display: none;
-  }
-
-  &__specs {
-    opacity: 0;
-    transition: opacity 0.3s;
-
-    @include onTablet {
-      display: none;
-      pointer-events: none;
-    }
   }
 
   &__buy-button {
@@ -20,11 +11,8 @@
       opacity 0.5s;
 
     width: 0;
-    margin-inline: 30px;
-    position: absolute;
-    bottom: 30px;
-    left: 0;
     height: 48px;
+    margin-top: 30vh;
 
     opacity: 0;
 
@@ -48,15 +36,14 @@
       }
     }
 
-    .menu__specs {
-      animation: translatex 0.5s 1s 1 forwards;
-      transition-delay: 1s;
-      opacity: 1;
+    .menu__params {
+      animation: translatex .3s ease-in 1s 1 forwards,
+        opacity .3s ease-in 1s 1 forwards;
     }
 
     .menu__buy-button {
-      transition-delay: 1.2s;
-      width: calc(100% - 60px);
+      transition-delay: 1.3s;
+      width: 100%;
       opacity: 1;
       right: 0;
     }
