@@ -1,0 +1,96 @@
+.header {
+  @include maxWidth;
+  @include pageGrid;
+
+  &__top-bar {
+    grid-column: 1 / -1;
+
+    // to make some space beetween top-bar and header__bg on 640 - 860 width
+    @include onTablet {
+      margin-bottom: 80px;
+    }
+
+    @media (min-width: 860px) {
+      margin-bottom: 0;
+    }
+
+    &.anim-active {
+      animation: scale 2s ease 0s 1,
+        opacity 2s ease 0s 1;
+    }
+  }
+
+  &__bg {
+    &.anim-active {
+      animation: scale 2s ease 0s 1,
+        opacity 2s ease 0s 1;
+    }
+
+    grid-column: 1 / -1;
+    display: block;
+    background-image: url(../images/backgrounds/header-bg.png);
+    background-size: cover;
+    background-position: -8%;
+    padding-bottom: 76.5%;
+
+    @include onTablet {
+      background-position: 5%;
+      grid-row: 2;
+      grid-column: 4 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / -1;
+      width: 816px;
+      height: 464px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__content {
+    align-self: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    grid-column: 1 / -1;
+    @include contentPaddingInline;
+
+    @include onTablet {
+      padding-right: 0;
+      grid-column: 1 / 5;
+      grid-row: 2;
+      gap: 30px;
+    }
+  }
+
+  &__title {
+    opacity: 0;
+    grid-column: 1 / -1;
+
+    &.anim-active {
+      animation: translatex 1s ease 1s 1,
+        opacity 1s ease 1s 1 forwards;
+    }
+  }
+
+  &__text {
+    opacity: 0;
+    grid-column: 1 / 4;
+
+    &.anim-active {
+      animation: translatex 1s ease 1.4s 1,
+        opacity 1s ease 1.4s 1 forwards;
+    }
+  }
+
+  &__nav {
+    opacity: 0;
+    grid-column: 4 / 10;
+    margin-top: 25vh;
+
+    &.anim-active {
+      animation: translatex 1s ease 1.6s 1,
+        opacity 1s ease-in-out 1.6s 1 forwards;
+    }
+  }
+}

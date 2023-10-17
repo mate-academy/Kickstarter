@@ -1,0 +1,77 @@
+.menu {
+  background-color: #f9f9f9;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__specs {
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    @include onTablet {
+      display: none;
+      pointer-events: none;
+    }
+  }
+
+  &__buy-button {
+    transition: width 0.5s,
+      opacity 0.5s;
+
+    width: 0;
+    margin-inline: 30px;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    height: 48px;
+
+    opacity: 0;
+
+    @include onTablet {
+      display: none;
+      pointer-events: none;
+    }
+  }
+
+  &:target {
+    $delay-timings:
+      1 0.3s,
+      2 0.5s,
+      3 0.7s,
+      4 0.9s;
+
+    @each $child-nubmer, $delay-time in $delay-timings {
+      .nav__item:nth-child(#{$child-nubmer}) .nav__link--menu {
+        opacity: 1;
+        transition-delay: #{$delay-time};
+      }
+    }
+
+    .menu__specs {
+      animation: translatex 0.5s 1s 1 forwards;
+      transition-delay: 1s;
+      opacity: 1;
+    }
+
+    .menu__buy-button {
+      transition-delay: 1.2s;
+      width: calc(100% - 60px);
+      opacity: 1;
+      right: 0;
+    }
+  }
+
+  &__content {
+    @include contentPaddingInline;
+  }
+
+  &__nav {
+    margin-block: 31px 50px;
+
+    transition: all 1s;
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+}

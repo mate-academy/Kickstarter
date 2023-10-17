@@ -1,0 +1,51 @@
+.nav {
+  &--header {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &--header {
+      flex-direction: row;
+      gap: 84px;
+      grid-column: 4 / 10;
+      justify-content: space-between;
+    }
+
+    &--menu {
+      transition: all 1s;
+
+      flex-direction: column;
+      gap: 25px;
+
+      @include onTablet {
+        gap: 40px;
+      }
+    }
+  }
+
+  &__link {
+    @extend %nav-link;
+    color: $black-color;
+
+    &--header {
+      transition: all 0.3s;
+      &:hover {
+        color: $light-blue;
+      }
+    }
+
+    &--menu {
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+  }
+}

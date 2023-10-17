@@ -1,0 +1,128 @@
+.about-us {
+  padding-top: 20px;
+  width: 100%;
+  @include pageGrid;
+  margin: 0 auto;
+  gap: 20px;
+
+  &__card {
+    justify-content: center;
+    max-width: 300px;
+    margin: 0 auto;
+    display: grid;
+    gap: 20px;
+
+    opacity: 0;
+
+    @include onDesktop {
+      gap: 24px;
+    }
+
+    &-off {
+      display: none;
+
+      @include onTablet {
+        display: grid;
+      }
+    }
+
+    &:nth-child(1) {
+      &.anim-active {
+        animation: opacity 0.8s ease 0.4s 1 forwards;
+      }
+
+      @include onTablet {
+        grid-column: 1 / 5;
+      }
+
+      @include onDesktop {
+        grid-column: span 3;
+      }
+    }
+
+    &:nth-child(2) {
+      &.anim-active {
+        animation: opacity 0.8s ease 0.7s 1 forwards;
+      }
+
+      @include onTablet {
+        grid-column: 5 / -1;
+      }
+
+      @include onDesktop {
+        grid-column: span 3;
+      }
+    }
+
+    &:nth-child(3) {
+      &.anim-active {
+        animation: opacity 0.8s ease 1s 1 forwards;
+      }
+
+      @include onTablet {
+        grid-column: 1 / 5;
+      }
+
+      @include onDesktop {
+        grid-column: span 3;
+      }
+    }
+
+    &:nth-child(4) {
+      &.anim-active {
+        animation: opacity 0.8s ease 1.3s 1 forwards;
+      }
+
+      @include onTablet {
+        grid-column: 5 / -1;
+      }
+
+      @include onDesktop {
+        grid-column: span 3;
+      }
+    }
+  }
+
+  &__title {
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  &__text {
+    color: $secondary-color;
+    @extend %secondary-text;
+    text-align: center;
+
+    @include onTablet {
+      min-height: 126px;
+    }
+  }
+
+  &__img-card {
+    width: 50px;
+    height: 40px;
+    margin: 0 auto;
+
+    animation: jump 1s ease-in-out infinite alternate;
+  }
+
+  &__img-container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    margin-top: 110px;
+    @include contentPaddingInline;
+  }
+
+  &__img {
+    width: 100%;
+    opacity: 0;
+    transform: scale(0.7);
+
+    &.anim-active {
+      animation: opacity 0.8s ease-in-out 0.6s 1 forwards,
+        scale 0.8s ease-in-out 0.6s 1 forwards;
+    }
+  }
+}

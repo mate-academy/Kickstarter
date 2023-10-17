@@ -1,0 +1,166 @@
+.features {
+  display: grid;
+  opacity: 0;
+
+  &.anim-active {
+    animation: opacity 1s ease-in 0.3s 1 forwards;
+  }
+
+  &__title {
+    padding: 0 0 30px 30px;
+    padding-bottom: 30px;
+    opacity: 0;
+
+    &.anim-active {
+      animation: translatex 0.7s ease-in 1s 1 forwards,
+        opacity 0.7s ease-in 1s 1 forwards;
+    }
+
+    @include onTablet {
+      padding: 0 0 30px;
+    }
+  }
+
+  @include onTablet {
+    margin-inline: 34px;
+  }
+
+  @include onDesktop {
+    margin-inline: 123px;
+  }
+
+  &__container {
+    background-color: #d6ecec;
+
+    position: relative;
+    display: grid;
+
+    @include onTablet {
+      height: 560px;
+    }
+
+    @include onDesktop {
+      height: 645px;
+    }
+  }
+
+  &__content {
+    box-sizing: border-box;
+    z-index: 2;
+    position: relative;
+    width: fit-content;
+    padding: 30px 30px 0;
+
+    @include onTablet {
+      padding: 60px 0 0 90px;
+      width: 100%;
+    }
+  }
+
+  &__slider {
+    display: flex;
+
+    @include onDesktop {
+      @include pageGrid;
+      row-gap: 56px;
+    }
+  }
+
+  &__bg {
+    display: block;
+    width: 100%;
+    padding-bottom: 52%;
+    height: fit-content;
+    background-image: url(../images/backgrounds/features-bg.png);
+    background-color: #d6ecec;
+    background-blend-mode: darken;
+    background-size: cover;
+
+    @include onTablet {
+      width: 62%;
+      padding-bottom: 33%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    @include onDesktop {
+      width: 46%;
+      padding-bottom: 25%;
+    }
+  }
+
+  &__params {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    @include onTablet {
+      align-items: start;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__controlls {
+    display: flex;
+    justify-self: center;
+    width: fit-content;
+  }
+
+  &__control {
+    cursor: pointer;
+    width: 48px;
+    height: 13px;
+
+    &--next {
+      transform: translateX(-4px);
+      background-image: url(../images/Vector.svg);
+    }
+
+    &--prev {
+      transform: translateX(4px);
+      background-image: url(../images/Vector-2.svg);
+      background-size: cover;
+    }
+  }
+
+  .features__control--next--active {
+    background-image: url(../images/Vector-blue-2.svg);
+  }
+
+  .features__control--prev--active {
+    background-image: url(../images/Vector-blue-1.svg);
+  }
+
+  &__counter {
+    width: 96px;
+    display: flex;
+    gap: 3px;
+    align-items: end;
+    justify-content: center;
+  }
+
+  &__current {
+    align-self: flex-start;
+
+    color: $black-color;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  &__all {
+    color: $green;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}

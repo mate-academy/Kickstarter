@@ -1,0 +1,101 @@
+.testimonilas {
+  padding-top: 7vmax;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  @include pageGrid;
+  gap: 30px;
+  @include contentPaddingInline;
+
+  @include onTablet {
+    padding-top: 3vmax;
+  }
+
+  @include onDesktop {
+    max-width: 1000px;
+    padding-top: 37px;
+  }
+
+  opacity: 0;
+
+  &.anim-active {
+    animation: opacity 1s ease-in 0.3s 1 forwards;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-image: url(../images/backgrounds/director-bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 170px;
+    width: 208px;
+    margin: 0 auto;
+
+    @include onTablet {
+      width: 233px;
+      height: 189px;
+    }
+
+    @include onDesktop {
+      height: 192px;
+    }
+
+    &.anim-active {
+      animation: opacity 0.6s ease-in 0.6s 1 forwards,
+        scale 0.6s ease-in 0.6s 1 forwards;
+    }
+  }
+
+  &__qoute {
+    grid-column: 1 / -1;
+    color: $black-color;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+
+    @include onTablet {
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+
+  &__review {
+    grid-column: 2 / 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      grid-column: 4 / 6;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__name {
+    margin: 0 0 5px;
+    color: $black-color;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+  }
+
+  &__user-img {
+    margin-bottom: 20px;
+    height: 62px;
+    width: 62px;
+  }
+
+  &__profession {
+    color: $secondary-color;
+    @extend %secondary-text;
+  }
+}
