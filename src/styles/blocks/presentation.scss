@@ -1,0 +1,131 @@
+.presentation {
+  display: grid;
+  gap: 110px;
+  padding-inline: 30px;
+
+  @include onTablet {
+    gap: 140px;
+    padding-inline: 0;
+  }
+
+  @include onDesktop {
+    gap: 170px;
+  }
+
+  &__block {
+    margin: 0 auto;
+
+    @include onTablet {
+      max-width: 800px;
+      display: flex;
+      gap: 20px;
+    }
+
+    @include onDesktop {
+      max-width: 1200px;
+    }
+
+    &--right {
+      opacity: 0;
+      &.anim-active {
+        animation: translatex-left 1s ease-out 0.4s 1 forwards,
+          opacity  1s ease-out 0.4s 1 forwards;
+      }
+    }
+
+    &--left {
+      opacity: 0;
+      &.anim-active {
+        animation: translatex 1s ease-out 0.2s 1 forwards,
+          opacity 1s ease-out 0.2s 1 forwards;
+      }
+    }
+  }
+
+  &__content {
+    max-width: 550px;
+
+    &--padding-right {
+      @include onTablet {
+        padding-right: 30px;
+      }
+    }
+
+    &--padding-left {
+      @include onTablet {
+        padding-left: 30px;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    color: $secondary-color;
+    @extend %secondary-text;
+
+    @include onDesktop {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    width: fit-content;
+    color: $light-blue;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding-bottom: 5px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 42%;
+      height: 1px;
+      background-color: $light-blue;
+
+      position: absolute;
+      bottom: 0;
+
+      transition: width 0.4s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  &__img {
+    &-mobile {
+      margin-bottom: 20px;
+      width: 100%;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &-tablet-desktop {
+      display: none;
+      object-fit: cover;
+
+      @include onTablet {
+        width: clamp(360px, 1vw, 380px);
+        height: clamp(400px, 1vw, 430px);
+        display: block;
+      }
+
+      @include onDesktop {
+        width: 582px;
+        height: 388px;
+      }
+    }
+  }
+}

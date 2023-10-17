@@ -1,0 +1,108 @@
+.footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  @include contentPaddingInline;
+
+  &__content {
+    @include pageGrid;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: span 4;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+
+    opacity: 0;
+
+    &.anim-active {
+      animation: opacity 0.7s ease-out 0.4s 1 forwards,
+        scale 0.7s ease-out 0.4s 1 forwards;
+    }
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+    margin-top: 27px;
+
+    @include onTablet {
+      margin: 0;
+      grid-column: span 4;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__bottom {
+    display: grid;
+    gap: 30px;
+    justify-items: center;
+    padding: 110px 0 20px;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      gap: 60px;
+    }
+
+    opacity: 0;
+    &.anim-active {
+      animation: opacity 0.5s ease-in-out 1.2s 1 forwards;
+    }
+  }
+
+  &__links-to-home {
+    position: relative;
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-self: center;
+  }
+
+  &__link-home {
+    fill: $black-color;
+    position: absolute;
+    right: 0;
+    transform: translateY(10%);
+    object-fit: cover;
+
+    @include onDesktop {
+      @include hover(fill, $light-blue);
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__link {
+    fill: #4f4f4f;
+    @include onDesktop {
+      @include hover(fill, $light-blue);
+    }
+  }
+
+  &__text {
+    text-align: center;
+    @extend %secondary-text;
+    color: $secondary-color;
+  }
+}
