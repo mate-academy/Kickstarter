@@ -1,10 +1,11 @@
 .nav {
   &--desktop {
     display: none;
+    justify-content: center;
 
     @include onDesktop {
       @include contentPaddingInlineMinWidth;
-      display: block;
+      display: flex;
       margin-bottom: 62px;
       padding-block: 28px;
     }
@@ -30,6 +31,14 @@
     list-style: none;
     font-size: 14px;
     line-height: 20px;
+    transition: scale 0.3s ease,
+    color 0.3s ease,
+    font-weight 0.3s ease;
+
+  &:hover {
+    scale: 1.1;
+    font-weight: 700;
+  }
 
     @include onTablet {
       font-size: 22px;
@@ -49,10 +58,12 @@
 
     &:hover {
       font-weight: 700;
+
     }
 
     &:focus {
       font-weight: 700;
+      outline: none;
     }
   }
 }
