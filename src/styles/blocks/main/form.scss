@@ -1,0 +1,74 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__input {
+    height: 48px;
+    border: 1px solid $color-input-border;
+    color: $color-text-primary;
+    background-color: $color-bg;
+    padding-inline: 36px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color $transition-duration;
+
+    @include placeholder {
+      transition: opacity $transition-duration;
+      color: $color-placeholder;
+      font-size: 16px;
+      line-height: 24px;
+      opacity: 1;
+    }
+
+    &:focus {
+      border-color: $color-slider;
+      outline: none;
+
+      @include placeholder {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__textarea {
+    height: 128px;
+    border: 1px solid $color-input-border;
+    color: $color-text-primary;
+    background-color: $color-bg;
+    resize: none;
+    padding: 16px 36px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color $transition-duration;
+    margin-bottom: 10px;
+
+    @include placeholder {
+      color: $color-placeholder;
+      line-height: 24px;
+      opacity: 1;
+      transition: opacity $transition-duration;
+    }
+
+    &:focus {
+      border-color: $color-slider;
+      outline: none;
+
+      @include placeholder {
+        opacity: 0;
+        border-color: $color-slider;
+      }
+    }
+
+    @include scrollBar;
+  }
+
+  &__button {
+    height: 48px;
+    width: 124px;
+    color: $color-bg;
+    background-color: $color-link-secondary;
+
+    @include hover(background-color, $color-slider);
+  }
+}

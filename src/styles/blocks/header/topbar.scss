@@ -18,6 +18,7 @@
 
   &__wrap {
     display: flex;
+    align-items: center;
 
     @include onMobile {
       display: none;
@@ -33,7 +34,29 @@
     font-size: 14px;
     line-height: 20px;
     text-transform: uppercase;
-    align-self: center;
+    width: fit-content;
+    position: relative;
+
+    &--active {
+      font-weight: 700;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      background-color: $color-btn;
+      transition: width ease-in-out $transition-duration;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
   }
 
   &__btn {
