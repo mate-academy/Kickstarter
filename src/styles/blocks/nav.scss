@@ -7,6 +7,7 @@
     flex-direction: column;
     gap: 32px;
   }
+
   &__link {
     position: relative;
     color: #333;
@@ -16,6 +17,10 @@
     font-weight: 400;
     line-height: 28px;
     text-transform: uppercase;
+
+    @include smallDevices {
+      font-size: 14px;
+    }
 
     &:hover {
       color: $hover-button-color;
@@ -38,25 +43,33 @@
     }
   }
 
+  &__subtitle {
+    font-size: 14px;
+  }
+
+  &__new-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+  }
+
   &__button--link {
     display: none;
 
     @include smallDevices {
-      display: flex;
+      display: block;
       text-decoration: none;
-      justify-content: center;
-      align-items: center;
       text-align: center;
       height: 48px;
       font-weight: 500;
       font-size: 12px;
-      line-height: 15px;
+      line-height: 48px;
       text-transform: uppercase;
       color: #fff;
       width: 100%;
       cursor: pointer;
       background-color: $title-grey;
-      margin-top: 350px;
 
       &:hover {
         background-color: $hover-button-color;
