@@ -1,0 +1,132 @@
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  &__top-actions {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  &__language {
+    display: flex;
+    justify-content: space-between;
+    width: 55px;
+  }
+
+  &__link,
+  &__label--ua,
+  &__label--en {
+    @extend %text;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+    color: $c-gray;
+
+    cursor: pointer;
+
+    transition: color $transition-time;
+
+    &:hover {
+      color: $c-aqua;
+    }
+  }
+
+  &__button {
+    text-decoration: none;
+    
+    background-color: $c-black-light;
+
+    transition: background-color $transition-time;
+
+    &:hover {
+      background-color: $c-black;
+    }
+  }
+
+  &__line-top {
+    transform-origin: 0 0;
+  }
+
+  &__line-bottom {
+    transform-origin: 0 100%;
+  }
+
+  &__toggle {
+    display: none;
+
+    &:checked ~ .menu__lines .menu__line-top {
+      transform: rotate(45deg);
+    }
+
+    &:checked ~ .menu__lines .menu__line-bottom {
+      transform: rotate(-45deg);
+    }
+
+    &:checked ~ .menu__lines .menu__line-center {
+      width: 0;
+    }
+
+    &:checked ~ .nav__mobile {
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    &--en {
+      display: none;
+
+      &:checked ~ .menu__label--en {
+        font-weight: 700;
+        color: $c-black;
+      }
+    }
+
+    &--ua {
+      display: none;
+
+      &:checked ~ .menu__label--ua {
+        font-weight: 700;
+        color: $c-black;
+      }
+    }
+
+  }
+
+  &__lines {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+
+    z-index: 3;
+
+    cursor: pointer;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__line {
+    display: block;
+    height: 4px;
+    width: 100%;
+
+    background-color: $c-black;
+    border-radius: 2px;
+    transition: transform $transition-time, width $transition-time;
+  }
+}
