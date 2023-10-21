@@ -1,0 +1,109 @@
+.menu {
+  font-family: "Inter", sans-serif;
+  transition: all $transitionDuration;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  height: 100vh;
+  background-color: $c-white;
+  color: $c-black;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
+
+  &:target {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__content {
+    @include pageContent;
+    @include paddingInline;
+  }
+
+  &__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 50px;
+    grid-column: span 4;
+    @include onTablette {
+      grid-column: 1 / 3;
+    }
+
+    @include onDesktop {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    right: 20px;
+    grid-column: span 4;
+
+    @include onTablette {
+      display: none;
+    }
+  }
+
+  &__lang {
+    grid-column: span 4;
+    display: flex;
+    gap: 20px;
+    color: $c-lightBlack;
+    text-transform: uppercase;
+    @include onTablette {
+      display: none;
+    }
+  }
+
+  &__specs {
+    display: flex;
+    text-decoration: none;
+    color: $c-lightBlack;
+    &:hover {
+      color: $c-darkBlack;
+      font-weight: 400;
+    }
+  }
+
+  &__lang-items {
+    display: flex;
+  }
+
+  &__lang-item {
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    &:hover {
+      font-weight: 400;
+      color: $c-darkBlack;
+    }
+  }
+
+  &__navigation {
+    margin-bottom: 40px;
+  }
+
+  &__link {
+    font-weight: 400;
+
+    &:hover {
+      color: $c-darkBlack;
+      font-weight: 700;
+    }
+  }
+
+}

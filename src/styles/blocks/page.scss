@@ -1,0 +1,189 @@
+.page {
+  scroll-behavior: smooth;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+
+  &__body {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: $c-white;
+    min-width: 320px;
+    max-width: 1440px;
+    margin: 0 auto;
+
+    &:has(.page__menu:target) {
+      overflow: hidden;
+    }
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    &:hover {
+      @include hover (transform, scale(1.2));
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 110px;
+
+    @include onTablette {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__navigation {
+    @include paddingInline;
+
+    height: max-content;
+    grid-column: span 4;
+
+    @include onTablette {
+      grid-column: span 8;
+    }
+
+    @include onDesktop {
+      margin: 0;
+      grid-column: span 12;
+    }
+  }
+
+  &__section {
+    @include pageContent;
+    margin-bottom: 110px;
+
+    @include onTablette {
+      margin-bottom: 140px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__menu {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    @include onDesktop {
+      margin: 0 auto;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__h1 {
+    color: $c-darkBlack;
+    text-transform: uppercase;
+    font-size: 40px;
+    line-height: 52px;
+
+    @include onTablette {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 64px;
+      line-height: 78px;
+    }
+  }
+
+  &__h2 {
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+
+    @include onTablette {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__h3 {
+    font-size: 34px;
+    line-height: 42px;
+    text-transform: uppercase;
+
+    @include onTablette {
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    @include onDesktop {
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__h4 {
+    font-size: 22px;
+    line-height: 28px;
+    text-transform: uppercase;
+  }
+
+  &__h5 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  &__h6 {
+    color: $c-darkBlack;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+
+  &__button {
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+  }
+
+  &__main-text {
+    color: $c-darkGray;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+
+  &__secondary-text {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+  }
+
+  &__thirdary-text {
+    color: $c-black;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  &__quote {
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+  }
+}

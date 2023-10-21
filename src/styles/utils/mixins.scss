@@ -1,0 +1,59 @@
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onTablette {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin paddingInline {
+  padding-inline: 30px;
+
+  @include onTablette {
+    padding-inline: 34px;
+  }
+  @include onDesktop {
+    padding-inline: 123px;
+  }
+}
+
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin pageContent {
+  box-sizing: border-box;
+  display: grid;
+  column-gap: 20px;
+  --columns: 4;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablette {
+    --columns: 8;
+    column-gap: 30px;
+  }
+  @include onDesktop {
+    --columns: 12;
+  }
+}
+
+@mixin photo {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@mixin photoContainer {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  @include hover(transform, scale(1.03));
+}
