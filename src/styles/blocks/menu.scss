@@ -1,0 +1,101 @@
+.menu {
+  font-family: "Inter", sans-serif;
+  transition: all $transitionDuration;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  height: 100vh;
+  background-color: $c-white;
+
+  &:target {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__content {
+    @include pageContent;
+    @include paddingInline;
+  }
+
+  &__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 50px;
+
+    @include onTablette {
+      grid-column: 1 / 3;
+    }
+
+    @include onDesktop {
+      gap: 85px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    right: 20px;
+    grid-column: span 4;
+
+    @include onTablette {
+      display: none;
+    }
+  }
+
+  &__lang {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 17px;
+
+    grid-column: span 4;
+    display: flex;
+    gap: 20px;
+    color: $c-black;
+
+    @include onTablette {
+      display: none;
+    }
+
+  }
+
+  &__menu__specs {
+    display: flex;
+  }
+
+  &__lang-items {
+    display: flex;
+
+    &--on {
+      font-weight: 400;
+      color: $c-darkBlack;
+    }
+
+    &--off {
+      font-weight: 300;
+    }
+  }
+
+  &__navigation {
+    margin-bottom: 40px;
+  }
+  &__link {
+    &:hover {
+      color: $c-darkBlack;
+      font-size: 14px;
+      font-weight: 700;
+    }
+  }
+
+}
