@@ -1,0 +1,104 @@
+.features {
+  margin-bottom: 90px;
+
+  @include onTablet {
+    margin-bottom: 140px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 170px;
+  }
+
+  &__desktop {
+    @include onPhone {
+      display: none;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__tablet-mobile {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #333;
+  }
+
+  @include onPhone {
+    font-size: 30px;
+  }
+
+  @include onTablet {
+    font-size: 30px;
+  }
+
+  @include onDesktop {
+    font-size: 56px;
+    line-height: 70px;
+  }
+
+  &__block {
+    background-color: #d6ecec;
+    padding-top: 60px;
+    row-gap: 56px;
+
+    @include onPhone {
+      padding-top: 30px;
+      background-color: #d6ecec;
+    }
+  }
+
+  &__grid {
+    // justify-content: space-between;
+  }
+
+  &__image {
+    margin-bottom: 0;
+    width: 100%;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    cursor: pointer;
+
+    transition: all 300ms ease-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @include onPhone {
+      position: relative;
+      margin-bottom: -5px;
+    }
+
+    @include onTablet {
+      position: absolute;
+      width: 50%;
+
+      left: 50%;
+    }
+
+    &-container {
+      margin: 0;
+      padding: 0;
+
+      position: relative;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    justify-content: center;
+  }
+}

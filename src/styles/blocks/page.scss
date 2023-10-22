@@ -1,0 +1,44 @@
+.page {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  &__body {
+    font-family: "Inter", serif;
+    background-color: #f7f7f7;
+  }
+
+  &__page-up-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    position: sticky;
+    left: 87%;
+    bottom: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    fill: black;
+    opacity: 0;
+    pointer-events: none;
+
+    transition: transform 0.4s,
+      fill 0.4s,
+      border-color 0.4s,
+      box-shadow 0.4s,
+      background-color 0.4s,
+      opacity 0.4s;
+
+    @include onDesktop {
+      &:hover,
+      &:active {
+        transform: scale(1.1);
+        opacity: 1;
+        fill: $c-greenMain;
+        border-color: $c-greenMain;
+        background-color: rgba(white, 0.3);
+        box-shadow: 0 0 5px 5px rgba(white, 0.2);
+      }
+    }
+  }
+}

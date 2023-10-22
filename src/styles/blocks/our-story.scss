@@ -1,0 +1,79 @@
+.our-story {
+  margin-bottom: 115px;
+
+  @include onTablet {
+    margin-bottom: 140px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 165px;
+  }
+
+  &__grid {
+    grid-template-rows: auto auto 1fr;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #333;
+
+    &-container {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+
+    transition: all 1s;
+
+    cursor: pointer;
+
+    &:hover {
+      transform: translate(0, 0) scale(1.05, 1.05);
+    }
+
+    &-container {
+      margin-bottom: 20px;
+
+      grid-row: 1 / 4;
+    }
+  }
+
+  &__description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #7c7c7c;
+
+    &-container {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__link {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: $c-greenMain;
+
+    &::after {
+      content: " ";
+      display: block;
+      margin-top: 5px;
+      height: 2px;
+      width: 10%;
+      background-color: $c-greenMain;
+
+      transition: all 0.5s;
+    }
+
+    &:hover::after {
+      width: 25%;
+    }
+  }
+}
