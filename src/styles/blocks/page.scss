@@ -1,0 +1,32 @@
+.page {
+  scroll-behavior: smooth;
+  background-color: $c-7;
+  font-family: "Inter", sans-serif;
+  :has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.3s;
+    pointer-events: none;
+    background-color: #f9f9f9;
+  }
+
+  &__menu:target {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(0);
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  &__section {
+    margin-bottom: 110px;
+  }
+}
