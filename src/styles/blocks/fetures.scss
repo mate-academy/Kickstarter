@@ -1,0 +1,104 @@
+.fetures {
+  &__tittle {
+    padding-inline: 30px;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &--two {
+      display: none;
+      padding-inline: 0;
+
+      @include onTablet {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__content {
+    background-color: $third-bg-color;
+    position: relative;
+
+    @include onTablet {
+      background-color: $main-bg-color;
+    }
+  }
+
+  &__items {
+    @include onTablet {
+      background-color: $third-bg-color;
+      position: relative;
+
+      @include pageGrid;
+    }
+  }
+
+  &__img {
+    background-image: url(../images/fetures/photo-2.png);
+    background-repeat: no-repeat;
+    display: block;
+    height: 174px;
+    width: 320px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__photo {
+    @include onTablet {
+      background-image: url(../images/fetures/photo-3.png);
+      background-repeat: no-repeat;
+      display: block;
+      height: 226px;
+      width: 435px;
+      position: absolute;
+      right: -20px;
+      bottom: 0;
+    }
+
+    @include onSmallDesktop {
+      background-image: url(../images/fetures/photo-4.png);
+      height: 302px;
+      width: 582px;
+      right: 0;
+    }
+  }
+
+  &__block {
+    padding-block: 30px 173px;
+
+    @include onTablet {
+      padding-block: 60px 123px;
+      grid-column: 2 / 5;
+    }
+
+    @include onSmallDesktop {
+      padding-block: 60px;
+      grid-column: 2 / 6;
+    }
+
+    &--two {
+      display: none;
+      
+      @include onSmallDesktop {
+        display: block;
+        grid-column: 7 / 12;
+      }
+    }
+  }
+
+  &__music {
+    &--block {
+      display: none;
+
+      @include onSmallDesktop {
+        display: block;
+      }
+    }
+  }
+}
