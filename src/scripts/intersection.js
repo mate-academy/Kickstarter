@@ -6,28 +6,27 @@ const options = {
   threshold: 0.2,
 };
 
-const callback = function(entries, observer) {
+const callback = function(entries, obs) {
   entries.forEach(entry => {
     if (entry.isIntersecting && entry.boundingClientRect.y > 0) {
-      console.log('obs');
-
       switch (entry.target.getAttribute('data-target')) {
         case 'about': aboutAnim();
           break;
         case 'title': TitleAnim(entry.target);
           break;
       }
-      observer.unobserve(entry.target);
+      obs.unobserve(entry.target);
     }
   });
 };
+// eslint-disable-next-line no-undef
 const observer = new IntersectionObserver(callback, options);
 
 const target = document.querySelectorAll('[data-target]');
 
 target.forEach(el => {
   observer.observe(el);
-})
+});
 
 function aboutAnim() {
   const featuresArticles = document.querySelectorAll('.features__article');
