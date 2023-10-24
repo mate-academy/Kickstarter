@@ -1,21 +1,33 @@
 .menu {
   height: 100vh;
+  padding-inline: 30px;
 
   text-transform: uppercase;
 
-  background-color: $c-white;
+  background-color: $page-background-c;
+
+  @include onTablet {
+    padding-inline: 34px;
+    padding-block: 8px;
+  }
 
   &__content {
-    grid-column: span 2;
+    grid-column: span 8;
   }
 
   &__list {
     margin-bottom: 162px;
+
+    @include onTablet {
+      display: none;
+    }
   }
 
   &__item {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
 
     &--specs {
       padding-right: 20px;
@@ -29,35 +41,43 @@
   &__btn {
     display: block;
 
-    padding-block: 17px;
+    padding: 17px 37px;
     width: 100%;
 
     text-align: center;
     color: $c-white;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 12px;
     font-weight: 500;
     line-height: 15px;
 
-
     background-color: $btn-c;
+
+    @include onTablet {
+      margin-left: 30px;
+    }
+  }
+
+  &__btn-hidden {
+    @include onTablet {
+      display: none;
+    }
   }
 }
 
-  .nav {
-    &__list {
-      display: flex;
-      flex-direction: column;
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: column;
 
-      gap: 25px;
-      margin-bottom: 50px;
+    gap: 25px;
+    margin-bottom: 50px;
 
-      list-style: none;
-    }
-
-    &__link {
-      font-size: 14px;
-      line-height: 20px;
-    }
+    list-style: none;
   }
 
+  &__link {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

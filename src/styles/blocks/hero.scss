@@ -1,20 +1,63 @@
 .hero {
   width: 100%;
+  @include pageGrid;
+  grid-column: span 4;
 
-  grid-column: span 2;
+  @include onTablet {
+    grid-auto-flow: column;
+    grid-column: span 8;
+    row-gap: 62px;
+    column-gap: 20px;
+    padding-inline: 30px;
+  }
+
+  @include onDeskTop {
+    grid-column: span 12;
+    padding: 0;
+  }
 
   &__block-photo {
-    display: grid;
-    grid-column: 1 / -1;
-
-    width: 120%;
+    width: 320px;
     height: 245px;
+    margin: 0 auto 40px;
+    grid-column: span 4;
 
-    background-image: url('/images/hero-photo.png');
+    background-image: url("/images/hero-photo.png");
     background-size: cover;
+
+    @include onTablet {
+      width: 100%;
+      height: 317px;
+      margin: 0;
+      grid-column: 4 / -1;
+    }
+
+    @include onDeskTop {
+      width: 100%;
+      height: 100%;
+      grid-column: 5 / -1;
+
+      background-position: center;
+    }
   }
 
   &__block-info {
+    padding-inline: 30px;
     grid-column: span 4;
+
+    @include onTablet {
+      padding-inline: 0;
+      grid-column: 1 / 4;
+    }
+
+  }
+
+  &__title {
+    @include headline-1;
+    margin-bottom: 20px;
+  }
+
+  &__decription {
+    @include mainText;
   }
 }

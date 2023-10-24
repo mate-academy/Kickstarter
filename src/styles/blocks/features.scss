@@ -1,0 +1,152 @@
+.features {
+  display: grid;
+  grid-column: span 4;
+
+  @include onTablet {
+    grid-column: span 8;
+  }
+
+  @include onDeskTop {
+    grid-column: span 12;
+  }
+
+  &__main-title {
+    @include headline-2;
+    margin-bottom: 30px;
+    padding-inline: 30px;
+
+    @include onDeskTop {
+      padding: 0;
+    }
+  }
+
+  &__block {
+    position: relative;
+
+    background-color: $contarast-c;
+
+    @include onTablet {
+      @include pageGrid;
+      grid-column: span 4;
+      padding-left: 90px;
+      margin-inline: 32px;
+      grid-auto-flow: column;
+    }
+
+    @include onDeskTop {
+      margin: 0;
+    }
+
+  }
+
+  &__second-title {
+    margin-bottom: 20px;
+    padding: 30px 30px 0;
+
+    @include headline-3;
+    color: $dark-green-c;
+
+    @include onTablet {
+      grid-column: 1/ 5;
+      padding: 30px 0;
+      margin: 0;
+    }
+
+    &--hidden {
+      display: none;
+
+      @include onDeskTop {
+        display: grid;
+      }
+
+      &-right {
+        display: none;
+        @include onDeskTop {
+          display: grid;
+          grid-column: 6 / -1;
+        }
+      }
+    }
+  }
+
+  &__info-list {
+    padding-inline: 30px;
+    margin: 0 0 50px 14px;
+    @include onTablet {
+      grid-column: 1/ 5;
+      margin: 0 0 0 14px;
+      padding: 0;
+
+    }
+
+    @include onDeskTop {
+      margin: 0 0 54px 14px;
+    }
+
+    &--hidden {
+      display: none;
+
+      @include onDeskTop {
+        display: grid;
+      }
+
+      &-right {
+        display: none;
+        @include onDeskTop {
+          display: block;
+          grid-column: 6 / -1;
+        }
+      }
+    }
+  }
+
+  &__item {
+    @include secodaryText;
+
+    @include onDeskTop {
+      @include mainText;
+    }
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  &__img {
+    display: flex;
+    grid-column: span 4;
+    justify-content: center;
+
+    @include onTablet {
+      display: grid;
+      grid-column: 1 / 2;
+      margin-top: 50px;
+    }
+
+    @include onDeskTop {
+      display: none;
+    }
+  }
+
+  &__bottom {
+    height: 173px;
+    width: 100%;
+    grid-column: span 4;
+
+    background-image: url("/images/features-background.png");
+    background-size: cover;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      max-width: 401px;
+    }
+
+    @include onDeskTop {
+      position: absolute;
+      bottom: 0;
+      grid-column: 6 / -1;
+      height: 301px;
+      max-width: 543px;
+    }
+  }
+}

@@ -1,0 +1,165 @@
+.about-us {
+  @include pageGrid;
+  grid-column: span 4;
+
+  @include onTablet {
+    grid-column: span 8;
+    row-gap: 62px;
+    column-gap: 20px;
+  }
+
+  @include onDeskTop {
+    grid-column: span 12;
+  }
+
+  &__content {
+    display: grid;
+    padding-inline: 30px;
+    row-gap: 140px;
+
+    @include pageGrid;
+    grid-column: span 4;
+
+    @include onTablet {
+      grid-column: span 8;
+      row-gap: 62px;
+      column-gap: 20px;
+    }
+
+    @include onDeskTop {
+      grid-column: span 12;
+    }
+  }
+
+  &__post {
+    @include pageGrid;
+    grid-column: span 4;
+    margin-bottom: 110px;
+
+    @include onTablet {
+      column-gap: 20px;
+      margin-bottom: 0;
+      grid-column: span 8;
+      grid-auto-flow: column;
+    }
+
+    @include onDeskTop {
+      grid-column: span 12;
+      max-height: 388px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    grid-column: span 4;
+    @include headline-2;
+  }
+
+  &__photo {
+    overflow: hidden;
+    grid-column: span 4;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
+
+    @include onDeskTop {
+      grid-column: 1 / 6;
+      height: 388px;
+    }
+  }
+
+  &__photo-reversed {
+    overflow: hidden;
+    grid-column: span 4;
+
+    @include onTablet {
+      grid-column: 5 / -1;
+    }
+
+    @include onDeskTop {
+      grid-column: 7 / -1;
+      height: 388px;
+    }
+  }
+
+  &__post-img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  &__post-top {
+    grid-column: span 4;
+
+    @include onTablet {
+      grid-column: 5 / -1;
+    }
+
+    @include onDeskTop {
+      grid-column: 7 / -1;
+      height: 388px;
+    }
+  }
+
+  &__post-top-reversed {
+    grid-column: span 4;
+
+    @include onTablet {
+      grid-column: 1 / -5;
+    }
+
+    @include onDeskTop {
+      grid-column: 1 / 7;
+      height: 388px;
+    }
+  }
+
+  &__post-bottom {
+    grid-column: span 4;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__hidden {
+    display: none;
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__description {
+    margin-bottom: 30px;
+    @include secodaryText;
+
+    @include onTablet {
+      grid-column: 1 / 6;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__see-more {
+    position: relative;
+
+    color: $see-more-link-c;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+
+      display: block;
+      height: 1px;
+      width: 40%;
+
+      background-color: $see-more-link-c;
+    }
+  }
+}
