@@ -1,0 +1,55 @@
+.footer {
+
+  &__nav {
+    display: none;
+    @include onTablet {
+      @include useGrid(8, $gap);
+    }
+
+    @include onDesktop {
+
+      @include useGrid(12, $gap-desktop);
+    }
+  }
+
+  &__logo {
+    grid-column: 4 / 6;
+    justify-self: center;
+    margin-bottom: 60px;
+    @include onDesktop {
+      grid-column: 5 / 9;
+    }
+  }
+
+  &__arrow {
+    scroll-behavior: smooth;
+    grid-column: 8 / 9;
+    @include onDesktop {
+      grid-column: 12 / 13;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 30px;
+    &--facebook,
+    &--twitter,
+    &--insta {
+      cursor: pointer;
+    }
+  }
+
+  &__link {
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+
+  &__copyright {
+    margin: 0 30px 20px;
+    text-align: center;
+    color: $light-gray;
+  }
+}

@@ -1,4 +1,45 @@
-%h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
+
+@each $device, $headings in $headings {
+  @each $heading, $styles in $headings {
+    %#{ $heading }--#{ $device } {
+      @include headings(700);
+      font-size: nth($styles, 1);
+      line-height: nth($styles, 2);
+    }
+  }
+}
+
+%button-style {
+  @include font-size-height-weight(12px, 14px, 700);
+}
+
+%main-text {
+  @include font-size-height-weight(16px, 24px, 400);
+}
+
+%secondary-text {
+  @include font-size-height-weight(14px, 21px, 400);
+}
+
+%thirdary-text {
+  @include font-size-height-weight(14px, 21px, 400);
+  text-transform: uppercase;
+}
+
+%qoute {
+  @include font-size-height-weight(24px, 36px, 700);
+}
+
+%qoute--mobile {
+  @include font-size-height-weight(14px, 20px, 700);
+}
+
+%link-style {
+  text-decoration: none;
+}
+
+%image-fit {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }

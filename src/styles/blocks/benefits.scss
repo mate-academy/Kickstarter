@@ -1,0 +1,82 @@
+.benefits {
+
+  @include onMobile {
+    margin-bottom: 166px;
+  }
+
+  @include onTablet {
+    display: none;
+    @include hover(scale, 1.05);
+
+  }
+  &__feature {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: start;
+  }
+
+  &__icon {
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__title {
+    @include responsive-headings(desktop, h4);
+    text-align: center;
+    text-transform: uppercase;
+    height: 56px;
+    margin-bottom: 20px;
+
+    &--2 {
+      @include responsive-headings(mobile, h2);
+      margin-bottom: 30px;
+    }
+    &--3 {
+      text-transform: uppercase;
+      @include responsive-headings(tablet, h2);
+    }
+  }
+
+  &__paragraph {
+    @extend %secondary-text;
+    align-self: flex-end;
+
+    @include onTablet {
+      text-align: center;
+    }
+
+    &--1 {
+      margin-bottom: 110px;
+    }
+
+    &--2 {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__image {
+    &-container {
+      @include custom-image(0, 700px, 195px);
+
+    }
+    @extend %image-fit;
+
+    &--2 {
+      @extend %image-fit;
+      margin-bottom: 20px;
+    }
+    &--3 {
+      @extend %image-fit;
+      margin-bottom: 18px;
+    }
+  }
+
+  &__button {
+    margin-right: auto;
+    margin-bottom: 110px;
+  }
+}

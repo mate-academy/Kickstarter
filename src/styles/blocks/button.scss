@@ -1,0 +1,91 @@
+.button {
+  height: 48px;
+  border: none;
+  transition: background-color $transition ease-in-out;
+
+  &--primary {
+    &-black {
+      background-color: $light-black;
+      &:hover {
+        background-color: $black;
+      }
+    }
+
+    &-green {
+      background-color: $green-button;
+      &:hover {
+        background-color: $green-dark-button;
+      }
+    }
+  }
+
+  &--secondary {
+    background-color: transparent;
+    height: 0;
+  }
+
+  &__form {
+    font-family: "Inter", sans-serif;
+    width: 102px;
+    height: 40px;
+
+    @extend %button-style;
+    color: $white;
+    background-color: $green;
+    border: none;
+
+    text-transform: uppercase;
+
+    margin-bottom: 30px;
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+
+    transition: background-color $transition ease-in-out;
+
+    &:hover {
+      box-shadow: 1px 4px 16px rgba(232, 232, 240, 0.4);
+      background-color: $green-dark-button;
+    }
+
+    &:active {
+      box-shadow: 1px 4px 16px rgba(232, 232, 240, 0.64);
+    }
+
+  }
+
+  &__link {
+    @extend %button-style;
+
+    @include onDesktop {
+      font-size: 14px;
+    }
+    text-decoration: none;
+    color: $white;
+
+    &--secondary {
+      position: relative;
+      color: $green;
+      text-transform: uppercase;
+      padding-bottom: 6px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 52px;
+        height: 1px;
+        background-color: $green;
+        transition: width $transition ease-in-out;
+      }
+
+      &:hover::after {
+        width: 128px;
+      }
+    }
+  }
+}

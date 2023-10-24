@@ -4,3 +4,82 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin useGrid($columnsCount, $gap) {
+  display: grid;
+  grid-template-columns: repeat($columnsCount, 1fr);
+  gap: $gap;
+  grid-row-gap: 0;
+}
+
+@mixin onMobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 767px) {
+    @content;
+  }
+}
+
+@mixin onlyTablet {
+  @media (min-width: 767px) and (max-width: 1439px) {
+    @content;
+  }
+}
+
+@mixin fromTablet {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin untilDesktop {
+  @media (max-width: 1339px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin fromDesktop {
+  @media (max-width: 1439px) {
+    @content;
+  }
+}
+
+@mixin wideScreen {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin headings ($weight) {
+  text-transform: uppercase;
+  font-weight: $weight;
+  margin: 0;
+}
+
+@mixin responsive-headings($device, $heading) {
+  $size: map-get(map-get($headings, $device), $heading);
+  font-size: nth($size, 1);
+  line-height: nth($size, 2);
+}
+
+@mixin font-size-height-weight ($size, $line-height, $weight) {
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+}
+
+@mixin custom-image($min-width, $max-width, $min-height) {
+  min-width: $min-width;
+  max-width: $max-width;
+  min-height: $min-height;
+}

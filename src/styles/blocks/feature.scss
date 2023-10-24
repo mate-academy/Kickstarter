@@ -1,0 +1,38 @@
+.feature {
+  &__title {
+    margin-bottom: 20px;
+    @include responsive-headings(mobile, h3);
+    text-transform: uppercase;
+    color: $green-dark-button;
+
+    @include onDesktop {
+      @include responsive-headings(desktop, h3);
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+
+    padding-left: 12px;
+
+    @include onDesktop {
+      white-space: nowrap;
+    }
+  }
+
+  &__item {
+    max-width: 246px;
+
+    @include onDesktop {
+      max-width: none;
+      @include font-size-height-weight(16px, 24px, 400);
+    }
+    margin-bottom: 10px;
+    @extend %secondary-text;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}

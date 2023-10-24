@@ -1,0 +1,84 @@
+.technology {
+  @include onMobile {
+    display: none;
+  }
+
+  // &__content {
+  //   @include onTablet {
+  //     @include useGrid(8, $gap);
+  //   }
+  // }
+
+  &__item {
+    @include useGrid (2, $gap);
+    @include onDesktop {
+      gap: $gap-desktop;
+    }
+    grid-auto-flow: dense;
+
+    &--1 {
+      margin-bottom: 140px;
+    }
+
+    &--2 {
+      margin-bottom: 198px;
+    }
+
+    @include onDesktop {
+      &--1 {
+        margin-bottom: 170px;
+      }
+      &--2 {
+        margin-bottom: 204px;
+      }
+    }
+
+    @include hover(scale, 1.02);
+
+  }
+
+  &__image {
+
+    @include onTablet {
+      @include custom-image(374px, 580px, 415px);
+      object-fit: cover;
+      width: 100%;
+
+      &--1 {
+        grid-column: 1 / 2;
+      }
+      &--2 {
+        grid-column: 2 / 3;
+      }
+    }
+
+    // @include onDesktop {
+    //   &--2 {
+    //     grid-column: 2 / 3;
+    //   }
+    // }
+  }
+
+  &__description {
+    &--1 {
+      grid-column: 2 / 3;
+    }
+    &--2 {
+      grid-column: 1 / 2;
+    }
+  }
+
+  &__title {
+    @include responsive-headings(tablet, h2);
+    @include onDesktop {
+      @include responsive-headings(desktop, h2);
+    }
+    margin-bottom: 30px;
+  }
+
+  &__paragraph {
+    @extend %main-text;
+    color: $gray;
+    margin-bottom: 60px;
+  }
+}
