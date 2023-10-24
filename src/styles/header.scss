@@ -1,0 +1,158 @@
+.header {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 25px;
+    align-items: center;
+
+    @include onTablet {
+      padding-block: 29px 0;
+    }
+
+    &--right {
+      gap: 30px;
+      padding: 0;
+    }
+  }
+
+  &__logo {
+    width: 161px;
+    height: 26px;
+
+    @include onTablet {
+      @include hover (scale, 1.1);
+    }
+  }
+
+  &__menu {
+    width: 32px;
+    height: 32px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__banner {
+    &--mob {
+      width: 100%;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--tabl {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--deskt {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+  }
+
+  &__lang {
+    display: flex;
+    gap: 3px;
+  }
+
+  &__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+
+    &--nav {
+      color: $header-nav-color;
+    }
+
+    &--active {
+      color: $header-color;
+    }
+
+    &--unactive {
+      color: $header-unactive-nav-color;
+    }
+  }
+
+  &__btn {
+    background-color: $btn-buy-color;
+    display: block;
+    color: #fff;
+    width: 100px;
+    text-align: center;
+    line-height: 47px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  &__h1 {
+    padding-top: 40px;
+    @include contentPaddingInline;
+
+    @include onTablet {
+      grid-column: span 4;
+      padding: 0;
+    }
+  }
+
+  &__text {
+    margin-top: 20px;
+    @include contentPaddingInline;
+
+    @include onTablet {
+      margin-top: 30px;
+      grid-column: 1 / 4;
+      padding: 0;
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      @include pageGrid;
+      @include contentPaddingInline;
+      padding-top: 130px;
+    }
+
+    @include onDesktop {
+      padding-top: 171px;
+    }
+  }
+
+  &__wrapper {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: end;
+      grid-column: 4 / -1;
+      margin-top: -160px;
+      z-index: -1;
+    }
+
+    @include onDesktop {
+      margin-top: -300px;
+    }
+  }
+}
