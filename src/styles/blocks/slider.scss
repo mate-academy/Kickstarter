@@ -1,0 +1,64 @@
+.slider {
+
+  &__arrow {
+    fill: $c-3;
+  }
+
+  &__item {
+    min-height: 340px;
+    color: $c-3;
+
+    &-first {
+      grid-column: 2 / 6;
+    }
+
+    &-second {
+      display: none;
+
+    }
+
+    &-third {
+      display: none;
+    }
+
+    @include onTablet {
+      grid-column: 2 / 5;
+    }
+
+    @include onDesktop {
+      &-first {
+        grid-column: 2 / 6;
+      }
+
+      &-second {
+        grid-column: 2 / 6;
+        display: block;
+      }
+
+      &-third {
+        display: block;
+        grid-column: 7 / 11;
+        grid-row: 1 / -1;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    @include onTablet {
+      grid-column: 2 / 4;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__number {
+    display: flex;
+    color: $c-3;
+  }
+}
