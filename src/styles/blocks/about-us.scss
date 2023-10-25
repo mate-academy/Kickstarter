@@ -7,11 +7,26 @@
     display: none;
     width: 100%;
     justify-content: center;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__item {
     &-link:not(:last-child) {
       margin-right: 84px;
     }
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    &:first-child {
+      display: flex;
+    }
 
-    @include onDesktop {
+    @include onTablet {
       display: flex;
     }
   }
@@ -28,22 +43,6 @@
 
     @include onDesktop {
       grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  &__item {
-    display: none;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    margin: 0 auto;
-    &:first-child {
-      display: flex;
-    }
-
-    @include onTablet {
-      display: flex;
     }
   }
 
