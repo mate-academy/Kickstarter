@@ -8,6 +8,7 @@
 
   @include onDeskTop {
     grid-column: span 12;
+    margin-bottom: 170px;
   }
 
   &__main-title {
@@ -21,9 +22,8 @@
   }
 
   &__block {
-    position: relative;
-
     background-color: $contarast-c;
+    overflow: hidden;
 
     @include onTablet {
       @include pageGrid;
@@ -31,9 +31,12 @@
       padding-left: 90px;
       margin-inline: 32px;
       grid-auto-flow: column;
+      height: 555px;
     }
 
     @include onDeskTop {
+      height: 100%;
+      position: relative;
       margin: 0;
     }
 
@@ -48,8 +51,8 @@
 
     @include onTablet {
       grid-column: 1/ 5;
-      padding: 30px 0;
-      margin: 0;
+      padding: 0;
+      margin-block: 60px 0;
     }
 
     &--hidden {
@@ -114,6 +117,7 @@
 
   &__img {
     display: flex;
+    width: 100%;
     grid-column: span 4;
     justify-content: center;
 
@@ -130,23 +134,36 @@
 
   &__bottom {
     height: 173px;
-    width: 100%;
-    grid-column: span 4;
+    width: 300px;
+    margin: 0 auto;
 
-    background-image: url("/images/features-background.png");
+    grid-column: span 4;
+    background-color: $contarast-c;
+
+
     background-size: cover;
 
     @include onTablet {
+      bottom: 0;
       grid-column: 4 / -1;
-      max-width: 401px;
+      width: 401px;
+      height: 226;
+      margin: 0;
     }
 
     @include onDeskTop {
       position: absolute;
       bottom: 0;
       grid-column: 6 / -1;
+
+      margin: 0;
       height: 301px;
-      max-width: 543px;
+      width: 543px;
     }
+  }
+
+  &__background-img {
+    width: 100%;
+    background-color: $contarast-c;
   }
 }

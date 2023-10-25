@@ -1,5 +1,6 @@
 .about-us {
   @include pageGrid;
+  padding-inline: 30px;
   grid-column: span 4;
 
   @include onTablet {
@@ -10,11 +11,12 @@
 
   @include onDeskTop {
     grid-column: span 12;
+    padding: 0;
   }
 
   &__content {
     display: grid;
-    padding-inline: 30px;
+
     row-gap: 140px;
 
     @include pageGrid;
@@ -86,6 +88,11 @@
   &__post-img {
     width: 100%;
     margin-bottom: 20px;
+
+    @include onDeskTop {
+      @include hover(transform, scale(105%));
+    }
+    
   }
 
   &__post-top {
@@ -160,6 +167,14 @@
       width: 40%;
 
       background-color: $see-more-link-c;
+
+      transition: width 0.3s;
+    }
+
+    @include onDeskTop {
+      &:hover::before {
+        width: 100%;
+      }
     }
   }
 }

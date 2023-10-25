@@ -36,6 +36,10 @@ a {
   display: flex;
   width: 161px;
   height: 26px;
+
+  @include onDeskTop {
+    @include hover (transform, scale(105%));
+  }
 }
 
 body {
@@ -43,6 +47,10 @@ body {
   background-color: $page-background-c;
 }
 
-body:has(.burger__menu :target) {
+body:has(.burger__menu:target) {
   overflow: hidden !important;
+}
+
+img {
+  cursor: pointer;
 }

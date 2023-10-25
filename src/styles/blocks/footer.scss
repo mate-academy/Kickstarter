@@ -10,6 +10,10 @@
 
   margin-bottom: 30px;
 
+  @include onDeskTop {
+    @include hover(transform, scale(1.2));
+  }
+
   &--facebook {
     background-image: url("/images/icons/facebook.svg");
   }
@@ -49,10 +53,20 @@
   }
 
   &__arrow {
+    display: none;
+
     position: fixed;
     right: 50px;
     bottom: 100px;
 
     background-image: url("/images/icons/arrow.svg");
+
+    @include onDeskTop {
+      @include hover(transform, scale(110%));
+    }
+
+    @include onTablet {
+      display: block;
+    }
   }
 }

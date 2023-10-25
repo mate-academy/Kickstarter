@@ -6,6 +6,8 @@
 
   background-color: $page-background-c;
 
+  z-index: 100;
+
   @include onTablet {
     padding-inline: 34px;
     padding-block: 8px;
@@ -42,16 +44,29 @@
     display: block;
 
     padding: 17px 37px;
+    margin-bottom: 40px;
     width: 100%;
 
+    text-transform: uppercase;
     text-align: center;
     color: $c-white;
     font-family: "Roboto", sans-serif;
     font-size: 12px;
     font-weight: 500;
-    line-height: 15px;
 
     background-color: $btn-c;
+
+    @include onTablet {
+      margin: 0;
+    }
+
+    @include onDeskTop {
+      @include hover (transform, scale(110%));
+
+      &:hover {
+        background-color: $btn-hover;
+      }
+    }
 
     @include onTablet {
       margin-left: 30px;
@@ -74,6 +89,12 @@
     margin-bottom: 50px;
 
     list-style: none;
+  }
+
+  &__item {
+    @include onDeskTop {
+      @include hover(transform, scale(105%));
+    }
   }
 
   &__link {
