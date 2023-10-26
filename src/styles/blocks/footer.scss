@@ -1,0 +1,45 @@
+.footer {
+  padding-bottom: 20px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__logo {
+    display: none;
+
+    @include onTablet {
+      display: initial;
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      @include hover(transform, scale(1.1),
+      filter, brightness(0) saturate(100%) invert(33%) sepia(52%)
+      saturate(1803%) hue-rotate(149deg) brightness(86%) contrast(91%));
+    }
+  }
+
+  &__social-block {
+    width: 65%;
+    max-width: 160px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+
+    @include onTablet {
+      margin-bottom: 63px;
+    }
+  }
+
+  &__icon {
+    fill: $c-icons-default;
+
+    @include onDesktop {
+      @include hover(fill, $c-main-hover, transform, scale(1.2));
+    }
+  }
+}

@@ -1,0 +1,88 @@
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+
+  @include onTablet {
+    padding: 30px 0;
+  }
+
+  @include onDesktop {
+    padding: 42px 0;
+  }
+
+  &__logo {
+    animation: moveInLeft 1s ease-out;
+
+    @include onDesktop {
+      @include hover(transform, scale(1.1),
+      filter, brightness(0) saturate(100%) invert(33%) sepia(52%)
+      saturate(1803%) hue-rotate(149deg) brightness(86%) contrast(91%));
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+  }
+
+  &__link,
+  &__languages,
+  &__button {
+    display: none;
+    font-family: "Helvetica Neue", "Helvetica", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: $fz-small;
+    line-height: 18px;
+
+    @include onTablet {
+      display: initial;
+    }
+  }
+
+  &__link,
+  &__language-en,
+  &__language-ua {
+    text-decoration: none;
+  }
+
+  &__link {
+    padding: 16px;
+    border: 1px solid transparent;
+    line-height: 17px;
+    color: $c-icons-default;
+
+    @include onDesktop {
+      @include hover(border-color, $c-text-dark);
+    }
+  }
+
+  &__language-en {
+    color: $c-text-dark;
+
+    @include onDesktop {
+      @include hover(color, $c-main-hover);
+    }
+  }
+
+  &__language-ua {
+    color: $c-border-grey;
+
+    @include onDesktop {
+      @include hover(color, $c-main-hover);
+    }
+  }
+
+  &__burger-menu {
+    width: 24px;
+    height: 14px;
+    background: url("/icons/burger.svg") center / contain no-repeat;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,78 @@
+.slider {
+  position: relative;
+  display: block;
+  padding-bottom: 40px;
+  min-height: 370px;
+
+  @include onTablet {
+    min-height: 395px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    padding-bottom: 0;
+  }
+
+  &__item {
+    display: none;
+    border-radius: 10px;
+
+    @include onDesktop {
+      display: initial;
+
+      @include hover(transform, translateX(-10%) scale(1.05),
+      box-shadow, 10px 15px 40px 10px $c-main-hover);
+    }
+
+    &--active {
+      display: initial;
+      animation: fadeInUp 1s ease;
+    }
+  }
+
+  &__title {
+    padding: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: $c-main-hover;
+  }
+
+  &__list {
+    padding-left: 30px;
+  }
+
+  &__list-items {
+    margin-bottom: 10px;
+    @include smallText($fz-small);
+
+    &:last-child {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__arrows-block {
+    margin-bottom: 8px;
+  }
+
+  &__index-total {
+    font-size: 11px;
+    line-height: 13px;
+    color: $c-main-hover;
+  }
+}

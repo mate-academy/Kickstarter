@@ -1,0 +1,32 @@
+.dots {
+  position: absolute;
+  bottom: -5%;
+  left: 50vw;
+  transform: translateX(-50%);
+  display: flex;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &__dot {
+    border: none;
+    background-color: $c-main-dark ;
+    opacity: 0.7;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin-right: 17px;
+    cursor: pointer;
+    transition: background-color 0.5s, opacity 0.5s;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    &--active {
+      background-color: $c-main-hover;
+      opacity: 1;
+    }
+  }
+}

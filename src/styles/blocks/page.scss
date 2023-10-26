@@ -1,0 +1,105 @@
+.page {
+  --default-margin: 110px;
+  --default-paddings: 30px;
+  --font-size-title: 30px;
+  --line-hight-title: 40px;
+
+  @include onTablet {
+    --default-margin: 140px;
+    --default-paddings: 34px;
+    --font-size-title: 36px;
+    --line-hight-title: 46px;
+  }
+
+  @include onDesktop {
+    --default-margin: 170px;
+    --default-paddings: 123px;
+    --font-size-title: 56px;
+    --line-hight-title: 70px;
+  }
+
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  @include smallText($fz-default);
+  color: $c-text-dark;
+
+  background-color: $c-bg-page;
+  scroll-behavior: smooth;
+
+  &__body {
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    @include onDesktop {
+      position: initial;
+      transform: none;
+      margin-bottom: 64px;
+    }
+  }
+
+  &__section-title {
+    font-weight: 700;
+    font-size: var(--font-size-title);
+    line-height: var(--line-hight-title);
+    text-transform: uppercase;
+  }
+
+  &__title-image {
+    width: 100vw;
+
+    max-width: 846px;
+    margin-bottom: var(--default-margin);
+
+    @media (min-width: 1024px) {
+      display: block;
+      margin: 0 auto var(--default-margin) auto;
+    }
+  }
+
+  &__page-up-btn {
+    @include circle(40px);
+    position: sticky;
+    left: 87%;
+    bottom: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    fill: $c-text-dark;
+    opacity: 0;
+    pointer-events: none;
+
+    transition: transform 0.4s,
+      fill 0.4s,
+      border-color 0.4s,
+      box-shadow 0.4s,
+      background-color 0.4s,
+      opacity 0.4s;
+
+    @include onDesktop {
+      &:hover,
+      &:active {
+        transform: scale(1.1);
+        fill: $c-main-hover;
+        border-color: $c-main-hover;
+        background-color: rgba($c-main-medium, 0.3);
+        box-shadow: 0 0 5px 5px rgba($c-main-hover, 0.2);
+      }
+    }
+  }
+}

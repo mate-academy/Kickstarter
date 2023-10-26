@@ -1,0 +1,62 @@
+.technology {
+  &__block {
+    grid-template-rows: min-content (minmax(320px, 1fr));
+    margin-bottom: var(--default-margin);
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__img-block {
+    grid-row: 1 / -1;
+
+    position: relative;
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      position: absolute;
+      width: 110%;
+      height: 100%;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      position: initial;
+      width: 100%;
+      @include hover(transform, scale(0.95),
+      filter, blur(1px) contrast(90%) drop-shadow(8px 8px 10px $c-border-grey));
+    }
+
+    &--left {
+      @include onTablet {
+        left: -10%;
+      }
+    }
+
+    &--right {
+      @include onTablet {
+        right: -10%;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    @include smallText($fz-small);
+    color: $c-text-medium;
+
+    @include onTablet {
+      margin-bottom: 60px;
+      @include smallText($fz-default);
+    }
+  }
+}
