@@ -7,6 +7,7 @@
     display: none;
     width: 100%;
     justify-content: center;
+    gap: 84px;
 
     @include onDesktop {
       display: flex;
@@ -14,16 +15,26 @@
   }
 
   &__item {
-    &-link:not(:last-child) {
-      margin-right: 84px;
-    }
     display: none;
     flex-direction: column;
     text-align: center;
     align-items: center;
-    margin: 0 auto;
-    &:first-child {
-      display: flex;
+    transition: transform $transition-Time;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &-link {
+      transition: transform $transition-Time;
+    }
+
+    &-link:not(:last-child) {
+      margin-right: 84px;
+    }
+
+    &-link:hover {
+      transform: scale(1.1);
     }
 
     @include onTablet {
@@ -62,6 +73,6 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
-    color: $c-5;
+    color: $secondary-text-color;
   }
 }

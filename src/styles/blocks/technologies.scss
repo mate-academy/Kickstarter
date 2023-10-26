@@ -10,7 +10,6 @@
   }
 
   &__item {
-
     @include onTablet {
       @include pageGrid;
       position: relative;
@@ -62,7 +61,7 @@
 
   &__text {
     margin-bottom: 30px;
-    color: $c-5;
+    color: $secondary-text-color;
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
@@ -79,9 +78,10 @@
     font-weight: 700;
     line-height: 14px;
     text-transform: uppercase;
-    color: $c-1;
+    color: $link-color;
     position: relative;
     padding-bottom: 5px;
+    transform: all .3s;
 
     @include onTablet {
       grid-column: 5 / 9;
@@ -90,14 +90,21 @@
     @include onDesktop {
       grid-column: 7 / 13;
     }
+
+
     &::after {
       content: "";
       position: absolute;
       width: 53px;
       height: 1px;
-      background-color: $c-1;
+      background-color: $link-color;
       bottom: 0;
       left: 0;
+      transition: width .3s;
+    }
+
+    &:hover::after {
+      width: 120px;
     }
   }
 }
