@@ -1,0 +1,137 @@
+.technology {
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image--one {
+    @include mediumDevices {
+      margin-left: -34px;
+    }
+
+    @include smallDevices {
+      display: none;
+    }
+  }
+
+  &__image--two {
+    @include mediumDevices {
+      margin-right: -34px;
+    }
+
+    @include smallDevices {
+      display: none;
+    }
+  }
+
+  &__image-container {
+    width: 582px;
+    height: 388px;
+
+    @include hover(transform, scale(1.05));
+
+    @include mediumDevices {
+      width: 582px;
+      min-width: 400px;
+      height: 388px;
+    }
+
+    @include smallDevices {
+      width: 100%;
+      height: auto;
+      max-width: 500px;
+    }
+  }
+
+  &__image--small {
+    @include mediumDevices {
+      display: none;
+    }
+
+    @include bigDevices {
+      display: none;
+    }
+  }
+
+  &__text-container {
+    width: 582px;
+    padding-bottom: 170px;
+
+    @include smallDevices {
+      padding-bottom: 110px;
+    }
+  }
+
+  &__h2 {
+    margin-bottom: 20px;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 70px;
+    text-transform: uppercase;
+    color: $title-grey;
+
+    @include mediumDevices {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include smallDevices {
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 40px;
+    }
+  }
+
+  &__p {
+    color: $sub-grey;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    padding-bottom: 60px;
+
+    @include smallDevices {
+      margin-top: 30px;
+    }
+  }
+
+  &__link-container {
+    width: 128px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $link-color;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+
+    &::after {
+      content: "";
+      position: relative;
+      bottom: -8px;
+      display: block;
+      height: 1px;
+      width: 50%;
+      background-color: $link-color;
+
+      transition: width 0.3s;
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
