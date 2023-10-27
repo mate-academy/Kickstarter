@@ -1,0 +1,161 @@
+.about {
+  &__reason {
+    @include onTablet {
+      @include pageGrid;
+    }
+
+    &--2 {
+      @include onDesktop {
+        margin-top: 170px;
+      }
+    }
+  }
+
+  &__img-mob {
+    background-size: cover;
+    height: 210px;
+
+    &--1 {
+      background-image: url(../images/main/about/about_1_mob.png);
+      margin-block: 30px 20px;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--2 {
+      background-image: url(../images/main/about/about_2_mob.png);
+      margin-block: 20px 18px;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__img-tabl {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 415px;
+      width: 49%;
+
+      &--1 {
+        background-image: url(../images/main/about/about_1_tabl.png);
+        margin-block: -340px 140px;
+        grid-column: span 4;
+      }
+
+      &--2 {
+        background-image: url(../images/main/about/about_2_tabl.png);
+        margin-left: 52%;
+        margin-top: -246px;
+      }
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__img-deskt {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      &--1 {
+        background-image: url(../images/main/about/about_1_deskt.png);
+        height: 388px;
+        grid-column: span 6;
+      }
+
+      &--2 {
+        background-image: url(../images/main/about/about_2_deskt.png);
+        height: 401px;
+        grid-column: 7 / -1;
+      }
+    }
+  }
+
+  &__content-right {
+    display: flex;
+    flex-direction: column;
+    grid-column: 5 / -1;
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__content-left {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / 5;
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: $btn-color;
+    text-decoration: none;
+    margin-top: 30px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 1px;
+      bottom: -5px;
+      width: 53px;
+      display: block;
+      background-color: $btn-color;
+
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scaleX(2.4);
+    }
+
+    @include onTablet {
+      margin: 0;
+    }
+  }
+
+  &__text {
+    @include onTablet {
+      margin-block: 30px 60px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__header {
+    margin-top: 110px;
+    font-size: 36px;
+    line-height: 46px;
+
+    @include onTablet {
+      margin: 0;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+}

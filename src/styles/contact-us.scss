@@ -1,0 +1,85 @@
+.contact-us {
+  @include onTablet {
+    @include pageGrid;
+  }
+  &__h3 {
+    grid-column: span 4;
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__form {
+    margin-top: 27px;
+    display: grid;
+
+    @include onTablet {
+      margin: 0;
+      grid-column: span 4;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__input {
+    background-color: inherit;
+    border: 1px solid #828282;
+    height: 48px;
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 12px 20px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+
+    &::placeholder {
+      color: #bdbdbd;
+    }
+
+    &:focus::placeholder {
+      color: $header-color;
+    }
+
+    &:focus {
+      outline: 1px solid $btn-color;
+      color: $header-color;
+    }
+
+    &--textarea {
+      margin-block: 20px 30px;
+      height: 128px;
+
+      @include onTablet {
+        height: 201px;
+      }
+
+      @include onDesktop {
+        height: 128px;
+      }
+    }
+  }
+
+  &__btn {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #fff;
+
+    box-sizing: border-box;
+    background-color: $btn-color;
+    border: none;
+    width: 102px;
+    cursor: pointer;
+
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: #0c797a;
+    }
+  }
+}
