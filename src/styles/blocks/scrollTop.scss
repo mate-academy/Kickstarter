@@ -1,0 +1,47 @@
+.scrollTop {
+  position: fixed;
+  bottom: 70px;
+  right: 50px;
+
+  width: 32px;
+  height: 32px;
+
+  display: none;
+  padding: 20px;
+
+  border: 2px solid transparent;
+  border-radius: 50%;
+
+  opacity: 0;
+
+  &__button {
+    padding: 10px;
+    background-image: url(../images/icons/back-to-top.svg);
+    background-size: cover;
+  }
+
+  @include onTablet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include onDesktop {
+    bottom: 100px;
+    right: 125px;
+  }
+
+  transition: transform $transition-Time,
+    border-color $transition-Time,
+    opacity $transition-Time;
+
+  &:hover {
+    transform: scale(1.2);
+
+    border-color: $primary-text-color;
+
+    .scrollTop__button--image {
+      fill: $primary-text-color;
+    }
+  }
+}

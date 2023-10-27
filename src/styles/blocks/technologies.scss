@@ -1,0 +1,129 @@
+.technologies {
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 110px;
+
+    @include onTablet {
+      gap: 140px;
+    }
+  }
+
+  &__item {
+    @include onTablet {
+      @include pageGrid;
+      position: relative;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: 20px;
+
+    &-left {
+      width: 100%;
+      @include onTablet {
+        position: absolute;
+        right: 6%;
+        object-fit: cover;
+        grid-column: 1 / 5;
+        grid-row: 1 / -1;
+        min-height: 388px;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 7;
+        right: 0;
+      }
+    }
+
+    &-right {
+      width: 100%;
+      @include onTablet {
+        position: absolute;
+        min-height: 388px;
+        left: 6%;
+        object-fit: cover;
+        grid-column: 5 / 9;
+        grid-row: 1 / -1;
+      }
+
+      @include onDesktop {
+        grid-column: 7 / 13;
+        left: 0;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    color: $secondary-text-color;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: $link-color;
+    position: relative;
+    padding-bottom: 5px;
+    transform: all $transition-Time;
+
+    @include onTablet {
+      grid-column: 5 / 9;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 13;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 53px;
+      height: 1px;
+      background-color: $link-color;
+      bottom: 0;
+      left: 0;
+      transition: width $transition-Time;
+    }
+
+    &:hover::after {
+      width: 120px;
+    }
+  }
+}
+
+.right {
+  @include onTablet {
+    grid-column: 5 / 9;
+  }
+
+  @include onDesktop {
+    grid-column: 7 / 13;
+  }
+}
+
+.left {
+  @include onTablet {
+    grid-column: 1 / 5;
+  }
+
+  @include onDesktop {
+    grid-column: 1 / 7;
+  }
+}
