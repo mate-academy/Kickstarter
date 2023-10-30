@@ -1,0 +1,119 @@
+.design {
+  &__block {
+    display: flex;
+    flex-direction: column;
+    min-height: 390px;
+    margin-bottom: 110px;
+    &--1 {
+      @include onTablet {
+        margin-bottom: 140px;
+        display: grid;
+        grid-column-gap: 20px;
+        grid-template-columns: repeat(8,1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: "i i i i h h h h"
+          "i i i i t t t t"
+          "i i i i l l l l";
+      }
+      @include onDesktop {
+        margin-bottom: 170px;
+        grid-column-gap: 30px;
+        grid-template-columns: repeat(12,1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: "i i i i i i h h h h h h"
+          "i i i i i i t t t t t t"
+          "i i i i i i l l l l l l";
+      }
+    }
+    &--2 {
+      @include onTablet {
+        display: grid;
+        grid-column-gap: 20px;
+        grid-template-columns: repeat(8,1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: "h h h h i i i i"
+          "t t t t i i i i"
+          "l l l l i i i i";
+      }
+      @include onDesktop {
+        grid-column-gap: 30px;
+        grid-template-columns: repeat(12,1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: "h h h h h h i i i i i i"
+          "t t t t t t i i i i i i"
+          "l l l l l l i i i i i i";
+      }
+    }
+  }
+  &__header {
+    margin-bottom: 30px;
+    @include onTablet {
+      grid-area: h;
+    }
+  }
+  &__main-text {
+    color: #7c7c7c;
+    margin-bottom: 30px;
+    @include onTablet {
+      grid-area: t;
+    }
+  }
+  &__image {
+    width: 100%;
+    height: 210px;
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+    @include hover(opacity, 0.7);
+    @include onTablet {
+      grid-area: i;
+      background-position: center;
+      height: 415px;
+    }
+    @include onDesktop {
+      height: 388px;
+    }
+    &--1 {
+      background-image: url("../images/design-1-mobile.jpg");
+      @include onTablet {
+        background-image: url("../images/design-1-tablet.jpg");
+      }
+      @include onDesktop {
+        background-image: url("../images/design-1-desktop.jpg");
+      }
+    }
+
+    &--2 {
+      background-image: url("../images/design-2-mobile.jpg");
+      @include onTablet {
+        background-image: url("../images/design-2-tablet.jpg");
+      }
+      @include onDesktop {
+        background-image: url("../images/design-2-desktop.jpg");
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: #0db2b3;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    @include hover(opacity, 0.5);
+    &::after {
+      content: "";
+      display: block;
+      margin-top: 5px;
+      height: 1px;
+      width: 53px;
+      background-color: #0db2b3;
+    }
+    @include onTablet {
+      grid-area: l;
+    }
+  }
+}

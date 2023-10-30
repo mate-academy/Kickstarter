@@ -1,0 +1,88 @@
+.benefits {
+  @include onTablet {
+    display: grid;
+    column-gap: 20px;
+    row-gap: 62px;
+    grid-template-columns: repeat(8, 1fr);
+    
+  }
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    margin-bottom: 60px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      margin-bottom: 0;
+      align-items: center;
+      justify-items: center;
+      grid-template-columns: auto;
+    }
+    &--1 {
+      @include onTablet {
+        grid-column: 1/5;
+      }
+      @include onDesktop {
+        grid-column: 1/4;
+      }
+    }
+    &--2 {
+      @include onTablet {
+        grid-column: 5/9;
+      }
+      @include onDesktop {
+        grid-column: 4/7;
+      }
+    }
+    &--3 {
+      @include onTablet {
+        grid-column: 1/5;
+      }
+      @include onDesktop {
+        grid-column: 7/10;
+      }
+    }
+    &--4 {
+      @include onTablet {
+        grid-column: 5/9;
+      }
+      @include onDesktop {
+        grid-column: 10/13;
+      }
+    }
+  }
+
+  &__item-image {
+    height: 50px;
+    width: 40px;
+    margin-bottom: 20px;
+    @include hover(scale, 1.2);
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+    @include onDesktop {
+      margin-bottom: 34px;
+    }
+  }
+  &__item-header {
+    text-align: center;
+    margin-bottom: 20px;
+    @include onTablet {
+      min-height: 56px;
+    }
+    @include onDesktop {
+      margin-bottom: 24px;
+    }
+  }
+  &__item-text {
+    text-align: center;
+  }
+}
