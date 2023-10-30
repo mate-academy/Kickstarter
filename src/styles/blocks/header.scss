@@ -1,18 +1,58 @@
 .header {
+  height: 100vh;
+
+  &__top {
+    @include onTablet {
+      margin-bottom: 100px;
+    }
+  }
+
+  &__bottom {
+    @include pageGrid;
+  }
+
   &__image {
+    margin-inline: -30px;
     margin-bottom: 40px;
+
+    @include onTablet {
+      margin-inline: -34px;
+      grid-column: 4 / -1;
+      grid-row: 1 / 3;
+    }
+
+    @include onDesktop {
+      margin-inline: 0;
+      grid-column: 5 / -1;
+      grid-row: 1 / 3;
+    }
   }
 
   &__title {
     margin-bottom: 20px;
+    width: min-content;
 
     font-size: 40px;
     font-weight: 700;
     line-height: 130%;
     text-transform: uppercase;
+
+    @include onTablet {
+      margin-bottom: 30px;
+      grid-column: 1 / 5;
+      grid-row: 1;
+      align-self: end;
+
+      font-size: 48px;
+
+    }
   }
 
   &__description {
     line-height: 150%;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
   }
 }
