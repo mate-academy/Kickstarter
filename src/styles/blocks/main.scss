@@ -1,0 +1,109 @@
+.main {
+  display: grid;
+  row-gap: 110px;
+
+  @include onTablet {
+    row-gap: 140px;
+  }
+
+  @include onDesktop {
+    margin-top: 90px;
+    row-gap: 170px;
+  }
+
+  &-image {
+    width: 100vw;
+    height: 195px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url(../images/background-image/main-bg-mobile.png);
+
+    @include onTablet {
+      background-image: url(../images/background-image/main-bg-tablet.png);
+      height: 430px;
+    }
+
+    @include onDesktop {
+      background-image: url(../images/background-image/main-bg-desktop.png);
+      height: 520px;
+    }
+  }
+
+  &__comments {
+    @include grid;
+    row-gap: 30px;
+
+    @include onTablet {
+      row-gap: 40px;
+    }
+
+    @include onDesktop {
+      row-gap: 30px;
+      background-image: url(../images/icon/icon-qoute.svg);
+      background-repeat: no-repeat;
+      background-position: center -10%;
+    }
+
+    &-top {
+      display: grid;
+      grid-template-rows: 50px 1fr;
+      grid-column: 1 / 5;
+      background-image: url(../images/icon/icon-qoute.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @include onTablet {
+        grid-column: 1 / 9;
+      }
+
+      @include onDesktop {
+        grid-column: 3 / 11;
+        background-image: none;
+      }
+
+      &--text {
+        grid-row: 2;
+        color: $color-text-main;
+        text-align: center;
+        font-family: $font-family-main;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 20px;
+
+        @include onTablet {
+          font-size: 24px;
+          line-height: 36px;
+        }
+      }
+    }
+
+    &-bottom {
+      display: grid;
+      grid-template-rows: 67px 1fr 1fr;
+      grid-column: 1 / 5;
+      justify-items: center;
+      row-gap: 5px;
+
+      @include onTablet {
+        grid-column: 4 / 6;
+      }
+
+      @include onDesktop {
+        grid-column: 6 / 8;
+      }
+
+      &--img {
+        width: 62px;
+        height: 62px;
+        object-fit: cover;
+        transition: transform 0.3s ease-out;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

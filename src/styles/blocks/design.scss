@@ -1,0 +1,149 @@
+.design {
+  @include grid;
+  row-gap: 110px;
+
+  @include onTablet {
+    grid-template-rows: 415px 415px;
+    row-gap: 140px;
+    padding-inline: 0;
+    width: 100vw;
+    justify-content: left;
+  }
+
+  @include onDesktop {
+    justify-content: center;
+    row-gap: 170px;
+  }
+
+  &__content {
+    display: grid;
+    row-gap: 20px;
+    grid-template-rows: 1fr 210px 160px 20px;
+    grid-column: 1 / 5;
+    padding-inline: 0;
+
+    @include onTablet {
+      grid-column: 1 / 9;
+
+      display: grid;
+      grid-template-rows: 80px 130px 20px;
+      row-gap: 30px;
+      column-gap: 20px;
+      justify-content: left;
+      width: 100vw;
+      padding: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 13;
+      width: 100%;
+
+      display: grid;
+      grid-template-columns: repeat(12, 72px);
+      grid-template-rows: 140px 130px 20px;
+      column-gap: 30px;
+
+      padding-inline: 0;
+    }
+
+    &-title {
+      @include onTablet {
+        align-self: self-start;
+        grid-row: 1;
+        grid-column: 5 / 9;
+        margin-right: 34px;
+
+        &--revers {
+          grid-column: 1 / 5;
+          margin-left: 34px;
+        }
+      }
+
+      @include onDesktop {
+        margin-right: 0;
+        grid-column: 7 / 13;
+
+        &--revers {
+          grid-column: 1 / 7;
+          margin-left: 0;
+        }
+      }
+    }
+
+    &-image {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+
+      @include onTablet {
+        grid-column: 1 / 5;
+        grid-row: 1 / 4;
+        height: 415px;
+        width: 50vw;
+        object-position: left;
+
+        &--revers {
+          grid-column: 5 / 9;
+        }
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 7;
+        width: 582px;
+        height: 388px;
+
+        &--revers {
+          grid-column: 7 / 13;
+        }
+      }
+    }
+
+    &-description {
+      text-align: left;
+      color: $color-text-secondary;
+
+      @include onTablet {
+        grid-row: 2;
+        grid-column: 5 / 9;
+        margin-right: 34px;
+
+        &--revers {
+          grid-column: 1 / 5;
+          margin-left: 34px;
+        }
+      }
+
+      @include onDesktop {
+        grid-column: 7 / 13;
+        margin-right: 0;
+
+        &--revers {
+          grid-column: 1 / 7;
+          margin-left: 0;
+        }
+      }
+    }
+
+    &-link {
+      @include onTablet {
+        align-self: self-end;
+        grid-row: 3;
+        grid-column: 5 / 7;
+
+        &--revers {
+          grid-column: 1 / 5;
+          margin-left: 34px;
+        }
+      }
+
+      @include onDesktop {
+        grid-column: 7 / 13;
+
+        &--revers {
+          grid-column: 1 / 7;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

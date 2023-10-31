@@ -1,0 +1,134 @@
+.header {
+  @include grid;
+  grid-template-rows: 76px 1fr 1fr;
+  row-gap: 40px;
+  height: 100vh;
+  position: relative;
+
+  @include onTablet {
+    grid-template-rows: 76px 1fr;
+  }
+
+  @include onDesktop {
+    grid-template-rows: 76px 1fr 56px;
+  }
+
+  &__image {
+    display: block;
+    background-image: url(../images/background-image/header-bg-mobile.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    background-blend-mode: darken;
+    width: 100%;
+    height: 245px;
+    position: absolute;
+    bottom: 60%;
+
+    grid-row: 2;
+    grid-column: span 4;
+
+    @include onTablet {
+      background-image: url(../images/background-image/header-bg-tablet.png);
+      background-position: right bottom;
+      height: 317px;
+      bottom: 30%;
+    }
+
+    @include onDesktop {
+      background-image: url(../images/background-image/header-bg-desktop.png);
+      height: 464px;
+      bottom: 20%;
+      right: 5%;
+    }
+  }
+
+  &__content {
+    display: grid;
+    row-gap: 20px;
+    grid-row: 3;
+    grid-column: 1 / 5;
+
+    @include onTablet {
+      align-content: center;
+      grid-row: 2;
+      grid-template-rows: 186px 120px;
+      row-gap: 30px;
+    }
+
+    @include onDesktop {
+      grid-template-rows: 234px 120px;
+    }
+
+    &-description {
+      @include onTablet {
+        width: 75%;
+      }
+
+      @include onDesktop {
+        width: 70%;
+      }
+    }
+  }
+
+  &__buttons {
+    display: grid;
+    align-items: center;
+    grid-template-rows: 17px 1fr;
+    grid-row: 2;
+    grid-column: span 4;
+    row-gap: 160px;
+    padding-bottom: 30px;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &-language {
+      display: grid;
+      grid-template-columns: 28px 28px;
+      grid-template-rows: 1fr;
+      grid-column: 2;
+    }
+
+    &-desc {
+      grid-row: 1;
+      color: $color-text-grey;
+      width: 45px;
+      font-weight: 300;
+      text-decoration: none;
+      transition: all 0.3s ease-out;
+
+      &:hover {
+        color: $color-text-main;
+        font-weight: 400;
+      }
+
+      &--active {
+        grid-row: 1;
+        font-weight: 400;
+        color: $color-text-main;
+      }
+    }
+
+    &--main {
+      display: none;
+
+      @include onTablet {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 45px 45px 100px;
+        column-gap: 30px;
+        align-items: center;
+        justify-content: end;
+        grid-row: 1;
+        grid-column: 5 / 8;
+        font-size: 14px;
+      }
+
+      @include onDesktop {
+        grid-column: 10 / 13;
+      }
+    }
+  }
+}
