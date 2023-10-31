@@ -1,0 +1,49 @@
+.benefits {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, minmax(230px, 1fr));
+  column-gap: 30px;
+
+  @include on-tablet {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    row-gap: 60px;
+    column-gap: 20px;
+  }
+
+  @include on-mobile {
+    grid-template-columns: minmax(260px, 1fr);
+  }
+
+  &__card {
+    transition: transform $transition-duration;
+    text-align: center;
+
+    &:hover {
+      transform: scale(1.2);
+
+      @include on-mobile {
+        transform: none;
+      }
+    }
+  }
+
+  &__image {
+    height: 40px;
+    width: 50px;
+    margin-bottom: 45px;
+  }
+
+  &__title {
+    height: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  &__text {
+    font-size: $font-size-small;
+    color: $color-grey;
+    line-height: 21px;
+  }
+}
