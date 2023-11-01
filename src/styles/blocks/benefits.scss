@@ -1,0 +1,27 @@
+.benefits {
+  &__content {
+    @include onTablet {
+      @include pageGrid;
+      row-gap: 65px;
+    }
+
+    & > :not(:first-child) {
+      height: 0;
+      overflow: hidden;
+
+      @include onTablet {
+        height: auto;
+      }
+    }
+  }
+
+  &__item {
+    @include onTablet {
+      grid-column: span 4;
+    }
+
+    @include onDesktop {
+      grid-column: span 3;
+    }
+  }
+}
