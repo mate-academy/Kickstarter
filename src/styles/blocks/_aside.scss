@@ -1,0 +1,67 @@
+.menu {
+  @include pagePadding;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
+  height: 100vh;
+  background-color: $lightestGray;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  &-header {
+    height: 48px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__content {
+    margin-top: 55px;
+    height: inherit;
+
+    &-text {
+      @extend %quote-mobile;
+      font-weight: 400;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      &--bold {
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__buy-button{
+    display: flex;
+    height: 48px;
+    width: 100%;
+  }
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    transition: all 0.3s;
+  }
+}
+
+.header__actions{
+  &--menu {
+    margin-top: 50px;
+
+  }
+}
+
+@include onTablet {
+  .menu__buy-button {
+    display: none;
+  }
+}

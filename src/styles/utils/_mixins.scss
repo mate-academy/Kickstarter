@@ -4,3 +4,41 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: 744px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1260px) {
+    @content;
+  }
+}
+
+@mixin pagePadding {
+  padding: 25px 30px 20px;
+
+  @include onTablet {
+    padding: 30px 34px 30px;
+  }
+
+  @include onDesktop() {
+    padding: 30px 123px 30px;
+  }
+}
+
+@mixin pageGap {
+  gap: 110px;
+
+  @include onTablet {
+    gap: 140px;
+  }
+
+  @include onDesktop() {
+    gap: 170px;
+  }
+}
+
+
