@@ -1,0 +1,39 @@
+.question {
+  @include grid;
+  grid-template-rows: 120px 1fr;
+  row-gap: 27px;
+
+  @include onTablet {
+    grid-template-rows: 1fr;
+  }
+
+  &__title {
+    grid-row: 1;
+    grid-column: 1 / 5;
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__form {
+    grid-row: 2;
+    grid-column: 1 / 5;
+
+    display: grid;
+    grid-template-rows: 48px 138px 40px;
+    row-gap: 20px;
+
+    @include onTablet {
+      grid-column: 5 / 9;
+      grid-row: 1;
+
+      grid-template-rows: 48px 221px 40px;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 13;
+      grid-template-rows: 48px 148px 40px;
+    }
+  }
+}

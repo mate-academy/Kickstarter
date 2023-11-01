@@ -1,0 +1,65 @@
+.button {
+  color: #fff;
+  font-family: $font-family-main;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+
+  &--form {
+    background-color: $color-active;
+    width: 102px;
+    height: 40px;
+    transition: transform 0.3s ease-out;
+
+    &:hover {
+      background-color: $color-blue-title;
+    }
+  }
+
+  &--menu {
+    background-color: $color-text-main;
+    width: 100%;
+    height: 48px;
+    font-weight: 500;
+
+    align-self: end;
+    grid-column: 1 / 5;
+  }
+
+  &--top {
+    background-color: $color-text-main;
+    width: 102px;
+    height: 48px;
+    transition: background-color 0.3s ease-out;
+
+    &:hover {
+      background-color: $color-text-active;
+    }
+  }
+
+  &--content {
+    color: $color-active;
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 53px;
+      height: 1px;
+      background-color: $color-active;
+
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+
+      transition: width 0.3s ease-out;
+    }
+
+    &:hover::after {
+      width: 128px;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.menu {
+  @include grid;
+  grid-template-rows: 60px 1fr;
+  row-gap: 30px;
+
+  background-color: $color-bg;
+  box-sizing: border-box;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+
+  @include onTablet {
+    row-gap: 64px;
+  }
+
+  &__content {
+    @include grid;
+    grid-template-rows: 160px 1fr;
+    grid-column: 1 / 5;
+    row-gap: 50px;
+
+    padding-inline: 0;
+
+    @media (min-width: 600px) and (max-width: 743px) {
+      row-gap: 30px;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    @include onTablet {
+      grid-column: 1 / 9;
+    }
+  }
+
+  &__nav {
+    grid-column: 1 / 5;
+
+    @include onDesktop {
+      grid-column: 4 / 11;
+      grid-row: 3;
+    }
+  }
+}
