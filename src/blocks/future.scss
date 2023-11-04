@@ -1,0 +1,134 @@
+.future {
+
+  &__image {
+    display: block;
+    height: 100%;
+    order: 2;
+
+    @include tablet {
+      grid-column: 1 / 2;
+      position: relative;
+      order: 1;
+      margin-top: 130px;
+    }
+
+    @include main {
+      grid-column: 2 / 8;
+      order: 1;
+      margin-top: 130px;
+      position: relative;
+    }
+
+    &--map {
+      left: 0;
+      top: 0;
+      width: 100%;
+
+      @include tablet {
+        object-fit: cover;
+        object-position: right;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 415px;
+      }
+
+      @include main {
+        object-fit: cover;
+        object-position: right;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 388px;
+      }
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    grid-column: 1 / 5;
+    order: 4;
+
+    @include tablet {
+      grid-column: 2 / 3;
+      margin-right: 34px;
+    }
+
+    @include main {
+      grid-column: 8 / 12;
+    }
+
+    &--text {
+      font-size: 14px;
+      line-height: 21px;
+      color: #7c7c7c;
+      grid-column: 1 / 5;
+      margin-top: 30px;
+
+      @include tablet {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    &--button {
+      font-size: 12px;
+      line-height: 15px;
+      text-transform: uppercase;
+      color: #0db2b3;
+      text-decoration: none;
+      grid-column: 1 / 4;
+      margin-top: 30px;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 1px;
+        width: 54px;
+        background-color: #0db2b3;
+        margin-top: 5px;
+        transition: all 0.3s ease;
+      }
+
+      &:hover {
+
+        &::after {
+          width: 125px;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-family: "DIN Pro", sans-serif;
+    font-size: 37px;
+    line-height: 55px;
+    color: #333;
+    text-transform: uppercase;
+    margin-top: 89px;
+    margin-bottom: 50px;
+    order: 1;
+
+    @include tablet {
+      grid-column: 2 / 3;
+      margin-top: 138px;
+      margin-bottom: 0;
+      margin-left: -90px;
+      z-index: 2;
+      margin-right: 34px;
+      font-size: 56px;
+      line-height: 72px;
+    }
+
+    @include main {
+      grid-column: 8 / 12;
+      font-size: 56px;
+      line-height: 72px;
+      margin-top: 130px;
+      margin-left: -90px;
+      z-index: 2;
+    }
+  }
+}

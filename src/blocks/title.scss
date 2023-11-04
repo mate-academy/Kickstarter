@@ -1,0 +1,105 @@
+.title {
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    grid-column: 1 / 5;
+
+    @include tablet {
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 20px;
+      grid-column: 1 / 9;
+    }
+
+    @include main {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+      grid-column: 1 / 13;
+    }
+
+    &--name {
+      font-family: "DIN Pro", sans-serif;
+      font-size: 48px;
+      line-height: 130%;
+      text-transform: uppercase;
+      color: #333;
+      margin-top: 40px;
+      padding: 0 30px;
+      text-align: center;
+      grid-column: 1 / 5;
+  
+      @include tablet {
+        grid-column: 1 / 4;
+        margin-top: 29px;
+        text-align: left;
+        padding: 0;
+      }
+  
+      @include main {
+        grid-column: 1 / 5;
+        margin-top: 80px;
+        text-align: left;
+        padding: 0;
+        font-size: 64px;
+      }
+    }
+  
+    &--text {
+      font-size: 16px;
+      line-height: 24px;
+      color: #333;
+      margin-top: 23px;
+      padding: 0 30px;
+      text-align: center;
+      grid-column: 1 / 5;
+  
+      @include tablet {
+        grid-column: 1 / 4;
+        margin-top: 34px;
+        max-width: 250px;
+        text-align: left;
+        padding: 0;
+      }
+  
+      @include main {
+        grid-column: 1 / 4;
+        margin-top: 34px;
+        text-align: left;
+        padding: 0;
+      }
+    }
+  }
+
+  &__image {
+    overflow: hidden;
+
+    &--original {
+      height: 245px;
+      width: 500px;
+      overflow: hidden;
+      position: relative;
+      object-fit: cover;
+      object-position: left;
+
+      @include tablet {
+        height: 365px;
+        object-fit: cover;
+        position: absolute;
+        left: 37%;
+        z-index: -1;
+        width: 740px;
+      }
+
+      @include main {
+        height: 464px;
+        width: 940px;
+        object-fit: cover;
+        position: absolute;
+        left: 37%;
+        z-index: -1;
+      }
+    }
+  }
+}

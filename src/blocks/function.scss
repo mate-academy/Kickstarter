@@ -1,0 +1,145 @@
+.function {
+
+  &__content {
+    display: flex;
+    margin-top: 100px;
+    margin-bottom: 90px;
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 20px;
+      grid-template-rows: repeat(2, 1fr);
+      row-gap: 60px;
+      grid-column: 1 / 9;
+      margin-top: 120px;
+      margin-bottom: 130px;
+    }
+
+    @include main {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+      grid-column: 1 / 13;
+      margin-top: 45px;
+      margin-bottom: 150px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &--1 {
+
+      @include tablet {
+        grid-column: 1 / 5;
+      }
+
+      @include main {
+        grid-column: 1 / 4;
+      }
+    }
+
+    &--2 {
+      display: none;
+
+      @include tablet {
+        grid-column: 5 / 9;
+        display: flex;
+      }
+
+      @include main {
+        grid-column: 4 / 7;
+        display: flex;
+      }
+    }
+
+    &--3 {
+      display: none;
+
+      @include tablet {
+        display: flex;
+        grid-column: 1 / 5;
+      }
+
+      @include main {
+        display: flex;
+        grid-column: 7 / 10;
+      }
+    }
+
+    &--4 {
+      display: none;
+
+      @include tablet {
+        display: flex;
+        grid-column: 5 / 9;
+      }
+      
+      @include main {
+        display: flex;
+        grid-column: 10 / 13;
+      }
+    }
+
+    &--title {
+      font-family: "DIN Pro", sans-serif;
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #333;
+      margin-top: 45px;
+      height: 80px;
+    }
+
+    &--text {
+      font-size: 14px;
+      line-height: 21px;
+      text-align: center;
+      color: #7c7c7c;
+      margin-top: 50px;
+
+      @include tablet {
+        margin-top: 20px;
+      }
+
+      @include main {
+        margin-top: 20px;
+      }
+    }
+
+    &--image {
+      background-repeat: no-repeat;
+      background-size: contain;
+      display: block;
+      justify-content: center;
+
+      &-1 {
+        background-image: url(../images/Vector1.svg);
+        width: 50px;
+        height: 44px;
+      }
+
+      &-2 {
+        background-image: url(../images/Vector2.svg);
+        width: 46px;
+        height: 44px;
+      }
+
+      &-3 {
+        background-image: url(../images/Vector3.svg);
+        width: 46px;
+        height: 44px;
+      }
+
+      &-4 {
+        background-image: url(../images/Vector4.svg);
+        width: 44px;
+        height: 44px;
+      }
+    }
+  }
+}
