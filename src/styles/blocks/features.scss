@@ -1,0 +1,130 @@
+.features {
+  &__content {
+    background-color: #d6ecec;
+    margin-inline: -$inline-paddings;
+    padding-inline: $inline-paddings;
+    padding-top: 30px;
+
+    @include pageGrid;
+    align-items: start;
+
+    @include onTablet {
+      margin: 0;
+      padding-inline: 0;
+      padding-top: 60px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    display: none;
+
+    row-gap: 10px;
+
+    &--first {
+      display: grid;
+
+      @include onTablet {
+        grid-column: 2 / 5;
+      }
+
+      @include onDesktop {
+        grid-column: 2 / span 4;
+        padding-bottom: 56px;
+      }
+    }
+
+    &--second {
+      @include onDesktop {
+        display: grid;
+        grid-column: 2 / span 4;
+        padding-bottom: 56px;
+      }
+    }
+
+    &--third {
+      @include onDesktop {
+        display: grid;
+        grid-column: 7 / span 4;
+      }
+    }
+  }
+
+  &__list-title {
+    padding-bottom: 10px;
+
+    color: #0c797a;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    text-transform: uppercase;
+
+    @include onDesktop {
+      font-size: 34px;
+      line-height: 42px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__list-item {
+    color: $c-main-accent;
+    font-size: 14px;
+    line-height: 21px;
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    @include onDesktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      background-image: url("./../images/icons/bullet.svg");
+      background-position: center;
+      height: 6px;
+      width: 6px;
+      border-radius: 50%;
+    }
+  }
+
+  &__slider {
+    padding-top: 50px;
+
+    @include onTablet {
+      grid-column: 2 / 4;
+    }
+
+    @include onDesktop {
+      height: 0;
+      overflow: hidden;
+      padding: 0;
+    }
+  }
+
+  &__image {
+    margin-inline: -$inline-paddings;
+    height: 174px;
+    background-image: url("./../images/features-image.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+
+    @include onTablet {
+      margin-inline: 0;
+      grid-column: 4 / -1;
+      grid-row: span 2;
+      height: 226px;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+      grid-row: 2 / span 1;
+      height: 302px;
+      align-self: end;
+    }
+  }
+}
