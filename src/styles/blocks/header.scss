@@ -7,6 +7,14 @@
     @include onDesktop {
       padding-bottom: 170px;
     }
+    .pad {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 0;
+      @include onTablet {
+        padding-bottom: 0;
+      }
+    }
     .img1 {
       display: flex;
       overflow: hidden;
@@ -18,9 +26,7 @@
       background-repeat: no-repeat;
       transition: all 0.3s;
       background-image: url(../images/image1mob.png);
-
       @include onTablet {
-        justify-content: center;
         width: 400px;
         height: 317px;
         background-image: url(../images/image1Tab.png);
@@ -54,19 +60,40 @@
     }
   }
   .abriviaturP {
-    @include onTablet {
+    // .padTabl {
+    //   padding-bottom: 40px;
+    // }
+    .pad2 {
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      padding-bottom: 140px;
+      padding-bottom: 110px;
+      @include onTablet {
+        padding-bottom: 140px;
+      }
+      @include onDesktop {
+        padding-bottom: 170px;
+      }
     }
-    @include onDesktop {
-      flex-wrap: nowrap;
-      gap: 30px;
-      padding-bottom: 170px;
+    .pad2x {
+      @include onTablet {
+        padding-bottom: 170px;
+        display: flex;
+        justify-content: center;
+      }
     }
+    // @include onTablet {
+    //   display: flex;
+    //   flex-direction: row;
+    //   flex-wrap: wrap;
+    //   justify-content: center;
+    //   gap: 20px;
+    //   padding-bottom: 140px;
+    // }
+    // @include onDesktop {
+    //   flex-wrap: nowrap;
+    //   gap: 30px;
+    //
+    // }
     .title-disp1 {
       display: flex;
       flex-direction: column;
@@ -77,13 +104,21 @@
         padding-bottom: 0;
       }
       @include onDesktop {
-        width: 276px;
+        width: 285px;
       }
     }
     .title-disp--last {
       display: none;
       @include onTablet {
         display: flex;
+      }
+    }
+    .padGrid {
+      @include onTablet {
+        padding-bottom: 65px;
+      }
+      @include onDesktop {
+        padding-bottom: 0;
       }
     }
   }
@@ -156,17 +191,7 @@
       transform: scale(1.07);
     }
   }
-  .pad2 {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 110px;
-    @include onTablet {
-      padding-bottom: 140px;
-    }
-    @include onDesktop {
-      padding-bottom: 170px;
-    }
-  }
+
   .img2 {
     display: flex;
     overflow: hidden;
@@ -206,7 +231,6 @@
     font-size: 16px;
     line-height: 150%;
     color: $colorH1;
-    padding-bottom: 30px;
     text-align: left;
     @include onTablet {
       padding-bottom: 30px;
@@ -234,5 +258,8 @@
     line-height: 21px;
     color: $colorH1;
     text-align: center;
+    @include onDesktop {
+      padding: 0 16px;
+    }
   }
 }
