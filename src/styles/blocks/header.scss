@@ -1,0 +1,181 @@
+.header {
+  $root: &;
+
+  width: 100%;
+
+  background-color: $color-albaster;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom $transition-props;
+
+  &--scroll {
+    border-bottom: 1px solid $color-boulder;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @extend %container;
+
+    padding: 25px 30px;
+
+    @include mediamin(640px) {
+      padding: 18px 30px;
+    }
+  }
+
+  &__home-link {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: $color-iceberg;
+    visibility: hidden;
+
+    text-align: center;
+
+    transform: translateX(-100%);
+    transition: transform $transition-props, visibility $transition-props;
+
+    &--opened {
+      transform: translateX(0);
+      visibility: visible;
+    }
+
+    @include mediamin(640px) {
+      position: static;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      background-color: transparent;
+      visibility: visible;
+
+      transform: translate(0, 0);
+    }
+  }
+
+  &__nav {
+    margin-bottom: 20px;
+
+    @include mediamin(640px) {
+      display: none;
+    }
+  }
+
+  &__specs-link {
+    @extend %link-reset;
+
+    color: $color-shaft;
+    font-weight: 400;
+    font-size: 32px;
+
+    text-transform: uppercase;
+
+    transition: color $transition-props;
+
+    &:hover {
+      color: $color-cod-gray;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    @include mediamin(640px) {
+      margin-right: 28px;
+
+      color: $color-emperor;
+      font-size: 14px;
+      line-height: 20px;
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        color: $color-green-blue;
+      }
+    }
+  }
+
+  &__lang-btn {
+    @extend %btn-reset;
+
+    color: $color-shaft;
+    font-weight: 400;
+    font-size: 32px;
+
+    text-transform: uppercase;
+
+    transition: color $transition-props;
+
+    &:hover {
+      color: $color-cod-gray;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    @include mediamin(640px) {
+      color: $color-boulder;
+      font-size: 14px;
+      line-height: 20px;
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        color: $color-green-blue;
+      }
+
+      &--active {
+        color: $color-shaft;
+      }
+    }
+  }
+
+  &__lang {
+    margin-bottom: 20px;
+
+    color: $color-shaft;
+    font-weight: 400;
+    font-size: 32px;
+
+    text-transform: uppercase;
+
+    @include mediamin(640px) {
+      margin-bottom: 0;
+      margin-right: 48px;
+
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  &__buy-link {
+    font-size: 32px;
+    line-height: 1;
+
+    @include mediamin(640px) {
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+}

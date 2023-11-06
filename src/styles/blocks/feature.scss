@@ -1,0 +1,48 @@
+.feature {
+  &__heading {
+    @extend %text-reset;
+
+    color: $color-surfie;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 122%;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @include mediamin(1024px) {
+      font-size: 34px;
+    }
+  }
+
+  &__list {
+    @extend %list-reset;
+  }
+
+  &__item {
+    @extend %text-reset;
+
+    position: relative;
+
+    padding-left: 15px;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+
+      @include circle(4px);
+
+      background-color: $color-shaft;
+      transform: translate(0, -50%);
+    }
+
+    @include mediamin(1024px) {
+      font-size: 16px;
+    }
+  }
+}

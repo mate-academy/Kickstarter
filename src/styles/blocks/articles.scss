@@ -1,0 +1,33 @@
+.articles {
+  &__container {
+    @extend %container;
+
+    @include mediamin(640px) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    @include mediamin(1024px) {
+      padding-right: $container-hor-padding;
+      padding-left: $container-hor-padding;
+    }
+  }
+
+  &__list {
+    @extend %list-reset;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 110px;
+
+      @include mediamin(640px) {
+        margin-bottom: 140px;
+      }
+
+      @include mediamin(1024px) {
+        margin-bottom: 170px;
+      }
+    }
+  }
+}

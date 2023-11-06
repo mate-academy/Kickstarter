@@ -1,0 +1,105 @@
+.footer {
+  $root: &;
+
+  &__container {
+    @extend %container;
+    padding-bottom: 30px;
+
+    text-align: center;
+  }
+
+  &__row {
+    display: none;
+
+    @include mediamin(640px) {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      justify-items: center;
+
+      margin-bottom: 60px;
+    }
+  }
+
+  &__home-link {
+    grid-column: 2 / span 10;
+  }
+
+  &__btn-arrow {
+    @extend %link-reset;
+
+    grid-column: 12 / -1;
+
+    width: 20px;
+    height: 25px;
+
+    &:hover {
+      #{$root}__arrow-svg {
+        fill: $color-niagara;
+      }
+    }
+  }
+
+  &__arrow-svg {
+    fill: $color-shaft;
+
+    transition: fill $transition-props;
+  }
+
+  &__social {
+    @extend %list-reset;
+
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 30px;
+
+    @include mediamin(640px) {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+
+  &__link {
+    @extend %link-reset;
+
+    display: block;
+
+    &:hover {
+      #{$root}__svg {
+        fill: $color-green-blue;
+      }
+    }
+  }
+
+  &__svg {
+    @include square(22px);
+
+    fill: $color-shaft;
+
+    transition: fill $transition-props;
+  }
+
+  &__copy {
+    color: $color-silver;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+  }
+
+  &__policy-link {
+    @extend %link-reset;
+
+    display: inline-block;
+
+    transition: color $transition-props;
+
+    &:hover {
+      color: $color-niagara;
+    }
+  }
+}

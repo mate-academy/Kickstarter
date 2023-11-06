@@ -1,0 +1,55 @@
+.nav {
+  &__list {
+    @extend %list-reset;
+
+    @include mediamin(640px) {
+      display: flex;
+      justify-content: center;
+
+      padding: 28px;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    @include mediamin(640px) {
+      &:not(:last-child) {
+        margin-bottom: 0;
+        margin-right: 20px;
+      }
+    }
+
+    @include mediamin(1024px) {
+      &:not(:last-child) {
+        margin-right: 84px;
+      }
+    }
+  }
+
+  &__link {
+    @extend %link-reset;
+
+    color: $color-shaft;
+    font-size: 32px;
+
+    transition: color $transition-props;
+
+    &:hover {
+      color: $color-cod-gray;
+    }
+
+    &--active {
+      color: $color-surfie;
+    }
+
+    @include mediamin(640px) {
+      font-size: 14px;
+
+      &:hover {
+        color: $color-niagara;
+      }
+    }
+  }
+}
