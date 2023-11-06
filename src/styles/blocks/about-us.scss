@@ -7,8 +7,8 @@
   &__image {
     height: 210px;
     width: 100%;
-    object-fit: cover;
     margin-bottom: 20px;
+    object-fit: cover;
 
     @include onTablet {
       grid-row: 1 / 4;
@@ -72,7 +72,7 @@
   &__text {
     margin-bottom: 30px;
 
-    color: #7c7c7c;
+    color: $c-secondary-text;
     font-size: 14px;
     line-height: 21px;
 
@@ -82,19 +82,27 @@
   }
 
   &__link {
-    color: #0db2b3;
+    width: fit-content;
+
+    color: $c-green-accent;
     font-size: 12px;
     font-weight: 700;
     line-height: 14px;
     text-transform: uppercase;
 
-    ::after {
+    &::after {
       content: "";
       display: block;
       width: 53px;
       height: 1px;
-      background-color: #0db2b3;
+      background-color: $c-green-accent;
       margin-top: 5px;
+
+      transition: width $animation-speed;
+    }
+
+    &:hover::after {
+      width: 100%;
     }
 
     @include onTablet {
