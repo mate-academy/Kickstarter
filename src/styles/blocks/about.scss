@@ -1,0 +1,142 @@
+.about {
+
+  &__photo-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 210px;
+    overflow: hidden;
+    transition: all 0.4s;
+
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    @media (min-width: 600px ) {
+      height: 300px;
+    }
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      grid-row: 1 / 6;
+      margin-bottom: 0;
+      height: 415px;
+      z-index: -1;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 8;
+      grid-row: 1 / 6;
+      height: 388px;
+      max-width: 582px;
+      z-index: -1;
+    }
+  }
+
+  &__title {
+    margin: 0 0 40px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 37px;
+    line-height: 46px;
+    letter-spacing: -1.5px;
+    color: $black;
+
+    @include onTablet {
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 72px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    display: block;
+    width: 259px;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: all 0.4s;
+
+    @media (min-width: 500px) {
+      width: 450px;
+    }
+
+    @include onTablet {
+      object-fit: cover;
+      width: 623px;
+      object-position: -100px;
+    }
+
+    @include onDesktop {
+      width: 582px;
+      object-position: center;
+    }
+  }
+
+  &__paragraph {
+    display: block;
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 21px;
+    color: $grey;
+
+    @include onTablet {
+      margin-bottom: 60px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #0db2b3;
+    text-decoration: none;
+
+    &:after {
+      display: block;
+      content: "";
+      margin-top: 5px;
+      width: 53px;
+      height: 1px;
+      background-color: #0db2b3;
+      transition: width 0.5s;
+    }
+
+    &:hover {
+      &:after {
+        width: 120px;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      width: 340px;
+      padding-top: 34px;
+      grid-column: 5 / 9;
+      grid-row: 2 ;
+    }
+
+    @include onDesktop {
+      width: 480px;
+
+      padding-top: 25px;
+      grid-column: 8 / 13;
+      grid-row: 4;
+    }
+  }
+}

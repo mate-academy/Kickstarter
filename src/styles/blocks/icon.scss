@@ -1,0 +1,80 @@
+.icon {
+  display: block;
+  width: 20px;
+  height: 14px;
+  transition: transform 0.3s;
+
+  @include onDesktop {
+    $icon-width:24px;
+  }
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__arrow-up {
+    position: absolute;
+    right: 0;
+    width: 28px;
+    height: 28px;
+    background-image: url(/images/arrow.svg);
+    transform: translateY(-44px);
+    transition: all 0.5s;
+
+    @include onTablet {
+      right: 14px;
+      transform: translateY(-30px);
+    }
+
+    @include onDesktop {
+      right: 94px;
+      transform: translateY(8px);
+    }
+
+    &:hover {
+      background-image: url(/images/arrow-white.svg);
+      background-color: $green;
+      border-radius: 50%;
+    }
+  }
+
+  &__facebook {
+    background-image: url(/images/facebook.svg);
+    width: 11px;
+    height: 19px;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__twitter {
+    background-image: url(/images/twitter.svg);
+    width: 22px;
+    height: 17px;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__insta {
+    background-image: url(/images/instagram.svg);
+    width: 18px;
+    height: 18px;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &--menu {
+    height: 12px;
+    background-image: url(/images/menu.svg);
+
+    @include onTablet {
+      display: none;
+    }
+
+  }
+  &--cross {
+    background-image: url(../images/cross.svg);
+  }
+}
