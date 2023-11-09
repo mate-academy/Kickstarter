@@ -1,0 +1,140 @@
+.header {
+  &__face {
+    @include onTablet {
+      @include container;
+      @include pageGrid;
+      margin-top: 130px;
+    }
+
+    @include onDesktop {
+      margin-top: 90px;
+    }
+  }
+
+  &__img {
+    margin-top: 25px;
+    width: 100%;
+
+    &--1 {
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--2 {
+      @include onMobile {
+        display: none;
+      }
+
+      @include onTablet {
+        margin-top: -450px;
+        margin-left: 16px;
+        display: block;
+        order: 2;
+        grid-column: 4 / -1;
+        width: auto;
+        height: 317px;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--3 {
+      @include onMobile {
+        display: none;
+      }
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        margin-top: -550px;
+        display: block;
+        order: 2;
+        grid-column: 5 / -1;
+        width: auto;
+        height: 464px;
+        margin-left: -25px;
+      }
+    }
+  }
+
+  &__info {
+    margin-top: 40px;
+    padding-inline: 30px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      padding-inline: 0;
+      z-index: 1;
+      margin-top: 0;
+    }
+
+    @include onDesktop {
+      margin-top: 80px;
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+
+    @include onTablet {
+      width: 340px;
+      margin-left: 35px;
+      margin-top: 10px;
+    }
+
+    @include onDesktop {
+      margin-left: 123px;
+      margin-top: 80px;
+      width: 378px;
+    }
+  }
+
+  &__text {
+    margin-top: 20px;
+    @extend %p;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $text-color;
+
+    @include onTablet {
+      margin-top: 30px;
+      width: 250px;
+      margin-left: 35px;
+    }
+
+    @include onDesktop {
+      width: 276px;
+      margin-left: 123px;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    gap: 84px;
+
+    @include onDesktop {
+      margin-top: -70px;
+    }
+  }
+}

@@ -1,0 +1,129 @@
+.benefits {
+  margin-top: 110px;
+
+  @include onTablet {
+    margin-top: 20px;
+    margin-left: -15px;
+  }
+
+  @include onDesktop {
+    margin-top: 50px;
+  }
+
+  &__container {
+    @include container;
+  }
+
+  &__modules {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 65px;
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__module {
+    text-align: center;
+    display: none;
+
+    &--1 {
+      display: block;
+    }
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__img {
+    cursor: pointer;
+
+    @include onDesktop {
+      width: 70px;
+      height: 50px;
+    }
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__title {
+    @extend %h4;
+    text-transform: uppercase;
+    color: $text-color;
+    margin-top: 40px;
+
+    @include onTablet {
+      margin-top: 50px;
+    }
+
+    @include onDesktop {
+      margin-top: 30px;
+    }
+
+    &--3 {
+      @include onTablet {
+        margin-top: 44px;
+      }
+
+      @include onDesktop {
+        margin-top: 30px;
+      }
+    }
+
+    &--4 {
+      @include onTablet {
+        margin-top: 37px;
+      }
+      @include onDesktop {
+        margin-top: 29px;
+      }
+    }
+  }
+
+  &__text {
+    @extend %p;
+    font-weight: 400;
+    line-height: 21px;
+    color: $benefits-text-color;
+    margin-top: 20px;
+
+    @include onTablet {
+      width: 340px;
+      margin: 20px auto;
+    }
+
+    @include onDesktop {
+      width: 276px;
+    }
+
+    &--1 {
+      @include onDesktop {
+        margin-top: 52px;
+      }
+    }
+
+    &--2 {
+      @include onDesktop {
+        margin-top: 24px;
+      }
+    }
+
+    &--3 {
+      @include onDesktop {
+        margin-top: 52px;
+      }
+    }
+
+    &--4 {
+      @include onDesktop {
+        margin-top: 24px;
+      }
+    }
+  }
+}
