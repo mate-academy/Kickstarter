@@ -1,0 +1,137 @@
+.header {
+
+  &__menu {
+    height: 14px;
+    width: 24px;
+  }
+
+  &__menu-link {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #4f4f4f;
+
+    &:hover {
+      border-bottom: 1px solid #333;
+    }
+
+    &--selected {
+      color: #333;
+    }
+
+    &--not-selected {
+      color: #bdbdbd;
+    }
+  }
+
+  &__slash {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  &__menu-button {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    height: 48px;
+    width: 101px;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: #131313;
+    }
+
+    &:active {
+      background-color: #d0d0d0;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    margin: 0 auto 20px;
+    animation: title 2s linear infinite alternate;
+
+    @media (min-width: 768px) {
+      margin-bottom: 30px;
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @media (min-width: 1280px) {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__paragraph {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+
+      column-gap: 26px;
+      padding-top: 138px;
+    }
+
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(12, 1fr);
+      padding-top: 65px;
+    }
+  }
+
+  &__info {
+    grid-column: 1 / 4;
+
+    @media (min-width: 1280px) {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    margin: 0 0 40px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+      width: 120%;
+    }
+  }
+
+  &__image-container {
+    grid-column: 4 / 9;
+    z-index: -1;
+
+    @media (min-width: 1280px) {
+      grid-column: 5 / 13;
+    }
+  }
+}
+
+@keyframes title {
+  from {
+    color: #333;
+  }
+
+  to {
+    color: #0c797a;
+  }
+}
