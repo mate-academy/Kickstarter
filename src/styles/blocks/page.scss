@@ -1,0 +1,107 @@
+.page {
+  scroll-behavior: smooth;
+
+  font-family: "Inter", sans-serif;
+
+  &__body {
+    margin: 0;
+    padding-top: 30px;
+
+    background-color: #f7f7f7;
+    overflow-x: hidden;
+
+    @include onTablet {
+      padding-top: 20px;
+    }
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    color: $colorDark;
+
+    @include onTablet {
+      margin: 0 0 30px;
+
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__section {
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 138px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 170px;
+    }
+
+    &-title {
+      margin: 0;
+
+      font-style: normal;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 40px;
+      text-transform: uppercase;
+      color: $colorDark;
+
+      @include onTablet {
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      @include onDesktop {
+        font-size: 56px;
+        line-height: 70px;
+      }
+    }
+
+    &--technology {
+      margin-bottom: 110px;
+
+      @include onTablet {
+        margin-bottom: 148px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 180px;
+      }
+    }
+  }
+
+  &__nav {
+    margin-bottom: 65px;
+  }
+}

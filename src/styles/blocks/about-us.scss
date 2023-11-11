@@ -1,0 +1,100 @@
+.about-us {
+  &__content {
+    position: relative;
+  }
+
+  &__image-wrapper {
+    position: absolute;
+    top: 108px;
+
+    width: 100%;
+    height: 210px;
+
+    overflow: hidden;
+
+    @include onTablet {
+      position: static;
+      height: 415px;
+      margin-left: -34px;
+    }
+
+    @include onDesktop {
+      height: 388px;
+      margin: 0;
+    }
+
+    &--luna {
+      top: 50px;
+
+      @include onTablet {
+        margin-left: 34px;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__title {
+    margin: 0 0 258px;
+
+    @include onTablet {
+      margin: 0 0 32px;
+    }
+
+    @include onDesktop {
+      margin: 0 0 30px;
+    }
+  }
+
+  &__paragraph {
+    margin: 0 0 30px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: $colorLight;
+
+    @include onTablet {
+      margin: 0 0 60px;
+
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $colorBlue;
+
+    &::after {
+      content: "";
+
+      display: block;
+      width: 54px;
+      height: 1px;
+      margin-top: 6px;
+
+      background-color: $colorBlue;
+    }
+
+    &:hover::after {
+      width: 128px;
+
+      transition: width 0.5s;
+    }
+  }
+}
