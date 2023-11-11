@@ -1,0 +1,50 @@
+.language-switcher {
+  gap: 3px;
+
+  &--header {
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &--menu {
+    display: none;
+
+    @include onTablet {
+      font-weight: 300;
+      display: flex;
+    }
+  }
+
+  &--menu1 {
+    font-weight: 300;
+    display: flex;
+
+    &:checked + label {
+      color: $black-color;
+    }
+  }
+
+  &__label {
+    display: block;
+    @extend %thirdary-text;
+    color: $text-light-color;
+    cursor: pointer;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__input {
+    display: none;
+
+    &:checked + label {
+      color: $black-color;
+    }
+  }
+
+  &__slash {
+    color: $text-color;
+    @extend %thirdary-text;
+    user-select: none;
+  }
+}
