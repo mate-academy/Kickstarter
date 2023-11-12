@@ -1,54 +1,43 @@
 .nav {
-  @include container;
-  margin-top: 55px;
-
-  @include onTablet {
-    margin-top: 64px;
-  }
-
-  @include onDesktop {
-    margin-top: 199px;
-  }
-
-  @include onMainScreen {
-    margin-top: 199px;
-    margin-left: 30px;
-  }
-
   &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    justify-content: center;
-    padding-top: 28px;
-    padding-bottom: 28px;
     list-style: none;
 
-    @include onTablet {
-      gap: 40px;
+    &--vertical {
+      display: grid;
+      row-gap: 25px;
+
+      @include onTablet {
+        row-gap: 40px;
+        font-size: 22px;
+        line-height: 28px;
+      }
+
+      @include onDesktop {
+        margin-bottom: -30px;
+      }
     }
-  }
 
-  &__item {
-    list-style: none;
+    &--horizontal {
+      display: flex;
+      gap: 84px;
+      justify-content: center;
+    }
   }
 
   &__link {
-    @extend %p;
-    font-weight: 400;
+    display: block;
+    width: fit-content;
 
-    @include onTablet {
-      font-size: 22px;
-      line-height: 28px;
-    }
-
-    @include onDesktop {
-      font-size: 14px;
-      line-height: 20px;
-    }
+    color: $c-main-accent;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    transition: all $animation-speed;
 
     &:hover {
-      font-weight: 700;
+      color: $c-dark-accent;
+      text-shadow: 0 0 15px $c-main-accent;
+      font-weight: 500;
     }
   }
 }

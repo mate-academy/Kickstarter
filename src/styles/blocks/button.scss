@@ -1,73 +1,53 @@
 .button {
-  &__text {
-    @extend %p;
-    font-size: 12px;
-    line-height: 14px;
-    text-transform: uppercase;
-    color: $blue-color;
-    position: relative;
+  display: block;
+  height: 48px;
+  background-color: $c-main-accent;
 
-    @include onTablet {
-      margin-left: -100px;
-    }
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 48px;
+  text-transform: uppercase;
 
-    @include onDesktop {
-      margin-left: 50px;
-    }
+  @include hover(background-color, $c-dark-accent);
 
-    @include onMainScreen {
-      margin-left: -25px;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      display: block;
-      height: 1px;
-      width: 50%;
-      background-color: $blue-color;
-      left: 0;
-      bottom: -5px;
-
-      transition: $effectDuration;
-    }
-
-    &:hover::after {
-      width: 100%;
-    }
+  &--big {
+    width: 100%;
   }
 
-  &__text1 {
-    @extend %p;
-    font-size: 12px;
-    line-height: 14px;
-    text-transform: uppercase;
-    color: $blue-color;
-    position: relative;
+  &--small {
+    width: 102px;
+  }
 
-    @include onDesktop {
-      margin-left: -20px;
-    }
+  &--green {
+    background-color: $c-green-accent;
+    font-weight: 700;
+    height: 40px;
+    line-height: 40px;
 
-    @include onMainScreen {
-      margin-left: -30px;
-    }
+    @include hover(background-color, $c-dark-green-accent);
+  }
+}
 
-    &::after {
-      content: "";
-      position: absolute;
-      display: block;
-      height: 1px;
-      width: 50%;
-      background-color: $blue-color;
-      left: 0;
-      bottom: -5px;
+.extra-buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
 
-      transition: $effectDuration;
-    }
+  @include onTablet {
+    gap: 30px;
+  }
 
-    &:hover::after {
-      width: 100%;
+  &__specs {
+    color: #4f4f4f;
+    font-size: 14px;
+    font-weight: 300;
+    @include hover(transform, scale(1.2));
+
+    &:hover {
+      color: $c-green-accent;
+      transform: scale(100%);
     }
   }
 }

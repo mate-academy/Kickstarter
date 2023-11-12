@@ -1,174 +1,66 @@
 .questions {
-  margin-top: 88px;
-
-  @include onTablet {
-    margin-top: 141px;
-  }
-
-  @include onDesktop {
-    margin-top: 170px;
-    margin-right: 90px;
-  }
-
-  @include onMainScreen {
-    margin-top: 170px;
-    margin-right: 100px;
-  }
-
-  &__container {
-    @include container;
-
-    @include onTablet {
-      @include pageGrid;
-    }
+  &__content {
+    @include pageGrid;
   }
 
   &__title {
-    @extend %h2;
-    color: $text-color;
-
     @include onTablet {
       grid-column: span 4;
-      width: 339px;
     }
 
     @include onDesktop {
       grid-column: span 6;
-      width: 585px;
     }
   }
 
   &__form {
-    margin-top: 27px;
-    display: flex;
-    flex-direction: column;
-
     @include onTablet {
-      margin-top: 0;
-      width: 340px;
       grid-column: span 4;
     }
 
     @include onDesktop {
       grid-column: span 6;
-      width: 545px;
     }
   }
 
   &__input {
-    box-sizing: border-box;
-    background-color: transparent;
-    border: 1px solid $text-light-color;
+    background-color: #f7f7f7;
     width: 100%;
-    height: 48px;
-    outline: none;
-
-    @extend %p;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    padding-inline: 20px;
-
-    @include onTablet {
-      padding-inline: 30px;
-    }
-
-    @include onDesktop {
-      padding-inline: 36px;
-    }
-
-    &:focus {
-      border: 1px solid $dark-blue-color;
-    }
-
-    &::placeholder {
-      color: $placeholder-color;
-    }
-
-    &:-webkit-autofill,
-    &:-webkit-autofill:focus {
-      -webkit-text-fill-color: $text-color;
-      transition: background-color 5000s ease-in-out 0s;
-    }
-  }
-
-  &__textarea {
-    box-sizing: border-box;
-    margin-top: 20px;
-    background-color: transparent;
-    border: 1px solid $text-light-color;
-    width: 100%;
-    height: 128px;
-    resize: none;
-    outline: none;
-
-    @extend %p;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
     padding: 12px 20px;
+    border: 1px solid #828282;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
 
     @include onTablet {
-      height: 201px;
-      padding-inline: 30px;
+      padding: 12px 30px;
     }
 
     @include onDesktop {
-      padding-inline: 36px;
+      padding: 12px 36px;
     }
 
     &::placeholder {
-      color: $placeholder-color;
-    }
-
-    &::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    &::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px $top-bar-nav-color;
-      border-radius: 10px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: $text-light-color;
-      border-radius: 5px;
+      color: #bdbdbd;
+      font-size: 16px;
+      font-weight: 400;
     }
 
     &:focus {
-      border: 1px solid $dark-blue-color;
+      border-color: $c-dark-green-accent;
+      outline: none;
     }
 
-    &::-webkit-scrollbar-thumb:hover {
-      background-color: $top-bar-nav-color;
+    &--small {
+      height: 48px;
+      margin-bottom: 20px;
     }
 
-    &::-webkit-scrollbar-thumb:active {
-      background-color: $text-color;
-    }
-  }
-
-  &__button {
-    margin-top: 30px;
-    width: 102px;
-    height: 40px;
-    border: none;
-    background-color: $blue-color;
-    cursor: pointer;
-    transition: $effectDuration;
-
-    @extend %p;
-    font-size: 12px;
-    line-height: 14px;
-    text-transform: uppercase;
-    color: $white-color;
-
-    &:hover {
-      background-color: $dark-blue-color;
-    }
-
-    &:disabled {
-      background-color: $light-blue-color;
+    &--big {
+      height: 128px;
+      resize: none;
+      margin-bottom: 30px;
     }
   }
 }

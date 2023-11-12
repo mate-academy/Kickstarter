@@ -1,151 +1,88 @@
-.benefits {
-  margin-top: 110px;
-
-  @include onTablet {
-    margin-top: 20px;
-    margin-right: 5px;
-  }
+.benefit {
+  display: grid;
+  justify-items: center;
 
   @include onDesktop {
-    margin-top: 50px;
-    margin-right: 30px;
+    grid-template-rows: 80px 80px auto;
+    margin-top: -90px;
   }
 
-  @include onMainScreen {
-    margin-top: 50px;
-    margin-right: 5px;
-  }
-
-  &__container {
-    @include container;
-  }
-
-  &__modules {
-    @include onTablet {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      row-gap: 65px;
-      column-gap: 20px;
-    }
-
-    @include onDesktop {
-      display: flex;
-      flex-direction: row;
-    }
-  }
-
-  &__module {
-    text-align: center;
-    display: none;
-
-    &--1 {
-      display: block;
-    }
+  &__icon {
+    width: 50px;
+    height: 40px;
+    margin-bottom: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     @include onTablet {
-      display: block;
-    }
-  }
-
-  &__img {
-    cursor: pointer;
-
-    @include onDesktop {
       width: 70px;
       height: 50px;
+      margin-bottom: 50px;
     }
 
-    @include hover(transform, scale(1.2));
+    &--futuristic {
+      background-image: url("../images/icons/futuristic.svg");
+    }
+
+    &--volume {
+      background-image: url("../images/icons/volume.svg");
+    }
+
+    &--wifi {
+      background-image: url("../images/icons/wifi.svg");
+    }
+
+    &--sun {
+      background-image: url("../images/icons/sun.svg");
+    }
   }
 
   &__title {
-    @extend %h4;
+    margin-bottom: 20px;
+
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
     text-transform: uppercase;
-    color: $text-color;
-    margin-top: 40px;
+  }
+
+  &__description {
+    color: $c-secondary-text;
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+.benefits {
+  &__content {
+    @include pageGrid;
 
     @include onTablet {
-      margin-top: 50px;
+      row-gap: 65px;
     }
 
-    @include onDesktop {
-      margin-top: 30px;
-    }
+    & > :not(:first-child) {
+      height: 0;
+      overflow: hidden;
 
-    &--3 {
       @include onTablet {
-        margin-top: 44px;
-      }
-
-      @include onDesktop {
-        margin-top: 30px;
-      }
-    }
-
-    &--4 {
-      @include onTablet {
-        margin-top: 37px;
-      }
-      @include onDesktop {
-        margin-top: 29px;
+        height: auto;
       }
     }
   }
 
-  &__text {
-    @extend %p;
-    font-weight: 400;
-    line-height: 21px;
-    color: $benefits-text-color;
-    margin-top: 20px;
+  &__item {
+    @include hover(transform, scale(1.07));
 
     @include onTablet {
-      width: 340px;
-      margin: 20px auto;
+      grid-column: span 4;
     }
 
     @include onDesktop {
-      width: 276px;
-    }
-
-    &--1 {
-      @include onDesktop {
-        margin-top: 52px;
-      }
-
-      @include onMainScreen {
-        margin-top: 24px;
-      }
-    }
-
-    &--2 {
-      @include onDesktop {
-        margin-top: 24px;
-      }
-
-      @include onMainScreen {
-        margin-top: 24px;
-      }
-    }
-
-    &--3 {
-      @include onDesktop {
-        margin-top: 52px;
-      }
-
-      @include onMainScreen {
-        margin-top: 24px;
-      }
-    }
-
-    &--4 {
-      @include onDesktop {
-        margin-top: 24px;
-      }
-
-      @include onMainScreen {
-        margin-top: 24px;
-      }
+      grid-column: span 3;
     }
   }
 }

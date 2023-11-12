@@ -1,142 +1,61 @@
-.reviews {
-  @include sectionIndents;
+.review {
+  @include pageGrid;
+  justify-items: center;
 
-  @include onTablet {
-    margin-top: 300px;
-  }
+  &__quote {
+    margin-bottom: 30px;
+    color: $c-main-accent;
 
-  @include onDesktop {
-    margin-top: 350px;
-  }
-
-  &__container {
-    @include container;
-  }
-
-  &__box {
-    box-sizing: border-box;
-    display: block;
-    width: auto;
-    height: 171px;
-    background-image: url(../images/icons/Vector.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
 
     @include onTablet {
-      height: 189px;
-      width: 600px;
-      margin-left: 50px;
+      grid-column: 1 / -1;
+      margin-bottom: 40px;
+
+      font-size: 24px;
+      line-height: 36px;
     }
 
     @include onDesktop {
-      height: 192px;
-      margin-left: 300px;
-    }
-
-    @include onMainScreen {
-      height: 192px;
-      margin-left: 300px;
+      grid-column: 3 / -3;
+      margin-bottom: 30px;
     }
   }
 
-  &__text {
-    @extend %p;
-    text-align: center;
-    color: $text-color;
-
-    &--main {
-      position: absolute;
-      bottom: 0;
-
-      @include onTablet {
-        font-size: 24px;
-        line-height: 36px;
-      }
-
-      @include onDesktop {
-        width: 786px;
-        bottom: 20%;
-        left: 0;
-        right: 0;
-        margin: auto;
-        margin-left: -100px;
-      }
-
-      @include onMainScreen {
-        width: 786px;
-        bottom: 20%;
-        left: 0;
-        right: 0;
-        margin: auto;
-        margin-left: -90px;
-      }
-    }
-
-    &--bold {
-      margin-top: 110px;
-      font-size: 16px;
-      line-height: 22px;
-
-      @include onTablet {
-        margin-top: 110px;
-        margin-left: 100px;
-      }
-
-      @include onDesktop {
-        margin-top: 65px;
-        margin-left: 30px;
-      }
-
-      @include onMainScreen {
-        margin-top: 65px;
-        margin-left: 0;
-      }
-    }
-
-    &--regular {
-      margin-top: 5px;
-      font-weight: 400;
-      line-height: 21px;
-
-      @include onTablet {
-        margin-left: 100px;
-      }
-
-      @include onDesktop {
-        margin-left: 30px;
-      }
-
-      @include onMainScreen {
-        margin-left: 0;
-      }
-    }
-  }
-
-  &__img {
-    display: block;
+  &__photo {
     width: 62px;
     height: 62px;
-    cursor: pointer;
-    position: absolute;
-    margin-left: 100px;
-    margin-top: 30px;
+    margin-bottom: 10px;
 
     @include onTablet {
-      margin-top: 30px;
-      margin-left: 320px;
+      grid-column: 1 / -1;
+      margin-bottom: 20px;
     }
+  }
 
-    @include onDesktop {
-      margin-top: -10px;
-      margin-left: 565px;
+  &__name {
+    margin-bottom: 5px;
+
+    text-align: center;
+    font-weight: 700;
+    line-height: 22px;
+
+    @include onTablet {
+      grid-column: 1 / -1;
     }
+  }
 
-    @include onMainScreen {
-      margin-top: -10px;
-      margin-left: 565px;
+  &__position {
+    color: $c-secondary-text;
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+
+    @include onTablet {
+      grid-column: 1 / -1;
     }
-
-    @include hover(transform, scale(1.2));
   }
 }

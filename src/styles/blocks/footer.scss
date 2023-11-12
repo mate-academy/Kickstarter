@@ -1,107 +1,53 @@
 .footer {
-  @include sectionIndents;
+  padding-bottom: 20px;
 
-  &__top {
-    @include onTablet {
-      @include container;
-      @include pageGrid;
-    }
+  @include onTablet {
+    padding-bottom: 30px;
   }
 
   &__logo-link {
-    @include onTablet {
-      grid-column: 4 / 6;
-      display: block;
-      margin: 0 auto;
-    }
+    display: none;
 
-    @include onDesktop {
-      grid-column: 6 / 8;
+    @include onTablet {
+      display: block;
+      width: fit-content;
+      margin-inline: auto;
+      margin-bottom: 60px;
     }
   }
 
   &__logo {
-    display: none;
-
-    @include onTablet {
-      height: 25px;
-      display: flex;
-      margin-left: 45px;
-    }
-
-    @include onDesktop {
-      height: 25px;
-      display: flex;
-      margin-left: 10px;
-    }
-
-    @include onMainScreen {
-      height: 25px;
-      display: flex;
-      margin-left: -50px;
-    }
-
+    height: 25px;
+    width: 184px;
     @include hover(transform, scale(1.1));
-  }
-
-  &__arrow-link {
-    display: none;
-
-    @include onTablet {
-      grid-column: 8 / -1;
-      display: block;
-      text-align: right;
-      margin-right: -80px;
-    }
 
     @include onDesktop {
-      grid-column: 10 / -2;
-      margin-right: -90px;
-    }
-
-    @include onMainScreen {
-      grid-column: 8 / -2;
-      margin-right: -80px;
+      width: 161px;
+      height: 26px;
     }
   }
 
-  &__arrow {
-    transition: $effectDuration;
-    &:hover {
-      fill: $blue-color;
-      transform-origin: center center;
-      transform: scale(1.1);
-    }
-  }
+  &__socials {
+    margin-bottom: 30px;
 
-  &__icons {
     display: flex;
-    flex-direction: row;
-    gap: 32px;
-    margin-left: 95px;
-    margin-top: 60px;
+    gap: 40px;
+    justify-content: center;
 
     @include onTablet {
-      margin-left: 315px;
+      margin-bottom: 60px;
     }
+  }
 
-    @include onDesktop {
-      margin-left: auto;
-      margin-right: auto;
-      width: 8em;
-    }
+  &__social-link {
+    height: 24px;
+    width: 24px;
+    background-size: contain;
 
-    @include onMainScreen {
-      margin-left: auto;
-      margin-right: auto;
-      width: 12em;
-    }
+    @include hover(transform, scale(1.2));
 
     &--facebook {
-      width: 24px;
-      height: 24px;
       background-image: url("../images/socials/facebook.svg");
-      transition: all $effectDuration;
 
       &:hover {
         background-image: url("../images/socials/facebook-hover.svg");
@@ -110,10 +56,7 @@
     }
 
     &--twitter {
-      width: 24px;
-      height: 24px;
       background-image: url("../images/socials/twitter.svg");
-      transition: all $effectDuration;
 
       &:hover {
         background-image: url("../images/socials/twitter-hover.svg");
@@ -122,10 +65,7 @@
     }
 
     &--instagram {
-      width: 24px;
-      height: 24px;
       background-image: url("../images/socials/instagram.svg");
-      transition: all $effectDuration;
 
       &:hover {
         background-image: url("../images/socials/instagram-hover.svg");
@@ -134,35 +74,10 @@
     }
   }
 
-  &__text {
-    @extend %p;
-    font-weight: 400;
-    line-height: 21px;
-    color: $placeholder-color;
+  &__copyright {
+    color: #bdbdbd;
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    width: 260px;
-    margin-left: 30px;
-
-    @include onTablet {
-      margin-top: 60px;
-      margin-bottom: 30px;
-      width: 500px;
-      margin-left: 135px;
-    }
-
-    @include onDesktop {
-      margin-top: 60px;
-      margin-bottom: 30px;
-      width: 500px;
-      margin-left: 480px;
-    }
-
-    @include onMainScreen {
-      margin-left: auto;
-      margin-right: auto;
-      width: 50em;
-    }
+    font-size: 14px;
+    line-height: 21px;
   }
 }

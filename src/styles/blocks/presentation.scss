@@ -1,19 +1,21 @@
 .presentation {
-  @include sectionIndents;
-  @include pageGrid;
+  display: grid;
+  justify-content: center;
 
-  &__img {
+  &__image {
     box-sizing: border-box;
     mix-blend-mode: darken;
     width: 90%;
     padding-inline: 12px;
-    grid-column: 1 / -1;
+    grid-column: 1/-1;
     margin: 0 auto;
-    transition: $effectDuration;
+    transition: 0.3s;
     cursor: pointer;
 
+    @include hover(transform, scale(1.07));
+
     @include onTablet {
-      margin-left: 85px;
+      width: 700px;
     }
 
     @include onDesktop {
@@ -21,17 +23,7 @@
       height: 520px;
       display: block;
       margin-top: 30px;
-      grid-column: 4 / 9;
+      grid-column: 4/9;
     }
-
-    @include onMainScreen {
-      width: 846px;
-      height: 520px;
-      display: block;
-      margin-top: 30px;
-      grid-column: 4 / 9;
-    }
-
-    @include hover(transform, scale(1.1));
   }
 }

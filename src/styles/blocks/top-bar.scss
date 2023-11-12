@@ -1,146 +1,52 @@
 .top-bar {
-  @include container;
+  height: 76px;
+
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
+  align-items: center;
 
   @include onTablet {
-    margin-top: 24px;
-    width: 700px;
+    height: 108px;
   }
 
-  @include onDesktop {
-    margin-right: 10px;
-    width: 1150px;
-  }
-
-  @include onMainScreen {
-    margin-top: 30px;
-    margin-left: 5px;
-    margin-right: 100px;
-    grid-column: span 12;
-  }
-
-  &__logo-link {
+  &__logo {
     width: 161px;
     height: 26px;
-  }
-
-  &__logo-img {
-    width: 161px;
-
     @include hover(transform, scale(1.1));
   }
 
-  &__link {
-    @extend %p;
+  &__left {
     display: flex;
-    align-items: center;
     gap: 30px;
+    align-items: center;
+  }
 
-    @include onDesktop {
-      gap: 47px;
-    }
+  &__extra {
+    width: 0;
+    overflow: hidden;
 
-    @include onMainScreen {
-      margin-right: -100px;
-    }
-
-    &--specs {
-      font-weight: 300;
-      color: $top-bar-nav-color;
-      line-height: normal;
-      display: none;
-      transition: $effectDuration;
-
-      @include onTablet {
-        display: flex;
-      }
-
-      @include onDesktop {
-        font-weight: 400;
-      }
-
-      &:hover {
-        color: $blue-color;
-      }
-    }
-
-    &--language {
-      font-weight: 300;
-      line-height: 18px;
-      color: $text-light-color;
-      display: none;
-
-      @include onTablet {
-        display: flex;
-      }
-
-      @include onDesktop {
-        font-weight: 400;
-      }
-    }
-
-    &--bold {
-      font-weight: 400;
-      color: $text-color;
-    }
-
-    &--buy {
-      height: 48px;
-      width: 100px;
-      justify-content: center;
-      align-items: center;
-      background-color: $text-color;
-      display: none;
-
-      text-transform: uppercase;
-      font-size: 12px;
-      line-height: normal;
-      color: $white-color;
-      font-weight: 500;
-
-      transition: $effectDuration;
-
-      @include onTablet {
-        display: flex;
-      }
-
-      @include onDesktop {
-        font-weight: 700;
-        line-height: 14px;
-      }
-
-      &:hover {
-        background-color: $black-color;
-      }
-
-      &:disabled {
-        background-color: $disabled-color;
-      }
+    @include onTablet {
+      width: auto;
     }
   }
 
-  &__menu {
-    display: block;
+  &__icon {
     width: 32px;
     height: 32px;
-    background-image: url(../images/icons/menu.svg);
 
     @include onDesktop {
       display: none;
+    }
+
+    &--menu {
+      background-image: url("../images/icons/menu.svg");
+    }
+
+    &--close {
+      background-image: url("../images/icons/close.svg");
+      background-size: cover;
     }
 
     @include hover(transform, scale(1.2));
-  }
-
-  &__close {
-    display: block;
-    width: 24px;
-    height: 24px;
-    margin-right: 20px;
-    background-image: url(../images/icons/close.svg);
   }
 }

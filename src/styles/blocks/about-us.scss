@@ -1,167 +1,117 @@
 .about-us {
-  @include sectionIndents;
-
-  &__container {
-    @include container;
-
-    @include onTablet {
-      @include pageGrid;
-    }
-
-    @include onDesktop {
-      @include pageGrid;
-      margin-right: 110px;
-    }
-
-    @include onMainScreen {
-      @include pageGrid;
-      margin-left: 60px;
-    }
+  &__content {
+    @include pageGrid;
+    align-content: start;
   }
 
-  &__title {
-    @extend %h2;
-    color: $text-color;
-    margin-bottom: 30px;
-
-    @include onTablet {
-      margin-left: -100px;
-      margin-top: -420px;
-      width: 340px;
-    }
-
-    @include onDesktop {
-      margin-left: 50px;
-      margin-top: -400px;
-      width: 600px;
-    }
-
-    @include onMainScreen {
-      margin-right: 25px;
-      margin-top: -380px;
-    }
-  }
-
-  &__photo {
-    margin-top: 30px;
-    overflow: hidden;
-    cursor: pointer;
-
-    @include onTablet {
-      margin-left: -500px;
-      margin-top: 0;
-      width: 550px;
-    }
-
-    @include onDesktop {
-      grid-column: span 6;
-      margin-left: -560px;
-      width: 582px;
-      height: 388px;
-    }
-
-    @include onMainScreen {
-      grid-column: span 6;
-      margin-left: -650px;
-      width: 582px;
-      height: 388px;
-    }
-  }
-
-  &__img {
+  &__image {
+    height: 210px;
     width: 100%;
-    @include hover(transform, scale(1.2));
+    margin-bottom: 20px;
+    object-fit: cover;
+    @include hover(transform, scale(1.07));
 
-    &--1 {
-      @include onMobile {
-        display: grid;
-      }
+    @include onTablet {
+      grid-row: 1 / 4;
+      width: calc(50vw - 10px);
+      height: 100%;
+      margin: 0;
+    }
 
+    @include onDesktop {
+      grid-row: 1 / 5;
+      width: 582px;
+    }
+
+    &--left {
       @include onTablet {
-        display: none;
+        grid-column: 1 / 5;
+        margin-left: -$inline-paddings-tabl;
       }
 
       @include onDesktop {
-        display: none;
+        grid-column: 1 / 7;
+        margin: 0;
       }
     }
 
-    &--2 {
-      display: none;
-      @include onMobile {
-        display: none;
-      }
-
+    &--right {
       @include onTablet {
-        display: grid;
-        width: 374px;
-        height: 415px;
+        grid-column: 5 / -1;
+        margin-right: -$inline-paddings-tabl;
       }
 
       @include onDesktop {
-        display: none;
-      }
-    }
-
-    &--3 {
-      display: none;
-      @include onMobile {
-        display: none;
-      }
-
-      @include onTablet {
-        display: none;
-      }
-
-      @include onDesktop {
-        display: grid;
+        grid-column: 7 / -1;
+        margin: 0;
       }
     }
   }
 
-  &__info {
-    @include onTablet {
-      grid-column: 7 / -1;
+  &__item {
+    &--left {
+      @include onTablet {
+        grid-column: 1 / 5;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 7;
+      }
     }
 
-    @include onDesktop {
-      grid-column: 7 / -1;
+    &--right {
+      @include onTablet {
+        grid-column: 5 / -1;
+      }
+
+      @include onDesktop {
+        grid-column: 7 / -1;
+      }
     }
   }
 
   &__text {
-    margin-top: 20px;
-    @extend %p;
-    font-weight: 400;
+    margin-bottom: 30px;
+
+    color: $c-secondary-text;
+    font-size: 14px;
     line-height: 21px;
-    color: $benefits-text-color;
 
     @include onTablet {
-      margin-top: 0;
-      font-size: 16px;
-      line-height: 24px;
-      margin-left: -100px;
-      width: 340px;
-    }
-
-    @include onDesktop {
-      margin-left: 50px;
-      margin-top: -370px;
-      width: 582px;
-    }
-
-    @include onMainScreen {
-      margin-right: 25px;
-      margin-top: -390px;
-      width: 582px;
+      margin-bottom: 60px;
     }
   }
 
-  &__button {
-    margin-top: 30px;
+  &__link {
+    width: fit-content;
+
+    color: $c-green-accent;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 53px;
+      height: 1px;
+      background-color: $c-green-accent;
+      margin-top: 5px;
+
+      transition: width $animation-speed;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
 
     @include onTablet {
-      margin-top: 60px;
+      margin-bottom: 67px;
+    }
+
+    @include onTablet {
+      margin-bottom: 0;
     }
   }
 }
