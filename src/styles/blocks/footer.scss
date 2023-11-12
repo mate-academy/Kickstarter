@@ -1,0 +1,80 @@
+.footer {
+  padding-top: 110px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+
+  margin-bottom: 20px;
+
+  @include onTablet {
+    margin-bottom: 30px;
+    gap: 60px;
+  }
+
+  &__logo {
+    display: none;
+    @include hover(transform, scale(1.2));
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__arrow {
+    display: none;
+
+    @include onTablet {
+      display: inline-block;
+      position: absolute;
+      left: 340px;
+      animation: mover 1.5s infinite  alternate;
+    }
+
+    @include onDesktop {
+      left: 600px;
+    }
+
+    @keyframes mover {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(10px);
+      }
+      
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  &__icon {
+    @include square(24px);
+    @include hover(transform, scale(1.2));
+  }
+
+  &__rights {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+
+    color: $c-secondary-text-light-color;
+  }
+}
+
+.footer-tablet__icons {
+  display: none;
+  position: relative;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(1, -1fr);
+  }
+}

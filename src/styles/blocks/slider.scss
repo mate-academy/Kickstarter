@@ -1,0 +1,76 @@
+.slider {
+  overflow: hidden;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__content {
+    display: flex;
+    transition: transform $hoverDuration;
+  }
+
+  &__item {
+    flex-shrink: 0;
+    width: 100%;
+    transform: translateX(0);
+  }
+
+  &__nav {
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+    @include onTablet {
+      width: 100px;
+      margin: 0;
+    }
+  }
+
+  &__button {
+    width: 55px;
+    height: 14px;
+    background-repeat: no-repeat;
+    background-color: $c-secondary-bg-color;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  &__page {
+    position: relative;
+    top: -3px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__total-pages {
+    font-size: 11px;
+    line-height: 13px;
+    color: $c-send-btn-hover-color;
+  }
+
+  &__button-n,
+  &__button-p {
+    transition: filter $hoverDuration;
+
+    &:hover {
+      filter: brightness(0)
+        saturate(100%)
+        invert(36%)
+        sepia(10%)
+        saturate(5104%)
+        hue-rotate(138deg)
+        brightness(95%)
+        contrast(90%);
+    }
+  }
+}

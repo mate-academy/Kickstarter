@@ -1,0 +1,50 @@
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+    @include menuFontStyle-mobile;
+
+    @include onTablet {
+      @include menuFontStyle-tablet;
+    }
+    transition: all $hoverDuration;
+
+    &:hover {
+      font-weight: 700;
+    }
+  }
+}
+
+.desktop-nav {
+  &__list {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      gap: 84px;
+      justify-content: center;
+
+      margin-bottom: 90px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: $c-btn-default-color;
+    transition: color $hoverDuration;
+
+    &:hover {
+      color: $c-send-btn-hover-color;
+    }
+  }
+}
