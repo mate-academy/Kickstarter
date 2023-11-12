@@ -1,0 +1,103 @@
+.top-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include onMobile {
+    height: 76px;
+    margin-top: -25px;
+  }
+
+  &__logo {
+    width: 161px;
+    display: block;
+  }
+
+  &__properties {
+    @include onMobile {
+      display: none;
+    }
+
+    @include onBigScreen {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__specs {
+    width: 72px;
+    margin-right: 2px;
+
+    @extend %thirdary-text;
+    color: $c_dark-liver;
+    text-decoration: none;
+
+    @include onTablet {
+      width: 68px;
+    }
+  }
+
+  &__language {
+    margin-right: 47px;
+
+    @include onTablet {
+      margin-right: 27px;
+    }
+  }
+
+  &__button {
+    width: 102px;
+    padding: 17px 0;
+
+    transition: all 0.4s;
+
+    @extend %button;
+    text-decoration: none;
+    text-align: center;
+
+    @include onTablet {
+      font-weight: 500;
+    }
+
+    color: $c-white;
+    background-color: $c_dark-charcoal;
+
+    &:hover {
+      background-color: $c_chinese-black;
+    }
+
+    &:active {
+      background-color: $c_american-silver;
+    }
+  }
+
+  &__menu-opener {
+    @include onMobile {
+      display: flex;
+    }
+
+    @include onBigScreen {
+      display: none;
+    }
+
+    width: 24px;
+    height: 14px;
+    padding: 6px 0;
+
+    background-image: url("../images/svg/hamburger.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 1px solid transparent;
+  }
+
+  &__cross {
+    display: block;
+    height: 25px;
+
+    &-img {
+      height: 25px;
+    }
+  }
+}

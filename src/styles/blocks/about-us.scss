@@ -1,0 +1,111 @@
+.about-us {
+  @include onNotebook {
+    height: 383px;
+  }
+
+  @include onTablet {
+    height: 415px;
+    padding-bottom: 5px;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    left: 0;
+
+    @include onTablet {
+      top: -122px;
+      width: 374px;
+      height: 415px;
+    }
+
+    @include onNotebook {
+      width: 583px;
+      height: 383px;
+      top: -170px;
+    }
+
+    @include onMobile {
+      width: 259px;
+      height: 210px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    animation: picturesLeft 15s linear infinite alternate-reverse;
+
+    @include onTablet {
+      margin-left: -$padding-tablet;
+    }
+
+    @include onMobile {
+      position: static;
+      animation-duration: 10s;
+    }
+
+    transition: all 0.4s;
+
+    &:hover {
+      box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.4);
+      transform: scale(1.05);
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    color: $c_dark-charcoal;
+
+    transition: all 0.4s;
+
+    &:hover {
+      color: $c_chinese-black;
+    }
+  }
+
+  &__description {
+    color: $c_gray;
+    margin-bottom: 60px;
+    @extend %main-text;
+
+    @include onMobile {
+      margin-bottom: 30px;
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+    transition: all 0.4s;
+
+    &:hover {
+      color: $c_tiffany-blue;
+      cursor: pointer;
+    }
+  }
+
+  &__more-link {
+    color: $c_tiffany-blue;
+    text-decoration: none;
+    @extend %button;
+    padding-bottom: 5px;
+    position: relative;
+    transition: all 0.4s;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1px;
+      width: 50%;
+      border-bottom: 1px solid $c_tiffany-blue;
+      transition: all 0.4s;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+}

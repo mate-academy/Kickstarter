@@ -1,0 +1,45 @@
+.presentation {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+
+    @include onMobile {
+      margin: 0 -18px;
+    }
+  }
+
+  &__image {
+    background-image: url("../images/meetLuna.png");
+    background-position: center;
+    background-size: 125%;
+    width: 846px;
+    height: 520px;
+
+    cursor: pointer;
+
+    @include onTablet {
+      background-size: 120%;
+      background-position: 70% 70%;
+      height: 430px;
+    }
+
+    @include onMobile {
+      height: 195px;
+      background-size: 135%;
+    }
+
+    transition: all 0.4s;
+
+    &:hover {
+      @include onNotebook {
+        transform: scale(1.1);
+        box-shadow: 0 0 100px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      @include onTablet {
+        transform: scale(1.05);
+        box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+}

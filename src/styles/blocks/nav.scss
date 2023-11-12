@@ -1,0 +1,40 @@
+.nav {
+  display: none;
+
+  @include onNotebook {
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    gap: 84px;
+
+    height: 76px;
+  }
+
+  &__link {
+    @extend %thirdary-text;
+    text-decoration: none;
+    color: $c_dark-charcoal;
+    padding-bottom: 5px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.4s;
+
+    &:hover {
+      @extend %h5-upper;
+      color: $c_chinese-black;
+      border-color: $c_chinese-black;
+    }
+  }
+
+  &__item {
+    transition: all 0.4s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
