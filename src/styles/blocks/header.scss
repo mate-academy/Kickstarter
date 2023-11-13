@@ -1,0 +1,64 @@
+.header {
+  @include pageGrid;
+  overflow: hidden;
+  @include onDesktop {
+    @include paddingInline;
+  }
+
+  &__photo {
+    grid-column: span 4;
+    width: 140%;
+
+    @include onTablet {
+      margin-top: 148px;
+      grid-column: 4 / -1;
+      grid-row: 2;
+      overflow: hidden;
+      width: 430px;
+      height: 317px;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / -1;
+      width: 100%;
+      height: auto;
+      margin-top: 105px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    @include onTablet {
+      width: 140%;
+    }
+    @include onDesktop {
+      width: 105%;
+    }
+  }
+
+  &__content {
+    @include paddingInline;
+    grid-column: span 4;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      grid-row: 2;
+      margin-top: 130px;
+    }
+
+    @include onDesktop {
+      padding-inline: 0;
+      grid-column: 1 / 5;
+      margin-top: 180px;
+    }
+  }
+
+  &__text {
+    @include onTablet {
+      grid-column: span 3;
+    }
+  }
+}

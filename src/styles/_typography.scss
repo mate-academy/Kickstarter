@@ -1,3 +1,220 @@
-h1 {
+.header__title {
   @extend %h1;
+  margin-top: 40px;
+  margin-bottom: 20px;
+
+  @include onTablet {
+    margin-bottom: 30px;
+  }
+}
+
+.section__title {
+  @extend %h2;
+  grid-column: span 4;
+  margin: 0;
+  margin-bottom: 30px;
+  @include onDesktop {
+    grid-column: span 6;
+  }
+
+  &--mobile {
+    display: block;
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &--tablet {
+    display: none;
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &--features {
+    @include paddingInline;
+    height: 40px;
+    margin-bottom: 32px;
+    @include onDesktop {
+      padding-inline-start: none;
+    }
+  }
+}
+
+.main__text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+}
+
+.second__text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: $beigh-grey;
+  margin: 0;
+  text-align: center;
+
+  &--about,
+  &--technology {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: left;
+    @include onDesktop {
+      margin-bottom: 60px;
+    }
+  }
+
+  &--list {
+    color: $main-dark;
+    text-align: left;
+  }
+}
+
+.third__text {
+  color: $grey;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  @include onDesktop {
+    font-weight: 400;
+    color: $main-dark;
+    line-height: 20px;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+      color: $black;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+}
+
+.active {
+  color: $black;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.name__text {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: $black;
+  text-align: center;
+  margin: 0;
+}
+
+.button {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+  text-transform: uppercase;
+
+  &--top-bar {
+    padding-block: 16px;
+    padding-inline: 38px;
+    background-color: $main-dark;
+    color: $white;
+    text-align: center;
+    text-decoration: none;
+    display: none;
+    transition: all 0.3s;
+    @include onTablet {
+      display: flex;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: $black;
+      cursor: pointer;
+    }
+  }
+
+  &--menu {
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    grid-column: span 4;
+    padding-block: 16px;
+    height: fit-content;
+    background-color: $main-dark;
+    color: $white;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s;
+    @include onTablet {
+      display: none;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: $black;
+      cursor: pointer;
+    }
+  }
+
+  &--section {
+    color: $main-blue;
+    font-weight: 700;
+    grid-column: span 3;
+    text-decoration: none;
+
+    &::after {
+      display: block;
+      width: 15%;
+      padding-bottom: 5px;
+      content: "";
+      border-bottom: 1px solid $main-blue;
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      &::after {
+        width: 40%;
+      }
+    }
+  }
+
+  &--submit {
+    width: 102px;
+    padding-block: 13px;
+    padding-inline: 35px;
+    color: $white;
+    background-color: $main-blue;
+    border-style: none;
+    margin: 0;
+    margin-top: 10px;
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.05);
+      background-color: #0c797a;
+      cursor: pointer;
+    }
+  }
+}
+
+.quote {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: $main-dark;
+  text-align: center;
+  margin: 0;
+  grid-column: span 4;
+  @include onTablet {
+    grid-column: span 8;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+  }
+  @include onDesktop {
+    grid-column: 2 / -2;
+  }
 }

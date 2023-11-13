@@ -1,0 +1,70 @@
+.benefits {
+  @include onTablet {
+    row-gap: 65px;
+  }
+  @include onDesktop {
+    row-gap: 90px;
+  }
+  &__links {
+    grid-column: 4 / 10;
+    gap: 84px;
+    justify-content: center;
+    display: none;
+    padding-block: 28px;
+    @include onDesktop {
+      display: flex;
+      grid-column: span 12;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-column: span 4;
+
+    &--hiden {
+      display: none;
+      @include onTablet {
+        display: flex;
+      }
+    }
+
+    @include onDesktop {
+      grid-column: span 3;
+      height: 270px;
+      justify-content: start;
+    }
+  }
+
+  &__img {
+    width: 50px;
+    height: 40px;
+    @include hover(scale, 1.2);
+  }
+
+  &__title {
+    @extend %h4;
+    color: $main-dark;
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+    @include onDesktop {
+      text-align: center;
+      height: 56px;
+    }
+  }
+}
+
+.presentation__img {
+  grid-column: span 4;
+  width: 100%;
+  @include hover (scale, 1.03);
+  @include onTablet {
+    grid-column: span 8;
+  }
+  @include onDesktop {
+    grid-column: 2 / -2;
+  }
+}
