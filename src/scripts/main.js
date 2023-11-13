@@ -1,8 +1,8 @@
 'use strict';
 
 const slider = document.querySelector('.slider__content');
-const prevButton = document.querySelector('.slider__button-prev');
-const nextButton = document.querySelector('.slider__button-next');
+const prevButton = document.querySelector('.slider__button--prev');
+const nextButton = document.querySelector('.slider__button--next');
 
 let currentIndex = 0;
 
