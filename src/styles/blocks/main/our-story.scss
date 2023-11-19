@@ -1,0 +1,89 @@
+.our-story {
+  margin-top: 110px;
+
+  @include onTablet {
+    margin-top: 20px;
+  }
+
+  @include onDesktop {
+    margin-top: 100px;
+  }
+}
+
+.story {
+  &__card {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &--first {
+      display: flex;
+    }
+
+    &-img {
+      width: 50px;
+      height: 40px;
+    }
+
+    &-title {
+      margin-top: 40px;
+
+      text-align: center;
+      color: $c-dark-grey;
+    }
+
+    &-text {
+      @include fonts--secondary;
+      margin-top: 20px;
+
+      text-align: center;
+      color: $c-grey;
+    }
+  }
+
+  @include onTablet {
+    @include pageGrid;
+    row-gap: 65px;
+
+    &__card {
+      display: flex;
+      justify-content: stretch;
+
+      grid-column: span 4;
+
+      &-title {
+        margin-top: 50px;
+      }
+    }
+  }
+
+  @include onDesktop {
+    row-gap: 90px;
+
+    &__card {
+      grid-column: span 3;
+
+      &-img {
+        width: 70px;
+        height: 50px;
+      }
+
+      &-title {
+        margin-top: 30px;
+      }
+
+      &-text {
+        &--first,
+        &--third {
+          margin-top: 52px;
+        }
+
+        &--second,
+        &--fourth {
+          margin-top: 24px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.slider {
+  display: flex;
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 260px;
+
+  margin-block: 30px 50px;
+
+  &-line {
+    width: 780px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 0;
+    transition: all ease 1s;
+  }
+
+  &__chapter {
+    min-width: 260px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    color: $c-green-blue;
+  }
+
+  &__list {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style-position: inside;
+
+  }
+
+  &__item {
+    @include fonts--secondary;
+    color: $c-dark-grey;
+
+    &::marker {
+      color: $c-000;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__button {
+      cursor: pointer;
+    }
+
+    &__count {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+
+      &-current {
+        @include fonts--main;
+        color: $c-dark-grey;
+      }
+
+      &-total,
+      &-delimiter {
+        font-family: "Inter", sans-serif;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        color: $c-green-blue;
+      }
+    }
+  }
+}

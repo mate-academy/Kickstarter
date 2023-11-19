@@ -1,0 +1,71 @@
+.button {
+  &--buy {
+    display: none;
+
+    height: 48px;
+    width: 100px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+
+    background: $c-dark-grey;
+    color: $c-fff;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &--designed {
+    position: relative;
+    @include fonts--button;
+
+    text-decoration: none;
+    color: $c-blue;
+
+    grid-column: 1 / -1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      height: 1px;
+      width: 53px;
+      background-color: $c-blue;
+    }
+
+    @include onTablet {
+      &--first {
+        grid-column: 5 / -1;
+        margin-bottom: 73px;
+      }
+
+      &--second {
+        grid-column: 1 / - 5;
+        margin-bottom: 170px;
+      }
+    }
+
+    @include onDesktop {
+      &--first {
+        grid-column: 7 / -1;
+        margin-bottom: 48px;
+      }
+
+      &--second {
+        grid-column: 1 / 7;
+        margin-bottom: 150px;
+      }
+    }
+  }
+}
