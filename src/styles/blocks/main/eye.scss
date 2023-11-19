@@ -1,0 +1,171 @@
+.eye {
+  &__content {
+    @include grid;
+    grid-template-rows: auto 1fr;
+    position: relative;
+
+    &:first-child {
+      margin-bottom: 170px;
+
+      @include onTablet {
+        margin-bottom: 140px;
+      }
+    }
+
+    @include onTablet {
+      height: 417px;
+    }
+
+    @include onMobile {
+      grid-template-rows: auto 1fr;
+      height: initial;
+    }
+  }
+
+  &__description {
+    grid-column: 1/7;
+
+    @include onTablet {
+      grid-column: 1/5;
+    }
+
+    @include onMobile {
+      grid-column: 1/-1;
+      grid-row: 3;
+    }
+
+    &--2 {
+      grid-column: -1/-7;
+      grid-row: 2 / 4;
+
+      @include onTablet {
+        grid-column: -1/-5;
+      }
+
+      @include onMobile {
+        grid-column: 1/-1;
+        grid-row: 3;
+      }
+    }
+
+    @include onMobile {
+      grid-column: 1/-1;
+    }
+  }
+
+  &__title {
+    @include font-h2;
+    margin-bottom: 20px;
+    grid-column: 1/6;
+    transform: translateX(-50px);
+    opacity: 0;
+    transition: all ease-in-out $transition-duration;
+
+    @include onTablet {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    @include onMobile {
+      grid-row: 1;
+      grid-column: 1/-1;
+      margin-bottom: 20px;
+    }
+
+    &--2 {
+      grid-column: -1/-7;
+      grid-row: 1;
+      transform: translateX(50px);
+
+      @include onTablet {
+        grid-column: -1/-5;
+      }
+
+      @include onMobile {
+        font-size: 30px;
+      }
+    }
+  }
+
+  &__text {
+    @include font-text;
+    margin-bottom: 60px;
+
+    @include onMobile {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__link {
+    color: $color-link-secondary;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    position: relative;
+    width: fit-content;
+
+    &::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      top: 20px;
+      left: 0;
+      width: 50%;
+      background-color: $color-link-secondary;
+      transition: width ease-in-out $transition-duration;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  &__imgbox {
+    grid-column: -1/-7;
+    grid-row: 1 / 4;
+    overflow: hidden;
+
+    @include onTablet {
+      position: absolute;
+      top: 0;
+      right: -40px;
+      width: 70%;
+    }
+
+    @include onMobile {
+      position: static;
+      width: 100%;
+      grid-row: 2;
+      grid-column: 1/-1;
+      margin-bottom: 18px;
+    }
+
+    &--2 {
+      grid-column: 1 / 7;
+
+      @include onTablet {
+        left: -34px;
+      }
+
+      @include onMobile {
+        grid-column: 1/-1;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    @include hover(transform, scale($transform-scale));
+
+    @include onTablet {
+      object-fit: cover;
+      height: 417px;
+    }
+
+    @include onMobile {
+      height: auto;
+    }
+  }
+}
