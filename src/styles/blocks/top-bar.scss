@@ -1,0 +1,51 @@
+.top-bar {
+  @include paddingInline;
+  grid-column: span 4;
+  display: flex;
+  justify-content: space-between;
+  padding-block: 24px;
+
+  @include onTablet {
+    grid-column: span 8;
+  }
+
+  @include onDesktop {
+    padding-inline: 0;
+    grid-column: span 12;
+  }
+
+  &--menu {
+    padding-inline: 0;
+  }
+
+  &__elements {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__wrapper {
+    align-items: center;
+    gap: 30px;
+    display: none;
+    @include onTablet {
+      display: flex;
+    }
+
+    &--menu {
+      display: flex;
+      grid-column: span 2;
+      height: fit-content;
+      gap: 20px;
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__language {
+    display: flex;
+    gap: 3px;
+    color: #828282;
+  }
+}

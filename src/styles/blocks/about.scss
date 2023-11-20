@@ -1,0 +1,80 @@
+.about {
+  @include onTablet {
+    padding-inline-start: 0;
+  }
+  @include onDesktop {
+    @include paddingInline;
+  }
+  &__wrapper {
+    grid-column: span 4;
+    height: 415px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    @include hover (scale, 1.03);
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    @include onDesktop {
+      width: 120%;
+    }
+  }
+
+  &__content {
+    grid-column: span 4;
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+}
+
+.technology {
+  @include onTablet {
+    overflow: hidden;
+    padding-inline-end: 0;
+  }
+  @include onDesktop {
+    @include paddingInline;
+  }
+
+  &__wrapper {
+    grid-column: span 4;
+    height: 415px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    @include hover (scale, 1.03);
+    @include onTablet {
+      grid-column: 5 / -1;
+    }
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    @include onDesktop {
+      width: 120%;
+    }
+  }
+
+  &__content {
+    grid-column: span 4;
+    @include onTablet {
+      grid-column: 1 / 5;
+      grid-row: 1;
+    }
+    @include onDesktop {
+      grid-column: span 6;
+      padding-inline-end: 123px;
+    }
+  }
+}
