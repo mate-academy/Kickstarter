@@ -1,0 +1,142 @@
+.footer {
+  margin-top: 100px;
+
+  @include onTablet {
+    margin-top: 140px;
+  }
+
+  &__message {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+
+    @include onTablet {
+      @include pageGrid;
+    }
+
+    &-title {
+      color: $c-dark-grey;
+
+      @include onTablet {
+        grid-column: span 4;
+      }
+
+      @include onDesktop {
+        grid-column: span 6;
+      }
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+
+      @include onTablet {
+        grid-column: span 4;
+      }
+
+      @include onDesktop {
+        grid-column: span 6;
+      }
+
+      &-input {
+        outline: none;
+        border: 1px solid $c-grey-inactive;
+
+        padding: 12px 20px;
+
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+
+        &::placeholder {
+          @include fonts--main;
+          color: $c-semi-light-grey;
+        }
+      }
+
+      &-email {
+        margin-bottom: 20px;
+
+        &:-webkit-autofill:not(:placeholder-shown) {
+          border: 1px solid $c-green-blue;
+        }
+
+        &-success {
+          border: 1px solid $c-success;
+
+          &::placeholder {
+            color: $c-success-text;
+          }
+        }
+      }
+
+      &-message {
+        margin-bottom: 30px;
+        resize: none;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 110px;
+
+    &__logo-and-backarrow {
+      display: none;
+    }
+
+    &__social {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    &__rights {
+      @include fonts--secondary;
+      margin-block: 30px 20px;
+
+      color: $c-semi-light-grey;
+      text-align: center;
+
+      &-terms {
+        text-decoration: none;
+        color: $c-semi-light-grey;
+      }
+    }
+
+    @include onTablet {
+      margin-top: 140px;
+
+      &__logo-and-backarrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 60px;
+        position: relative;
+      }
+
+      &__social {
+        gap: 49px;
+      }
+
+      &__rights {
+        margin-block: 60px 30px;
+      }
+    }
+
+    @include onDesktop {
+      margin-top: 170px;
+
+      &__social {
+        gap: 40px;
+      }
+    }
+  }
+
+}

@@ -1,6 +1,10 @@
 .button {
+  cursor: pointer;
+
   &--buy {
     display: none;
+    align-items: center;
+    justify-content: center;
 
     height: 48px;
     width: 100px;
@@ -18,10 +22,21 @@
     background: $c-dark-grey;
     color: $c-fff;
 
-    @include onTablet {
+    &-header {
+      @include onTablet {
+        display: flex;
+      }
+    }
+
+    &-menu {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 260px;
+      position: absolute;
+      bottom: 30px;
+
+      @include onTablet {
+        display: none;
+      }
     }
   }
 
@@ -32,8 +47,6 @@
     text-decoration: none;
     color: $c-blue;
 
-    grid-column: 1 / -1;
-
     &::after {
       content: "";
       position: absolute;
@@ -41,31 +54,25 @@
       bottom: -5px;
       height: 1px;
       width: 53px;
+
+      transition: ease width $effectDuration;
       background-color: $c-blue;
     }
+  }
 
-    @include onTablet {
-      &--first {
-        grid-column: 5 / -1;
-        margin-bottom: 73px;
-      }
+  &--message {
+    @include fonts--button;
+    width: 102px;
+    height: 40px;
 
-      &--second {
-        grid-column: 1 / - 5;
-        margin-bottom: 170px;
-      }
-    }
+    background-color: $c-blue;
+    color: $c-fff;
+
+    border: none;
 
     @include onDesktop {
-      &--first {
-        grid-column: 7 / -1;
-        margin-bottom: 48px;
-      }
-
-      &--second {
-        grid-column: 1 / 7;
-        margin-bottom: 150px;
-      }
+      width: 124px;
+      height: 48px;
     }
   }
 }

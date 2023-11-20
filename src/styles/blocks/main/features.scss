@@ -1,15 +1,42 @@
 .features {
   background-color: $c-bg-features;
+  margin-top: 110px;
+
+  @include onTablet {
+    background-color: $c-white;
+    margin-top: 140px;
+  }
+
+  @include onDesktop {
+    margin-top: 170px;
+  }
 
   &__title {
     color: $c-dark-grey;
     background-color: $c-white;
     padding: 0 30px 32px;
 
+    @include onTablet {
+      padding: 0 34px 30px;
+    }
+
+    @include onDesktop {
+      padding-inline: 123px;
+      max-width: 1194px;
+      margin-inline: auto;
+    }
   }
 
   &__desktop {
     display: none;
+
+    @include onDesktop {
+      grid-column: 1 / -1;
+      @include pageGrid;
+      row-gap: 56px;
+
+      margin-top: 60px;
+    }
   }
 
   &__wrapper {
@@ -17,5 +44,34 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @include onTablet {
+      align-items: flex-start;
+      padding-bottom: 130px;
+
+      background: url(../images/features/featuress.png) $c-bg-features no-repeat;
+      background-blend-mode: darken;
+      background-size: 60%;
+      background-position: 95% 100%;
+    }
+
+    @include onDesktop {
+      background-size: 46%;
+      @include pageGrid;
+      padding-bottom: 60px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    padding-bottom: 175px;
+
+    background: url(../images/features/featuress.png) $c-bg-features no-repeat;
+    background-size: contain;
+    background-blend-mode: darken;
+
+    @include onTablet {
+      display: none;
+    }
   }
 }

@@ -1,0 +1,100 @@
+@include onDesktop {
+  .button {
+    transition: all $effectDuration;
+
+    &--buy:hover {
+      background-color: $c-131313;
+    }
+
+    &--designed {
+      &:hover {
+        &::after {
+          width: 100%;
+          transition: ease-in-out width $effectDuration;
+        }
+      }
+    }
+
+    &--message {
+      &:hover {
+        background-color: $c-green-blue;
+      }
+    }
+  }
+
+  .icon--fb,
+  .icon--X,
+  .icon--inst {
+    @include hover(transform, scale(1.2));
+
+    &:hover path {
+      fill: $c-blue;
+
+    }
+  }
+
+  .icon--back {
+    @include hover(transform, scale(1.2));
+
+  }
+
+  .logo {
+    @include hover (transform, scale(1.2));
+
+  }
+
+  .specs {
+    transition: color $effectDuration;
+
+    &:hover {
+      color: $c-blue;
+    }
+  }
+
+  .nav__link {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      height: 1px;
+      width: 0;
+      transition: ease-in-out width $effectDuration;
+
+      background-color: $c-grey;
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+        transition: ease-in-out width $effectDuration;
+      }
+    }
+
+    &:active {
+      color: $c-blue;
+    }
+  }
+
+  .story__card,
+  .designed-future__img--desktop-1,
+  .designed-future__img--desktop-2 {
+    @include hover(transform, scale(1.05));
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 1px 8px 28px 3px rgba(0,0,0,0.52);
+      border-radius: 15px;
+    }
+  }
+
+  .footer__bottom__rights-terms {
+    transition: color $effectDuration;
+
+    &:hover {
+      color: $c-blue;
+    }
+  }
+}
