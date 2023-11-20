@@ -1,0 +1,45 @@
+.footer {
+  &__content {
+    @include grid;
+    
+    row-gap: 60px;
+    position: relative;
+
+    @include onMobile {
+      row-gap: 30px;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/icons/icon-arrow-up.svg);
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    @include hover(transform, scale($transform-scale));
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__logo {
+    grid-column: 1/-1;
+    margin: 0 auto;
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__copyright {
+    grid-column: 1/-1;
+    color: $color-placeholder;
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 30px;
+  }
+}
