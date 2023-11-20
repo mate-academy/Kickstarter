@@ -9,7 +9,7 @@ sliderButtons.addEventListener('click', moveSlide);
 let counter = 1;
 
 function moveSlide({ target }) {
-  const left = target.classList.contains('slider__btn--left');
+  const left = target.classList.contains('slider__btn--right');
 
   slides.forEach(slide => {
     slide.style.opacity = '0';
