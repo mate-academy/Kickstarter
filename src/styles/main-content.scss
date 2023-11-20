@@ -1,0 +1,726 @@
+.main {
+
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    &--center {
+      text-align: center;
+
+      @include onIpad {
+        text-align: left;
+      }
+    }
+  }
+
+  &__learn-more {
+    width: max-content;
+    color: $darkGreen;
+    font-weight: 500;
+    line-height: 130%;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    transition: border-bottom 0.3s;
+
+    &:hover {
+      border-bottom: 1px solid $darkGreen;
+    }
+  }
+
+  &__sideblock {
+    display: none;
+
+    @include onDesktop {
+      padding-right: 80px;
+      padding-top: 10px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: left;
+      gap: 10px;
+    }
+
+    &-text {
+      writing-mode: vertical-rl;
+      transform: rotate(-180deg);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 130%;
+      height: max-content;
+      width: 20px;
+      color: rgba(52, 79, 16, 0.5);
+      text-transform: lowercase;
+    }
+
+    &-line {
+      width: 1px;
+      height: 100px;
+      background-color: $darkGreen;
+    }
+  }
+
+  &__quote {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+
+    &-decor-line {
+      &-left,
+      &-right {
+        display: none;
+        position: absolute;
+        height: 1px;
+        background: rgba(52, 79, 16, 0.5);
+
+        @include onDesktop {
+          display: block;
+        }
+      }
+
+      &-left {
+        left: 0;
+        top: 0;
+        width: calc(50vw + 260px);
+        margin-left: calc(10vw - 50%);
+      }
+
+      &-right {
+        right: 0;
+        bottom: 0;
+        width: calc(100% + 150px);
+        margin-right: calc(10vw - 50%);
+      }
+    }
+
+    @include onIpad {
+      justify-content: center;
+    }
+
+    @include onDesktop {
+      justify-content: unset;
+      padding-bottom: 200px;
+    }
+
+    &-left {
+      display: none;
+
+      @include onDesktop {
+        box-sizing: border-box;
+        display: block;
+        width: 50%;
+        padding: 100px 0;
+        padding-left: 100px;
+        padding-right: 120px;
+      }
+    }
+
+    &-right {
+      padding: 100px 0;
+      color: $darkGreen;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 150%;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+
+      @include onIpad {
+        padding: 130px 0;
+        width: 280px;
+        text-align: center;
+      }
+
+      @include onDesktop {
+        padding: 100px 0;
+        position: relative;
+        width: 50%;
+        text-align: left;
+        margin: 0;
+        font-size: 24px;
+        font-weight: 600;
+      }
+    }
+
+    &-text {
+      @include onDesktop {
+        width: 370px;
+      }
+    }
+  }
+
+  &__about {
+    padding-bottom: 100px;
+    display: flex;
+    gap: 30px;
+
+    @include onIpad {
+      padding-bottom: 130px;
+    }
+
+    @include onDesktop {
+      gap: 0;
+      padding-bottom: 200px;
+    }
+
+    &-left {
+      display: flex;
+
+      @include onIpad {
+        width: 50%;
+        padding-top: 10px;
+      }
+
+      @include onDesktop {
+        width: 50%;
+      }
+
+      &-content {
+        display: flex;
+        flex-direction: column;
+
+        @include onDesktop {
+          padding-right: 120px;
+        }
+
+        &-text {
+          padding-top: 10px;
+          padding-bottom: 30px;
+        }
+
+        &-text-2 {
+          display: none;
+
+          @include onDesktop {
+            display: block;
+          }
+        }
+      }
+    }
+
+    &-right {
+      display: none;
+
+      &:hover {
+        transition: transform 0.3s;
+        transform: scale(110%);
+      }
+
+      @include onIpad {
+        display: block;
+        width: 50%;
+      }
+
+      @include onDesktop {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 20px;
+      }
+
+      &-image1 {
+        width: 100%;
+        object-fit: cover;
+        object-position: 67%;
+
+        @include onDesktop {
+          max-width: 380px;
+          height: 529px;
+        }
+      }
+
+      &-image2 {
+        overflow: hidden;
+        width: 100%;
+        display: none;
+        height: 430px;
+        object-fit: cover;
+
+        @include onDesktop {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__shop {
+    display: flex;
+    padding-bottom: 100px;
+
+    @include onIpad {
+      padding-bottom: 130px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 200px;
+    }
+
+    &-content {
+      width: 100%;
+    }
+
+    &-products {
+      @include onIpad {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+      }
+
+      &-image {
+        display: block;
+        width: calc(100% + 40px);
+        min-height: 267px;
+        margin-left: -20px;
+
+        @include onIpad {
+          margin: 0;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &-left {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        transition: 0.3s;
+        transition-property: transform;
+
+        &:hover {
+          transform: scale(105%);
+        }
+
+        @include onIpad {
+          width: 50%;
+        }
+      }
+
+      &-right {
+        display: none;
+        transition: 0.3s;
+        transition-property: transform;
+
+        &:hover {
+          transform: scale(105%);
+        }
+
+        @include onIpad {
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+        }
+      }
+
+      &-title,
+      &-price {
+        font-size: 18px;
+        line-height: 150%;
+        letter-spacing: 0.9px;
+        text-transform: uppercase;
+      }
+
+      &-title {
+        font-weight: 600;
+        padding-top: 20px;
+        padding-bottom: 10px;
+      }
+
+      &-price {
+        font-weight: 500;
+      }
+    }
+
+    &-category {
+      padding: 0;
+      display: flex;
+      list-style: none;
+      justify-content: space-between;
+
+      @include onIpad {
+        justify-content: left;
+        gap: 30px;
+      }
+
+      &-item {
+        margin: 0;
+      }
+
+      &-link {
+        border-bottom: 2px solid transparent;
+        display: flex;
+        flex-direction: column;
+        width: max-content;
+        gap: 10px;
+        text-decoration: none;
+        color: #828282;
+        letter-spacing: 0.7px;
+        text-transform: uppercase;
+        padding-bottom: 10px;
+        transition: border-bottom 0.3s;
+
+        &:hover,
+        &--is-active {
+          color: $black;
+          border-bottom: 2px solid $black;
+        }
+      }
+    }
+
+    &-button {
+      padding-top: 30px;
+      display: flex;
+      justify-content: center;
+
+      @include onIpad {
+        padding-top: 50px;
+      }
+    }
+  }
+
+  &__creators {
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+
+    @include onIpad {
+      gap: 30px;
+      padding-bottom: 130px;
+    }
+
+    @include onDesktop {
+      gap: 0;
+      padding-bottom: 200px;
+    }
+
+    &-left {
+      display: flex;
+      flex-direction: row;
+
+      @include onIpad {
+        width: 50%;
+      }
+
+      &-content {
+        display: flex;
+        flex-direction: column;
+
+        @include onDesktop {
+          padding-right: 120px;
+        }
+      }
+    }
+
+    &-right {
+      display: none;
+      width: 50%;
+
+      @include onIpad {
+        display: block;
+      }
+
+      &-img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &-text {
+      padding-top: 34px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      &-desktop {
+        display: none;
+
+        @include onDesktop {
+          display: block;
+        }
+      }
+
+      &:last-child {
+        padding-bottom: 30px;
+      }
+    }
+
+    &-button {
+      display: flex;
+      justify-content: center;
+      padding-top: 35px;
+
+      @include onIpad {
+        justify-content: left;
+      }
+    }
+  }
+
+  &__powder {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+
+    @include onIpad {
+      padding-bottom: 130px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 200px;
+    }
+
+    &-learn-more {
+      @include onIpad {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+
+    &-firstblock {
+      display: flex;
+
+      &-content {
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        @include onIpad {
+          flex-direction: row;
+        }
+
+        @include onDesktop {
+          justify-content: space-between;
+        }
+
+        &-title {
+          @include onIpad {
+            min-width: 342px;
+          }
+        }
+      }
+    }
+
+    &-ingredients {
+      display: flex;
+      flex-direction: row;
+      gap: 11px;
+
+      @include onIpad {
+        justify-content: right;
+      }
+    }
+
+    &-img {
+      height: 382px;
+    }
+
+    &-list {
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      list-style: none;
+
+      &-item {
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        gap: 25px;
+        padding-bottom: 50px;
+        min-width: max-content;
+
+        &:last-child {
+          padding-bottom: 0;
+        }
+
+        &::after {
+          height: 5px;
+          width: 40px;
+          display: block;
+          content: "";
+          background-image: url("../images/powder-sep.png");
+          background-position: right;
+          background-size: cover;
+        }
+      }
+    }
+
+    &-info {
+      padding-top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+
+      @include onIpad {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 30px;
+        padding-top: 130px;
+      }
+
+      @include onDesktop {
+        padding-top: 200px;
+      }
+
+      &-img {
+        display: block;
+        width: 80px;
+        height: 80px;
+
+      }
+
+      &-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        &:hover {
+          transition: transform 0.3s;
+          transform: scale(110%);
+        }
+
+        @include onIpad {
+          width: 33%;
+          justify-content: flex-start;
+        }
+      }
+
+      &-title {
+        line-height: 130%;
+        letter-spacing: 0.7px;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &__contact {
+    display: flex;
+    padding-bottom: 100px;
+    gap: 30px;
+
+    @include onIpad {
+      flex-direction: row;
+      padding-bottom: 132px;
+    }
+
+    @include onDesktop {
+      gap: 0;
+    }
+
+    &-left {
+      display: flex;
+
+      @include onIpad {
+        width: 50%;
+      }
+
+      &-content {
+        display: flex;
+        flex-direction: column;
+
+        @include onDesktop {
+          padding-right: 120px;
+        }
+      }
+    }
+
+    &-right {
+      display: none;
+      width: 50%;
+
+      @include onIpad {
+        display: block;
+      }
+      &-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: left;
+      }
+    }
+
+    &-text {
+      padding-top: 10px;
+      padding-bottom: 30px;
+
+      @include onDesktop {
+        padding-top: 30px;
+        padding-bottom: 40px;
+      }
+    }
+
+    &-form {
+      display: flex;
+      flex-direction: column;
+
+      &-input {
+        color: $darkGreen;
+        font-family: Poppins, sans-serif;
+        font-size: 14px;
+        line-height: 150%;
+        text-transform: capitalize;
+        width: 100%;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid $lightGray;
+        padding-bottom: 5px;
+        padding-top: 20px;
+
+        @include onDesktop {
+          font-size: 18px;
+          padding-bottom: 10px;
+          padding-top: 25px;
+        }
+
+        &::placeholder {
+          color: #828282;
+          font-family: Poppins, sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 150%;
+          text-transform: capitalize;
+
+          @include onDesktop {
+            font-size: 18px;
+          }
+        }
+
+        &:-webkit-autofill {
+          transition: background-color 600000s 0s, color 600000s 0s;
+        }
+
+        &[data-autocompleted] {
+          background-color: transparent !important;
+        }
+
+        &:focus {
+          border-bottom: 1px solid $black;
+
+          &:invalid {
+            border-bottom: 1px solid red;
+            color: red;
+          }
+        }
+
+        &--message {
+          padding-top: 45px;
+          margin-bottom: 30px;
+          resize: none;
+
+          @include onDesktop {
+            padding-top: 60px;
+            margin-bottom: 50px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,159 @@
 @import "utils";
-@import "fonts";
 @import "typography";
+@import "header";
+@import "footer";
+@import "main-content";
 
-body {
-  background: $c-gray;
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    overflow-x: hidden;
+    margin: 0;
+    box-sizing: border-box;
+    background: $background;
+    font-family: "Poppins", sans-serif;
+    color: $black;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__container {
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 0 20px;
+
+    @include onIpad {
+      padding: 0 27px;
+    }
+
+    @include onDesktop {
+      padding: 0 50px;
+    }
+  }
+
+  &__menu {
+    background-color: $black;
+    width: 100vw;
+    height: 100vh;
+    z-index: 15;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    &-content {
+      padding-top: 20px;
+
+      &-links {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding-top: 45px;
+
+        @include onIpad {
+          gap: 50px;
+          padding-top: 100px;
+        }
+      }
+
+      &-link {
+        color: $white;
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 10px;
+        text-decoration: none;
+        border-bottom: 1px solid #828282;
+        text-align: center;
+      }
+
+      &-close-icon {
+        display: block;
+        width: 20px;
+        height: 24px;
+        background-image: url("../images/close.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 15px;
+      }
+    }
+  }
+
+  &__cart {
+    background: $background;
+    width: 100vw;
+    height: 100vh;
+    z-index: 11;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    &-content {
+      padding-top: 20px;
+
+      @include onDesktop {
+        padding-top: 60px;
+      }
+
+      &-top {
+        display: flex;
+        justify-content: flex-end;
+        padding-bottom: 30px;
+      }
+
+      &-close-icon {
+        display: block;
+        width: 20px;
+        height: 24px;
+        background-image: url("../images/close-dark.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+
+        @include onDesktop {
+          width: 32px;
+          height: 32px;
+          background-size: 32px;
+        }
+      }
+    }
+  }
+}
+
+.button {
+  width: 280px;
+  height: 60px;
+  background-color: $black;
+  outline: none;
+  border: none;
+  color: $white;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: 2.4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    color: $black;
+    background-color: $background;
+    border: 1px solid $black;
+  }
 }
