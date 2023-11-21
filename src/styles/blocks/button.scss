@@ -1,0 +1,79 @@
+.button {
+  @extend %button;
+
+  &--header {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &--about {
+    color: $c-turquoise;
+    margin-bottom: 5px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 53px;
+      height: 1px;
+      background-color: $c-turquoise;
+      transition: width 0.3s;
+    }
+
+    &:hover::after {
+      width: 126px;
+    }
+  }
+
+  &__dark {
+    width: 102px;
+    height: 48px;
+    color: $c-white;
+    align-items: center;
+    justify-content: center;
+    background-color: $secondary-text-color;
+    transition: all $effectDuration;
+
+    &:hover {
+      background-color: $c-black;
+    }
+
+    &:active {
+      background-color: $c-dark-grey;
+    }
+  }
+
+  &--menu {
+    display: flex;
+    width: 100%;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &--form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 102px;
+    height: 40px;
+    background-color: #0db2b3;
+    outline: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color $effectDuration;
+
+    &:hover {
+      background-color: #0c797a;
+    }
+
+    @include onLaptop {
+      width: 124px;
+      height: 48px;
+    }
+  }
+}

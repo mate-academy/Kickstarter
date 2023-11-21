@@ -1,0 +1,212 @@
+.features {
+  padding: 110px 0 0;
+  max-width: 1194px;
+  margin: 0 auto;
+
+  @include onTablet {
+    padding: 140px 34px 0;
+  }
+
+  @include onLaptop {
+    padding: 170px 34px 0;
+  }
+
+  &__content {
+    background-color: #d6ecec;
+
+    &--mobile {
+      @include onLaptop {
+        display: none;
+      }
+    }
+
+    &--laptop {
+      display: none;
+
+      @include onLaptop {
+        @include pageGrid;
+        padding-top: 60px;
+        gap: 56px;
+      }
+    }
+  }
+
+  &__title {
+    color: $secondary-text-color;
+    padding: 0 30px;
+    margin-bottom: 32px;
+
+    @include onTablet {
+      padding: 0;
+    }
+  }
+
+  &-option {
+    margin-bottom: 50px;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include onLaptop {
+      grid-column: span 6;
+      margin-bottom: 0;
+    }
+
+    &--grid-column--2-6 {
+      grid-column: 2 / 7;
+    }
+
+    &__title {
+      padding: 30px 30px 0;
+      color: #0c797a;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 122%;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+
+      @include onTablet {
+        padding: 60px 90px 0;
+      }
+
+      @include onLaptop {
+        padding: 0;
+        font-size: 34px;
+      }
+    }
+
+    &__list {
+      padding: 0 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      @include onTablet {
+        padding: 0 90px;
+        max-width: 35vw;
+      }
+
+      @include onLaptop {
+        padding: 0;
+      }
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: $secondary-text-color;
+      line-height: 150%;
+
+      &::before {
+        content: "";
+        display: block;
+        background-image: url("../images/icons/bullet.svg");
+        width: 6px;
+        height: 6px;
+      }
+    }
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 34px;
+
+    @include onTablet {
+      justify-content: flex-start;
+      padding-left: 80px;
+    }
+  }
+
+  .swiper-button-disabled svg path {
+    fill: #bdbdbd;
+  }
+
+  &-button {
+    display: flex;
+    cursor: pointer;
+
+    &:hover svg path {
+      fill: #0c797a;
+    }
+  }
+
+  &-button--next {
+    padding: 10px 10px 10px 0;
+  }
+
+  &-button--prev {
+    padding: 10px 0 10px 10px;
+  }
+
+  &__img-wrapper {
+    @include onTablet {
+      @include pageGrid;
+    }
+
+    @include onLaptop {
+      display: block;
+      grid-column: span 6;
+    }
+  }
+
+  &__img {
+    display: flex;
+    width: 100%;
+
+    &--mobile {
+      @include onTablet {
+        grid-column: 4 / -1;
+        margin-top: -120px;
+      }
+
+      @media (min-width: 798px) {
+        margin-top: -105px;
+      }
+    }
+  }
+
+  &-paginations {
+    margin-bottom: -5px;
+    color: #0c797a;
+    font-family: Inter, sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+
+    @include onTablet {
+      @include onTablet {
+        display: flex;
+        gap: 3px;
+        padding-left: 115px;
+      }
+    }
+  }
+}
+
+.swiper-pagination-current {
+  display: inline-block;
+  height: 24px;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: $secondary-text-color;
+  width: 19px;
+  transform: translateY(-3px);
+
+  &::before {
+    content: "0";
+  }
+}
+
+.swiper-pagination-total {
+  color: #0c797a;
+
+  &::before {
+    content: "0";
+  }
+}

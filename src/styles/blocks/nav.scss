@@ -1,0 +1,83 @@
+.nav {
+  &--menu {
+    @include onLaptop {
+      margin-top: 170px;
+      padding: 28px 0;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include onTablet {
+      gap: 40px;
+    }
+
+    &--main {
+      display: none;
+
+      @include onLaptop {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  }
+
+  &__link {
+    @extend %thirdary-text;
+    color: $secondary-text-color;
+
+    &--active {
+      font-weight: 700;
+    }
+
+    &--menu {
+      position: relative;
+
+      @include onTablet {
+        font-size: 22px;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -5px;
+        height: 2px;
+        width: 100%;
+        background-color: $secondary-text-color;
+        border-radius: 4px;
+
+        transition: transform $effectDuration;
+        transform: scale(0);
+        transform-origin: left;
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
+    }
+
+    &--main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      transition: border-color 0.3s;
+      width: 174px;
+      height: 48px;
+
+      &:hover {
+        border-color: $secondary-text-color;
+      }
+
+      &:active {
+        font-weight: 700;
+        color: $c-dark-grey;
+      }
+    }
+  }
+}

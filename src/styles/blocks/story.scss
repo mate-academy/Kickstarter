@@ -1,0 +1,83 @@
+.story {
+  overflow: hidden;
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 110px;
+    justify-content: center;
+    gap: 65px 20px;
+
+    @include onTablet {
+      padding-top: 140px;
+    }
+
+    @include onLaptop {
+      padding-top: 62px;
+      flex-wrap: nowrap;
+      gap: 0 30px;
+    }
+  }
+
+  &-card {
+    display: none;
+    text-align: center;
+    flex-direction: column;
+
+    @include onTablet {
+      display: flex;
+      max-width: 41vw;
+    }
+
+    @include onLaptop {
+      width: 100%;
+    }
+
+    &__img {
+      height: 44px;
+      margin-bottom: 40px;
+      transition: transform 1s, fill 1s;
+
+      @include onTablet {
+        margin-bottom: 50px;
+      }
+
+      @include onLaptop {
+        margin-bottom: 30px;
+      }
+    }
+
+    &__title {
+      margin-bottom: 20px;
+      color: $secondary-text-color;
+
+      @include onTablet {
+        font-size: 18px;
+      }
+
+      @media (min-width: 779px) {
+        font-size: 22px;
+      }
+
+      @include onLaptop {
+        margin-bottom: 24px;
+        height: 61px;
+      }
+    }
+
+    &__description {
+      font-size: 14px;
+      line-height: 150%;
+    }
+
+    &--shown {
+      display: flex;
+    }
+  }
+
+  &-card:hover .story-card__img {
+    transition: fill 0.3s, transform 1s;
+    fill: $c-turquoise;
+    transform: scale(1.5);
+  }
+}
