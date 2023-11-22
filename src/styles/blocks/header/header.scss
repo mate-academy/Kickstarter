@@ -28,21 +28,25 @@
   }
 
   &__bottom {
-    background-image: url(../images/header/header-mobile.png);
-    background-repeat: no-repeat;
+    &__img {
+      width: 100%;
+      padding-top: 100%;
+      background: url(../images/header/header-mobile.png) $c-white no-repeat;
+      background-position: center;
+      background-size: contain;
+
+    }
 
     @include onTablet {
-      background-image: none;
+      &__img {
+        display: none;
+      }
     }
 
     &-wrapper {
       display: flex;
       flex-direction: column;
       color: $c-dark-grey;
-    }
-
-    &-title {
-      padding-top: 285px;
     }
 
     &-text {
@@ -66,8 +70,7 @@
         grid-column: 1 / 5;
         grid-row: 1;
         z-index: 1;
-
-        padding-top: 0;
+        margin-top: 0;
       }
 
       &-text {
