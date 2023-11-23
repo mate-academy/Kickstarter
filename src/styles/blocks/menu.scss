@@ -1,0 +1,46 @@
+.menu {
+  overflow: auto;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  right: 0;
+  transform: translateX(150%);
+  height: 100vh;
+  width: 100%;
+  background-color: $color-background-aside;
+  transition: 0.5s;
+
+  &:target {
+    transform: translateX(0);
+
+    body {
+      overflow: hidden;
+    }
+  }
+
+  &__top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: $color-background-aside;
+  }
+
+  &__atributes {
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__content-buttom {
+    margin-top: 50px;
+  }
+
+  &__button {
+    margin-top: 162px;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}

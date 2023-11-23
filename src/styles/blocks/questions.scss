@@ -1,0 +1,97 @@
+.questions {
+  margin-top: 110px;
+
+  @include onTablet {
+    margin-top: 140px;
+  }
+
+  @include onDesctop {
+    margin-top: 170px;
+  }
+
+  &__container {
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__title {
+    @extend %h2;
+  }
+
+  &__body {
+    margin-top: 27px;
+
+    @include onTablet {
+      margin-top: 0;
+      flex: 1 0 50%;
+    }
+  }
+
+  &__area {
+    outline: none;
+    width: 100%;
+    padding: 12px 20px;
+    @extend %text-large;
+
+    background-color: $color-background;
+    border: 1px solid $color-border-input;
+
+    &::placeholder {
+      color: $color-arrow;
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+    }
+
+    &:focus::placeholder {
+      opacity: 0;
+    }
+  }
+
+  &__email {
+    &:focus:invalid {
+      border: 1px solid #eb5757;
+      color: #eb57574d;
+    }
+  }
+
+  &__massage {
+    margin-top: 20px;
+    padding-bottom: 92px;
+    resize: none;
+
+    @extend %text-large;
+
+    &:focus {
+      border: 1px solid $color-title-feature;
+    }
+  }
+
+  &__button {
+    margin-top: 30px;
+    width: 102px;
+    height: 40px;
+
+    border: none;
+    background: $color-link;
+    cursor: pointer;
+
+    @include hover(background-color, $color-title-feature);
+
+    @include onDesctop {
+      width: 123px;
+      height: 48px;
+    }
+  }
+
+  &__button-link {
+    color: $color-white;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+  }
+}

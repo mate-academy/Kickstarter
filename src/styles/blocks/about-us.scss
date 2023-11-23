@@ -1,0 +1,117 @@
+.about-us {
+  margin-top: 110px;
+
+  @include onTablet {
+    margin-top: 140px;
+    display: flex;
+    gap: 20px;
+  }
+
+  @include onDesctop {
+    margin-top: 170px;
+  }
+
+  &__back {
+    @include onTablet {
+      height: 415px;
+      width: 50%;
+      background: url(../images/about-us/tablet.jpg) center/ 100% auto no-repeat;
+    }
+
+    @include onDesctop {
+      display: none;
+    }
+  }
+
+  &__image-top {
+    display: none;
+
+    @include onDesctop {
+      display: block;
+    }
+  }
+
+  &__container {
+    @include onDesctop {
+      display: flex;
+      gap: 30px;
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      width: 340px;
+    }
+
+    @include onDesctop {
+      width: max-content;
+    }
+  }
+
+  &__body {
+    @include onDesctop {
+      flex: 1 0 50%;
+    }
+  }
+
+  &__title {
+    @extend %h2;
+  }
+
+  &__image {
+    margin-top: 30px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__img-top {
+    @include hover(opacity, 0.75);
+  }
+
+  &__text {
+    margin-top: 20px;
+
+    @extend %text-small;
+    text-align: left;
+
+    @include onTablet {
+      margin-top: 30px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+
+    margin-top: 30px;
+    @extend %link;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 53px;
+      height: 1px;
+      bottom: -5px;
+      left: 0;
+      background-color: $color-link;
+      transition: 0.5s;
+    }
+
+    &:hover {
+      &:after {
+        width: 100%;
+      }
+    }
+
+    @include onTablet {
+      margin-top: 60px;
+    }
+  }
+}
