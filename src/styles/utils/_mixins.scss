@@ -1,6 +1,98 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} #{$duration-time};
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin onMobile {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin onlyOnTablet {
+  @media (min-width: $breakpoint-tablet) and (max-width: #{$breakpoint-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline {
+  padding-inline: $padding-inline-mobile;
+
+  @include onTablet {
+    padding-inline: $padding-inline-tablet;
+  }
+
+  @include onDesktop {
+    max-width: $max-width;
+    margin-inline: auto;
+    padding-inline: $padding-inline-dekstop;
+  }
+}
+
+@mixin backgroundSizePosition {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@mixin pageGrid {
+  --colums: #{$colums-mobile};
+  display: grid;
+  grid-template-columns: repeat(var(--colums), 1fr);
+  column-gap: $col-gap;
+
+  @include onTablet {
+    --colums: #{$colums-tablet};
+  }
+
+  @include onDesktop {
+    column-gap: $col-gap-desktop;
+    --colums: #{$colums-dekstop};
+  }
+}
+
+@mixin gapsBetweenBlocks {
+  display: flex;
+  flex-direction: column;
+  row-gap: $block-gaps-mobile;
+
+  @include onTablet {
+    row-gap: $block-gaps-tablet;
+  }
+
+  @include onDesktop {
+    row-gap: $block-gaps-desktop;
+  }
+}
+
+@mixin blockTitleStyling {
+  color: $color-main;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 40px;
+  text-transform: uppercase;
+
+  @include onTablet {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  @include onDesktop {
+    font-size: 56px;
+    line-height: 70px;
   }
 }

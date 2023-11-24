@@ -1,0 +1,76 @@
+.footer {
+  @include contentPaddingInline;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  padding-bottom: 20px;
+
+  @include onTablet {
+    gap: 60px;
+    padding-bottom: 30px;
+  }
+
+  &__top {
+    display: none;
+    width: 100%;
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+  }
+
+  &__logo-link {
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+  }
+
+  &__logo {
+    height: 26px;
+    @include hover(transform, scale(1.1));
+  }
+
+  &__arrow {
+    position: absolute;
+    right: 0;
+  }
+
+  &__social-media {
+    display: flex;
+    column-gap: 40px;
+
+    @include onlyOnTablet {
+      column-gap: 50px;
+    }
+  }
+
+  &__media-link {
+    display: block;
+    width: 24px;
+    height: 24px;
+    @include backgroundSizePosition;
+    @include hover(transform, scale(1.1));
+
+    &--facebook {
+      background-image: url(../images/icons/fb-logo.svg);
+    }
+
+    &--twitter {
+      background-image: url(../images/icons/twitter-logo.svg);
+    }
+
+    &--instagram {
+      background-image: url(../images/icons/insta-logo.svg);
+    }
+  }
+
+  &__terms {
+    color: $color-white-gray;
+    text-align: center;
+    font-size: 14px;
+    line-height: 150%;
+  }
+}
