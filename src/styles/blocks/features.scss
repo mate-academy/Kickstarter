@@ -1,0 +1,174 @@
+.features {
+  position: relative;
+  height: 650px;
+  @include contentPaddingInline;
+
+  @include onTablet {
+    position: static;
+  }
+
+  @include onDesktop {
+    height: auto;
+  }
+
+  &__title {
+    @include blockTitleStyling;
+    margin-bottom: 32px;
+
+    @include onlyOnTablet {
+      margin-bottom: 30px;
+      font-size: 30px;
+      line-height: 40px;
+    }
+  }
+
+  &__content {
+    @include pageGrid;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 575px;
+    background: $backgraund-color-turquoise;
+
+    @include onTablet {
+      position: relative;
+      height: 535px;
+    }
+
+    @include onDesktop {
+      height: auto;
+      row-gap: 56px;
+      padding-block: 60px;
+    }
+  }
+
+  &__slide {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    transition: all 0.5s ease-in-out;
+    height: 276px;
+    grid-column: span 4;
+
+    @include onTablet {
+      top: 60px;
+      left: 0;
+      grid-column: 2 / 7;
+    }
+
+    @include onDesktop {
+      position: static;
+      height: auto;
+    }
+
+    &--1 {
+      @include onDesktop {
+        grid-column: 2 / 6;
+      }
+    }
+
+    &--2 {
+      @include onDesktop {
+        grid-column: 2 / 6;
+      }
+    }
+
+    &--3 {
+      @include onDesktop {
+        grid-column: 7 / -1;
+        grid-row: 1;
+      }
+    }
+  }
+
+  &__bottom {
+    position: absolute;
+    bottom: 231px;
+    left: 23%;
+    grid-column: 2 / 4;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      left: 0;
+      bottom: 130px;
+    }
+
+    @include onDesktop {
+      position: static;
+      display: none;
+    }
+  }
+
+  &__btn-wrap {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  &__btn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 48px;
+    height: 16px;
+    background-repeat: no-repeat;
+    @include hover(transform, scale(1.2));
+
+    &--prev {
+      background-image: url(../images/features/btn-prev.svg);
+    }
+
+    &--next {
+      background-image: url(../images/features/btn-next.svg);
+    }
+  }
+
+  &__slide-counter {
+    display: flex;
+    justify-content: space-between;
+    width: 47px;
+    white-space: nowrap;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__current-slide {
+    color: $color-main;
+    margin: 0;
+  }
+
+  &__total-count {
+    font-size: 11px;
+    color: $color-dark-blue;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    right: 3px;
+    background-image: url(../images/features/features-img.png);
+    background-blend-mode: darken;
+    background-color: $backgraund-color-turquoise;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%;
+    width: 100vw;
+    height: 175px;
+
+    @include onTablet {
+      width: 435px;
+      height: 226px;
+    }
+
+    @include onDesktop {
+      width: 582px;
+      height: 302px;
+      right: 20px;
+    }
+  }
+}

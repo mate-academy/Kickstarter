@@ -1,0 +1,100 @@
+.presentation {
+  font-size: 14px;
+  line-height: 150%;
+  text-align: center;
+  color: $color-gray;
+  @include contentPaddingInline;
+
+  &__wrapper {
+    @include gapsBetweenBlocks;
+  }
+
+  &__content {
+    @include pageGrid;
+
+    @include onTablet {
+      row-gap: 65px;
+    }
+  }
+
+  &__article {
+    grid-column: span 4;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+
+    @include onMobile {
+      &--tab-desk {
+        display: none;
+      }
+    }
+
+    @include onDesktop {
+      grid-column: span 3;
+    }
+  }
+
+  &__icon {
+    height: 50px;
+    width: 70px;
+    margin-bottom: 40px;
+    @include backgroundSizePosition;
+
+    &--compass {
+      background-image: url(../images/icons/compass-logo.svg);
+    }
+
+    &--volume {
+      background-image: url(../images/icons/volume-icon.svg);
+    }
+
+    &--wi-fi {
+      background-image: url(../images/icons/wi-fi--icon.svg);
+    }
+
+    &--sun {
+      background-image: url(../images/icons/sun-icon.svg);
+    }
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: $color-main;
+
+    @include onDesktop {
+      &--desktop-margin-l {
+        margin-bottom: 52px;
+      }
+
+      &--desktop-margin-s {
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  &__luna-photo {
+    display: block;
+    height: auto;
+    max-width: 846px;
+
+    @include onTablet {
+      margin-inline: auto;
+      width: 100%;
+    }
+  }
+}

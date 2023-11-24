@@ -1,0 +1,55 @@
+.nav {
+  &--desktop {
+    display: none;
+
+    @include onDesktop {
+      @include contentPaddingInline;
+      display: block;
+      margin-bottom: 62px;
+      padding-block: 28px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include onTablet {
+      gap: 40px;
+    }
+
+    @include onDesktop {
+      flex-direction: row;
+      gap: 84px;
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 1.2px;
+
+    @include onlyOnTablet {
+      font-size: 22px;
+      line-height: 28px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-main;
+    cursor: pointer;
+    transition: text-shadow $duration-time ease-in-out;
+
+    &:hover {
+      text-shadow: 1px 0 0.6px $color-text-black;
+    }
+
+    &:focus {
+      font-weight: 700;
+    }
+  }
+}
