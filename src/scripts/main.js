@@ -1,11 +1,4 @@
 'use strict';
-checkWindowSize();
-
-function checkWindowSize() {
-  if (window.innerWidth > 1023) {
-    document.removeEventListener('DOMContentLoaded');
-  }
-}
 
 document.addEventListener('DOMContentLoaded', function() {
   const slides = document.querySelectorAll('.features__slide');
