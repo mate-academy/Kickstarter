@@ -9,11 +9,27 @@
   overflow: none;
   padding-top: 43px;
   transition: $transition;
+  @include onDesktop {
+    background-color: $c-gray;
+    position: relative;
+    transform: translateX(0);
+    display: flex;
+    justify-content: center;
+    padding-top: 0;
+    margin-top: 200px;
+    height: auto;
+   }
 
   &__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__logo {
+    @include onDesktop {
+      display: none;
+    }
   }
 
   &__nav {
@@ -24,6 +40,12 @@
     @include onTablet {
       margin-top: 64px;
       gap: 40px;
+    }
+    @include onDesktop {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 578px;
+      margin-top: 0;
     }
   }
 
@@ -48,11 +70,18 @@
         font-weight: 700;
       }
     }
+    @include onDesktop {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 
   &__close {
     width: 16px;
     height: 16px;
+    @include onDesktop {
+      display: none;
+     }
   }
 
   &__info {
