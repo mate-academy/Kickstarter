@@ -1,0 +1,149 @@
+.header {
+  padding-bottom: 55px;
+
+  @include onTablet {
+    padding-bottom: 0;
+  }
+
+  @include onDesctop {
+    padding-bottom: 45px;
+  }
+
+  &__content {
+    box-sizing: border-box;
+
+    @include onTablet {
+      padding-bottom: 75px;
+      height: 100vh;
+    }
+
+    @include onDesctop {
+      padding-bottom: 45px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  &__top {
+    @include container;
+
+    @include onTablet {
+      margin-bottom: 100px;
+    }
+
+    @include onDesctop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__main {
+
+    @include onTablet {
+
+      @include container;
+
+      @include grid;
+      grid-template-rows: 1 auto;
+    }
+  }
+
+  &__image {
+    margin-bottom: 40px;
+    width: 100%;
+    padding-bottom: 76%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url("../images/header/header-bg-mobile.png");
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      background-image: url("../images/header/header-tablet.png");
+    }
+
+    @media(min-width: 850px) {
+      padding-bottom: 60%;
+    }
+
+    @include onDesctop {
+      grid-column: 5 / -1;
+      background-image: url("../images/header/header-bg-desctop.png");
+
+    }
+  }
+
+  &__info {
+    @include container;
+
+    @include onTablet {
+      padding-inline: 0;
+      grid-column: 1 / 4;
+    }
+
+    @include onDesctop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    font-size: 40px;
+    line-height: 52px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    @include onTablet {
+      margin: 0 0 30px;
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesctop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    line-height: 24px;
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesctop {
+      display: block;
+      width: 578px;
+      margin: 0 auto;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    column-gap: 84px;
+    list-style: none;
+  }
+
+  &__item {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__link {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: inherit;
+    line-height: 20px;
+
+    &--thick {
+      font-weight: 700;
+    }
+  }
+}
