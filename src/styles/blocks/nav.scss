@@ -1,0 +1,69 @@
+.nav {
+
+  @include onDesctop {
+    width: 578px;
+    margin: 0 auto;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    row-gap: 25px;
+
+    @include onTablet {
+      row-gap: 40px;
+    }
+
+    @include onDesctop {
+      flex-direction: row;
+      row-gap: 0;
+      column-gap: 84px;
+
+    }
+  }
+
+
+  &__link {
+    color: inherit;
+    line-height: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    position: relative;
+    width: fit-content;
+
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      background-color: #131313;
+
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    @include onTablet {
+      line-height: 28px;
+      font-size: 22px;
+    }
+
+    &--thick {
+      font-weight: 700;
+    }
+
+    @include onDesctop {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  &__item:hover &__link::after {
+    opacity: 1;
+  }
+}
