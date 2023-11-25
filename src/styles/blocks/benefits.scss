@@ -1,0 +1,67 @@
+.benefits {
+  padding: 55px 0;
+
+  @include onTablet {
+    padding: 70px 0;
+  }
+
+  @include onDesctop {
+    padding: 45px 0 85px;
+  }
+
+  &__content {
+    @include grid;
+    @include container;
+
+    row-gap: 60px;
+  }
+
+  &__item {
+    grid-column: 1 / -1;
+
+    &:not(:first-child) {
+      display: none;
+    }
+
+    @include onTablet {
+      &:not(:first-child) {
+        display: block;
+      }
+
+      grid-column: span 4;
+    }
+
+    @include onDesctop {
+      grid-column: span 3;
+    }
+  }
+
+  &__icon {
+    display: block;
+    margin: 0 auto 40px;
+    width: 50px;
+    height: 40px;
+    object-fit: cover;
+
+    @include onDesctop {
+      width: 70px;
+      height: 50px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    margin: 0;
+    line-height: 21px;
+    color: #7c7c7c;
+    text-align: center;
+  }
+}
