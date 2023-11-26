@@ -1,0 +1,153 @@
+.card {
+  padding-top: 80px;
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: 110px;
+  }
+
+  @include onTablet {
+    padding: 0;
+    display: flex;
+    column-gap: 20px;
+
+    &:nth-child(2n + 1) {
+       flex-direction: row;
+       padding-right: 35px;
+    }
+
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+      padding-left: 35px;
+   }
+
+    &:not(:last-child) {
+      margin-bottom: 140px;
+    }
+  }
+
+  @include onDesctop {
+
+    &:nth-child(2n + 1) {
+      padding-right: 0;
+   }
+
+   &:nth-child(2n) {
+     padding-left: 0;
+  }
+
+   &:not(:last-child) {
+     margin-bottom: 170px;
+   }
+  }
+
+  &__image {
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+    padding-bottom: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+
+    @include onTablet {
+      margin-bottom: 0;
+      padding-bottom: 54%;
+      flex: 1 1 50%;
+    }
+
+    @include onDesctop {
+      padding-bottom: 37%;
+      flex: 1 1 55%;
+    }
+
+    &--designed {
+      background-image: url("../images/about/designed-phone.png");
+
+      @include onTablet {
+        background-image: url("../images/about/designed__tablet.png");
+      }
+    }
+
+    &--eye {
+      background-image: url("../images/about/eye-phone.png");
+
+      @include onTablet {
+        background-image: url("../images/about/eye-tablet.png");
+      }
+    }
+  }
+
+  &__info {
+
+    @include onTablet {
+      flex: 1 1 50%;
+    }
+
+    @include onDesctop {
+      flex: 1 1 45%;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+
+    @include onTablet {
+      position: static;
+      margin: 0 0 30px;
+      font-size: 36px;
+      line-height: 46px;
+    }
+  }
+
+  &__text {
+    margin: 0 0 30px;
+    line-height: 21px;
+    color: #7c7c7c;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    padding-bottom: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: #0db2b3;
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      content: "";
+      display: block;
+      width: 52px;
+      height: 1px;
+      background-color: #0db2b3;
+      transition: width 0.3s;
+    }
+  }
+
+  &__btn {
+    width: max-content;
+  }
+
+  &__btn:hover &__link::after {
+    width: 126px;
+  }
+}
