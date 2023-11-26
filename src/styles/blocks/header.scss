@@ -5,25 +5,51 @@
   &__content {
     @include contentPaddingInline();
     @include pageGrid();
+
+    @include onTable() {
+      row-gap: 120px;
+    }
   }
 
   &__top-bar {
     padding-block: 25px;
-    grid-column: span 4;
+
+    grid-column: 1 / -1;
   }
 
   &__poster {
     width: 100%;
     grid-column: span 4;
 
+    @include onTable() {
+      grid-area: top;
+      grid-column: 4 / -1;
+    }
+
+    @include onDesktop() {
+      display: none;
+    }
+
     &--desktop {
       display: none;
+
+      @include onDesktop() {
+        display: block;
+        grid-column: 5 / -1;
+      }
     }
   }
 
   &__bottom {
     grid-column: span 4;
 
+    @include onTable() {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop() {
+      grid-column: span 4;
+    }
   }
 
   &__title {
@@ -33,6 +59,18 @@
     text-transform: uppercase;
 
     margin-block: 40px 20px;
+
+    @include onTable() {
+      font-size: 48px;
+      line-height: 62px;
+
+      margin-block: 0 30px;
+    }
+
+    @include onDesktop() {
+      font-size: 62px;
+      line-height: 78px;
+    }
   }
 
   &__subtitle {

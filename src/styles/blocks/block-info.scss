@@ -1,4 +1,35 @@
 .block-info {
+  display: flex;
+  flex-direction: column;
+
+  @include onTable() {
+    flex-direction: row;
+    gap: 20px;
+
+    &--reverse {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__poster {
+    margin-block: 30px 20px;
+
+    @include onTable() {
+      width: 50%;
+      flex: 1;
+      margin-block: 0;
+    }
+
+    @include onDesktop() {
+      height: 388px;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    flex: 1;
+  }
+
   &__title {
     color: $block-info-title-color;
 
@@ -6,18 +37,40 @@
     font-weight: 700;
     line-height: 40px;
     text-transform: uppercase;
-  }
 
-  &__poster {
-    width: 100%;
+    @include onTable {
+      font-size: 36px;
+      line-height: 46px;
+    }
 
-    margin-block: 30px 20px;
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    &--onMobile {
+      @include onTable() {
+        display: none;
+      }
+    }
+
+    &--onTable {
+      display: none;
+
+      @include onTable() {
+        display: block;
+      }
+    }
   }
 
   &__text {
     color: $block-info-text-color;
 
     @include textMain();
+
+    @include onTable() {
+      margin-block: 30px 60px;
+    }
   }
 
   &__button {

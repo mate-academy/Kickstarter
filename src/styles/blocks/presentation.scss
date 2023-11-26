@@ -1,9 +1,16 @@
 .presentation {
   &__content {
-    padding-inline: 12px;
+    @include contentPaddingInline();
+
+    @include pageGrid();
   }
 
   &__poster {
     width: 100%;
+    grid-column: 1 / -1;
+
+    @include onDesktop() {
+      grid-column: 3/ -3;
+    }
   }
 }
