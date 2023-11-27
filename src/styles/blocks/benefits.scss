@@ -2,14 +2,14 @@
   background-color: $benefits-background-color;
 
   &__content {
-    position: relative;
-
+    @include contentPaddingInline();
     padding-top: 110px;
 
     @include onTable() {
-      @include contentPaddingInline();
-
       padding-top: 140px;
+
+      @include pageGrid();
+      row-gap: 65px;
     }
 
     @include onDesktop() {
@@ -17,33 +17,36 @@
     }
   }
 
-  &__slider {
-    display: flex;
-    overflow: hidden;
+  &__nav {
+    display: none;
 
-    @include onTable() {
-      @include pageGrid();
-
-      row-gap: 65px;
+    @include onDesktop {
+      display: block;
+      
+      grid-column: 1 / -1;
     }
   }
 
   &__item {
-    box-sizing: border-box;
-
-    @include contentPaddingInline();
-
-    flex: 1 0 100%;
     text-align: center;
 
     @include onTable() {
       grid-column: span 4;
 
       padding-inline: 0;
+    }
 
-      @include onDesktop() {
-        grid-column: span 3;
+    @include onDesktop() {
+      grid-column: span 3;
+    }
+
+    &--onTable {
+      display: none;
+
+      @include onTable() {
+        display: block;
       }
+
     }
   }
 
@@ -67,69 +70,4 @@
 
     @include textMain();
   }
-
-  &__control {
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    transform: translateX((-50%));
-
-    @include onTable() {
-      display: none;
-    }
-  }
-
-  &__prev-button {
-    width: 48px;
-    height: 13px;
-
-    background-image: url(../images/benefits/button__prev.svg);
-
-    @include hover(background-image, url(../images/benefits/button__prev-hover.svg));
-
-  }
-
-  &__next-button {
-    width: 48px;
-    height: 13px;
-
-    transform: rotate(180deg);
-
-    background-image: url(../images/benefits/button__prev.svg);
-
-    @include hover(background-image, url(../images/benefits/button__prev-hover.svg));
-
-  }
 }
-
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   const slider = document.querySelector('.benefits__slider');
-//   const prevButton = document.querySelector('.benefits__prev-button');
-//   const nextButton = document.querySelector('.benefits__next-button');
-//   const items = document.querySelectorAll('.benefits__item');
-//   const totalItems = items.length;
-//   const slideWidth = items[0].offsetWidth; // Width of one slide
-//   let currentIndex = 0;
-
-//   function updateSlider() {
-//     const scrollPosition = currentIndex * slideWidth;
-//     slider.scrollLeft = scrollPosition;
-//   }
-
-//   function nextItem() {
-//     currentIndex = (currentIndex + 1) % totalItems;
-//     updateSlider();
-//   }
-
-//   function prevItem() {
-//     currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-//     updateSlider();
-//   }
-
-//   // Initial display
-//   updateSlider();
-
-//   nextButton.addEventListener('click', nextItem);
-//   prevButton.addEventListener('click', prevItem);
-// });

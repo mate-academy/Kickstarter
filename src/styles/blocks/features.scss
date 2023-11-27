@@ -1,0 +1,91 @@
+.features {
+  &__content {
+    @include pageGrid();
+    @include contentPaddingInline();
+
+    background-color: $features-background-color;
+  }
+
+  &__title {
+    @include titleSection();
+    @include contentPaddingInline();
+
+    padding-bottom: 30px;
+    grid-column: 1 / -1;
+  }
+
+  &__article {
+    grid-column: 1 / -1;
+
+    @include onTable {
+      grid-column: 2 / span 4;
+    }
+  }
+
+  &__control {
+    display: flex;
+    justify-content: center;
+
+    grid-column: 1 / -1;
+
+    @include onTable {
+      grid-column: 2 / span 2;
+      justify-content: start;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__prev-button {
+    width: 48px;
+    height: 13px;
+
+    background-image: url(../images/benefits/button__prev.svg);
+
+    @include hover(background-image, url(../images/benefits/button__prev-hover.svg));
+  }
+
+  &__next-button {
+    width: 48px;
+    height: 13px;
+
+    transform: rotate(180deg);
+
+    background-image: url(../images/benefits/button__prev.svg);
+
+    @include hover(background-image, url(../images/benefits/button__prev-hover.svg));
+  }
+
+  &__poster {
+    width: 100%;
+    grid-column: 1 / -1;
+
+    @include onTable {
+      grid-column: 4 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 6 / -1;
+    }
+  }
+
+  &__article--1 {
+    @include onDesktop {
+      grid-area: 2 / 2 / 2 / 5;
+    }
+  }
+
+  &__article--2 {
+    @include onDesktop {
+      grid-area: 1 / 2 / 1 / 5;
+    }
+  }
+
+  &__article--3 {
+    @include onDesktop {
+      grid-area: 1 / 7 / 1 / -1;
+    }
+  }
+}

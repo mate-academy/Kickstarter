@@ -1,0 +1,64 @@
+.article {
+  padding-block: 30px 50px;
+
+  @include onTable {
+    padding-top: 60px;
+  }
+
+  &__title {
+    color: $article-title-color;
+
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+
+    padding-bottom: 20px;
+
+    @include onDesktop {
+      font-size: 34px;
+      line-height: 42px;
+
+      padding-bottom: 30px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+
+      background-image: url(../images/decoration/point.svg);
+      background-size: cover;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 21px;
+
+    @include onDesktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &--onDesktop {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}

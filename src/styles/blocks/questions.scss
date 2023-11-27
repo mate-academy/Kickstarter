@@ -1,0 +1,71 @@
+.questions {
+  &__content {
+    @include contentPaddingInline();
+    @include pageGrid();
+
+    row-gap: 27px;
+
+    padding-bottom: 110px;
+
+    @include onTable() {
+      padding-bottom: 140px;
+    }
+
+    @include onDesktop() {
+      padding-bottom: 170px;
+    }
+  }
+
+  &__title {
+    @include titleSection();
+
+    grid-column: span 4;
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__form {
+    grid-column: span 4;
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    box-sizing: border-box;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 16px;
+    line-height: 24px;
+
+    border: 1px solid #828282;
+
+    padding: 12px 20px;
+
+    @include onTable {
+      padding-inline: 30px;
+    }
+
+    &::placeholder {
+      color: $input-placeholder-text-color;
+    }
+
+    &--message {
+      margin-block: 20px 30px;
+      height: 128px;
+
+      @include onTable {
+        height: 201px;
+      }
+
+      @include onDesktop {
+        height: 128px;
+      }
+    }
+  }
+}

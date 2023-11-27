@@ -5,6 +5,48 @@
   }
 }
 
+@mixin hoverUnderline() {
+  &::after {
+    position: absolute;
+    z-index: 12;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+
+    content: "";
+
+    height: 2px;
+
+    border-radius: 4px;
+    background-color: $button-about-us-text-color;
+
+    transition: transform 0.3s;
+    transform: scale(0);
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
+
+@mixin titleSection() {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 40px;
+  text-transform: uppercase;
+
+  @include onTable {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  @include onDesktop {
+    font-size: 56px;
+    line-height: 70px;
+  }
+}
+
 @mixin textMain() {
   font-size: 14px;
   line-height: 21px;
