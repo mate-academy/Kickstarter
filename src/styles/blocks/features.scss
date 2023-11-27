@@ -1,0 +1,199 @@
+.features {
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__content {
+    padding: 30px 30px 0;
+    margin: 0 -30px;
+
+    background-color: #d6ecec;
+
+    @include onTablet {
+      padding: 60px 0 0;
+      margin: 0;
+    }
+  }
+
+  &__slider {
+    overflow: hidden;
+
+    @include onTablet {
+      grid-column: 2 / 5;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__slides {
+    display: flex;
+    width: 300%;
+
+    transition: transform $duration;
+  }
+
+  &__slide {
+    width: 100%;
+
+    &--desktop-2-5 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 2 / 6;
+      }
+    }
+
+    &--desktop-7-10 {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        grid-column: 7 / 11;
+      }
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 20px;
+
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: $green;
+
+    @include onDesktop {
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+
+  &__list-item {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+
+    font-size: 14px;
+    text-transform: capitalize;
+
+    @include onTablet {
+      font-size: 16px;
+    }
+
+    &::before {
+      display: block;
+      content: "";
+      width: 4px;
+      height: 4px;
+
+      background-color: #000;
+      border-radius: 50%;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 8px;
+    margin-top: 50px;
+
+    @include onTablet {
+      grid-column: 2 / 4;
+      justify-self: start;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+  }
+
+  &__previous-button,
+  &__next-button {
+    width: 48px;
+    height: 14px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    transition: background-image $duration;
+    will-change: background-image;
+  }
+
+  &__previous-button {
+    background-image: url(../images/icons/previous-black.svg);
+
+    &:hover {
+      background-image: url(../images/icons/previous-green.svg);
+    }
+
+    &--not-active {
+      background-image: url(../images/icons/previous-gray.svg);
+      pointer-events: none;
+    }
+  }
+
+  &__next-button {
+    background-image: url(../images/icons/next-black.svg);
+
+    &:hover {
+      background-image: url(../images/icons/next-green.svg);
+    }
+
+    &--not-active {
+      background-image: url(../images/icons/next-gray.svg);
+      pointer-events: none;
+    }
+  }
+
+  &__slides-numbers {
+    display: flex;
+    align-items: end;
+    column-gap: 4px;
+
+    font-size: 11px;
+    line-height: 13px;
+    color: $green;
+  }
+
+  &__active-slide {
+    margin-right: 3px;
+    font-size: 16px;
+    line-height: 24px;
+    color: $black;
+  }
+
+  &__image-wrapper {
+    margin: 0 -30px;
+
+    @include onTablet {
+      margin: 0;
+      grid-column: 4 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+  }
+}

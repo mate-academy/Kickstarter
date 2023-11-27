@@ -1,0 +1,115 @@
+.get-in-touch {
+  &__title {
+    margin-bottom: 27px;
+
+    @include onTablet {
+      margin-bottom: 0;
+      grid-column: 1 / 5;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__form {
+    @include onTablet {
+      grid-column: 5 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__field {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 24px;
+    color: $black;
+
+    border: 1px solid #828282;
+    outline: none;
+    background-color: transparent;
+
+    transition: border-color $duration;
+
+    @include onTablet {
+      padding: 12px 30px;
+    }
+
+    @include onDesktop {
+      padding: 12px 36px;
+    }
+
+    &::placeholder {
+      color: $gray;
+    }
+
+    &:focus {
+      font-weight: 700;
+      font-size: 14px;
+
+      border-color: $green;
+
+      &::placeholder {
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px $backgroundColor inset;
+    }
+
+    &:nth-child(2) {
+      height: 128px;
+      margin-bottom: 30px;
+      resize: none;
+
+      @include onTablet {
+        height: 200px;
+      }
+
+      @include onDesktop {
+        height: 128px;
+        padding: 16px 36px;
+      }
+    }
+
+    &:not(:focus):not(:placeholder-shown):invalid {
+      color: $red;
+      border-color: $red;
+    }
+  }
+
+  &__button {
+    padding: 14px 34px;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #fff;
+
+    border: none;
+    background-color: #0db2b3;
+    cursor: pointer;
+
+    transition: background-color $duration;
+
+    &:hover {
+      background-color: $green;
+    }
+
+    &:disabled {
+      background-color: #cfeff0;
+    }
+  }
+}

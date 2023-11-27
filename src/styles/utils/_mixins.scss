@@ -1,6 +1,33 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin linkUnderline {
+  border-bottom: 1px solid transparent;
+
+  transition: border-bottom-color $duration;
+
   &:hover {
-    #{$_property}: $_toValue;
+    border-bottom-color: $black;
+  }
+}
+
+@mixin displayNoneOnMobile($type) {
+  &:nth-of-type(2),
+  &:nth-of-type(3),
+  &:nth-of-type(4) {
+    display: none;
+
+    @include onTablet {
+      display: $type;
+    }
   }
 }
