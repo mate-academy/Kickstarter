@@ -1,0 +1,99 @@
+.section__8 {
+  flex-direction: column;
+  gap: 27px;
+
+  &-title {
+    @extend %h2-mobile;
+    max-width: 585px;
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    &-email {
+      min-height: 48px;
+    }
+
+    &-message {
+      min-height: 128px;
+      resize: none;
+    }
+
+    &-email,
+    &-message {
+      border: 1px solid  $mediumGray;
+      padding: 12px 20px;
+      outline: none;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 24px;
+
+      &::placeholder {
+        @extend %main-text;
+        color: #BDBDBD;
+      }
+
+      &:focus {
+        border: 1px solid $teal;
+      }
+    }
+
+
+    &-btn {
+      width: 102px;
+      height: 40px;
+      background-color: $turquoiseBlue;
+      border: none;
+      @extend %button-text;
+      color: white;
+      margin-top: 10px;
+
+      &:hover {
+        background: $teal;
+      }
+    }
+
+  }
+}
+
+@include onTablet {
+  .section__8 {
+    flex-direction: row;
+    gap: 21px;
+
+    &-title {
+      font-family: Inter;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 46px;
+    }
+
+    &-form {
+      max-width: 582px;
+
+      &-btn {
+        width: 125px;
+        height: 48px;
+      }
+    }
+  }
+}
+
+@include onDesktop {
+  .section__8 {
+    gap: 28px;
+
+    &-title {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 70px;
+    }
+
+    &-form-btn {
+      width: 125px;
+    }
+  }
+}

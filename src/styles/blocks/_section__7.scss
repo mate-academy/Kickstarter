@@ -1,16 +1,12 @@
 .section__7 {
   background-color: $lightcyan;
+  background-blend-mode: darken;
   flex-direction: column;
   margin: 0 -30px;
 
-background-blend-mode: darken;
   &-content {
     display: none;
     flex-direction: column;
-  }
-
-  &-sound {
-    display: flex;
   }
 
   &-title {
@@ -37,7 +33,7 @@ background-blend-mode: darken;
   }
 
   &-img {
-    height: 227px;
+    height: 175px;
     background-blend-mode: darken;
     background: url(../images/desktop/luna-features.png), $lightcyan -51.551px -42.314px / 111.9% 118.717%;
     background-repeat: no-repeat;
@@ -47,19 +43,109 @@ background-blend-mode: darken;
 
   &-nav {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-top: 50px;
 
     &-list {
       display: flex;
       list-style: none;
-      position: relative;
-    }
-
-    &-item {
-      position: absolute;
-      left: -45px;
     }
   }
 
 }
+
+.active {
+  display: flex;
+}
+
+.nav-info {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  margin-top: 10px
+}
+
+.slide{
+  &-curr {
+    @extend %main-text;
+    color: $darkestGray;
+  }
+
+  &-separator,
+  &-max {
+    height: 14px;
+    color: $teal;
+    font-size: 11px;
+    font-weight: 400;
+    align-self: end;
+  }
+}
+
+
+@include onTablet {
+  .section__7 {
+    position: relative;
+    min-height: 555px;
+
+    &-title {
+      padding-inline: 90px;
+      margin-top: 60px;
+      margin-bottom: 20px;
+    }
+
+    &-content-list {
+      padding-inline: 90px;
+    }
+
+    &-nav {
+      padding-inline: 90px;
+      width: fit-content;
+    }
+
+    &-img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 436px;
+      height: 226px;
+    }
+  }
+
+  .nav-info {
+    align-self: end;
+  }
+}
+
+@include onDesktop {
+  .section__7 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    &-title--features {
+      padding-inline: 0;
+    }
+    &-content {
+      display: flex;
+
+      &--features {
+        padding-inline: 0;
+      }
+    }
+
+    &-nav {
+      display: none;
+    }
+
+    &-sound {
+      margin-bottom: 60px;
+    }
+
+    &-img {
+      width: 510px;
+      height: 302px;
+    }
+  }
+}
+
