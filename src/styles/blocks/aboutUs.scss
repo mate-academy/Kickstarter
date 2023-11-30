@@ -6,6 +6,7 @@
   @include onDesktop {
     margin-top: 170px;
   }
+
   &__content {
     display: flex;
     gap: 110px;
@@ -43,6 +44,10 @@
     object-fit: cover;
     cursor: pointer;
     margin-top: 20px;
+    transition: $transition;
+    &:hover {
+      transform: scale(1.03);
+    }
     @include onTablet {
       width: $width-img--tablet;
       height: 415px;
@@ -62,29 +67,29 @@
     @include onTablet {
       font-size: 36px;
       line-height: 46px;
-      &--right {
-        position: absolute;
-        left: calc(#{$width-img--tablet} + 20px);
-        width: 280px;
-      }
-      &--left {
-        position: absolute;
-        left: 0;
-        width: 280px;
-      }
+        &--right {
+          position: absolute;
+          left: calc(#{$width-img--tablet} + 20px);
+          width: 280px;
+        }
+        &--left {
+          position: absolute;
+          left: 0;
+          width: 280px;
+        }
     }
     @include onDesktop {
       font-size: 56px;
       line-height: 70px;
       width: 582px;
-      &--right {
-        position: absolute;
-        left: calc(589px + 20px);
-      }
-      &--left {
-        position: absolute;
-        left: 0;
-      }
+        &--right {
+          position: absolute;
+          left: calc(589px + 20px);
+        }
+        &--left {
+          position: absolute;
+          left: 0;
+        }
     }
   }
 
@@ -97,12 +102,16 @@
     position: relative;
     cursor: pointer;
     transition: $transition;
-    &:hover {
-      color:#0c797a;
-    }
-    @include onTablet {
-      margin-top: 60px;
-    }
+      &:hover {
+        color:#0c797a;
+        &::after {
+          width: 127px;
+          color:#0c797a;
+        }
+      }
+      @include onTablet {
+        margin-top: 60px;
+      }
 
     &::after {
       content: '';
@@ -138,7 +147,6 @@
   &__text {
     display: flex;
     flex-direction: column;
-
     @include onTablet {
       flex: 1;
       margin-left: 20px;
@@ -147,7 +155,6 @@
         margin-left: 0;
         margin-right: 20px;
       }
-
     }
   }
 }
