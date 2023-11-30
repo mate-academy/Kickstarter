@@ -1,0 +1,113 @@
+.footer {
+  padding: 55px 0 20px;
+
+  @include onTablet {
+    padding: 70px 0 30px;
+  }
+
+  @include onDesctop {
+    padding: 85px 0 30px;
+  }
+
+  &__container {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+
+    @include onTablet {
+      position: relative;
+      row-gap: 60px;
+    }
+  }
+
+  &__arrow {
+    display: none;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onTablet {
+      display: block;
+      width: 25px;
+      height: 25px;
+      background-image: url("../images/icons/footer-arrow.png");
+      background-position: center;
+      background-size: contain;
+      position: absolute;
+      top: 0;
+      right: 44px;
+    }
+
+    @include onDesctop {
+      right: 123px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: center;
+    column-gap: 40px;
+  }
+
+  &__logo {
+    display: none;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+
+    @include onTablet {
+      display: block;
+      margin: 0 auto;
+      width: 186px;
+      height: 30px;
+      background-image: url("../images/icons/logo.png");
+      background-size: cover;
+      background-position: center;
+
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-size: cover;
+    transition: background-image 0.3s;
+
+    &--facebook {
+      background-image: url("../images/icons/facebook.svg");
+
+      &:hover {
+        background-image: url("../images/icons/facebook-hover.svg");
+      }
+    }
+
+    &--twitter {
+      background-image: url("../images/icons/twitter.svg");
+
+      &:hover {
+        background-image: url("../images/icons/twitter-hover.svg");
+      }
+    }
+
+    &--insta {
+      background-image: url("../images/icons/insta.svg");
+
+      &:hover {
+        background-image: url("../images/icons/insta-hover.svg");
+      }
+    }
+  }
+
+  &__copy {
+    text-align: center;
+    font-weight: 300;
+    color: #bdbdbd;
+  }
+}
