@@ -1,0 +1,78 @@
+.topbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 76px;
+  align-items: center;
+  padding-bottom: 25px;
+
+  @include on-tablet {
+    @include page-grid;
+
+    padding-bottom: 140px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 90px;
+  }
+
+  &__tabs {
+    @include on-tablet {
+      grid-column: 5 / -1;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    @include on-desktop {
+      justify-content: flex-end;
+    }
+  }
+
+  &__tablet {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    font-weight: 300;
+    color: $light-grey-text-color;
+
+    @include on-tablet {
+      text-decoration: none;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+  }
+
+  &__link--active {
+    color: $main-text-color;
+    font-weight: 400;
+  }
+
+  &__button {
+
+    &:hover {
+      background-color: $black-hover-button-color;
+    }
+
+    @include on-tablet {
+      display: block;
+      width: 100px;
+      height: 48px;
+      background-color: $main-text-color;
+      color: #fff;
+      text-align: center;
+      line-height: 48px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+.link-see-more {
+  padding-bottom: 110px;
+  display: block;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: $light-blue-color;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 25%;
+    height: 1px;
+    top: 20px;
+    left: 0;
+    background-color: $light-blue-color;
+
+    @include hover(width, 0.3)
+  }
+
+  &:hover::after {
+    width: 50%;
+  }
+
+  @include on-tablet {
+    padding-bottom: 250px;
+
+    &::after {
+      width: 20%;
+    }
+
+    &:hover::after {
+      width: 38%;
+    }
+  }
+
+  @include on-desktop {
+    padding-bottom: 280px;
+
+    &::after {
+      width: 10%;
+    }
+
+    &:hover::after {
+      width: 22%;
+    }
+  }
+}
