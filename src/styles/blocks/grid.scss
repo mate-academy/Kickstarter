@@ -27,6 +27,18 @@
     }
   }
 
+  &--tablet {
+    display: block;
+
+    @include onDesktop {
+      display: grid;
+    }
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
   &__item {
     @for $start from 1 through 12 {
       @for $end from $start through 12 {
@@ -38,6 +50,19 @@
           @include onDesktop {
             grid-column: #{$start} / #{$end+1};
           }
+        }
+
+        &--tablet {
+          width: 100%;
+
+          @include onTablet {
+            width: 50%;
+          }
+
+          @include onDesktop {
+            width: 100%;
+          }
+
         }
       }
     }

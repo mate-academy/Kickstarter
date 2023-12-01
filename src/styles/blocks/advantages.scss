@@ -16,6 +16,26 @@
       justify-content: center;
     }
 
+    &__item {
+      position: relative;
+      &:after {
+        transform-origin: 0 0;
+        top: 24px;
+        content: "";
+        display: block;
+        height: 1px;
+        left: 50%;
+        position: absolute;
+        background-color: $light-black;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+      }
+
+      &:hover:after {
+        width: 100%;
+        left: 0;
+      }
+    }
   }
 
   &__list {
@@ -29,6 +49,10 @@
 
     :last-child {
       margin-right: 0;
+    }
+
+    &:nth-child(-n + 2) {
+      margin-bottom: 65px;
     }
 
     @include onTablet {
@@ -60,15 +84,6 @@
     line-height: 20px;
     text-decoration: none;
 
-    &:hover:after {
-      content: "";
-      display: block;
-      height: 1px;
-      width: 100%;
-      border-top: 1px solid black;
-      transition: all 0.4s ease-in 0s;
-    }
-
   }
 
   &__item-mobile-hidden {
@@ -98,11 +113,15 @@
     text-transform: uppercase;
     color: $light-black;
     margin-top: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     width: 100%;
 
-    @include onTablet {
-      &:nth-child(even) {
+    @include onDesktop {
+      &--odd {
+        margin-bottom: 52px;
+      }
+
+      &--even {
         margin-bottom: 24px;
       }
     }

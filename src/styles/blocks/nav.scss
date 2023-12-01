@@ -18,11 +18,16 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__specs {
     display: none;
-    margin-right: 20px;
+    margin-right: 10px;
 
     &:last-child {
       margin-right: 0;
@@ -35,12 +40,20 @@
 
     @include onDesktop {
       display: block;
-      margin-right: 10px;
+      margin-right: 30px;
+    }
+
+    &-link {
+      color: #4f4f4f;
+      font-size: 14px;
+      font-weight: 300;
+      text-decoration: none;
+      text-transform: uppercase;
     }
 
   }
 
-  &__lang {
+  &__lang-switch {
     display: none;
     margin-right: 20px;
 
@@ -58,15 +71,27 @@
       margin-right: 0;
     }
 
-  }
+    &--item {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $light-black;
 
-  &__link {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: $dark-grey;
+      &:focus {
+        font-weight: 400;
+        color: $light-black;
+      }
+    }
+
+    &--separator {
+      display: inline-block;
+    }
+
+    &--ua {
+      color: #828282;
+    }
   }
 
   &__button--buy {
@@ -106,6 +131,12 @@
     width: 32px;
     height: 32px;
 
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+
     @include onTablet() {
       display: block;
     }
@@ -113,6 +144,7 @@
     @include onDesktop {
       display: none;
     }
+
   }
 
 }

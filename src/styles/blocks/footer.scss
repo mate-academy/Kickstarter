@@ -6,6 +6,7 @@
   position: relative;
 
   &__arrow {
+    display: none;
     transition: transform 0.2s;
     background-image: url(../../images/arrow.png);
     background-repeat: no-repeat;
@@ -19,6 +20,14 @@
 
     &:hover {
       transform: scale(1.5);
+    }
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onDesktop {
+      display: block;
     }
   }
 
@@ -42,7 +51,7 @@
     }
 
     &:hover {
-      transform: scale(1.5);
+      transform: scale(1.1);
     }
   }
 
@@ -56,6 +65,7 @@
     float: left;
     transition: transform 0.2s;
     cursor: pointer;
+    transform-origin: 0 0;
 
     &:hover {
       transform: scale(1.5);
@@ -97,7 +107,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
-    white-space: nowrap;
+    white-space: wrap;
     margin-top: 60px;
     margin-bottom: 0;
   }
