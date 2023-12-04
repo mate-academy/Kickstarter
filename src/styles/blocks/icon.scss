@@ -1,0 +1,59 @@
+.icon {
+  display: block;
+
+  @include hover(transform, scale(1.2));
+
+  &:hover path {
+    fill: $light-blue-color;
+  }
+
+  &--menu {
+    background-image: url(../images/header/icon-burger-menu.svg);
+
+    @include on-desktop {
+      display: none !important;
+    }
+  }
+
+  @include background-sets;
+
+  width: 32px;
+  height: 32px;
+
+  @include on-tablet {
+    display: none;
+  }
+
+  &--close {
+    background-image: url(../images/sidebar/icon-close.svg)
+  }
+
+  @include on-tablet {
+    display: block;
+  }
+
+
+  &--back {
+    width: 24px;
+    height: 24px;
+
+    @include on-tablet {
+      &-link {
+        position: absolute;
+        right: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 50px;
+        height: 50px;
+
+        @include on-desktop {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+}

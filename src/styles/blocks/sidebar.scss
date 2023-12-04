@@ -1,0 +1,78 @@
+.sidebar {
+  height: 100vh;
+  background-color: $background-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    transition-duration: 2s;
+    transform: translateX(0);
+    overflow: visible;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 74px;
+    align-items: center;
+    padding-bottom: 30px;
+
+    @include on-tablet {
+      padding-bottom: 40px;
+    }
+  }
+
+  &__logo {
+    display: block;
+    background-image: url(../images/header/logo-mobile.svg);
+
+    @include background-sets;
+
+    width: 160px;
+    height: 26px;
+  }
+
+  &__wrap {
+    padding-top: 25px;
+    display: flex;
+    gap: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $card-link-color;
+    text-transform: uppercase;
+  }
+
+  &__button {
+    margin-top: 162px;
+    margin-bottom: 30px;
+    display: block;
+    background-color: $main-text-color;
+    height: 48px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 48px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}

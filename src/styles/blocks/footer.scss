@@ -1,0 +1,177 @@
+.footer {
+  margin-top: 100px;
+
+  @include on-tablet {
+    margin-top: 140px;
+  }
+
+  &__message {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+
+    @include on-tablet {
+      @include page-grid;
+    }
+
+    &-title {
+      color: $main-text-color;
+
+      @include on-tablet {
+        grid-column: span 4;
+      }
+
+      @include on-desktop {
+        grid-column: span 6;
+      }
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+
+      @include on-tablet {
+        grid-column: span 4;
+      }
+
+      @include on-desktop {
+        grid-column: span 6;
+      }
+
+      &-input {
+        outline: none;
+        border: 1px solid $grey-inactive-color;
+
+        padding: 12px 20px;
+
+        font-family: Inter, sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+
+        &::placeholder {
+          color: $light-grey-text-color;
+        }
+
+        &:focus {
+          border: 1px solid $dark-blue-color;
+        }
+
+        &:valid {
+          border: 1px solid $color-success;
+        }
+      }
+
+      &-email {
+        margin-bottom: 20px;
+
+        &:-webkit-autofill:not(:placeholder-shown) {
+          border: 1px solid $dark-blue-color;
+          -webkit-text-fill-color: $light-grey-text-color;
+        }
+
+        &-success {
+          border: 1px solid $color-success;
+
+          &::placeholder {
+            color: $color-success-text;
+          }
+        }
+      }
+
+      &-message {
+        margin-bottom: 30px;
+        resize: none;
+
+        &::-webkit-scrollbar {
+          width: 10px;
+          height: 10px;
+
+          &-thumb {
+            background: $light-blue-color;
+            border: 0 none $background-color;
+            border-radius: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 110px;
+
+    &__logo-and-backarrow {
+      display: none;
+    }
+
+    &__social {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    &__rights {
+      margin-block: 30px 20px;
+
+      color: $light-grey-text-color;
+      text-align: center;
+
+      &-terms {
+        text-decoration: none;
+        color: $light-grey-text-color;
+      }
+    }
+
+    @include on-tablet {
+      margin-top: 140px;
+
+      &__logo-and-backarrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 60px;
+        position: relative;
+      }
+
+      &__social {
+        gap: 49px;
+      }
+
+      &__rights {
+        margin-block: 60px 30px;
+      }
+    }
+
+    @include on-desktop {
+      margin-top: 170px;
+
+      &__social {
+        gap: 40px;
+      }
+    }
+  }
+
+  &__button {
+    width: 102px;
+    height: 40px;
+    background-color: $light-blue-color;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $dark-blue-color;
+    }
+
+    @include on-desktop {
+      width: 124px;
+      height: 48px;
+    }
+  }
+}

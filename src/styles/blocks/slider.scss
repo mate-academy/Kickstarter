@@ -1,0 +1,122 @@
+.slider {
+  display: flex;
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 260px;
+
+  margin-block: 30px 50px;
+
+  @include on-tablet {
+    margin: 60px 0 50px 90px;
+    position: relative;
+    z-index: 1;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &-line {
+    width: 780px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 0;
+    transition: all ease 1s;
+  }
+
+  &__chapter {
+    min-width: 260px;
+
+    @include on-desktop {
+
+      &--1 {
+        grid-column: 2 / 6;
+      }
+
+      &--2 {
+        grid-column: 7 / 10;
+      }
+
+      &--3 {
+        grid-column: 2 / 6;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    color: $dark-blue-color;
+
+    @include on-tablet {
+      font-size: 18px;
+    }
+
+    @include on-desktop {
+      font-size: 34px;
+    }
+  }
+
+  &__list {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style-position: inside;
+    padding: 0;
+  }
+
+  &__item {
+    color: $main-text-color;
+    font-size: 14px;
+
+    &::marker {
+      color: #000;
+    }
+
+    @include on-desktop {
+      font-size: 16px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include on-tablet {
+      margin-left: 90px;
+      position: relative;
+      z-index: 1;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &__button {
+      cursor: pointer;
+    }
+
+    &__count {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+
+      &-current {
+        color: $main-text-color;
+      }
+
+      &-total,
+      &-delimiter {
+        font-family: Inter, sans-serif;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        color: $dark-blue-color;
+      }
+    }
+  }
+}
