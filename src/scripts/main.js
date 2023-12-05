@@ -17,11 +17,19 @@ langUa.addEventListener('click', () => {
   langUa.classList.remove('options__languigeUA--passive');
 });
 
+const header = document.querySelector('header');
+const main = document.querySelector('main');
+const footer = document.querySelector('footer');
+
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
-    document.body.classList.add('page__body--with-menu');
+    header.classList.add('page__header--with-menu');
+    main.classList.add('page__main--with-menu');
+    footer.classList.add('page__footer--with-menu');
   } else {
-    document.body.classList.remove('page__body--with-menu');
+    header.classList.remove('page__header--with-menu');
+    main.classList.remove('page__main--with-menu');
+    footer.classList.remove('page__footer--with-menu');
   }
 });
 
