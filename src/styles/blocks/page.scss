@@ -1,0 +1,36 @@
+.page {
+  height: 100%;
+  font-family: Inter, sans-serif;
+  scroll-behavior: smooth;
+  background-color: $background-color;
+
+  &__body {
+    min-height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transition: all $transition-time ease;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+    overflow: scroll;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}
