@@ -1,0 +1,146 @@
+.presentation {
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: $color-text-gray;
+
+  &--margin {
+    @include marginBetweenBloks;
+  }
+
+  @include onTablet {
+    @include contentPaddingInlineMinWidth;
+  }
+
+  &__content {
+    @include contentGrid;
+
+    padding-inline: $padding-inlline-mobile;
+
+    @include onTablet {
+      @include marginBetweenBloks;
+
+      padding-inline: 0;
+    }
+  }
+
+  &__article {
+    grid-column: span 4;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 110px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      grid-column: span 3;
+    }
+
+    &--margin {
+      @include onTablet {
+        margin-bottom: 65px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 0;
+      }
+    }
+
+    &--tablet-desktop {
+      display: none;
+
+      @include onTablet {
+        grid-column: span 4;
+        display: flex;
+      }
+
+      @include onDesktop {
+        grid-column: span 3;
+      }
+    }
+  }
+
+  &__icon {
+    margin-bottom: 40px;
+    background-image: url(../images/mobil/presentation__icon-1.svg);
+    height: 40px;
+    width: 50px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+
+    &--speaker {
+      height: 40px;
+      width: 46px;
+      background-image: url(../images/tablet/presentation__icon-2.svg);
+    }
+
+    &--multiroom {
+      margin-bottom: 44px;
+      height: 37px;
+      width: 46px;
+      background-image: url(../images/tablet/presentation__icon-3.svg);
+
+      @include onDesktop {
+        margin-bottom: 32px;
+      }
+    }
+
+    &--lighting {
+      margin-bottom: 37px;
+      height: 44px;
+      width: 44px;
+      background-image: url(../images/tablet/presentation__icon-4.svg);
+
+      @include onDesktop {
+        margin-bottom: 26px;
+      }
+    }
+  }
+
+  &__description {
+    width: 90%;
+
+    @include onDesktop {
+      width: 100%;
+    }
+  }
+
+  &__photo {
+    min-width: 320px;
+    max-width: 1440px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__img {
+    height: 195px;
+    width: 296px;
+    background-image: url(../images/mobil/presentation__img.png);
+
+    @include backgroundSizePosition;
+
+    @include onTablet {
+      height: 430px;
+      width: 700px;
+      background-image: url(../images/tablet/presentation__img.png);
+    }
+
+    @include onDesktop {
+      height: 520px;
+      width: 846px;
+      background-image: url(../images/desktop/presentation__img.png);
+    }
+  }
+}
