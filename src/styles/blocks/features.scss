@@ -1,0 +1,181 @@
+.features {
+  padding: 55px 0 45px;
+
+  @include on-tablet {
+    padding: 70px 0;
+  }
+
+  @include on-desctop {
+    padding: 85px 0;
+  }
+
+  &__title {
+    @include container;
+
+    margin-bottom: 32px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+
+    @include on-desctop {
+      font-size: 56px;
+      line-height: 70px;
+
+      margin: 0 auto 20px;
+      padding: 0 123px;
+      box-sizing: border-box;
+    }
+  }
+
+  &__main {
+    position: relative;
+    padding: 30px 0 184px;
+    background-color: #d6ecec;
+
+    @include on-tablet {
+      margin: 0 34px;
+      padding: 60px 50px 133px;
+    }
+
+    @include on-desctop {
+      @include container;
+
+      padding-block: 0;;
+      background-color: #f7f7f7;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      content: "";
+      width: 320px;
+      height: 173px;
+      background-image: url("../images/features/features.png");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @include on-tablet {
+        width: 435px;
+        height: 226px;
+        left: 100%;
+        transform: translateX(-100%);
+      }
+
+      @include on-desctop {
+        width: 543px;
+        height: 301px;
+        transform: translate(-120%);
+      }
+    }
+  }
+
+  &__content {
+    @include container;
+
+    @include on-desctop {
+      margin: 0;
+      padding: 60px 100px;
+      background-color: #d6ecec;
+    }
+  }
+
+  &__items {
+    margin-bottom: 50px;
+
+    @include on-desctop {
+      margin-bottom: 0;
+      pointer-events: none;
+
+     display: flex;
+    }
+  }
+
+  &__wrapper {
+    @include on-desctop {
+      @include grid;
+      
+      row-gap: 50px;
+    }
+  }
+
+  &__item {
+    @include on-desctop {
+      grid-column: span 6;
+    }
+
+  }
+
+  &__arrows {
+    position: relative;
+    margin: 0 auto;
+    width: 103px;
+    height: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    @include on-tablet {
+      margin: 0;
+    }
+
+    @include on-desctop {
+      display: none;
+    }
+  }
+
+  &__arrow {
+    border: 0;
+    cursor: pointer;
+    background-color: #d6ecec;
+    position: absolute;
+    top: 0;
+    width: 48px;
+    height: 14px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &__arrow--prev {
+    left: 0;
+    background-image: url("../images/features/arrow-prev.png");
+
+    &:hover {
+      transform: rotate(180deg);
+      background-image: url("../images/features/arrow-hover.png");
+    }
+  }
+
+  &__arrow--next {
+    right: 0;
+    background-image: url("../images/features/arrow-next.png");
+
+    &:hover {
+      background-image: url("../images/features/arrow-hover.png");
+    }
+  }
+
+  &__pagination {
+    text-align: center;
+    color: #0c797a;
+    font-size: 11px;
+
+    @include on-tablet {
+      text-align: left;
+      margin-left: 35px;
+    }
+
+    @include on-desctop {
+      display: none;
+    }
+  }
+
+}
+
+.swiper-pagination-current {
+  color: $color-dark;
+  font-size: 16px;
+}
