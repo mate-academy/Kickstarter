@@ -1,0 +1,117 @@
+.questions {
+  padding: 45px 0 55px;
+
+  @include on-tablet {
+    padding: 70px 0;
+  }
+
+  @include on-desctop {
+    padding: 85px 0;
+  }
+
+  &__container {
+    @include container;
+
+    @include on-tablet {
+      @include grid;
+    }
+  }
+
+  &__title {
+    margin: 0 0 27px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+
+    @include on-tablet {
+      grid-column: span 4;
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include on-desctop {
+      grid-column: span 6;
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__form {
+    @include on-tablet {
+      display: block;
+      grid-column: span 4;
+    }
+
+    @include on-desctop {
+      grid-column: span 6;
+    }
+  }
+
+  &__input {
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    border: 1px solid #828282;
+    background-color: #f7f7f7;
+    color: #383838;
+    padding: 12px 20px;
+    outline: none;
+
+    transition:
+      border 0.3s,
+      color 0.3s;
+
+    @include on-tablet {
+      padding: 12px 30px;
+    }
+
+    @include on-desctop {
+      padding: 12px 36px;
+    }
+
+    &:required {
+      border: 1px solid #828282;
+    }
+
+    &:hover {
+      border: 1px solid #0c797a
+    }
+
+    &:focus {
+      border: 1px solid #0c797a
+    }
+
+    &:invalid:not(:placeholder-shown) {
+      color: #eb5757;
+      border: 1px solid #eb5757;
+    }
+
+    &:valid:not(:placeholder-shown) {
+      color: $color-dark;
+      border: 1px solid #828282;
+    }
+
+    &::placeholder {
+      color: $color-lightgray;
+    }
+
+    &--textarea {
+      margin-bottom: 30px;
+      resize: none;
+      height: 128px;
+      font-family: inherit;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    font-weight: 700;
+    width: 102px;
+    border: 1px solid transparent;
+
+    @include on-desctop {
+      width: 124px;
+    }
+  }
+}
