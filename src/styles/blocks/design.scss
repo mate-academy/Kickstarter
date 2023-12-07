@@ -1,0 +1,122 @@
+.design {
+  font-family: Inter, sans-serif;
+  display: flex;
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.2s ease-in-out;
+    transform-origin: center;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &--desktop {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesktop {
+        display: block;
+      }
+
+    }
+
+    &--mobile {
+      display: block;
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $light-black;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 46px;
+
+      &--eye {
+        margin-left: 30px;
+      }
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+    line-height: 21px;
+    color: $grey;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+
+      &--eye {
+        margin-left: 30px;
+      }
+    }
+
+    @include onDesktop {
+      margin-bottom: 60px;
+      font-size: 16px;
+      line-height: 24px;
+
+    }
+  }
+
+  &__see-more-link {
+    position: relative;
+    color: $bright-green;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    @include onTablet {
+      &--eye {
+        margin-left: 30px;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 50%;
+      height: 1px;
+      background: $bright-green;
+      left: 0;
+      top: 19px;
+      position: absolute;
+    }
+
+    &:hover::after {
+      width: 100%;
+      transition: 1s ease;
+    }
+  }
+
+}

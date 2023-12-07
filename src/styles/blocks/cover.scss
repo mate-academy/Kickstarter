@@ -1,0 +1,122 @@
+@import "../utils/mixins";
+
+.cover {
+  font-family: Inter, sans-serif;
+  margin-top: 90px;
+
+  &__title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 52px;
+    text-transform: uppercase;
+    color: $black;
+    margin-bottom: 30px;
+    display: none;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+
+    &-mobile {
+      display: block;
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+
+    }
+
+    &-desktop {
+      @include onDesktop {
+        display: block;
+      }
+
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $black;
+    display: none;
+
+    &-mobile {
+      display: block;
+
+      @include onDesktop {
+        display: none;
+      }
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &-desktop {
+      @include onDesktop {
+        display: block;
+      }
+
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &__photo {
+    display: block;
+    width: 100%;
+
+    @include onTablet {
+      width: 430px;
+      height: auto;
+    }
+
+    @include onDesktop {
+      display: block;
+      width: 100%;
+    }
+
+    &--mobile {
+      display: block;
+      width: 320px;
+      height: 245px;
+      margin: 0 auto;
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesktop {
+        display: block;
+      }
+
+    }
+  }
+}

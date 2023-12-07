@@ -1,0 +1,142 @@
+.advantages {
+  font-family: Inter, sans-serif;
+
+  &__nav {
+    padding: 0;
+    list-style: none;
+    margin-bottom: 90px;
+    display: none;
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__item {
+      position: relative;
+      margin-right: 84px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &::after {
+        transform-origin: 0 0;
+        top: 24px;
+        content: "";
+        display: block;
+        height: 1px;
+        left: 50%;
+        position: absolute;
+        background-color: $light-black;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+      }
+
+      &:hover::after {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    width: 100%;
+
+    :last-child {
+      margin-right: 0;
+    }
+
+    &:nth-child(-n + 2) {
+      margin-bottom: 65px;
+    }
+
+    @include onTablet {
+      width: 50%;
+    }
+
+    @include onDesktop {
+      width: 25%;
+    }
+  }
+
+  &__nav-item {
+    white-space: nowrap;
+    display: inline-block;
+    margin-right: 84px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+  }
+
+  &__nav-link {
+    color: $light-black;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    text-decoration: none;
+
+  }
+
+  &__item-mobile-hidden {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__item-icon {
+    display: block;
+    margin: 0 auto;
+    width: 70px;
+    height: 50px;
+  }
+
+  &__item-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: $light-black;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+
+    @include onDesktop {
+      &--odd {
+        margin-bottom: 52px;
+      }
+
+      &--even {
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  &__item-description {
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+    color: $grey;
+  }
+}
