@@ -1,0 +1,51 @@
+.menu {
+  box-sizing: content-box;
+  overflow: auto;
+  background-color: #f9f9f9;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__top {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding-bottom: 30px;
+
+    @include contentPaddingInlineMinWidth;
+  }
+
+  &__nav {
+    margin-bottom: 50px;
+  }
+
+  &__button {
+  flex: 0 0 auto;
+  height: 48px;
+  font-family: Roboto, sans-serif;
+  text-transform: uppercase;
+  line-height: 48px;
+  width: 100%;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  color: $color-white;
+  cursor: pointer;
+
+  @include onTablet{
+    opacity: 0;
+  }
+  }
+}
