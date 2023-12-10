@@ -1,0 +1,73 @@
+.button {
+  @include contentGrid;
+
+  height: 48px;
+  line-height: 48px;
+  width: 100%;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  color: $color-white;
+  cursor: pointer;
+
+  &--tablet-desktop {
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__buy {
+    grid-column: span 4;
+    background-color: $color-gray;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: all $transition-time;
+
+    @include onTablet {
+      position: relative;
+      width: 102px;
+    }
+
+    &:hover {
+      background-color: $color-text-black;
+    }
+
+    &:active {
+      background-color: #d0d0d0;
+    }
+  }
+
+  &__send {
+    padding: 0;
+    grid-column: 1 / 3;
+    width: 85%;
+    height: 40px;
+    border: none;
+    background-color: $color-text-blue;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: inherit;
+    cursor: pointer;
+    transition: all $transition-time;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      width: 100%;
+      grid-column: 1 / 4;
+    }
+
+    &:hover {
+      background-color: $color-text-dark-blue;
+    }
+
+    &:active {
+      background-color: #cfeff0;
+    }
+  }
+}
