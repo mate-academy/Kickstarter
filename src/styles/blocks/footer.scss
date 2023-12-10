@@ -1,0 +1,107 @@
+.footer {
+  position: relative;
+
+  &__logo {
+    display: none;
+
+    @include onTabletAndDesktop {
+      display: block;
+      margin: 0 auto 64px;
+      width: 161px;
+      height: 27px;
+      transition: filter $smooth-time;
+
+      &:hover {
+        filter: drop-shadow(0 0 5px $color-green);
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: center;
+    gap: 44px;
+    margin-bottom: 34px;
+
+    @include onTablet {
+      gap: 54px;
+    }
+
+    @include onTabletAndDesktop {
+      margin-bottom: 64px;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 20px;
+    height: 20px;
+    text-decoration: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: grayscale(1.5);
+    transition: transform $smooth-time;
+    transition: transform $smooth-time, filter $smooth-time;
+
+    &:hover {
+      transform: scale(130%);
+      filter: none;
+    }
+
+    &--twitter {
+      background-image: url(../images/twitter-blue.svg);
+      // width: 22px;
+      // height: 17px;
+    }
+
+    &--instagram {
+      background-image: url(../images/instagram-color.svg);
+      // width: 18px;
+      // height: 18px;
+    }
+
+    &--facebook {
+      background-image: url(../images/facebook-blue.svg);
+      // width: 11px;
+      // height: 19px;
+    }
+  }
+
+  &__copyright {
+    margin: 0 auto 30px;
+    width: 260px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+    color: #bdbdbd;
+
+    @include onTabletAndDesktop {
+      width: auto;
+    }
+  }
+
+  &__to-top {
+    display: none;
+    transition: transform $smooth-time;
+
+    @include onTabletAndDesktop {
+      width: 20px;
+      height: 24px;
+      background-image: url(../images/arrow-up.svg);
+      display: block;
+      position: absolute;
+      right: 34px;
+      bottom: 155px;
+      font-size: 34px;
+      color: $color-black;
+    }
+
+    @include onDesktop {
+      right: calc((100vw - 1194px) / 2);
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

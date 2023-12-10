@@ -1,0 +1,157 @@
+.header {
+  &__nav {
+    display: flex;
+    align-items: center;
+    height: 76px;
+
+    @include onTabletAndDesktop {
+      height: max-content;
+      margin-bottom: 90px;
+      padding-top: 30px;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    width: 161px;
+    height: 27px;
+    transition: filter $smooth-time;
+
+    &:hover {
+      filter: drop-shadow(0 0 5px $color-green);
+    }
+  }
+
+  &__links {
+    display: none;
+
+    @include onTabletAndDesktop {
+      display: flex;
+      gap: 3.5vw;
+      align-items: center;
+    }
+  }
+
+  &__language {
+    display: inline-block;
+  }
+
+  &__link {
+    display: inline-block;
+    width: 70px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: $color-black;
+    transition: text-shadow $smooth-time;
+
+    &:hover {
+      text-shadow: 0 0 0.65px $color-black, 0 0 0.65px $color-black;
+    }
+  }
+
+  &__language-label {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #bdbdbd;
+    cursor: pointer;
+  }
+
+  &__language-input {
+    appearance: none;
+    position: absolute;
+
+    &:checked + .header__language-label {
+      color: $color-black;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include onTabletAndDesktop {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      align-items: end;
+    }
+  }
+
+  &__text {
+    order: 1;
+
+    @include onTabletAndDesktop {
+      order: 0;
+    }
+  }
+
+  &__title {
+    position: relative;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    color: $color-black;
+    z-index: 1;
+
+    @include onTabletAndDesktop {
+      max-width: 545px;
+      margin-bottom: 30px;
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop {
+      width: 378px;
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $color-black;
+
+    @include onTablet {
+      min-width: 250px;
+      max-width: 440px;
+    }
+
+    @include onDesktop {
+      width: 276px;
+    }
+  }
+
+  &__photo {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+
+    @include onTablet {
+      width: auto;
+      margin-left: auto;
+    }
+
+    @include onDesktop {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+
+    @include onTablet {
+      width: auto;
+      height: 317px;
+    }
+  }
+}

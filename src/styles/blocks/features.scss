@@ -1,0 +1,177 @@
+.features {
+  &__title {
+    margin-bottom: 30px;
+    padding: 0 $container-padding-sides-mobile;
+
+    @include onTabletAndDesktop {
+      padding: 0;
+    }
+
+    @extend %h2-title;
+  }
+  
+  &__content {
+    position: relative;
+    background-color: #d6ecec;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "item1 item2"
+        "item3 image";
+      padding-top: 60px;
+      padding-left: 100px;
+    }
+  }
+
+  &__content-item {
+    margin: 0 30px;
+
+    @include onTablet {
+      margin-left: 90px;
+      width: 260px;
+    }
+
+    &--grid-1 {
+      grid-area: item1;
+      padding-bottom: 30px;
+    }
+
+    &--grid-2 {
+      grid-area: item2;
+    }
+
+    &--grid-3 {
+      grid-area: item3;
+    }
+
+    &--slider {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+
+  &__content-title {
+    margin-bottom: 20px;
+    padding-top: 30px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #0c797a;
+
+    @include onTabletAndDesktop {
+      padding-top: 60px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+      padding-top: 0;
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__content-list-item {
+    position: relative;
+    margin-bottom: 5px;
+    margin-left: 17px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: $color-black;
+
+    &:before {
+      content: "\2022";
+      position: absolute;
+      top: 50%;
+      left: -17px;
+      transform: translate(0 , -50%);
+    }
+    
+    @include onDesktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__image {
+    grid-area: image;
+    display: block;
+    width: 100%;
+    height: auto;
+
+    @include onTablet {
+      position: absolute;
+      bottom: 0;
+      right: 20px;
+      width: 50%;
+    }
+
+    @include onDesktop {
+      width: auto;
+    }
+  }
+
+  &__slider {
+    width: max-content;
+    margin: 0 auto;
+
+    @include onTablet {
+      margin-left: 90px;
+      padding-bottom: 123px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__slider-arrow {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+  }
+
+  &__icon {
+    cursor: pointer;
+    transition: stroke $smooth-time, fill $smooth-time;
+
+    &--left {
+      position: relative;
+      left: 2px;
+      stroke: #bdbdbd;
+      fill: #bdbdbd;
+    }
+
+    &--right {
+      position: relative;
+      left: -2px;
+      stroke: $color-black;
+      fill: $color-black;
+    }
+
+    &:hover {
+      stroke: #0c797a;
+      fill: #0c797a;
+    }
+  }
+  
+  &__slider-count {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    font-size: 16px;
+  }
+
+  &__slider-count-down {
+    position: relative;
+    top: 8px;
+    left: 3px;
+    font-size: 11px;
+    color: #0c797a;
+  }
+}
