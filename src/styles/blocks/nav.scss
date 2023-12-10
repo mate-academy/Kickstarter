@@ -1,0 +1,61 @@
+.nav {
+  &--desktop {
+    display: none;
+
+    @include onDesktop {
+      @include contentPaddingInlineMinWidth;
+
+      display: block;
+      margin-bottom: 62px;
+      padding-block: 28px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include onTablet {
+      gap: 40px;
+    }
+
+    @include onDesktop {
+      flex-direction: row;
+      gap: 84px;
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    font-size: 14px;
+    line-height: 20px;
+
+    @include onTablet {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    @include onDesktop {
+      @include hover (transform,scale(1.2));
+
+      font-size: 14px;
+      line-height: 20px;
+
+      &:focus {
+        @include hover (transform,scale(1.2));
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+    color: $color-gray;
+
+    &:hover {
+      color: $color-text-black;
+    }
+  }
+}

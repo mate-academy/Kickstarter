@@ -1,0 +1,83 @@
+.footer {
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: $color-white-gray;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+  @include contentPaddingInlineMinWidth;
+
+  @include onTablet {
+    gap: 60px;
+  }
+
+  &--margin {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      max-width: $max-width;
+      margin: 0 auto 30px;
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include onTablet {
+      @include contentGrid;
+    }
+  }
+
+  &__top {
+    grid-column: span 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    @include onTablet {
+      gap: 50px;
+    }
+
+    @include onDesktop {
+      gap: 40px;
+    }
+  }
+
+  &__link {
+    width: 24px;
+    height: 24px;
+
+    &--facebook {
+      background-image: url(../images/facebook.svg);
+
+      @include backgroundSizePosition;
+      @include hover (transform,scale(1.2));
+    }
+
+    &--twitter {
+      width: 24px;
+      height: 24px;
+      background-image: url(../images/twitter.svg);
+      background-position: center;
+
+      @include hover (transform,scale(1.2));
+    }
+
+    &--instagram {
+      background-image: url(../images/instagram.svg);
+
+      @include backgroundSizePosition;
+      @include hover (transform,scale(1.2));
+    }
+  }
+}
