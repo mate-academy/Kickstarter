@@ -1,0 +1,127 @@
+.features {
+  @include onTablet {
+    @include contentPaddingInlineMinWidth;
+  }
+
+  &--margin {
+    @include marginBetweenBloks;
+  }
+
+  &__content {
+    width: 100%;
+    background-color: $backgraund-color-turquoise;
+
+    @include onTablet {
+      @include contentGrid;
+    }
+  }
+
+  &__slider {
+    padding: $padding-inlline-mobile;
+    width: 100%;
+    overflow: hidden;
+
+    @include onTablet {
+      padding: 0;
+      grid-column: 2 / 5;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__botton {
+    padding-inline: $padding-inlline-mobile;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    @include onTablet {
+      padding: 0;
+      grid-column: 2 / 3;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__switch {
+    display: flex;
+  }
+
+  &__technology-slide-prev {
+    width: 48px;
+    height: 14px;
+    background-image: url(../images/slide-prev.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all $transition-time;
+
+    &:hover {
+      background-image: url(../images/slide-prev--hover.svg);
+    }
+  }
+
+  &__technology-slide-next {
+    width: 48px;
+    height: 14px;
+    background-image: url(../images/slide-next.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all $transition-time;
+
+    &:hover {
+      background-image: url(../images/slide-next--hover.svg);
+    }
+  }
+
+  &__slide-aktiv {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__slide-total-amount {
+    font-size: 11px;
+    line-height: 13px;
+    color: $color-text-dark-blue;
+  }
+
+  &__photo {
+    @include onTablet {
+      grid-column: 4 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+      display: flex;
+      align-items: end;
+    }
+  }
+
+  &__img {
+    width: 320px;
+    overflow: hidden;
+    background-image: url(../images/mobil/features.png);
+    background-blend-mode: darken;
+    background-color: $backgraund-color-turquoise;
+
+    @include backgroundSizePosition;
+
+    height: 174px;
+
+    @include onTablet {
+      background-image: url(../images/tablet/features.png);
+      width: 436px;
+      height: 226px;
+    }
+
+    @include onDesktop {
+      background-image: url(../images/desktop/features.png);
+      width: 582px;
+      height: 302px;
+    }
+  }
+}

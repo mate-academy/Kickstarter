@@ -1,0 +1,83 @@
+.benefits {
+  font-size: 16px;
+  line-height: 24px;
+  color: $color-gray;
+  &--margin {
+    @include marginBetweenBloks;
+  }
+
+  @include onTablet {
+    @include contentPaddingInlineMinWidth;
+  }
+
+  &__article {
+    @include contentGrid;
+  }
+
+  &__photo {
+    width: 320px;
+    height: 245px;
+    background-image: url(../images/mobil/benefits.png);
+
+    @include backgroundSizePosition;
+
+    grid-column: span 4;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      background-image: url(../images/tablet/benefits.png);
+      width: 430px;
+      height: 317px;
+      margin-bottom: 0;
+      grid-column: 4 / -1;
+      grid-row: 1 / 2;
+    }
+
+    @include onDesktop {
+      background-image: url(../images/desktop/benefits.png);
+      width: 816px;
+      height: 464px;
+      grid-column: 5 / -1;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 4;
+    padding-inline: $padding-inlline-mobile;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 20px;
+      padding-inline: 0;
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__title {
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      display: flex;
+      align-items: end;
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__description {
+    @include onTablet {
+      width: 95%;
+      grid-column: 1 / 4;
+    }
+  }
+}

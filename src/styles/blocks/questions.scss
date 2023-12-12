@@ -1,0 +1,105 @@
+.questions {
+  @include contentGrid;
+  @include contentPaddingInlineMinWidth;
+
+  &--margin {
+    @include marginBetweenBloks;
+  }
+
+  &__title {
+    grid-column: span 4;
+    margin-bottom: 27px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__article {
+    grid-column: span 4;
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__input {
+    font-family: Roboto, sans-serif;
+    padding: 12px 20px;
+    height: 48px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 24px;
+    text-decoration: none;
+    border: 1px solid #828282;
+    color: $color-gray;
+    background-color: $background-color;
+
+    @include onTablet {
+      padding: 12px 30px;
+    }
+
+    @include onDesktop {
+      padding: 12px 36px;
+    }
+
+    &--margin {
+      margin-bottom: 20px;
+    }
+
+
+    &::placeholder {
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      color: $color-white-gray;
+    }
+
+    &:focus {
+      outline: 1px, solid $color-text-black;
+    }
+
+    &:valid {
+      border: 1px solid #0c797a;
+    }
+
+    &:not(:placeholder-shown):invalid {
+      border: 1px solid #eb5757;
+      color: rgba(235, 87, 87, 0.3);
+    }
+
+    @include onTablet {
+      &:focus {
+        outline: 1px, solid $color-text-black;
+      }
+    }
+
+    @include onDesktop {
+      &:focus {
+        outline: 1px, solid $color-text-black;
+      }
+    }
+
+    &--textarea {
+      margin-bottom: 30px;
+      font-family: Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      display: block;
+      height: 128px;
+      resize: none;
+
+      @include onTablet {
+        height: 201px;
+      }
+
+      @include onDesktop {
+        height: 128px;
+        padding-block: 20px;
+      }
+    }
+  }
+}

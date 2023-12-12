@@ -1,0 +1,58 @@
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 67px;
+  padding-block: 25px;
+
+  @include onTablet {
+    @include contentGrid;
+  }
+
+  &__right {
+    grid-column: 5 / -1;
+    display: flex;
+    align-items: center;
+
+    @include onTablet {
+      padding-left: 24px;
+    }
+
+    @include onDesktop {
+      padding: 0;
+      grid-column: 10 / -1;
+    }
+  }
+
+  &__icon {
+    display: block;
+    height: 32px;
+    width: 32px;
+
+    @include onTablet {
+      grid-column: 8 / -1;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--menu {
+      background-image: url(../images/Icon-burger-menu.svg);
+
+      @include backgroundSizePosition;
+      @include hover (transform,scale(1.2));
+
+      transition: background-image $transition-time;
+    }
+
+    &--close {
+      background-image: url(../images/Icon-close.svg);
+      background-repeat: no-repeat;
+
+      @include backgroundSizePosition;
+      @include hover (transform,scale(1.2));
+    }
+  }
+}

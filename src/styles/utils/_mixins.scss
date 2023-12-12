@@ -1,6 +1,79 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition-time;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width:768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width:1440px) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInlineMinWidth {
+  padding-inline: $padding-inlline-mobile;
+  min-width: 320px;
+
+  @include onTablet() {
+    padding-inline: $padding-inline-tablet;
+  }
+
+  @include onDesktop() {
+    padding-inline: $padding-inline-dekstop;
+  }
+}
+
+@mixin contentGrid {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat($coloms-mobile, 1fr);
+
+  @include onTablet {
+    column-gap: 20px;
+    grid-template-columns: repeat($coloms-tablet, 1fr);
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat($coloms-dekstop, 1fr);
+    column-gap: 30px;
+  }
+}
+
+@mixin widthDekstop {
+  @include onDesktop {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+
+@mixin backgroundSizePosition {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@mixin marginBetweenBloks {
+  margin-bottom: 110px;
+
+  @include onTablet() {
+    margin-bottom: 140px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 170px;
+  }
+}
+
+@mixin widthDekstop {
+  @include onDesktop {
+    max-width: $max-width;
+    margin: 0 auto;
   }
 }
