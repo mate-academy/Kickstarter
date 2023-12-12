@@ -8,7 +8,7 @@ const number = document.querySelector('.features__slide-aktiv');
 let switcher = 0;
 
 function init() {
-  width = document.querySelector('.features__slider').offsetWidth;
+  width = document.querySelector('.features__slider').offsetWidth + 130 + 'px';
   technology.style.width = width * article.length + 'px';
 
   article.forEach(item => {

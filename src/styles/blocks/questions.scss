@@ -35,7 +35,7 @@
     font-size: 14px;
     line-height: 24px;
     text-decoration: none;
-    outline: none;
+    // outline: none;
     border: 1px solid #828282;
     color: $color-gray;
     background-color: $background-color;
@@ -52,10 +52,15 @@
       margin-bottom: 20px;
     }
 
+
     &::placeholder {
       font-family: Inter, sans-serif;
       font-size: 16px;
       color: $color-white-gray;
+    }
+
+    &:focus {
+      outline: 1px, solid $color-text-black;
     }
 
     &:valid {
@@ -65,6 +70,18 @@
     &:not(:placeholder-shown):invalid {
       border: 1px solid #eb5757;
       color: rgba(235, 87, 87, 0.3);
+    }
+
+    @include onTablet {
+      &:focus {
+        outline: 1px, solid $color-text-black;
+      }
+    }
+
+    @include onDesktop {
+      &:focus {
+        outline: 1px, solid $color-text-black;
+      }
     }
 
     &--textarea {
