@@ -1,0 +1,71 @@
+.technology {
+  @include contentPaddingInline;
+
+  @include onTablet {
+    padding-inline: 34px 0 ;
+
+    @include onDesktop {
+      @include contentPaddingInline;
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__image {
+    height: 212px;
+    background-image: url(../images/image-mobile/technology-image.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    margin-top: 30px;
+
+    @include hover(transform, scale(1.1));
+
+    @include onTablet {
+      height: 417px;
+      background-image: url(../images/image-tablet/technology-image-tablet.png);
+      background-position: right;
+
+      margin-top: 0;
+
+      grid-column: 5 / -1;
+    }
+
+    @include onDesktop {
+      height: 401px;
+      background-image: url(../images/image-desktop/technology-image-desktop.png);
+
+      grid-column: span 6;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / 5;
+    grid-row: 1;
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__title {
+    &--mobile {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+      }
+    }
+  }
+}

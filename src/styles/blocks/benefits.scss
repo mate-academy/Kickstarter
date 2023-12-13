@@ -1,9 +1,49 @@
 .benefits {
   @include contentPaddingInline;
 
+  &__top {
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      @include pageGrid;
+
+      row-gap: 65px;
+    }
+
+    @include onDesktop {
+      align-items: baseline;
+    }
+  }
+
   &__article {
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      grid-column: span 4;
+
+      @include onDesktop {
+        grid-column: span 3;
+      }
+    }
+
     &--hiden {
       display: none;
+
+      @include onTablet {
+        display: flex;
+      }
     }
   }
 }
