@@ -2,7 +2,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  display: block;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   width: 100vw;
   background-color: #fff;
@@ -84,6 +85,28 @@
     font-weight: 300;
     line-height: 17px;
     color: $light-brown;
+    transition: color 0.3s ease-in-out;
+
+    &--en {
+      &:hover {
+        cursor: pointer;
+
+        & :nth-child(n) {
+          transition: color 0.3s ease-in-out;
+          color: $light-brown;
+        }
+
+        & :first-child {
+          color: $dark-middle-gray;
+        }
+      }
+
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: $dark;
+    }
   }
 
   &__lang-brown {
@@ -95,10 +118,11 @@
   }
 
   &__btn {
-    position: absolute;
+    position: fixed;
+    bottom: 30px;
     left: 30px;
     right: 30px;
-    bottom: 30px;
+    z-index: 10;
     padding-top: 20px;
   }
 
