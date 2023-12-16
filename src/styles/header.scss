@@ -156,6 +156,7 @@
 
     @include on-desktop {
       position:  absolute;
+      overflow: hidden;
       grid-column: 5 / -1;
     }
   }
@@ -167,6 +168,7 @@
     background-image: url('../images/Mobile/img1.svg');
     background-repeat: no-repeat;
     background-size: cover;
+    transform-origin: left;
 
     @include on-tablet {
       max-width: 816px;
@@ -174,6 +176,15 @@
       background-image: url('../images/Tablet/img1-t.svg');
       background-size: cover;
       background-position: left center;
+    }
+
+    @include on-desktop {
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+      }
     }
   }
 
