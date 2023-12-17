@@ -1,0 +1,103 @@
+.footer {
+  padding: 110px 30px 20px;
+
+  @include on-desktop {
+    padding: 170px 123px 30px;
+  }
+
+  &__socials {
+    display: flex;
+    width: fit-content;
+    margin: auto;
+    gap: 40px;
+  }
+
+  &__logo-top {
+    display: none;
+
+    @include on-tablet {
+      position: relative;
+      display: block;
+      padding-bottom: 60px;
+    }
+  }
+
+  &__logo {
+    display: block;
+    height: 26px;
+    width: 161px;
+    margin: auto;
+    background-image: url('../images/Logo/Vector.svg');
+  }
+
+  &__arrow-up {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 50px;
+    height: 50px;
+
+    background-image: url('../images/Icons/Arrow-up.svg');
+    background-size: cover;
+
+    @include on-desktop {
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__social {
+    display: block;
+    width: 24px;
+    height: 24px;
+    transition: background-image 0.3s ease-in-out;
+
+    &--facebook {
+      background-image: url("../images/Icons/Facebook.svg");
+
+      @include on-desktop {
+        &:hover {
+          background-image: url("../images/Icons/Facebook-hover.svg");
+        }
+      }
+    }
+
+    &--twitter {
+      background-image: url("../images/Icons/Twitter.svg");
+
+      @include on-desktop {
+        &:hover {
+          background-image: url("../images/Icons/Twitter-hover.svg");
+        }
+      }
+    }
+
+    &--instagram {
+      background-image: url("../images/Icons/Instagram.svg");
+
+      @include on-desktop {
+        &:hover {
+          background-image: url("../images/Icons/Instagram-hover.svg");
+        }
+      }
+    }
+  }
+
+  &__copy {
+    padding-top: 30px;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: center;
+    color: $dark-gray;
+
+    @include on-tablet {
+      padding-top: 60px;
+    }
+  }
+}
