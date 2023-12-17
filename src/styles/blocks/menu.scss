@@ -2,8 +2,6 @@
   height: 100vh;
   background-color: $page-backgroung-color;
 
-  position: relative;
-
   @include contentPaddingInline;
 
   &__content {
@@ -40,8 +38,13 @@
   &__button {
     position: absolute;
     bottom: 30px;
-    width: 260px;
 
-    @include hover (transform, scale(1.2));
+    width: calc(100% - 60px);
+
+    @include hover (transform, scale(1.1));
+
+    @include onTablet {
+      display: none;
+    }
   }
 }
