@@ -1,0 +1,94 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-block: 22px;
+
+  @include onTablet {
+    margin-block: 29px;
+  }
+
+  @include onDesktop {
+    margin-block: 30px;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__menu {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--menu {
+    margin-block: 24px;
+
+    @include onTablet {
+      margin-block: 29px;
+      height: 34px;
+    }
+  }
+
+  &__wrapper {
+    display: none;
+    gap: 30px;
+    align-items: center;
+
+    margin-inline: 30px;
+
+    @include onTablet {
+      display: flex;
+    }
+
+    @include onDesktop {
+      margin-inline: 0;
+    }
+
+    &--menu {
+      display: flex;
+      gap: 20px;
+      margin-inline: 0;
+    }
+  }
+
+  &__language {
+    display: flex;
+    gap: 3px;
+  }
+
+  &__link {
+    color: $additional-text-color;
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: uppercase;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__text {
+    color: $additional-text-color;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    width: 22px;
+
+    &--black {
+      color: $main-text-color;
+      font-weight: 400;
+      width: 6px;
+    }
+
+    &:hover {
+      color: $main-text-color;
+      transition: 0.3s;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+}

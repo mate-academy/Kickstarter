@@ -1,0 +1,104 @@
+.features {
+  @include onTablet {
+    @include contentPaddingInline;
+  }
+
+  &__content {
+
+    height: 575px;
+    background: url(../images/image-mobile/features-image.png), #d6ecec -51.55px -42.31px / 111.9% 118.72% no-repeat;
+    background-blend-mode: darken;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    padding-inline: 30px;
+
+    @include onTablet {
+      height: 555px;
+      background: url(../images/image-tablet/features-image-tablet.png), #d6ecec -51.55px -42.31px / 111.9% 118.72% no-repeat;
+      background-repeat: no-repeat;
+      background-position: bottom right;
+
+      padding-inline: 90px;
+    }
+
+    @include onDesktop {
+      @include pageGrid;
+      grid-row: 2;
+      row-gap: 56px;
+
+      height: 672px;
+      background: url(../images/image-desktop/features-image-desktop.png), #d6ecec -68.86px -56.52px / 111.9% 118.72% no-repeat;
+      background-repeat: no-repeat;
+      background-position: bottom right;
+    }
+  }
+
+  &__article {
+    @include onDesktop {
+      display: grid;
+      height: 50%;
+
+      grid-column: span 5;
+      grid-row: 2;
+    }
+
+    &--hiden {
+      display: none;
+
+      @include onDesktop {
+        display: grid;
+        height: 50%;
+
+        grid-column: span 6;
+        grid-row: 1;
+
+        margin-top: 60px;
+      }
+    }
+  }
+
+  &__slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+
+    @include onTablet {
+      align-items: start;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__button {
+    padding-bottom: 6px;
+    &:hover {
+      @include hover(transform, scale(1.1));
+
+      cursor: pointer;
+      fill: $link-text-color;
+    }
+  }
+
+  &__numbers {
+    display: flex;
+    gap: 3px;
+    align-items: flex-end;
+  }
+
+  &__number {
+    color: $link-text-color;
+    font-size: 11px;
+    font-weight: 400;
+
+    &--main {
+      color: $main-text-color;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline() {
+  padding-inline: 30px;
+
+  @include onTablet {
+    padding-inline: 34px;
+  }
+
+  @include onDesktop {
+    padding-inline: 123px;
+  }
+}
+
+@mixin pageGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+}
+
+@mixin hoverUnderline($color) {
+  &::after {
+    position: absolute;
+    z-index: 1;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+
+    content: "";
+
+    height: 1px;
+    width: 53px;
+
+    border-radius: 4px;
+    background-color: $color;
+
+    transition: width 0.3s;
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}

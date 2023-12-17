@@ -1,0 +1,72 @@
+.about-us {
+  @include contentPaddingInline;
+
+  @include onTablet {
+    padding-inline: 0 34px;
+
+    @include onDesktop {
+      @include contentPaddingInline;
+    }
+  }
+
+  &__content {
+    align-items: flex-start;
+
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__image {
+    height: 210px;
+    background-image: url(../images/image-mobile/about-us-image.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    margin-top: 30px;
+
+    @include hover(transform, scale(1.05));
+
+    @include onTablet {
+      height: 415px;
+      background-image: url(../images/image-tablet/about-us-image-tablet.png);
+      background-position: left;
+
+      margin-top: 0;
+
+      grid-column: 1 / 5;
+    }
+
+    @include onDesktop {
+      height: 388px;
+      background-image: url(../images/image-desktop/about-us-image-desktop.png);
+
+      grid-column: span 6;
+    }
+  }
+
+  &__description {
+    grid-column: span 4;
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__title {
+    &--mobile {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+      }
+    }
+  }
+}

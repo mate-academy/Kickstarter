@@ -1,0 +1,50 @@
+.menu {
+  height: 100vh;
+  background-color: $page-backgroung-color;
+
+  @include contentPaddingInline;
+
+  &__content {
+    @include pageGrid;
+    row-gap: 31px;
+  }
+
+  &__top-bar {
+    grid-column: span 4;
+
+    @include onTablet {
+      grid-column: span 8;
+    }
+  }
+
+  &__nav {
+    grid-column: span 4;
+
+    margin-bottom: 29px;
+
+    @include onTablet {
+      grid-column: span 8;
+    }
+  }
+
+  &__description {
+    grid-column: span 4;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 30px;
+
+    width: calc(100% - 60px);
+
+    @include hover (transform, scale(1.1));
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}
