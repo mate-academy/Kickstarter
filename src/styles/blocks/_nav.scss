@@ -10,6 +10,19 @@
       display: flex;
       list-style: none;
 
+      &::after {
+        content: attr(data-text);
+        content: attr(data-text) / "";
+        height: 0;
+        visibility: hidden;
+        overflow: hidden;
+        user-select: none;
+        pointer-events: none;
+        @media speech {
+          display: none;
+        }
+      }
+
       &-spec,
       &-lang,
       &-buy {

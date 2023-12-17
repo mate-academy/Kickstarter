@@ -32,6 +32,7 @@
       @extend %quote-mobile;
       font-weight: 400;
       text-transform: uppercase;
+      text-decoration: none;
       cursor: pointer;
       text-align: center;
 
@@ -39,8 +40,14 @@
         font-weight: 700;
       }
 
-      &--bold {
+      &::before {
+        display: block;
+        content: attr(data-text);
+        // content: attr(data-text) / "";
         font-weight: 700;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
       }
     }
   }
