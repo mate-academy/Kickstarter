@@ -1,0 +1,227 @@
+.features {
+  margin-top: 270px;
+  position: relative;
+
+  @include on-tablet {
+    margin-top: 300px;
+  }
+
+  @include on-desktop {
+    margin-top: 330px;
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: left;
+    color: $dark-grey;
+
+    @include on-desktop {
+      font-size: 56px;
+      font-weight: 700;
+    }
+  }
+
+  &__dignity {
+    position: relative;
+    height: 0;
+    &--name {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 22px;
+      text-align: left;
+      color: #0c797a;
+
+      @include on-tablet {
+        margin-top: 60px;
+      }
+
+      @include on-desktop {
+        font-size: 34px;
+        line-height: 42px;
+      }
+    }
+    &--list {
+      display: flex;
+      gap: 10px;
+      flex-direction:column;
+      margin-top: 20px;
+      margin-left: 16px;
+
+      @include on-tablet {
+        width: 260px;
+      }
+
+      @include on-desktop {
+        width: 378px;
+      }
+    }
+  }
+
+  &__item {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+
+    @include on-desktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__content {
+    @include page-grid;
+
+    height: 600px;
+    padding: 0 30px;
+    margin-top: 32px;
+    background-color: #d6ecec;
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    @include on-tablet {
+      position: static;
+      left: auto;
+      right: auto;
+      padding: 0;
+    }
+
+    @include on-desktop {
+     height: 682px;
+    }
+  }
+
+  &__dignity:nth-child(3) {
+    grid-column: 1/ -1;
+
+    @include on-tablet {
+      grid-column: 2/ 5;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__dignity:nth-child(1),
+  &__dignity:nth-child(2) {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+      }
+  }
+
+  &__dignity:nth-child(2) {
+    @include on-desktop {
+      grid-column: 7 / 10;
+    }
+  }
+
+  &__dignity:nth-child(1) {
+    @include on-desktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-left: 100px;
+    @include on-tablet {
+      position: absolute;
+      top: 400px;
+    }
+    @include on-desktop {
+      display: none;
+    }
+
+    &--left {
+      background-image: url(../images/icon/slider--left1.svg);
+      background-repeat: no-repeat;
+      width: 48px;
+      height: 14px;
+      transition: background-image .3s ease-in-out;
+      display: block;
+      transition: $transition;
+      &:hover {
+        background-image: url(../images/icon/slider--left2.svg);
+      }
+    }
+    &--right {
+      background-image: url(../images/icon/slider--right1.svg);
+      background-repeat: no-repeat;
+      width: 48px;
+      height: 14px;
+      transition: background-image .3s ease-in-out;
+      display: block;
+      transition: $transition;
+      &:hover {
+        background-image: url(../images/icon/slider--right2.svg);
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 335.48px;
+    height: 174.08px;
+
+    @include on-tablet {
+      width: 415.58px;
+      height: 225.33px;
+      left: auto;
+      right: 50px;
+    }
+
+    @include on-desktop {
+      width: 500px;
+      height: 280px;
+      right: 170px;
+    }
+  }
+
+  &__page {
+    display: inline-block;
+    position: absolute;
+    top: 58%;
+    left: 154px;
+
+    @include on-tablet {
+      top: 71%;
+      left: 19%;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__01 {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $dark-grey;
+  }
+
+  &__03 {
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13px;
+    color: #0c797a;
+    margin-left: 23px;
+    margin-top: 10px;
+  }
+}
+

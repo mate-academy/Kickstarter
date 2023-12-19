@@ -4,3 +4,101 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: 744px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+
+@mixin page-grid {
+  --columns: 4;
+
+  display: grid;
+  column-gap: 20px;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 8;
+
+    grid-template-columns: repeat(auto-fill, 1fr);
+  }
+
+  @include on-desktop {
+    --columns: 12;
+
+    column-gap: 30px;
+  }
+}
+
+@mixin style-specs {
+  font-family: $ffhn;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 17px;
+  color: $gray;
+}
+
+@mixin style-language {
+  font-family: $ffhn;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 300;
+  color: $gray;
+  cursor: pointer;
+}
+
+@mixin style-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $ffhn;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  width: 100%;
+  height: 48px;
+  background-color: $dark-grey;
+  border: none;
+  color: $white;
+  transition: $transition;
+  &:hover {
+    background-color: $black;
+  }
+}
+
+@mixin footer-style-input {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: #bdbdbd;
+  border: 1px solid #828282;
+  padding-left: 20px;
+  width: 260px;
+  outline: none;
+  transition: $transition;
+  cursor: text;
+  &:focus {
+    border: 1px solid#0c797a;
+  }
+
+  @include on-tablet {
+    padding-left: 30px;
+    width: 340px;
+  }
+
+  @include on-desktop {
+    padding-left: 37px;
+    width: 582px;
+  }
+}
+
