@@ -1,0 +1,136 @@
+.content {
+  @include onTablet {
+    @include pageGrid;
+  }
+
+  &__img {
+    height: 210px;
+    width: 100%;
+    padding-bottom: 20px;
+
+    @include onTablet {
+      height: 374px;
+      width: 415px;
+      grid-column: 1 / 5;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 7;
+      height: 388px;
+      width: 582px;
+    }
+
+    &--two {
+      grid-column: 5 / -1;
+
+      @include onSmallDesktop {
+        grid-column: 7 / 13;
+      }
+    }
+  }
+
+  &__wrap {
+    grid-column: 5 / 9;
+
+    @include onSmallDesktop {
+      grid-column: 7 / 13;
+
+    }
+
+    &--two {
+      grid-column: 1 / 5;
+      grid-row: 1;
+
+      @include onSmallDesktop {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+
+  &__tittle {
+    display: none;
+
+    @include onTablet {
+      display: inline-block;
+    }
+
+    &--two {
+      grid-column: 1 / 5;
+
+      @include onSmallDesktop {
+        grid-column: 1 / 7;
+      }
+    }
+
+    &--three {
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__subtittle {
+    color: $third-text-color;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    padding-bottom: 30px;
+
+    @include onTablet {
+      padding-bottom: 60px;
+      font-size: 16px;
+      grid-column: 5 / 9;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 7 / 13;
+    }
+
+    &--two {
+      grid-column: 1 / 5;
+
+      @include onSmallDesktop {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+
+  &__link {
+    color: $main-item-color;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    transition: 0.4s ease-in-out;
+    grid-column: 5 / 8;
+
+    &::after {
+      content: "";
+      height: 1px;
+      width: 53px;
+      background-color: $main-item-color;
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      transition: 0.4s ease-in-out;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 7 / 13;
+    }
+
+    &--two {
+      grid-column: 1 / 5;
+
+      @include onSmallDesktop {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+}
