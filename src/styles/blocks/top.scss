@@ -1,0 +1,59 @@
+.top {
+  margin-top: 43px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    cursor: pointer;
+    transition: $transition;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__info {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-right: 24px;
+      gap: 30px
+    }
+  }
+
+  &__specs {
+    @include style-specs;
+  }
+
+  &__language {
+    @include style-language;
+  }
+
+  &__buy {
+    @include style-button;
+
+    cursor: pointer;
+    width: 100px;
+    height: 48px;
+  }
+
+  &__open {
+    width: 24px;
+    height: 16px;
+    cursor: pointer;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}
