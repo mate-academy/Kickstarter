@@ -1,0 +1,84 @@
+.benefits {
+  padding: 110px 30px;
+
+  @include on-tablet {
+    padding: 140px 35px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 65px;
+    grid-gap: 20px;
+  }
+
+  @include on-desktop {
+    padding: 90px 123px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+  }
+
+  &__first {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include on-desktop {
+      width: 276px;
+    }
+  }
+
+  &__second,
+  &__third,
+  &__fourth {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include on-desktop {
+      width: 276px;
+    }
+  }
+
+  &--img {
+    width: 50px;
+    height: 40px;
+  }
+
+  &--title {
+    margin-top: 40px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      margin-top: 50px;
+    }
+
+    @include on-desktop {
+      margin-top: 30px;
+      text-align: center;
+    }
+  }
+
+  &--prg {
+    margin-top: 20px;
+    color: $color-prg;
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+
+    @include on-desktop {
+      margin-top: 52px;
+    }
+  }
+
+  &--prg--second,
+  &--prg--fourth {
+    @include on-desktop {
+      margin-top: 24px;
+    }
+  }
+}

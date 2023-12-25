@@ -1,11 +1,35 @@
 .header {
   &__img {
     width: 100%;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__img--desktop {
+    width: 100%;
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
   }
 
   &__text {
     margin-top: 40px;
     padding-inline: 30px;
+
+    @include on-tablet {
+      margin-top: 0;
+      padding-inline: 0;
+      grid-column: 1/5;
+      grid-row: 1;
+    }
+
+    @include on-desktop {
+      grid-column: 1;
+    }
   }
 
   &__text--title {
@@ -13,11 +37,55 @@
     font-weight: 700;
     line-height: 52px;
     text-transform: uppercase;
+
+    @include on-tablet {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 62px;
+    }
+
+    @include on-desktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
   }
 
   &__text--prg {
     margin-top: 20px;
     font-size: 16px;
     line-height: 24px;
+
+    @include on-tablet {
+      margin-top: 30px;
+      width: 250px;
+    }
+
+    @include on-desktop {
+      width: 276px;
+    }
+  }
+
+  &__content {
+    @include on-tablet {
+      padding: 100px 35px;
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+    }
+
+    @include on-desktop {
+      padding: 60px 123px;
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+
+  &__img--wrap {
+    @include on-tablet {
+      grid-column: 4/-1;
+      grid-row: 1;
+    }
+
+    @include on-desktop {
+      grid-column: 2;
+    }
   }
 }
