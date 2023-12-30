@@ -1,0 +1,67 @@
+.feature {
+  @include on-tablet {
+    padding-inline: 35px;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
+  }
+
+  &__title {
+    padding-inline: 30px;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      padding-inline: 0;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+    }
+  }
+
+  &__content {
+    margin-top: 30px;
+    background-color: $bg-feature;
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-gap: 56px;
+    }
+  }
+
+  &__img {
+    height: 174px;
+    width: 320px;
+    background-image: url(../images/feature-img.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @include on-tablet {
+      width: 435px;
+      height: 226;
+    }
+
+    @include on-desktop {
+      width: 582px;
+      height: 302px;
+    }
+  }
+
+  &__content--bottom {
+    @include on-tablet {
+      padding-inline-start: 90px;
+      display: flex;
+      justify-content: space-between;
+
+      @include on-desktop {
+        align-self: end;
+      }
+    }
+  }
+}

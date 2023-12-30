@@ -1,0 +1,72 @@
+.form {
+  margin-top: 27px;
+
+  @include on-tablet {
+    margin-top: 0;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px 20px;
+    color: $color-input;
+    background-color:$color-bg;
+    font-size: 16px;
+    border: 1px solid $color-light-gray;
+    box-sizing: border-box;
+    outline: none;
+
+    &::placeholder {
+      color: $color-black;
+    }
+
+    &:invalid {
+      color: $color-red;
+      border: 1px solid $color-red;
+    }
+
+    &:focus {
+      border: 1px solid $green-title;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: $color-black;
+      -webkit-box-shadow: inset 0 0 0 1000px $color-bg;
+    }
+  }
+
+  &__message {
+    height: 128px;
+    margin-top: 20px;
+    resize: none;
+
+    @include on-tablet {
+      height: 201px;
+    }
+
+    @include on-desktop {
+      height: 128px;
+    }
+  }
+
+  &__btn {
+    margin-top: 30px;
+    padding: 13px 34px;
+    color: $color-white;
+    background-color: $color-green;
+    font-size: 12px;
+    font-weight: 700;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    @include hover (background-color, $green-title);
+
+    @include on-desktop {
+      padding: 17px 42px;
+    }
+  }
+}
