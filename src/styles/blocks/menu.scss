@@ -1,0 +1,105 @@
+.menu {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  padding: 24px 30px 30px;
+  background-color: $bg-menu;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo,
+  &__close {
+    @include hover (transform, scale(1.1));
+  }
+
+  &__content {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include on-tablet {
+      margin-top: 64px;
+      gap: 40px;
+    }
+  }
+
+  &__content--item {
+    font-size: 14px;
+    color: $color-black;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      font-weight: 700;
+    }
+
+    @include on-tablet {
+      font-size: 22px;
+    }
+  }
+
+  &__bottom {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__bottom--specs {
+    font-weight: 300;
+    color: $color-gray;
+  }
+
+  &__bottom--ua {
+    font-weight: 300;
+    color: $color-light-gray;
+  }
+
+  &__bottom--language {
+    border: none;
+    background-color: $color-bg;
+    cursor: pointer;
+  }
+
+  &__btn {
+    width: 100%;
+    padding: 16px 117px;
+    background-color: $color-black;
+    color: $color-white;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $black-hover;
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}

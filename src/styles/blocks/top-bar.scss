@@ -1,0 +1,80 @@
+.top-bar {
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include on-tablet {
+    padding: 30px 35px;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
+  }
+
+  &__tablet {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      gap: 30px;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__aside {
+    display: flex;
+    gap: 30px;
+
+    @include on-desktop {
+      gap: 0;
+    }
+  }
+
+  &__tablet--link {
+    color: $color-gray;
+    font-weight: 300;
+    cursor: pointer;
+  }
+
+  &__tablet--EN {
+    border: none;
+    background-color: $color-bg;
+    cursor: pointer;
+  }
+
+  &__tablet--UA {
+    color: $color-light-gray;
+    font-weight: 300;
+    cursor: pointer;
+  }
+
+  &__btn {
+    width: 100px;
+    height: 48px;
+    color: $color-white;
+    background-color: $color-black;
+    border: none;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+
+    @include hover (transform, scale(1.1));
+
+    &:hover {
+      background-color: $black-hover;
+    }
+  }
+
+  &__burger,
+  &__logo {
+    @include hover (transform, scale(1.1));
+  }
+
+  &__burger {
+    @include on-desktop {
+      display: none;
+    }
+  }
+}
