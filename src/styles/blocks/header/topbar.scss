@@ -1,0 +1,73 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 30px;
+
+  @include on-phone {
+    padding-top: 24px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    grid-column: -1/-7;
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+
+    @include on-phone {
+      display: none;
+    }
+  }
+
+  &__lang {
+    margin-inline: 30px 45px;
+  }
+
+  &__link {
+    color: $color-link-primary;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    width: fit-content;
+    position: relative;
+
+    &--active {
+      font-weight: 700;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 0;
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      background-color: $color-btn;
+      transition: width ease-in-out $transition-duration;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+  }
+
+  &__btn {
+    width: 100px;
+    color: $color-bg;
+    background-color: $color-text-primary;
+
+    @include on-tablet {
+      margin-right: 30px;
+    }
+
+    @include hover(background-color, #131313);
+  }
+}
