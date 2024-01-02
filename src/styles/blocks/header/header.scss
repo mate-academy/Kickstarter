@@ -1,0 +1,111 @@
+.header {
+  background-color: $color-bg;
+  padding-bottom: 60px;
+
+  @include on-phone {
+    padding-bottom: 0;
+  }
+
+  &__topbar {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    margin-bottom: 90px;
+
+    @include on-phone {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__sidebar {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+  }
+
+  &__nav {
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    max-width: 578px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__main {
+    @include grid;
+
+    margin-bottom: 142px;
+
+    background-image: url(../images/header/header-bg.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: 350px;
+
+    @include on-tablet {
+      background-image: url(../images/header/header-bg-tablet.webp);
+      background-size: auto;
+      background-position-x: 100%;
+      background-position-y: 55px;
+    }
+
+    @include on-phone {
+      background-image: none;
+      margin-bottom: 110px;
+    }
+  }
+
+  &__titlebox {
+    grid-column: 1/4;
+    padding-top: 90px;
+
+    @include on-tablet {
+      padding-top: 50px;
+    }
+
+    @include on-phone {
+      grid-column: 1/-1;
+    }
+  }
+
+  &__bg-mob {
+    display: none;
+
+    @include on-phone {
+      transform: translateX(15px);
+
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__title {
+    font-family: Inter, sans-serif;
+    color: $color-text-primary;
+    font-size: 62px;
+    font-weight: 700;
+    line-height: 78px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    position: relative;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include on-phone {
+      font-size: 40px;
+      line-height: 52px;
+    }
+  }
+
+  &__text {
+    @include font-text;
+  }
+}

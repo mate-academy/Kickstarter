@@ -1,0 +1,61 @@
+.footer {
+  font-family: Inter, sans-serif;
+  &__content {
+    @include grid;
+
+    row-gap: 60px;
+    position: relative;
+
+    @include on-phone {
+      row-gap: 30px;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/icons/icon-arrow-up.svg);
+    position: absolute;
+    right: 0;
+    top: 0;
+    animation: move-arrows-up 2s ease-in-out infinite alternate;
+
+    @keyframes move-arrows-up {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(30%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @include hover(opacity, 0.5);
+
+    @include on-phone {
+      display: none;
+    }
+  }
+
+  &__logo {
+    grid-column: 1/-1;
+    margin: 0 auto;
+
+    @include on-phone {
+      display: none;
+    }
+  }
+
+  &__copyright {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    grid-column: 1/-1;
+    color: $color-placeholder;
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 30px;
+  }
+}
