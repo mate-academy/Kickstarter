@@ -1,11 +1,7 @@
 .specs {
-  display: none;
-
-  @include tablet {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
   &__word {
     color: #4F4F4F;
@@ -15,24 +11,70 @@
     font-weight: 300;
   }
 
-  &__select {
-    color: $titleColor;
-    font-family: Helvetica Neue;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px;
-    border-style: none;
-    border-color: $c-gray;
-    background-color: $c-gray;
-    margin-left: 30px;
-    @include textHover;
+  &__languages {
+    display: flex;
+    justify-content: center;
 
-    &:focus-visible {
-      border-style: none;
-      border-color: $c-gray;
-      background-color: $c-gray;
-      outline: none;
+    &--tab {
+      color: $titleColor;
+      font-family: Helvetica Neue;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 18px;
+      padding-left: 15px;
+      margin-left: 40px;
+
+      &:hover {
+          cursor: pointer;
+      }
+
+      &::before {
+        display: block;
+        width: 20px;
+        height: 20px;
+        content: "EN";
+        position: relative;
+        right: 55px;
+        top: 35%;
+        color: $titleColor;
+        font-family: Helvetica Neue;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 18px;
+        margin-left: 30px;
+        transition: all 0.3s;
+      }
+
+      &:hover::before {
+        cursor: pointer;
+        color: $placeholderColor;
+        font-weight: 400;    
+      }
+
+      &::after {
+        display: block;
+        width: 20px;
+        height: 20px;
+        content: "UA";
+        position: relative;
+        bottom: 30%;
+        left: 5px;
+        color: $placeholderColor;
+        font-family: Helvetica Neue;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+        margin-left: 3px;
+      }
+
+      &:hover::after {
+        cursor: pointer;
+        color: $titleColor;
+        font-weight: 700;    
+      }
     }
   }
 
