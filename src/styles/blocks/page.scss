@@ -1,10 +1,31 @@
 .page {
-  
+  scroll-behavior: smooth;
+
   &__body {
     margin: 0;
 
     &--with-menu {
       overflow: hidden;
+
+      @include mobile {
+        .header {
+          opacity: 0;
+        }
+
+        .generalMain {
+          opacity: 0;
+        }
+      }
+
+      @include desktop {
+        .header {
+          opacity: 1;
+        }
+
+        .generalMain {
+          opacity: 1;
+        }
+      }
     }
   }
 
@@ -16,6 +37,10 @@
 
     transform: translateX(-100%);
     transition: transform 0.3s;
+
+    @include desktop {
+      transform: translateX(0);
+    }
 
     &:target {
       transform: translateX(0);

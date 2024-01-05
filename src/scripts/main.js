@@ -6,13 +6,10 @@ window.addEventListener('hashchange', () => {
 
   if (window.location.hash === '#menu') {
     document.body.classList.add('page__body--with-menu');
-    headerContent.style.opacity = '0';
-    maincontent.style.opacity = '0';
   } else {
     document.body.classList.remove('page__body--with-menu');
-    headerContent.style.opacity = '1';
-    maincontent.style.opacity = '1';
   }
+
 });
 
 const sliderContent1 = document.querySelector('.features__contain--sound');
