@@ -1,6 +1,33 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin pictureHover {
+  transition: all 0.3s;
   &:hover {
-    #{$_property}: $_toValue;
+    transform: scale(1.05);
+  }
+}
+
+@mixin textHover {
+  transition: all 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    font-weight: 700;
+  }
+}
+
+@mixin mobile {
+  @media (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1440px) {
+    @content;
   }
 }

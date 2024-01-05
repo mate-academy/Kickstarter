@@ -1,0 +1,112 @@
+.technology {
+  padding: 0 $mobileSideIntend;
+  margin-bottom: 110px;
+
+  @include tablet {
+    padding: 0 $tabletSideIntend;
+    margin-bottom: 140px;
+  }
+
+  @include desktop {
+    padding: 0 $deskSideIntend;
+    margin-bottom: 170px;
+  }
+
+  &__contain {
+    max-width: $mobileMaxWidth;
+    margin: 0 auto;
+
+    @include tablet {
+      max-width: $tabletMaxWidth;
+      display: grid;
+      grid-template-columns: repeat(8, 70px);
+      grid-template-rows: repeat(3, 125px);
+      gap: 20px;
+    }
+
+    @include desktop {
+      max-width: $deskMaxWidth;
+      grid-template-columns: repeat(12, 72px);
+      grid-template-rows: repeat(3, 110px);
+      gap: 30px;
+    }
+
+    &--title {
+      margin-bottom: 20px;
+      @include tablet {
+        grid-column: 1 / 5;
+        grid-row: 1 / 2;
+        margin: 0;
+      }
+
+      @include desktop {
+        grid-column: 1 / 7;
+        grid-row: 1 / 2;
+      }
+    }
+
+    &--img {
+      width: 100%;
+      height: 212px;
+      background-size: cover;
+      box-sizing: border-box;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url(./pictures/luna_eye_mobile.jpg);
+      margin-bottom: 20px;
+      @include pictureHover;
+
+      @include tablet {
+        grid-column: 5 / -1;
+        grid-row: 1 / -1;
+        width: 374px;
+        height: 415px;
+        background-image: url(./pictures/lunaEyeTablet.jpg);
+        margin-right: -34px;
+      }
+
+      @include desktop {
+        grid-column: 7 / -1;
+        grid-row: 1 / -1;
+        width: 582px;
+        padding-top: 50%;
+        margin: 0;
+        background-image: url(./pictures/lunaEyeDesk.jpg);
+      }
+    }
+
+    &--text {
+      color: $lightTextColor;
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px;
+      margin-bottom: 30px;
+
+      @include tablet {
+        grid-column: 1 / 5;
+        grid-row: 2 / 3;
+        margin-top: -50px;
+      }
+
+      @include desktop {
+        grid-column: 1 / 7;
+        grid-row: 2 / 3;
+      }
+    }
+
+    &--underlineButton {
+      @include tablet {
+        grid-column: 1 / 5;
+        grid-row: 3 / -1;
+        margin-top: -60px;
+      }
+
+      @include desktop {
+        grid-column: 1 / 7;
+        grid-row: 3 / -1;
+      }
+    }
+  }
+}

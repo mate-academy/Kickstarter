@@ -1,0 +1,120 @@
+.features {
+  margin-bottom: 110px;
+
+  @include tablet {
+    padding: 0 $tabletSideIntend;
+    margin-bottom: 140px;
+  }
+
+  @include desktop {
+    padding: 0 $deskSideIntend;
+    margin-bottom: 170px;
+  }
+
+  &__title {
+    padding: 30px;
+    max-width: $mobileMaxWidth;
+    margin: 0 auto;
+
+    @include tablet {
+      padding: 0;
+      max-width: $tabletMaxWidth;
+      margin: 0 auto 30px;
+    }
+    
+    @include desktop {
+      max-width: $deskMaxWidth;
+    }
+  }
+
+  &__contain {
+    background-color: $featureBackgroundColor;
+    width: 100%;
+
+    @include tablet {
+      height: 540px;
+    }
+
+    @include desktop {
+      display: grid;
+      max-width: $deskMaxWidth;
+      margin: 0 auto;
+      height: 645px;
+      grid-template-columns: repeat(12, 72px);
+      grid-template-rows: repeat(2, 297px);
+      gap: 30px;
+    }
+
+    &--connect {
+      display: none;
+      margin-bottom: 50px;
+
+      @include desktop {
+        display: grid;
+        grid-column: 2 / 6;
+        grid-row: 1;
+        margin-top: 60px;
+      }
+    }
+
+    &--sound {
+      display: block;
+      margin-bottom: 50px;
+
+      @include desktop {
+        display: grid;
+        grid-column: 2 / 6;
+        grid-row: 2;
+        margin-top: 28px;
+      }
+    }
+
+    &--app {
+      display: none;
+      margin-bottom: 50px;
+
+      @include desktop {
+        display: grid;
+        grid-column: 7 / -1;
+        grid-row: 1;
+        margin-top: 60px;
+      }
+    }
+
+    &--slider {
+      margin-bottom: 34px;
+
+      @include desktop {
+        display: none;
+      }
+    }
+
+    &--img {
+      width: 100%;
+      height: 174px;
+      background-image: url(./pictures/feature-picture.webp);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50%;
+
+      @include tablet {
+        display: flex;
+        width: 435px;
+        height: 226px;
+        position: relative;
+        top: -100px;
+        left: calc(100% - 430px);
+      }
+
+      @include desktop {
+        position: unset;
+        display: grid;
+        width: 582px;
+        height: 302px;
+        grid-column: 7 / -1;
+        grid-row: 2;
+        margin-top: 20px;
+      }
+    }
+  }
+}
