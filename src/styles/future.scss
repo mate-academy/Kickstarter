@@ -7,11 +7,15 @@
     font-size: 30px;
     line-height: 46px;
     text-transform: uppercase;
-    color: #333;
+    color: $item-color;
     margin-bottom: 20px;
 
     @include onPhone {
       margin-top: 110px;
+    }
+
+    @include onTabletAndDesktop {
+      display: none;
     }
 
     @include onTablet {
@@ -22,6 +26,29 @@
     @include onDesktop {
       margin-top: 170px;
       margin-bottom: 30px;
+    }
+
+    &_tablet {
+      margin: 0;
+      font-size: 30px;
+      line-height: 46px;
+      text-transform: uppercase;
+      color: $item-color;
+      margin-bottom: 30px;
+
+      @include onPhone {
+        display: none;
+      }
+
+      @include onTablet {
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      @include onDesktop {
+        font-size: 56px;
+        line-height: 70px;
+      }
     }
 
     &_modified {
@@ -45,17 +72,20 @@
 
   &__description {
     margin: 0;
-    font-size: 14px;
     line-height: 21px;
-    color: #7c7c7c;
+    color: $description-color;
+    font-size: 16px;
 
     @include onTablet {
+      // grid-column: 1 / 3;
+
       margin-bottom: 60px;
     }
 
     @include onPhone {
       margin-top: 20px;
       margin-bottom: 30px;
+      font-size: 14px;
     }
 
     @include onDesktop {
@@ -63,6 +93,15 @@
     }
 
     &-container {
+      position: relative;
+
+      @include onTablet {
+        margin-top: 130px;
+      }
+
+      @include onDesktop {
+        margin-top: 170px;
+      }
 
       // @include onTablet {
       //   transform: translateY(-185%);
@@ -73,15 +112,27 @@
   &--img {
     width: 100%;
 
-    &_modified {
+    &_phone {
+      width: 100%;
+      @include onTabletAndDesktop {
+        display: none;
+      }
+    }
 
-      // @include onTablet {
-      //   transform: translateY(-30%);
-      // }
+    &_tablet {
+      display: none;
 
-      // @include onDesktop {
-      //   transform: translateY(-20%);
-      // }
+      @include onTabletAndDesktop {
+        display: block;
+      }
+
+      @include onTablet {
+        margin-top: 130px;
+      }
+
+      @include onDesktop {
+        margin-top: 170px;
+      }
     }
   }
 
@@ -91,17 +142,24 @@
     font-size: 12px;
     line-height: 14px;
     text-transform: uppercase;
-    color: #0db2b3;
+    color: $button-submit-color;
     cursor: pointer;
- 
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 5.5px;
+    transition: border 0.5s ease-in-out;
 
     &::after {
       content: "";
       display: block;
       width: 53px;
-      border-top: 1px solid #0db2b3;
-      color: #0db2b3;
+      border-top: 1px solid $button-submit-color;
+      color: $button-submit-color;
       margin-top: 5px;
+    }
+
+    &:hover {
+      border-bottom: 1px solid $button-submit-color;
     }
   }
 
@@ -119,11 +177,13 @@
   }
 
   &__paragraph {
+    display: block;
+    margin: auto;
     font-weight: 700;
     font-size: 14px;
     line-height: 150%;
     text-align: center;
-    color: #333;
+    color: $item-color;
     margin-top: 166px;
 
     @include onPhone {
@@ -133,9 +193,12 @@
     @include onTablet {
       font-size: 24px;
       margin-top: 197px;
+      max-width: 700px;
     }
-    
+
     @include onDesktop {
+      margin: auto;
+      margin-top: 174px;
       max-width: 786px;
     }
   }
@@ -156,7 +219,7 @@
     font-size: 16px;
     line-height: 22px;
     text-align: center;
-    color: #333;
+    color: $item-color;
   }
 
   &__post {
@@ -166,6 +229,6 @@
     font-size: 14px;
     line-height: 21px;
     text-align: center;
-    color: #7c7c7c;
+    color: $description-color;
   }
 }

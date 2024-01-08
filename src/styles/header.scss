@@ -8,38 +8,33 @@
     padding-bottom: 0;
   }
 
-  // &--img {
-  //   width: 100%;
-  //   background-image: center;
-  //   background-size: cover;
-  // }
+  &-logo {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 
   &__content {
-    padding-left: 30px;
-    padding-right: 30px;
-    
+    padding: 0 30px;
 
     @include onTablet {
       display: flex;
       justify-content: space-around;
       flex-direction: row-reverse;
-      padding-left: 35px;
-      padding-right: 35px;
+      padding: 0 35px;
     }
 
     @include onDesktop {
       display: flex;
       justify-content: center;
       flex-direction: row-reverse;
-      padding-left: 123px;
-      padding-right: 123px;
+      padding: 0 123px;
     }
   }
 
   &__menu {
-    @include onTablet {
-      display: none;
-    }
 
     @include onDesktop {
       display: none;
@@ -47,6 +42,9 @@
   }
 
   &__title {
+    position: relative;
+    display: block;
+    z-index: 2;
     margin: 0;
     margin-top: 40px;
     font-size: 40px;
@@ -64,13 +62,6 @@
       width: 379px;
       margin-top: 150px;
     }
-
-    // &-container {
-
-    //   // @include onDesktop {
-    //   // }
-    // }
-
   }
 
   &__subtitle {
@@ -86,13 +77,17 @@
 
     @include onDesktop {
       margin-top: 30px;
-      width: 272px;
+      max-width: 276px;
     }
   }
 
-  &--img {
+  &-img {
 
     &_first {
+
+      @include onPhone {
+        width: 100%;
+      }
 
       @include onTablet {
         margin-top: 147px;
@@ -104,17 +99,11 @@
         width: 100%;
         background-image: url(../images/header/header-img3.svg);
       }
-  
-      // @include onDesktop {
-
-      // }
     }
   }
-  
 }
 
 .nav {
-
   display: flex;
   align-items: center;
   gap: 47px;
@@ -123,29 +112,32 @@
     display: none;
   }
 
+  &-container {
+    display: flex;
+    align-items: center;
+    gap: 30px ;
+  }
+
   &__language-switch {
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: #333;
+    color: $item-color;
     cursor: pointer;
 
     &--en {
       text-decoration: none;
+      color: $item-color;
 
       &:focus {
-        color: #bdbdbd;
+        color: $subtitle-color;
         text-decoration: none;
       }
     }
 
     &--uk {
       text-decoration: none;
-
-      &:focus {
-        color: #bdbdbd;
-        text-decoration: none;
-      }
+      color: $subtitle-color;
     }
   }
 
@@ -153,12 +145,13 @@
     text-transform: uppercase;
     font-size: 14px;
     line-height: 143%;
-    color: #4f4f4f;
+    color: $specs-color;
+    cursor: pointer;
   }
 
   &__button {
     display: flex;
-    color: #fff;
+    color: $white-color;
     justify-content: center;
     align-items: center;
     width: 102px;
@@ -167,6 +160,11 @@
     line-height: 117%;
     font-weight: 700;
     text-transform: uppercase;
-    background-color: #333;
+    background-color: $item-color;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $active-color;
+    }
   }
 }
