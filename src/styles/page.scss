@@ -1,0 +1,46 @@
+.page {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+
+  &__body {
+    margin: 0;
+    padding: 0;
+    background-color: $body-color;
+    font-family: "Inter", sans-serif;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: all 0.3s;
+
+    visibility: hidden;
+
+    &:target {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+  }
+
+  &-container {
+    @include onPhone {
+      margin: 0 30px;
+    }
+    @include onTablet {
+      margin: 0 34px;
+    }
+
+    @include onDesktop {
+      margin: 0 123px;
+
+    }
+  }
+}

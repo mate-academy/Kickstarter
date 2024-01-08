@@ -4,3 +4,70 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin onPhone {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onTabletAndDesktop {
+  @media (min-width: 566px) {
+    @content;
+  }
+}
+
+@mixin top-actions {
+  display: grid;
+  grid-template-columns: 1fr 23px;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 27px;
+
+  @include onTablet {
+    grid-template-columns: 1fr 22px;
+    column-gap: 42px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: 1fr 100px;
+    column-gap: 42px;
+  }
+}
+
+@mixin top-actions-menu {
+
+  @include onPhone {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include onTablet {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include onDesktop {
+    display: flex;
+    justify-content: space-between;
+  }
+}

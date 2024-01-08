@@ -1,0 +1,279 @@
+.features {
+
+  &__title {
+    margin: 0 30px 32px;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+
+    @include onDesktop {
+      font-size: 56px;
+    }
+  }
+
+  &-container {
+    position: relative;
+    padding-top: 30px;
+    background-color: #d6ecec;
+
+    @include onPhone {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 600px;
+    }
+
+    @include onTablet {
+      padding-top: 60px;
+      height: 575px;
+      box-sizing: border-box;
+    }
+
+    @include onDesktop {
+      box-sizing: content-box;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    &_desktop {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+
+  &-img {
+    position: relative;
+    margin: 0;
+    width: 100%;
+
+    @include onPhone {
+      display: block;
+      top: 0;
+    }
+
+    @include onTablet {
+      position: absolute;
+      right: 0;
+      top: 339px;
+      width: 435px;
+    }
+
+    @include onDesktop {
+      position: absolute;
+      right: 0;
+      top: 378.5px;
+      width: 582px;
+    }
+  }
+
+  &__sound {
+
+    &__title {
+      margin: 0;
+      margin-bottom: 20px;
+      color: $valid-color;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 22px;
+      text-transform: uppercase;
+
+      @include onPhone {
+        display: block;
+        margin: auto;
+        width: 244px;
+      }
+
+      @include onDesktop {
+        font-size: 34px;
+        margin-bottom: 30px;
+      }
+    }
+
+    &-container {
+      margin: 0 30px;
+
+      @include onPhone {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      @include onTablet {
+        margin: 0;
+      }
+
+      &-third {
+        margin-top: 56px;
+      }
+
+      &-desktop {
+        @include onPhone {
+          display: none;
+        }
+
+        @include onTablet {
+          display: none;
+        }
+
+        @include onDesktop {
+          display: block;
+        }
+      }
+
+      &-inactive {
+        display: none;
+      }
+    }
+
+    &__list {
+      padding: 0;
+      padding-left: -2px;
+      margin: 0 20px;
+
+      @include onPhone {
+        display: block;
+        margin: auto;
+        width: 244px;
+      }
+
+      @include onTablet {
+        width: max-content;
+      }
+    }
+
+    &__item {
+      margin-top: 10px;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px; /* 150% */
+
+      @include onPhone {
+        margin-left: 16px;
+        width: 244px;
+      }
+
+      @include onTablet {
+        width: 284px;
+        font-size: 16px;
+      }
+
+      @include onDesktop {
+        width: max-content;
+      }
+    }
+  }
+}
+
+.swiper {
+  height: 372px;
+
+  @include onPhone {
+    height: 420px;
+  }
+
+  @include onTablet {
+    width: 300px;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &-button-next:after {
+    content: "";
+  }
+
+  &-button-prev:after {
+    content: "";
+  }
+
+  &-button-prev {
+    background-image: url(../images/swiper/button-prev.svg);
+    background-repeat: no-repeat;
+    height: 14px;
+    width: 48px;
+    top: -40px;
+    left: 120px;
+
+    @include onPhone {
+      top: -40px;
+      position: absolute;
+      left: 37%;
+    }
+
+    @include onTablet {
+      left: 5px;
+    }
+  }
+
+  &-button-next {
+    background-image: url(../images/swiper/button-next.svg);
+    background-repeat: no-repeat;
+    height: 14px;
+    width: 48px;
+    top: -30px;
+    left: 160px;
+
+    @include onPhone {
+      position: absolute;
+      left: 50%;
+    }
+
+    @include onTablet {
+      left: 50px;
+      top: -31px;
+    }
+  }
+
+  &-button-prev,
+  &-button-next {
+    position: relative;
+  }
+
+  &-pagination-fraction {
+    position: relative;
+
+    @include onPhone {
+      position: relative;
+      top: -20px;
+      left: 0;
+    }
+
+    @include onTablet {
+      top: -20px;
+      left: -100px;
+    }
+  }
+
+  &-pagination-current {
+    color: black;
+    font-size: 16px;
+    position: relative;
+    top: -3px;
+
+    &:before {
+      content: "0";
+    }
+  }
+
+  &-pagination-total {
+    color: $valid-color;
+    font-size: 11px;
+
+    &:before {
+      content: "0";
+    }
+  }
+
+  &-pagination-horizontal {
+    color: $valid-color;
+    font-size: 11px;
+  }
+}
