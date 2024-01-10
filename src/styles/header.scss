@@ -1,0 +1,118 @@
+.header {
+  height: max-content;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    padding: 26px 0;
+    align-items: center;
+    @include onTablet {
+      margin-bottom: 130px;
+    }
+  }
+  &__mobile-menu {
+    @include onDesktop() {
+      display: none;
+    }
+  }
+  &__icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-image $transition-duration;
+    &--menu {
+      background-image: url(../images/icon-menu.svg);
+      &:hover {
+        background-image: url(../images/menu-h.svg);
+      }
+    }
+  }
+  &__nav {
+    display: none;
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+  }
+  &__nav-tablet {
+    @include onTablet() {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+    }
+  }
+  &__item {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: $c-dark;
+    transition: color $transition-duration;
+    &:hover {
+      color: $c-acent;
+    }
+  }
+  &__button {
+    width: 102px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $c-dark;
+    text-align: center;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    transition: background $transition-duration;
+    &:hover {
+      background: $c-black;
+    }
+  }
+  &__container {
+    display: block;
+    @include onTablet {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: start;
+      align-items: center;
+    }
+  }
+  &__img {
+    width: 100%;
+    margin-bottom: 40px;
+    @include onTablet {
+      margin: 0;
+    }
+  }
+  &__title {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 52px;
+    text-align: left;
+    @include onTablet {
+      font-size: 40px;
+      line-height: 62px;
+      width: 340px;
+      margin-bottom: 30px;
+    }
+    @include onDesktop {
+      font-size: 62px;
+      line-height: 78px;
+      width: 378px;
+    }
+  }
+  &__description {
+    max-width: 276px;
+    font-size: 16px;
+    line-height: 24px;
+    @include onTablet {
+      width: 250px;
+    }
+  }
+}

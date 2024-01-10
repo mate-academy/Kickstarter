@@ -1,0 +1,102 @@
+@mixin customButtonCommon {
+  position: absolute;
+  bottom: 34px;
+  z-index: 1;
+  cursor: pointer;
+  transition: fill $transition-duration;
+
+  &:hover {
+    fill: $c-swiper;
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 340px;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &--2 {
+    display: block;
+    height: 372px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &-button {
+    &-prev--custom {
+      right: 50%;
+
+      @include onTablet {
+        right: initial;
+        left: 0;
+      }
+
+      @include customButtonCommon;
+    }
+
+    &-next--custom {
+      left: 50%;
+
+      @include onTablet {
+        left: 45px;
+      }
+
+      @include customButtonCommon;
+    }
+
+    &-disabled {
+      fill: $c-light-grey;
+      transition: fill $transition-duration;
+
+      &:hover {
+        fill: $c-dark;
+      }
+    }
+  }
+
+  &-pagination {
+    &--custom {
+      bottom: 0 !important;
+      font-size: 11px;
+      line-height: 13px;
+      color: $c-swiper;
+
+      @include onTablet {
+        width: max-content !important;
+        left: 20px !important;
+      }
+    }
+
+    &-current {
+      position: relative;
+      bottom: 2px;
+      font-size: 16px;
+      color: $c-dark;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .swiper {
+    width: 115%;
+    position: relative;
+  }
+
+  .swiper-button-prev--custom,
+  .swiper-button-next--custom {
+    position: absolute;
+    bottom: 5px;
+  }
+
+  .swiper-pagination--custom {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+  }
+}
