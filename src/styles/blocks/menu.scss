@@ -1,0 +1,116 @@
+.menu {
+  height: 100vh;
+  padding-inline: 30px;
+
+  text-transform: uppercase;
+
+  background-color: $page-background-color;
+
+  z-index: 100;
+
+  @include onTablet {
+    padding-inline: 34px;
+    padding-block: 8px;
+  }
+
+  &__content {
+    grid-column: span 8;
+  }
+
+  &__list {
+    margin-bottom: 162px;
+    display: flex;
+    align-items: center;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__item {
+    display: block;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+
+    transition: tranform 0.3s;
+
+    &--specs {
+      padding-right: 20px;
+      font-weight: 400;
+    }
+
+    &--en {
+      font-weight: 400;
+      margin-right: 3px;
+
+      @include onTablet {
+        width: 100%;
+      }
+    }
+
+    &--ua {
+      padding-right: 30px;
+    }
+  }
+
+  &__btn {
+    display: block;
+
+    padding: 17px 37px;
+    margin-bottom: 40px;
+    width: 100%;
+
+    text-transform: uppercase;
+    text-align: center;
+    color: $color-white;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+
+    background-color: $btn-color;
+
+    @include onTablet {
+      margin: 0;
+    }
+
+    @include onDeskTop {
+      @include hover (transform, scale(110%));
+
+      &:hover {
+        background-color: $btn-hover;
+      }
+    }
+  }
+
+  &__btn-hidden {
+    @include onTablet {
+      display: none;
+    }
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 25px;
+    margin-bottom: 50px;
+
+    list-style: none;
+  }
+
+  &__item {
+    @include onDeskTop {
+      @include hover(transform, scale(105%));
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

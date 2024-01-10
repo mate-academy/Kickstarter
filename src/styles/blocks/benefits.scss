@@ -1,0 +1,71 @@
+.benefits {
+  @include pageGrid;
+  padding-inline: 30px;
+  grid-column: span 4;
+
+  @include onTablet {
+    grid-column: span 8;
+    row-gap: 62px;
+    column-gap: 20px;
+  }
+
+  @include onDeskTop {
+    grid-column: span 12;
+    padding: 0;
+  }
+
+  &__content {
+    @include pageGrid;
+    grid-column: span 4;
+
+    @include onTablet {
+      grid-column: span 8;
+      row-gap: 62px;
+      column-gap: 20px;
+    }
+
+    @include onDeskTop {
+      grid-column: span 12;
+    }
+  }
+
+  &__content > div:not(:first-child) {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    grid-column: span 4;
+
+    @include onTablet {
+      grid-column: span 4;
+    }
+
+    @include onDeskTop {
+      grid-column: span 3;
+
+      @include hover(transform, scale(105%));
+    }
+  }
+
+  &__photo {
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    @include headline-4;
+  }
+
+  &__description {
+    @include secodaryText;
+    color: $second-text-color;
+  }
+}

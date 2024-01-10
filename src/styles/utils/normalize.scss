@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  color: $main-text-color;
+  scroll-behavior: smooth;
+}
+
+p,
+h1,
+h2,
+h3,
+ul,
+li,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  @include pageGrid;
+
+  margin-inline: auto;
+  max-width: 1194px;
+}
+
+.logo {
+  display: flex;
+  width: 161px;
+  height: 26px;
+
+  @include onDeskTop {
+    @include hover (transform, scale(105%));
+  }
+}
+
+body {
+  margin: 0;
+  background-color: $page-background-color;
+}
+
+body:has(.burger__menu:target) {
+  overflow: hidden !important;
+}
+
+img {
+  cursor: pointer;
+}
+
+.item__active {
+  font-weight: 400;
+}
