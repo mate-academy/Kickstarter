@@ -1,0 +1,169 @@
+.future {
+  overflow: hidden;
+
+  @include onTablet {
+    height: 380px;
+  }
+
+  &__content {
+    @include pageGrid;
+    position: relative;
+  }
+
+  &__imgbox {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-bottom: 30px;
+
+    @include hover(transform, scale(1.05));
+
+    @include onTablet {
+      position: absolute;
+      left: -152px;
+
+      grid-column: 1 / 5;
+      grid-row: 1 / 4;
+    }
+
+    @include onDesktop {
+      position: static;
+
+      grid-column: 1 / 7;
+    }
+
+    &--luna {
+      @include onTablet {
+        position: absolute;
+        left: 0;
+        right: -152px;
+        grid-column: 5 / 10;
+        grid-row: 1 / 4;
+
+      }
+
+      @include onDesktop {
+        position: static;
+        grid-column: 7 / -1;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+
+    @include onTablet {
+      height: 380px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    grid-row: 1;
+
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    margin-bottom: 30px;
+    color: $main-text-color;
+    text-transform: uppercase;
+
+    @include onTablet {
+      grid-column: 5 / 9;
+      grid-row: 1 / 1;
+
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    &--luna {
+      font-size: 36px;
+      line-height: 46px;
+
+      @include onTablet {
+        grid-column: 1 / 5;
+        grid-row: 1 / 1;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 9;
+        font-size: 56px;
+        line-height: 70px;
+      }
+    }
+  }
+
+  &__text-box {
+    grid-column: 1 / -1;
+    grid-row: 3;
+
+    @include onTablet {
+      grid-column: 5 / 9;
+      grid-row: 2;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+
+      grid-row: 2;
+    }
+
+    &--luna {
+      @include onTablet {
+        grid-column: 1 / 5;
+        grid-row: 2;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 7;
+
+      }
+    }
+  }
+
+  &__description {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__link {
+    display: block;
+    color: $color-link-secondary;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    position: relative;
+    width: fit-content;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      top: 20px;
+      left: 0;
+      width: 50%;
+      background-color: $color-link-secondary;
+      transition: width ease-in-out $effectDuretion;
+
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,94 @@
+.footer {
+  padding-bottom: 20px;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+
+    @include onTablet {
+      gap: 60px;
+    }
+  }
+
+  &__logo-link {
+    display: none;
+    width: 188px;
+    height: 26px;
+    background-image: url(../images/icons/Logo.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include hover(transform, scale(1.2));
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__link {
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-color: $color-link-primary;
+
+    @include hover(background-color, $hover-color);
+    @include hover(transform, scale(1.2));
+
+    &--facebook {
+      /* csslint ignore:start */
+      -webkit-mask-image: url(../images/icons/facebook.svg);
+      /* csslint ignore:end */
+    }
+
+    &--twitter {
+      /* csslint ignore:start */
+      -webkit-mask-image: url(../images/icons/twitter.svg);
+      /* csslint ignore:end */
+    }
+
+    &--instagram {
+      /* csslint ignore:start */
+      -webkit-mask-image: url(../images/icons/instagram.svg);
+      /* csslint ignore:end */
+    }
+  }
+
+  &__text-box {
+    width: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    @include onTablet {
+      width: 100%;
+    }
+  }
+
+  &__go-back-link {
+    @include onTablet {
+      display: block;
+      width: 24px;
+      height: 24px;
+
+      /* csslint ignore:start */
+      -webkit-mask-image: url(../images/icons/up.svg);
+      /* csslint ignore:end */
+
+      background-color: $main-text-color;
+
+      position: absolute;
+      right: 0;
+
+      @include hover(background-color, $hover-color);
+    }
+  }
+}

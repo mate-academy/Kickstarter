@@ -1,0 +1,138 @@
+.slider {
+  overflow: hidden;
+
+  &__background {
+    background-color: #d6ecec;
+
+    @include onTablet {
+      background-color: $main-background-color;
+    }
+
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $main-text-color;
+    margin-bottom: 32px;
+
+    @include onDesktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__content {
+    background-color: #d6ecec;
+
+    padding-top: 30px;
+    height: 575px;
+    position: relative;
+
+    overflow: hidden;
+
+    @include onTablet {
+      height: 555px;
+      padding-left: 90px;
+      padding-top: 60px;
+    }
+
+    @include onDesktop {
+      @include pageGrid;
+
+      height: 642px;
+    }
+  }
+
+  &__button-box {
+    position: absolute;
+    bottom: 190px;
+    left: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      left: 90px;
+      bottom: 150px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__button-wrap {
+    margin-bottom: 10px;
+  }
+
+  &__button {
+    width: 48px;
+    height: 13px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    border: none;
+
+    @include hover(background-color, $color-link-secondary);
+
+    &--left {
+      /* csslint ignore:start */
+      -webkit-mask-image: url(../images/icons/left.svg);
+      /* csslint ignore:end */
+      background-color: #bdbdbd;
+    }
+
+    &--right {
+      /* csslint ignore:start */
+      -webkit-mask-image: url(../images/icons/rigt.svg);
+      /* csslint ignore:end */
+      background-color: $main-text-color;
+    }
+  }
+
+  &__num-wrap {
+    width: 47px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__num {
+    color: $color-link-secondary;
+    line-height: 24px;
+
+    &--total {
+      color: $main-text-color;
+      font-size: 11px;
+      margin-left: 5px;
+      margin-top: 5px;
+    }
+  }
+
+  &__img {
+    width: 100vw;
+    height: 180px;
+    background-image: url(../images/slider-img.webp);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+    
+    @include hover(transform, scale(1.05));
+
+    @include onTablet {
+      width: 435.6px;
+      height: 226px;
+      right: 0;
+    }
+
+    @include onDesktop {
+      width: 582px;
+      height: 302px;
+      background-position: left;
+    }
+  }
+}

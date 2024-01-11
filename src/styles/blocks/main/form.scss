@@ -1,0 +1,83 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include onTablet {
+    grid-column: span 4;
+  }
+
+  @include onDesktop {
+    grid-column: span 6;
+  }
+
+  &__input {
+    outline: none;
+    width: 100%;
+    border: 1px solid #828282;
+    background-color: $main-background-color;
+    padding: 12px 24px;
+    cursor: pointer;
+
+    @include hover(border, 1px solid $main-text-color);
+
+    &:focus {
+      border: 1px solid $hover-color;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: $main-text-color;
+      -webkit-box-shadow: 0 0 0 40rem $main-background-color inset;
+    }
+
+    &:-webkit-autofill:not(:focus):valid {
+      -webkit-text-fill-color: $color-link-secondary;
+    }
+
+    &::placeholder {
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+    }
+
+    &:hover::placeholder {
+      color: $main-text-color;
+    }
+
+    &--text {
+      height: 128px;
+      font-family: "Inter", sans-serif;
+
+      @include onTablet {
+        height: 201px;
+      }
+
+      @include onDesktop {
+        height: 128px;
+      }
+    }
+
+    &--focus {
+      &:not(:focus):not(:placeholder-shown):valid {
+        border: 1px solid $color-link-secondary;
+        color: $color-link-secondary;
+      }
+
+      &:not(:focus):not(:placeholder-shown):invalid {
+        color: #fa0707;
+        border: 1px solid #fa0707;
+      }
+    }
+
+    @include onTablet {
+      padding-inline: 30px;
+    }
+
+    @include onDesktop {
+      padding-inline: 36px;
+    }
+  }
+}
