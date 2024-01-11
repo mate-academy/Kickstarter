@@ -1,0 +1,245 @@
+.header {
+  position: relative;
+
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 130px 20px;
+    padding: 30px 35px 0;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 170px 30px;
+    padding: 30px 123px 0;
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+
+    @include on-tablet {
+      grid-row: 1;
+      grid-column: 1 / -1;
+      padding: 0;
+    }
+  }
+
+  &__top-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__lang {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      gap: 20px;
+    }
+  }
+
+  &__lang-item {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 17px;
+    color: $light-brown;
+    transition: color 0.3s ease-in-out;
+
+    &--en {
+      &:hover {
+        cursor: pointer;
+
+        & :nth-child(n) {
+          transition: color 0.3s ease-in-out;
+          color: $light-brown;
+        }
+
+        & :first-child {
+          color: $dark-middle-gray;
+        }
+      }
+
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: $dark;
+    }
+  }
+
+  &__lang-brown {
+    color: $brown;
+  }
+
+  &__lang-silver {
+    color: $dark-middle-gray;
+  }
+
+  &__btn {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: 100px;
+    }
+  }
+
+  &__buy-btn {
+    display: block;
+    width: 100%;
+    padding: 17px 0;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: $brown;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $dark;
+    }
+
+    &:disabled {
+      background-color: $gray;
+    }
+  }
+
+  &__nav-logo {
+    display: block;
+    height: 26px;
+    width: 161px;
+
+    background-image: url('../images/Logo/Vector.svg');
+  }
+
+  &__menu-icon {
+    display: block;
+    height: 32px;
+    width: 32px;
+
+    background-image: url('../images/Icons/Icon-Menu.svg');
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__main-image {
+    position: relative;
+    z-index: 2;
+    display: block;
+    height: 0;
+    width: 100%;
+    padding-bottom: calc(((317 / 430) * 100) * 1%);
+
+    @include on-tablet {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      grid-row: 2;
+      grid-column: 4 / -1;
+      max-width: 816px;
+      max-height: 464px;
+      min-width: 430px;
+      min-height: 317px;
+      padding-bottom: calc(((464 / 816) * 100) * 1%);
+    }
+
+    @include on-desktop {
+      position:  absolute;
+      overflow: hidden;
+      grid-column: 5 / -1;
+    }
+  }
+
+  &__main-image-src {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/Mobile/img1.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform-origin: left;
+
+    @include on-tablet {
+      max-width: 816px;
+      max-height: 464px;
+      background-image: url('../images/Tablet/img1-t.svg');
+      background-size: cover;
+      background-position: left center;
+    }
+
+    @include on-desktop {
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 3;
+    padding: 40px 30px 20px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-row: 2;
+      grid-column: 1 / 5;
+      padding: 0;
+    }
+  }
+
+  &__title {
+    font-family: Inter, sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 52px;
+    text-transform: uppercase;
+    color: $brown;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 62px;
+      grid-column: span 4;
+      max-width: 340px;
+    }
+
+    @include on-desktop {
+      font-size: 62px;
+      line-height: 78px;
+      max-width: 380px;
+    }
+  }
+
+  &__text {
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $brown;
+    padding-top: 20px;
+
+    @include on-tablet {
+      padding-top: 30px;
+      grid-column: span 3;
+      max-width: 250px;
+    }
+
+    @include on-desktop {
+      max-width: 280px;
+    }
+  }
+}
