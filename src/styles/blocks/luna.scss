@@ -1,0 +1,30 @@
+.luna {
+  background-color: #f7f7f7;
+  &__container {
+    @include column;
+    @include padding-inline;
+
+    display: grid;
+
+    &-image {
+      grid-column: 1/5;
+      height: 195px;
+      width: 100%;
+      transition: $animation-content;
+
+      &:hover {
+        transform: $transform-content;
+      }
+
+      @media (min-width:640px) {
+        grid-column: 1/9;
+        height: 430px;
+      }
+
+      @media (min-width:1280px) {
+        height: 520px;
+        grid-column: 2/12;
+      }
+    }
+  }
+}

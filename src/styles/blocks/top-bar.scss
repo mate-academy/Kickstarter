@@ -1,0 +1,42 @@
+.top-bar {
+  @include column;
+  @include padding-inline;
+
+  display: grid;
+  padding-top: 25px;
+  align-items: center;
+
+  @media (min-width:640px) {
+    padding-top: 40px;
+  }
+}
+
+.top-logo {
+  background-image: url(/images/header/header-logo.png);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
+  width: 161px;
+  height: 26px;
+  grid-column: 1/4;
+  transition: $animation-content;
+
+  &:hover {
+    transform: $transform-content;
+  }
+}
+
+.top-nav {
+  grid-column: 4/5;
+  display: grid;
+  align-items: center;
+  justify-self: flex-end;
+
+  @media (min-width:640px) {
+    grid-column: 5/9;
+  }
+
+  @media (min-width:1280px) {
+    grid-column: 10/13;
+  }
+}

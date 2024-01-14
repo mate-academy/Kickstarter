@@ -1,0 +1,119 @@
+.question {
+  &__container {
+    @include column;
+    @include padding-inline;
+
+    display: grid;
+
+    &-title {
+      grid-area: 1/1/1/5;
+      margin-bottom: 27px;
+
+      @media (min-width:640px) {
+        grid-column: 1/5;
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      @media (min-width:1280px) {
+        font-size: 56px;
+        font-weight: 700;
+        line-height: 70px;
+        grid-column: 1/7;
+      }
+    }
+
+    &-button {
+      height: 40px;
+      border: none;
+      color: $white;
+      background-color: #0DB2B3;
+      width: 102px;
+      font-family: Inter, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      grid-column: 1/3;
+      transition: $animation-content;
+
+    &:hover {
+      transform: $transform-text;
+      background-color: $color-h3;
+    }
+
+    &:disabled {
+      background-color: #CFEFF0;
+    }
+
+      @media (min-width:1280px) {
+        width: 123px;
+      }
+    }
+  }
+
+  &__form {
+    grid-column: 1/5;
+    display: grid;
+
+    @media (min-width:640px) {
+      grid-area: 1/5/1/9;
+    }
+
+    @media (min-width:1280px) {
+      grid-column: 7/13;
+    }
+
+    &-input {
+      height: 48px;
+      padding-left: 20px;
+      grid-column: 1/5;
+      margin-bottom: 20px;
+      border: 1px solid #828282;
+      outline: none;
+      background-color: #f7f7f7;
+      transition: $animation-content;
+
+      &:hover {
+        transform: $transform-content;
+      }
+
+      &:focus {
+        border: 1px solid $color-h3;
+        font-size: 16px;
+      }
+
+      &:disabled {
+        border: 1px solid #EB5757;
+      }
+    }
+
+    &-textarea {
+      padding: 12px 20px;
+      height: 128px;
+      grid-column: 1/5;
+      border: 1px solid #828282;
+      outline: none;
+      resize: none;
+      background-color: #f7f7f7;
+      transition: $animation-content;
+
+      &:hover {
+        transform: $transform-content;
+      }
+
+      &:focus {
+        border: 1px solid $color-h3;
+        color: $black;
+        font-size: 16px;
+      }
+
+      &:disabled {
+        border: 1px solid #EB5757;
+      }
+    }
+  }
+}

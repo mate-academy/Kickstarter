@@ -1,0 +1,98 @@
+.footer {
+  &__container {
+    @include column;
+    @include padding-inline;
+
+    display: grid;
+    text-align: center;
+
+    @media (min-width:1280px) {
+      row-gap: 60px;
+    }
+  }
+
+  &__logo {
+    display: none;
+    transition: $animation-content;
+
+    &:hover {
+      transform: $transform-content;
+    }
+
+    @media (min-width:640px) {
+      display: grid;
+      width: 100%;
+      grid-area: 1/4/1/6;
+    }
+
+    @media (min-width:1280px) {
+      grid-column: 6/8;
+    }
+  }
+
+  &__socials {
+    grid-column: 2/4;
+    display: flex;
+    justify-content: space-between;
+
+    @media (min-width:640px) {
+      grid-area: 2/4/2/6;
+      margin-top: 60px;
+    }
+
+    @media (min-width:1280px) {
+      grid-column: 6/8;
+    }
+
+    &-icon {
+      transition: $animation-text;
+
+      &:hover {
+        transform: $transform-text;
+        path {
+          fill: $color-h3;
+        }
+      }
+    }
+  }
+
+  &__arrow {
+    display: none;
+
+    @media (min-width:640px) {
+      display: grid;
+      grid-area: 1/8/1/8;
+      justify-self: end;
+    }
+
+    @media (min-width:1280px) {
+      grid-column: 12/13;
+    }
+
+    &-icon {
+      transition: $animation-text;
+
+      &:hover {
+        transform: $transform-text;
+      }
+    }
+  }
+
+  &__copyright {
+    color: $light-gray;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    grid-column: 1/5;
+    margin: 30px 0 20px;
+
+    @media (min-width:640px) {
+      margin-bottom: 30px;
+      grid-column: 2/8;
+    }
+
+    @media (min-width:1280px) {
+      grid-column: 5/9;
+    }
+  }
+}
