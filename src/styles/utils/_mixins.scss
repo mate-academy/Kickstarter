@@ -4,3 +4,192 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin grid-template {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 50px);
+  grid-auto-rows: min-content;
+  column-gap: 20px;
+
+  color: $black-main;
+
+  @include on-tablet {
+    grid-template-columns: repeat(8, 70px);
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 72px);
+    column-gap: 30px;
+  }
+}
+
+@mixin hover-scale($scale) {
+  transition: transform 0.5s;
+
+  &:hover {
+    transform: scale($scale);
+  }
+}
+
+@mixin padding-inline {
+  padding-inline: 30px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    // padding-inline: 123px;
+  }
+}
+
+@mixin set-pos-backg {
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin font-h1 {
+  font-family: $font-inter;
+  font-size: 40px;
+  line-height: 52px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $black-main;
+
+  @include on-tablet {
+    font-size: 48px;
+    line-height: 62px;
+  }
+
+  @include on-desktop {
+    font-size: 64px;
+    line-height: 78px;
+  }
+}
+
+@mixin font-h2 {
+  font-family: $font-inter;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 40px;
+  color: $black-main;
+
+  @include on-tablet {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  @include on-desktop {
+    font-size: 56px;
+    line-height: 70px;
+  }
+}
+
+@mixin font-h3 {
+  font-family: $font-inter;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #0C797A;
+
+  @include on-tablet {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  @include on-desktop {
+    font-size: 34px;
+    line-height: 42px;
+  }
+}
+
+@mixin font-h4 {
+  font-family: $font-inter;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+  color: $black-main;
+  text-transform: uppercase;
+}
+
+@mixin font-h5 {
+  font-family: $font-inter;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: center;
+  color: $black-main;
+}
+
+@mixin font-h6 {
+  font-family: $font-inter;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+@mixin font-main {
+  font-family: $font-inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: $black-main;
+}
+
+@mixin font-secondary {
+  font-family: $font-inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #7C7C7C;
+}
+
+@mixin font-quote {
+  font-family: $font-inter;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  color: $black-main;
+
+  @include on-tablet {
+    font-size: 24px;
+    line-height: 36px;
+  }
+}
+
+@mixin font-button {
+  font-family: $font-inter;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  color: #0DB2B3;
+
+  text-transform: uppercase;
+}
+
+@mixin section-margin {
+  margin-top: 110px;
+
+  @include on-tablet {
+    margin-top: 140px;
+  }
+
+  @include on-desktop {
+    margin-top: 170px;
+  }
+}
