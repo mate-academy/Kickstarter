@@ -1,0 +1,112 @@
+.menu {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  inset: 0;
+  background-color: #f7f7f7;
+  z-index: 1;
+  overflow-y: auto;
+  transition: 0.5s ease;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    animation: left 0.5s ease;
+  }
+
+  &__top-bar {
+    @media (min-width:640px) {
+      height: 48px;
+    }
+  }
+
+  &__container {
+    @include column;
+    @include padding-inline;
+
+    margin-top: 55px;
+    display: grid;
+
+    &-function {
+      display: grid;
+      grid-column: 1/3;
+      margin-bottom: 162px;
+
+      @media (min-width:640px) {
+        display: none;
+      }
+    }
+
+    &-choice {
+      display: flex;
+      grid-column: 2/3;
+      justify-self: end;
+      gap: 3px;
+    }
+
+    &--lang-en {
+      color: $dark;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+      transition: $animation-content;
+
+      &:hover {
+        transform: $transform-text;
+        color: #E0E0E0;
+      }
+    }
+
+    &--lang-ua {
+      color: #828282;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 18px;
+      transition: $animation-content;
+
+      &:hover {
+        transform: $transform-text;
+        color: $dark;
+      }
+    }
+  }
+
+  &__button {
+    display: grid;
+    grid-column: 1/5;
+    height: 48px;
+    background-color: $dark;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    font-size: 12px;
+    font-weight: 500;
+    transition: $animation-content;
+
+    &:hover {
+      transform: $transform-text;
+      background-color: $black;
+    }
+
+    &:disabled {
+      background-color: $button-disabled;
+    }
+
+    @media (min-width:640px) {
+      display: none;
+    }
+  }
+
+  &__function-link {
+    grid-column: 1/1;
+    font-size: 14px;
+    font-weight: 300;
+    color: #4f4f4f;
+    transition: $animation-content;
+
+    &:hover {
+      transform: $transform-text;
+      color: $color-h3;
+    }
+  }
+}
