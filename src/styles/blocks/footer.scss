@@ -1,0 +1,120 @@
+.footer {
+  // @include on-tablet {
+  //   padding: 24px 0;
+  // }
+  // &__container {
+  //   @include page-grid;
+  // }
+
+
+
+  &__logo {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-image {
+      transition: $effect-duration;
+
+      &:hover {
+       transform: scale(1.1);
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+
+    @include on-tablet {
+      gap: 49px;
+      margin-top: 60px;
+    }
+
+    @include on-desktop {
+      gap: 40px;
+    }
+
+    &--facebook {
+      background-image: url(/src/images/facebook.svg);
+      transition: all $effect-duration;
+
+      &:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+      }
+    }
+
+    &--twitter {
+      background-image: url(/src/images/twitter.svg);
+      transition: all $effect-duration;
+
+      &:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+      }
+    }
+
+    &--instagram {
+      background-image: url(/src/images/instagram.svg);
+      transition: all $effect-duration;
+
+      &:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+      }
+    }
+
+    &__icon {
+      display: block;
+      width: 24px;
+      height: 24px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  &__arrow {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+    }
+
+    &-image {
+      width: 24px;
+      height: 24px;
+      animation: move-up 2s infinite;
+    }
+  }
+
+  @keyframes move-up {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  &__copyright {
+    @include secondary-text;
+
+    margin-top: 30px;
+
+    @include on-tablet {
+      margin-top: 60px;
+    }
+  }
+}

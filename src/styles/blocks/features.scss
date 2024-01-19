@@ -1,0 +1,253 @@
+.features {
+
+  &__container {
+    @include content-margin-bottom;
+
+    @include on-tablet {
+      padding-inline: 34px;
+    }
+
+    @include on-desktop {
+      max-width: 1440px;
+      margin-inline: auto;
+      padding-inline: 123px;
+    }
+  }
+
+  &__title {
+    padding-inline: 30px;
+  }
+
+  &__content {
+    background-color: $bg-features-color;
+    width: 100%;
+    margin-top: 32px;
+
+    @include page-grid;
+
+    @include on-tablet {
+      margin-top: 30px;
+    }
+  }
+
+  &__subtitle {
+    padding-inline: 30px;
+    padding-top: 30px;
+
+    @include on-tablet {
+      padding-top: 60px;
+      grid-column: 2 / 5;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__nav {
+    margin-top: 10px;
+    padding-left: 16px;
+    padding-inline: 30px;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &__item {
+      padding: 0;
+      margin: 0;
+    }
+
+    &__list {
+      @include secondary-text;
+
+      text-align: left;
+      color: #333;
+      padding-top: 10px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 51px;
+    padding-inline: 30px;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &__slider {
+      @include on-desktop {
+        display: none;
+      }
+
+      &-prev {
+        background-image: url(/src/images/feature/feature-slider-active.svg);
+        transform: rotate(180deg);
+
+        &:hover {
+          background-image: url(/src/images/feature/feature-slider-prev-hover.svg);
+          transform: rotate(0);
+        }
+
+        &:disabled {
+          background-image: url(/src/images/feature/feature-slider-prev-disablet.svg);
+          transform: rotate(0);
+        }
+      }
+
+      &-next {
+        background-image: url(/src/images/feature/feature-slider-active.svg);
+
+        &:hover {
+          background-image: url(/src/images/feature/feature-slider-next-hover.svg);
+        }
+      }
+    }
+
+    &__button {
+      background-color: transparent;
+      box-sizing: border-box;
+      padding: 0;
+      width: 48px;
+      height: 13px;
+      border: none;
+      cursor: pointer;
+      background-position: 50%;
+      background-size: cover;
+    }
+
+    &__numbers {
+      padding-top: 8px;
+
+      @include on-tablet {
+        padding-top: 10px;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+
+      &-page {
+        @include main-text;
+
+        &-amount {
+          font-family: Inter, sans-serif;
+          font-size: 11px;
+          font-weight: 400;
+          line-height: 13px;
+          text-align: left;
+          color: $main-text-color;
+        }
+      }
+    }
+  }
+
+  &__photo {
+    @include on-tablet {
+      grid-column: 4 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+      grid-row: 2;
+      align-items: end;
+      display: flex;
+    }
+  }
+
+  &__image {
+    background-blend-mode: darken;
+    background-color: #d6ecec;
+    background-image: url(/src/images/feature/feature-image.svg);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 320px;
+    height: 174px;
+    overflow: hidden;
+    margin: 0 auto;
+
+    @include on-tablet {
+      width: 435px;
+      height: 226px
+    }
+
+    @include on-desktop {
+      width: 543px;
+      height: 301px;
+    }
+  }
+
+
+  &__desktop {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      grid-column: 2 / 6;
+    }
+
+    &__subtitle {
+      @include on-desktop {
+        padding-top: 60px;
+      }
+    }
+
+    &__subtitle2 {
+      @include on-desktop {
+        padding-top: 56px;
+      }
+    }
+
+    &__nav {
+      @include on-desktop {
+        margin-top: 30px;
+        padding-left: 16px;
+      }
+
+      &__item {
+        padding: 0;
+        margin: 0;
+      }
+
+      &__list {
+        @include secondary-text;
+
+        text-align: left;
+        color: #333;
+        padding-top: 10px;
+      }
+    }
+  }
+
+  &__desktop2 {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+       grid-column: 2 / 6;
+      margin-bottom: 59px;
+    }
+  }
+
+  &__desktop3 {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      grid-column: 7 / -1;
+      grid-row: 1;
+    }
+  }
+}

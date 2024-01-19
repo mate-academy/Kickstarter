@@ -1,0 +1,92 @@
+.questions {
+
+  &__container {
+    @include page-grid;
+  }
+
+  &__title {
+    margin-bottom: 27px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+
+    &__input {
+      @include main-text;
+
+      border: 1px solid #828282;
+      outline: none;
+      padding: 12px 20px;
+      height: 48px;
+      background-color: transparent;
+      transition: all $effect-duration;
+
+      &:hover {
+        border: 1px solid #0c797a;
+      }
+
+      &:valid {
+        border: 1px solid #eb5757;
+      }
+
+      &--textarea {
+        margin-top: 20px;
+        height: 128px;
+        resize: none;
+      }
+
+      &:-webkit-autofill {
+        -webkit-text-fill-color: #eb57574d;
+        -webkit-box-shadow: 0 0 0 1000px #f7f7f7 inset;
+      }
+    }
+
+    &__button {
+      margin-top: 30px;
+      font-family: Inter, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 14px;
+      text-transform: uppercase;
+      text-align: center;
+      color: #fff;
+      background-color: #0db2b3;
+      height: 48px;
+      width: 102px;
+      border: none;
+      cursor: pointer;
+      transition: all $effect-duration;
+
+      &:hover {
+        background-color: #0c797a;
+      }
+
+      @include on-tablet {
+        height: 40px;
+      }
+
+      @include on-desktop {
+        width: 124px;
+        height: 48px;
+      }
+    }
+  }
+}

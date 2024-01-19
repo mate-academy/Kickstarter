@@ -1,0 +1,109 @@
+.technology {
+  @include content-margin-bottom;
+  @include page-grid;
+
+  padding-inline: 30px;
+
+  @include on-tablet {
+    padding-inline: 34px 0;
+  }
+
+  @include on-desktop {
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 123px;
+  }
+
+  &__title {
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__link {
+    @include on-tablet {
+      grid-column:  5 / -1;
+      grid-row: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+      grid-row: 1 / 5;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    margin-top: 30px;
+    object-fit: cover;
+    transition: box-shadow $effect-duration ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    @include on-tablet {
+      margin: 0;
+      height: 100%;
+    }
+  }
+
+  &__description {
+    @include secondary-text;
+
+    text-align: left;
+    margin-top: 20px;
+
+    @include on-tablet {
+      margin-top: 30px;
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__button {
+    margin-top: 30px;
+
+    @include on-tablet {
+      margin-top: 60px;
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+
+    &__link {
+      font-family: Inter, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 14px;
+      text-align: left;
+      width: fit-content;
+      color: #0db2b3;
+      text-transform: uppercase;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 53px;
+        height: 1px;
+        border: 1px;
+        background-color: #0db2b3;
+        margin-top: 5px;
+        transition: width $effect-duration;
+      }
+
+      &:hover::after {
+        width: 130px;
+      }
+    }
+  }
+}

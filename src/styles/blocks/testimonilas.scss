@@ -1,0 +1,58 @@
+.testimonilas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(/src/images/testimonilas-bg-image.svg);
+  background-repeat: no-repeat;
+  background-position: top;
+  padding-top: 50px;
+
+  &__content {
+    max-width: 746px
+  }
+
+  &__qoute {
+    @include qoute;
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+
+    @include on-desktop {
+      margin-top: 30px;
+    }
+  }
+
+  &__image {
+    width: 62px;
+    height: 62px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: box-shadow $effect-duration ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &__name {
+    margin-top: 10px;
+
+    @include on-tablet {
+      margin-top: 20px;
+    }
+  }
+
+  &__position {
+    @include secondary-text;
+
+    margin-top: 5px;
+  }
+}

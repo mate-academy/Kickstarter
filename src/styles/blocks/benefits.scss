@@ -1,0 +1,98 @@
+.benefits {
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__card2 {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 7;
+    }
+  }
+
+  &__card3 {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-column: 1 / 5;
+      margin-top: 65px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 10;
+      margin: 0;
+    }
+  }
+
+  &__card4 {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-column: 5 / -1;
+      margin-top: 65px;
+    }
+
+    @include on-desktop {
+      grid-column: 10 / -1;
+      margin: 0;
+    }
+  }
+
+  &__link {
+
+    &-img {
+      transition: transform 0.5s ease-in-out;
+
+      &:hover {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 40px;
+  }
+
+  &__description {
+    @include secondary-text;
+
+    margin-top: 20px;
+  }
+}
+
+.benefit {
+  transition: box-shadow $effect-duration ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+}
