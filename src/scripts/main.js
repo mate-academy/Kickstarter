@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const navUa = document.querySelector('.nav__ua');
   const modalEng = document.querySelector('.modal__eng');
   const modalUa = document.querySelector('.modal__ua');
+  const navLanguages = document.querySelectorAll('.nav__languages a');
+  const modalLanguages = document.querySelectorAll('.modal__languages a');
   const scrollToTopBtn = document.getElementById('scrollToTopBtn');
   let slideIndex = 1;
 
@@ -96,18 +98,33 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function changeLanguage(language) {
+    navLanguages.forEach(item => item.classList.remove('active'));
+    modalLanguages.forEach(item => item.classList.remove('active'));
+
     if (language === 'eng') {
       navEng.classList.add('active');
       modalEng.classList.add('active');
-      navUa.classList.remove('active');
-      modalUa.classList.remove('active');
     } else if (language === 'ua') {
       navUa.classList.add('active');
       modalUa.classList.add('active');
-      navEng.classList.remove('active');
-      modalEng.classList.remove('active');
     }
   }
+
+  document.addEventListener('click', function(event) {
+    if (event.target.classList
+      .contains('nav__eng') || event.target.classList.contains('nav__ua')) {
+      const language = event.target.classList
+        .contains('nav__eng') ? 'eng' : 'ua';
+
+      changeLanguage(language);
+    } else if (event.target.classList
+      .contains('modal__eng') || event.target.classList.contains('modal__ua')) {
+      const language = event.target.classList
+        .contains('modal__eng') ? 'eng' : 'ua';
+
+      changeLanguage(language);
+    }
+  });
   changeLanguage('eng');
 
   scrollToTopBtn.addEventListener('click', function() {
