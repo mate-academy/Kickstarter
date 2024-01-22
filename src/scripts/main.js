@@ -17,18 +17,24 @@ document.addEventListener('DOMContentLoaded', function() {
   const navLanguages = document.querySelectorAll('.nav__languages a');
   const modalLanguages = document.querySelectorAll('.modal__languages a');
   const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+  const modalLinks = document.querySelectorAll('.modal__link');
+  const mainContent = document.querySelector('main');
   let slideIndex = 1;
 
   modalOpen.forEach(btn => {
     btn.addEventListener('click', function() {
       modal.classList.add('modal--open');
       modal.classList.remove('modal--close');
+      document.body.style.overflow = 'hidden';
+      mainContent.style.display = 'none';
     });
   });
 
   function closeModal() {
     modal.classList.add('modal--close');
     modal.classList.remove('modal--open');
+    document.body.style.overflow = 'visible';
+    mainContent.style.display = 'block';
   }
 
   modalClose.addEventListener('click', closeModal);
@@ -137,4 +143,16 @@ document.addEventListener('DOMContentLoaded', function() {
       behavior: 'smooth',
     });
   }
+
+  modalLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      closeModal();
+
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+      // event.preventDefault();
+    });
+  });
 });
