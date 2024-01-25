@@ -1,0 +1,129 @@
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+
+  @include on-tablet {
+    gap: 140px;
+  }
+  @include on-desktop {
+    gap: 170px;
+  }
+
+  &__product {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-inline: 30px;
+
+
+  @include on-tablet {
+    flex-direction: row;
+    gap: 20px;
+    padding-inline: 0 34px;
+
+    &-2 {
+      flex-direction: row-reverse;
+      padding-inline: 34px 0;
+    }
+  }
+
+  @include on-desktop {
+    gap: 30px;
+    max-width: 1270px;
+    margin-inline: auto;
+    padding-inline: 123px;
+  }
+
+    &--image {
+      @include on-tablet {
+        width: 50%;
+      }
+
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      &-title {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 40px;
+        text-transform: uppercase;
+
+        &-none {
+          display: block;
+
+          @include on-tablet {
+            display: none;
+          }
+        }
+
+        &-visible {
+          display: none;
+
+          @include on-tablet {
+            display: block;
+            margin-bottom: 30px;
+          }
+        }
+      }
+
+      &-img {
+
+        @include on-tablet {
+          width: 100%;
+          height: 415px;
+          object-fit: cover;
+        }
+
+        @include on-desktop {
+          height: 340px;
+        }
+      }
+    }
+
+    &--text {
+      @include on-tablet {
+        width: 50%;
+      }
+
+      &-article {
+        color: $color-for-main-text;
+        font-size: 14px;
+        line-height: 21px;
+        margin-bottom: 30px;
+
+        @include on-tablet {
+          margin-bottom: 60px;
+        }
+      }
+
+      &-button {
+        width: fit-content;
+        color: $color-fot-button;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 14px;
+        text-transform: uppercase;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -5px;
+          width: 40%;
+          height: 1px;
+          background-color: $color-fot-button;
+          transition: all 0.3s ease-out;
+        }
+
+        &:hover::after {
+          width: 100%;
+      }
+      }
+    }
+  }
+}

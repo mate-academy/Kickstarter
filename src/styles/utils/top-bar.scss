@@ -1,0 +1,79 @@
+.top-bar {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+
+  &__logo {
+    @include hover(transform, scale(1.1));
+  }
+
+  &__buttons {
+    height: 40px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+
+    @include on-desktop {
+      gap: 48px;
+    }
+
+    &--specs {
+      display: none;
+      font-size: 14px;
+      font-weight: 300;
+      text-transform: uppercase;
+      color: $color-for-text-dark;
+
+      @include on-tablet {
+        display: block;
+      }
+
+      @include hover(transform, scale(1.1));
+    }
+
+    &--lang {
+      display: none;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+      color: $color-for-text-dark;
+
+      @include on-tablet {
+        display: block;
+      }
+
+      @include hover(transform, scale(1.1));
+    }
+
+    &--buy {
+      display: none;
+      padding: 16px 38px;
+      font-size: 12px;
+      color: $color-for-text-white;
+      background-color: $color-for-text-dark;
+      text-align: center;
+      font-weight: 500;
+      text-transform: uppercase;
+      transition: all 0.3s ease-out;
+
+      @include on-tablet {
+        display: block;
+      }
+
+      &:hover {
+        background-color: black;
+      }
+    }
+
+    &--menu {
+      @include on-desktop {
+        display: none;
+      }
+
+      @include hover(transform, scale(1.1));
+    }
+  }
+}
