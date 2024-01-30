@@ -167,7 +167,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 630px;
+      height: 730px;
       background-color: $light-aqua1;
       grid-column: 1/-1;
       padding-left: 10vw;
@@ -323,8 +323,23 @@
   }
 
   .active {
-    display: block;
+    display: block !important;
+    animation-name: change;
+    animation-duration: 4 * $transition-duration;
+    animation-iteration-count: 1;
     opacity: 1;
+  }
+
+  @keyframes change {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }
 
@@ -650,8 +665,23 @@
   }
 
   .active {
-    display: block;
+    display: block !important;
+    animation-name: change;
+    animation-duration: 4 * $transition-duration;
+    animation-iteration-count: 1;
     opacity: 1;
+  }
+
+  @keyframes change {
+    from {
+      opacity: 0;
+      transform: translateX(150px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }
 
