@@ -57,7 +57,7 @@
   &__title {
     margin-bottom: 30px;
     grid-column: 7/-1;
-    color: #333;
+    color: $color-text-primary;
     font-size: 56px;
     font-weight: 700;
     text-transform: uppercase;
@@ -91,7 +91,7 @@
   }
 
   &__text {
-    color: #7C7C7C;
+    color: $color-text-secondary;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -122,6 +122,7 @@
       left: 0;
       width: 50%;
       background-color: #0db2b3;
+      transition: width ease-in-out .5s;
     }
 
     &:hover::after {
@@ -169,6 +170,8 @@
   &__img {
     width: 100%;
     height: auto;
+
+    @include hover(transform, scale(1.2));
 
     @include on-tablet {
       object-fit: cover;
