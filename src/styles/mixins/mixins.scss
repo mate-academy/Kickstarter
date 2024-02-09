@@ -17,6 +17,12 @@
   }
 }
 
+@mixin on-tablet-big {
+  @media (min-width: 900px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
 @mixin on-mobile {
   @media (max-width: 639px) {
     @content;
@@ -29,6 +35,11 @@
   column-gap: 30px;
 
   @include on-tablet {
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 20px;
+  }
+
+  @include on-tablet-big {
     grid-template-columns: repeat(8, 1fr);
     column-gap: 20px;
   }
