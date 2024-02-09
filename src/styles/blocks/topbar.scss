@@ -1,0 +1,74 @@
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+
+  @include on-tablet {
+    padding-top: 30px;
+  }
+
+  @include on-mobile {
+    padding-top: 24px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    grid-column: -1/-7;
+  }
+
+  &__buttonbox {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    @include on-mobile {
+      display: none;
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 300;
+    width: fit-content;
+    position: relative;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    @include hover(transform, scale(1.3));
+
+    &--specs {
+      color: $color-link-primary;
+    }
+
+    &--ua {
+      color: #828282;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 300;
+      text-decoration: none;
+
+      @include hover(transform, scale(1.3));
+    }
+
+    &--eng {
+      font-weight: 400;
+      color: $color-link-primary;
+    }
+  }
+
+  &__button {
+    width: 100px;
+    color: $background-color;
+    background-color: $color-link-primary;
+
+    @include on-tablet {
+      margin-right: 30px;
+    }
+
+    @include hover(background-color, #131313);
+  }
+}

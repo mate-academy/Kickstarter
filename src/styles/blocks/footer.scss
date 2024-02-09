@@ -1,0 +1,62 @@
+.footer {
+  pointer-events: all;
+  background-color: $background-color;
+
+  &__content {
+    @include grid;
+
+    position: relative;
+    row-gap: 60px;
+
+    @include on-mobile {
+      row-gap: 30px;
+    }
+  }
+
+  &__icon {
+    background-position: center;
+    right: 0;
+    top: 0;
+    position: absolute;
+    height: 28px;
+    width: 24px;
+    background-image: url(../images/arrowup-tablet.svg);
+
+    @include hover(transform, scale(1.2));
+
+    @include on-mobile {
+      display: none;
+    }
+  }
+
+  &__logo {
+    background-image: url(../images/logo3.svg);
+    grid-column: 1/-1;
+    margin: 0 auto;
+
+    @include on-tablet {
+      background-image: url(../images/logo-tablet-footer.svg);
+      width: 184px;
+      height: 26px;
+      padding-left: 1px;
+    }
+
+    @include on-mobile {
+      display: none;
+    }
+  }
+
+  &__copyright {
+    grid-column: 1/-1;
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 30px;
+    color: $color-placeholder;
+
+    @include on-mobile {
+      margin-bottom: 20px;
+    }
+  }
+}

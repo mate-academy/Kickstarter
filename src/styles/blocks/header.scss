@@ -1,0 +1,109 @@
+.header {
+  padding-bottom: 60px;
+  background-color: $background-color;
+
+  @include on-mobile {
+    padding-bottom: 0;
+  }
+
+  &__topbar {
+    margin-bottom: 90px;
+
+    @include on-mobile {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__main {
+    @include grid;
+
+    margin-bottom: 170px;
+    background-image: url(../images/header-photo-desk.png);
+    background-repeat: no-repeat;
+    background-position-x: 350px;
+
+    @include on-tablet {
+      background-image: url(../images/header-photo-tablet.png);
+      background-position-x: 100%;
+      background-position-y: 60px;
+      background-size: auto;
+      margin-bottom: 80px;
+    }
+
+    @include on-mobile {
+      background-image: none;
+      margin-bottom: 110px;
+    }
+  }
+
+  &__sidebar {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+  }
+
+  &__nav {
+    max-width: 578px;
+    display: flex;
+    box-sizing: border-box;
+    margin: 0 auto;
+    justify-content: space-between;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__bg-mob {
+    display: none;
+
+    @include on-mobile {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__titlebox {
+    grid-column: 1/4;
+    padding-top: 90px;
+
+    @include on-tablet {
+      padding-top: 50px;
+    }
+
+    @include on-mobile {
+      grid-column: 1/5;
+      padding-top: 0;
+    }
+  }
+
+  &__title {
+    color: $color-text-primary;
+    font-size: 62px;
+    font-weight: 700;
+    line-height: 78px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    position: relative;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include on-mobile {
+      font-size: 40px;
+      line-height: 52px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__text {
+    color: $color-text-primary;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+}

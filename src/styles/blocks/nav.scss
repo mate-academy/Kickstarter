@@ -1,0 +1,47 @@
+
+.nav {
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+
+
+  &__item {
+    color: $color-text-primary;
+    font-weight: 400;
+    text-decoration: none;
+    padding-block: 30px;
+    letter-spacing: 1.3px;
+    position: relative;
+
+    @include hover(transform, scale(1.2));
+
+    @include on-tablet {
+      padding: 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 0%;
+      top: 20px;
+      left: 0;
+      background-color: $color-text-primary;
+      transition: width linear .5s;
+
+      @include on-tablet {
+        top: 26px;
+      }
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    &--active {
+      color: #131313;
+      font-weight: 700;
+    }
+  }
+}
