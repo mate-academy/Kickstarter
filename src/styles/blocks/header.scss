@@ -1,0 +1,73 @@
+@use '../utils/vars' as *;
+@use '../utils/extends' as *;
+@use '../utils/mixins' as *;
+
+.header {
+  width: 100%;
+  padding: 0 var(--vertical-padding);
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  align-items: center;
+
+  &__nav {
+    grid-column: 1 / -1;
+  }
+
+  &__image {
+    grid-column: 1 / -1;
+    margin: 0 calc(-1 * var(--vertical-padding));
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin-bottom: 20px 0 40px;
+
+    @extend %h1;
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+  }
+}
+
+@include for-tablet {
+  .header {
+    &__image {
+      margin: 0;
+      width: 100%;
+      grid-row: 2 / 4;
+      grid-column: 4 / -1;
+    }
+
+    &__title {
+      grid-row: 2 / 3;
+      grid-column: 1 / 5;
+    }
+
+    &__text {
+      grid-row: 3 / 4;
+      grid-column: 1 / 4;
+    }
+  }
+}
+
+@include for-desktop {
+  .header {
+    &__nav {
+      margin-bottom: 100px;
+    }
+
+    &__image {
+      grid-column: 5 / -1;
+      margin-left: calc(var(--column-gap) * -1);
+    }
+
+    &__title {
+      grid-column: 1 / 5;
+    }
+
+    &__text {
+      grid-column: 1 / 4;
+    }
+  }
+}
