@@ -1,0 +1,30 @@
+@use '../utils/extends' as *;
+@use '../utils/mixins' as *;
+
+.heading-article {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 30px;
+
+  &__title {
+    @extend %h1;
+
+    grid-column: 1 / -1;
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+  }
+}
+
+@include for-tablet {
+  .heading-article {
+    &__title {
+      grid-column: 1 / -1;
+    }
+
+    &__text {
+      grid-column: 1 / 4;
+    }
+  }
+}
