@@ -1,0 +1,28 @@
+@use '../utils/extends' as *;
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+
+.testimonials {
+  padding: 0 var(--vertical-padding);
+  max-width: 786px;
+
+  background-image: url(../images/quote.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+
+  &__qoute {
+    @extend %quote;
+
+    text-align: center;
+
+    margin: 50px 0 30px;
+
+    @include for-tablet {
+      margin: 60px 0 40px;
+    }
+
+    @include for-desktop {
+      margin: 42px 0 30px;
+    }
+  }
+}
