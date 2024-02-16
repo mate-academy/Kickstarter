@@ -1,0 +1,130 @@
+.design {
+  padding-inline: 30px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  color: #333;
+
+  &__cards {
+    @include on-desktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__card {
+    &:first-child {
+      margin-bottom: 110px;
+    }
+
+    &-title {
+      font-size: 30px;
+      line-height: 40px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &-content {
+      @include on-tablet {
+        width: 50%;
+        max-width: 582px;
+      }
+    }
+
+    &-img {
+      margin-bottom: 20px;
+      width: 100%;
+      cursor: pointer;
+
+      @include on-tablet {
+        height: 415px;
+        width: 50%;
+        max-width: 582px;
+      }
+    }
+
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      &--luna {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  &__content {
+    @include on-tablet {
+      width: 50%;
+      max-width: 582px;
+    }
+
+    &-title {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+      }
+
+      @include on-desktop {
+        font-size: 56px;
+        line-height: 70px;
+      }
+    }
+
+    &-text {
+      margin-bottom: 30px;
+      font-size: 14px;
+      line-height: 21px;
+      font-weight: 400;
+      color: #7c7c7c;
+
+      @include on-tablet {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 60px;
+      }
+    }
+
+    &-btn {
+      color: #0db2b3;
+      font-size: 12px;
+      line-height: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding-bottom: 5px;
+      position: relative;
+      transition: all 0.3s;
+
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: 0;
+        left: 0;
+        width: 53px;
+        height: 1px;
+        background-color: #0db2b3;
+        transition: all 0.3s;
+      }
+
+      &:hover {
+        &::after {
+          transition: all 0.3s;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
