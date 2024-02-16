@@ -1,0 +1,72 @@
+.footer {
+  @include grid;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    @include laptop {
+      grid-column: 4/6;
+    }
+
+    @include desktop {
+      grid-column: 6/13;
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include laptop {
+      display: block;
+      grid-column: 4/6;
+    }
+
+    @include desktop {
+      grid-column: 6/8;
+    }
+  }
+
+  &__up-button {
+    display: none;
+
+    @include desktop {
+      display: block;
+      grid-column: -1/2;
+    }
+  }
+
+  &__social {
+    margin: 0 auto;
+    grid-column: 1/5;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+
+    @include laptop {
+      grid-column: 4/6;
+    }
+
+    @include desktop {
+      margin: 60px auto;
+      grid-column: 6/8;
+    }
+  }
+
+  &__privacy-policy {
+    text-align: center;
+    grid-column: 1/5;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #828282;
+
+    @include laptop {
+      grid-column: 3/7;
+    }
+
+    @include desktop {
+      grid-column: 5/9;
+    }
+  }
+}
