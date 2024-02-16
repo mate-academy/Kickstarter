@@ -1,0 +1,180 @@
+.features {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  @include laptop {
+    display: grid;
+    grid-template-columns: repeat(8, 70px);
+    gap: 34px;
+    justify-content: center;
+  }
+
+  @include desktop {
+    display: grid;
+    grid-template-columns: repeat(12, 72px);
+    gap: 30px;
+    justify-content: center;
+  }
+
+
+  &__title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #333;
+    margin: 0 30px 32px;
+
+    @include laptop {
+      margin: 0 ;
+    }
+
+    @include desktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+  }
+
+  &__container {
+    background-color: #D6ECEC;
+    min-height: 80%;
+
+    @include laptop {
+      grid-column: 1 / 9;
+      padding: 60px 0 0 102px;
+    }
+
+    @include desktop {
+      grid-column: 1 / 13;
+      display: flex;
+      flex-flow: row wrap;
+      margin-top: 30px;
+      padding: 60px 0 0 90px;
+    }
+  }
+  &__block {
+    margin: 30px 30px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+      width: 378px;
+      margin: 0 130px 56px 0 ;
+    }
+
+    &-title {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      text-transform: uppercase;
+      color: #0C797A;
+      margin-bottom: 10px;
+
+      @include desktop{
+        font-size: 34px;
+        line-height: 42px;
+      }
+    }
+
+    &-list {
+      font-size: 14px;
+      line-height: 21px;
+      padding-left: 10px;
+      list-style: unset;
+
+      @include desktop {
+        font-size: 16px;
+        line-height: 24px;
+        padding-left: 20px;
+      }
+    }
+
+    &-item {
+      margin: 10px 0;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include laptop {
+      flex-direction: row;
+    }
+
+    @include desktop {
+      width: 50%;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto 0;
+    gap: 8px;
+
+    @include laptop {
+      margin: 50px auto 0;
+    }
+
+    @include desktop {
+      display: none;
+    }
+
+    &-container {
+      display: flex;
+      height: 13px;
+      width: 100px;
+    }
+
+    &--back {
+      width: 48%;
+      background-color: transparent;
+      border: none;
+      background-image: url("../images/prev-button.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    &--forward {
+      width: 48%;
+      background-color: transparent;
+      border: none;
+      background-image: url("../images/next-button.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+  }
+  &__counter {
+    font-size: 18px;
+    color: #333;
+  }
+
+  &__img {
+    background-image: url("../images/features.png");
+    height: 174px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    align-self: flex-end;
+
+    @include laptop {
+      width: 60%;
+    }
+
+    @include desktop {
+      top: -60px;
+      height: 301px;
+      width: 100%;
+    }
+  }
+
+}

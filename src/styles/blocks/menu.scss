@@ -1,0 +1,96 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translate(100%);
+  transition: transform 0.3s ease-in-out;
+  background-color: #F9F9F9;
+  box-sizing: border-box;
+  min-height: 100vh;
+  align-content: start;
+  overflow: hidden auto;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  padding: 0 30px;
+
+  @include grid;
+
+  @include laptop {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  &:target {
+    transform: translate(0);
+  }
+
+  &__header {
+    grid-column: 1/5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 74px;
+    margin-bottom: 31px;
+
+    @include laptop {
+      grid-column: 1/9;
+    }
+
+    &-logo {
+      height: 26px;
+      width: 161px;
+    }
+  }
+
+  &__list {
+    grid-column: 1/5;
+  }
+
+  &__item {
+    margin-bottom: 25px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #131313;
+
+    &:hover {
+      font-weight: 700;
+    }
+  }
+  &__part-container {
+    grid-column: 1/5;
+
+    @include laptop {
+      display: none;
+    }
+  }
+
+  &__buy {
+    display: block;
+    margin-top: 162px;
+    width: 100%;
+    height: 48px;
+    background-color: #333;
+    text-decoration: none;
+    color: #FFF;
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 48px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 1s;
+
+    &:hover {
+      background-color: #131313;
+    }
+
+    @include laptop {
+      display: none;
+    }
+  }
+}
