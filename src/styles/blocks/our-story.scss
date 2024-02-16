@@ -1,11 +1,21 @@
 .our-story {
   @include padding-inline;
-  @include page-grid;
-  row-gap: 20px;
+  
+  padding-bottom: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+
+  &__container {
+    @include page-grid;
+
+    row-gap: 20px;
+  }
 
   &__title {
     grid-column: 1 / -1;
     grid-row: 1;
+    padding-bottom: 10px;
   }
 
   &__image-holder {
@@ -20,22 +30,41 @@
 
   &__image {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 
-    &__description {
-      grid-column: 1 / -1;
-      grid-row: 3;
+  &__description {
+    @extend %secondary-text;
+
+    color: $c-lightgray;
+    grid-column: 1 / -1;
+    grid-row: 3;
+    padding-bottom: 10px;
+  }
+
+  &__link {
+    @include button($c-green, $c-green);
+
+    grid-column: 1 / -1;
+    grid-row: 4;
+
+    &::after {
+      content:'';
+      display: block;
+      height: 1px;
+      margin-top: 5px;
+      width: 53px;
+      background: $c-green;
+      transition: transform $transition-time;
+      transform-origin: left;
     }
 
-    &__link {
-      grid-column: 1 / -1;
-      grid-row: 4;
+    &:hover::after {
+      transform: scaleX(2.39);
     }
+  }
 
 }
