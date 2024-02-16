@@ -1,0 +1,122 @@
+.features {
+  &__content {
+    @include page-grid;
+
+    padding-bottom: 90px;
+  }
+
+  &__title {
+    @include padding-inline;
+
+    grid-column: 1 / -1;
+    padding-bottom: 32px;
+  }
+
+  &__container {
+    @include page-grid;
+
+    grid-column: 1 / -1;
+    padding-top: 30px;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content:'';
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100vw;
+      top: 0;
+      left: 0;
+      background: $c-lightgreen;
+      z-index: -1;
+    }
+  }
+
+  &__card {
+    @include padding-inline;
+
+    grid-column: 1 / -1;
+    padding-bottom: 50px;
+
+    &--2, &--3 {
+      display: none;
+    }
+  }
+
+  &__feature {
+    color: $c-darkgreen;
+    padding-bottom: 20px;
+
+    &-list {
+      @extend %secondary-text;
+
+      margin: 0;
+      padding: 0;
+      list-style-position: inside;
+    }
+  }
+
+
+  &__slider {
+    grid-column: 1 / -1;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    gap: 10px;
+
+    &-arrows, &-numbers {
+      grid-column: 1 / -1;
+      display: flex;
+    }
+
+    &-left:hover path,
+    &-right:hover path
+    {
+      cursor: pointer;
+      fill: $c-darkgreen;
+    }
+
+    &-left,
+    &-right,
+    &-number-now,
+    &-number-remaining {
+      padding-inline: 2px;
+    }
+
+    &-numbers {
+      font-size: 11px;
+      color: $c-darkgreen;
+      display: flex;
+      align-items: baseline;
+    }
+
+    &-number-now {
+      @extend %main-text;
+
+      color: $c-darkgray;
+    }
+  }
+
+  &__image-holder {
+    grid-column: 1 / -1;
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 51.9%;
+    overflow: hidden;
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: darken;
+  }
+}
+
