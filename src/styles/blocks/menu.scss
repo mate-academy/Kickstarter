@@ -1,0 +1,100 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+
+.menu {
+  padding: 0 var(--vertical-padding);
+  background-color: #F9F9F9;
+  min-height: 100dvh;
+  position: fixed;
+
+
+  top: 0;
+  left: 0;
+  width: 100vw;
+
+  transform: translateX(100%);
+  transition: transform 1s;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__nav {
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    &--secondary {
+      margin-top: 50px;
+      flex-direction: row;
+      gap: 20px;
+      align-items: baseline;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $dark-2;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 400;
+
+    &:active {
+      font-weight: 700;
+    }
+
+    &--secondary {
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 300;
+    }
+  }
+  &__button {
+    position: absolute;
+    bottom: 30px;
+    left: var(--vertical-padding);
+    right: var(--vertical-padding);
+  }
+}
+
+@include for-tablet {
+  .menu {
+    &__list {
+      &--secondary {
+        display: none;
+      }
+    }
+    &__button {
+      display: none;
+    }
+  }
+}
+
+@include for-desktop {
+  .menu {
+    width: auto;
+    position: relative;
+    transform: none;
+    transition: none;
+    display: flex;
+    justify-content: center;
+    padding: 28px 0;
+
+    min-height: fit-content;
+
+    background-color: transparent;
+    &__nav {
+      display: none;
+    }
+
+    &__list {
+      flex-direction: row;
+      gap: 84px;
+    }
+
+  }
+}

@@ -1,5 +1,6 @@
 @use '../utils/extends' as *;
 @use '../utils/vars' as *;
+@use '../utils/mixins' as *;
 
 .page-content {
   max-width: 100vw;
@@ -8,4 +9,20 @@
   color: $dark-2;
 
   @extend %main-text;
+
+  &:has(.page-content__menu:target) {
+    overflow-y: hidden;
+  }
+}
+
+@include for-desktop {
+  .page-content{
+    &__header {
+      margin-bottom: var(--row-gap);
+    }
+
+    &:has(.page-content__menu:target) {
+      overflow-y: auto;
+    }
+  }
 }
