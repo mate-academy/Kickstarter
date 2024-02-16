@@ -1,0 +1,77 @@
+@use '../utils/extends' as *;
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+
+  padding-bottom: 20px;
+
+  &__logo {
+    display: none;
+  }
+
+  &__links {
+    display: flex;
+    gap: 50px;
+  }
+
+  &__link {
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &--facebook {
+      background-image: url(../images/facebook.svg);
+    }
+
+    &--twitter {
+      background-image: url(../images/twitter.svg);
+    }
+
+    &--instagram {
+      background-image: url(../images/instagram.svg);
+    }
+
+    &--top {
+      background-image: url(../images/arrow.svg);
+
+      position: absolute;
+      top: 0;
+      right: calc(24px + var(--vertical-padding));
+
+      display: none;
+    }
+  }
+
+  &__text {
+    color: $dark-5;
+
+    @extend %secondary-text;
+  }
+}
+
+@include for-tablet {
+  .footer {
+    gap: 60px;
+    padding-bottom: 30px;
+    &__logo {
+      display: block;
+    }
+
+    &__link {
+      &--top {
+        display: block;
+      }
+    }
+  }
+}

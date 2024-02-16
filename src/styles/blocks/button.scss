@@ -1,0 +1,71 @@
+@use '../utils/vars' as *;
+
+.button {
+  height: 48px;
+
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: center;
+  text-transform: uppercase;
+
+  background-color: $dark-2;
+  border: none;
+  text-decoration: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: $dark-1;
+  }
+
+  &:disabled {
+    background-color: $dark-6;
+  }
+
+  &--send {
+    background-color: #39BEBF;
+
+    &:hover {
+      background-color: #0C797A;
+    }
+
+    &:disabled {
+      background-color: $blue-2;
+    }
+  }
+
+  &--other {
+    position: relative;
+    justify-content: flex-start;
+    max-width:fit-content;
+    height: 22px;
+    color: $blue-1;
+    background-color: transparent;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 54px;
+      height: 1px;
+      background-color: $blue-1;
+    }
+
+    &:hover {
+      background-color: transparent;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:disabled {
+      background-color: transparent;
+    }
+  }
+}

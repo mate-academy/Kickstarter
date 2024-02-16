@@ -1,0 +1,54 @@
+@use '../utils/extends' as *;
+@use '../utils/mixins' as *;
+
+.benefit-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  &--tablet {
+    display: none;
+  }
+
+  &__image {
+    width: 50px;
+    height: 40px;
+    margin-bottom: 40px
+  }
+
+  &__title {
+    @extend %h4;
+
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    @extend %secondary-text;
+  }
+}
+
+@include for-tablet {
+  .benefit-card {
+    &--tablet {
+      display: flex;
+    }
+
+    &__image {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+@include for-desktop {
+  .benefit-card {
+    &__image {
+      margin-bottom: 30px;
+    }
+
+    &__title {
+      margin-bottom: 24px;
+    }
+  }
+}

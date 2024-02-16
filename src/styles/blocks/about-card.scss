@@ -1,0 +1,77 @@
+@use '../utils/vars' as *;
+@use '../utils/extends' as *;
+@use '../utils/mixins' as *;
+
+.about-card {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, auto) 1fr;
+  grid-auto-flow: row;
+  padding: 0 var(--vertical-padding);
+  gap: 30px var(--column-gap);
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @extend %h2;
+  }
+
+  &__image {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: auto;
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+
+    @extend %secondary-text;
+  }
+
+  &__button {
+    grid-column: 1 / -1;
+  }
+}
+
+@include for-tablet {
+  .about-card {
+    --image-column: 1 / 2;
+    --content-column: 2 / 3;
+
+    padding-left: 0;
+    &__image {
+      grid-row: 1 / -1;
+      grid-column: var(--image-column);
+    }
+
+    &__title {
+      grid-column: var(--content-column);
+    }
+
+    &__text {
+      grid-column: var(--content-column);
+    }
+
+    &__button {
+      margin-top: 30px;
+      grid-column: var(--content-column);
+    }
+
+    &--opposite {
+      --image-column: 2 / 3;
+      --content-column: 1 / 2;
+
+      padding-right: 0;
+      padding-left: var(--vertical-padding);
+
+    }
+  }
+}
+
+@include for-desktop {
+  .about-card {
+    margin: 0;
+  }
+}

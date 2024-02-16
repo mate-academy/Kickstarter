@@ -1,0 +1,31 @@
+@use '../utils/extends' as *;
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+
+.titled-list {
+  &__title {
+    @extend %h3;
+
+    color: $blue-1;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    list-style: inside;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @extend %secondary-text;
+
+    color: $dark-1;
+  }
+
+  &--desktop {
+    display: none;
+
+    @include for-desktop {
+      display: block;
+    }
+  }
+}
