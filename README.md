@@ -37,4 +37,4 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Uj
   [DEMO LINK](https://olehmarushchak.github.io/Kickstarter/)
 14. Copy `DEMO LINK` to the PR description
 
-> To update you PR repeat steps 7-11
+> To update you PR repeat steps 7-1
