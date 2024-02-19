@@ -9,6 +9,10 @@
 
   &__title {
     grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / span 4;
+    }
   }
 
   &__form {
@@ -16,17 +20,30 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @include on-tablet {
+      grid-column: 5 / span 4;
+    }
   }
 
   &__input {
     @extend %main-text;
-    
+
+    background: $c-bg;
     color: $c-extralightgray;
     box-sizing: border-box;
     height: 48px;
     border: 0;
-    outline: 1px solid $c-gray;
+    outline: 1px solid $c-lightgray2;
     padding: 12px 20px;
+
+    &:valid {
+      outline: 1px solid $c-valid;
+      color: $c-valid;
+    }
+    &:focus {
+      outline: 1px solid $c-green;
+    }
 
     &-message {
       height: 128px;
@@ -37,6 +54,7 @@
   &__button {
     @include button($c-green, $c-darkgreen);
 
+    border: 0;
     padding: 13px 35px;
     height: 40px;
     color: white;
