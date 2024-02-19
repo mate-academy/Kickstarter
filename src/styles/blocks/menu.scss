@@ -6,24 +6,33 @@
   @include page-grid;
   @include padding-inline;
 
-  grid-template-rows: 74px 1fr 1fr;
+  grid-template-rows: 74px 1fr 1fr 1fr;
 
   &__top {
     grid-column: 1 / -1;
     grid-row: 1;
     align-self: start;
+
   }
 
   &__nav {
     grid-column: 1 / -1;
     grid-row: 2;
     align-self: start;
+    padding: 30px 0 50px;
   }
 
   &__button {
     grid-column: 1 / -1;
-    grid-row: 3;
-    align-self: end;
+    grid-row: 3 / 5;
     padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-between;
+
+    @include on-tablet {
+      display: none;
+    }
   }
 }
