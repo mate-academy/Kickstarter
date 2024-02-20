@@ -3,26 +3,41 @@
     @include padding-inline;
     @include page-grid;
 
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     gap: 30px;
   }
 
   &__logo-holder {
-    grid-column: 1 / -1;
-    display: none !important;
-    display: grid;
-    align-items: baseline;
+    display: none;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      display: grid;
+      align-items: baseline;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / -1;
+      display: grid;
+      align-items: baseline;
+    }
+
   }
+
   &__logo {
     grid-column: 1 / -1;
     justify-self: center;
     grid-row: 1;
 
+    @include hover(scale, 1.1);
   }
+
   &__top {
     grid-column: 1 / -1;
     justify-self: end;
     grid-row: 1;
+
+    @include hover(scale, 1.1);
   }
 
   &__social {
@@ -31,7 +46,6 @@
     justify-content: center;
     align-items: center;
     gap: 41px;
-    cursor: pointer;
   }
 
   &__terms {
