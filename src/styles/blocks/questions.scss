@@ -1,0 +1,87 @@
+.questions {
+  &__container {
+    @include page-grid;
+    @include padding-inline;
+
+    padding-bottom: 110px;
+    row-gap: 27px;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / span 4;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / span 6;
+    }
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      grid-column: 5 / span 4;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / span 6;
+    }
+  }
+
+  &__input {
+    @extend %main-text;
+
+    background: $c-bg;
+    color: $c-extralightgray;
+    box-sizing: border-box;
+    height: 48px;
+    border: 0;
+    outline: 1px solid $c-lightgray2;
+    padding: 12px 20px;
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      border: 1px solid green;
+      -webkit-text-fill-color: green;
+      -webkit-box-shadow: 0 0 0 1000px #000 inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    &:valid {
+      outline: 1px solid $c-valid;
+      color: $c-valid;
+    }
+    &:focus {
+      outline: 1px solid $c-green;
+    }
+
+    &-message {
+      height: 128px;
+      resize: none;
+    }
+  }
+
+  &__button {
+    @include button($c-green, $c-darkgreen);
+
+    border: 0;
+    padding: 13px 35px;
+    height: 40px;
+    color: white;
+    width: fit-content;
+
+  }
+}
