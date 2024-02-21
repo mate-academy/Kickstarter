@@ -1,10 +1,12 @@
 .header {
   @include page-grid;
+  @include padding-inline;
+
 
   box-sizing: border-box;
   overflow: hidden;
   height: 100vh;
-  grid-template-rows: 74px 1fr 1fr 1fr;
+  grid-template-rows: 74px 1fr 1fr;
 
   @include on-tablet {
     grid-template-rows: 96px auto;
@@ -19,23 +21,23 @@
   }
 
   &__top {
-    @include padding-inline;
-
     grid-column: 1 / -1;
     grid-row: 1;
 
     @include on-desktop {
       padding-top: 30px;
     }
+
   }
 
   &__image-holder {
-    grid-column: 1 / -1;
+    grid-column:  1 / -1;
     grid-row: 2;
     width: 100%;
 
     @include on-tablet {
-      grid-column: 5 / span 5;
+      grid-column: -1;
+      grid-column: 4 / span 5;
       align-self: end;
     }
 
@@ -49,7 +51,7 @@
     width: 140%;
 
     @include on-tablet {
-      width: 125%;
+      width: 130%;
     }
 
     @include on-desktop {
@@ -58,8 +60,7 @@
   }
 
   &__bottom {
-    @include padding-inline;
-
+    align-self: end;
     grid-column: 1 / -1;
     grid-row: 3;
     display: flex;
