@@ -1,49 +1,57 @@
 .features {
-  &__content {
-    @include page-grid;
+  @include padding-inline;
+  @include page-grid;
 
+  &__content {
+    grid-column: 1 / -1;
     padding-bottom: 90px;
   }
 
   &__title {
-    @include padding-inline;
-
     grid-column: 1 / -1;
     padding-bottom: 32px;
   }
 
   &__container {
-    @include padding-inline;
-    @include page-grid;
-
-    grid-column: 1 / -1;
+    display: block;
     padding-block: 30px 175px;
     position: relative;
     z-index: 1;
 
     @include on-tablet {
+      display: grid;
       padding-block: 60px 175px;
     }
 
+    @include on-desktop {
+      display: grid;
+      padding-block: 60px;
+    }
+
     &::before {
+      @include padding-inline;
+
       content:'';
+      margin-inline: -30px;
       background: url(/src/images/features.png) no-repeat bottom, #D6ECEC;
       position: absolute;
       background-blend-mode: darken, normal;
       background-size: 95%;
       display: block;
       height: 100%;
-      width: 100vw;
+      width: 100%;
       top: 0;
       left: 0;
       z-index: -1;
 
       @include on-tablet {
-        background-size: 60%;
+        margin-inline: -34px;
+        background-size: 50%;
         background-position: bottom right;
       }
 
       @include on-desktop {
+        margin-inline: -123px;
         background-size: 50%;
         background-position: bottom right;
       }
