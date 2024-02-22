@@ -1,0 +1,58 @@
+.language {
+  display: flex;
+  gap: 20px;
+  text-transform: uppercase;
+  color: $black-main-color;
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 162px;
+
+  @include on-desktop {
+    line-height: 20px;
+  }
+
+  &--menu {
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    line-height: 17px;
+
+    @include hover(font-weight, 700);
+  }
+
+  &--active {
+    color: $hover-text-color;
+
+    &:hover {
+      cursor: pointer;
+      color: $black-main-color;
+      transition: color $effect-duration;
+      font-weight: normal;
+    }
+  }
+
+  &--deactivate {
+    &:hover {
+      cursor: pointer;
+      color: $black-main-color;
+      transition: color $effect-duration;
+      font-weight: normal;
+    }
+  }
+
+  &--mobile {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 0;
+    }
+  }
+}

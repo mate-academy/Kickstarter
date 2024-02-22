@@ -1,0 +1,41 @@
+.button {
+  &--mobile-menu {
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $hover-text-color;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14.6px;
+
+    text-decoration: none;
+    color: $background-color;
+  }
+
+  &--footer {
+    background-color: $green-color;
+    border: none;
+    color: $background-color;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 13px 35px;
+  }
+
+  &--menu {
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &--mobile {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      padding-inline: 37px;
+    }
+  }
+
+  @include hover(border-radius, 20px);
+}

@@ -1,0 +1,81 @@
+.our-story {
+  &__grid {
+    @include on-tablet {
+      @include page-grid;
+
+      row-gap: 65px;
+    }
+
+    @include on-desktop {
+      row-gap: 0;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      grid-column: 1/-1;
+      margin-bottom: 62px;
+    }
+  }
+
+  &__benefits {
+    margin-bottom: 110px;
+
+    @include on-tablet {
+      margin-bottom: 0;
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+
+    &--second {
+      @include on-desktop {
+        margin-bottom: 170px;
+      }
+    }
+
+    &--last {
+      margin-bottom: 70px;
+
+      @include on-desktop {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__img {
+    @include background-img;
+
+    background-image: url(../images/main/luna.svg);
+    height: 195px;
+    margin-inline: 12px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__image {
+    display: none;
+
+    @include on-tablet {
+      background-image: url(../images/main/luna.svg);
+
+      @include background-img;
+
+      height: 430px;
+      display: block;
+      grid-column: 1/-1;
+    }
+
+    @include on-desktop {
+      grid-column: 2/-2;
+      height: 520px;
+    }
+  }
+}

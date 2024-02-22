@@ -1,0 +1,117 @@
+.swiper-pagination-current {
+  font-size: 16px;
+  margin-right: 3px;
+}
+
+.swiper-pagination {
+  text-align: left;
+}
+
+.swiper {
+  width: 260px;
+  height: 372px;
+
+  @include on-tablet {
+    height: 400px;
+  }
+
+  @include on-desktop {
+    display: none !important;
+  }
+}
+
+.swiper__list {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 21px;
+  color: $hover-text-color;
+
+  &--features {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.swiper-slide {
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-button-prev {
+  background-image: url(../images/icons/slider/icon-left-arrow.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &:hover {
+    background-image: url(../images/icons/slider/icon-left-hover-arrow.svg);
+  }
+}
+
+.swiper-button-next {
+  background-image: url(../images/icons/slider/icon-right-arrow.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &:hover {
+    background-image: url(../images/icons/slider/icon-right-hover-arrow.svg);
+  }
+}
+
+.swiper-pagination-tablet {
+  @include on-tablet {
+    text-align: left !important;
+    margin-left: 24px;
+  }
+}
+
+.swiper .swiper-pagination-total {
+  font-size: 10.5px;
+  margin-left: 4px;
+}
+
+.swiper .swiper-button-next,
+.swiper .swiper-button-prev {
+  width: 44px;
+  height: 13px;
+}
+
+.swiper .swiper-pagination-fraction {
+  bottom: var(--swiper-pagination-bottom, -2px);
+}
+
+.swiper .swiper-button-next {
+  right: var(--swiper-navigation-sides-offset, 83.5px);
+  top: var(--swiper-navigation-top-offset, 345px);
+
+  @include on-tablet {
+    right: var(--swiper-navigation-sides-offset, 177.5px);
+    top: var(--swiper-navigation-top-offset, 385px);
+  }
+}
+
+.swiper .swiper-button-prev {
+  left: var(--swiper-navigation-sides-offset, 83.5px);
+  top: var(--swiper-navigation-top-offset, 345px);
+
+  @include on-tablet {
+    left: var(--swiper-navigation-sides-offset, 0);
+    top: var(--swiper-navigation-top-offset, 385px);
+  }
+}
+
+.swiper .swiper-button-next::after,
+.swiper .swiper-button-prev::after {
+  content: '';
+}

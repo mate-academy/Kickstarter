@@ -1,0 +1,166 @@
+.info {
+  position: relative;
+
+  &__bg-plan {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      position: absolute;
+      background-image: url(../images/main/plan.svg);
+      height: 100%;
+      width: 49.1vw;
+
+      @include background-img;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__bg-stump {
+    display: none;
+
+    @include on-tablet {
+      @include background-img;
+
+      display: block;
+      position: absolute;
+      right: 0;
+      background-image: url(../images/main/stump.svg);
+      height: 100%;
+      width: 49.1vw;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__grid {
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__title {
+    &--first {
+      @include on-tablet {
+        grid-column: 5/9;
+      }
+
+      @include on-desktop {
+        grid-column: 7/13;
+      }
+    }
+
+    &--second {
+      @include on-tablet {
+        grid-column: span 4;
+      }
+
+      @include on-desktop {
+        grid-column: 1/7;
+      }
+    }
+  }
+
+  &__img {
+    display: flex;
+    margin-bottom: 20px;
+    height: 210px;
+    width: 100%;
+    object-fit: cover;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    @include on-desktop {
+      display: grid;
+      height: 388px;
+      grid-column: span 6;
+      grid-row: 1/4;
+      margin-bottom: 0;
+    }
+
+    &--second {
+      grid-column: 7/13;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 60px;
+    }
+
+    &--first {
+      @include on-tablet {
+        grid-column: 5/9;
+      }
+
+      @include on-desktop {
+        grid-column: 7/13;
+      }
+    }
+
+    &--second {
+      @include on-tablet {
+        grid-column: 1/5;
+      }
+
+      @include on-desktop {
+        grid-column: 1/7;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $green-color;
+    position: relative;
+    font-size: 12px;
+    line-height: 14px;
+
+    @include hover(text-shadow, 1px 1px);
+
+    @include on-tablet {
+      margin-bottom: 67px;
+    }
+
+    &--first {
+      @include on-tablet {
+        grid-column: 5/7;
+      }
+
+      @include on-desktop {
+        grid-column: 7/9;
+      }
+    }
+
+    &--second {
+      @include on-tablet {
+        grid-column: 1/5;
+      }
+    }
+
+    &::after {
+      content: '';
+      height: 1px;
+      width: 50px;
+      background-color: $green-color;
+      position: absolute;
+      top: 20px;
+      left: 0;
+    }
+  }
+}
