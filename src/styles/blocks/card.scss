@@ -1,0 +1,63 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__icon {
+    display: block;
+    height: 40px;
+    width: 50px;
+    object-fit: contain;
+    object-position: center;
+    margin-inline: auto;
+    margin-bottom: 40px;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      height: 40px;
+      width: 50px;
+      margin-bottom: 50px;
+    }
+
+    @include on-desktop {
+      height: 50px;
+      width: 70px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__info {
+    flex-grow: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title{
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include on-desktop {
+      margin-bottom: 24px;
+      height: 56px;
+    }
+  }
+
+  &__text {
+    @include text-secondary;
+    
+    flex-grow: 2;
+    color: $c-black-default;
+    margin: 0;
+    text-align: center;
+  }
+
+  &--hidden {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+}

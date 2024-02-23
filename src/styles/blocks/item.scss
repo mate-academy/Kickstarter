@@ -1,0 +1,121 @@
+.item {
+  display: flex;
+  flex-direction: column;
+
+  @include grid-tablet;
+
+  &__title {
+    margin-bottom: 20px;
+    color: $c-black-default;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__image-wrapper {
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      position: relative;
+      margin: 0;
+      height: 415px;
+    }
+  }
+
+  &__image {
+    display: block;
+    object-position: center;
+    width: 100%;
+
+    @include on-tablet {
+      position: absolute;
+      object-fit: cover;
+      height: 100%;
+      width: calc(100% + $margin-page-tablet);
+      bottom: 0;
+      top: 0;
+      margin: 0;
+    }
+
+    @include on-desktop {
+      position: static;
+      width: 100%;
+    }
+  }
+
+  &__text {
+    @include text-main;
+    @include property-on-devices(margin-bottom, 30px, 60px, 60px);
+
+    color: $c-grey-dark;
+  }
+
+  &--right-img {
+    .item__image-wrapper {
+      @include on-tablet {
+        grid-column: 5 / -1;
+        grid-row: 1 / 4;
+        margin: 0;
+      }
+
+      @include on-desktop {
+        grid-column: 5 / -1;
+        grid-row: 1 / 4;
+        margin: 0;
+      }
+    }
+
+    .item__image {
+      @include on-tablet {
+        right: $margin-page-tablet;
+        left: 0;
+      }
+    }
+
+    .item__info {
+      @include on-tablet {
+        grid-column: 1 / 5;
+        grid-row: 2 / 3;
+      }
+    }
+
+    .item__title {
+      @include on-tablet {
+        grid-column: 1 / 5;
+        grid-row: 1 / 2;
+      }
+    }
+  }
+
+  &--left-img {
+    .item__image-wrapper {
+      @include on-tablet {
+        grid-column: 1 / 5;
+        grid-row: 1 / 4;
+        margin: 0;
+      }
+    }
+
+    .item__image {
+      @include on-tablet {
+        left: -$margin-page-tablet;
+        right: 0;
+      }
+    }
+
+    .item__info {
+      @include on-tablet {
+        grid-column: 5 / -1;
+        grid-row: 2 / 3;
+      }
+    }
+
+    .item__title {
+      @include on-tablet {
+        grid-column: 5 / -1;
+        grid-row: 1 / 2;
+      }
+    }
+  }
+}

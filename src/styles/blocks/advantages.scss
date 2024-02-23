@@ -1,0 +1,52 @@
+.advantages {
+  &__menu {
+    display: none;
+
+    @include grid-desktop;
+  }
+
+  &__menu-list {
+    @include on-desktop {
+      grid-column: 4 / -4;
+      display: flex;
+      justify-content: space-between;
+      margin-block: 28px;
+    }
+  }
+
+  &__menu-link {
+    @include text-thirdary;
+    
+    text-decoration: none;
+    transition: all $effect-duration;
+    color: $c-black-default;
+
+    &:hover {
+      color: $c-black-dark;
+      text-shadow: 0 0 .65px $c-black-dark, 0 0 .65px $c-black-dark;
+    }
+  }
+
+  &__cards {
+    @include grid-tablet;
+    @include grid-desktop;
+
+    @include on-tablet {
+      row-gap: 62px;
+    }
+
+    @include on-desktop {
+      margin-top: 65px;
+    }
+  }
+
+  &__card {
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+  }
+}

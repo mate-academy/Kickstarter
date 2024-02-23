@@ -1,0 +1,106 @@
+.footer {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      gap: 60px;
+      position: relative;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__logo {
+    text-decoration: none;
+    display: inline-block;
+    margin-inline: auto;
+  }
+
+  &__logo-image {
+    display: none;
+
+    @include on-tablet {
+      width: 184px;
+      display: block;
+    }
+
+    @include on-desktop {
+      width: 161px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 49px;
+    justify-content: center;
+  }
+
+  &__icon {
+    display: block;
+    text-decoration: none;
+    height: 24px;
+    width: 24px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: all $effect-duration;
+
+    &--fb {
+      background-image: url(../images/icons/facebook-default.png);
+
+      &:hover {
+        background-image: url(../images/icons/facebook-hover.png);
+      }
+    }
+
+    &--tw {
+      background-image: url(../images/icons/twitter-default.png);
+
+      &:hover {
+        background-image: url(../images/icons/twitter-hover.png);
+      }
+    }
+
+    &--ig {
+      background-image: url(../images/icons/inst-default.png);
+
+      &:hover {
+        background-image: url(../images/icons/inst-hover.png);
+      }
+    }
+  }
+
+  &__copyright {
+    margin: 0;
+    font-family: $main-font;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    text-align: center;
+    color: $c-grey-default;
+  }
+
+  &__arrow {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      text-decoration: none;
+      height: 24px;
+      width: 24px;
+      background-image: url(../images/icons/footer-arrow-default.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: all $effect-duration;
+
+      &:hover {
+        transform: translateY(-5px);
+        background-image: url(../images/icons/footer-arrow-hover.png);
+      }
+    }
+  }
+}

@@ -1,0 +1,113 @@
+.header {
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    @include on-tablet {
+      margin-top: 100px;
+    }
+
+    @include on-desktop {
+      margin-top: 60px;
+    }
+  }
+
+  &__image-mobile {
+    display: block;
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__info {
+    position: relative;
+
+    @include grid-desktop;
+  }
+
+  &__info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include grid-tablet;
+
+    @include on-tablet {
+      row-gap: 30px;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+      height: min-content;
+      align-self: end;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: $grid-gap-desk;
+    }
+  }
+
+  &__image-wrapper {
+    @include grid-tablet;
+
+    @include on-tablet {
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / -1;
+      display: block;
+      position: relative;
+      height: 464px;
+    }
+  }
+
+  &__image {
+    @include on-tablet {
+      grid-column: 4 / -1;
+      background-position: bottom;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url(../images/header-image-tablet.png);
+    }
+
+    @include on-desktop {
+      position: absolute;
+      inset: 0 0 0 (-$grid-gap-desk);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url(../images/header-image-desktop.png);
+    }
+  }
+
+  &__title {
+    color: $c-black-default;
+
+    @include on-tablet {
+      grid-column: span 4;
+      grid-row: 1 / 2;
+    }
+  }
+
+  &__text {
+    @include text-main;
+
+    color: $c-black-default;
+
+    @include on-tablet {
+      grid-column: span 3;
+      grid-row: 2 / 3;
+    }
+  }
+}

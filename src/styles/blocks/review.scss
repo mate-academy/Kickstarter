@@ -1,0 +1,74 @@
+.review {
+  &__content-box {
+    @include grid-desktop;
+  }
+
+  &__content{
+    position: relative;
+
+    @include on-desktop {
+      grid-column: 3 / -3;
+    }
+  }
+
+  &__quote {
+    font-family: $main-font;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: center;
+    color: $c-black-default;
+    margin: 0;
+
+    @include property-on-devices(padding-top, 50px, 60px, 42px);
+  }
+
+  &__icon {
+    display: block;
+    height: 62px;
+    width: 62px;
+    margin-inline: auto;
+
+    @include property-on-devices(margin-top, 30px, 40px, 30px);
+  }
+
+  &__name {
+    margin-top: 10px;
+    color: $c-black-default;
+    text-align: center;
+
+    @include on-tablet {
+      margin-top: 20px;
+    }
+  }
+
+  &__position {
+    @include text-secondary;
+
+    text-align: center;
+    color: $c-grey-dark;
+    margin-top: 5px;
+  }
+
+  &__background-wrapper {
+    position: absolute;
+    z-index: -1;
+    inset: 0 26px;
+
+    @include on-tablet {
+      left: 233px;
+      right: 233px;
+    }
+
+    @include on-desktop {
+      left: 277px;
+      right: 277px;
+    }
+  }
+
+  &__background {
+    display: block;
+    width: 100%;
+    object-fit: contain;
+  }
+}
