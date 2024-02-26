@@ -1,0 +1,173 @@
+.slider {
+  padding: 30px 0;
+  margin-left: 16px;
+  height: 260px;
+
+  @include desktop {
+    display: none;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__bottom {
+    background-image: url(../images/slider_bottom.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 320px;
+    height: 173px;
+
+    @include desktop {
+      display: none;
+    }
+
+    &-desk {
+      display: block;
+      width: 543px;
+      height: 301px;
+      position: absolute;
+      left: 605px;
+      bottom: 0;
+    }
+  }
+
+  &__section {
+    background-color: $light-green;
+
+    @include tablet {
+      padding: 0;
+      margin: 0 33px;
+    }
+
+    @include desktop {
+      margin:  0 auto 30px;
+      width: 1194px;
+      display: flex;
+    }
+  }
+
+  &__value {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  &__control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 70px;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__list {
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 28px;
+
+    &-title {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.wand {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13.31px;
+  margin-right: 4px;
+  color: $green;
+}
+
+.denominator {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13.31px;
+  color: $green;
+}
+
+.numerator{
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  margin-right: 3px;
+  color: #333;
+  transition: opacity 0.3s ease-in-out;
+  
+  @keyframes fade {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+  }
+}
+
+.numerator.fade-out {
+  opacity: 0;
+}
+
+.numerator.fade-in {
+  opacity: 1;
+}
+
+.before-slider {
+  margin: 0 30px 32px;
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 40px;
+  color: #131313;
+  text-align: left;
+
+  @include desktop {
+    margin:  0 auto 30px;
+    width: 1194px;
+  }
+}
+
+.slider__text {
+  position: absolute;
+  opacity: 1;
+  transition: opacity 0.9s ease-in-out;
+
+  @include desktop {
+    position: relative;
+    display: flex;
+  }
+}
+
+.slider__desktop {
+  position: relative;
+
+  @include mobile {
+    display: none;
+  }
+
+  @include desktop {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 786px;
+    height: 642px;
+  }
+}
+
+.active {
+  opacity: 0;
+}
