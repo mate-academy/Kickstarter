@@ -1,0 +1,105 @@
+.about-us {
+  &__container {
+    @extend %container;
+  }
+
+  &__article {
+    &:not(:last-child) {
+      @extend %section-margin;
+    }
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: min-content min-content min-content 1fr;
+      column-gap: 20px;
+    }
+    
+        @include on-desktop {
+          column-gap: 30px;
+        }
+
+    @include on-tablet {
+      grid-template-areas: "image title"
+        "image text"
+        "image more"
+        "image .";
+    }
+
+    &--reverse {
+      grid-template-areas: "title image"
+        "text image"
+        "more image"
+        ". image";
+    }
+  }
+
+  &__title {
+    grid-area: title;
+    margin-bottom: 30px;
+
+    @extend %h2-title;
+  }
+
+  &__image-box {
+    grid-area: image;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-left: -$padding-tablet;
+      overflow: hidden;
+
+      &--reverse {
+        margin-left: 0;
+        margin-right: -$padding-tablet;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+
+    @include hover(transform, scale(1.03));
+  }
+
+  &__text {
+    grid-area: text;
+    margin-bottom: 30px;
+
+    @extend %text;
+
+    @include on-tablet {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__link {
+    grid-area: more;
+    display: block;
+    width: max-content;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: $color-green;
+
+    &::after {
+      display: block;
+      content: "";
+      margin-top: 5px;
+      width: 40%;
+      height: 1px;
+      background-color: $color-green;
+      transition: width $smooth-time;
+    }
+
+    @include on-desktop {
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

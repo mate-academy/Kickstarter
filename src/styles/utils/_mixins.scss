@@ -1,5 +1,25 @@
+@mixin on-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1194px) {
+    @content;
+  }
+}
+
+@mixin bg-image($size, $path, $name, $format) {
+  background-image: url(../images/#{$path}/#{$name}.#{$format});
+  background-size: $size;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $smooth-time;
+
   &:hover {
     #{$_property}: $_toValue;
   }

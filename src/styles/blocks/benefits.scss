@@ -1,0 +1,127 @@
+.benefits {
+  &__container {
+    @extend %container;
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      margin-bottom: 94px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 84px;
+    justify-content: center;
+  }
+
+  &__list-link {
+    display: inline-block;
+    padding: 5px 0;
+    width: 110px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    
+    @include hover(text-shadow, (0 0 0.65px $color-black, 0 0 0.65px $color-black));
+  }
+
+  &__content {
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px 20px;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__item {
+    text-align: center;
+
+  }
+
+  &__item--tweeter {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__item--multiroom {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__item--intuitive {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__item-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include hover(filter, drop-shadow(0 0 15px $color-green));
+
+    @include on-tablet {
+      margin-bottom: 50px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 34px;
+    }
+
+    &--num--1 {
+      background-image: url(../images/icons/futuristic-design-icon.svg);
+    }
+    &--num--2 {
+      background-image: url(../images/icons/tweeter-speaker-system-icon.svg);
+    }
+    &--num--3 {
+      background-image: url(../images/icons/multiroom-system-icon.svg);
+    }
+    &--num--4 {
+      background-image: url(../images/icons/intuitive-lighting-system-icon.svg);
+    }
+  }
+
+  &__item-title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    text-transform: uppercase;
+
+    @include on-desktop {
+      height: 2em;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__item-text {
+    @extend %text;
+  }
+
+}
