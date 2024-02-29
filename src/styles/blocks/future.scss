@@ -9,9 +9,21 @@
     gap: 20px;
   }
 
+  &__text {
+    @include desktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
   &__title {
     margin-bottom: 30px;
     text-align: left;
+
+    @include desktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
   }
 
   &-right {
@@ -23,6 +35,10 @@
   &__container-tab {
     @include tablet {
       width: 340px;
+    }
+
+    @include desktop {
+      width: 582px;
     }
   }
 
@@ -44,10 +60,28 @@
         width: 374px;
         height: 415px;
       }
+      &-eye {
+        @include desktop {
+          width: 582px;
+          height: 388px;
+          background-image: url(../images/future__frame-tablet-eye.png);
+        }
+      }
+      &-pen {
+        @include desktop {
+          width: 582px;
+          height: 388px;
+          background-image: url(../images/future__frame-tablet-pic.png);
+        }
+      }
 
       &-pic {
         width: 374px;
         height: 415px;
+        
+        @include desktop {
+          display: none;
+        }
       }
     }
   }
@@ -64,12 +98,26 @@
     color: $green;
     display: flex;
     flex-direction: column;
+    transition-duration: 0.5s;
+    
 
     &::after {
+    transition-duration: 0.5s;
      content: "";
      border-bottom: 1px $green solid;
      width: 53px;
      margin-top: 5px;
+    }
+
+    &:hover {
+      filter: drop-shadow(0 0 0.3px #0db2b3);
+      transform: scale(1.05) translateX(1%);
+      &::after {
+        content: "";
+        border-bottom: 1px $green solid;
+        width: 111px;
+        margin-top: 5px;
+       }
     }
   }
 }
@@ -80,6 +128,10 @@
   @include tablet {
     width: 374px;
     height: 415px;
+  }
+
+  @include desktop {
+    display: none;
   }
 }
 

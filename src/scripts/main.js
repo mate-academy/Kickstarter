@@ -1,5 +1,10 @@
 'use strict';
 
+document.getElementById('btn__form').onclick = function(e) {
+  document.getElementById('input__form_email').value = '';
+  document.getElementById('input__form_text').value = '';
+};// reset form
+
 document.addEventListener('DOMContentLoaded', function() {
   const textBlocks = document.querySelectorAll('.slider__text');
   let currentIndex = 0;

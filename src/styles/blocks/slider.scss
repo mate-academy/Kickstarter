@@ -3,6 +3,10 @@
   margin-left: 16px;
   height: 260px;
 
+  @include tablet {
+    margin: 60px 0 0 90px;
+  }
+
   @include desktop {
     display: none;
   }
@@ -10,6 +14,7 @@
   &__container {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
   &__bottom {
     background-image: url(../images/slider_bottom.png);
@@ -18,6 +23,12 @@
     background-size: contain;
     width: 320px;
     height: 173px;
+
+    @include tablet {
+      position: relative;
+      bottom: 111px;
+      left: 380px;
+    }
 
     @include desktop {
       display: none;
@@ -28,8 +39,8 @@
       width: 543px;
       height: 301px;
       position: absolute;
-      left: 605px;
-      bottom: 0;
+      left: 548px;
+      bottom: -52px;
     }
   }
 
@@ -39,12 +50,16 @@
     @include tablet {
       padding: 0;
       margin: 0 33px;
+      width: 700px;
+      height: 560px;
     }
 
     @include desktop {
       margin:  0 auto 30px;
       width: 1194px;
+      height: 642px;
       display: flex;
+      padding-bottom: 50px;
     }
   }
 
@@ -66,6 +81,17 @@
     flex-direction: column;
     margin-top: 70px;
 
+    &_container {
+      @include tablet {
+        display: flex;
+        align-items: start;
+      }
+    }
+    
+    @include tablet {
+      margin-left: 90px;
+    }
+
     @include desktop {
       display: none;
     }
@@ -77,8 +103,49 @@
     flex-direction: column;
     margin: 0 28px;
 
+    @include tablet {
+      margin: 0;
+    }
+
     &-title {
       margin-bottom: 20px;
+      font-size: 18px;
+      line-height: 22px;
+
+      @include desktop {
+        font-size: 34px;
+        line-height: 42px;
+      }
+    }
+  }
+
+  &__link {
+    width: 50px;
+    height: 20px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    &_gray{
+      background-image: url(../images/vector-l.svg);
+      transition-duration: 0.9s;
+
+      &:hover {
+        filter: drop-shadow(0 0 1px #0db2b3);
+        transform: scale(1.03) rotate(0.5turn);
+        background-image: url(../images/vector-hover.svg);
+      }
+    }
+
+  &_green {
+    background-image: url(../images/vector-r.svg);
+    transition-duration: 0.9s;
+
+    &:hover {
+      filter: drop-shadow(0 0 1px #0db2b3);
+      transform: scale(1.03) rotate(1turn);
+      background-image: url(../images/vector-hover.svg);
+      }
     }
   }
 }
@@ -146,6 +213,10 @@
   position: absolute;
   opacity: 1;
   transition: opacity 0.9s ease-in-out;
+  
+  &-1 {
+    height: 234px;
+  }
 
   @include desktop {
     position: relative;
@@ -155,6 +226,7 @@
 
 .slider__desktop {
   position: relative;
+  margin: 60px 0 0 102px;
 
   @include mobile {
     display: none;
@@ -164,7 +236,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 786px;
-    height: 642px;
   }
 }
 
