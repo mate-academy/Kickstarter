@@ -1,6 +1,6 @@
 'use strict';
 
-window.addEventListener('hashchange', function() {
+window.addEventListener('hashchange', function () {
   if (window.location.hash === '#menu') {
     document.body.classList.add('page-body');
   } else {
@@ -8,6 +8,7 @@ window.addEventListener('hashchange', function() {
   }
 });
 
+// eslint-disable-next-line
 const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
