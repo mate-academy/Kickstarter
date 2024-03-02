@@ -1,0 +1,54 @@
+html {
+  scroll-behavior: smooth;
+}
+
+span {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 17px;
+  color: #4f4f4f;
+}
+
+.page {
+  &__body {
+    font-family: Inter, sans-serif;
+
+    margin: 0;
+    min-width: 320px;
+
+    background: $c-bg;
+
+    /* stylelint-disable-next-line selector-max-id */
+    &:has(#menu:target) {
+      overflow: hidden;
+    }
+  }
+
+  &__main {
+    margin-block: 140px;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: transform, 0.6s;
+    transform: translateX(-100%);
+  }
+  &__menu:target {
+    opacity: 1;
+    pointer-events: auto;
+
+    transform: translateX(0%);
+  }
+
+  &__menu--desktop {
+    margin: 170px 0 62px;
+  }
+}
