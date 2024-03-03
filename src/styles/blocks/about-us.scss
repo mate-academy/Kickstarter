@@ -29,38 +29,48 @@
     }
 
     grid-column: 1 / 5;
+    grid-row: 1 / 2;
+  }
+
+  &__content {
+    grid-column: 1 / 5;
+    grid-row: 3 / 5;
   }
 
   &__para {
-    grid-column: 1 / 5;
+    margin-bottom: 30px;
+
+    @include tablet {
+      margin-bottom: 60px;
+    }
   }
 
   &__link {
-    grid-column: 1 / 5;
-
     text-decoration: none;
     text-transform: uppercase;
 
-    display: inline-block;
+    display: flex-inline;
     position: relative;
 
     font-size: 12px;
     font-weight: 700;
     color: rgba(13, 178, 179, 1);
 
-    &::after {
+    &::before {
       content: '';
-      display: block;
+      position: absolute;
+      bottom: -5;
+      left: 0;
+      right: 0;
       height: 2px;
-      background-color: rgba(13, 178, 179, 1);
-      width: 23.5%;
-      transition: transform 0.5s;
-      transform: scale(0);
+      width: 45%;
+      transition: width 0.5s ease-in-out;
       transform-origin: left;
+      background-color: currentColor;
     }
 
-    &:hover::after {
-      transform: scale(1);
+    &:hover::before {
+      width: 100%;
     }
   }
 
@@ -75,24 +85,14 @@
       grid-row: 1 / 2;
     }
 
-    &__para--first {
+    &__content--first {
       grid-column: 5 / 9;
-      grid-row: 2 / 3;
+      grid-row: 2 / 4;
     }
 
-    &__para--second {
+    &__content--second {
       grid-column: 1 / 5;
-      grid-row: 2 / 3;
-    }
-
-    &__link--first {
-      grid-column: 5 / 9;
-      grid-row: 3 / 4;
-    }
-
-    &__link--second {
-      grid-column: 1 / 5;
-      grid-row: 3 / 4;
+      grid-row: 2 / 4;
     }
   }
 
@@ -107,24 +107,14 @@
       grid-row: 1 / 2;
     }
 
-    &__para--first {
+    &__content--first {
       grid-column: 7 / 13;
-      grid-row: 2 / 3;
+      grid-row: 2 / 4;
     }
 
-    &__para--second {
+    &__content--second {
       grid-column: 1 / 7;
-      grid-row: 2 / 3;
-    }
-
-    &__link--first {
-      grid-column: 7 / 13;
-      grid-row: 3 / 4;
-    }
-
-    &__link--second {
-      grid-column: 1 / 7;
-      grid-row: 3 / 4;
+      grid-row: 2 / 4;
     }
   }
 
@@ -135,6 +125,7 @@
     border-radius: 6px;
 
     grid-column: 1 / 5;
+    grid-row: 2 / 3;
 
     @include tablet {
       &--first {
