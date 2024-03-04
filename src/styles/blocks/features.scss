@@ -1,0 +1,166 @@
+.features {
+  @include padding-inline;
+  @include page-grid;
+
+  &__content {
+    grid-column: 1 / -1;
+    padding-bottom: 90px;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    padding-bottom: 32px;
+  }
+
+  &__container {
+    display: block;
+    height: auto;
+    padding-block: 30px 175px;
+    position: relative;
+    z-index: 1;
+
+    @include on-tablet {
+      display: grid;
+      padding-block: 60px 175px;
+    }
+
+    @include on-desktop {
+      display: grid;
+      padding-block: 60px;
+    }
+
+    &::before {
+      @include padding-inline;
+
+      content:'';
+      margin-inline: -30px;
+      background: url(./../images/features.png) no-repeat bottom, #D6ECEC;
+      position: absolute;
+      background-blend-mode: darken, normal;
+      background-size: 95%;
+      display: block;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+
+      @include on-tablet {
+        margin-inline: -34px;
+        background-size: 50%;
+        background-position: bottom right;
+      }
+
+      @include on-desktop {
+        margin-inline: -123px;
+        background-size: 50%;
+        background-position: bottom right;
+      }
+    }
+  }
+
+  &__card {
+    padding-bottom: 50px;
+
+    &--1 {
+      grid-column: 1 / -1;
+
+      @include on-desktop {
+        grid-column: 2 / span 5;
+        grid-row: 1;
+      }
+    }
+
+    &--2 {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+        grid-column: 2 / span 5;
+      }
+    }
+
+    &--3 {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+        grid-column: 7 / span 5;
+        grid-row: 1;
+      }
+
+      @include on-large-screen {
+        grid-column: 5 / span 8;
+      }
+    }
+  }
+
+  &__feature {
+    color: $c-darkgreen;
+    padding-bottom: 20px;
+
+    &-list {
+      @extend %secondary-text;
+
+      margin: 0;
+      padding: 0;
+      list-style-position: inside;
+    }
+  }
+
+  &__item {
+    margin: 10px;
+  }
+
+
+  &__slider {
+    grid-column: 2;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    gap: 10px;
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &-arrows, &-numbers {
+      grid-column: 1 / -1;
+      display: flex;
+    }
+
+    &-arrows:hover {
+      cursor: pointer;
+    }
+
+    &-left:hover path,
+    &-right:hover path
+    {
+      cursor: pointer;
+      fill: $c-darkgreen;
+    }
+
+    &-left,
+    &-right,
+    &-number-now,
+    &-number-remaining {
+      padding-inline: 2px;
+    }
+
+    &-numbers {
+      font-size: 11px;
+      color: $c-darkgreen;
+      display: flex;
+      align-items: baseline;
+    }
+
+    &-number-now {
+      @extend %main-text;
+
+      color: $c-darkgray;
+    }
+  }
+}

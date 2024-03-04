@@ -1,0 +1,51 @@
+.nav {
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include on-desktop {
+      flex-direction: row;
+      gap: 84px;
+    }
+  }
+
+  &__link {
+    @include on-tablet {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    @extend %link;
+    @extend %tertiary-text;
+
+    transition: text-shadow $transition-time;
+
+    &:link, &:visited {
+      @extend %link;
+      @extend %tertiary-text;
+
+      @include on-tablet {
+        font-size: 22px;
+        line-height: 28px;
+      }
+
+    }
+
+    &:hover {
+      text-shadow: 0 0 .65px #333, 0 0 .65px #333;
+
+      color: $c-black;
+
+    }
+
+    &:active {
+      @extend %link;
+      @extend %tertiary-text;
+
+    }
+  }
+}
