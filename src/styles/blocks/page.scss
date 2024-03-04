@@ -1,0 +1,55 @@
+html {
+  scroll-behavior: smooth;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: #000;
+  -webkit-box-shadow: 0 0 0 1000px #f7f7f7 inset;
+}
+
+.page {
+  &__body {
+    font-family: Inter, sans-serif;
+
+    margin: 0;
+    min-width: 320px;
+
+    background: $c-bg;
+
+    /* stylelint-disable-next-line selector-max-id */
+    &:has(#menu:target) {
+      overflow: hidden;
+    }
+  }
+
+  &__main {
+    margin-block: 110px;
+
+    @include tablet {
+      margin-block: 140px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: transform, 0.6s;
+    transform: translateX(-100%);
+  }
+  &__menu:target {
+    opacity: 1;
+    pointer-events: auto;
+
+    transform: translateX(0%);
+  }
+
+  &__menu--desktop {
+    margin: 170px 0 62px;
+  }
+}

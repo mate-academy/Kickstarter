@@ -1,0 +1,58 @@
+.arrows {
+  grid-column: 2 / 4;
+
+  @include tablet {
+    grid-column: 2 / 3;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+
+  &__numbers {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    &--one {
+      font-size: 16px;
+      line-height: 24px;
+      color: $c-grey;
+      padding-right: 3px;
+    }
+
+    &--two {
+      font-size: 11px;
+      line-height: 14px;
+      color: rgba(12, 121, 122, 1);
+      vertical-align: baseline;
+    }
+  }
+
+  &__arrow {
+    text-decoration: none;
+    display: flex;
+    width: 48px;
+    height: 14px;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.arrow--left {
+  background-image: url('../images/features/arrow_left.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.arrow--right {
+  background-image: url('../images/features/arrow_right.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @include hover(background-image, url(../images/features/arrow_hover.svg));
+}

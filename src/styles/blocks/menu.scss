@@ -1,0 +1,114 @@
+.menu {
+  height: 100vh;
+  justify-content: space-between;
+  background-color: $c-bg;
+  overflow: auto;
+
+  &--desktop {
+    display: none;
+  }
+
+  @include desktop {
+    &--desktop {
+      height: 76px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__top-bar {
+    margin-bottom: 30px;
+
+    @include tablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__nav__list--desktop {
+    flex-direction: row;
+  }
+
+  &__nav__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $c-grey;
+
+    font-size: 14px;
+
+    @include tablet {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    @include hover(font-weight, 700);
+  }
+
+  &__nav__link--desktop {
+    font-size: 14px;
+  }
+
+  &__bottom {
+    &__button {
+      text-decoration: none;
+      text-align: center;
+      display: block;
+      position: absolute;
+      bottom: 60px;
+      right: 30px;
+      left: 30px;
+      background-color: $c-grey;
+      margin: 0 auto;
+
+      @include hover(background-color, rgba(19, 19, 19, 1));
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &__specs {
+      margin-block: 50px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    &__span {
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &__switcher {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      &__item:nth-child(1)::after {
+        content: '/';
+        padding-right: 5px;
+      }
+
+      &__lang-link {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #828282;
+      }
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+}
