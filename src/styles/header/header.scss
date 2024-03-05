@@ -1,0 +1,46 @@
+.header {
+  &__top {
+    padding-block: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__manual {
+    @include on-tablet {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+
+  &__specs, &__translate {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      font-family: Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: $black-3;
+      cursor: pointer;
+    }
+  }
+
+  &__specs {
+    &:hover {
+      font-weight: bold;
+    }
+  }
+
+  &__translate {
+    &--eu, &--ua {
+      &:hover {
+        font-weight: 700;
+        color: $black-2;
+      }
+    }
+  }
+}
