@@ -1,8 +1,10 @@
 'use strict';
 
-const lang = document.querySelector('.specs__link');
+const lang = document.querySelectorAll('.specs__link');
 /* global alert */
 
-lang.addEventListener('click', () => {
-  alert('The feature is still under development');
-});
+for (let i = 0; i < lang.length; i++) {
+  lang[i].addEventListener('click', () => {
+    alert('The feature is still under development');
+  });
+}
