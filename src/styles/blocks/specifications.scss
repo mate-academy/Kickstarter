@@ -1,0 +1,39 @@
+.specifications {
+  &__nav {
+    display: none;
+
+    @media (min-width: $desktop-min-width) {
+      display: block;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 84px;
+  }
+
+  &__cards {
+
+    & > :nth-child(n+2) {
+      display: none;
+
+      @media (min-width: $tablet-min-width) {
+        display: flex;
+      }
+    }
+
+    @media (min-width: $tablet-min-width) {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 65px 20px;
+    }
+
+    @media (min-width: $desktop-min-width) {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 0 30px;
+    }
+  }
+}
