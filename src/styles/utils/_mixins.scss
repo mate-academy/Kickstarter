@@ -1,6 +1,12 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin create-page-grid {
+  @media (min-width: $tablet-min-width) {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0 20px;
+  }
+
+  @media (min-width: $desktop-min-width) {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0 30px;
   }
 }
