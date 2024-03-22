@@ -1,0 +1,82 @@
+@import '../utils';
+
+
+.footer {
+  margin-top: 110px;
+  padding-bottom: 30px;
+
+  &__container {
+    @include grid;
+
+    padding: 0 30px;
+    justify-items: center;
+    row-gap: 33px;
+  }
+
+  &__icons,
+  &__copy {
+    grid-column: 1 / -1;
+  }
+
+  &__main {
+    display: none;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 44px;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-position: center;
+    transition: $main-transition;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &--facebook {
+    background-image: url(../images/footer/facebook.svg);
+  }
+  &--twitter {
+    background-image: url(../images/footer/twitter.svg);
+  }
+  &--instagram {
+    background-image: url(../images/footer/instagram.svg);
+  }
+
+  &__logo {
+    transition: $all-transition;
+    display: flex;
+
+    &:hover {
+      background: rgba(13, 178, 179, 0.2);
+      border-radius: 30%;
+    }
+  }
+
+  &__copy {
+    color: rgb(189, 189, 189);
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: center;
+  }
+
+  &__button {
+    padding: 25px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    transition: $all-transition;
+
+    &:hover {
+      border: 1px solid $main-black;
+      transform: scale(1.1);
+    }
+  }
+}

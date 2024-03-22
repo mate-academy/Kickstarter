@@ -1,0 +1,123 @@
+@import '../utils';
+
+.menu {
+  background-color: $c-gray;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  transform: translateX(-100%);
+  transition: $main-transition;
+
+  &:target {
+    transform: translateX(0)
+  }
+
+  &__container {
+    @include grid;
+
+    row-gap: 55px;
+  }
+
+  &__top-bar,
+  &__content {
+    padding: 0 34px;
+  }
+
+  &__top-bar {
+    grid-column: 1 / -1;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__content {
+    @include column-flex;
+
+    gap: 50px;
+    grid-column: 1 / -1;
+  }
+
+  &__icon-close {
+    background-image: url(../images/header/Icon-Close.svg);
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__button {
+    padding: 17px 0;
+    display: block;
+    color: $main-white;
+    width: 100%;
+    text-align: center;
+    background-color: $main-black;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    text-transform: uppercase;
+    border: 1px solid $main-black;
+    transition: $all-transition;
+
+    &:hover {
+      transform: translateY(-5px);
+      background-color: $main-white;
+      color: $main-black;
+    }
+  }
+
+  &__navigation {
+    color: $main-black;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  &__list {
+    @include column-flex;
+
+    gap: 25px;
+  }
+
+  &__link {
+    transition: $all-transition;
+
+    &:hover {
+      font-weight: 700;
+    }
+
+    &::after {
+      background-color: $main-black;
+    }
+  }
+
+  &__add {
+    @include column-flex;
+    
+    gap: 162px;
+  }
+
+  &__text {
+    color: rgb(79, 79, 79);
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 17px;
+    display: flex;
+    gap: 20px;
+  }
+
+  &__bold {
+    color: rgb(51, 51, 51);
+    font-weight: 400;
+  }
+
+  &__lang {
+    color: rgb(130, 130, 130);
+  }
+}

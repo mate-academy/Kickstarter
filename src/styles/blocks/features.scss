@@ -1,0 +1,87 @@
+@import '../utils';
+
+
+.features {
+  font-family: Inter, sans-serif;
+  margin-top: 132px;
+
+  &__swiper {
+    width: 260px;
+    height: 375px
+  }
+
+  &__container {
+    @include grid;
+  }
+
+  &__main {
+    background-color: rgb(214, 236, 236);;
+    grid-column: 1 / -1;
+  }
+
+  &__content {
+    padding-top: 30px;
+  }
+
+  &__title {
+    padding: 0 30px;
+    color: $main-black;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+    grid-column: 1 / -1;
+    margin-bottom: 32px;
+  }
+
+  &__list {
+    color: $main-black;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    gap: 10px;
+    margin-left: 11px;
+  }
+
+
+  &__blocks {
+    display: none;
+  }
+
+  &__block,
+  &__list {
+    @include column-flex;
+  }
+
+  &__block {
+    gap: 20px;
+  }
+
+  &__item {
+    position: relative;
+
+    &::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      position: absolute;
+      left: -11px;
+      top: 8px;
+      background-color: $main-black;
+    }
+  }
+
+  &__subtitle {
+    color: rgb(12, 121, 122);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    text-transform: uppercase;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+}
