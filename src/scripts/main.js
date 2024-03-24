@@ -1,6 +1,6 @@
 'use strict';
 
-const menuListItems = document.querySelectorAll('.nav__list');
+const menuListItems = document.querySelectorAll('.nav__item');
 const closeButton = document.querySelector('.icon--close');
 const menuButton = document.querySelector('.icon--menu');
 
