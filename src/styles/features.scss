@@ -1,0 +1,136 @@
+.features {
+  margin-block: 110px;
+
+  &__title {
+    padding-bottom: 32px;
+  }
+
+  &__box {
+    background-color: $blue-2;
+    padding-top: 30px;
+
+    @include grid(4, 8, 12);
+
+    @include on-desktop {
+      row-gap: 56px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 4 / 9;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 13;
+      grid-row: 2;
+    }
+  }
+}
+
+.advantage {
+  grid-column: 1 / -1;
+
+  @include on-tablet {
+    grid-column: 2 / 6;
+  }
+
+  @include on-desktop {
+    grid-row: 2;
+  }
+
+  &--connectivity {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      grid-column: 2 / 6;
+      grid-row: 1;
+    }
+  }
+
+  &--app {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      grid-column: 7 / 13;
+      grid-row: 1;
+    }
+  }
+
+  &__title {
+    color: $dark-blue;
+  }
+
+  &__list, &__item {
+    list-style: disc;
+  }
+
+  &__list {
+    padding: 20px 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__item {
+    @include text-secondary;
+  }
+}
+
+.slider {
+  grid-column: 1 / -1;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include on-tablet {
+    grid-column: 2 / 4;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__arrows {
+    display: flex;
+    flex-direction: column;
+    writing-mode: vertical-rl;
+  }
+
+  &__numbers {
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+    align-items: flex-end;
+  }
+
+  &__active {
+    @include text-main;
+  }
+
+  &__next {
+    @include quote;
+    
+    font-size: 11px;
+    font-weight: 400;
+    color: $dark-blue;
+  }
+}
+
+.features__box.container {
+  @include on-tablet {
+    padding-inline: 0;
+    margin-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 0;
+    margin-inline: 123px;
+  }
+}

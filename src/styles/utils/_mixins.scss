@@ -1,6 +1,114 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
   }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin grid($mobile, $tablet, $desktop) {
+  display: grid;
+  column-gap: 20px;
+
+  --columns: #{$mobile};
+
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: #{$tablet};
+  }
+
+  @include on-desktop {
+    --columns: #{$desktop};
+
+    column-gap: 30px;
+  }
+}
+
+@mixin after-line {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: $blue;
+  transition: transform .3s;
+  transform: scaleX(0.3);
+  transform-origin: left;
+}
+
+@mixin scale {
+  transition: transform .3s;
+  transform: scale(110%);
+}
+
+@mixin text-button {
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@mixin text-main {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+@mixin text-secondary {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+@mixin text-thirdary {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+@mixin quote {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+
+  @include on-desktop {
+    font-size: 24px;
+    line-height: 36px;
+  }
+}
+
+@mixin h4 {
+  font-size: 22px;
+  line-height: 28px;
+  font-family: Inter, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@mixin h5 {
+  font-size: 16px;
+  line-height: 22px;
+  text-transform: none;
+  font-family: Inter, sans-serif;
+  font-weight: bold;
+}
+
+@mixin h6 {
+  font-size: 14px;
+  line-height: 20px;
+  font-family: Inter, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
 }
