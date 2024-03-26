@@ -1,0 +1,79 @@
+.footer {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  align-items: center;
+
+  height: 96px; // necessary for justify-content to work properly
+
+  @include on-tablet {
+    height: 191px;
+  }
+
+  &__arrow {
+    background-image: url(../images/icons/footer__arrow.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    right: 0;
+
+    width: 50px;
+    height: 50px;
+
+    @include hover-img;
+  }
+
+  // for some reason, space-between doesn't work on this logo
+  &__logo {
+    background-image: url(../images/footer/footer__logo.svg);
+
+    width: 184px;
+    height: 25px;
+
+    @include hover-img;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__icon {
+    height: 24px;
+    width: 24px;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include hover-img;
+
+    &--facebook {
+      background-image: url(../images/icons/footer--facebook.svg);
+    }
+
+    &--twitter {
+      background-image: url(../images/icons/footer--twitter.svg);
+    }
+
+    &--instagram {
+      background-image: url(../images/icons/footer--instagram.svg);
+    }
+  }
+
+  &__footer {
+    margin-block: 30px 0;
+
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #BDBDBD;
+
+    @include on-tablet {
+      margin: 0;
+    }
+  }
+}
