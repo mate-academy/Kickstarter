@@ -1,0 +1,170 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+
+  @include on-tablet {
+    gap: 140px;
+  }
+
+  @include on-desktop {
+    gap: 170px;
+  }
+
+  &__item {
+    @include page-grid;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      grid-column: 5 / span 3;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / span 6;
+    }
+
+    &--reverse {
+      @include on-tablet {
+        grid-column: 1 / span 3;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / span 6;
+      }
+    }
+  }
+
+  &__description {
+    color: $text-color;
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-block: 20px 30px;
+
+    @include on-tablet {
+      grid-column: 5 / span 4;
+      grid-row: 2;
+      margin-block: 0 60px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / span 6;
+    }
+
+    &--reverse {
+      @include on-tablet {
+        grid-column: 1 / span 4;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / span 6;
+      }
+    }
+  }
+
+  &__link {
+    color: $green-color;
+    grid-column: 1 / -1;
+    grid-row: 4;
+
+    @include on-tablet {
+      grid-row: 3;
+      grid-column: 5 / span 2;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / span 2;
+    }
+
+    &--reverse {
+      @include on-tablet {
+        grid-column: 1 / span 2;
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      height: 1px;
+      margin-top: 5px;
+      width: 53px;
+      background: $green-color;
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scaleX(2.39);
+    }
+  }
+
+  &__image-container {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    overflow: hidden;
+    height: 210px;
+    border-radius: 10px;
+
+    @include on-tablet {
+      border-radius: 0 10px 10px;
+      grid-column: 1 / span 4;
+      grid-row: 1 / 5;
+      height: 415px;
+    }
+
+    @include on-desktop {
+      border-radius: 10px;
+      grid-column: 1 / span 6;
+      grid-row: 1 / 6;
+      height: 388px;
+    }
+
+    &--reverse {
+      @include on-tablet {
+        grid-column: 5 / span 4;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / span 6;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      position: absolute;
+      left: 0;
+      width: calc(50% - 10px);
+      height: 415px;
+      border-radius: 0 10px 10px;
+    }
+
+    @include on-desktop {
+      position: static;
+      width: 100%;
+      height: 100%;
+    }
+
+    &--reverse {
+      @include on-tablet {
+        left: auto;
+        right: 0;
+        border-radius: 10 0 0 10px;
+      }
+
+      @include on-desktop {
+        border-radius: 10px;
+      }
+    }
+  }
+}

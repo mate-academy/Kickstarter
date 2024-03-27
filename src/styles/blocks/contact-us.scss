@@ -1,0 +1,72 @@
+.contact-us {
+  @include page-grid;
+
+  row-gap: 27px;
+
+  &__title {
+    font-size: 30px;
+    line-height: 1.25;
+    text-transform: uppercase;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      font-size: 36px;
+      grid-column: 1 / span 4;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      grid-column: 1 / span 6;
+    }
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      grid-column: 5 / span 4;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / span 6;
+    }
+  }
+
+  &__input {
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    background: $background-color;
+    color: $dark-grey-color;
+    height: 48px;
+    border: none;
+    border-radius: 5px;
+    outline: 1px solid $light-grey-color-1;
+    padding: 12px 20px;
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      border: 1px solid green;
+      -webkit-text-fill-color: green;
+      -webkit-box-shadow: 0 0 0 1000px #000 inset;
+    }
+
+    &:focus {
+      outline: 1px solid $green-color;
+    }
+
+    &-textarea {
+      height: 128px;
+      resize: none;
+    }
+  }
+}
