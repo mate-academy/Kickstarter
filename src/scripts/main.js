@@ -39,12 +39,24 @@ function switchLanguage(lang) {
   })
 }
 
+// see-more-link logic
+
+
+const seeMoreLinks = document.querySelectorAll('.see-more-link');
+
+seeMoreLinks.forEach(link => {
+  link.addEventListener('click', function() {
+    alert("Here can be a link to another page in the future");
+  });
+})
+
 
 
 /* menu */
 
 
 const menuLinks = document.querySelectorAll('.menu__link');
+const buyButton = document.querySelectorAll('.buy');
 
 // scrolling logic
 
@@ -54,7 +66,7 @@ const menuSpecs = document.getElementById('menu--specs');
 const menuCloser = document.getElementById('menu--closer');
 
 const menuClosers = [
-  menuLogo, ...menuLinks, menuSpecs, ...pageLanguages, menuCloser
+  menuLogo, ...menuLinks, menuSpecs, ...pageLanguages, menuCloser, ...buyButton
 ];
 
 menuOpener.addEventListener('click', function() {
@@ -76,7 +88,6 @@ menuLinks.forEach(link => {
     link.classList.add('link-visited');
   });
 });
-
 
 
 /* features */
@@ -138,7 +149,7 @@ sliderRight.addEventListener('click', function() {
 const form = document.getElementById('form');
 const submitButton = document.getElementById('submit-button');
 const emailInput = document.getElementById('email');
-  const messageInput = document.getElementById('message');
+const messageInput = document.getElementById('message');
 
 form.addEventListener('submit', function(event) {
   event.preventDefault();
@@ -150,6 +161,15 @@ form.addEventListener('submit', function(event) {
 function updateButtonState() {
   if (!emailInput.value.trim() || !messageInput.value.trim()) {
     submitButton.setAttribute('disabled', 'disabled');
+
+    !emailInput.value.trim()
+      ? emailInput.classList.add('has-error')
+      : emailInput.classList.remove('has-error');
+
+    !messageInput.value.trim()
+      ? messageInput.classList.add('has-error')
+      : messageInput.classList.remove('has-error');
+
   } else {
     submitButton.removeAttribute('disabled');
   }
