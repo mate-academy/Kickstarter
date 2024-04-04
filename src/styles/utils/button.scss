@@ -1,0 +1,101 @@
+$bt-c-black: #131313;
+$bt-c-drk-gray: #333333;
+$bt-c-gray: #D0D0D0;
+$bt-c-green: #CFEFF0;
+$bt-c-green1: #39BEBF;
+$bt-c-green2: #0C797A;
+
+.button {
+  @extend %p-button;
+  width: 100%;
+  height: 100%;
+  transition: all $transition-duration;
+
+  &__primary {
+    border: none;
+
+    &--green {
+      background-color: $bt-c-green1;
+      color: $c-white;
+
+      &:disabled {
+        background-color: $bt-c-green;
+      }
+
+      &:hover {
+        background-color: $bt-c-green2;
+      }
+    }
+
+    &--black {
+      background-color: $bt-c-drk-gray;
+      color: $c-white;
+
+      &:disabled {
+        background-color: $bt-c-gray;
+      }
+
+      &:hover {
+        background-color: $bt-c-black;
+      }
+    }
+  }
+
+  &__secondary {
+    background-color: $c-gray;
+    border-style: solid;
+    border-width: 1px;
+
+    &--green {
+      color: $bt-c-green1;
+      border-color: $bt-c-green1;
+
+      &:hover {
+        background-color: $bt-c-green2;
+        border-color: $bt-c-green2;
+        color: $c-white;
+      }
+    }
+
+    &--black {
+      color: $bt-c-black;
+      border-color: $bt-c-black;
+
+      &:hover {
+        background-color: $bt-c-black;
+        border-color: $bt-c-black;
+        color: $c-white;
+      }
+    }
+  }
+
+  &__nb-secondary {
+    width: fit-content;
+    border: none;
+    background: none;
+
+    &--green {
+      color: $bt-c-green1;
+      padding: 0;
+
+      &::after {
+        display: block;
+        content: '';
+        padding-bottom: 5px;
+        border-bottom: solid 1px $bt-c-green1;
+        transform-origin: 0% 50%;
+        transform: scaleX(0);
+        transition: transform $transition-duration ease-in-out;
+        transform: scaleX(40%);
+      }
+
+      &:hover::after {
+        transform: scaleX(100%);
+      }
+    }
+
+    &--black {
+      color: $bt-c-black;
+    }
+  }
+}
