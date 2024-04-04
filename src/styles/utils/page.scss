@@ -1,0 +1,165 @@
+.page {
+
+  &__body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
+    gap: 110px;
+
+    &:has(.page__menu:target) {
+      overflow: hidden;
+    }
+
+    @include on-tablet {
+      padding-top: 30px;
+      gap: 140px;
+    }
+
+    @include on-desktop {
+      gap: 170px;
+    }
+  }
+
+  &__header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 110px;
+
+    @include on-tablet {
+      grid-template-rows: repeat(3, auto);
+      padding-bottom: 140px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 198px;
+    }
+
+    &-top-bar {
+      @include inline-padding;
+
+      box-sizing: border-box;
+      padding-bottom: 25px;
+      width: 100%;
+
+      display: flex;
+      justify-self: center;
+      align-items: center;
+
+      @include on-tablet {
+        padding-bottom: 130px;
+      }
+
+      @include on-desktop {
+        padding-bottom: 90px;
+      }
+    }
+
+    &-bottom {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+
+      @include on-tablet {
+        @include inline-padding;
+
+        flex-direction: row-reverse;
+      }
+    }
+
+    &-descr {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      padding-top: 40px;
+      padding-inline: $pad-inline-mobile;
+
+      @include on-tablet {
+        width: 340px;
+        padding: 0;
+        gap: 30px;
+      }
+
+      @include on-desktop {
+        width: 380px;
+        padding: 0;
+      }
+    }
+
+    &-bg {
+      width: 100%;
+      height: 245px;
+      background: url(../images/Mobil/img1-mb.png) no-repeat center/contain;
+      flex-shrink: 0;
+
+      @include on-tablet {
+        background-image: url(../images/Mobil/img1-mb.png);
+        height: 317px;
+        width: 430px;
+      }
+
+      @include on-desktop {
+        background-image: url(../images/Desktop/img1.png);
+        height: 464px;
+        width: 816px;
+      }
+    }
+
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 110px;
+
+    @include on-tablet {
+      gap: 140px;
+    }
+
+    @include on-desktop {
+      gap: 170px;
+    }
+  }
+
+  &__form {
+    width: 260px;
+    height: 413px;
+    margin: auto;
+  }
+
+  &__menu {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $c-gray;
+
+    transition: all $transition-duration;
+    transform: translate(-100%);
+    opacity: 0;
+    z-index: 10;
+
+    padding-top: 24px;
+    padding-bottom: 30px;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translate(0%);
+    }
+  }
+
+  &__footer {
+    padding-bottom: 20px;
+
+    @include on-tablet {
+      padding-bottom: 30px;
+    }
+  }
+}
