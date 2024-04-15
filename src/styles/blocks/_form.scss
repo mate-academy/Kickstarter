@@ -1,0 +1,57 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__label {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__input {
+    display: inline-block;
+    box-sizing: border-box;
+
+    width: 100%;
+    margin: 0;
+    padding: 12px 20px;
+
+    outline: none;
+    border: 1px solid $clr--border-form;
+    background-color: $clr--bg;
+
+    @extend %input-form;
+
+    &::placeholder {
+      color: $clr--gray-3;
+      font-family: $font--main;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px; /* 150% */
+    }
+
+    &:focus {
+      border: 1px solid $clr--cyan-3;
+    }
+  }
+
+  &__textarea {
+    height: 120px;
+    align-self: start;
+
+    resize: none;
+
+    @include onTablet {
+      height: 210px;
+    }
+
+    @include onDesktop {
+      height: 128px;
+    }
+  }
+
+  &__btn {
+    margin-top: 10px;
+  }
+}
