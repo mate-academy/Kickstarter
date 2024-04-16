@@ -1,84 +1,75 @@
 .about-us {
-  @include grid;
+  display: flex;
+  flex-direction: column;
 
-  padding: 0 30px;
-
-  &__textwrapper {
-    @include laptop {
-      width: 48%;
-    }
+  @include on-tablet {
+    @include page-grid;
   }
 
   &__img {
-    display: none;
+    margin-top: 30px;
 
-    @include laptop {
-      display: block;
-      width: 48%;
+    width: calc(100vw - 60px);
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin-top: 0;
+      margin-left: -34px;
+
+      max-width: 100%;
+      height: 415px;
+
+      object-fit: cover;
+      object-position: 25%;
+    }
+
+    @include on-desktop {
+      margin: 0;
+      grid-column: 1 / 7;
     }
   }
 
   &__card {
-    grid-column: 1/5;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-
-    @include laptop {
-      grid-column: 1/9;
-      flex-direction: row;
-      gap: 20px;
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      grid-column: 5 / 9;
     }
 
-    @include desktop {
-      grid-column: 1/13;
-      flex-direction: row;
-      gap: 30px;
+    @include on-desktop {
+      grid-column: 7 / -1;
     }
+  }
 
-    &-title {
-      font-weight: 700;
-      font-size: 30px;
-      line-height: 40px;
-      text-transform: uppercase;
-      color: #333;
-      margin-bottom: 30px;
+  &__title {
+    margin: 0;
 
-      @include desktop {
-        font-size: 56px;
-        line-height: 70px;
-      }
+    @include title;
+
+    @include on-tablet {
+      grid-column: 5 / 9;
+
+      order: 2;
     }
-    &-mobile-img {
-      height: 210px;
-      width: 100%;
+  }
 
-      @include laptop {
-        @include visually-hidden
-      }
+  &__description {
+    margin-block: 20px 30px;
+
+    @include description;
+
+    @include on-tablet {
+      grid-column: 5 / 9;
+
+      order: 3;
     }
+  }
 
-    &-info {
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 21px;
-      color: #7C7C7C;
-      margin: 20px 0 30px;
+  &__link {
+    @include on-tablet {
+      grid-column: 5 / 9;
 
-      @include desktop {
-        font-size: 16px;
-        line-height: 24px;
-      }
-    }
-
-    &-link {
-      font-weight: 700;
-      font-size: 12px;
-      line-height: 14px;
-      text-transform: uppercase;
-      color: #0DB2B3;
-      text-decoration: none;
+      order: 3;
     }
   }
 }

@@ -1,65 +1,148 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function() {
-  const prevButton = document.querySelector('.features__buttons--back');
-  const nextButton = document.querySelector('.features__buttons--forward');
-  const featureBlocks = document.querySelectorAll('.features__block');
-  const counter = document.querySelector('.features__counter');
+import { en, ua } from "./languages";
 
-  let currentSlide = 2;
-  const totalSlides = featureBlocks.length;
+const page = document.querySelector('.page');
+const pageLanguages = document.querySelectorAll('.page__language');
 
-  showSlide(currentSlide);
+pageLanguages.forEach(lang => {
+  lang.addEventListener('click', function() {
+    const key = lang.getAttribute('href').replace('#', '');
+    switchLanguage(
+      key === 'EN' ? en : ua
+    );
+    pageLanguages.forEach(one => one.classList.remove('language-selected'));
+    lang.classList.add('language-selected');
+  })
+})
 
-  updateCounter();
-  showAllBlocks();
+function switchLanguage(lang) {
+  document.querySelectorAll('[data-translate]').forEach(element => {
 
-  function showSlide(index) {
-    featureBlocks.forEach((block, i) => {
-      if (i === index) {
-        block.style.display = 'flex';
+    const value = element.getAttribute('data-translate');
+    const id = element.getAttribute('data-id') || '';
+
+    if (lang[value]) {
+      if (id) {
+        element.textContent = lang[value][+id];
       } else {
-        block.style.display = 'none';
+        element.textContent = lang[value];
       }
-    });
-    updateCounter();
-  }
-
-  function showAllBlocks() {
-    if (window.innerWidth >= 1256) {
-      featureBlocks.forEach((block) => {
-        block.style.display = 'flex';
-      });
     }
-  }
+  })
+}
 
-  function updateCounter() {
-    counter.textContent = (currentSlide + 1) + ' / ' + totalSlides;
-  }
+const seeMoreLinks = document.querySelectorAll('.see-more-link');
 
-  prevButton.addEventListener('click', function() {
-    currentSlide = (currentSlide - 1 + featureBlocks.length)
-      % featureBlocks.length;
-    showSlide(currentSlide);
+seeMoreLinks.forEach(link => {
+  link.addEventListener('click', function() {
+    alert("Here can be a link to another page in the future");
   });
+})
 
-  nextButton.addEventListener('click', function() {
-    currentSlide = (currentSlide + 1) % featureBlocks.length;
-    showSlide(currentSlide);
+const menuLinks = document.querySelectorAll('.menu__link');
+const buyButton = document.querySelectorAll('.buy');
+
+const menuOpener = document.getElementById('menu--opener');
+const menuLogo = document.getElementById('menu--logo');
+const menuSpecs = document.getElementById('menu--specs');
+const menuCloser = document.getElementById('menu--closer');
+
+const menuClosers = [
+  menuLogo, ...menuLinks, menuSpecs, ...pageLanguages, menuCloser, ...buyButton
+];
+
+menuOpener.addEventListener('click', function() {
+  page.classList.add('no-scrolling');
+});
+
+menuClosers.forEach(menuCloser => {
+  menuCloser.addEventListener('click', function() {
+    page.classList.remove('no-scrolling');
   });
+})
 
-  function toggleSlider() {
-    if (window.innerWidth >= 1256) {
-      prevButton.style.display = 'none';
-      nextButton.style.display = 'none';
-    } else {
-      prevButton.style.display = 'block';
-      nextButton.style.display = 'block';
-    }
-  }
-  toggleSlider();
-
-  window.addEventListener('resize', function() {
-    toggleSlider();
+menuLinks.forEach(link => {
+  link.addEventListener('click', function() {
+    menuLinks.forEach(l => l.classList.remove('link-visited'));
+    link.classList.add('link-visited');
   });
 });
+
+
+const featureCards = Array.from(document
+  .querySelectorAll('.features__feature'))
+  .reverse();
+
+const sliderLeft = document.getElementById('slider-left');
+const sliderRight = document.getElementById('slider-right');
+const featureIndex = document.querySelector('.displayed-card-index');
+
+sliderLeft.addEventListener('click', function() {
+  const i = featureCards
+    .findIndex(feature => feature.classList.contains('display'));
+
+  if (i > 0) {
+    featureCards[i].classList.replace('display', 'hide');
+    featureCards[i - 1].classList.replace('hide', 'display');
+
+    featureIndex.textContent = `0${i}`;
+  }
+
+  if (i <= 1) {
+    sliderLeft.classList.add('light');
+  }
+
+  sliderRight.classList.remove('light');
+});
+
+sliderRight.addEventListener('click', function() {
+  const i = featureCards
+    .findIndex(feature => feature.classList.contains('display'));
+
+    if (i < 2) {
+      featureCards[i].classList.replace('display', 'hide');
+      featureCards[i + 1].classList.replace('hide', 'display');
+
+      featureIndex.textContent = `0${i + 2}`;
+    }
+
+  if (i === 1) {
+    sliderRight.classList.add('light');
+  }
+
+  sliderLeft.classList.remove('light');
+});
+
+const form = document.getElementById('form');
+const submitButton = document.getElementById('submit-button');
+const emailInput = document.getElementById('email');
+const messageInput = document.getElementById('message');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+
+  form.reset();
+});
+
+function updateButtonState() {
+  if (!emailInput.value.trim() || !messageInput.value.trim()) {
+    submitButton.setAttribute('disabled', 'disabled');
+
+    !emailInput.value.trim()
+      ? emailInput.classList.add('has-error')
+      : emailInput.classList.remove('has-error');
+
+    !messageInput.value.trim()
+      ? messageInput.classList.add('has-error')
+      : messageInput.classList.remove('has-error');
+
+  } else {
+    submitButton.removeAttribute('disabled');
+  }
+}
+
+emailInput.addEventListener('input', updateButtonState);
+
+messageInput.addEventListener('input', updateButtonState)

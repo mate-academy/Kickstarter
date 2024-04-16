@@ -1,45 +1,100 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin hover-img() {
+  transition: all .3s;
+
+  @include on-desktop {
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 
-@mixin visually-hidden() {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-@mixin desktop() {
-  @media (min-width:1256px) {
+@mixin on-mobile {
+  @media (max-width: 639px) {
     @content
   }
-}
+};
 
-@mixin laptop() {
-  @media (min-width:744px) {
+@mixin on-tablet {
+  @media (min-width: 640px) {
     @content
+  }
+};
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content
+  }
+};
+
+
+@mixin no-padding {
+  --margin: -30px;
+
+  margin-inline: var(--margin);
+
+  @include on-tablet {
+    --margin: -34px;
+  }
+
+  @include on-desktop {
+    --margin: -123px;
   }
 }
 
-@mixin grid() {
+@mixin page-grid() {
+  --columns: 4;
+
   display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(4, 50px);
-  gap: 30px;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
 
-  @include laptop {
-    grid-template-columns: repeat(8, 70px);
-    gap: 34px;
+  @include on-tablet {
+    --columns: 8;
   }
 
-  @include desktop {
-    grid-template-columns: repeat(12, 72px);
-    gap: 30px;
+  @include on-desktop {
+    --columns: 12;
+
+    column-gap: 30px;
+  }
+};
+
+@mixin title {
+  font-size: 30px;
+  line-height: 40px;
+
+  @include on-tablet {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  @include on-desktop {
+    font-size: 56px;
+    line-height: 70px;
+  }
+}
+
+@mixin description {
+  font-size: 14px;
+  line-height: 21px;
+  color: $description-text-color;
+
+  @include on-tablet {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.container {
+  --padding: 30px;
+
+  padding-inline: var(--padding);
+
+  @include on-tablet {
+    --padding: 34px;
+  }
+
+  @include on-desktop {
+    --padding: 123px;
   }
 }

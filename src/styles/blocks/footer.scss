@@ -1,72 +1,79 @@
 .footer {
-  @include grid;
+  position: relative;
 
-  &__wrapper {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
 
-    @include laptop {
-      grid-column: 4/6;
-    }
+  justify-content: space-between;
+  align-items: center;
 
-    @include desktop {
-      grid-column: 6/13;
-    }
+  height: 96px;
+
+  @include on-tablet {
+    height: 191px;
+  }
+
+  &__arrow {
+    background-image: url(../images/icons/up-button.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    right: 0;
+
+    width: 50px;
+    height: 50px;
+
+    @include hover-img;
   }
 
   &__logo {
-    display: none;
+    background-image: url(../images/icons/footer-logo.svg);
+    background-repeat: no-repeat;
 
-    @include laptop {
-      display: block;
-      grid-column: 4/6;
-    }
+    width: 180px;
+    height: 25px;
 
-    @include desktop {
-      grid-column: 6/8;
-    }
+    @include hover-img;
   }
 
-  &__up-button {
-    display: none;
-
-    @include desktop {
-      display: block;
-      grid-column: -1/2;
-    }
-  }
-
-  &__social {
-    margin: 0 auto;
-    grid-column: 1/5;
+  &__icons {
     display: flex;
-    flex-direction: row;
     gap: 40px;
+  }
 
-    @include laptop {
-      grid-column: 4/6;
+  &__icon {
+    height: 24px;
+    width: 24px;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include hover-img;
+
+    &--facebook {
+      background-image: url(../images/icons/facebook.svg);
     }
 
-    @include desktop {
-      margin: 60px auto;
-      grid-column: 6/8;
+    &--twitter {
+      background-image: url(../images/icons/twitter.svg);
+    }
+
+    &--instagram {
+      background-image: url(../images/icons/instagram.svg);
     }
   }
 
-  &__privacy-policy {
-    text-align: center;
-    grid-column: 1/5;
-    font-weight: 400;
+  &__footer {
+    margin-block: 30px 0;
+
     font-size: 14px;
     line-height: 21px;
-    color: #828282;
+    text-align: center;
+    color: #BDBDBD;
 
-    @include laptop {
-      grid-column: 3/7;
-    }
-
-    @include desktop {
-      grid-column: 5/9;
+    @include on-tablet {
+      margin: 0;
     }
   }
 }

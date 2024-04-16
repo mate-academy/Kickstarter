@@ -1,24 +1,22 @@
 .presentation {
-  @include grid;
+  display: flex;
+  justify-content: center;
 
-  min-height: 100vh;
-  padding: 110px 12px;
-  background-image: url("../images/presentation.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-
-  @include desktop {
-    background-image: none;
+  @include on-tablet {
+    @include page-grid;
   }
 
-  &__img {
-    display: none;
+  &__image {
+    width: calc(100vw - 24px);
 
-    @include desktop {
-      display: block;
-      height: 520px;
-      grid-column: 3/11;
+    @include on-tablet {
+      grid-column: 1 / -1;
+
+      max-width: 100%;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 12; 
     }
   }
 }

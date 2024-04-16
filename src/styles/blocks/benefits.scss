@@ -1,57 +1,94 @@
 .benefits {
-  @include grid;
-
-  box-sizing: border-box;
-  padding: 110px 30px 0;
-
-  @include laptop {
-    padding: 140px 34px 0;
+  @include on-tablet {
+    @include page-grid;
   }
 
-  @include laptop {
-    padding: 64px 144px 0;
-  }
-
-  &__card {
-    grid-column: 1 / 5;
+  &__links {
     display: none;
 
-    @include laptop {
+    @include on-desktop {
+      grid-column: 4 / -1;
+      margin-block: 28px 90px;
+
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      gap: 70px; // approximate
+    }
+  }
+
+
+  &__benefit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include on-tablet {
       grid-column: span 4;
-      width: 340px;
+
+      &:nth-of-type(1),
+      &:nth-of-type(2) {
+        margin-bottom: 65px;
+      }
     }
 
-    @include desktop {
-      width: 276px;
+    @include on-desktop {
       grid-column: span 3;
     }
+  }
 
-    &--mobile {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+  &__icon {
+    height: 40px;
+    width: 50px;
 
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @for $icon from 1 through 4 {
+      &--#{$icon} {
+        background-image: url(../images/icons/benefits__icon--#{$icon}.svg);
+      }
     }
 
-    &-title {
-    margin: 40px 30px 20px;
-    font-weight: 700;
+    &--2, &--3 {
+      width: 46px;
+    }
+
+    &--3 {
+      height: 37px;
+    }
+
+    &--4 {
+      width: 44px;
+      height: 44px;
+    }
+
+    @include on-desktop {
+      width: 50px;
+      height: 70px;
+    }
+  }
+
+  &__title {
+    margin-block: 40px 0;
+
     font-size: 22px;
+    font-weight: 700;
     line-height: 28px;
-    text-transform: uppercase;
-    color: #333;
-    }
 
-    &-info {
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 21px;
-      color: #333;
+    text-transform: uppercase;
+    text-align: center;
+
+    @include on-desktop {
+      height: 60px; 
     }
+  }
+
+  &__description {
+    margin-block: 20px 0;
+
+    font-size: 14px;
+    line-height: 21px;
+    color: $description-text-color;
+
+    text-align: center;
   }
 }
