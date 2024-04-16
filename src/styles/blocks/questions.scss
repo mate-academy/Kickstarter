@@ -1,0 +1,101 @@
+.questions {
+  @include grid;
+
+  min-height: 100vh;
+
+  @include laptop {
+    padding-top: 140px;
+  }
+
+  &__title {
+    margin: 110px 0 27px;
+    grid-column: 1/4;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #333;
+
+    @include laptop {
+      margin: 0;
+      font-size: 36px;
+      line-height: 46px;
+      grid-column: 1 / 5;
+    }
+
+    @include desktop {
+      font-size: 56px;
+      line-height: 70px;
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__form {
+    grid-column: 1/5;
+
+    @include laptop {
+      grid-column: 5 / 9;
+    }
+
+    @include desktop {
+      grid-column: 7 / 13;
+    }
+  }
+
+  &__label {
+    &:not(:focus) &:not(:active) {
+      @include visually-hidden;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    border: 1px solid #828282;
+    margin-bottom: 20px;
+    height: 48px;
+
+    &::placeholder {
+      font-family: Inter, sans-serif;
+      padding-left: 20px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: left;
+      color: #BDBDBD;
+    }
+
+    &:focus {
+      border: 2px solid #0C797A;
+      outline: none;
+    }
+
+    &--textarea {
+      min-height: 128px;
+
+      @include laptop {
+        min-height: 201px;
+      }
+
+      @include desktop {
+        min-height: 128px;
+      }
+
+      &::placeholder {
+        padding-top: 12px;
+      }
+    }
+  }
+
+  &__button {
+    width: 102px;
+    height: 40px;
+    background: #0DB2B3;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    color: #FFF;
+    border: none;
+    margin-bottom: 110px;
+  }
+}

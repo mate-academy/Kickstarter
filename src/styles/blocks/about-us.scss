@@ -1,0 +1,84 @@
+.about-us {
+  @include grid;
+
+  padding: 0 30px;
+
+  &__textwrapper {
+    @include laptop {
+      width: 48%;
+    }
+  }
+
+  &__img {
+    display: none;
+
+    @include laptop {
+      display: block;
+      width: 48%;
+    }
+  }
+
+  &__card {
+    grid-column: 1/5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+
+    @include laptop {
+      grid-column: 1/9;
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    @include desktop {
+      grid-column: 1/13;
+      flex-direction: row;
+      gap: 30px;
+    }
+
+    &-title {
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 40px;
+      text-transform: uppercase;
+      color: #333;
+      margin-bottom: 30px;
+
+      @include desktop {
+        font-size: 56px;
+        line-height: 70px;
+      }
+    }
+    &-mobile-img {
+      height: 210px;
+      width: 100%;
+
+      @include laptop {
+        @include visually-hidden
+      }
+    }
+
+    &-info {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      color: #7C7C7C;
+      margin: 20px 0 30px;
+
+      @include desktop {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    &-link {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 14px;
+      text-transform: uppercase;
+      color: #0DB2B3;
+      text-decoration: none;
+    }
+  }
+}
