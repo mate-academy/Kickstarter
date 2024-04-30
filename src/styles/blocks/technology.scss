@@ -1,0 +1,66 @@
+.technology {
+  @include on-tablet {
+    @include page-grid;
+  }
+
+  &__img {
+    margin-top: 20px;
+
+    width: calc(100vw - 60px);
+    object-fit: contain;
+
+    @include on-tablet {
+      margin-top: 0;
+      grid-column: 5 / 9;
+      margin-left: 34px;
+
+      height: 415px;
+      max-width: 100%;
+
+      order: 2;
+    }
+
+    @include on-desktop {
+      margin: 0;
+      grid-column: 7 / -1;
+      object-fit: cover;
+
+      height: 401px;
+    }
+  }
+
+  &__title {
+    margin-block: 0;
+
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 46px;
+
+    text-transform: uppercase;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__card {
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__description {
+    margin-block: 20px 30px;
+
+    @include description;
+  }
+}

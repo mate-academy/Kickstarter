@@ -1,0 +1,98 @@
+.header {
+  @include on-tablet {
+    @include page-grid;
+  }
+
+  &__nav {
+    grid-column: span 4;
+
+    @include on-tablet {
+      grid-column: span 8;
+    }
+
+    @include on-desktop {
+      grid-column: span 12;
+    }
+  }
+
+  &__bg {
+    @include no-padding;
+
+    width: 100vw;
+    margin-top: 25px;
+    margin-left: 15px;
+
+    @include on-tablet {
+      margin: 0;
+      margin-top: 148px;
+      margin-left: 25px;
+
+      max-width: 100%;
+      grid-column: 4 / -1;
+
+      order: 2;
+      z-index: -1;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / -1;
+      margin-top: 83px;
+      margin-left: 200px;
+    }
+
+    @include on-mobile {
+      margin-left: -30px;
+    }
+
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 4;
+
+    margin-top: 40px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      margin-top: 10vh;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 5;
+      margin-top: 171px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 52px;
+
+    text-transform: uppercase;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include on-desktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__text {
+    margin-block: 20px 0;
+
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+
+    @include on-tablet {
+      margin-top: 30px;
+    }
+  }
+}
