@@ -2,5 +2,52 @@
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
+    @content;
   }
+}
+
+@mixin active($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:active {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin media-breakpoint($width, $column) {
+  @media (min-width: $width) {
+    grid-template-columns: repeat($column, 1fr);
+    @content;
+  }
+}
+
+@mixin breakpoint($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin flex {
+  display: flex;
+  @content;
+}
+
+@mixin grid($column){
+  display: grid;
+  grid-template-columns: repeat($column, 1fr);
+  column-gap: 20px;
+  align-items: center;
+  @content;
+}
+
+@mixin font-style($weight, $size, $line-height) {
+  @extend %font-family;
+
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+}
+
+@mixin media-font-style($size, $line-height) {
+  font-size: $size;
+  line-height: $line-height;
 }

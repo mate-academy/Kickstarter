@@ -1,0 +1,40 @@
+.header {
+  @include grid(4);
+
+  &__content {
+    grid-column: span 4;
+
+    @include flex {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &__image {
+    grid-column: span 4;
+    margin: 0 -30px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+  }
+
+  @include media-breakpoint($tablet, 8) {
+    row-gap: 130px;
+
+    &__content {
+      grid-column: 1 / 5;
+      grid-row: 2;
+    }
+
+    &__image {
+      grid-column: 5 / -1;
+      grid-row: 2;
+      margin: 0 -34px;
+    }
+
+    &__title {
+      @include media-font-style (48px, 62px);
+    }
+  }
+}

@@ -1,0 +1,96 @@
+.drop-down-menu {
+  position: fixed;
+  top: 76px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  @include flex {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  pointer-events: none;
+  padding: 30px;
+  transform: scale(0);
+  transition: $time_average $time-fast;
+
+  &--active {
+    pointer-events: all;
+    transform: scale(1);
+    background-color: $c-gray;
+  }
+
+  &__content {
+    @include flex {
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+
+  &__switch {
+    @include font-style (300, 14px, 17px);
+
+    color: $gray;
+
+    &::before {
+      content: "SPECS";
+      margin-right: 20px;
+    }
+  }
+
+  &__label {
+    cursor: pointer;
+    padding: 5px;
+    transition: $time_average;
+  }
+
+  &__input:checked + &__label {
+    font-weight: 400;
+    box-shadow: inset 0 0 10px $grayish;
+    border-radius: 50%;
+  }
+
+  &__btn {
+    @include font-style (500, 12px, 15px);
+
+    cursor: pointer;
+    height: 48px;
+    border: none;
+    background-color: $dark-gray;
+    color: $white;
+
+    @include hover(background-color, $blackish);
+    @include active(background-color, $grayish-white);
+  }
+}
+
+.menu {
+
+  &__list {
+    @include flex {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &__item {
+    transition: $time_average;
+
+    @include hover (transform, $scale translateX(6%)) {
+      & > a {
+        font-weight: 700;
+      }
+    };
+  }
+
+  &__link {
+    @include font-style (400, 14px, 20px);
+
+    color: $dark-gray;
+
+    @include breakpoint ($tablet) {
+      @include font-style (400, 22px, 28px);
+    }
+  }
+}
