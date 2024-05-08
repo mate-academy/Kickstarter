@@ -1,0 +1,81 @@
+.main {
+  // @include grid (4);
+
+  // @include media-breakpoint ($tablet, 8);
+  // @include media-breakpoint ($desktop, 12) {
+  //   .benefits {
+  //     grid-column: 1 / -1;
+  //   }
+  // };
+}
+
+.benefits {
+  grid-column: 1 / -1;
+  text-align: center;
+
+  @include grid (4) {
+    align-items: stretch;
+    row-gap: 65px;
+  }
+
+  &__card {
+    grid-column: 1 / -1;
+    max-width: 340px;
+
+    @include flex {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    &:nth-child(n + 2) {
+      display: none;
+    }
+  }
+
+  &__image {
+    width: 50px;
+    height: 40px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+  }
+
+  &__text {
+    @include font-style (400, 14px, 21px);
+    color: $light-gray;
+  }
+
+  @include media-breakpoint ($tablet, 8) {
+
+    &__card {
+
+      &:nth-child(n +2) {
+        display: block;
+      }
+
+      &:nth-child(odd) {
+        grid-column: 1 / 5;
+      }
+
+      &:nth-child(even) {
+        grid-column: 5 / -1;
+      }
+    }
+  }
+
+  @include media-breakpoint ($desktop, 12) {
+
+    &__card {
+
+      &:nth-child(odd) {
+        grid-column: span 3;
+      }
+
+      &:nth-child(even) {
+        grid-column: span 3;
+      }
+    }
+  }
+}

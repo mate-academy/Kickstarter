@@ -2,7 +2,7 @@
   @include grid(4);
 
   &__content {
-    grid-column: span 4;
+    grid-column: 1 / -1;
 
     @include flex {
       flex-direction: column;
@@ -20,10 +20,9 @@
   }
 
   @include media-breakpoint($tablet, 8) {
-    row-gap: 130px;
 
     &__content {
-      grid-column: 1 / 5;
+      grid-column: 1 / 4;
       grid-row: 2;
     }
 
@@ -35,6 +34,33 @@
 
     &__title {
       @include media-font-style (48px, 62px);
+    }
+  }
+
+  @include media-breakpoint($desktop, 12) {
+
+    &__content {
+      grid-column: 1 / 5;
+    }
+
+    &__image {
+      grid-column: 5 / -1;
+    }
+
+    &__title {
+      @include media-font-style (65px, 78px);
+    }
+
+    &__menu {
+      grid-column: 1 / -1;
+
+      &--list {
+        justify-content: center;
+        flex-direction: row;
+        gap: 100px;
+
+        margin-top: 20px;
+      }
     }
   }
 }
