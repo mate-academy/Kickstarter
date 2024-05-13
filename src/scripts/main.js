@@ -1,96 +1,70 @@
 'use strict';
-import { toggleHideAndShow, templateHtml, removeTextNodeDom } from "./functions.js";
-import { benefits } from "./array_of_data.js";
+import {
+  querySelector,
+  querySelectorAll,
+  toggleHideAndShow,
+  templateHtmlForBenefits,
+  templateHtmlForAboutUs,
+  changeThePositionOfTheElement,
+  classHtml,
+  mediaBreakpoint,
+  removeTextNodeDom,
+} from "./functions.js";
 
-// querySelector
-const body = document.querySelector('body');
-const header = document.querySelector('.header');
-const menu = document.querySelector('#menu');
-const menuList = document.querySelector('.menu__list');
-
-const topBar = document.querySelector('.top-bar');
-const menuButton = document.querySelector('.top-bar__menu');
-const menuButtonIcon = document.querySelector('.top-bar__icon');
-
-const burgerMenu = document.querySelector('.drop-down-menu');
-const menuContent = document.querySelector('.drop-down-menu__content');
-const buyButton = document.querySelector('.drop-down-menu__btn');
-const languageSwitcher = document.querySelector('.drop-down-menu__switch');
-
-const benefitsSection = document.querySelector('.benefits');
-
-// #region create a new class for tags
-const CLASS_FOR_THE_BODY = 'body__lock';
-
-const CLASS_FOR_THE_BURGERMENU = 'drop-down-menu--active';
-const CLASS_FOR_THE_MENU_DESCKOP = 'header__menu';
-const CLASS_FOR_THE_MENU_LIST_DESCKOP = 'header__menu--list';
-
-const CLASS_FOR_THE_BUTTON = 'top-bar__btn';
-const CLASS_FOR_THE_SWITCH = 'top-bar__switch';
-const CLASS_FOR_THE_MENU_BUTTON = 'top-bar__menu--active';
-const CLASS_FOR_THE_MENU_BUTTON_ICON = 'top-bar__icon--active';
-// #endregion
-
+import {
+  benefits,
+  aboutUs
+} from "./array_of_data.js";
 
 // #region button menu
-menuButton.addEventListener('click', () => {
+querySelector('top-bar__menu').addEventListener('click', () => {
 
-  menuButton.classList.toggle(CLASS_FOR_THE_MENU_BUTTON);
-  menuButtonIcon.classList.toggle(CLASS_FOR_THE_MENU_BUTTON_ICON);
-  burgerMenu.classList.toggle(CLASS_FOR_THE_BURGERMENU);
-  body.classList.toggle(CLASS_FOR_THE_BODY);
+  querySelector('top-bar__menu').classList.toggle('top-bar__menu--active');
+  querySelector('top-bar__icon').classList.toggle('top-bar__icon--active');
+  querySelector('drop-down-menu').classList.toggle('drop-down-menu--active');
+  querySelector('body').classList.toggle('body__lock');
 
   // hide items
-    toggleHideAndShow (buyButton, rootStyleValue);
-    toggleHideAndShow (languageSwitcher, rootStyleValue);
+    toggleHideAndShow (querySelector('drop-down-menu__btn'), rootStyleValueTablet);
+    toggleHideAndShow (querySelector('drop-down-menu__switch'), rootStyleValueTablet);
   });
 // #endregion
 
-
-  // #region changing the position of elements
-  const rootStyleValue = getComputedStyle(document.documentElement)
-    .getPropertyValue('--tablet')
-    .slice(0, -2)
-  ;
-
-  const rootStyleValueDesckop = getComputedStyle(document.documentElement)
-    .getPropertyValue('--desktop')
-    .slice(0, -2)
-  ;
+// #region changing the position of elements
 
 function trackScreenSize () {
 
-  if (window.innerWidth >= rootStyleValue) {
+  // change the position of lemenets when changing the screen size
+
+  if (window.innerWidth >= mediaBreakpoint('--tablet')) {
 
     // changing the position of the language switcher
-    topBar.appendChild(languageSwitcher);
-    buyButton.classList.add(CLASS_FOR_THE_BUTTON);
+    changeThePositionOfTheElement('top-bar', 'drop-down-menu__switch');
+    classHtml('drop-down-menu__switch', 'add', 'top-bar__switch');
 
     // changing the position of the button
-    topBar.appendChild(buyButton);
-    languageSwitcher.classList.add(CLASS_FOR_THE_SWITCH);
+    changeThePositionOfTheElement('top-bar', 'drop-down-menu__btn');
+    classHtml('drop-down-menu__btn', 'add', 'top-bar__btn');
 
-
-  } else if (window.innerWidth < rootStyleValue) {
-
-    menuContent.appendChild(languageSwitcher);
-    languageSwitcher.classList.remove(CLASS_FOR_THE_SWITCH);
-
-    burgerMenu.appendChild(buyButton);
-    buyButton.classList.remove(CLASS_FOR_THE_BUTTON);
-  }
-
-  // changing the position of the menu and show it
-  if (window.innerWidth >= rootStyleValueDesckop) {
-    header.appendChild(menu);
-    menuList.classList.add(CLASS_FOR_THE_MENU_LIST_DESCKOP);
-    menu.classList.add(CLASS_FOR_THE_MENU_DESCKOP);
   } else {
-    menuContent.appendChild(menu);
-    menuList.classList.remove(CLASS_FOR_THE_MENU_LIST_DESCKOP);
-    menu.classList.remove(CLASS_FOR_THE_MENU_DESCKOP);
-  }
+    changeThePositionOfTheElement('drop-down-menu', 'drop-down-menu__btn');
+    changeThePositionOfTheElement('drop-down-menu__content', 'drop-down-menu__switch');
+
+    classHtml('drop-down-menu__switch', 'remove', 'top-bar__switch');
+    classHtml('drop-down-menu__btn', 'remove', 'top-bar__btn');
+  };
+
+  if (window.innerWidth >= mediaBreakpoint('--desktop')) {
+
+    changeThePositionOfTheElement('header', 'menu');
+    classHtml('menu', 'add', 'header__menu');
+    classHtml('menu__list', 'add', 'header__menu--list');
+  } else {
+
+    changeThePositionOfTheElement('drop-down-menu__content', 'menu');
+    classHtml('menu', 'remove', 'header__menu');
+    classHtml('menu__list', 'remove', 'header__menu--list');
+  };
 };
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -104,5 +78,9 @@ window.addEventListener('resize', () => {
 // #endregion
 
 // section benefits view all objects
-benefitsSection.innerHTML = benefits.map(templateHtml);
-removeTextNodeDom(document.querySelectorAll('.benefits__card'));
+querySelector('benefits').innerHTML = benefits.map(templateHtmlForBenefits);
+// removeTextNodeDom(document.querySelectorAll('.benefits__card'));
+
+// section about us view all objects
+querySelector('about-us').innerHTML = aboutUs.map(templateHtmlForAboutUs);
+// removeTextNodeDom(document.querySelectorAll('.about-us__card'));

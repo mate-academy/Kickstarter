@@ -22,3 +22,17 @@ export const benefits = [
     image: 'sun.4138b29b.svg',
   }
 ];
+
+export const aboutUs = [
+  { title: 'Designed for the future',
+    text: 'In 2014, a group of geeky industrial designers, engineering veterans and acoustic experts formed crazybaby. This is a bunch of passionate people who are crazy enough to think they can challenge the industry with disruptive audio products. ',
+    link: '#',
+    'image': 'd-3.ceb501b3.png',
+  },
+
+  { title: 'Luna Eye',
+    text: 'Luna Eye is to the essence of this innovative light and audio system. It comprises an independent tweeter speaker, a light guiding component, a dome and a ring ornament.',
+    link: '#',
+    'image': 'd-4.a74aad9d.png',
+  },
+];

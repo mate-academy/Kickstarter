@@ -1,12 +1,10 @@
 .main {
-  // @include grid (4);
+  @include grid (4) {
+    row-gap: 100px;
+  }
 
-  // @include media-breakpoint ($tablet, 8);
-  // @include media-breakpoint ($desktop, 12) {
-  //   .benefits {
-  //     grid-column: 1 / -1;
-  //   }
-  // };
+  @include media-breakpoint ($tablet, 8);
+  @include media-breakpoint ($desktop, 12);
 }
 
 .benefits {
@@ -14,7 +12,7 @@
   text-align: center;
 
   @include grid (4) {
-    align-items: stretch;
+    justify-items: center;
     row-gap: 65px;
   }
 
@@ -40,10 +38,12 @@
 
   &__title {
     text-transform: uppercase;
+    height: 56px;
   }
 
   &__text {
     @include font-style (400, 14px, 21px);
+
     color: $light-gray;
   }
 
@@ -52,7 +52,7 @@
     &__card {
 
       &:nth-child(n +2) {
-        display: block;
+        @include flex;
       }
 
       &:nth-child(odd) {
@@ -75,6 +75,151 @@
 
       &:nth-child(even) {
         grid-column: span 3;
+      }
+    }
+  }
+}
+
+.presentaion {
+  grid-column: 1 / -1;
+}
+
+.about-us {
+  grid-column: 1 / -1;
+
+  @include grid (4) {
+    justify-items: center;
+    row-gap: 65px;
+  }
+
+  &__card {
+    grid-column: 1 / -1;
+
+    @include grid (4) {
+      row-gap: 30px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    text-transform: uppercase;
+  }
+
+  &__img {
+    grid-column: 1 / -1;
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+
+    @include flex {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__text {
+    @include font-style (400, 14px, 21px);
+
+    color: $light-gray;
+  }
+
+  &__link {
+    position: relative;
+
+    @include font-style (700, 12px, 14px);
+
+    text-transform: uppercase;
+    color: $aqua;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+
+      width: 53px;
+      height: 2px;
+
+      background-color: $aqua;
+    }
+  }
+
+  @include media-breakpoint ($tablet, 8) {
+
+    &__img {
+      height: 415px;
+    }
+
+    &__title {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    &__text {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &__card {
+      @include grid (8) {
+        align-items: stretch;
+      }
+
+      &:nth-child(odd) {
+
+        & > .about-us__img {
+          grid-row: 1 / span 2;
+          grid-column: 1 / 5;
+          margin-left: -34px;
+        }
+
+        & > .about-us__content {
+          grid-column: 5 / -1;
+        }
+
+        & > .about-us__title {
+          grid-column: 5 / -1;
+        }
+      }
+
+      &:nth-child(even) {
+
+        & > .about-us__img {
+          grid-column: 5 / -1;
+          grid-row: 1 / span 2;
+          margin-left: 34px;
+        }
+
+        & > .about-us__content {
+          grid-column: 1 / 5;
+        }
+
+        & > .about-us__title {
+          grid-column:  1 / 5;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint ($desktop, 12) {
+
+    &__img {
+      height: 388px;
+    }
+
+    &__title {
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    &__card {
+
+      &:nth-child(odd), &:nth-child(even) {
+
+        & > .about-us__img {
+          margin-left: 0;
+        }
       }
     }
   }
