@@ -1,0 +1,59 @@
+.speaker {
+  position: relative;
+
+  @include on-tablet {
+    margin-block: 130px;
+    display: flex;
+  }
+
+  &__picture {
+    @include on-tablet {
+      position: absolute;
+      right: 0;
+      width: 52%;
+    }
+
+    @include on-desktop {
+      width: auto;
+      height: 400px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+
+    @include on-desktop {
+      width: auto;
+      height: 400px;
+    }
+  }
+
+  &__describe {
+    @include grid(4, 8, 12);
+
+    row-gap: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+    
+    @include text-main;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+  }
+}

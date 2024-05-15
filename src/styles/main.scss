@@ -1,7 +1,122 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import 'button';
+@import 'card';
+@import 'icon';
+@import 'footer';
+@import 'header';
+@import 'menu';
+@import 'nav';
+@import 'speaker';
+@import 'about';
+@import 'features';
+@import 'qa';
+@import 'testimonials';
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
-  background: $c-gray;
+  background-color: $white;
+}
+
+body, p, ul, li {
+  margin: 0;
+}
+
+ul, li, a {
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  color: $black-1;
+}
+
+.lock-scrollbar {
+  @include on-tablet {
+    overflow-y: scroll !important;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.container {
+  padding-inline: 30px;
+  margin: 0 auto;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 52px;
+
+  @include on-tablet {
+    font-size: 48px;
+    line-height: 62px;
+  }
+
+  @include on-desktop {
+    font-size: 64px;
+    line-height: 78px;
+  }
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 40px;
+
+  @include on-tablet {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  @include on-desktop {
+    font-size: 56px;
+    line-height: 70px;
+  }
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 22px;
+
+  @include on-tablet {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  @include on-desktop {
+    font-size: 34px;
+    line-height: 42px;
+  }
+}
+
+img {
+  transition: all .3s;
+}
+
+img:hover {
+  transform: scale(1.03);
 }
