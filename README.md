@@ -16,7 +16,7 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Uj
 √ 1. Implement `Testimonilas` block.
 √ 1. Implement `Features` block.
 √ 1. Implement `Questions` block
-1. Implement the footer.
+√ 1. Implement the footer.
 
 
 ## Github flow

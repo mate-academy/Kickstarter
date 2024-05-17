@@ -140,9 +140,17 @@
 
       width: 53px;
       height: 2px;
+      transition: $time-fast;
 
       background-color: $aqua;
     }
+
+      &:hover {
+
+        &::after {
+          width: 130px;
+        }
+      }
   }
 
   @include media-breakpoint ($tablet, 8) {
@@ -510,6 +518,9 @@
 
     background-color: $aqua;
     color: $white;
+
+    @include hover (background-color, $aqua-darker);
+    @include active (background-color, $light-aqua);
    }
 
    @include breakpoint ($tablet) {

@@ -81,7 +81,7 @@ export const templateHtmlForAboutUs = (name) => {
 
 // template for features section
 export function templateHtmlForFeatures (name) {
-  return `<section class="features__block">
+  return `<article class="features__block">
             <h6 class="features__subtitle">${name.title}</h6>
 
             <ul class="features__list">
@@ -92,6 +92,6 @@ export function templateHtmlForFeatures (name) {
               <li class="features__item">${name.list.item_5}</li>
               <li class="features__item">${name.list.item_6}</li>
             </ul>
-          </section>`
+          </article>`
 }
 //#endregion
