@@ -11,7 +11,6 @@ export const mediaBreakpoint = (mediaBreakpoint) => {
         .getPropertyValue(mediaBreakpoint)
         .slice(0, -2);
 };
-
 // #endregion
 
 // #region moving and positioning elements
@@ -28,25 +27,14 @@ export function toggleHideAndShow (nameElem, breakpoint) {
     nameElem.style.display = (nameElem.style.display === 'none') ? 'block' : 'none';
   }
 };
-
 // #endregion
 
-// #region deleting items
+// #region manipulation of classes
 
-// classes to add or remove
+// creating and deleting classes
 export function classHtml (className, event, newClass) {
   return querySelector(className).classList[event](newClass);
 };
-
-
-// remove a #text node DOM
-export const removeTextNodeDom = function (name) {
-  for (let i of name) {
-      // i.nextSibling.remove();
-      i.nextSibling.remove();
-  };
-};
-
 // #endregion
 
 // #region templates html
@@ -89,5 +77,21 @@ export const templateHtmlForAboutUs = (name) => {
               </a>
             </div>
           </article>`;
+}
+
+// template for features section
+export function templateHtmlForFeatures (name) {
+  return `<section class="features__block">
+            <h6 class="features__subtitle">${name.title}</h6>
+
+            <ul class="features__list">
+              <li class="features__item">${name.list.item_1}</li>
+              <li class="features__item">${name.list.item_2}</li>
+              <li class="features__item">${name.list.item_3}</li>
+              <li class="features__item">${name.list.item_4}</li>
+              <li class="features__item">${name.list.item_5}</li>
+              <li class="features__item">${name.list.item_6}</li>
+            </ul>
+          </section>`
 }
 //#endregion

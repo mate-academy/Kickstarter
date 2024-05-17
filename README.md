@@ -9,13 +9,13 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Uj
 √ - Mobile (> 320px)
 
 √ 1. Implement the header with `nav`.
-1. Implement `Benefits` block.
-1. Implement `Presentation` block.
-1. Implement `About us` block.
-1. Implement `Technology` block.
-1. Implement `Testimonilas` block.
-1. Implement `Features` block.
-1. Implement `Questions` block
+√ 1. Implement `Benefits` block.
+√ 1. Implement `Presentation` block.
+√ 1. Implement `About us` block.
+√ 1. Implement `Technology` block.
+√ 1. Implement `Testimonilas` block.
+√ 1. Implement `Features` block.
+√ 1. Implement `Questions` block
 1. Implement the footer.
 
 
@@ -33,8 +33,8 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Uj
 10. `git add . && git commit -m 'solution'` to save your changes
 √ 11. `git push origin develop` - to send you code for PR
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
-13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/Kickstarter/)
+√ 13. Replace `<your_account>` with your Github username in the
+  [DEMO LINK](https://YevhenPodobedo.github.io/Kickstarter/)
 14. Copy `DEMO LINK` to the PR description
 
 > To update you PR repeat steps 7-11

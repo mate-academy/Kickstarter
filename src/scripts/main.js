@@ -1,19 +1,19 @@
 'use strict';
 import {
   querySelector,
-  querySelectorAll,
   toggleHideAndShow,
-  templateHtmlForBenefits,
-  templateHtmlForAboutUs,
-  changeThePositionOfTheElement,
   classHtml,
   mediaBreakpoint,
-  removeTextNodeDom,
+  changeThePositionOfTheElement,
+  templateHtmlForBenefits,
+  templateHtmlForAboutUs,
+  templateHtmlForFeatures,
 } from "./functions.js";
 
 import {
   benefits,
-  aboutUs
+  aboutUs,
+  features,
 } from "./array_of_data.js";
 
 // #region button menu
@@ -78,9 +78,12 @@ window.addEventListener('resize', () => {
 // #endregion
 
 // section benefits view all objects
-querySelector('benefits').innerHTML = benefits.map(templateHtmlForBenefits);
-// removeTextNodeDom(document.querySelectorAll('.benefits__card'));
+querySelector('benefits').innerHTML = benefits.map(templateHtmlForBenefits).join('');
 
 // section about us view all objects
-querySelector('about-us').innerHTML = aboutUs.map(templateHtmlForAboutUs);
-// removeTextNodeDom(document.querySelectorAll('.about-us__card'));
+querySelector('about-us').innerHTML = aboutUs.map(templateHtmlForAboutUs).join('');
+
+// section features view all objects
+querySelector('features__content').innerHTML = features.map(templateHtmlForFeatures).join('');
+
+
