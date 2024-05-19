@@ -1,0 +1,68 @@
+.managementSlider {
+  grid-column: 1 / -1;
+  margin: 50px auto 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+
+  @include on-tablet {
+    grid-column: 2 / 3;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.arrowsSlides {
+  display: flex;
+  cursor: pointer;
+  width: 110px;
+  position: relative;
+  top: -50px;
+  left: 0;
+  height: 16px;
+  margin: 0 auto;
+
+  @include on-tablet {
+    margin: inherit;
+  }
+}
+
+.arrow-button {
+  @extend %reset-button;
+
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  width: 48px;
+  height: 14px;
+
+  &:hover svg path {
+    fill: $color-cyan-3;
+  }
+}
+
+.prev-button {
+  transform: rotate(180deg);
+}
+
+.slider-features__numSlide {
+  color: $color-gray;
+  font-family: $font-main;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.slider-features__totalSlide {
+  color: $color-cyan-3;
+  font-family: $font-main;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

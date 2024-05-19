@@ -1,0 +1,69 @@
+.footer {
+  padding-top: 110px;
+
+  @include on-tablet {
+    padding-top: 140px;
+  }
+
+  @include on-desktop {
+    padding-top: 170px;
+  }
+
+  &__layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__logo {
+    @include on-view-tablet;
+    @include hover(transform, scale(1.1));
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    padding-top: 60px;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    cursor: pointer;
+
+    @include hover(transform, scale(1.2));
+
+    &--facebook {
+      background-image: url('../images/icons/icon-facebook.svg');
+    }
+
+    &--twitter {
+      background-image: url('../images/icons/icon-twitter.svg');
+    }
+
+    &--instagram {
+      background-image: url('../images/icons/icon-instagram.svg');
+    }
+  }
+
+  &__copyright {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    color: $color-gray-3;
+    font-family: $font-main;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px; /* 150% */
+
+    @include on-tablet {
+      padding-top: 60px;
+    }
+  }
+}

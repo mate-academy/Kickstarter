@@ -1,0 +1,91 @@
+.header {
+  &__grid {
+    @include page-grid;
+  }
+
+  &__logo {
+    @include hover(transform, scale(1.1));
+  }
+
+  &__top {
+    grid-column: 1 / -1;
+  }
+
+  &__col1 {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__title {
+    position: relative;
+    padding-top: 40px;
+
+    @include on-tablet {
+      padding-top: 130px;
+      margin-right: -30px;
+    }
+
+    @include on-desktop {
+      padding-top: 170px;
+    }
+  }
+
+  &__text {
+    padding-top: 20px;
+
+    color: $color-gray;
+    font-size: 16px;
+    line-height: 24px;
+
+    @include on-tablet {
+      padding-top: 30px;
+    }
+  }
+
+  &__image {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    margin-left: -30px;
+    margin-right: -30px;
+
+    height: 245px;
+
+    background-image: url('../images/header/header-bg-mobile.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include on-tablet {
+      margin: 0;
+      padding-top: 150px;
+
+      height: 317px;
+      grid-column: 4 / -1;
+
+      background-image: url('../images/header/header-bg-tablet.png');
+    }
+
+    @include on-desktop {
+      padding-top: 90px;
+      margin-left: -30px;
+
+      height: 464px;
+      grid-column: 5 / -1;
+
+      background-image: url('../images/header/header-bg-desktop.png');
+    }
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+
+    margin: 0 auto;
+  }
+}
