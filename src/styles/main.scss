@@ -1,7 +1,35 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import 'blocks';
+
+html {
+  scroll-behavior: smooth;
+  &:has(.menu:target) {
+    overflow: hidden;
+  }
+}
 
 body {
-  background: $c-gray;
+  background-color: $c-gray;
+  font-family: Inter, sans-serif;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: $dark-gray-color;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 110px;
+
+  @include on-tablet {
+    row-gap: 140px;
+  }
+
+  @include on-desktop {
+    row-gap: 170px;
+  }
 }

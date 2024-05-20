@@ -1,0 +1,43 @@
+.top-bar {
+  &__content {
+    padding-block: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    @include hover(transform, scale(1.02));
+  }
+
+  &__navigations {
+    display: none;
+
+    @include on-tablet {
+      flex: 1 0 auto;
+      display: block;
+      text-align: end;
+      padding-right: 40px;
+    }
+
+    @include on-desktop {
+      padding-right: 0;
+    }
+  }
+  &__button--menu {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-image: url('../images/icon-burger-menu.svg');
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+  &__button--close {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url('../images/icon-close.svg');
+  }
+}
