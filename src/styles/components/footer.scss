@@ -11,15 +11,14 @@
   &__social-networks {
     grid-column: 1 / -1;
 
-    @include flex {
+    @include display (flex, row, 30px) {
       justify-content: center;
       align-items: center;
-      gap: 30px;
     }
   }
 
   &__link {
-    @include hover (transform, $scale);
+    @include hover (transform, $scale, $time-fast);
   }
 
   @include media-breakpoint ($tablet, 8) {
@@ -34,14 +33,15 @@
       display: block;
       width: 50px;
 
-      &--icon{
+      &--icon {
         border-radius: 50%;
         transition: $time_average;
 
-        &:hover {
-          box-shadow: inset 0 0 10px $dark-gray, 0 0 10px $dark-gray;
-          transform: $scale;
+        @include hover (transform, $scale, $time-fast) {
+          box-shadow: $shadow;
         }
+
+        @include active (box-shadow, inset 0 0 10px $dark-gray);
       }
     }
   }

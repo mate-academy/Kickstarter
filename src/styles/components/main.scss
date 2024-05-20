@@ -20,10 +20,8 @@
     grid-column: 1 / -1;
     max-width: 340px;
 
-    @include flex {
-      flex-direction: column;
+    @include display (flex, column, 20px) {
       align-items: center;
-      gap: 20px;
     }
 
     &:nth-child(n + 2) {
@@ -52,7 +50,7 @@
     &__card {
 
       &:nth-child(n +2) {
-        @include flex;
+        @include display (flex, column, 20px);
       }
 
       &:nth-child(odd) {
@@ -112,10 +110,7 @@
   &__content {
     grid-column: 1 / -1;
 
-    @include flex {
-      flex-direction: column;
-      gap: 30px;
-    }
+    @include display (flex, column, 30px);
   }
 
   &__text {
@@ -146,7 +141,6 @@
     }
 
       &:hover {
-
         &::after {
           width: 130px;
         }
@@ -237,17 +231,13 @@
   grid-column: 1 / -1;
   margin-top: 110px;
 
-  @include flex {
-    flex-direction: column;
+  @include display (flex, column, 30px) {
     align-items: center;
-    gap: 30px;
   }
 
   &__card-user {
-    @include flex {
-      flex-direction: inherit;
+    @include display (inherit, inherit, 10px) {
       align-items: inherit;
-      gap: 10px;
     }
   }
 
@@ -323,11 +313,7 @@
 
   &__list {
     @include font-style (400, 14px, 21px);
-
-    @include flex {
-      flex-direction: column;
-      gap: 10px;
-    }
+    @include display(flex, column, 10px);
 
     padding: 0;
   }
@@ -376,7 +362,8 @@
 
     @include hover (
       filter, sepia(100%) saturate(10000%) hue-rotate(180deg)
-              drop-shadow(0 0 2px $aqua-darker)
+              drop-shadow(0 0 2px $aqua-darker),
+              $time-fast
     );
   }
 
@@ -472,18 +459,12 @@
 .questions {
   grid-column: 1 / -1;
 
-  @include flex {
-    flex-direction: column;
-    gap: 20px;
-  };
+  @include display (flex, column, 20px);
 
   &__form {
     grid-column: 1 / -1;
 
-    @include flex {
-      flex-direction: column;
-      gap: 20px;
-    }
+    @include display (flex, column, 20px);
   }
 
    &__input {
@@ -519,7 +500,7 @@
     background-color: $aqua;
     color: $white;
 
-    @include hover (background-color, $aqua-darker);
+    @include hover (background-color, $aqua-darker, $time-fast);
     @include active (background-color, $light-aqua);
    }
 

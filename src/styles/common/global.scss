@@ -10,16 +10,13 @@ html {
 }
 
 .body {
+  @extend %font-family;
+
   margin: 0 $retreat 50px;
   background: $c-gray;
   color: $dark-gray;
 
-  @include flex {
-    flex-direction: column;
-    gap: 100px;
-  }
-
-  @extend %font-family;
+  @include display (flex, column, 100px);
 
   @media (min-width: $tablet) {
     margin: 0 34px 50px;
@@ -38,4 +35,8 @@ img {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+li {
+  cursor: pointer;
 }

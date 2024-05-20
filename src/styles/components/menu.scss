@@ -5,8 +5,7 @@
   right: 0;
   height: 80vh;
 
-  @include flex {
-    flex-direction: column;
+  @include display (flex, column, 0) {
     justify-content: space-between;
   }
 
@@ -22,13 +21,12 @@
   }
 
   &__content {
-    @include flex {
-      flex-direction: column;
-      gap: 40px;
-    }
+    @include display (flex, column, 40px);
   }
 
   &__switch {
+    order: 2;
+
     @include font-style (300, 14px, 17px);
 
     color: $gray;
@@ -60,34 +58,39 @@
     background-color: $dark-gray;
     color: $white;
 
-    @include hover(background-color, $blackish);
-    @include active(background-color, $grayish-white);
+    @include hover (background-color, $blackish, $time-fast);
+    @include active (background-color, $grayish-white);
   }
 }
 
 .menu {
 
   &__list {
-    @include flex {
-      flex-direction: column;
-      gap: 20px;
-    }
+    @include display (inline-flex, column, 20px);
   }
 
   &__item {
-    transition: $time_average;
+    padding: 5px 10px;
+    border-radius: 15px;
 
-    @include hover (transform, $scale translateX(6%)) {
-      & > a {
-        font-weight: 700;
-      }
-    };
+    @include hover (transform, $scale, $time-fast);
+    @include active (box-shadow, inset -5px 5px 10px 3px $dark-gray);
+
+    @include breakpoint ($desktop) {
+    @include hover (transform, $scale, $time_average) {
+      box-shadow: $shadow;
+    }
+
+    @include active (box-shadow, inset -5px 5px 10px 3px $dark-gray);
+    }
   }
 
   &__link {
     @include font-style (400, 14px, 20px);
 
     color: $dark-gray;
+
+    @include hover (font-weight, 700, $time-fast);
 
     @include breakpoint ($tablet) {
       @include font-style (400, 22px, 28px);

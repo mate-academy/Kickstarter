@@ -1,8 +1,9 @@
 'use strict';
 import {
   querySelector,
-  toggleHideAndShow,
+  querySelectorAll,
   classHtml,
+  toggleHideAndShow,
   mediaBreakpoint,
   changeThePositionOfTheElement,
   templateHtmlForBenefits,
@@ -16,17 +17,40 @@ import {
   features,
 } from "./array_of_data.js";
 
-// #region button menu
+// #region menu
+
+// button burger-menu
 querySelector('top-bar__menu').addEventListener('click', () => {
 
   querySelector('top-bar__menu').classList.toggle('top-bar__menu--active');
   querySelector('top-bar__icon').classList.toggle('top-bar__icon--active');
   querySelector('drop-down-menu').classList.toggle('drop-down-menu--active');
-  querySelector('body').classList.toggle('body__lock');
+
+  (querySelector('top-bar__icon--active')
+    ? classHtml('body', 'add', 'body__lock')
+    : classHtml('body', 'remove', 'body__lock')
+  );
 
   // hide items
-    toggleHideAndShow (querySelector('drop-down-menu__btn'), rootStyleValueTablet);
-    toggleHideAndShow (querySelector('drop-down-menu__switch'), rootStyleValueTablet);
+    toggleHideAndShow (querySelector(
+      'drop-down-menu__btn',
+      'drop-down-menu__switch'
+    ), mediaBreakpoint('--tablet'));
+  });
+
+  // menu content
+  querySelector('menu').addEventListener('click', (event) => {
+    // check clisk in an empty space
+    if(event.target.tagName !== 'A') {
+      return false;
+    }
+
+    querySelectorAll('menu').forEach(() => {
+      classHtml('body', 'remove', 'body__lock');
+      classHtml('top-bar__menu', 'remove', 'top-bar__menu--active');
+      classHtml('top-bar__icon', 'remove', 'top-bar__icon--active');
+      classHtml('drop-down-menu', 'remove', 'drop-down-menu--active');
+    })
   });
 // #endregion
 
@@ -47,8 +71,8 @@ function trackScreenSize () {
     classHtml('drop-down-menu__btn', 'add', 'top-bar__btn');
 
   } else {
-    changeThePositionOfTheElement('drop-down-menu', 'drop-down-menu__btn');
     changeThePositionOfTheElement('drop-down-menu__content', 'drop-down-menu__switch');
+    changeThePositionOfTheElement('drop-down-menu', 'drop-down-menu__btn');
 
     classHtml('drop-down-menu__switch', 'remove', 'top-bar__switch');
     classHtml('drop-down-menu__btn', 'remove', 'top-bar__btn');

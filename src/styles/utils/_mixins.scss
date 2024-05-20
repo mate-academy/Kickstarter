@@ -1,15 +1,16 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover($property, $value, $speed) {
+  transition: #{$property} $speed;
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $value;
     @content;
   }
 }
 
-@mixin active($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin active($property, $toValue) {
+  transition: #{$property} 300ms;
   &:active {
-    #{$_property}: $_toValue;
+    #{$property}: $toValue;
+    @content;
   }
 }
 
@@ -26,8 +27,10 @@
   }
 }
 
-@mixin flex {
-  display: flex;
+@mixin display($display, $direction, $gap) {
+  display: $display;
+  flex-direction: $direction;
+  gap: $gap;
   @content;
 }
 
