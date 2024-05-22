@@ -1,0 +1,113 @@
+.page {
+  &--menu-open {
+    overflow: hidden;
+    max-height: 100vh;
+  }
+
+  &__container {
+    min-width: 320px;
+    padding-inline: 30px;
+    background-image: url('/src/images/header/header-bg-mobile.png');
+    background-position: right 76px;
+
+    background-size: 320px 245px;
+    background-repeat: no-repeat;
+
+    @include on-tablet {
+      padding-inline: 34px;
+      background-image: url('/src/images/header/header-bg-tablet.png');
+      background-size: 430px 317px;
+      background-position: calc(100% - 35px) 225px;
+    }
+
+    @include on-desktop {
+      padding-inline: 123px;
+      max-width: 1440px;
+      margin-inline: auto;
+      background-image: url('/src/images/header/header-bg-desktop.png');
+      background-size: 816px 464px;
+      background-position: calc(100% - 123px) 138px;
+    }
+  }
+
+  &__nav {
+    @include before-desktop {
+      height: 100vh;
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      left: 0;
+    }
+
+    @include on-desktop {
+      margin-top: 170px;
+      overflow: hidden;
+      position: sticky;
+      z-index: 10;
+      top: -1px;
+    }
+  }
+
+  &__benefits {
+    margin-top: 110px;
+
+    @include on-tablet {
+      margin-top: 140px;
+    }
+
+    @include on-desktop {
+      margin-top: 62px;
+    }
+  }
+
+  &__presentation {
+    position: relative;
+    width: calc(100% + 36px);
+    padding-bottom: 75%;
+    margin-left: -18px;
+
+    @include on-tablet {
+      width: 100%;
+      margin-left: 0;
+      padding-bottom: min(61.43%, 520px);
+    }
+
+    @include on-desktop {
+      padding-bottom: 0;
+      height: 520px;
+    }
+  }
+
+  &__presentationImg {
+    position: absolute;
+    inset: 0;
+    object-fit: contain;
+
+    width: 100%;
+    height: 100%;
+    max-width: 846px;
+    margin-inline: auto;
+  }
+
+  &__presentation,
+  &__about-us,
+  &__testimony,
+  &__features,
+  &__contact-us,
+  &__footer {
+    margin-top: 110px;
+
+    @include on-tablet {
+      margin-top: 140px;
+    }
+
+    @include on-desktop {
+      padding-top: 100px;
+      margin-top: 70px;
+    }
+  }
+
+  &__footer {
+    position: relative;
+  }
+}

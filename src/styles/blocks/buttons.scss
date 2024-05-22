@@ -1,0 +1,39 @@
+.button {
+  @extend %button;
+
+  cursor: pointer;
+  color: $primary-50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 100px;
+  background: $primary-600;
+  text-decoration: none;
+  border: none;
+  transition: background-color 0.3s;
+
+  @include hover {
+    background: $primary-700;
+  }
+
+  &:disabled,
+  &--disabled {
+    pointer-events: none;
+    background: $primary-300;
+    cursor: auto;
+  }
+
+  &--secondary {
+    background: $secondary-400;
+
+    @include hover {
+      background: $secondary-700;
+    }
+
+    &:disabled,
+    &--disabled {
+      background: $secondary-300;
+    }
+  }
+}

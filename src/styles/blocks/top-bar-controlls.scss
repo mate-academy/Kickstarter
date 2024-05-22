@@ -1,0 +1,63 @@
+.top-bar-controlls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+  @include before-tablet {
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  &__links {
+    display: flex;
+    gap: 20px;
+
+    @extend %thirdary;
+
+    @include on-tablet {
+      gap: 30px;
+    }
+  }
+
+  &__link {
+    color: $primary-500;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    @include hover {
+      color: $primary-200;
+    }
+  }
+
+  &__languages {
+    display: flex;
+    gap: 3px;
+    color: $primary-600;
+  }
+
+  &__language {
+    text-decoration: none;
+    color: $primary-300;
+    transition: color 0.3s;
+
+    @include hover {
+      color: inherit;
+    }
+
+    &--selected {
+      color: inherit;
+
+      @include hover {
+        color: $primary-300;
+      }
+    }
+  }
+
+  &__acction-link {
+    @include before-tablet {
+      width: 100%;
+    }
+  }
+}
