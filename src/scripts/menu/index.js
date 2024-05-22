@@ -23,10 +23,8 @@ export const useMenu = () => {
   window.addEventListener('resize', () => menuController.close());
 
   DOMElements.menu.addEventListener('click', (e) => {
-    if (e.target?.localName !== 'a') {
-      return;
+    if (e.target?.localName === 'a') {
+      menuController.close();
     }
-
-    menuController.close();
   });
 };
