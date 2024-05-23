@@ -5,17 +5,25 @@
   justify-content: space-between;
   gap: 30px;
 
-  &--active {
+  @include before-desktop {
     &::after {
       content: '';
       display: block;
       position: absolute;
       top: 0;
-      left: 50%;
       bottom: 0;
-      background: $primary-100;
+      left: 50%;
       width: 100vw;
+      background-color: transparent;
       transform: translateX(-50%);
+      transition: background-color 0.3s 0.3s;
+    }
+  }
+
+  &--active::after {
+    @include before-desktop {
+      background-color: $primary-100;
+      transition-delay: -0.1s;
     }
   }
 

@@ -5,6 +5,11 @@ export const useForm = () => {
 
   DOMElements.form.addEventListener('submit', (e) => {
     e.preventDefault();
-    location.reload();
+
+    const formElements = Array.from(e.target.elements);
+
+    formElements.splice(formElements.length - 1, 1);
+
+    formElements.forEach((element) => (element.value = ''));
   });
 };
