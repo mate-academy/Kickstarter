@@ -1,0 +1,46 @@
+.header {
+  padding-bottom: 1px;
+
+  &__top-bar {
+    position: relative;
+    z-index: 105;
+  }
+
+  &__hero {
+    @include grid;
+
+    padding-top: 285px;
+    min-height: 445px;
+    align-content: start;
+    color: $primary-600;
+
+    @include on-tablet {
+      padding-top: 120px;
+    }
+
+    @include on-desktop {
+      padding-top: 140px;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__description {
+    margin-top: 20px;
+    grid-column: 1 / -1;
+
+    @extend %main;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+  }
+}

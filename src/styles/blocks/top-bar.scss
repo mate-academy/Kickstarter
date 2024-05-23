@@ -1,0 +1,88 @@
+.top-bar {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  @include before-desktop {
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 100vw;
+      background-color: transparent;
+      transform: translateX(-50%);
+      transition: background-color 0.3s 0.3s;
+    }
+  }
+
+  &--active::after {
+    @include before-desktop {
+      background-color: $primary-100;
+      transition-delay: -0.1s;
+    }
+  }
+
+  @include on-tablet {
+    height: 106px;
+  }
+
+  &__logo-link {
+    position: relative;
+    z-index: 11;
+    display: block;
+    width: 161px;
+    height: 26px;
+
+    @include hover {
+      .top-bar__logo {
+        transform: scale(1.1);
+      }
+    }
+  }
+  &__logo {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  &__controlls {
+    margin-left: auto;
+
+    @include before-tablet {
+      display: none;
+    }
+  }
+
+  &__menu-button {
+    position: relative;
+    z-index: 11;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px 24px;
+    background-color: transparent;
+    background-image: url('/src/images/icons/icon-menu.svg');
+    transition: transform 0.3s;
+    cursor: pointer;
+
+    @include hover {
+      transform: scale(1.1);
+    }
+
+    &--active {
+      background-image: url('/src/images/icons/icon-close.svg');
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}

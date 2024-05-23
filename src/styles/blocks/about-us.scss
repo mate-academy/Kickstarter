@@ -1,0 +1,119 @@
+.about-us {
+  @include grid;
+
+  @include on-tablet {
+    grid-template-rows: min-content min-content 1fr;
+  }
+
+  &__img {
+    object-fit: cover;
+    width: 100%;
+    height: 210px;
+
+    grid-column: span 4;
+    margin-top: 30px;
+
+    @include on-tablet {
+      grid-row: span 3;
+      margin-top: 0;
+      min-height: 415px;
+      width: calc(100% + 34px);
+      margin-left: -34px;
+    }
+
+    @include on-desktop {
+      min-height: 388px;
+      grid-column: span 6;
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  &--reversed &__img {
+    @include on-tablet {
+      grid-column: 5 / 9;
+      grid-row: 1 / 4;
+      margin-left: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 13;
+    }
+  }
+
+  &__title {
+    @extend %h2;
+
+    color: $primary-600;
+
+    grid-row: 1;
+    grid-column: span 4;
+
+    @include on-tablet {
+      grid-row: auto;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__text {
+    @extend %main;
+
+    color: $primary-400;
+
+    margin-top: 20px;
+    grid-column: span 4;
+
+    @include on-tablet {
+      margin-top: 30px;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 6px;
+    margin-top: 30px;
+
+    @extend %button;
+
+    color: $secondary-500;
+    text-decoration: none;
+
+    justify-self: start;
+    grid-column: span 4;
+
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 41.73%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background: currentColor;
+      transition: width 0.3s;
+    }
+
+    @include hover {
+      &::after {
+        width: 100%;
+      }
+    }
+
+    @include on-tablet {
+      margin-top: 60px;
+      align-self: flex-start;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+}

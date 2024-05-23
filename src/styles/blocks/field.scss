@@ -1,0 +1,51 @@
+.field {
+  height: 48px;
+  box-shadow: inset 0 0 0 1px #828282;
+  background: transparent;
+  border: 0;
+  padding-inline: 20px;
+  width: 100%;
+  font-family: Helvetica, Roboto, sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+  color: $primary-700;
+
+  &:focus {
+    box-shadow: inset 0 0 0 1px $secondary-700;
+    outline: none;
+  }
+
+  &::placeholder {
+    @extend %main;
+
+    color: $primary-300;
+  }
+
+  &--textarea {
+    padding-block: 12px;
+    height: 128px;
+    resize: none;
+
+    @include on-tablet {
+      height: 201px;
+    }
+
+    @include on-desktop {
+      height: 128px;
+    }
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    transition: background-color 360000s;
+  }
+
+  @include on-tablet {
+    padding-inline: 30px;
+  }
+
+  @include on-desktop {
+    padding-inline: 36.7px;
+  }
+}
