@@ -290,16 +290,23 @@
 .features {
   grid-column: 1 / -1;
 
-  @include grid (4);
+  @include grid (4) {
+    row-gap: 30px;
+  }
 
   margin: 0 - $retreat;
-  background-color: $lightish-aqua;
 
   &__title {
     grid-column: 1 / -1;
-    margin:inherit;
-    padding: 0 50px $retreat;
-    background-color: $c-gray;
+    padding: 0 $retreat;
+  }
+
+  &__container {
+    grid-column: 1 / -1;
+
+    @include grid (4);
+
+    background-color: $lightish-aqua;
   }
 
   &__content {
@@ -307,8 +314,13 @@
     padding: $retreat $retreat 50px;
   }
 
-  &__block:nth-child(n + 2) {
-      display: none;
+  &__block {
+    height: 275px;
+    display: none;
+
+    &--active {
+      display: block;
+    }
   }
 
   &__list {
@@ -321,6 +333,7 @@
   &__item {
     position: relative;
     padding-left: 20px;
+    cursor: default;
 
     &::before {
       content: '•';
@@ -360,6 +373,11 @@
       background-image: url(../icon/arrow.svg);
     }
 
+    &--no-active {
+      pointer-events: none;
+      opacity: .2;
+    }
+
     @include hover (
       filter, sepia(100%) saturate(10000%) hue-rotate(180deg)
               drop-shadow(0 0 2px $aqua-darker),
@@ -367,9 +385,9 @@
     );
   }
 
-  &__display-number {
+  &__display-index {
 
-    &__count {
+    &--quantity {
       color: $aqua-darker;
     }
   }
@@ -379,11 +397,14 @@
   }
 
   @include media-breakpoint ($tablet, 8) {
-    row-gap: 20px;
     margin: 0;
 
     &__title {
-      padding: 0 0 $retreat;
+      padding: 0;
+    }
+
+    &__container {
+      @include grid (8);
     }
 
     &__content {
@@ -404,8 +425,13 @@
   @include media-breakpoint ($desktop, 12) {
     position: relative;
 
+    &__container {
+      @include grid (12);
+    }
+
     &__content {
       @include grid (8) {
+        align-items: start;
         gap: $retreat;
       };
 
@@ -489,6 +515,10 @@
     }
    }
 
+   &__wrapper {
+    @include display (flex, row, 20px);
+   }
+
    &__btn {
     @include font-style (700, 12px, 14px);
 
@@ -503,6 +533,29 @@
     @include hover (background-color, $aqua-darker, $time-fast);
     @include active (background-color, $light-aqua);
    }
+
+   .stub-btn-SEND {
+    @include display (flex, column, 10px);
+
+    transition: $time_average;
+    transform: scale(0);
+    font-style: italic;
+    background-color: $aqua;
+    color: $white;
+
+    padding: 10px;
+
+    &__wrapper {
+      @include display (flex, row, 20px) {
+        align-items: center;
+      }
+    }
+
+    &__icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
 
    @include breakpoint ($tablet) {
     flex-direction: row;

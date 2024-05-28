@@ -13,6 +13,7 @@
     >
     <title>CRAZYBABY</title>
     <link rel="stylesheet" href="./styles/main.scss">
+    <script src="scripts/main.js" defer></script>
   </head>
 
   <body class="body">
@@ -115,6 +116,12 @@
         </p>
       </section>
 
+      <section class="stub-btn-BUY">
+        <h1 class="stub-btn-BUY__title">This page is the feature shopping cart</h1>
+        <h3 class="stub-btn-BUY__text">Thank you for clicking the button</h3>
+        <button class="stub-btn-BUY__btn">close me</button>
+      </section>
+
     </header>
 
     <main class="main">
@@ -167,34 +174,39 @@
         </article>
       </section>
 
+
       <section class="features" id="features">
         <h2 class="features__title">FEATURES</h2>
-        <div class="features__content"></div>
 
-        <div class="features__navigation">
+        <div class="features__container">
 
-          <input
-            type="button"
-            name="switch-1"
-            class="features__switch"
+          <div class="features__content"></div>
+
+          <div class="features__navigation">
+
+            <input
+              type="button"
+              name="switch-1"
+              class="features__switch"
+            >
+
+            <input
+              type="button"
+              name="switch-2"
+              class="features__switch"
+            >
+
+            <div class="features__display-index">
+              <span class="features__display-index--corrent"></span>
+              <sub class="features__display-index--quantity">/ 03</sub>
+            </div>
+          </div>
+
+          <img  class="features__img"
+                src="./images/desktop/d-5.png"
+                alt="image"
           >
-
-          <input
-            type="button"
-            name="switch-2"
-            class="features__switch"
-          >
-
-          <p class="features__display-number">
-            01
-            <sub class="features__display-number__count">/ 03</sub>
-          </p>
         </div>
-
-        <img  class="features__img"
-              src="./images/desktop/d-5.png"
-              alt="image"
-        >
       </section>
 
       <section class="questions" id="questions">
@@ -202,29 +214,47 @@
         <h2 class="questions__title">DO YOU HAVE ANY QUESTIONS?</h2>
 
         <form
+          id="questions__form"
           class="questions__form"
           method="get"
-          onsubmit="this.reset(); return false;"
         >
 
           <input
             required
             type="email"
             name="email"
+            id="email"
             class="questions__input"
             placeholder="Your email"
           >
 
-
           <textarea
-            required
+            required id="your-message"
             name="your-message"
             class="questions__input"
             placeholder="Your message..."
-          >
-          </textarea>
+          ></textarea>
 
-          <button type="submit" class="questions__btn">SEND</button>
+          <div class="questions__wrapper">
+            <button type="submit" class="questions__btn">SEND</button>
+
+            <section class="stub-btn-SEND">
+
+              <div class="stub-btn-SEND__wrapper">
+                <h4 class="stub-btn-SEND__title">Thank you!</h4>
+
+                <img
+                  class="stub-btn-SEND__icon"
+                  src="./icon/hand-with-thumb-up.svg"
+                  alt="icon"
+                >
+              </div>
+
+              <h4 class="stub-btn-SEND__text">The message was sent.</h4>
+
+            </section>
+          </div>
+
         </form>
 
       </section>
@@ -287,7 +317,5 @@
       </article>
 
     </footer>
-
-    <script src="scripts/main.js"></script>
   </body>
 </html>

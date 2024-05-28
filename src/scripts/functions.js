@@ -41,6 +41,18 @@ export function classHtml (className, event, newClass) {
 };
 // #endregion
 
+// #region rendering
+
+// deleting item with undefined
+export function renderingList (list) {
+    list.forEach(item => {
+      if (item.innerHTML === 'undefined') {
+        item.remove();
+      }
+    })
+  };
+// #endregion
+
 // #region templates html
 
 // template for benefits section

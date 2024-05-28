@@ -40,7 +40,7 @@ export const aboutUs = [
 export const features = [
   { title: 'Sound & Music',
     list: {
-            item_1:'Feel-in-chest Base Power',
+            item:'Feel-in-chest Base Power',
             item_2:'Lossless Digital Audio Transmission',
             item_3:'Easy & Stable Stereo Pairing',
             item_4:'Crisp and Clear High Frequency Sound',
@@ -54,7 +54,7 @@ export const features = [
             item_1:'Customize Music Schedule',
             item_2:'Wake Up with Favorite Songs',
             item_3:'Home Detection Auto Wake Up',
-            item_4:'Color Wheel ',
+            item_4:'Color Wheel',
           }
   },
 
@@ -62,8 +62,8 @@ export const features = [
     list: {
             item_1:'Hands Free Wireless Audio',
             item_2:'Bluetooth 4.0 LE',
-            item_3:'rinWi-Fi 2.4 GHz (802.11 b/g/n)',
-            item_4:'quencySmart Multiroom System Set Up',
+            item_3:'Wi-Fi 2.4 GHz (802.11 b/g/n)',
+            item_4:'Smart Multiroom System Set Up',
             item_5:'Party Mode with 6.0 Units and above',
             item_6:'MESHNET Multi Speaker Network',
           }
