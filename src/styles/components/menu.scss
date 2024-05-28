@@ -66,31 +66,41 @@
 .menu {
 
   &__list {
+    position: relative;
+    
     @include display (inline-flex, column, 20px);
   }
 
   &__item {
-    padding: 5px 10px;
+    min-width: 200px;
+    padding: 5px 0;
     border-radius: 15px;
 
-    @include hover (transform, $scale, $time-fast);
+    @include hover (transform, $scale, $time-fast) {
+      & > a {
+        font-weight: 700;
+      }
+    }
+
     @include active (box-shadow, inset -5px 5px 10px 3px $dark-gray);
 
     @include breakpoint ($desktop) {
+      text-align: center;
+
     @include hover (transform, $scale, $time_average) {
       box-shadow: $shadow;
     }
 
     @include active (box-shadow, inset -5px 5px 10px 3px $dark-gray);
+
     }
   }
 
   &__link {
     @include font-style (400, 14px, 20px);
 
+    transition: $time-fast;
     color: $dark-gray;
-
-    @include hover (font-weight, 700, $time-fast);
 
     @include breakpoint ($tablet) {
       @include font-style (400, 22px, 28px);

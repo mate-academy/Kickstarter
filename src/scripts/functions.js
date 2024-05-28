@@ -61,7 +61,7 @@ export const templateHtmlForBenefits = (name) => {
             <img
               class="benefits__image"
               src=${name.image}
-              alt="svg"
+              alt=${name.alt}
             >
 
             <h3 class="benefits__title">${name.title}</h3>

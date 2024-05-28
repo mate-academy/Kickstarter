@@ -136,10 +136,10 @@ window.addEventListener('resize', () => {
 // #endregion
 
 // section benefits view all objects
-querySelector('benefits').innerHTML = benefits.map(templateHtmlForBenefits).join('');
+querySelector('benefits__container').innerHTML = benefits.map(templateHtmlForBenefits).join('');
 
 // section about us view all objects
-querySelector('about-us').innerHTML = aboutUs.map(templateHtmlForAboutUs).join('');
+querySelector('about-us__container').innerHTML = aboutUs.map(templateHtmlForAboutUs).join('');
 
 // #region section features view all objects
 querySelector('features__content').innerHTML = features.map(templateHtmlForFeatures).join('');
