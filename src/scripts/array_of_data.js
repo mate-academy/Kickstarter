@@ -4,13 +4,13 @@ export const benefits = [
   { title: 'Futuristic Design',
     text: 'To give Luna a truly flawless look, we specifically picked aircraft grade aluminum as its material and adopted both three-dimensional stretch-bending technology and a high precision cold forging technique.',
 
-    image: 'compass.svg',
+    image: 'compass.c29e2a6c.svg',
     alt: 'compass',
   },
 
   { title: 'Tweeter Speaker System',
     text: 'To deliver a more layered sound performance better than a sole full-range speaker, our team equipped Luna with one more tweeter speaker responsible for high-frequency sound independently.',
-    image: 'valume.svg',
+    image: 'valume.ade2c70a.svg',
     alt: 'valume',
   },
 
