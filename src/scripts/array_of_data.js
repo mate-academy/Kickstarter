@@ -3,7 +3,6 @@
 export const benefits = [
   { title: 'Futuristic Design',
     text: 'To give Luna a truly flawless look, we specifically picked aircraft grade aluminum as its material and adopted both three-dimensional stretch-bending technology and a high precision cold forging technique.',
-
     image: 'compass.c29e2a6c.svg',
     alt: 'compass',
   },
@@ -31,7 +30,7 @@ export const aboutUs = [
   { title: 'Designed for the future',
     text: 'In 2014, a group of geeky industrial designers, engineering veterans and acoustic experts formed crazybaby. This is a bunch of passionate people who are crazy enough to think they can challenge the industry with disruptive audio products. ',
     link: '#',
-    'image': 'd-3.png',
+    'image': 'd-3.ceb501b3.png',
   },
 
   { title: 'Luna Eye',
