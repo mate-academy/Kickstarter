@@ -1,0 +1,59 @@
+.footer {
+  @include grid (4){
+    row-gap: 20px;
+  }
+
+  &__logo,
+  &__btn {
+    display: none;
+  }
+
+  &__social-networks {
+    grid-column: 1 / -1;
+
+    @include display (flex, row, 30px) {
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    @include hover (transform, $scale, $time-fast);
+  }
+
+  @include media-breakpoint ($tablet, 8) {
+
+    &__logo {
+      grid-column: 4 / 6;
+      display: block;
+    }
+
+    &__btn {
+      grid-column: 8;
+      display: block;
+      width: 50px;
+
+      &--icon {
+        border-radius: 50%;
+        transition: $time_average;
+
+        @include hover (transform, $scale, $time-fast) {
+          box-shadow: $shadow;
+        }
+
+        @include active (box-shadow, inset 0 0 10px $dark-gray);
+      }
+    }
+  }
+
+  @include media-breakpoint ($desktop, 12) {
+
+    &__logo {
+      grid-column: 6 / span 2;
+    }
+
+    &__btn {
+      grid-column: 12;
+    }
+  }
+}

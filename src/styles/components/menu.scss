@@ -1,0 +1,109 @@
+.drop-down-menu {
+  position: fixed;
+  top: 76px;
+  left: 0;
+  right: 0;
+  height: 80vh;
+
+  @include display (flex, column, 0) {
+    justify-content: space-between;
+  }
+
+  pointer-events: none;
+  padding: 30px;
+  transform: scale(0);
+  transition: $time_average $time-fast;
+
+  &--active {
+    pointer-events: all;
+    transform: scale(1);
+    background-color: $c-gray;
+  }
+
+  &__content {
+    @include display (flex, column, 40px);
+  }
+
+  &__switch {
+    order: 2;
+
+    @include font-style (300, 14px, 17px);
+
+    color: $gray;
+
+    &::before {
+      content: "SPECS";
+      margin-right: 20px;
+    }
+  }
+
+  &__label {
+    cursor: pointer;
+    padding: 5px;
+    transition: $time_average;
+  }
+
+  &__input:checked + &__label {
+    font-weight: 400;
+    box-shadow: inset 0 0 10px $grayish;
+    border-radius: 50%;
+  }
+
+  &__btn {
+    @include font-style (500, 12px, 15px);
+
+    cursor: pointer;
+    height: 48px;
+    border: none;
+    background-color: $dark-gray;
+    color: $white;
+
+    @include hover (background-color, $blackish, $time-fast);
+    @include active (background-color, $grayish-white);
+  }
+}
+
+.menu {
+
+  &__list {
+    position: relative;
+    
+    @include display (inline-flex, column, 20px);
+  }
+
+  &__item {
+    min-width: 200px;
+    padding: 5px 0;
+    border-radius: 15px;
+
+    @include hover (transform, $scale, $time-fast) {
+      & > a {
+        font-weight: 700;
+      }
+    }
+
+    @include active (box-shadow, inset -5px 5px 10px 3px $dark-gray);
+
+    @include breakpoint ($desktop) {
+      text-align: center;
+
+    @include hover (transform, $scale, $time_average) {
+      box-shadow: $shadow;
+    }
+
+    @include active (box-shadow, inset -5px 5px 10px 3px $dark-gray);
+
+    }
+  }
+
+  &__link {
+    @include font-style (400, 14px, 20px);
+
+    transition: $time-fast;
+    color: $dark-gray;
+
+    @include breakpoint ($tablet) {
+      @include font-style (400, 22px, 28px);
+    }
+  }
+}

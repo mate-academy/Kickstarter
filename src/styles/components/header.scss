@@ -1,0 +1,98 @@
+.header {
+  @include grid(4);
+
+  &__content {
+    grid-column: 1 / -1;
+
+    @include display (flex, column, 20px);
+  }
+
+  &__image {
+    grid-column: span 4;
+    margin: 0 -30px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+  }
+
+  @include media-breakpoint($tablet, 8) {
+
+    &__content {
+      grid-column: 1 / 4;
+      grid-row: 2;
+    }
+
+    &__image {
+      grid-column: 5 / -1;
+      grid-row: 2;
+      margin: 0 -34px;
+    }
+
+    &__title {
+      @include media-font-style (48px, 62px);
+    }
+  }
+
+  @include media-breakpoint($desktop, 12) {
+
+    &__content {
+      grid-column: 1 / 5;
+    }
+
+    &__image {
+      grid-column: 5 / -1;
+    }
+
+    &__title {
+      @include media-font-style (65px, 78px);
+    }
+
+    &__menu {
+      grid-column: 1 / -1;
+      justify-self: center;
+      margin-top: 20px;
+
+      &--list {
+        flex-direction: row;
+        gap: 50px;
+      }
+    }
+  }
+}
+
+.stub-btn-BUY {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  @include display (flex, column, 30px) {
+    justify-content: center;
+    align-items: center;
+  }
+
+  transition: 1s;
+  transform: scale(0);
+  text-align: center;
+  text-transform: uppercase;
+  background-color: $c-gray;
+
+  &__btn {
+    @include font-style (700, 40px, 15px);
+
+    text-transform: uppercase;
+    letter-spacing: 10px;
+
+    cursor: pointer;
+    height: 48px;
+    border: none;
+    background-color: $dark-gray;
+    color: $white;
+
+    @include hover (background-color, $blackish, $time-fast);
+    @include active (background-color, $grayish-white);
+
+  }
+}
