@@ -1,0 +1,81 @@
+.feedback {
+  &__content {
+    @include page-grid;
+  }
+
+  &__card {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    position: relative;
+
+    &::after {
+      content: '';
+      z-index: -1;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0);
+      top: 0;
+      display: block;
+      width: 208px;
+      height: 171px;
+      background-image: url(../images/feedback/quote.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    @include on-tablet {
+      padding-top: 60px;
+
+      &::after {
+        width: 233px;
+        height: 189px;
+      }
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 11;
+      padding-top: 42px;
+    }
+  }
+
+  &__message {
+    text-align: center;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__author-ava {
+    width: 62px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    background-image: url(../images/feedback/user-01.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__author {
+    margin-bottom: 5px;
+  }
+
+  &__author-position {
+    color: $c-primary-grey-dark;
+  }
+}
