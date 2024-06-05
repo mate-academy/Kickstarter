@@ -7,6 +7,7 @@ function sliderBenefits() {
   let orderIndex = 0;
   let currentTranslate = 0;
   let prevTranslate = 0;
+  let animationID = 0;
   let startPosition = 0;
   let endPosition = 0;
   // offset within which the slide will not change
@@ -18,10 +19,10 @@ function sliderBenefits() {
   const tabletMinWidth = 768;
 
   const numberOfSlides = slides.length;
+  const lastIndex = numberOfSlides - 1;
   const isMobileScreen = window.innerWidth < tabletMinWidth;
   let currentPadding = gapSmall;
   let slideWidth = sliderWidth + currentPadding;
-  let maxTranslate = -(numberOfSlides - 1) * slideWidth;
 
   window.addEventListener('resize', () => {
     if (window.innerWidth >= tabletMinWidth) {
@@ -31,7 +32,6 @@ function sliderBenefits() {
     } else {
       sliderWidth = document.querySelector('.benefits__list').offsetWidth;
       slideWidth = sliderWidth + currentPadding;
-      maxTranslate = -(numberOfSlides - 1) * slideWidth;
       slider.addEventListener('touchstart', touchStart, { passive: true });
       slider.addEventListener('touchend', touchEnd, { passive: true });
       slider.addEventListener('touchmove', touchMove, { passive: true });
@@ -85,15 +85,16 @@ function sliderBenefits() {
 
   function setSliderPosition() {
     slider.style.transform = `translateX(${currentTranslate}px)`;
+    slider.style.transition = `all .3s`;
   }
 
   function setPositionByIndex() {
-    if (positionsDifference > 0 && currentTranslate !== maxTranslate) {
+    if (positionsDifference > 0 && orderIndex !== lastIndex) {
       orderIndex++;
       positionsDifference = 0;
     }
 
-    if (positionsDifference < 0 && currentTranslate !== 0) {
+    if (positionsDifference < 0 && orderIndex !== 0) {
       orderIndex--;
       positionsDifference = 0;
     }
@@ -108,17 +109,19 @@ function sliderBenefits() {
   function touchStart(event) {
     isDragging = true;
     startPosition = getPositionX(event);
+    animationID = requestAnimationFrame(animation);
   }
 
   function touchMove(event) {
     if (isDragging) {
       endPosition = getPositionX(event);
+
+      currentTranslate = prevTranslate + endPosition - startPosition;
     }
   }
 
   function touchEnd(event) {
     isDragging = false;
-    console.log(event);
 
     positionsDifference = startPosition - endPosition;
 
@@ -127,6 +130,12 @@ function sliderBenefits() {
     }
 
     setPositionByIndex();
+    cancelAnimationFrame(animationID);
+  }
+
+  function animation() {
+    setSliderPosition();
+    if (isDragging) requestAnimationFrame(animation);
   }
 }
 

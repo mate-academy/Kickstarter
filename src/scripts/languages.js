@@ -55,6 +55,22 @@ const langDictionaries = {
     en: 'Luna’s performance is balanced and smooth in all frequency ranges which makes the music both naturally pleasant and distinctly more layered.',
     ua: 'Звучання Luna збалансоване і плавне у всіх частотних діапазонах, що робить музику природно приємною і водночас більш насиченою.',
   },
+  benefits__nav_link_1: {
+    en: 'OUR STORY',
+    ua: 'Наша історія',
+  },
+  benefits__nav_link_2: {
+    en: 'ABOUT US',
+    ua: 'Про нас',
+  },
+  benefits__nav_link_3: {
+    en: 'FEATURES',
+    ua: 'ОСОБЛИВОСТІ',
+  },
+  benefits__nav_link_4: {
+    en: 'GET IN TOUCH',
+    ua: 'ЗВ’ЯЗАТИСЯ З НАМИ',
+  },
   benefits__card_1_title: {
     en: 'Futuristic Design',
     ua: 'Футуристичний Дизайн',
