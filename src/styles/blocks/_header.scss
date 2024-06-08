@@ -1,0 +1,113 @@
+.header {
+  &__container {
+    @include page-grid;
+  }
+
+  &__top {
+    grid-column: 1 / -1;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    @include on-tablet {
+      padding-bottom: 130px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 90px;
+    }
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      order: 1;
+      grid-column: 1 / 5;
+      z-index: 10;
+    }
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+  }
+
+  &__background {
+    grid-column: 1 / -1;
+    background-image: url(../images/header/header-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: calc(100vw * 0.77);
+    margin-inline: -30px;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      background-image: url(../images/header/header-bg-md.png);
+      grid-column: 5 / -1;
+      order: 2;
+      height: calc(100vw * 0.41);
+      background-position: left;
+      transform: translateX(-65px);
+    }
+
+    @include on-desktop {
+      height: calc(100vw * 0.32);
+      background-image: url(../images/header/header-bg-lg.png);
+      transform: translateX(0);
+      background-size: auto;
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include on-desktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__description {
+    @include on-tablet {
+      max-width: 250px;
+    }
+  }
+
+  &__menu-icon {
+    background-image: url(../images/icons/icon-burger-menu.png);
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+
+    @include hover(transform, rotate(180deg));
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__utils {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      margin-right: 30px;
+    }
+
+    @include on-desktop {
+      margin-right: 0;
+      gap: 47px;
+    }
+  }
+
+  &__buy-button {
+    width: 100px;
+  }
+}

@@ -1,0 +1,93 @@
+.footer {
+  padding-bottom: 30px;
+
+  &__container {
+    @include page-grid;
+  }
+
+  &__socials-list {
+    grid-column: 1/5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__socials-item {
+    cursor: pointer;
+  }
+
+  &__socials-item path {
+    transition: fill 0.3s;
+  }
+
+  &__socials-item:hover path {
+    fill: $color-accent;
+  }
+
+  &__socials-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__copyright {
+    grid-column: 1/5;
+    text-align: center;
+    color: $color-base-lightest;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__legal-link {
+    color: $color-base-lightest;
+
+    @include hover(color, $color-accent);
+  }
+
+  &__top {
+    display: none;
+    position: relative;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 60px;
+    }
+
+    & .logo {
+      margin: 0 auto;
+    }
+  }
+
+  &__logo {
+    width: 184px;
+
+    @include on-desktop {
+      width: 161px;
+    }
+  }
+
+  &__arrow-up {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    @include hover(border, 1px solid $color-base-lighter);
+  }
+}
