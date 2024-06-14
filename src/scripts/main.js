@@ -7,6 +7,10 @@ const {
 } = require('./classUtils');
 const { sliderBenefits } = require('./sliderBenefits');
 const { sliderFeatures } = require('./sliderFeatures');
+const {
+  adaptTitleFontSize,
+  removeTitleFontStyle,
+} = require('./heroTitleUtils');
 
 // #region languages
 const radioInputs = document.querySelectorAll('input[name="lang"]');
@@ -19,7 +23,9 @@ radioInputs.forEach((input) => {
     toggleActive();
 
     if (window.innerWidth < 768) {
-      setTitleFontSize(checkedLanguage);
+      adaptTitleFontSize();
+    } else {
+      removeTitleFontStyle();
     }
   });
 });
@@ -29,33 +35,12 @@ function toggleActive() {
     label.classList.toggle('langs__btn--active');
   });
 }
-
-function setTitleFontSize(lang) {
-  const titleFontSizeOnMobile = 40;
-  const allowableNumberOfLettersInAWord = 10;
-  const reduceTheFontSizeByOneLetter = 4;
-
-  const str = langDictionaries.hero__title[lang];
-  const longestWordLenght = str.split(' ').map((v) => v.trim().length)[0];
-
-  const title = document.querySelector('[data-lang="hero__title"]');
-
-  if (longestWordLenght > allowableNumberOfLettersInAWord) {
-    title.style.fontSize = `${titleFontSizeOnMobile - reduceTheFontSizeByOneLetter * (longestWordLenght - allowableNumberOfLettersInAWord)}px`;
-    title.style.lineHeight = `1.3`;
-  } else {
-    title.style.fontSize = null;
-    title.style.lineHeight = null;
-  }
-}
 // #endregion
 
 // #region classes
-// Initial update on page load
 updateClassesForAboutUsCardText();
 updateClassesForFeaturesInnerText();
 
-// Add event listener for window resize
 window.addEventListener('resize', function () {
   updateClassesForAboutUsCardText();
   updateClassesForFeaturesInnerText();

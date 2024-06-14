@@ -10,9 +10,13 @@
     }
   }
 
+  &__content {
+    overflow: visible !important;
+  }
+
   &__list {
     display: flex;
-    gap: 30px;
+    padding-bottom: 40px;
     transition: transform $effect-duration ease-out;
     cursor: pointer;
 
@@ -21,6 +25,7 @@
 
       cursor: default;
       row-gap: 65px;
+      padding-bottom: 0;
     }
   }
 
@@ -48,9 +53,11 @@
   }
 
   &__icon {
+    width: 50px;
+    height: 40px;
+    margin-bottom: 40px;
+
     @include on-tablet {
-      width: 50px;
-      height: 40px;
       margin-bottom: 50px;
     }
 
@@ -78,28 +85,18 @@
 
 .slider-dots {
   display: flex;
-  gap: 15px;
-  align-items: center;
   justify-content: center;
-  padding-top: 20px;
+  gap: 15px;
 
   @include on-tablet {
     display: none;
   }
+}
 
-  &__dot {
-    all: unset;
-    cursor: pointer;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: $c-primary-grey;
+.swiper-pagination-bullet {
+  background-color: $c-primary-grey-dark !important;
 
-    @include hover(background-color, $c-primary-grey-dark);
-
-    &--active {
-      pointer-events: none;
-      background-color: $c-primary-dark;
-    }
+  &-active {
+    background-color: $c-primary-dark !important;
   }
 }
