@@ -1,0 +1,70 @@
+.contact {
+  &__content {
+    @include page-grid;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin-bottom: 26px;
+
+    @include on-tablet {
+      grid-column: 4 span;
+    }
+
+    @include on-desktop {
+      grid-column: 6 span;
+    }
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 4 span;
+    }
+
+    @include on-desktop {
+      grid-column: 6 span;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding-block: 12px;
+    padding-inline: 20px;
+    background-color: $c-primary-white;
+    border: 1px solid $c-primary-grey;
+    color: $c-primary-dark;
+
+    @include on-tablet {
+      padding-inline: 30px;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $c-primary-accent;
+    }
+
+    &::placeholder {
+      color: $c-primary-grey;
+    }
+
+    &--email {
+      margin-bottom: 20px;
+    }
+
+    &--message {
+      height: 128px;
+      margin-bottom: 30px;
+      resize: none;
+
+      @include on-tablet {
+        height: 200px;
+      }
+
+      @include on-desktop {
+        height: 128px;
+      }
+    }
+  }
+}

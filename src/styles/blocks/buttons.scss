@@ -1,0 +1,72 @@
+.btn {
+  text-transform: uppercase;
+  width: fit-content;
+
+  &--full {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &--primary {
+    border: none;
+    padding-block: 17px;
+    padding-inline: 38px;
+    color: $c-primary-white;
+    background-color: $c-primary-dark;
+
+    @include hover(background-color, $c-primary-black);
+
+    &:disabled {
+      background-color: $c-primary-grey-light;
+    }
+
+    &--accent {
+      padding-inline: 42px;
+      background-color: $c-primary-accent;
+      transition: background-color $effect-duration ease-in-out;
+
+      &:hover {
+        background-color: $c-primary-accent-dark;
+        cursor: pointer;
+      }
+
+      &:disabled {
+        background-color: $c-primary-accent-light;
+      }
+    }
+  }
+
+  &--secondary {
+    background-color: transparent;
+
+    &--accent {
+      color: $c-primary-accent;
+    }
+  }
+
+  &--borderless {
+    border: none;
+  }
+
+  &.btn--secondary--accent.btn--borderless {
+    .btn__text {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 1px;
+        width: 42%;
+        bottom: -7px;
+        background-color: $c-primary-accent;
+        transition: width $effect-duration ease-in-out;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}
