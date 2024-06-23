@@ -1,0 +1,33 @@
+.page {
+  scroll-behavior: smooth;
+
+  &:has(.burger-menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-width: 320px;
+    background-color: $main-background-color;
+  }
+
+  &__container {
+    @include content-padding-inline;
+  }
+}
+
+// to skip autofill styles
+input:-moz-autofill {
+  box-shadow: 0 0 0 30px $main-background-color inset !important;
+  -moz-text-fill-color: #000 !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px $main-background-color inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
