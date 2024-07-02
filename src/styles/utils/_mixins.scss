@@ -1,6 +1,98 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin on-tablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin on-large-desktop {
+  @media (min-width: $large-desktop-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline() {
+  padding-inline: 30px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+    max-width: $tablet-width;
+    margin-inline: auto;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
+    max-width: $desktop-width;
+    margin-inline: auto;
+  }
+}
+
+@mixin hover($property, $toValue) {
+  transition: $property 0.3s;
   &:hover {
-    #{$_property}: $_toValue;
+    cursor: pointer;
+    #{$property}: $toValue;
+  }
+}
+
+@mixin page-grid {
+  --columns: 4;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 8;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+
+    column-gap: 30px;
+  }
+}
+
+@mixin card-image-background {
+  display: block;
+  position: absolute;
+  width: 109px;
+  height: 44px;
+  transform: rotate(-60deg);
+  background-color: $blue-color;
+  border-radius: 12px;
+
+  @include on-tablet {
+    width: 139px;
+    height: 56px;
+  }
+
+  @include on-desktop {
+    width: 109px;
+    height: 44px;
+  }
+
+  @include on-large-desktop {
+    width: 139px;
+    height: 56px;
+  }
+}
+
+@mixin hero-img-dimentions {
+  width: 100%;
+  height: 75vw;
+
+  @include on-tablet {
+    height: 317px;
+    width: 100%;
+  }
+
+  @include on-desktop {
+    height: 464px;
   }
 }
