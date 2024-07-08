@@ -1,0 +1,53 @@
+.features {
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__article {
+    background-color: $color-cyan-2;
+  }
+
+  &__layout {
+    display: none;
+
+    @include on-desktop-large {
+      display: block;
+      margin: 0 auto;
+      padding: 60px 102px;
+
+      @include page-grid;
+    }
+  }
+
+  &__image {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '';
+      background: url('../images/features/features-image.png');
+      background-repeat: no-repeat;
+      background-position: right bottom;
+      height: 174px;
+      width: 100%;
+      max-width: 320px;
+      background-size: contain;
+      top: 0;
+      right: 0;
+      z-index: 1;
+
+      @include on-tablet {
+        height: 226px;
+        max-width: 420px;
+        top: -100px;
+      }
+
+      @include on-desktop {
+        top: -303px;
+        right: 40px;
+        height: 302px;
+        max-width: 543px;
+      }
+    }
+  }
+}
