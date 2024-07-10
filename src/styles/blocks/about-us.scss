@@ -1,0 +1,30 @@
+.about-us {
+  &__content {
+    @include inline-padding-content;
+    @include grid-layout;
+
+    @include on-tablet {
+      row-gap: 65px;
+    }
+  }
+
+  &__card {
+    grid-column: 1 / -1;
+
+    &:not(:first-child) {
+      display: none;
+    }
+
+    @include on-tablet {
+      grid-column: span 4;
+
+      &:not(:first-child) {
+        display: flex;
+      }
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.people-say {
+  &__content {
+    @include inline-padding-content;
+    @include grid-layout;
+
+    justify-items: center;
+    row-gap: 30px;
+
+    @include on-tablet {
+      row-gap: 40px;
+    }
+
+    @include on-desktop {
+      row-gap: 0;
+    }
+  }
+
+  &__quote {
+    @include quote-text-style;
+
+    align-content: end;
+    text-align: center;
+    padding-top: 50px;
+    grid-column: 1 / -1;
+
+    background-image: url('../images/people-say/quote-bg.svg');
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: contain;
+
+    @include on-tablet {
+      padding-top: 60px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / -3;
+      padding-block: 42px;
+    }
+  }
+
+  &__person {
+    grid-column: 1 / -1;
+  }
+}

@@ -1,0 +1,56 @@
+.input {
+  outline: none;
+  resize: none;
+  overflow-y: auto;
+
+  border: 1px solid $c-switch-lang;
+  background-color: inherit;
+
+  font-family: $font-family-secondary;
+  font-size: 14px;
+  line-height: 24px;
+  color: $c-black;
+
+  padding: 12px 20px;
+
+  &::placeholder {
+    @include main-text-style;
+
+    transition: all $transition-duration;
+  }
+
+  &:hover,
+  &:focus {
+    color: $c-black;
+    border-color: $c-green;
+
+    &::placeholder {
+      color: $c-green;
+    }
+  }
+
+  &:-webkit-autofill {
+    border: 1px solid $c-green;
+    -webkit-text-fill-color: $c-black;
+    background-color: inherit;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  &:valid {
+    color: $c-black;
+    border: 1px solid $c-red;
+  }
+
+  &:-webkit-autofill:valid {
+    -webkit-text-fill-color: $c-black;
+    border: 1px solid $c-red;
+  }
+
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    border: 1px solid $c-green;
+    -webkit-text-fill-color: $c-black;
+    background-color: inherit;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
