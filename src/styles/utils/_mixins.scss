@@ -37,15 +37,45 @@
   }
 }
 
+@mixin paddingInlineSection {
+  padding-inline: 30px;
+
+  @include onTablet {
+    padding-inline: 34px;
+  }
+
+  @include onDesktop {
+    padding-inline: 123px;
+  }
+}
+
+@mixin marginTopSection {
+  margin-top: 110px;
+
+  @include onTablet {
+    margin-top: 140px;
+  }
+
+  @include onDesktop {
+    margin-top: 170px;
+  }
+}
+
 @mixin gridRules {
   --column-count: 4;
   --column-width: 1fr;
   display: grid;
   grid-template-columns: repeat(var(--column-count),var(--column-width));
   column-gap: 20px;
+  min-width: 280px;
   max-width: 1146px;
 
   @include onTablet {
     --column-count: 8;
+  }
+
+  @include onDesktop {
+    --column-count: 12;
+    column-gap: 30px;
   }
 }
