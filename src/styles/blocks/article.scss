@@ -1,4 +1,63 @@
 .article {
   display: flex;
   flex-direction: column;
+
+  &--designed {
+
+    @include onTablet {
+      --column-count: 8;
+      --column-width: 1fr;
+      display: grid;
+      grid-template-columns: repeat(var(--column-count),var(--column-width));
+      grid-template-rows: auto;
+      column-gap: 20px;
+
+      grid-template-areas: "img img img img tl tl tl tl"
+        "img img img img tx tx tx tx"
+        "img img img img tx tx tx tx"
+        "img img img img ln ln ln ln"
+        "img img img img . . . .";
+    }
+  }
+
+  &--reviews {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 786px;
+    justify-content: center;
+    align-items: center;
+
+    @include onDesktop {
+      grid-column: 2 / -2;
+    }
+  }
+
+  &__title {
+    grid-area: tl;
+    margin-bottom: 30px;
+  }
+
+  &__img {
+    grid-area: img;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 0;
+      align-self: stretch;
+      justify-self: stretch;
+    }
+
+    &--img {
+      width: 100%;
+    }
+  }
+
+  &__text {
+    grid-area: tx;
+    margin-bottom: 30px;
+  }
+
+  &__link {
+    grid-area: ln;
+  }
 }
