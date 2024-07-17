@@ -2,13 +2,17 @@
   display: flex;
 
   @include marginTopSection;
+  @include paddingInlineSection;
 
   &__container {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    width: 100%;
+    max-width: 1146px;
 
   }
 
@@ -31,11 +35,21 @@
 
   &__copyrate {
     margin-top: 60px;
+    text-align: center;
   }
 
   &__button-ahead {
+    display: none;
     position: absolute;
-    right: 30px;
-    bottom: 0;
+    bottom: 170px;
+    right: 0;
+
+    @include onTablet {
+      display: flex;
+    }
+
+    // @include onDesktop {
+    //   right: 123px;
+    // }
   }
 }
