@@ -1,0 +1,109 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  @include for-desktops {
+    grid-column: span 12;
+  }
+
+  &--first {
+    grid-column: span 4;
+
+    @include for-desktops {
+      grid-column: span 3;
+    }
+  }
+
+  &--second,
+  &--third,
+  &--fourth {
+    display: none;
+
+    @include for-tablets {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      grid-column: span 4;
+    }
+
+    @include for-desktops {
+      grid-column: span 3;
+    }
+  }
+
+  &__photo {
+    display: block;
+    object-fit: cover;
+
+    &--first {
+      width: 50px;
+      height: 40px;
+    }
+
+    &--second {
+      width: 46px;
+      height: 40px;
+    }
+
+    &--third {
+      width: 46px;
+      height: 37px;
+    }
+
+    &--fourth {
+      width: 44px;
+      height: 44px;
+    }
+
+    &--first,
+    &--second,
+    &--third,
+    &--fourth {
+      @include for-desktops {
+        width: 70px;
+        height: 50px;
+      }
+    }
+  }
+
+  &__title {
+    @include text-set(23px, 700, 28px);
+
+    margin: 20px 0;
+
+    @include for-tablets {
+      margin: 50px 0 20px;
+    }
+
+    @include for-desktops {
+      margin: 30px 0 52px;
+      display: flex;
+      text-align: center;
+
+      &--special {
+        margin: 30px 0 26px;
+      }
+    }
+
+    &--features {
+      @include text-set(18px, 700, 22px);
+
+      color: #0c797a;
+      align-items: start;
+      display: flex;
+      margin: 0 0 20px;
+      text-transform: uppercase;
+
+      @include page-paddings;
+    }
+  }
+
+  &__nav {
+    margin: 0;
+
+    @include text-set(14px, 400, 21px);
+    @include page-paddings;
+  }
+}
