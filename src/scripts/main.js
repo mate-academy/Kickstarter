@@ -11,6 +11,8 @@ const viewPortWidth = document.documentElement.clientWidth;
 prevButton.addEventListener('click', showPreviousSlide);
 nextButton.addEventListener('click', showNextSlide);
 
+window.addEventListener('resize', doResize);
+
 function showPreviousSlide() {
   slideIndex = (slideIndex - 1 + slideCount) % slideCount;
   document.querySelector('.count').innerText = `0${(slideIndex + 1)}`;
@@ -25,16 +27,20 @@ function showNextSlide() {
 
 function updateSlider() {
   slides.forEach((slide, index) => {
-    if (index === slideIndex) {
-      slide.style.display = 'block';
+    if (viewPortWidth < 1440) {
+      if (index === slideIndex) {
+        slide.style.display = 'block';
+      } else {
+        slide.style.display = 'none';
+      }
     } else {
-      slide.style.display = 'none';
-    }
-
-    if (viewPortWidth > 1440) {
       slide.style.display = 'block';
     }
   });
+}
+
+function doResize() {
+  document.location.replace(document.location.href);
 }
 
 updateSlider();
