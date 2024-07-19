@@ -6,12 +6,10 @@ const nextButton = document.querySelector('.button--next');
 const slides = Array.from(slider.querySelectorAll('.item--slider'));
 const slideCount = slides.length;
 let slideIndex = 0;
-const viewPortWidth = document.documentElement.clientWidth;
 
 prevButton.addEventListener('click', showPreviousSlide);
 nextButton.addEventListener('click', showNextSlide);
-
-window.addEventListener('resize', doResize);
+window.addEventListener('resize', updateSlider);
 
 function showPreviousSlide() {
   slideIndex = (slideIndex - 1 + slideCount) % slideCount;
@@ -27,20 +25,12 @@ function showNextSlide() {
 
 function updateSlider() {
   slides.forEach((slide, index) => {
-    if (viewPortWidth < 1440) {
-      if (index === slideIndex) {
-        slide.style.display = 'block';
-      } else {
-        slide.style.display = 'none';
-      }
+    if (index === slideIndex) {
+      slide.classList.add('slider__item--active');
     } else {
-      slide.style.display = 'block';
+      slide.classList.remove('slider__item--active');
     }
   });
-}
-
-function doResize() {
-  document.location.replace(document.location.href);
 }
 
 updateSlider();
