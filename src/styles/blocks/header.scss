@@ -1,0 +1,153 @@
+.header {
+  position: relative;
+  height: 657px;
+
+  @include flex-column-space-between;
+
+  @include on-small-tablet {
+    height: 580px;
+  }
+
+  @include on-tablet {
+    position: static;
+    height: 545px;
+  }
+
+  @include on-desktop {
+    height: 630px;
+  }
+
+  &__top-bar {
+    padding-block: 25px;
+
+    @include content-padding-inline;
+
+    @include on-tablet {
+      padding-block: 0;
+      padding-top: 30px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+
+    @include content-padding-inline;
+
+    @include on-tablet {
+      position: relative;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      margin-inline: auto;
+      width: 698px;
+    }
+
+    @include from-tablet-to-desktop {
+      overflow-x: hidden;
+    }
+
+    @include on-small-desktop {
+      width: 730px;
+    }
+
+    @include on-desktop {
+      width: auto;
+
+      @include main-grid;
+
+      align-items: end;
+    }
+  }
+
+  &__picture {
+    display: flex;
+
+    @include on-desktop {
+      order: 1;
+      grid-column: span 8;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 76px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: 260px;
+    object-fit: contain;
+    width: 100vw;
+    z-index: -1;
+
+    @include on-tablet {
+      max-height: none;
+      transform: none;
+      width: 550px;
+      height: 317px;
+      object-fit: cover;
+      inset: auto -85px 0 auto;
+    }
+
+    @include on-desktop {
+      width: 100%;
+      height: auto;
+      position: static;
+    }
+  }
+
+  &__text-wrapper {
+    width: 280px;
+
+    @include fade-in;
+
+    transform: translateX(-100px);
+
+    &--fade-in {
+      transform: translate(0);
+      opacity: 1;
+    }
+
+    @include on-small-tablet {
+      width: 460px;
+    }
+
+    @include on-tablet {
+      width: auto;
+
+      grid-column: span 4;
+      order: 0;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 40px;
+    line-height: 52px;
+
+    @include on-tablet {
+      width: 340px;
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include on-desktop {
+      width: auto;
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__description {
+    margin-top: 20px;
+    line-height: 24px;
+
+    @include on-tablet {
+      margin-top: 30px;
+      width: 250px;
+    }
+
+    @include on-desktop {
+      width: 276px;
+    }
+  }
+}

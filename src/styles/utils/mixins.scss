@@ -1,0 +1,125 @@
+/* #region media */
+@mixin on-small-tablet {
+  @media (min-width: $small-tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin from-tablet-to-desktop {
+  @media ($tablet-min-width <= width < $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin to-desktop {
+  @media (width < $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+/* #endregion */
+
+@mixin content-padding-inline {
+  padding-inline: 30px;
+
+  @include on-small-tablet {
+    padding-inline: 35px;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
+  }
+}
+
+@mixin content-margin-top {
+  margin-top: 110px;
+
+  @include on-tablet {
+    margin-top: 140px;
+  }
+
+  @include on-desktop {
+    margin-top: 170px;
+  }
+}
+
+@mixin main-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--tamplate-columns), var(--column-width));
+  column-gap: var(--grid-column-gap);
+  justify-content: center;
+
+  @include on-tablet {
+    --tamplate-columns: 8;
+    --column-width: 70px;
+  }
+
+  @include on-desktop {
+    --tamplate-columns: 12;
+    --column-width: 72px;
+    --grid-column-gap: 30px;
+  }
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-column-space-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@mixin flex-center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin hover-font-weight($value, $color) {
+  display: block;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: attr(data-text);
+    width: max-content;
+    font-weight: $value;
+    inset: 0;
+    color: transparent;
+    transition: color $transition-duration;
+  }
+
+  &:hover::after {
+    color: $color;
+  }
+
+  &:hover {
+    color: transparent;
+  }
+}
+
+@mixin fade-in {
+  opacity: 0;
+  transition: all $fade-in-duration;
+}

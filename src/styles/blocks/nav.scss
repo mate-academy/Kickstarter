@@ -1,0 +1,48 @@
+.nav {
+  margin-top: var(--nav-margin-top);
+
+  @include on-tablet {
+    --nav-height: 232px;
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    height: var(--nav-height);
+
+    @include flex-column-space-between;
+
+    list-style: none;
+
+    @include on-desktop {
+      flex-direction: row;
+      grid-column: 4 / 10;
+      height: 76px;
+      align-items: center;
+    }
+
+    &-item {
+      width: fit-content;
+    }
+
+    &-link {
+      font-size: 14px;
+      line-height: 20px;
+      text-decoration: none;
+
+      &--desktop {
+        padding-inline: 1;
+      }
+
+      @include hover-font-weight(700, $main-black-text-color);
+
+      color: $main-black-text-color;
+      transition: all $transition-duration;
+
+      @include from-tablet-to-desktop {
+        font-size: 22px;
+        line-height: 28px;
+      }
+    }
+  }
+}
