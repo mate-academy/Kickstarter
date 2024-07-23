@@ -3,6 +3,19 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  transition: all $animation-duration ease;
+
+  &:hover {
+    box-shadow:
+      rgba(0, 0, 0, 0.3) 0 19px 38px,
+      rgba(0, 0, 0, 0.22) 0 15px 12px;
+    transform: scale(1.03);
+    border-radius: 20px;
+
+    @include for-desktops {
+      transform: scale(1.2);
+    }
+  }
 
   @include for-desktops {
     grid-column: span 12;
@@ -90,20 +103,61 @@
     &--features {
       @include text-set(18px, 700, 22px);
 
-      color: #0c797a;
+      color: $dark-turquoise-color;
       align-items: start;
       display: flex;
       margin: 0 0 20px;
       text-transform: uppercase;
+      padding-left: 32px;
 
-      @include page-paddings;
+      @include for-tablets {
+        padding-left: 70px;
+      }
+
+      @include for-desktops {
+        @include text-set(34px, 700, 42px);
+      }
     }
   }
 
   &__nav {
     margin: 0;
+    padding-left: 32px;
 
     @include text-set(14px, 400, 21px);
-    @include page-paddings;
+
+    @include for-tablets {
+      padding-left: 70px;
+      width: 260px;
+    }
+
+    @include for-desktops {
+      @include text-set(16px, 400, 24px);
+
+      width: 378px;
+    }
   }
+
+  &__box {
+    grid-column: span 4;
+
+    @include for-desktops {
+      &--first,
+      &--third {
+        grid-column: 1 / span 4;
+      }
+
+      &--third {
+        padding-top: 56px;
+      }
+
+      &--second {
+        grid-column: 6 / span 4;
+      }
+    }
+  }
+}
+
+.special {
+  padding-left: 100px;
 }

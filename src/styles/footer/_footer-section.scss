@@ -1,6 +1,8 @@
 .footer {
   @include page-paddings;
 
+  display: grid;
+
   &__container {
     @include page-grid;
 
@@ -30,15 +32,19 @@
   }
 
   &__logo {
+    @include hover(transform, scale(1.2));
+
     @include for-phones {
       display: none;
     }
 
-    display: flex;
     height: 25px;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+    width: 184px;
+    margin: 0 auto;
+
+    @include for-desktops {
+      width: 161px;
+    }
   }
 
   &__arrow {
@@ -56,24 +62,18 @@
     }
   }
 
-  &__link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 25px;
-    width: 25px;
-  }
-
   &__illustration {
     display: block;
-    height: 100%;
-    object-fit: contain;
-    width: 184px;
+    height: 25px;
+    width: 100%;
 
     &--arrow {
       display: block;
       height: 21px;
       width: 25px;
+      object-fit: contain;
+
+      @include hover(transform, scale(1.2));
     }
   }
 

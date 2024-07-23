@@ -1,9 +1,14 @@
 .button {
   height: 48px;
+  transition: background-color $animation-duration ease;
   background-color: $dark-color;
 
+  @include for-tablets {
+    display: none;
+  }
+
   &:hover {
-    background-color: #131313;
+    background-color: $strong-dark-color;
   }
 
   &__link {
@@ -11,7 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: $default-white-color;
     font-family: Helvetica, sans-serif;
     font-weight: 500;
     font-size: 12px;

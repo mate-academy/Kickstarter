@@ -5,6 +5,10 @@
   width: fit-content;
   margin-bottom: 162px;
 
+  @include for-tablets {
+    margin: 0;
+  }
+
   &__text {
     color: #4f4f4f;
   }
@@ -16,9 +20,16 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 18px;
+    transition: background-image $animation-duration ease;
 
     &:hover {
       background-image: url(/src/images/add/ua-language.png);
+    }
+  }
+
+  &--aside {
+    @include for-tablets {
+      display: none;
     }
   }
 }
