@@ -1,7 +1,27 @@
+.benefits__list {
+  @include on-tablet {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 65px 20px;
+  }
+}
+
 .benefits__item {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  &:not(:first-child) {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  @include on-tablet {
+    width: 340px;
+  }
 }
 
 .benefit__icon {
