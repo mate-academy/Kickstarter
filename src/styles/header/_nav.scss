@@ -57,14 +57,7 @@
 
     &--features {
       &:hover {
-        transform: scale(1.1);
-        box-shadow:
-          rgba(14, 63, 126, 0.04) 0 0 0 1px,
-          rgba(42, 51, 69, 0.04) 0 1px 1px -0.5px,
-          rgba(42, 51, 70, 0.04) 0 3px 3px -1.5px,
-          rgba(42, 51, 70, 0.04) 0 6px 6px -3px,
-          rgba(14, 63, 126, 0.04) 0 12px 12px -6px,
-          rgba(14, 63, 126, 0.04) 0 24px 24px -12px;
+        transform: translateX(-15px);
       }
     }
   }
@@ -78,12 +71,42 @@
     border: 1px solid transparent;
     transition: border $animation-duration ease;
 
-    &:hover {
-      border: 1px solid $dark-color;
+    &--aside {
+      &::after {
+        content: '';
+        width: 100%;
+        position: absolute;
+        display: block;
+        height: 1px;
+        background-color: $dark-color;
+        bottom: -5px;
+
+        transition: $animation-duration;
+        transform: scale(0);
+        transform-origin: left;
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
+    }
+
+    &--benefits {
+      transition: all $animation-duration ease;
+
+      &:hover {
+        transform: scale(1.1);
+        font-weight: 700;
+      }
     }
 
     &--footer {
-      @include hover(transform, scale(1.25));
+      transition: all $animation-duration ease;
+
+      &:hover {
+        border: 1px solid $dark-color;
+        transform: scale(1.25);
+      }
     }
   }
 
