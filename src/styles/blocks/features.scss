@@ -1,11 +1,27 @@
+.features {
+  @include on-tablet {
+    padding-inline: $padding-inline-tablet;
+  }
+}
+
 .features__title {
+  padding-inline: $padding-inline-tablet;
   margin-bottom: 32px;
+
+  @include on-tablet {
+    padding-inline: 0;
+  }
 }
 
 .features__content {
   padding-top: 25px;
   padding-bottom: 173px;
   background-color: $green-background;
+
+  @include on-tablet {
+    padding-inline: 0;
+    padding-bottom: 125px;
+  }
 }
 
 .features__subtitle {
@@ -87,13 +103,19 @@
 
   &::after {
     content: "";
+    display: block;
     background: url('../images/blocks/features/background-img.png') 100% 100% / contain no-repeat;
     width: 100%;
     max-width: 320px;
     height: 174px;
     position: absolute;
-    top: 0;
     right: 0;
+
+    @include on-tablet {
+      max-width:none;
+      height: 225px;
+      top: -100px;
+    }
   }
 }
 
