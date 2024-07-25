@@ -5,32 +5,34 @@
   &--designed {
 
     @include on-tablet {
-      --column-count: 8;
-      --column-width: 1fr;
-
       display: grid;
-      grid-template-columns: repeat(var(--column-count),var(--column-width));
+      grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
       column-gap: 20px;
 
-      grid-template-areas: "img img img img tl tl tl tl"
-        "img img img img tx tx tx tx"
-        "img img img img tx tx tx tx"
-        "img img img img ln ln ln ln"
-        "img img img img . . . .";
+      grid-template-areas: "img tl"
+        "img tx"
+        "img tx"
+        "img ln"
+        "img .";
     }
   }
+
   &--img_left {
-    padding-right: 34px;
+    @include on-tablet {
+      padding-right: 34px;
+    }
   }
 
   &--img_right {
-    padding-left: 34px;
-    grid-template-areas: "tl tl tl tl img img img img"
-      "tx tx tx tx img img img img"
-      "tx tx tx tx img img img img"
-      "ln ln ln ln img img img img"
-      ". . . . img img img img";
+    @include on-tablet {
+      padding-left: 34px;
+      grid-template-areas: "tl img"
+        "tx img"
+        "tx img"
+        "ln img"
+        ". img";
+    }
   }
 
   &--reviews {
