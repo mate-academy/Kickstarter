@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
   // Функція для завантаження тексту для обраної мови
   function loadLanguage(lang) {
@@ -154,12 +155,17 @@ document.addEventListener('DOMContentLoaded', function() {
         'footer__terms': '© 2019 Всі права захищені. Умови використання та Політика конфіденційності'
       }
     };
+
     // Змінюємо текст на сайті відповідно до обраної мови
     Object.keys(texts[lang]).forEach(key => {
       const elements = document.querySelectorAll(`.${key}`);
       elements.forEach(element => {
         if (element) {
-          element.textContent = texts[lang][key];
+          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            element.placeholder = texts[lang][key];
+          } else {
+            element.textContent = texts[lang][key];
+          }
         }
       });
     });
@@ -200,4 +206,3 @@ document.addEventListener('DOMContentLoaded', function() {
   const savedLanguage = localStorage.getItem('language') || 'en';
   loadLanguage(savedLanguage);
 });
-

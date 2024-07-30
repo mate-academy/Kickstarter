@@ -1,4 +1,122 @@
-.features__container {
-  @include content-padding;
+.features__main-container {
+  @include on-tablet {
+    @include content-padding;
+  }
 }
 
+.features__article {
+  position: relative;
+
+  margin-top: 30px;
+
+  padding-block: 30px;
+
+  height: auto;
+  background-color: #D6ECEC;
+
+  @include on-tablet {
+    padding-block: 60px;
+  }
+}
+
+.features__section-title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 40px;
+  text-transform: uppercase;
+
+  color: $color-text-primary;
+
+  padding-inline: 30px;
+
+  @include on-tablet {
+    padding-inline: 0;
+  }
+
+  @include on-desktop {
+    font-size: 56px;
+    line-height: 70px;
+  }
+}
+
+
+.features__container {
+  @include page-grid;
+
+  padding-inline: 30px;
+
+  @include on-tablet {
+    padding-inline: 90px;
+  }
+
+  @include on-desktop {
+    row-gap: 56px;
+
+    padding-inline: 100px;
+  }
+}
+
+.features__card-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: left;
+  color: $color-special;
+
+  @include on-desktop {
+  font-size: 34px;
+  line-height: 42px;
+  }
+}
+
+.features__card-info {
+  margin-top: 20px;
+
+  @include on-desktop {
+    margin-top: 30px;
+  }
+}
+
+.features__card--first {
+  display: none;
+
+  grid-column: 2/6;
+
+  @include on-desktop {
+    display: block;
+  }
+}
+
+.features__card--second {
+  grid-column: 2/6;
+}
+
+.features__card--third {
+  display: none;
+
+  grid-row: 1/2;
+  grid-column: 8/11;
+
+  @include on-desktop {
+    display: block;
+  }
+}
+
+.features__card-item {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: $color-text-primary;
+
+  margin-bottom: 10px;
+
+  &:last-of-type{
+    margin-bottom: 0;
+  }
+}
+
+.features__card-img-picture {
+  width: 100%;
+  height: auto;
+}
