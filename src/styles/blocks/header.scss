@@ -69,14 +69,23 @@
   display: block;
   margin-inline: auto;
 
+  &--desktop {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      width: auto;
+      height: 464px;
+      margin-inline: 0;
+    }
+  }
+
   @include on-tablet {
     margin-bottom: 0;
   }
 
   @include on-desktop {
-    width: auto;
-    height: 464px;
-    margin-inline: 0;
+    display: none;
   }
 }
 
