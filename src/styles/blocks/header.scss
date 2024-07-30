@@ -4,6 +4,10 @@
   @include on-tablet {
     padding-bottom: 70px;
   }
+
+  @include on-desktop {
+    padding-bottom: 170px;
+  }
 }
 
 .header__nav-bar {
@@ -53,6 +57,10 @@
   height: 32px;
   width: 32px;
   background-image: url('../images/icons/menu-open-button.svg');
+
+  @include on-desktop {
+    display: none;
+  }
 }
 
 .header__poster {
@@ -63,6 +71,12 @@
 
   @include on-tablet {
     margin-bottom: 0;
+  }
+
+  @include on-desktop {
+    width: auto;
+    height: 464px;
+    margin-inline: 0;
   }
 }
 
@@ -75,12 +89,21 @@
 }
 
 .header__content {
+  margin-inline: auto;
+  max-width: 1194px;
   display: flex;
   flex-direction: row-reverse;
 
   @include on-tablet {
     padding-top: 100px;
     padding-inline: $padding-inline-tablet;
+  }
+
+  @include on-desktop {
+    padding-top: 90px;
+    padding-inline: 0;
+    justify-content: start;
+    align-items: end;
   }
 }
 
@@ -89,5 +112,17 @@
     padding: 0;
     width: 250px;
     z-index: 10;
+  }
+
+  @include on-desktop {
+    margin-inline: 0;
+    width: 378px;
+  }
+}
+
+.header__text {
+  @include on-desktop {
+    margin-inline: 0;
+    width: 276px;
   }
 }
