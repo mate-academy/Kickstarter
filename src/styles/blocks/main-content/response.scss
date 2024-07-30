@@ -1,55 +1,54 @@
-.response__container {
-  @include content-padding;
+.response {
+  &__container {
+    @include content-padding;
 
-}
+  }
 
-.response__content {
-  @include page-grid;
-}
+  &__content {
+    @include page-grid;
+  }
 
-.response__wrapper {
-  @include page-grid;
+  &__wrapper {
+    @include page-grid;
 
-  grid-column: 1/-1;
+    grid-column: 1/-1;
 
-  @include on-desktop {
-    grid-column: 3/11;
+    @include on-desktop {
+      grid-column: 3/11;
+    }
+  }
+
+  &__scobs {
+    position: relative;
+    top: 50%;
+
+    width: 100%;
+    height: auto;
+
+    grid-column: 2/4;
+
+    @include on-tablet {
+      top: 30%;
+      grid-column: 4/6;
+    }
+
+    @include on-desktop {
+      grid-column: 5/9;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    color: $color-text-primary;
+
+    grid-column: 1/-1;
   }
 }
 
-.response__scobs {
-  position: relative;
-  top: 50%;
-
-  width: 100%;
-  height: auto;
-
-  grid-column: 2/4;
-
-  @include on-tablet {
-    top: 30%;
-    grid-column: 4/6;
-  }
-
-  @include on-desktop {
-    grid-column: 5/9;
-  }
-}
-
-
-.response__text {
-  font-family: Inter, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 20px;
-  text-align: center;
-  color: $label-color;
-
-  grid-column: 1/-1;
-}
-
-
-.response__author-info {
+.response__author {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,9 +62,8 @@
   @include on-desktop {
     grid-column: 6/8;
   }
-}
 
-.response__author-img {
+  &-img {
   width: 62px;
   height: 62px;
 
@@ -78,31 +76,31 @@
   @include on-desktop {
     margin-top: 30px;
   }
-}
-
-.response__author-name {
-  font-family: Inter, sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 22px;
-  text-align: center;
-  color: $label-color;
-
-  margin-top: 10px;
-
-  @include on-tablet {
-    margin-top: 20px;
   }
 
+  &-name {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    color: $color-text-primary;
+
+    margin-top: 10px;
+
+    @include on-tablet {
+      margin-top: 20px;
+    }
+  }
+
+  &-job {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: center;
+    color: $color-text-secondary;
+
+    margin-top: 5px;
+  }
 }
 
-.response__author-job {
-  font-family: Inter, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 21px;
-  text-align: center;
-  color: $text-color;
 
-  margin-top: 5px;
-}
