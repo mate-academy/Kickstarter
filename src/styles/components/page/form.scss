@@ -1,0 +1,67 @@
+.form {
+  &__content {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  &__header {
+    @include lastChild {
+      margin-bottom: 27px;
+    }
+  }
+
+  &__title {
+    @include title;
+
+    font-size: 30px;
+
+    @include onTablet {
+      font-size: 36px;
+    }
+
+    @include onDesktop {
+      font-size: 56px;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include lastChild {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__label {
+    display: flex;
+  }
+
+  &__input {
+    padding: 12px 20px;
+    color: $colorLightGrey;
+
+    border: 1px solid #828282;
+    outline: none;
+
+    &::placeholder {
+      font-size: 16px;
+    }
+
+    &--textarea {
+      height: 128px;
+    }
+
+    &:invalid:not(:placeholder-shown) {
+      border-color: red;
+    }
+
+    &:valid {
+      outline: $colorDarkGreen;
+      border-color: $colorDarkGreen;
+    }
+  }
+}

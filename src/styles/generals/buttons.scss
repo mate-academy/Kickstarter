@@ -1,0 +1,61 @@
+.button {
+  max-width: 100%;
+  width: 100%;
+  padding: 16px 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $colorMain;
+  color: $colorWhite;
+
+  font-size: $fontSizeSmall;
+  text-align: center;
+  text-transform: uppercase;
+
+  transition-duration: $transitionDuration;
+
+  @include onHover {
+    background-color: $colorBlack;
+  }
+
+  @media (min-width: 520px) {
+    width: 100px;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &--green {
+    width: 102px;
+
+    padding: 13px 10px;
+
+    background-color: $colorGreen;
+    border-color: transparent;
+
+    @include onHover {
+      background-color: $colorDarkGreen;
+    }
+  }
+  &--nav {
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &--header {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &--active {
+    display: none;
+  }
+}

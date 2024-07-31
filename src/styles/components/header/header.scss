@@ -1,0 +1,125 @@
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+
+  width: 100%;
+
+  background-color: $colorWhite;
+
+  &__wrapper {
+    position: relative;
+    padding: 25px 0;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__block {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+}
+
+.nav {
+  position: fixed;
+  left: 0;
+  top: 74px;
+
+  height: calc(100svh - 74px);
+  width: 100vw;
+
+  overflow: auto;
+
+  background-color: $colorWhite;
+
+  transform: translateX(100%);
+  transition-duration: 0.5s;
+
+  &--header {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--desc {
+    display: none;
+
+    @include onDesktop {
+      position: relative;
+      left: unset;
+      top: unset;
+
+      padding-bottom: 90px;
+
+      height: auto;
+      width: 100%;
+
+      overflow: unset;
+      background-color: transparent;
+      transform: translateX(0);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__wrapper {
+    min-height: 100%;
+    padding: 30px 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 160px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include onDesktop {
+      flex-direction: row;
+      gap: 84px;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    @include before {
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+
+      width: 0;
+      height: 1px;
+
+      background-color: $colorMain;
+      transition-duration: $transitionDuration;
+    }
+
+    &:focus {
+      font-weight: $fontWeightBold;
+    }
+
+    @include onHover {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+
+  &--active {
+    transform: translateX(0);
+  }
+}
