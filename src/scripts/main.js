@@ -206,3 +206,40 @@ document.addEventListener('DOMContentLoaded', function() {
   const savedLanguage = localStorage.getItem('language') || 'en';
   loadLanguage(savedLanguage);
 });
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const prevButton = document.querySelector('.features__slider-button-left');
+  const nextButton = document.querySelector('.features__slider-button-right');
+  const slides = document.querySelectorAll('.features__card');
+  const totalSlides = slides.length;
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+    updateSlideNumber(index);
+  }
+
+  function updateSlideNumber(index) {
+    document.querySelector('.features__slider-one').textContent = ('0' + (index + 1)).slice(-2);
+    document.querySelector('.features__slider-two').textContent = ('0' + totalSlides).slice(-2);
+  }
+
+  prevButton.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  });
+
+  nextButton.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  });
+
+  // Initialize the first slide
+  showSlide(currentSlide);
+});
