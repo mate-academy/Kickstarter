@@ -12,12 +12,11 @@ function menuToggle(burger,navMenu,headerButton) {
   headerButton.classList.toggle('button--active')
 
 
-  if(navMenu.classList.contains('nav--active')) {
-    console.log('a')
+  if(navMenu.classList.contains('nav--active'))
     document.body.style.overflow = 'hidden';
-  }else {
+  else
     document.body.style.overflow = '';
-  }
+
 }
 
 function menuActions(burger,navMenu,headerButton) {

@@ -6,9 +6,9 @@ const descSwiper = new Swiper('.swiper-desc', {
 
   breakpoints : {
     744: {
-      slidesPerView: 2,
-      mousewheel: false,
       loop: false,
+      mousewheel:false,
+      slidesPerView: 2,
     },
     1180: {
       slidesPerView: 4,
