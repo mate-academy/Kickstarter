@@ -46,30 +46,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
         'features__section-title': 'FEATURES',
         'features__card-connectivity-title': 'Connectivity',
-        'features__card-connectivity-items': [
-          'Hands Free Wireless Audio',
-          'Bluetooth 4.0 LE',
-          'Wi-Fi 2.4 GHz (802.11 b/g/n)',
-          'Smart Multiroom System Set Up',
-          'Party Mode with 6.0 Units and above',
-          'MESHNET Multi Speaker Network'
-        ],
+        'features__card-connectivity-items-01': 'Hands Free Wireless Audio',
+        'features__card-connectivity-items-02': 'Bluetooth 4.0 LE',
+        'features__card-connectivity-items-03': 'Wi-Fi 2.4 GHz (802.11 b/g/n)',
+        'features__card-connectivity-items-04': 'Smart Multiroom System Set Up',
+        'features__card-connectivity-items-05': 'Party Mode with 6.0 Units and above',
+        'features__card-connectivity-items-06': 'MESHNET Multi Speaker Network',
+
+
+
         'features__card-soundMusic-title': 'Sound & Music',
-        'features__card-soundMusic-items': [
-          'Feel-in-chest Base Power',
-          'Lossless Digital Audio Transmission',
-          'Easy & Stable Stereo Pairing',
-          'Crisp and Clear High Frequency Sound',
-          'Streams from Cloud Music and Local Library',
-          'Auto Music from Last Song Stopped'
-        ],
+        'features__card-soundMusic-items-01': 'Feel-in-chest Base Power',
+        'features__card-soundMusic-items-02': 'Lossless Digital Audio Transmission',
+        'features__card-soundMusic-items-03': 'Easy & Stable Stereo Pairing',
+        'features__card-soundMusic-items-04': 'Crisp and Clear High Frequency Sound',
+        'features__card-soundMusic-items-05': 'Streams from Cloud Music and Local Library',
+        'features__card-soundMusic-items-06': 'Auto Music from Last Song Stopped',
+
         'features__card-appFeatures-title': 'App Features',
-        'features__card-appFeatures-items': [
-          'Customize Music Schedule',
-          'Wake Up with Favorite Songs',
-          'Home Detection Auto Wake Up',
-          'Color Wheel'
-        ],
+        'features__card-appFeatures-items-01': 'Customize Music Schedule',
+        'features__card-appFeatures-items-02': 'Wake Up with Favorite Songs',
+        'features__card-appFeatures-items-03': 'Home Detection Auto Wake Up',
+        'features__card-appFeatures-items-04': 'Color Wheel',
 
         'question__title': 'DO YOU HAVE ANY QUESTIONS?',
         'question__form-email-placeholder': 'Your email',
@@ -122,30 +120,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
         'features__section-title': 'ФУНКЦІЇ',
         'features__card-connectivity-title': 'Зв’язок',
-        'features__card-connectivity-items': [
-          'Бездротове аудіо без рук',
-          'Bluetooth 4.0 LE',
-          'Wi-Fi 2.4 GHz (802.11 b/g/n)',
-          'Налаштування смарт-мультикімнатної системи',
-          'Режим вечірки з 6 і більше одиницями',
-          'MESHNET Мережа з кількома колонками'
-        ],
+        'features__card-connectivity-items-01': 'Бездротове аудіо без рук',
+        'features__card-connectivity-items-02': 'Bluetooth 4.0 LE',
+        'features__card-connectivity-items-03': 'Wi-Fi 2.4 GHz (802.11 b/g/n)',
+        'features__card-connectivity-items-04': 'Налаштування смарт-мультикімнатної системи',
+        'features__card-connectivity-items-05': 'Режим вечірки з 6 і більше одиницями',
+        'features__card-connectivity-items-06': 'MESHNET Мережа з кількома колонками',
+
+
         'features__card-soundMusic-title': 'Звук і музика',
-        'features__card-soundMusic-items': [
-          'Звукова потужність, що відчувається у грудях',
-          'Без втрат цифрового аудіо',
-          'Легка і стабільна стереопара',
-          'Чіткий і ясний звук високих частот',
-          'Потокове відтворення з хмарних музичних сервісів та локальної бібліотеки',
-          'Автоматичне відновлення музики з останньої зупинки'
-        ],
+        'features__card-soundMusic-items-01': 'Звукова потужність, що відчувається у грудях',
+        'features__card-soundMusic-items-02': 'Без втрат цифрового аудіо',
+        'features__card-soundMusic-items-03': 'Легка і стабільна стереопара',
+        'features__card-soundMusic-items-04': 'Чіткий і ясний звук високих частот',
+        'features__card-soundMusic-items-05': 'Потокове відтворення з хмарних музичних сервісів та локальної бібліотеки',
+        'features__card-soundMusic-items-06': 'Автоматичне відновлення музики з останньої зупинки',
+
         'features__card-appFeatures-title': 'Функції додатка',
-        'features__card-appFeatures-items': [
-          'Налаштування розкладу музики',
-          'Пробудження з улюбленими піснями',
-          'Автоматичне пробудження при виявленні вдома',
-          'Колірне колесо'
-        ],
+        'features__card-appFeatures-items-01': 'Налаштування розкладу музики',
+        'features__card-appFeatures-items-02': 'Пробудження з улюбленими піснями',
+        'features__card-appFeatures-items-03': 'Автоматичне пробудження при виявленні вдома',
+        'features__card-appFeatures-items-04': 'Колірне колесо',
 
         'question__title': 'Є ПИТАННЯ?',
         'question__form-email-placeholder': 'Ваша електронна пошта',
@@ -243,3 +238,5 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize the first slide
   showSlide(currentSlide);
 });
+
+
