@@ -1,0 +1,72 @@
+.specs {
+  grid-template-columns: 1fr;
+
+  @include on-tablet {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 65px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 62px;
+  }
+
+  &__menu {
+    display: none;
+    grid-column: 1 / -1;
+    justify-content: center;
+    gap: 84px;
+    padding: 28px 0;
+
+    @include on-desktop {
+      display: flex;
+    }
+
+    & > a {
+      transition: all 0.3s;
+      color: $black;
+      text-decoration: none;
+
+      &:hover {
+        transform: scale(1.2);
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__spec {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    @include on-desktop {
+      gap: 24px;
+    }
+
+    &__title {
+      text-align: center;
+      display: inline;
+      margin-top: 20px;
+
+      @include on-tablet {
+        margin-top: 30px;
+        height: 56px;
+
+        @media (min-width: 728px) {
+          height: 28px;
+        }
+      }
+
+      @include on-desktop {
+        margin-top: 6px;
+        height: 56px;
+      }
+    }
+
+    &__description {
+      text-align: center;
+    }
+  }
+}
