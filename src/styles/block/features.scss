@@ -1,0 +1,264 @@
+.features {
+  @include page-grid;
+
+  background-color: $color-light-aquamarine;
+  position: relative;
+  min-width: 0;
+
+  @include on-tablet {
+    background-color: $color-white;
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+    width: 100%;
+
+    @include on-tablet {
+      background-color: $color-light-aquamarine;
+    }
+  }
+
+  &__desktop {
+    display: none;
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px 30px;
+    }
+  }
+  &__block {
+    &--1 {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+      }
+    }
+
+    &--2 {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+      }
+    }
+
+    &--3 {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+      }
+    }
+
+    &--4 {
+      background-image: url(../images/tablet_version/features-tablet.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: bottom right;
+      height: 273px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    padding: 30px 0 20px;
+
+    @include on-tablet {
+      padding: 60px 90px 0;
+    }
+
+    @include on-desktop {
+      padding-inline: 102px;
+    }
+
+    &-desktop {
+      @include on-desktop {
+        padding-top: 0;
+      }
+    }
+
+    &-ondesktop {
+      @include on-desktop {
+        padding-inline: 0;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include on-tablet {
+      padding-inline: 90px;
+      margin: 20px 0 50px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 0;
+      padding-inline: 102px;
+    }
+
+    &-desktop {
+      @include on-desktop {
+        padding: 0;
+      }
+    }
+
+    &-1 {
+      @include on-desktop {
+        margin-bottom: 60px;
+      }
+    }
+  }
+
+  &__list-flex {
+    display: flex;
+    gap: 11px;
+    align-items: center;
+  }
+
+  &__dot {
+    background-color: $color-dark-black;
+    height: 4px;
+    width: 4px;
+    border-radius: 50px;
+  }
+
+  &__img {
+    display: none;
+
+    @include on-desktop {
+      background-image: url(../images/tablet_version/features-tablet.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: bottom right;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.title-for-features {
+  @include page-grid;
+
+  margin: 110px 0 32px;
+
+  @include on-tablet {
+    margin: 140px 0 30px;
+  }
+
+  @include on-desktop {
+    margin-top: 170px;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+  }
+}
+
+.photo-features {
+  width: 320px;
+  height: auto;
+}
+
+.slider-container {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.swiper {
+  --swiper-theme-color: transparent;
+
+  width: 100%;
+  height: 372px;
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.slider-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.swiper-button-prev::after {
+  background-image: url(../images/swiper/arrow_active_right.svg);
+  background-repeat: no-repeat;
+  width: 48px;
+  height: 13px;
+}
+
+.swiper-button-next::after {
+  background-image: url(../images/swiper/arrow_black.svg);
+  background-repeat: no-repeat;
+  width: 48px;
+  height: 13px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  top: unset !important;
+  bottom: 29px;
+  position: absolute;
+  width: 48px;
+  height: 13px;
+}
+
+.swiper-button-prev {
+  left: calc(50% - 40px);
+
+  @include on-tablet {
+    left: 0;
+    margin-left: 90px;
+  }
+}
+
+.swiper-button-next {
+  right: calc(50% - 40px);
+
+  @include on-tablet {
+    right: auto;
+    margin-left: 135px;
+  }
+}
+
+.swiper-pagination-fraction {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  bottom: calc(50% - 190px);
+
+  @include on-tablet {
+    text-align: left;
+    margin-left: 114px;
+  }
+}
+
+.swiper-pagination-current {
+  color: $color-aquamarine;
+}

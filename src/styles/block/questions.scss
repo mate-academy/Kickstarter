@@ -1,0 +1,128 @@
+.questions {
+  @include page-grid;
+
+  margin-bottom: 110px;
+
+  @include on-tablet {
+    margin-block: 140px;
+  }
+
+  @include on-desktop {
+    margin-block: 170px;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    padding-top: 90px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      padding-top: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-block: 30px;
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+      padding-top: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+
+    &-text {
+      height: 128px;
+      padding-left: 20px;
+    }
+
+    &-email,
+    &-text {
+      box-sizing: border-box;
+      width: 100%;
+      height: 48px;
+      border: 1px solid #828282;
+      padding: 12px 20px;
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: left;
+      color: $color-light-gray;
+      resize: none;
+      outline: none;
+
+      &:hover {
+        border: 1px solid $color-aquamarine;
+        color: $color-light-black;
+      }
+
+      &:focus {
+        border: 1px solid $color-aquamarine;
+        color: $color-light-black;
+      }
+
+      &::placeholder {
+        color: $color-light-gray;
+      }
+    }
+
+    input,
+    textarea {
+      &:-webkit-autofill,
+      &:-webkit-autofill:focus {
+        border: 1px solid $color-aquamarine;
+        -webkit-text-fill-color: $color-black;
+        -webkit-box-shadow: 0 0 0 500px $color-white inset;
+      }
+    }
+  }
+
+  &__button {
+    grid-column: 1 / -1;
+
+    width: 102px;
+    height: 40px;
+    background-color: $color-blue;
+    border: none;
+    outline: none;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-align: center;
+    color: $color-white;
+    cursor: pointer;
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+
+    @include hover(transform, scale(1.07));
+  }
+}
+
+/*
+<textarea id="autoResize" style="overflow: hidden;"></textarea>
+
+<script>
+  var textarea = document.getElementById('autoResize');
+  textarea.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = this.scrollHeight + 'px';
+  });
+</script> */

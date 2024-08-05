@@ -1,0 +1,96 @@
+.about-us {
+  @include page-grid;
+
+  @include on-tablet {
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 49%;
+    background-image: url(../images/tablet_version/about_us_tablet.svg);
+  }
+
+  @include on-desktop {
+    background-image: none;
+  }
+
+  &__tablet-block {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__title {
+    padding-bottom: 30px;
+
+    @include on-tablet {
+      padding-bottom: 0;
+    }
+  }
+
+  &__mobile {
+    grid-column: 1 / -1;
+
+    @include hover(transform, scale(1.07));
+
+    &-img {
+      width: 100%;
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__desktop {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      grid-column: 1 / 7;
+      width: 100%;
+
+      @include hover(transform, scale(1.07));
+    }
+  }
+
+  &__text {
+    text-align: left;
+    padding: 20px 0 30px;
+
+    @include on-tablet {
+      padding: 30px 0 60px;
+    }
+  }
+
+  &__href {
+    text-decoration: none;
+    padding-bottom: 1px;
+
+    &:hover {
+      border-bottom: 1px solid $color-blue;
+    }
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+  }
+
+  &__blue-line {
+    width: 53px;
+    height: 1px;
+    background-color: $color-blue;
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      margin-bottom: 20px;
+    }
+  }
+}
