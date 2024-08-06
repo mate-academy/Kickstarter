@@ -13,13 +13,13 @@ const prevButton = document.querySelector('.prev-feature__button');
 const currentPageNum = document.querySelector('.current-slide');
 const featuresCards = [...document.querySelectorAll('.features__card')];
 let currentPage;
+prevButton.classList.add('disabled-button');
 
 nextButton.addEventListener('click', () => {
   prevButton.classList.remove('disabled-button');
   currentPage = +currentPageNum.innerHTML;
-  if (currentPage >= 3) {
+  if (currentPage === 2) {
     nextButton.classList.add('disabled-button');
-    return;
   }
   currentPage++;
   currentPageNum.innerHTML = `0${currentPage}`;
@@ -30,9 +30,8 @@ nextButton.addEventListener('click', () => {
 prevButton.addEventListener('click', () => {
   nextButton.classList.remove('disabled-button');
   currentPage = +currentPageNum.innerHTML;
-  if (currentPage <= 1) {
+  if (currentPage === 2) {
     prevButton.classList.add('disabled-button');
-    return;
   }
   currentPage--;
   currentPageNum.innerHTML = `0${currentPage}`;
