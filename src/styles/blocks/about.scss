@@ -35,6 +35,7 @@
 }
 
 .about__link {
+  width: max-content;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -43,12 +44,22 @@
   line-height: 14px;
   font-weight: 700;
   text-transform: uppercase;
+  transition: all 0.5s;
 
   &::after {
     display: block;
     content: "";
     height: 1px;
-    width: 52px;
+    width: 50%;
     background-color: $green;
+    transition: all 0.5s;
+  }
+
+  &:hover {
+    width: max-content;
+
+    &::after {
+      width: 100%;
+    }
   }
 }
