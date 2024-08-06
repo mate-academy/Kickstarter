@@ -53,7 +53,6 @@
 }
 
 .features__list {
-  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -78,6 +77,7 @@
   display: flex;
   justify-content: center;
   grid-row: 3/4;
+  z-index: 20;
 
   @include on-desktop {
     display: none;
@@ -91,10 +91,18 @@
 
 .prev-feature__button {
   background-image: url('../images/blocks/features/prev-black-btn.svg');
+
+  &:hover {
+    background-image: url('../images/blocks/features/prev-green-btn.svg');
+  }
 }
 
 .next-feature__button {
-  background-image: url('../images/blocks/features/next-green-btn.svg');
+  background-image: url('../images/blocks/features/next-black-btn.svg');
+
+  &:hover {
+    background-image: url('../images/blocks/features/next-green-btn.svg');
+  }
 }
 
 .slides-counter {
@@ -155,19 +163,24 @@
 }
 
 .features__card {
-  &:not(:first-child) {
-    display: none;
+  margin-bottom: 56px;
+  height: 258px;
 
-    @include on-desktop {
+  @include on-desktop {
+    &:nth-child(1) {
       display: block;
+      grid-row: 2/2;
     }
-  }
-
-  &:nth-child(1) {
-    grid-row: 2/2;
-  }
-
-  &:nth-child(3) {
-    grid-row: 1/2;
+  
+    &:nth-child(2) {
+      display: block;
+      margin-bottom: 56px;
+      grid-row: 1/2;
+    }
+  
+    &:nth-child(3) {
+      display: block;
+      grid-row: 1/2;
+    }
   }
 }
