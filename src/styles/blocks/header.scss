@@ -1,0 +1,145 @@
+.header {
+  padding-bottom: 55px;
+
+  @include on-tablet {
+    padding-bottom: 70px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 170px;
+  }
+}
+
+.header__nav-bar {
+  padding-block: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include on-tablet {
+    padding-block: 30px;
+  }
+}
+
+.header__right {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.header__actions {
+  display: none;
+
+  @include on-tablet {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+}
+
+.header__actions-left {
+  display: flex;
+  align-items: center;
+}
+
+.header__actions-button {
+  width: 100px;
+}
+
+.main-logo {
+  height: 26px;
+  width: 161px;
+  background-image: url('../images/icons/main-logo.svg');
+
+  @include hover (transform, scale(105%));
+}
+
+.menu-open-button {
+  display: block;
+  height: 32px;
+  width: 32px;
+  background-image: url('../images/icons/menu-open-button.svg');
+  transition: all 0.5s;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &:hover {
+    rotate: 180deg;
+    background-image: url('../images/icons/menu-open-button-hover.svg');
+  }
+}
+
+.header__poster {
+  width: 100%;
+  margin-bottom: 40px;
+  display: block;
+  margin-inline: auto;
+
+  &--desktop {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      width: auto;
+      height: 464px;
+      margin-inline: 0;
+    }
+  }
+
+  @include on-tablet {
+    margin-bottom: 0;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.header__title {
+  margin-bottom: 20px;
+
+  @include on-tablet {
+    margin-bottom: 30px;
+  }
+}
+
+.header__content {
+  margin-inline: auto;
+  max-width: 1194px;
+
+  @include on-tablet {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: 100px;
+    padding-inline: $padding-inline-tablet;
+  }
+
+  @include on-desktop {
+    padding-top: 90px;
+    padding-inline: 0;
+    justify-content: start;
+    align-items: end;
+  }
+}
+
+.header-text__wrapper {
+  @include on-tablet {
+    padding: 0;
+    width: 250px;
+    z-index: 10;
+  }
+
+  @include on-desktop {
+    margin-inline: 0;
+    width: 378px;
+  }
+}
+
+.header__text {
+  @include on-desktop {
+    margin-inline: 0;
+    width: 276px;
+  }
+}
