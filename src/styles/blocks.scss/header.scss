@@ -1,7 +1,7 @@
 .top-bar {
   display: flex;
   justify-content: space-between;
-
+  grid-column: 1/-1;
   align-items: center;
 
   @include on-tabl-desk {
@@ -103,9 +103,23 @@
 }
 
 .header {
+  @include on-mob-tabl {
+    column-gap: 20px;
+    grid-template-columns: repeat(4, 50px);
+  }
+
+  @include on-tabl-desk {
+    box-sizing: border-box;
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: repeat(8, 60px);
+  }
+
   font-family: Inter, sans-serif;
   box-sizing: border-box;
-
+  display: grid;
+  column-gap: 30px;
+  grid-template-columns: repeat(12, 72px);
 
   &__group {
     display: flex;
