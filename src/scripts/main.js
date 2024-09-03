@@ -43,9 +43,9 @@ menuClose.addEventListener('click',() => {
 
 
 
-const mailInput = document.getElementById('mail');
-const messageInput = document.getElementById('message');
-const submitBtn = document.getElementById('submitBtn');
+const mailInput = document.querySelector('.mail');
+const messageInput = document.querySelector('.area-message');
+const submitBtn = document.querySelector('.questions__btn');
 
 function toggleButtonState() {
   if (mailInput.value.trim() !== '' && messageInput.value.trim() !== '') {
@@ -57,6 +57,8 @@ function toggleButtonState() {
 
 mailInput.addEventListener('input', toggleButtonState);
 messageInput.addEventListener('input', toggleButtonState);
+
+
 
 
 
