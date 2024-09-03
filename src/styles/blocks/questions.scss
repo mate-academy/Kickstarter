@@ -1,0 +1,78 @@
+.questions {
+  @include grid-layout;
+
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: left;
+    margin-bottom: 27px;
+
+    @include on-tablet {
+      font-size: 36px;
+      line-height: 46px;
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      line-height: 70px;
+      grid-column: span 6;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 14px;
+    line-height: 24px;
+    border: 1px solid #828282;
+
+    &::placeholder {
+      color: #bdbdbd;
+      font-size: 16px;
+    }
+
+    &:focus {
+      border: 1px solid #0c797a;
+      outline: none;
+    }
+
+    @include on-tablet {
+      padding: 12px 30px;
+    }
+
+    @include on-desktop {
+      padding: 12px 36px;
+    }
+
+
+
+    &--email {
+      margin-bottom: 20px;
+      height: 48px;
+    }
+
+    &--textarea {
+      resize: none;
+      margin-bottom: 30px;
+      height: 128px;
+    }
+  }
+}

@@ -1,0 +1,85 @@
+.slider {
+  width: 260px;
+  overflow: hidden;
+
+  &__line {
+    position: relative;
+    display: flex;
+    width: 780px;
+    left: 0;
+    transition: all ease 0.5s;
+  }
+
+  &__control {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 8px;
+
+    @include on-tablet {
+      width: 96px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+
+    & > :nth-child(n) {
+      width: 48px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+
+  &__page {
+    &-current {
+      line-height: 24px;
+      text-align: left;
+    }
+
+    &-last {
+      font-size: 11px;
+      line-height: 13.31px;
+      text-align: left;
+      color: #0c797a;
+    }
+  }
+
+  &__button {
+
+    &-prev {
+      height: 14px;
+
+      &--disabled {
+        background-image: url(./../images/prev-disabled-img.svg);
+      }
+
+      &--active {
+        background-image: url(./../images/prev-active-img.svg);
+
+        &:hover {
+          background-image: url(./../images/prev-hover-img.svg);
+        }
+      }
+
+    }
+
+    &-next {
+      height: 13px;
+
+      &--disabled {
+        background-image: url(./../images/next-disabled-img.svg);
+      }
+
+      &--active {
+        background-image: url(./../images/next-active-img.svg);
+
+        &:hover {
+          background-image: url(./../images/next-hover-img.svg);
+        }
+      }
+    }
+  }
+}
