@@ -1,0 +1,43 @@
+.presentation {
+  @include page-grid;
+
+  @include on-tablet {
+    @include padding-inline;
+  }
+
+  &-mobile {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 110px 0;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &-tablet {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      grid-column: 1 / -1;
+      width: 100%;
+      margin: 140px 0;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &-desktop {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      grid-column: 3 / -3;
+      width: 100%;
+      margin: 170px 0;
+    }
+  }
+}

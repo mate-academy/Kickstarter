@@ -1,0 +1,68 @@
+.top-bar {
+  @include padding-inline;
+
+  display: flex;
+  align-items: center;
+  height: 76px;
+
+  &__logo-link {
+    display: block;
+    height: 26px;
+    width: 100%;
+
+    @include hover(transform, scale(1.05));
+
+    transform-origin: left;
+  }
+
+  &__content {
+    display: none;
+
+    @include on-tablet {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+    }
+  }
+}
+
+.lang {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+
+  &__country {
+    color: #828282;
+    text-decoration: none;
+    cursor: pointer;
+
+    @include hover(transform, scale(1.1));
+
+    &:focus {
+      color: #333;
+    }
+  }
+
+  &__line {
+    margin: 0;
+    color: $c-main-text;
+  }
+}
+
+.specs {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration: none;
+  margin: 0;
+  color: #4f4f4f;
+  cursor: pointer;
+
+  @include hover(transform, scale(1.1));
+}

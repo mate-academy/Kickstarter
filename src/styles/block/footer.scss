@@ -1,0 +1,101 @@
+.footer {
+  @include page-grid;
+  @include padding-inline;
+
+  &__logo {
+    display: none;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      display: flex;
+      text-align: center;
+      transform-origin: center;
+    }
+  }
+
+  &__contacts {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+
+    @include on-tablet {
+      padding-top: 60px;
+    }
+
+    &-size {
+      width: 24px;
+      height: 24px;
+    }
+
+    &-facebook {
+      background-image: url(../images/footer/facebook.svg);
+
+      @include hover(transform, scale(1.2));
+    }
+
+    &-telegram {
+      background-image: url(../images/footer/twitter.svg);
+
+      @include hover(transform, scale(1.2));
+    }
+
+    &-instagram {
+      background-image: url(../images/footer/instagram.svg);
+
+      @include hover(transform, scale(1.2));
+    }
+  }
+
+  &__copyright {
+    grid-column: 1 / -1;
+
+    padding: 30px 0 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    @include on-tablet {
+      padding: 60px 0 30px;
+    }
+
+    &--text {
+      font-family: Inter, sans-serif;
+      font-size: 14px;
+      line-height: 21px;
+      font-weight: 300;
+      color: #bdbdbd;
+      margin: 0;
+    }
+  }
+}
+
+.go-top {
+  display: none;
+
+  @include on-tablet {
+    grid-column: 8 / -1;
+    display: flex;
+    justify-content: end;
+
+    position: relative;
+    bottom: 25px;
+    cursor: pointer;
+  }
+
+  &__arrow {
+    background-image: url(../images/footer/go-top.svg);
+    background-position: center;
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+
+    @include hover(transform, scale(1.2));
+  }
+}

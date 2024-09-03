@@ -1,0 +1,78 @@
+.header {
+  @include page-grid;
+  @include padding-inline;
+
+  margin-bottom: 110px;
+
+  @include on-tablet {
+    margin-top: 130px;
+  }
+
+  @include on-desktop {
+    margin: 90px 0 62px;
+  }
+
+  &__background-image-mobile {
+    display: block;
+    width: 100%;
+
+    @include hover(transform, scale(1.05));
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__background-image-tablet {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      position: absolute;
+      width: 430px;
+      right: 34px;
+      z-index: -1;
+      margin: 150px 0 140px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__background-image-desktop {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      position: absolute;
+      width: 816px;
+      right: 34px;
+      z-index: -1;
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+    margin: 40px 0 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin: 0 0 30px;
+    }
+  }
+
+  &__bottom-description {
+    grid-column: 1 / -1;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+    margin: 0;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+  }
+}

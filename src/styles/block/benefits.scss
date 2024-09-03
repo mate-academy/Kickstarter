@@ -1,0 +1,70 @@
+.benefits {
+  &__contain {
+    @include hover(transform, scale(1.05));
+  }
+
+  &__img {
+    margin-bottom: 40px;
+  }
+
+  &__filling {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    &--description {
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      text-align: center;
+      margin: 0;
+    }
+  }
+}
+
+.mobile-slider {
+  @include page-grid;
+  @include padding-inline;
+
+  @include on-tablet {
+    display: none;
+  }
+}
+
+.display-tablet {
+  display: none;
+
+  @include on-tablet {
+    @include page-grid;
+    @include padding-inline;
+
+    flex-direction: column;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column: span 8;
+    gap: 65px 20px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(4, 1fr);
+    grid-column: span 12;
+    gap: 0 30px;
+  }
+}
+
+.futuristic-design,
+.tweeter-speaker-system {
+  height: 40px;
+  width: 100%;
+}
+
+.multiroom-system {
+  height: 37px;
+  width: 100%;
+}
+
+.intuitive-lighting-system {
+  height: 44px;
+  width: 100%;
+}

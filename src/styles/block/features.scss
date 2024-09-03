@@ -1,0 +1,125 @@
+.features {
+  @include page-grid;
+
+  background-color: #d6ecec;
+
+  @include on-tablet {
+    @include padding-inline;
+
+    background-clip: content-box;
+  }
+
+  @include on-desktop {
+    @include padding-inline;
+  }
+
+  &-header-h2 {
+    @include padding-inline;
+
+    grid-column: 1 / -1;
+    padding-bottom: 32px;
+  }
+
+  &__content-mobile {
+    grid-column: 1 / -1;
+    background-color: #d6ecec;
+
+    @include on-tablet {
+      grid-column: 2 / -4;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__contain-mobile {
+    @include padding-inline;
+
+    @include on-tablet {
+      padding-inline: 0;
+    }
+  }
+
+  &__contain-desktop-right {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      grid-column: 2 / 6;
+      background-color: #d6ecec;
+    }
+  }
+
+  &__contain-desktop-left {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      grid-column: 7 / -2;
+      background-color: #d6ecec;
+    }
+  }
+
+  &__header-contain {
+    margin: 0;
+    padding: 30px 0 20px;
+    color: #0c797a;
+  }
+
+  &__list {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    margin: 0;
+    padding: 0;
+    padding-left: 15px;
+    color: $c-main-text;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include on-desktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__image {
+    grid-column: 1 / -1;
+    background-image: url(../images/features/features-tablet.png);
+    background-position: bottom right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 173px;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      height: 226px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__image-desktop {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      grid-column: 7 / -1;
+    }
+
+    &-img {
+      background-image: url(../images/features/features-tablet.png);
+      background-position: bottom right;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 301px;
+    }
+  }
+}
