@@ -1,0 +1,77 @@
+.topbar {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  place-content: center space-between;
+
+  padding: 25px 0;
+
+  @include on-tablet {
+    padding: 30px 0;
+  }
+
+  &__group {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 30px;
+    line-height: 21px;
+
+    @include on-desktop {
+      gap: 47px;
+    }
+
+    &__menu {
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    &__link {
+      cursor: pointer;
+      display: none;
+      color: $black;
+      text-decoration: none;
+      transition: all 0.3s;
+
+      @include on-tablet {
+        display: flex;
+      }
+
+      @include hover(transform, scale(1.3));
+    }
+
+    &__languages {
+      display: none;
+      font-weight: 300;
+      text-transform: uppercase;
+      gap: 3px;
+      color: #828282;
+
+      @include on-tablet {
+        display: flex;
+      }
+
+      &__language {
+        cursor: pointer;
+
+        @include hover(transform, scale(1.3));
+      }
+
+      &__active {
+        font-weight: 400;
+        color: $black;
+      }
+    }
+
+    &__button {
+      cursor: pointer;
+      display: none;
+      width: 100px;
+
+      @include on-tablet {
+        display: flex;
+      }
+    }
+  }
+}

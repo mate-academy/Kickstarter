@@ -1,0 +1,75 @@
+.contact_us {
+  row-gap: 27px;
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+
+    &__input {
+      height: 48px;
+      padding: 12px 30px;
+      box-sizing: border-box;
+      font-size: 16px;
+      line-height: 24px;
+      color: $black;
+      background-color: transparent;
+      outline: none;
+      border: 1px solid #828282;
+      transition: all 0.3px;
+
+      @include hover(border, 1px solid $blue);
+
+      &:focus {
+        border: 1px solid $blue-hover;
+      }
+
+      &::placeholder {
+        color: #bdbdbd;
+      }
+    }
+
+    &__textarea {
+      font-family: inherit;
+      height: 128px;
+      resize: none;
+
+      @include on-tablet {
+        height: 200px;
+      }
+
+      @include on-desktop {
+        height: 128px;
+      }
+    }
+
+    &__button {
+      margin-top: 10px;
+      width: 123px;
+      background-color: $blue;
+
+      @include hover(background-color, $blue-hover);
+    }
+  }
+}
