@@ -1,0 +1,57 @@
+.list-block {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+
+  @include on-desktop {
+    width: 100%;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: left;
+    color: $color-text-tertiary;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @include on-desktop {
+      font-size: 34px;
+      line-height: 42px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style-type: none;
+  }
+
+  &__item {
+    padding-left: 16px;
+    position: relative;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: left;
+
+    @include on-desktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &::before {
+      position: absolute;
+      left: 1px;
+      top: 50%;
+      transform: translate(0, -50%);
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: url(./../images/dot.svg) center no-repeat;
+
+    }
+  }
+}

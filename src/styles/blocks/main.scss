@@ -1,0 +1,27 @@
+.main {
+  &__nav {
+    display: none;
+
+
+    @include on-desktop {
+      display: flex;
+      padding-block: 28px;
+      justify-content: center;
+      margin-bottom: 62px;
+    }
+  }
+
+  & > :nth-child(n + 2) {
+    --margin-bottom-value: 110px;
+
+    @include on-tablet {
+      --margin-bottom-value: 140px;
+    }
+
+    @include on-desktop {
+      --margin-bottom-value: 170px;
+    }
+
+    margin-bottom: var(--margin-bottom-value);
+  }
+}
