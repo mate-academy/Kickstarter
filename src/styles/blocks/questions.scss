@@ -44,14 +44,22 @@
     line-height: 24px;
     border: 1px solid #828282;
 
-    &::placeholder {
-      color: #bdbdbd;
-      font-size: 16px;
-    }
-
     &:focus {
       border: 1px solid #0c797a;
       outline: none;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      transition: background-color 5000s;
+      -webkit-text-fill-color: inherit !important;
+    }
+
+    &::placeholder {
+      color: #bdbdbd;
+      font-size: 16px;
     }
 
     @include on-tablet {
@@ -61,8 +69,6 @@
     @include on-desktop {
       padding: 12px 36px;
     }
-
-
 
     &--email {
       margin-bottom: 20px;
