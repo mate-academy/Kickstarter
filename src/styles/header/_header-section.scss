@@ -1,0 +1,82 @@
+.header {
+  box-sizing: border-box;
+
+  &__logo {
+    width: fit-content;
+    height: 26px;
+  }
+
+  &__top-bar {
+    padding-block: 25px;
+
+    @include for-tablets {
+      padding-block: 29px;
+    }
+
+    @include page-paddings;
+
+    @include for-desktops {
+      padding-bottom: 90px;
+    }
+  }
+
+  &__container {
+    @include page-grid;
+    @include page-paddings;
+
+    padding-top: 285px;
+    background-image: url(/src/images/main-img/header-img-mb.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include for-tablets {
+      background-position: bottom right 34px;
+      background-size: 429.39px 318px;
+      padding-inline: 34px;
+      padding-top: 100px;
+    }
+
+    @include for-desktops {
+      padding-inline: 123px;
+      background-image: url(/src/images/main-img/header-img.png);
+      background-position: right;
+      background-size: 816px 464px;
+      padding-top: 81px;
+    }
+  }
+
+  &__title {
+    grid-column: span 4;
+    text-transform: uppercase;
+
+    @include text-set(40px, 700, 52px);
+
+    @include for-tablets {
+      grid-column: 1 / span 4;
+
+      @include text-set(48px, 700, 62px);
+    }
+
+    @include for-desktops {
+      @include text-set(62px, 700, 78px);
+    }
+  }
+
+  &__text {
+    grid-column: span 4;
+
+    @include for-tablets {
+      grid-column: 1 / span 3;
+    }
+
+    &--under {
+      margin-top: 20px;
+
+      @include text-set(16px, 400, 24px);
+
+      @include for-tablets {
+        margin-top: 30px;
+      }
+    }
+  }
+}
