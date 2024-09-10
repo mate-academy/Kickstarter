@@ -1,0 +1,103 @@
+.questions {
+  @include on-tablet {
+    @include page-grid;
+  }
+
+  &__title {
+    @include title;
+
+    text-transform: uppercase;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+      margin-top: 0;
+    }
+  }
+
+  &__form {
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__input {
+    box-sizing: border-box;
+    display: block;
+    padding-left: 20px;
+
+    width: 100%;
+    border: 1px solid #828282;
+
+    font-family: $main-font-family;
+    font-size: 16px;
+    line-height: 24px;
+
+    &--email {
+      margin-block: 27px 20px;
+
+      height: 48px;
+
+      @include on-desktop {
+        margin-top: 0;
+      }
+    }
+
+    &--textarea {
+      margin-bottom: 20px;
+
+      padding-block: 12px;
+      height: 128px;
+      resize: none;
+
+      @include on-tablet {
+        height: 201px;
+      }
+    }
+
+    &--email:focus, &--textarea:focus {
+      outline-color: #0C797A;
+    }
+
+    &--email::placeholder, &--textarea::placeholder {
+      color: #BDBDBD;
+    }
+
+  }
+
+  &__submit {
+    width: 102px;
+    height: 40px;
+
+    border: none;
+    background-color: $turquoise;
+    color: #fff;
+
+    cursor: pointer;
+    transition: all .3s;
+
+    @include on-desktop {
+      width: 123.66px;
+      height: 48px;
+
+      &:hover {
+        background-color: $teal;
+      }
+    }
+
+    &:disabled {
+      background-color: #CFEFF0;
+    }
+  }
+}
+
+.has-error {
+  outline-color: #EB5757;
+}
