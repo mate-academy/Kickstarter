@@ -1,0 +1,86 @@
+.features {
+  @include section-padding-top;
+
+  &__container {
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    @include tablet {
+      padding-inline: 34px;
+    }
+
+    @include desktop {
+      padding-inline: 123px;
+      max-width: 1440px;
+      box-sizing: content-box;
+    }
+  }
+
+  &__content {
+    padding: 30px 30px 55%;
+    background-color: $c-blue-200;
+    background-image: url('../images/features-img.png');
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+    background-position: bottom;
+    background-size: 100%;
+
+    @include tablet {
+      padding: 60px 90px 20%;
+      background-size: 55%;
+      background-position: right bottom;
+    }
+
+    @include desktop {
+      padding: 60px 102px;
+      background-size: 45%;
+      background-position: 76% bottom;
+    }
+  }
+
+  &__items {
+    @include desktop {
+      @include grid-markup;
+
+      row-gap: 56px;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 30px;
+  }
+
+  &__feature {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: span 5;
+  }
+
+  &__slider-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 50px;
+    width: 96px;
+
+    @include tablet {
+      align-items: start;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__slider-navigation {
+    height: 14px;
+  }
+
+  &__slider-pagination {
+    display: flex;
+    justify-content: center;
+  }
+}

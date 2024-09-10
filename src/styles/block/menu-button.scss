@@ -1,0 +1,48 @@
+.menu-button {
+  height: 32px;
+  width: 32px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &__burger-menu {
+    position: relative;
+    width: 24px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      top: 0;
+
+      @include menu-button-lines-style;
+    }
+
+    &::after {
+      content: '';
+      top: 100%;
+      transform: translateY(-100%);
+
+      @include menu-button-lines-style;
+    }
+
+    &--close::before {
+      transform: rotate(45deg) scale(0.9);
+      top: 50%;
+    }
+
+    &--close::after {
+      transform: rotate(-45deg) scale(0.9);
+      top: 50%;
+    }
+
+    &--line {
+      @include menu-button-lines-style;
+    }
+
+    &--close &--line {
+      opacity: 0;
+    }
+  }
+}

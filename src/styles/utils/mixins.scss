@@ -1,0 +1,138 @@
+@mixin tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin container() {
+  padding-inline: 30px;
+  margin: 0 auto;
+
+  @include tablet {
+    padding-inline: 34px;
+  }
+
+  @include desktop {
+    padding-inline: 123px;
+    max-width: 1440px;
+  }
+}
+
+@mixin grid-markup {
+  --columns: 4;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include tablet {
+    --columns: 8;
+  }
+
+  @include desktop {
+    --columns: 12;
+
+    column-gap: 30px;
+  }
+}
+
+@mixin menu-button-lines-style {
+  position: absolute;
+  display: block;
+  background-color: #292929;
+  height: 2.5px;
+  width: 100%;
+  transition: $effectDuration ease-in-out;
+  border-radius: 2px;
+}
+
+@mixin hover($property, $toValue, $element: false) {
+  @if $element {
+    #{$element} {
+      transition: #{$property} 0.3s;
+    }
+    &:hover #{$element} {
+      #{$property}: $toValue;
+    }
+  } @else {
+    transition: #{$property} 0.3s;
+    &:hover {
+      #{$property}: $toValue;
+    }
+  }
+}
+
+@mixin pressed($property, $toValue, $element: false) {
+  @if $element {
+    #{$element} {
+      transition: #{$property} 0.3s;
+    }
+    &:active #{$element} {
+      #{$property}: $toValue;
+    }
+  } @else {
+    transition: #{$property} 0.3s;
+    &:active {
+      #{$property}: $toValue;
+    }
+  }
+}
+
+@mixin accent($bg-image) {
+  position: absolute;
+  top: 0;
+  background-image: $bg-image;
+  opacity: 0;
+}
+
+@mixin section-padding-top {
+  padding-top: 110px;
+
+  @include tablet {
+    padding-top: 140px;
+  }
+
+  @include desktop {
+    padding-top: 170px;
+  }
+}
+
+@mixin autofill {
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px $c-grey-100 inset;
+  }
+}
+
+@mixin form-styles {
+  box-sizing: border-box;
+  background-color: $c-grey-100;
+  padding-inline: 20px;
+  border: 1px solid #828282;
+  width: 100%;
+  font: inherit;
+
+  &::placeholder {
+    color: $c-grey-400;
+  }
+
+  &:focus-visible {
+    outline: none;
+    color: $c-grey-700;
+    border-color: $c-blue-500;
+  }
+
+  &:user-invalid {
+    outline: none;
+    color: rgba(235, 87, 87, 0.3);
+    border-color: #eb5757;
+  }
+}
