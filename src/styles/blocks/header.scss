@@ -1,0 +1,88 @@
+.header {
+  &__content {
+    @include grid-layout;
+
+    margin-bottom: 110px;
+
+    @include on-tablet {
+      @include inline-padding-content;
+
+      margin-bottom: 140px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__image-box {
+    grid-column: 1 / -1;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      grid-row: 1 / 3;
+      align-self: end;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      margin-top: 90px;
+      grid-column: 5 / -1;
+    }
+  }
+
+  &__picture {
+    display: flex;
+    align-items: end;
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    @include inline-padding-content;
+
+    grid-column: 1 / -1;
+    margin-bottom: 20px;
+    color: $c-black;
+
+    @media (max-width: $mobile-width) {
+      font-size: 30px;
+    }
+
+    @include on-tablet {
+      width: min-content;
+      grid-column: 1 / 5;
+      grid-row: 1 / 2;
+
+      padding-inline: 0;
+      margin: 0;
+      margin-top: 133px;
+      margin-bottom: 30px;
+    }
+
+    @include on-desktop {
+      margin-top: 171px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    grid-column: 1 / -1;
+    color: $c-black;
+
+    @include main-text-style;
+    @include inline-padding-content;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 2 / 3;
+
+      padding-inline: 0;
+      margin: 0;
+    }
+  }
+}

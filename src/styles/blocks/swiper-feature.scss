@@ -1,0 +1,102 @@
+.swiper-feature {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  @include on-tablet {
+    align-items: start;
+  }
+
+  @include on-desktop {
+    height: 643px;
+  }
+
+  &__wrapper {
+    height: 100% !important;
+  }
+
+  &__slide {
+    min-height: 200px;
+  }
+
+  &__slide-content {
+    margin-bottom: 50px;
+  }
+
+  &__slide-title {
+    color: $c-dark-blue;
+    margin-bottom: 20px;
+  }
+
+  &__slide-list {
+    max-width: 90%;
+    padding: 0;
+    margin: 0;
+    list-style-position: inside;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+  }
+
+  &__slide-item {
+    @include secondary-text-style;
+
+    color: $c-black;
+  }
+
+  &__aditional {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__button-prev,
+  &__button-next {
+    display: inline-block;
+  }
+
+  &__button {
+    & path {
+      fill: $c-gray;
+    }
+
+    &--active {
+      & path {
+        fill: $c-black;
+        transition: fill $transition-duration;
+      }
+
+      &:hover path {
+        fill: $c-dark-blue;
+      }
+    }
+  }
+
+  &__fraction {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    column-gap: 2px;
+    font-family: $font-family;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13.31px;
+
+    color: $c-dark-blue;
+  }
+
+  &__curent {
+    color: $c-black;
+
+    @include main-text-style;
+  }
+}

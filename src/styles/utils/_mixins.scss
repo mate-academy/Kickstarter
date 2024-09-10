@@ -4,3 +4,91 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin inline-padding-content {
+  padding-inline: 30px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
+
+@mixin grid-layout {
+  --columns: 4;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --columns: 8;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+
+    column-gap: 30px;
+  }
+}
+
+@mixin button-text-style {
+  font-family: $font-family-secondary, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@mixin main-text-style {
+  font-family: $font-family, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@mixin secondary-text-style {
+  font-family: $font-family, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@mixin thirdary-text-style {
+  font-family: $font-family, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+@mixin quote-text-style {
+  font-family: $font-family, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.43;
+
+  @include on-tablet {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+}

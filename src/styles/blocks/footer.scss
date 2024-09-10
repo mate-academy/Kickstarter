@@ -1,0 +1,73 @@
+.footer {
+  &__content {
+    @include inline-padding-content;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+
+    row-gap: 30px;
+
+    @include on-tablet {
+      row-gap: 60px;
+    }
+  }
+
+  &__logo-link {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &__logo {
+    width: 100%;
+  }
+
+  &__socials {
+    display: flex;
+    column-gap: 40px;
+
+    @include on-tablet {
+      column-gap: 49px;
+    }
+
+    @include on-desktop {
+      column-gap: 40px;
+    }
+  }
+
+  &__bottom {
+    font-family: $font-family-secondary;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    color: $c-gray;
+  }
+
+  &__arrow-up {
+    position: absolute;
+    display: none;
+    right: 0;
+    top: 0;
+
+    @include on-tablet {
+      display: block;
+      right: 34px;
+
+      &:hover {
+        animation: jump $transition-duration * 2 ease-out infinite;
+      }
+    }
+
+    @include on-desktop {
+      right: 123px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+  }
+}
