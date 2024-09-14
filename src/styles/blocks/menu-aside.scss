@@ -1,0 +1,181 @@
+.menu {
+  box-sizing: border-box;
+
+  height: 100%;
+
+  background-color: $gray;
+
+  overflow: auto;
+  opacity: 1;
+  z-index: 100;
+
+  &__top {
+    position: sticky; /* to keep cross always visible */
+    top: 0;
+    z-index: 1;
+
+    padding-inline: 30px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-block: 24px;
+
+    height: 74px;
+  }
+
+  &__logo {
+    width: 161px;
+    height: 26px;
+  }
+
+  &__icon-close {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__lang-specs {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__specs {
+    display: block;
+
+    font-size: 14px;
+    font-weight: 300;
+
+    text-transform: uppercase;
+
+    color: $med-gray;
+
+    transition: ease-in-out $transition-duration;
+
+    &:hover {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+
+      color: $dark-charcoal;
+
+      transform: scale(1.1);
+    }
+  }
+
+  &__language {
+    display: flex;
+  }
+
+  &__button {
+    margin-top: 162px;
+
+    border: none;
+    width: 100%;
+    height: 48px;
+
+    cursor: pointer;
+
+    background-color: $dark-charcoal;
+    color: $white;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.65px;
+
+    transition: ease-in-out $transition-duration;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &:hover {
+      background-color: $ch-black;
+    }
+
+    &:disabled {
+      background-color: $american-silver;
+    }
+  }
+}
+
+.language {
+  &__link {
+    display: block;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+
+    text-transform: uppercase;
+
+    color: $old-silver;
+
+    transition: ease-in-out $transition-duration;
+
+    &:hover {
+      font-weight: 400;
+      color: $dark-charcoal;
+
+      transform: scale(1.2);
+    }
+
+    &--active {
+      font-weight: 400;
+      color: $dark-charcoal;
+    }
+  }
+}
+
+.item-wrapper {
+  margin-top: 31px;
+  padding-inline: 30px;
+
+  @include on-tablet {
+    margin-top: 40px;
+    padding-inline: 34px;
+  }
+}
+
+.navigation {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    margin: 0;
+    margin-bottom: 50px;
+    padding: 0;
+
+    @include on-tablet {
+      gap: 40px;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+
+    text-transform: uppercase;
+
+    color: $dark-charcoal;
+
+    transition: ease-in-out $transition-duration;
+
+    @include on-tablet {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    &:hover {
+      font-weight: 700;
+      color: $ch-black;
+    }
+  }
+}
