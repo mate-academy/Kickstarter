@@ -1,0 +1,64 @@
+.swiper-desc {
+
+  @include onTablet {
+    pointer-events: none;
+  }
+
+  &__wrapper {
+    @include onTablet {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 20px;
+      row-gap: 64px;
+    }
+    @include onDesktop {
+      display: flex !important;
+      gap: 30px;
+    }
+  }
+  &__slide {
+    @include onDesktop {
+      width: 276px !important;
+    }
+  }
+}
+
+.desc-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include lastChild {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__icon {
+    font-size: 40px;
+
+    color: $colorLightGrey;
+  }
+
+  &__main {
+    @include lastChild {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__title {
+    @include title;
+
+    font-size: 22px;
+  }
+
+  &__text {
+    text-align: center;
+
+    color: $colorLightGrey;
+  }
+}
