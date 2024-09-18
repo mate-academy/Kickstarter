@@ -162,6 +162,21 @@ function checkFormValidity() {
 form.addEventListener('input', checkFormValidity);
 
 
+// Обробник події для відправки форми
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  alert('The form is successfully sent!');
+
+  form.reset();
+
+  submitButton.classList.remove('active');
+  submitButton.disabled = true;
+});
+
+
+
 // Ефект магнетизму
 
 const parents = document.querySelectorAll('.magnet-parent');
