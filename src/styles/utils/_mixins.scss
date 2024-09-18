@@ -4,3 +4,67 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin tablet-width {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin desktop-width {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin inline-padding {
+  padding-inline: $mobile-padding-inline;
+
+  @include tablet-width {
+    padding-inline: $tablet-padding-inline;
+  }
+
+  @include desktop-width {
+    max-width: 1194px;
+    padding-inline: $desktop-padding-inline;
+  }
+}
+
+.container {
+  @include inline-padding;
+}
+
+@mixin page-grid {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+
+  @include tablet-width {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include desktop-width {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: $desktop-column-gap;
+  }
+}
+
+@mixin header-img-start-style {
+  display: none;
+  width: 100%;
+  align-self: center;
+  z-index: -1;
+  grid-row: 1 / 3;
+}
+
+@mixin block-margin-bottom {
+  margin-bottom: 110px;
+
+  @include tablet-width {
+    margin-bottom: 140px;
+  }
+
+  @include desktop-width {
+    margin-bottom: 170px;
+  }
+}

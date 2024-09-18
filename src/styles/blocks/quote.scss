@@ -1,0 +1,80 @@
+.quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include block-margin-bottom;
+
+  &__background {
+    background-image: url(../images/quotes.png);
+    background-position: center;
+    background-size: contain;
+    height: 171px;
+    width: 208px;
+    position: absolute;
+    z-index: -1;
+
+    @include tablet-width {
+      height: 189px;
+      width: 233px;
+    }
+
+    @include desktop-width {
+      height: 192px;
+    }
+  }
+
+  &__text-container {
+    @include page-grid;
+  }
+
+  &__text {
+    margin-top: 50px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    text-align: center;
+
+    grid-column: 1 / -1;
+
+    @include tablet-width {
+      font-size: 24px;
+      line-height: 36px;
+      margin-top: 60px;
+    }
+
+    @include desktop-width {
+      grid-column: 3 / 11;
+      margin-top: 42px;
+    }
+  }
+
+  &__avatar {
+    margin-top: 30px;
+    width: 62px;
+    height: auto;
+
+    @include tablet-width {
+      margin-top: 40px;
+    }
+
+    @include desktop-width {
+      margin-top: 30px;
+    }
+  }
+
+  &__author {
+    margin-top: 10px;
+
+    @include tablet-width {
+      margin-top: 20px;
+    }
+
+    &-position {
+      margin-top: 5px;
+      font-size: 14px;
+      line-height: 21px;
+      color: $text-color-gray;
+    }
+  }
+}
