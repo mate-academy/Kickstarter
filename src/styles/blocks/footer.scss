@@ -1,0 +1,119 @@
+.footer {
+  &-container {
+    position: relative;
+  }
+
+  &__logo {
+    display: flex;
+    width: 184px;
+    height: 25px;
+    transition: transform $effectDuration;
+
+    @include desktop-width {
+      width: 161px;
+      height: 26px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &-link {
+      display: none;
+      width: max-content;
+      margin-inline: auto;
+      margin-bottom: 42px;
+
+      @include tablet-width {
+        display: block;
+      }
+    }
+  }
+
+  &__button--scroll-top {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url(../images/icons/arrow-up.svg);
+    background-size: contain;
+    background-position: center;
+    height: 24px;
+    width: 24px;
+    margin: 12px;
+    transition: transform $effectDuration;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include tablet-width {
+      display: flex;
+    }
+
+    @include desktop-width {
+      margin: 0;
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .social-link {
+    width: 60px;
+    height: 60px;
+    position: relative;
+
+    &__icon {
+      background-size: contain;
+      background-position: center;
+      height: 24px;
+      width: 24px;
+
+      &--facebook {
+        background-image: url(../images/icons/facebook.svg);
+      }
+
+      &--twitter {
+        background-image: url(../images/icons/twitter.svg);
+      }
+
+      &--instagram {
+        background-image: url(../images/icons/instagram.svg);
+      }
+    }
+
+    .magnet {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: transform 0.2s ease-out;
+    }
+  }
+
+  &__additional-info {
+    color: #bdbdbd;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    margin-block: 12px 20px;
+
+    @include tablet-width {
+      margin-block: 42px 30px;
+    }
+
+    &-link {
+      color: inherit;
+      text-decoration: none;
+      transition: color $effectDuration;
+
+      &:hover {
+        color: $main-text-color;
+      }
+    }
+  }
+}
