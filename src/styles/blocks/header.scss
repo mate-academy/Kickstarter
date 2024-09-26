@@ -1,0 +1,229 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  &__top {
+    @include top-actions;
+    margin: 25px 0 25px 0;
+
+    @include content-padding-inline;
+
+    @include on-tablet {
+      margin: 30px 0 30px 0;
+    }
+
+    @include on-desktop {
+      margin: 30px 0 30px 0;
+    }
+  }
+
+  &__logo {
+    cursor: pointer;
+
+    &--img {
+      height: 25px;
+      width: 161px;
+    }
+  }
+
+  &__button {
+    display: none;
+    height: 48px;
+    width: 100px;
+    background-color: $c-medium-gray;
+    color: $c-button-white;
+
+    font-family: Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 0;
+    border: 0;
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: $c-dark-gray;
+    }
+
+    @include on-tablet {
+      display: inline-block;
+    }
+
+    @include on-desktop {
+      display: inline-block;
+    }
+  }
+
+  &__nav {
+    color: $c-medium-gray;
+
+    display: none;
+
+    @include on-tablet {
+      display: inline-block;
+    }
+
+    @include on-desktop {
+      display: inline-block;
+    }
+
+    &--link {
+      font-family: Helvetica Neue;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 18px;
+      color: $c-silver;
+      text-decoration: none;
+
+      &:hover {
+        color: $c-medium-gray;
+        font-weight: 400;
+      }
+
+      &-isActive {
+        color: $c-medium-gray;
+        font-weight: 400;
+      }
+
+      @include on-desktop {
+        font-family: Inter, sans-serif;
+        @include thirdaryText-desktop;
+      }
+    }
+  }
+
+  &__specs {
+    font-family: Helvetica Neue;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 17px;
+    color: $c-gray;
+
+    display: none;
+
+    @include on-tablet {
+      display: inline-block;
+    }
+
+    @include on-desktop {
+      display: inline-block;
+      font-family: Inter, sans-serif;
+      @include thirdaryText-desktop;
+    }
+  }
+
+  &__menu {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../images/add/menu.svg);
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__wraper {
+    overflow: hidden;
+
+    @include on-tablet {
+      @include content-padding-inline;
+      margin-top: 100px;
+    }
+
+    @include on-desktop {
+      @include content-padding-inline;
+      margin-top: 60px;
+      margin-bottom: 170px;
+    }
+  }
+
+  &__picture {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../images/mobile_img/Speaker.png);
+    width: 100%;
+    min-height: 245px;
+    grid-column: 1 / -1;
+    
+    transition: all 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include on-tablet {
+      background-image: url(../images/tablet_img/Speaker.png);
+      grid-column: 4 / -1;
+      height: 317px;
+      align-self: end;
+    }
+
+    @include on-desktop {
+      background-image: url(../images/desktop_img/Speaker.png);
+      grid-column: 5 / -1;
+      height: 464px;
+      align-self: end;
+    }
+  }
+
+  &__contant {
+    display: flex;
+    flex-direction: column;
+    @include content-padding-inline;
+    grid-column: 1 / -1;
+
+    opacity: 0;
+    transform: translateX(-100px);
+
+    @include on-tablet {
+      padding-inline: 0;
+      grid-column: 1 / 4;
+      order: -1;
+      z-index: 1;
+      align-self: end;
+    }
+
+    @include on-desktop {
+      padding-inline: 0;
+      grid-column: 1 / 4;
+      order: -1;
+      z-index: 1;
+      align-self: end;
+    }
+
+    &--title {
+      @extend %h1-mobile;
+      margin: 40px 0 0 0;
+
+      @include on-tablet {
+        margin: 0;
+        @include h1-tablet;
+      }
+
+      @include on-desktop {
+        margin: 0;
+        @include h1-desktop;
+      }
+    }
+
+    &--description {
+      margin: 20px 0 0 0;
+      @extend %mainText-desktop;
+      color: $c-medium-gray;
+
+      @include on-tablet {
+        margin: 30px 0 0 0;
+      }
+
+      @include on-desktop {
+        margin: 30px 0 0 0;
+      }
+    }
+  }
+}

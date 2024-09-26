@@ -1,0 +1,296 @@
+.about {
+  margin: 110px 0;
+
+  @include content-padding-inline;
+
+  @include on-tablet {
+    margin: 140px 0;
+    padding-inline: 0;
+  }
+
+  @include on-desktop {
+    margin: 170px 0;
+    @include content-padding-inline;
+  }
+
+  &__block {
+    padding-bottom: 110px;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    @include on-tablet {
+      padding-bottom: 140px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 170px;
+    }
+
+    &--row {
+      grid-row: 1;
+    }
+  }
+
+  &__content {
+    &--first {
+      opacity: 0;
+      transform: translateX(100px);
+
+      @include on-tablet {
+        padding-right: 34px;
+      }
+
+      @include on-desktop {
+        padding-right: 0;
+      }
+    }
+
+    &--second {
+      opacity: 0;
+      transform: translateX(-100px);
+
+      @include on-tablet {
+        padding-left: 34px;
+      }
+
+      @include on-desktop {
+        padding-left: 0;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0;
+    padding-bottom: 30px;
+    @extend %h2-mobile;
+    color: $c-medium-gray;
+
+
+    @include on-desktop {
+      @include h2-desktop;
+    }
+
+    &--mobile {
+      opacity: 0;
+      transform: translateX(-100px);
+
+      @include on-tablet {
+        display: none;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    &--desctoptablet {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        @include h2-tablet;
+      }
+
+      @include on-desktop {
+        display: block;
+        @include h2-tablet;
+      }
+    }
+
+    &--second {
+      padding-bottom: 20px;
+      @include h2-tablet;
+    }
+  }
+
+  &__picture {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 210px;
+    width: 100%;
+
+    transition: all 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include on-tablet {
+      min-height: 415px;
+    }
+
+    @include on-desktop {
+      min-height: 388px;
+    }
+
+    &--first {
+      opacity: 0;
+      transform: translateX(-100px);
+      background-image: url(../images/mobile_img/DesignFuture.png);
+
+      @include on-tablet {
+        background-image: url(../images/tablet_img/DesignFuture.png);
+      }
+
+      @include on-desktop {
+        background-image: url(../images/desktop_img/DesignFuture.png);
+      }
+    }
+
+    &--second {
+      opacity: 0;
+      transform: translateX(100px);
+      background-image: url(../images/mobile_img/LunaEYE.png);
+
+      @include on-tablet {
+        background-image: url(../images/tablet_img/LunaEYE.png);
+      }
+
+      @include on-desktop {
+        background-image: url(../images/desktop_img/LunaEYE.png);
+      }
+    }
+  }
+
+  &__description {
+    @extend %secondaryText-desktop;
+    color: $c-light-gray;
+    margin: 20px 0 30px;
+
+    @include on-tablet {
+      @include mainText-desktop;
+      margin: 0 0 60px;
+      min-width: 340px;
+    }
+
+    @include on-desktop {
+      @include mainText-desktop;
+      margin: 0 0 60px;
+      min-width: 340px;
+    }
+  }
+
+  &__link {
+    @extend %button-desktop;
+    line-height: 14px;
+    text-decoration: none;
+    color: $c-turquoise;
+    position: relative;
+    cursor: pointer;
+
+    display: inline-block;
+
+
+    @include on-tablet {
+      @include mainText-desktop;
+    }
+
+    @include on-desktop {
+      @include mainText-desktop;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      border: 1px solid #0DB2B3;
+      width: 54px;
+      margin-top: 5px;
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  &__rewiew {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 50px;
+
+    @include on-tablet {
+      padding-top: 60px;
+      @include content-padding-inline;
+    }
+
+    @include on-desktop {
+      padding-inline: 0;
+      padding-top: 42px;
+    }
+
+    &--text {
+      @extend %quote-mobile;
+      text-align: center;
+      margin-bottom: 30px;
+      color: $c-medium-gray;
+
+      position: relative;
+
+      @include on-tablet {
+        margin-bottom: 40px;
+        @include quote-desktop;
+      }
+
+      @include on-desktop {
+        margin-bottom: 30px;
+        @include quote-desktop;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -1px;
+        width: 208px;
+        height: 171px;
+        background-image: url(../images/svg/VectorAbout.svg);
+        background-size: cover;
+        background-position: center;
+        opacity: 0.7;
+
+        @include on-tablet {
+          width: 233px;
+          height: 189px;
+        }
+
+        @include on-desktop {
+          width: 233px;
+          height: 189px;
+          bottom: -42px;
+        }
+      }
+    }
+
+    &--img {
+      width: 62px;
+      height: 62px;
+    }
+
+    &--name {
+      @extend %h5-desktop;
+      margin: 10px 0 5px;
+      color: $c-medium-gray;
+
+      @include on-tablet {
+        margin: 20px 0 5px;
+      }
+
+      @include on-desktop {
+        margin: 20px 0 5px;
+      }
+    }
+
+    &--position {
+      margin: 0;
+      color: $c-light-gray;
+      @include thirdaryText-desktop;
+      text-transform:capitalize;
+    }
+  }
+}

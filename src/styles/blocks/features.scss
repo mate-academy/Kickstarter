@@ -1,0 +1,237 @@
+.features {
+  margin-top: 100px;
+
+  @include on-tablet {
+    @include content-padding-inline;
+  }
+
+  @include on-desktop {
+    @include content-padding-inline;
+  }
+
+  &__title {
+    @extend %h2-mobile;
+    color: $c-medium-gray;
+    padding-bottom: 32px;
+    margin: 0;
+
+    opacity: 0;
+    transform: translateX(-100px);
+
+    @include content-padding-inline;
+
+    @include on-tablet {
+      padding-inline: 0;
+    }
+
+    @include on-desktop {
+      @include h2-desktop;
+      padding-inline: 0;
+    }
+  }
+
+  &__slider {
+    position: relative;
+    overflow: hidden;
+    background-color: $c-bgslide;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-top: 20px;
+
+    @include on-tablet {
+      padding-top: 60px;
+    }
+
+    @include on-desktop {
+      padding-top: 60px;
+    }
+
+    &--navigation {
+      display: flex;
+      flex-direction: column;
+
+      @include on-tablet {
+        width: 100px;
+        position: absolute;
+        left: 90px;
+        top: 385px;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+
+      height: auto;
+    }
+  }
+
+  &__slide {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    &--gridLineFirst {
+      grid-column: 2 / 6;
+
+      @include on-desktop {
+        padding-bottom: 56px;
+
+        &:last-child {
+          padding-bottom: 59px;
+        }
+      }
+    }
+
+    &--gridLineSecond {
+      grid-column: 7 / 10;
+    }
+
+    &--desctopPicture {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+        grid-column: 7 / -1;
+        background-image: url(../images/mobile_img/2.png);
+        background-size: contain;
+        background-position: left;
+        background-repeat: no-repeat;
+        height: 302px;
+      }
+    }
+
+    &--title {
+      margin: 0;
+      color: $c-green;
+      @extend %h3-mobile;
+
+      @include content-padding-inline;
+
+      @include on-tablet {
+        padding-inline: 90px;
+      }
+
+      @include on-desktop {
+        @include h3-desktop;
+        padding-inline: 0;
+      }
+    }
+
+    &--lists {
+      margin: 20px 0 50px;
+      list-style-position: inside;
+      list-style: none;
+
+      @include content-padding-inline;
+
+      @include on-tablet {
+        padding-inline: 90px;
+        margin-bottom: 0;
+      }
+
+      @include on-desktop {
+        margin: 30px 0 0;
+        padding-inline: 0;
+      }
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &--list {
+      position: relative;
+      color: $c-medium-gray;
+      @extend %secondaryText-desktop-regular;
+      padding-left: 20px;
+
+      &::before {
+        content: "•";
+        position: absolute;
+        color: $c-dots;
+        left: 1px;
+        width: 4px;
+        height: 4px;
+      }
+    }
+  }
+
+  &__buttons {
+    background-color: inherit;
+    padding: 0;
+    border: 0;
+
+    &--left {
+      width: 48px;
+      height: 14px;
+
+      &:hover {
+        filter: brightness(0) saturate(100%) invert(55%) sepia(22%) saturate(355%) hue-rotate(144deg) brightness(97%) contrast(91%);
+      }
+    }
+
+    &--right {
+      width: 48px;
+      height: 14px;
+
+      &:hover {
+        filter: brightness(0) saturate(100%) invert(55%) sepia(22%) saturate(355%) hue-rotate(144deg) brightness(97%) contrast(91%);
+      }
+    }
+
+    &--isActive {
+      filter: brightness(0) saturate(100%) invert(19%) sepia(1%) saturate(0%) hue-rotate(144deg) brightness(94%) contrast(89%);
+    }
+
+    &--isDisabled {
+      filter: brightness(0) saturate(100%) invert(73%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    }
+  }
+
+  &__numbers {
+    margin-top: 10px;
+    text-align: center;
+    color: $c-silver;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13px;
+
+    &--current {
+      color: $c-medium-gray;
+      @extend %mainText-desktop;
+    }
+  }
+
+  &__picture {
+    background-image: url(../images/mobile_img/2.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 175px;
+
+    @include on-tablet {
+      height: 225px;
+      background-position: right;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}

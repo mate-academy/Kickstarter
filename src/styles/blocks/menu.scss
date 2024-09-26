@@ -1,0 +1,193 @@
+.menu {
+  background: $c-bgmenu-white;
+  overflow: auto;
+  z-index: 2;
+
+  @include content-padding-inline;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__content {
+    height: 100vh;
+    box-sizing: border-box;
+    padding-top: 24px;
+
+    position: relative;
+
+    @include on-tablet {
+      padding-top: 36px;
+    }
+
+    @include on-desktop {
+      padding-top: 36px;
+    }
+  }
+
+  &__top {
+    @include top-actions;
+  }
+
+  &__logo {
+    cursor: pointer;
+
+    &-img {
+      height: 26px;
+      width: 161px;
+    }
+  }
+
+  &__close {
+    display: block;
+    width: 16px;
+    height: 16px;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/add/close.svg);
+    cursor: pointer;
+  }
+
+  &__list {
+    margin: 55px 0 50px;
+    padding: 0;
+    list-style: none;
+
+    @include on-tablet {
+      margin: 40px 0 0 0;
+    }
+
+    @include on-desktop {
+      margin: 40px 0 0 0;
+    }
+  }
+
+  &__item {
+    margin-bottom: 25px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    color: $c-medium-gray;
+    @extend %thirdaryText-desktop;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    @include on-tablet {
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 28px;
+    }
+
+    @include on-desktop {
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 28px;
+    }
+
+    &:hover {
+      color: $c-dark-gray;
+      font-weight: 700;
+    }
+  }
+
+  &__specs {
+    font-family: Helvetica Neue;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 17px;
+    color: $c-gray;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__lan {
+    color: $c-medium-gray;
+    margin-left: 20px;
+
+    display: inline-block;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &--link {
+      font-family: Helvetica Neue;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 18px;
+
+      color: $c-silver;
+      text-decoration: none;
+
+      transition: all 0.3s;
+
+      &:hover {
+        color: $c-medium-gray;
+        font-weight: 400;
+      }
+
+      &-isActive {
+        color: $c-medium-gray;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &__button {
+    display: block;
+    height: 48px;
+    width: 100%;
+    background-color: $c-medium-gray;
+    color: $c-button-white;
+
+    cursor: pointer;
+
+    font-family: Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 0;
+    border: 0;
+
+    position: absolute;
+    bottom: 30px;
+
+    &:hover {
+      background-color: $c-dark-gray;
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}
