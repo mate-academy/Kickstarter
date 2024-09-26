@@ -1,0 +1,99 @@
+.benefits {
+  margin: 110px 0 110px;
+
+  @include content-padding-inline;
+
+  @include on-tablet {
+    margin: 140px 0 140px;
+  }
+
+  @include on-desktop {
+    margin: 62px 0 170px;
+  }
+
+  &__block {
+    opacity: 0;
+    transform: translateY(100px);
+
+    &:nth-of-type(n+2):nth-of-type(-n+4) {
+      display: none;
+    }
+
+    @include on-tablet {
+      &:nth-of-type(n+2):nth-of-type(-n+4) {
+        display: block;
+      }
+
+      &:nth-last-of-type(-n+2) {
+        margin-top: 65px;
+      }
+    }
+
+    @include on-desktop {
+      &:nth-of-type(n+2):nth-of-type(-n+4) {
+        display: block;
+      }
+
+      &:nth-last-of-type(-n+2) {
+        margin-top: 0;
+      }
+    }
+  }
+
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include on-desktop {
+      height: 286px;
+      justify-content: space-between;
+    }
+
+    &--wraper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &--picture {
+      height: 40px;
+      width: 50px;
+    }
+
+    &--title {
+      @extend %h4-desktop;
+      margin: 40px 0 0 0;
+      color: $c-medium-gray;
+      text-align: center;
+
+      @include on-tablet {
+        margin-top: 50px;
+
+        &:nth-last-of-type(-n+2) {
+          margin-top: 40px;
+        }
+      }
+
+      @include on-desktop {
+        margin-top: 30px;
+      }
+
+    }
+
+    &--description {
+      @extend %secondaryText-desktop;
+      text-align: center;
+
+      margin: 20px 0 0 0;
+      color: $c-light-gray;
+
+      @include on-desktop {
+        margin: 0;
+        height: 126px;
+      }
+    }
+  }
+}

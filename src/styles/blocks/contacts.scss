@@ -1,0 +1,121 @@
+.contacts {
+  margin: 90px 0 110px;
+
+  @include content-padding-inline;
+
+  display: flex;
+  flex-direction: column;
+
+  @include on-tablet {
+    display: grid;
+    margin: 140px 0 140px;
+  }
+
+  @include on-desktop {
+    display: grid;
+    margin: 170px 0 170px;
+  }
+
+  &__title {
+    @extend %h2-mobile;
+    color: $c-medium-gray;
+    margin: 0;
+
+    opacity: 0;
+    transform: translateX(-100px);
+
+    @include on-tablet {
+      @include h2-tablet;
+    }
+
+    @include on-desktop {
+      @include h2-desktop;
+    }
+  }
+
+  &__container {
+    margin-top: 27px;
+
+    opacity: 0;
+    transform: translateX(100px);
+
+    @include on-tablet {
+      margin-top: 0;
+    }
+
+    @include on-desktop {
+      margin-top: 0;
+    }
+  }
+
+  &__form {
+    box-sizing: border-box;
+    height: 48px;
+    display: block;
+    width: 100%;
+    border: 1px solid #828282;
+    padding: 12px 20px;
+    @extend %mainText-desktop;
+    color: $c-silver;
+    background-color: inherit;
+
+    border-radius: 1px;
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #7e7e83;
+    }
+
+    &:focus {
+      outline: none;
+      border: 1px solid $c-green;
+      color: $c-medium-gray;
+    }
+
+    &:focus:invalid {
+      border: 1px solid #EB5757;
+      color: #EB57574D;
+
+    }
+
+    &--textarea {
+      margin-top: 20px;
+      font-family: inherit;
+      height: 148px;
+      resize: none;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 40px;
+    width: 102px;
+    background-color: $c-turquoise;
+    border-radius: 1px;
+    border: none;
+
+    padding: 0;
+    margin-top: 30px;
+
+    text-decoration: none;
+    @extend %button-desktop;
+    color:#FFFFFF;
+
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:not(:disabled):hover {
+      background-color: $c-green;
+    }
+
+    &--disabled {
+      color: #fff;
+      background-color: #CFEFF0;
+    }
+  }
+}
