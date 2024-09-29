@@ -1,0 +1,198 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  grid-column: 1/-1;
+  align-items: center;
+
+  @include on-tabl-desk {
+    grid-column: 1/-1;
+  }
+
+  &__group {
+    display: flex;
+    justify-content: end;
+    gap: 47px;
+    align-items: center;
+
+    @include on-tablet {
+      gap: 30px;
+    }
+  }
+
+  &__logo {
+    @include hover(transform, scale(1.2));
+
+    background-size: cover;
+    background-position: center;
+    background-image: url(../images/svg/logo.png);
+    width: 161px;
+    height: 25px;
+    grid-column: 1/2;
+  }
+
+  &__menu {
+    @include on-desktop {
+      display: none;
+    }
+
+    background-image: url(../images/svg/Icon-Burger-menu.png);
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.switch-lang {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+
+  @include on-mob-tabl {
+    display: none;
+  }
+
+  &--e {
+    cursor: pointer;
+    color: #131313;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &--u {
+    cursor: pointer;
+    color: #bdbdbd;
+
+    @include hover(transform, scale(1.2));
+  }
+}
+
+.specs {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #131313;
+  cursor: pointer;
+
+  @include hover(transform, scale(1.2));
+
+  @include on-mob-tabl {
+    display: none;
+  }
+}
+
+.buy {
+  width: 102px;
+  height: 48px;
+  background: #333;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+  color: white;
+  border: none;
+  transition-duration: 1s;
+  transition-property: background-color;
+
+  @include on-mob-tabl {
+    display: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: #131313;
+  }
+}
+
+.header {
+  @include on-mob-tabl {
+    column-gap: 20px;
+    grid-template-columns: repeat(4, 50px);
+  }
+
+  @include on-tabl-desk {
+    box-sizing: border-box;
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: repeat(8, 60px);
+  }
+
+  font-family: Inter, sans-serif;
+  box-sizing: border-box;
+  display: grid;
+  column-gap: 30px;
+  grid-template-columns: repeat(12, 72px);
+
+  &__group {
+    display: flex;
+    flex-direction: row;
+    margin-top: 90px;
+
+    @include on-mob-tabl {
+      flex-direction: column;
+    }
+  }
+
+  &__img {
+    &--d {
+      @include on-mob-desk {
+        display: none;
+      }
+    }
+
+    &--t {
+      @include on-desktop {
+        display: none;
+      }
+
+      @include on-mob-tabl {
+        display: none;
+      }
+    }
+
+    &--m {
+      @include on-tablet {
+        display: none;
+      }
+
+      width: 260px;
+      height: 200px;
+      background-image: url(../images/mob/original.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  &__text {
+    margin-top: 2.2em;
+    color: #333;
+
+    // width: 378px;
+    height: 234px;
+    grid-column: 1/4;
+
+    &--title {
+      @include on-tabl-desk {
+        font-size: 48px;
+        line-height: 62px;
+      }
+
+      @include on-mob-tabl {
+        font-size: 40px;
+        line-height: 52px;
+      }
+    }
+
+    &--about {
+      width: 276px;
+      height: 120px;
+      color: #333;
+
+      @include on-mob-tabl {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+}
