@@ -1,0 +1,56 @@
+.form {
+  &__element {
+    padding: 12px 20px;
+    background-color: $main-background-color;
+    border: solid 1px $border-gray-color;
+    box-sizing: border-box;
+
+    @include font-style(desctop, main-text);
+    color: $second-black-color;
+    font-weight: 500;
+
+    &::placeholder {
+      @include font-style(desctop, main-text);
+    }
+
+    &:focus {
+      outline: none;
+      border: 1px solid $dark-turquoise-color;
+    }
+
+    &:focus:invalid {
+      outline: none;
+      border: 1px solid $invalid-border-color;
+    }
+
+    &:focus:invalid::placeholder {
+      color: $invalid-border-color;
+    }
+  }
+
+  &__input {
+    height: 48px;
+  }
+
+  &__textarea {
+    height: 128px;
+    margin-top: 20px;
+    resize: none;
+  }
+
+  &__button {
+    margin-top: 30px;
+    width: 100px;
+    height: 40px;
+    color: white;
+    background-color: $first-turquoise-color;
+    border: none;
+
+    transition-duration: $effect-duration;
+
+    &:hover {
+      background-color: $dark-turquoise-color;
+      cursor: pointer;
+    }
+  }
+}
