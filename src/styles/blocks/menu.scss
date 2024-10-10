@@ -1,0 +1,122 @@
+.menu-page {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  background-color: $background;
+  transform: translateX(100%);
+  transition: all 0.5s;
+
+  &:target {
+    overflow-y: scroll;
+    transform: translateX(0);
+    z-index: 100;
+    opacity: 1;
+  }
+
+  &__bottom {
+    display: flex;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__content {
+    padding-block: 30px;
+
+    .menu-page__bottom {
+      margin-bottom: 162px;
+    }
+  }
+}
+
+.menu-close__button {
+  width: 32px;
+  height: 32px;
+  background-image: url(../../images/icons/menu-close-button.svg);
+  transition:
+    all 0,
+    5s;
+
+  @include on-tablet {
+    margin-top: 8px;
+  }
+
+  &:hover {
+    rotate: 180deg;
+    background-image: url(../../images/icons/menu-close-button-hover.svg);
+  }
+}
+
+.menu-list {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  @include on-desktop {
+    padding-block: 28px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: center;
+    gap: 84px;
+  }
+}
+
+.menu-link {
+  color: $default;
+
+  @include hover(text-shadow, 0 0 1px black);
+}
+
+.languages-selector {
+  display: flex;
+  gap: 3px;
+
+  @include on-tablet {
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+}
+
+.lang-item {
+  color: $grey;
+
+  @include hover(text-shadow, 0 0 1px black);
+}
+
+.specs__link {
+  margin-right: 20px;
+  color: $grey;
+
+  @include on-tablet {
+    margin-right: 30px;
+    font-size: 14px;
+    font-weight: 21px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  @include hover(text-shadow, 0 0 1px black);
+}
+
+.mnenu-page__button {
+  width: 100%;
+  text-align: center;
+
+  @include on-tablet {
+    display: none;
+  }
+}
+
+.desktop__nav-bar {
+  display: none;
+
+  @include on-desktop {
+    display: block;
+  }
+}
