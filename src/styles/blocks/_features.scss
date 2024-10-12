@@ -1,0 +1,115 @@
+.features {
+  position: relative;
+  &__title {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    margin-bottom: 32px;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__outside-block {
+    background-color: $features-bg-color;
+
+    @include on-tablet {
+      background-color: $main-bg-color;
+    }
+  }
+
+  &__inside-block {
+    background-color: $features-bg-color;
+
+    @include page-grid;
+  }
+
+  &__buttons-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-bottom: 173px;
+
+    @include hover(transform, scale(1.2));
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      justify-self: start;
+      margin-bottom: 123px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 2px;
+  }
+
+  &__button {
+    width: 48px;
+    height: 14px;
+    background-color: $features-bg-color;
+    border: none;
+    outline: none;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &--1 {
+      background-image: url(../images/features/button-left.svg);
+    }
+
+    &--2 {
+      background-image: url(../images/features/button-right.svg);
+    }
+  }
+
+  &__pages {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13.31px;
+    color: $features-color;
+    margin-top: 8px;
+  }
+
+  &__span {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $main-color;
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 320px;
+    height: 173px;
+
+    @include on-tablet {
+      right: 34px;
+      width: 415.58px;
+      height: 225.33px;
+    }
+
+    @include on-desktop {
+      position: relative;
+      grid-column: 7 / -1;
+      width: 543px;
+      height: 301px;
+      align-self: end;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.advantage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include hover(transform, scale(1.1));
+
+  &--1 {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &--3 {
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &--2,
+  &--4 {
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+  }
+
+  &--2,
+  &--3,
+  &--4 {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+  }
+
+  &--1,
+  &--2 {
+    @include on-tablet {
+      margin-bottom: 65px;
+    }
+
+    @include on-desktop {
+      margin: 0;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+    display: inline-block;
+    height: 56px;
+    margin-block: 30px 24px;
+  }
+
+  &__desc {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: center;
+  }
+}
