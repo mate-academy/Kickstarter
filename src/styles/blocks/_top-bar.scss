@@ -1,0 +1,40 @@
+.top-bar {
+  font-family: 'Helvetica Neue', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__tablet-pc {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+
+  &__buy {
+    width: 100px;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__menu, &__close {
+    height: 32px;
+    width: 32px;
+
+    @include hover(transform, scale(1.2));
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}
