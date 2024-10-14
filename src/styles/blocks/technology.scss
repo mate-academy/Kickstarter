@@ -1,0 +1,102 @@
+.technology {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  margin-bottom: 110px;
+
+  @include on-tablet {
+    padding: 0;
+    margin-bottom: 140px;
+    flex-wrap: wrap;
+    height: 415px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 170px;
+    padding: 0 123px;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 20px;
+    color: $colorTextMain;
+
+    @include h2-tablet;
+
+    @include on-tablet {
+      order: 1;
+      width: 340px;
+      margin-bottom: 30px;
+      padding-left: 34px;
+    }
+
+    @include on-desktop {
+      width: 582px;
+      padding: 0;
+      margin-right: 30px;
+
+      @include h2-desktop;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    margin-bottom: 20px;
+    height: 210px;
+    width: 260px;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      order: 3;
+      height: 415px;
+      width: 374px;
+    }
+
+    @include on-desktop {
+      height: 488px;
+      width: 582px;
+      margin: 0;
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      order: 2;
+      width: 340px;
+      padding-left: 34px;
+    }
+
+    @include on-desktop {
+      padding: 0;
+      width: 582px;
+    }
+
+    &-description {
+      color: $colorTextSecondary;
+      margin: 0;
+      margin-bottom: 30px;
+
+      @extend %main;
+
+      @include on-tablet {
+        margin-bottom: 60px;
+
+        @include main;
+      }
+    }
+
+    &-link {
+      width: max-content;
+      text-decoration: none;
+      display: block;
+
+      @extend %link-line;
+      @extend %button;
+      @include hover(transform, scale(1.2));
+    }
+  }
+}

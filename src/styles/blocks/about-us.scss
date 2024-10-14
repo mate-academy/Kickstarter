@@ -1,0 +1,102 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  margin-bottom: 110px;
+
+  @include on-tablet {
+    padding: 0;
+    margin-bottom: 140px;
+    flex-wrap: wrap;
+    height: 415px;
+  }
+
+  @include on-desktop {
+    padding: 0 123px;
+    height: 388px;
+    margin-bottom: 170px;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 30px;
+    color: $colorTextMain;
+
+    @extend %h2-mobile;
+
+    @include on-tablet {
+      order: 2;
+      width: 340px;
+
+      @include h2-tablet;
+    }
+
+    @include on-desktop {
+      width: 582px;
+
+      @include h2-desktop;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    margin-bottom: 20px;
+    height: 210px;
+    width: 260px;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      order: 1;
+      height: 415px;
+      width: 374px;
+    }
+
+    @include on-desktop {
+      width: 582px;
+      height: 388px;
+      margin: 0;
+      margin-right: 30px;
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      order: 3;
+      width: 340px;
+    }
+
+    @include on-desktop {
+      width: 582px;
+    }
+
+    &-description {
+      color: $colorTextSecondary;
+      margin: 0;
+      margin-bottom: 30px;
+
+      @extend %secondary;
+
+      @include on-tablet {
+        margin-bottom: 60px;
+      }
+
+      @include on-desktop {
+        @include main;
+      }
+    }
+
+    &-link {
+      width: max-content;
+      text-decoration: none;
+      display: block;
+
+      @extend %link-line;
+      @extend %button;
+      @include hover(transform, scale(1.2));
+    }
+  }
+}
