@@ -3,10 +3,22 @@
 
   &__title {
     margin: 40px 0 20px;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 1/5;
+      z-index: 1;
+    }
   }
 
   &__text {
     line-height: 24px;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 1/4;
+      order: 1;
+    }
   }
 
   &__img {
@@ -21,12 +33,6 @@
     @include page-grid;
   }
 
-  &__img {
-    @include on-tablet {
-
-    }
-  }
-
   &__image {
     grid-column: 1/-1;
 
@@ -36,24 +42,6 @@
       display: flex;
       align-items: end;
       transform: translateY(-50%);
-    }
-  }
-
-  &__title {
-    grid-column: 1/-1;
-
-    @include on-tablet {
-      grid-column: 1/5;
-      z-index: 1;
-    }
-  }
-
-  &__text {
-    grid-column: 1/-1;
-
-    @include on-tablet {
-      grid-column: 1/4;
-      order: 1;
     }
   }
 }
