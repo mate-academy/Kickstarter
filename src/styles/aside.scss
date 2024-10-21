@@ -1,0 +1,119 @@
+.aside {
+  margin: 0;
+  background-color: #f7f7f7;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-100%);
+  pointer-events: none;
+  top: 0;
+  right: 0;
+  left: 0;
+  position: fixed;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(0);
+    }
+
+  &-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 25px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &-mobile-top-bar-link-icon-close {
+    display: flex;
+
+    &-img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &-nav {
+    margin-top: 30px;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      list-style: none;
+      padding: 0;
+
+      @include on-tablet {
+        gap: 40px;
+      }
+
+      @include on-desktop {
+        display: flex;
+        flex-direction: row;
+        gap: 84px;
+        align-items: center;
+      }
+    }
+
+    &-link {
+      font-family: Inter, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      text-align: left;
+      color: #333333;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  &-container-for-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: start;
+    align-items: center;
+    margin-top: 50px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &-container-for-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 160px;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &-button {
+    width: 100%;
+    height: 48px;
+    background-color: #333333;
+    border: none;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+}
