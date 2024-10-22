@@ -2,6 +2,41 @@
 @import 'fonts';
 @import 'typography';
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: $c-gray;
+  background: $c-dark-white;
+  margin: 0;
+  padding: 0;
+  font-family: Inter, sans-serif;
+}
+
+a {
+  cursor: pointer;
+}
+
+.nav {
+  transition: transform $effect-duration ease;
+
+  &:hover {
+    transform: $nav-transform;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+  padding-top: 110px;
+
+  @include on-tablet {
+    gap: 140px;
+    padding-top: 140px;
+  }
+
+  @include on-desktop {
+    padding-top: 90px;
+  }
 }
