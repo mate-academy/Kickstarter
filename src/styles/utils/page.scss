@@ -1,5 +1,6 @@
 .page {
   &__menu {
+    overflow: hidden;
     background-color: $c-dark-white;
     height: 100vh;
     position: fixed;
@@ -27,6 +28,10 @@
       display: none;
     }
   }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
 }
 
 .menu {
@@ -59,10 +64,11 @@
   }
 
   &__buy {
-    width: 100%;
-    width: 260px;
+    width: auto;
     position: fixed;
     bottom: 30px;
+    left: 30px;
+    right: 30px;
   }
 
   &__hide {
