@@ -1,14 +1,4 @@
 .desighed-for-future {
-  // position: relative;
-  // overflow: hidden;
-
-  // @include on-tablet{
-  //   height: 415px;
-  // }
-
-  // @include on-desktop {
-  //   height: auto;
-  // }
 
   &-title {
     margin: 0;
@@ -41,21 +31,14 @@
     overflow: hidden;
 
     @include on-tablet {
-      // width: 50%;
-
-      // position: absolute;
-      // left: 0;
-      // top: 0;
       grid-column: 1 / 5;
 
       margin-top: 140px;
     }
 
     @include on-desktop {
-      width: 100%; // Зберігаємо ширину 100% для десктопу, якщо потрібно
-      // position: static; // Скасовуємо абсолютне позиціонування
+      width: 100%;
       grid-column: 1 / 7;
-      padding-left: 123px;
       margin-top: 170px;
     }
 
@@ -64,6 +47,11 @@
 
       object-fit: cover;
       object-position: center;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.2);
+      }
 
       @include on-tablet {
         width: 140%;
@@ -105,14 +93,6 @@
     color: #0DB2B3;
     position: relative;
 
-    // @include on-tablet {
-    //   margin-bottom: 67px;
-    // }
-
-    // @include on-desktop {
-    //   margin-bottom: 0;
-    // }
-
     &::after {
       content: '';
       position: absolute;
@@ -121,6 +101,11 @@
       width: 53px;
       height: 1px;
       background-color: #0DB2B3;
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      width: 128px;
     }
   }
 }
@@ -137,6 +122,10 @@
   @include on-tablet {
     @include page-grid;
   }
+
+  @include on-desktop {
+    padding-inline: 123px;
+  }
 }
 
 .container-desighed-for-future-text-block {
@@ -147,6 +136,6 @@
 
   @include on-desktop {
     grid-column: 7 / 13;
-    padding-right: 123px;
+    padding-right: 0;
   }
 }

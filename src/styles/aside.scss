@@ -38,6 +38,12 @@
     &-img {
       width: 24px;
       height: 24px;
+
+      transition: transform 0.3s ease-in-out;
+
+        &:hover {
+          transform: scale(1.2);
+        }
     }
   }
 
@@ -68,6 +74,7 @@
     }
 
     &-link {
+      display: block;
       font-family: Inter, sans-serif;
       font-size: 14px;
       font-weight: 400;
@@ -76,6 +83,14 @@
       color: #333333;
       text-decoration: none;
       cursor: pointer;
+
+      transition: transform 0.3s ease-in-out;
+
+      @include on-desktop {
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
     }
   }
 
@@ -115,5 +130,18 @@
     line-height: 14px;
     text-align: center;
     color: #FFFFFF;
+
+    &:hover {
+      background-color: #131313;
+    }
+
+    &:disabled {
+      background-color: #D0D0D0;
+    }
   }
+}
+
+.aside-link-for-button-on-mobile {
+  display: block;
+  width: 100%;
 }
