@@ -1,0 +1,91 @@
+.presentation {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      margin-top: 90px;
+      align-items: center;
+    }
+  }
+
+  &__banner {
+    background-image: url(/src/images/bannerPhone.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    min-width: 320px;
+    height: 245px;
+
+    @include on-tablet {
+      min-width: 430px;
+      min-height: 317px;
+    }
+
+    @include on-desktop {
+      background-image: url(/src/images/bannerDesk.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      width: 816px;
+      height: 464px;
+    }
+  }
+
+  &__info {
+    margin-top: 40px;
+    padding: 0 30px;
+
+    @include on-tablet {
+      margin-top: 0;
+      padding: 0 0 0 25px;
+      z-index: 2;
+    }
+
+    @include on-desktop {
+      padding: 0 0 0 25px;
+      margin-right: 110px;
+    }
+  }
+
+  &__info-title {
+    max-width: 260px;
+    margin: 0 auto;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 52px;
+    text-align: left;
+    text-transform: uppercase;
+    color: $main-color;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include on-desktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__info-text {
+    padding-top: 20px;
+    max-width: 260px;
+    margin: 0 auto;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: $main-color;
+
+    @include on-tablet {
+      margin-top: 30px;
+    }
+  }
+}
