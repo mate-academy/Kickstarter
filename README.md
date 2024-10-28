@@ -34,7 +34,11 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Uj
 11. `git push origin develop` - to send you code for PR
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/Kickstarter/)
+  [DEMO LINK](https://P-Nazar.github.io/Kickstarter/)
 14. Copy `DEMO LINK` to the PR description
 
 > To update you PR repeat steps 7-11
+
+## landing page description
+
+  "I developed a responsive landing page that adapts beautifully for phones, tablets, and desktops, providing an optimized experience across devices. This page is bilingual, allowing users to easily switch between English and Ukrainian. It features an interactive slider, smooth scrolling, and animated transitions that bring each section to life. Within each block, users will find interactive elements designed to engage and enhance the user experience. Additionally, a burger menu is implemented for tablet and mobile versions, ensuring easy navigation throughout the site."

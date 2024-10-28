@@ -1,0 +1,50 @@
+.header {
+  &__container {
+    padding: 30px 25px;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  &__img {
+    transition: transform 0.3s ease;
+
+    @include hover(transform, scale(1.1));
+  }
+}
+
+.burger {
+  @include on-desktop {
+    display: none;
+  }
+
+  &__open {
+    background-image: url(/src/images/icons/burgerOpen.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 24px;
+    height: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &.rotated {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__close {
+    display: none;
+    background-image: url(/src/images/icons/burgerClose.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 24px;
+    height: 16px;
+    cursor: pointer;
+  }
+}

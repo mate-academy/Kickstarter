@@ -1,0 +1,104 @@
+.benefits {
+  padding-top: 110px;
+  overflow: hidden;
+
+  @include on-tablet {
+    padding-top: 140px;
+  }
+
+  @include on-desktop {
+    padding-top: 82px;
+  }
+
+  &__container {
+    padding: 0 30px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    align-items: self-start;
+    scroll-snap-align: center;
+    gap: 20px;
+    box-sizing: border-box;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include on-tablet {
+      overflow-x: hidden;
+      scroll-snap-type: none;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    @include on-desktop {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  flex: 0 0 100%;
+
+  padding: 0 10px;
+
+  @include on-tablet {
+    width: 310px;
+    flex: none;
+    padding: 0;
+
+    transition: transform 0.3s ease;
+
+    @include hover(transform, scale(0.9));
+  }
+
+  @include on-desktop {
+    max-width: 260px;
+  }
+
+  &__title {
+    margin-top: 40px;
+
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $main-color;
+    margin-bottom: 20px;
+
+    @include on-desktop {
+      max-height: 28px;
+      margin-bottom: 62px;
+    }
+
+    @include on-tablet {
+      max-height: 28px;
+      margin-bottom: 62px;
+    }
+  }
+  &__text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: center;
+    color: $second-color;
+  }
+}
