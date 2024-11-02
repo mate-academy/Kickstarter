@@ -1,0 +1,99 @@
+.quote {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  justify-content: center;
+  font-family: $main-font;
+
+  overflow: hidden;
+
+  @include onTablet {
+    gap: 40px;
+  }
+
+  @include onDesktop {
+    gap: 42px;
+  }
+
+  &--holder {
+    position: relative;
+  }
+
+  &__bg {
+
+    &-wrapp {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+    }
+  }
+
+  &__text {
+    color: $main-text-color;
+    text-align: center;
+    margin: 0;
+
+    &--quote {
+      @include fontStyles (24px, 700, 36px);
+      padding-top: 50px;
+      opacity: 0;
+
+      transform: translateX(-100vh);
+
+      @include hoverEffect;
+
+      &--move {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      @include onTablet {
+        padding-top: 60px;
+      }
+
+      @include onDesktop {
+        padding-top: 42px;
+        padding-inline: 204px;
+      }
+    }
+
+    &--name {
+      @include fontStyles (16px, 700, 22px);
+      
+      margin-bottom: 5px;
+    }
+
+    &--role {
+      @include fontStyles (14px, 400, 21px);
+    }
+  }
+
+  &__photo-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    transform: translateX(100vh);
+
+    @include hoverEffect;
+
+    &--move {
+      transform: translateX(0);
+    }
+  }
+
+  &__photo {
+    width: 62px;
+    height: 62px;
+    margin-inline: auto;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 20px;
+    }
+  }
+}

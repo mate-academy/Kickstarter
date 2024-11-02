@@ -1,0 +1,59 @@
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: $padding-inline-mobile;
+  padding-block: $padding-block-mobile;
+
+  @include onTablet {
+    padding-block: 29px;
+    padding-inline: 34px;
+  }
+
+  @include onDesktop {
+    padding-inline: $padding-inline-desktop;
+    padding-block: $padding-block-desktop;
+  }
+
+  &--menu {
+    @include onTablet {
+      padding-block: 37px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    font-family: $second-font;
+
+    @include onDesktop {
+      gap: 47px;
+    }
+  }
+
+  &__logo {
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+
+    @include onDesktop {
+      height: 26px;
+    }
+
+    &-image {
+      width: 100%;
+      height: 100%;
+
+      &--small {
+        transition: transform .5s;
+        transition-timing-function: ease-out;
+      }
+    }
+
+    &:hover .top-bar__logo-image--small {
+      transform: rotate(360deg);
+    }
+  }
+}

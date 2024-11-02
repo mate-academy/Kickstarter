@@ -1,6 +1,69 @@
+/* Breakpoints */
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+/*Effects*/
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+/* Font styles */
+
+@mixin fontStyles ($font-size, $font-weight, $line-height) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}
+
+@mixin paddingInline {
+  padding-inline: $padding-inline-mobile;
+
+  @include onTablet {
+    padding-inline: $padding-inline-tablet;
+  }
+
+  @include onDesktop {
+    padding-inline: $padding-inline-desktop;
+    margin-inline: auto;
+  }
+}
+
+.container {
+  @include paddingInline;
+}
+
+/* Grid page */
+@mixin gridPage {
+  --column-count: 4;
+  display: grid;
+  grid-template-columns: repeat(var(--column-count), 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    --column-count: 8;
+  }
+
+  @include onDesktop {
+    --column-count: 12;
+    column-gap: 30px;
+  }
+}
+
+@mixin hoverEffect {
+  transition: all 1.5s;
+  transition-timing-function: cubic-bezier(0.08,0.82,0.17,1);
 }

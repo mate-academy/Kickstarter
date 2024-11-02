@@ -1,0 +1,59 @@
+.slider {
+  font-family: $main-font;
+
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 40px;
+
+  @include paddingInline;
+
+  @include onTablet {
+    padding-inline: 0;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__btn-wrapper {
+    display: flex;
+  }
+
+  &__btn {
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    transform: scale(1);
+    @include hoverEffect;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__pages {
+    display: flex;
+    gap: 4px;
+    align-items: flex-end;
+    color: $dark-teal;
+
+    @include fontStyles (11px, 400, 13px);
+
+    &--current {
+      @include fontStyles (16px, 400, 24px);
+      color: $main-text-color;
+    }
+  }
+}
+
+.features__content-box {
+  display: none;
+}
+
+.features__content-box.active {
+  display: flex;
+}

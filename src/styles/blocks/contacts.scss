@@ -1,0 +1,123 @@
+.contacts {
+  @include paddingInline;
+  @include gridPage;
+
+  &__title {
+    text-transform: uppercase;
+    color: $main-text-color;
+    margin: 0;
+    margin-bottom: 27px;
+    grid-column: span 4;
+
+    @include fontStyles (30px, 700, 40px);
+
+    @include onTablet {
+      @include fontStyles (36px, 700, 46px);
+    }
+
+    @include onDesktop {
+      @include fontStyles (56px, 700, 70px);
+      grid-column: span 6;
+    }
+  }
+
+  &__form {
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__input {
+    font-family: $main-font;
+    color: $main-text-color;
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 0 0 1px $light-text-color;
+    padding: 12px 20px;
+
+    @include fontStyles (16px, 400, 24px);
+    @include hover (box-shadow, 0 0 0 2px $dark-teal);
+
+    &:focus {
+      box-shadow: 0 0 0 2px $dark-teal;
+      outline: none;
+    }
+
+    &::placeholder {
+      font-family: $main-font;
+      color: $plaseholder-color;
+      @include fontStyles (16px, 400, 24px);
+    }
+
+    &--message {
+      height: 128px;
+      resize: none;
+    }
+
+    &[aria-invalid="true"] {
+      box-shadow: 0 0 0 2px $main-red;
+      color: $text-red;
+      background-color: $light-red;
+      animation: invalidAnim;
+      animation-duration: .09s;
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+  }
+
+  &__btn {
+    font-family: $main-font;
+    color: #fff;
+    background-color: $main-teal;
+    text-transform: uppercase;
+    width: fit-content;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 12px 35px;
+    margin-top: 10px;
+
+    @include fontStyles (12px, 700, 14px);
+    @include hover (background-color, $dark-teal);
+
+    &:disabled {
+      background-color: $light-teal;
+    }
+
+    &:focus {
+      background-color: $dark-teal;
+    }
+
+  }
+}
+
+@keyframes invalidAnim {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(-5px);
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: $second-text-color;
+  -webkit-box-shadow: inset 0 0 0 50px $light-teal;
+  transition: background-color 1s ease-out 0s;
+}
+
+
