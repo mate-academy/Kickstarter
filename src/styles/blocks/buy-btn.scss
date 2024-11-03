@@ -1,0 +1,62 @@
+.buy-btn {
+  height: 48px;
+  font-family: $second-font;
+  color: #fff;
+  background-color: $defauld-top-btn;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  @include fontStyles (12px, 500, 14px);
+
+  &::after {
+    content: "";
+    background-image: url(../icons/icon-cart.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    z-index: 100;
+    background-size: contain;
+    background-position: center;
+    visibility: hidden;
+    transform: translateX(200%);
+    pointer-events: none;
+
+    @include hoverEffect;
+  }
+
+  &:hover {
+    background-color: $hover-top-btn;
+    color: $hover-top-btn;
+    &::after {
+      visibility: visible;
+      transform: translateX(0);
+    }
+  }
+
+  &--top-bar {
+    display: none;
+    position: relative;
+
+    @include onTablet {
+      display: flex;
+      width: 102px;
+      height: 48px;
+    }
+  }
+
+  &--menu {
+    display: flex;
+    width: 100%;
+    margin-inline: 20px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+}

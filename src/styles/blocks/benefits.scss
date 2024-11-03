@@ -1,0 +1,108 @@
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(3, auto-fill);
+  grid-template-areas:
+      "icon1"
+      "title1"
+      "text1";
+
+  @each $benefits-item in $benefits-items {
+    &__#{$benefits-item} {
+      @for $n from 2 through 4 {
+        &--#{$n} {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include onTablet {
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, auto-fill);
+    justify-items: center;
+    grid-template-areas:
+      "icon1 icon2"
+      "title1 title2"
+      "text1 text2"
+      "icon3 icon4"
+      "title3 title4"
+      "text3 text4";
+
+      @each $benefits-item in $benefits-items {
+        &__#{$benefits-item} {
+          @for $n from 2 through 4 {
+            &--#{$n} {
+              display: block;
+            }
+          }
+        }
+      }
+  }
+
+  @include onDesktop {
+    column-gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, auto-fill);
+    justify-items: center;
+    grid-template-areas:
+      "icon1 icon2 icon3 icon4"
+      "title1 title2 title3 title4"
+      "text1 text2 text3 text4";
+  }
+
+  &__icon {
+    width: 50px;
+    height: 40px;
+    padding-bottom: 40px;
+    margin-inline: auto;
+
+    @include onTablet {
+      padding-bottom: 50px;
+    }
+
+    @include onTablet {
+      padding-bottom: 30px;
+    }
+
+  }
+
+  &__title {
+    text-transform: uppercase;
+    text-align: center;
+    color: $main-text-color;
+    margin: 0;
+    padding-bottom: 20px;
+
+    @include fontStyles (22px, 700, 28px);
+
+    @include onDesktop {
+      padding-bottom: 50px;
+    }
+  }
+
+  &__text {
+    color: $second-text-color;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    @include fontStyles (14px, 400, 21px);
+
+    &:nth-of-type(-n + 2) {
+      padding-bottom: 64px;
+    }
+  }
+
+  @each $benefits-item in $benefits-items {
+    &__#{$benefits-item} {
+      @for $i from 1 through 4 {
+        &--#{$i} {
+          grid-area: #{$benefits-item}#{$i};
+        }
+      }
+    }
+  }
+}

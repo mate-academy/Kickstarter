@@ -1,0 +1,157 @@
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include onTablet {
+    gap: 30px;
+  }
+
+  &__content {
+    @include gridPage;
+
+    background-color: $second-teal;
+    justify-items: center;
+
+    @include onTablet {
+      margin-inline: $padding-inline-tablet;
+      grid-template-rows: repeat(2, 1fr);
+      justify-items: stretch;
+    }
+
+    @include onDesktop {
+      margin-inline: $padding-inline-desktop;
+    }
+  }
+
+  &__content-box {
+    @include paddingInline;
+
+    display: flex;
+    grid-column: span 4;
+    padding-top: 30px;
+    flex-direction: column;
+    gap: 20px;
+
+    &:nth-of-type(n + 2) {
+      display: none;
+    }
+
+    @include onTablet {
+      grid-column: 2 / -1;
+      grid-row: 1;
+
+      padding-top: 60px;
+      padding-bottom: 10px;
+      padding-inline: 0;
+      margin-inline: 0;
+    }
+
+    @include onDesktop {
+      padding-bottom: 0;
+
+      &:nth-of-type(n + 2) {
+        display: flex;
+      }
+
+      &:first-of-type {
+        grid-row: 1;
+        grid-column-start: 2;
+      }
+
+      &:nth-of-type(2) {
+        grid-row: 2;
+        grid-column-start: 2;
+      }
+
+      &:last-of-type {
+        grid-row: 1;
+        grid-column-start: 7;
+      }
+    }
+  }
+
+  &__text {
+    font-family: $main-font;
+    color: $main-text-color;
+    margin: 0;
+    padding: 0;
+
+    &--title {
+      @include fontStyles (30px, 700, 40px);
+      @include paddingInline;
+
+      @include onDesktop {
+        @include fontStyles (56px, 700, 70px);
+        margin: 0;
+      }
+    }
+
+    &--content-title {
+      @include fontStyles (18px, 700, 22px);
+      text-transform: uppercase;
+      color: $dark-teal;
+
+      @include onDesktop {
+        @include fontStyles (34px, 700, 42px);
+      }
+    }
+
+    &--item {
+      @include fontStyles (14px, 400, 21px);
+
+      @include onDesktop {
+        @include fontStyles (16px, 400, 24px);
+      }
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__pic-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    grid-column: 1/-1;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 80px;
+      grid-column: 2/-1;
+      grid-row: 2;
+    }
+
+    @include onDesktop {
+      padding-top: 60px;
+      grid-column: 7/-1;
+      grid-row: 2;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    object-fit: contain;
+    object-position: bottom;
+
+    &-wrap {
+      display: flex;
+      padding-right: 10px;
+
+      @include onDesktop {
+        padding-right: 46px;
+      }
+    }
+  }
+}
+
+.features__content-box--visible {
+  display: flex;
+}
