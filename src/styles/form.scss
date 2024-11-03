@@ -1,0 +1,173 @@
+.form {
+  margin-top: 90px;
+
+  @include on-tablet {
+    margin-top: 140px;
+  }
+
+  @include on-desktop {
+    margin-top: 170px;
+  }
+
+  &-title {
+    font-family: Inter, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: left;
+    color: #333333;
+    margin: 0;
+    margin-bottom: 27px;
+
+    @include on-tablet {
+      font-size: 36px;
+      line-height: 46px;
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      line-height: 70px;
+      grid-column: 1 / 7;
+    }
+  }
+
+  &-contact-form {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      grid-column: 5 / 9;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 13;
+    }
+
+    &-email, &-textarea {
+
+      padding-inline: 20px;
+      padding-block: 12px;
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: left;
+      color: #333333;
+      box-sizing: border-box;
+      background: #f7f7f7;
+      cursor: pointer;
+
+      border: 1px solid #828282;
+
+      @include on-tablet {
+        padding-inline: 30px;
+      }
+
+      @include on-desktop {
+        padding-inline: 36px;
+        padding-block: 16px;
+      }
+    }
+
+    &-email {
+      height: 48px;
+    }
+
+    &-textarea {
+      margin-top: 20px;
+      height: 128px;
+      resize: none;
+
+      @include on-tablet {
+        height: 201px;
+      }
+
+      @include on-desktop {
+        height: 128px;
+      }
+    }
+
+    &-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #0DB2B3;
+      font-family: Inter, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 14px;
+      text-align: left;
+      color: #FFFFFF;
+      width: 102px;
+      height: 40px;
+      cursor: pointer;
+      margin-top: 30px;
+      border: none;
+      box-sizing: border-box;
+
+      @include on-desktop {
+        width: 123px;
+        height: 48px;
+      }
+
+      &:hover {
+        background-color: #0C797A;
+      }
+
+      &:disabled {
+        background-color: #CFEFF0;
+      }
+    }
+  }
+}
+
+
+
+/* Стилізація автозаповнення */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #f7f7f7 inset; /* Білий фон */
+  -webkit-text-fill-color: #333333; /* Колір тексту для автозаповнення */
+}
+
+/* Стилі плейсхолдера */
+input::placeholder, textarea::placeholder {
+  color: #BDBDBD; /* Колір плейсхолдера */
+}
+
+input:hover::placeholder, textarea:hover::placeholder {
+  color: #BDBDBD; /* плейсхолдер при hover */
+}
+
+input:focus::placeholder, textarea:focus::placeholder {
+  color: transparent; /* Плейсхолдер зникає при focus */
+}
+
+/* При фокусі: червона каретка та стиль бордера */
+input:focus, textarea:focus {
+  outline: none;
+  border: 1px solid #0C797A;
+}
+
+/* При валідному значенні */
+input:valid {
+  border: 1px solid #EB5757;
+}
+
+input:valid::placeholder {
+  color: #EB57574D;
+}
+
+.container-for-grid-form {
+  @include on-tablet {
+    @include page-grid;
+  }
+}
