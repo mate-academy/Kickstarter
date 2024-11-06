@@ -1,0 +1,82 @@
+.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 62px;
+
+  &__nav {
+    display: none;
+    height: 76px;
+    @include on-decktop {
+      display: flex;
+      gap: 84px;
+      align-self: center;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__main {
+    @include page-grid;
+    @include aside-margins;
+    row-gap: 65px;
+  }
+  &__benefit {
+    grid-column: span 4;
+
+    @include on-decktop {
+      grid-column: span 3;
+    }
+  }
+
+  &__link {
+    display: block;
+    @include thirdary-text;
+    color: $main-color;
+
+    &:hover {
+      @include h6;
+      color: $main-color-deep;
+    }
+  }
+}
+
+.benefit {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  &__icon {
+    align-self: center;
+    height: 40px;
+
+    @include on-decktop {
+      height: 50px;
+    }
+  }
+
+  &__hidden {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &__text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__h4 {
+    @include h4;
+    text-align: center;
+  }
+
+  &__text {
+    text-align: center;
+
+    @include secondary-text;
+  }
+}

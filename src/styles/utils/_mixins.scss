@@ -4,3 +4,158 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin on-decktop {
+  @media (min-width: $decktop-width) {
+    @content;
+  }
+}
+
+@mixin aside-margins {
+  margin-left: 30px;
+  margin-right: 30px;
+
+  @include on-tablet {
+    margin-left: 34px;
+    margin-right: 34px;
+  }
+
+  @include on-decktop {
+    max-width: 1194px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+
+  @include on-tablet {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include on-decktop {
+    column-gap: 30px;
+    grid-template-columns: repeat(12, 72px);
+    justify-content: center;
+  }
+}
+@mixin h1 {
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 52px;
+  text-transform: uppercase;
+
+  @include on-tablet {
+    font-size: 48px;
+    line-height: 62px;
+  }
+
+  @include on-decktop {
+    font-size: 64px;
+    line-height: 78px;
+  }
+}
+
+@mixin h2 {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 40px;
+  text-transform: uppercase;
+
+  @include on-tablet {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  @include on-decktop {
+    font-size: 56px;
+    line-height: 70px;
+  }
+}
+
+@mixin h3 {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 22px;
+  text-transform: uppercase;
+
+  @include on-tablet {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  @include on-decktop {
+    font-size: 34px;
+    line-height: 42px;
+  }
+}
+
+@mixin h4 {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 28px;
+  text-transform: uppercase;
+}
+
+@mixin h5 {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 22px;
+}
+
+@mixin h6 {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+@mixin button-typography {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 14px;
+  text-transform: uppercase;
+}
+
+@mixin main-text {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin secondary-text {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+@mixin thirdary-text {
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+@mixin Quote {
+  font-size: 14;
+  font-weight: bold;
+  line-height: 20px;
+
+  @include on-tablet {
+    font-size: 24px;
+    line-height: 36px;
+  }
+}
+
+@mixin imageScale {
+  transition: all 1s ease;
+  &:hover {
+    scale: 1.2;
+  }
+}
