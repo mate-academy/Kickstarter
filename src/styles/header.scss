@@ -1,0 +1,222 @@
+.header {
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  @include onPhone {
+    display: block;
+    height: 100%;
+    margin-bottom: 110px;
+    padding: 0 34px;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    height: 56px;
+
+    @include onTablet {
+      height: 48px;
+      padding-top: 30px;
+    }
+
+    @include onPhone {
+      padding: 0;
+      height: 76px;
+    }
+  }
+
+  &__logo {
+    @include onPhone {
+      padding: 0;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__item {
+    list-style: none;
+    margin: 0;
+    padding-left: 30px;
+
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    
+    text-transform: uppercase;
+
+    @include beforePhone {
+      display: none;
+    }
+
+    &-link {
+      text-decoration: none;
+      color: #4f4f4f;
+    }
+
+    &-languageLink {
+      display: inline-block;
+      margin: 0;
+      text-decoration: none;
+      color: #bdbdbd;
+
+      &:hover {
+        color: #333;
+      }
+
+      &:focus {
+        color: #333;
+      }
+    }
+
+    &-language {
+      display: inline-block;
+      color: #333;
+    }
+  }
+
+  &__button {
+    box-sizing: border-box;
+
+    height: 56px;
+    width: 100px;
+    cursor: pointer;
+
+    background-color: #333;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+
+    border: none;
+
+    @include onTablet {
+      height: 48px;
+    }
+
+    &:hover {
+      background-color: #131313;
+    }
+
+    &:disabled {
+      background-color: #d0d0d0;
+    }
+  }
+
+  &__section {
+    flex-grow: 1;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row-reverse;
+
+    @include onPhone {
+      flex-direction: column;
+    }
+
+    &-desktop {
+      display: block;
+      background-image: url(../images/header_background-desktop.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left 0 center;
+      margin-bottom: 40px;
+      width: 100%;
+
+      @include onDesktop {
+        background-image: url(../images/header_background-tablet.png);
+        z-index: -1;
+      }
+
+      @include onPhone {
+        height: 245px;
+        background-image: url(../images/header_background-phone.png);
+      }
+    }
+
+    &-title {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 40%;
+
+      @include onPhone {
+        display: block;
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0 0 30px;
+    font-weight: 700;
+    font-size: 62px;
+    line-height: 78px;
+    align-items: center;
+    text-transform: uppercase;
+    color: #333;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onPhone {
+      font-size: 40px;
+      line-height: 52px;
+      margin: 0 0 20px;
+    }
+  }
+
+  &__description {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    align-items: center;
+    color: #333;
+    width: 75%;
+
+    @include onPhone {
+      width: 100%;
+    }
+  }
+
+  &__tabletBurger {
+    display: none;
+
+    @include onTablet {
+      padding-left: 30px;
+      display: block;
+    }
+
+    @include onPhone {
+      padding: 0;
+    }
+
+    &-burger {
+      padding: 0;
+      display: block;
+      width: 32px;
+      height: 32px;
+      background-image: url(../images/header__nav_burger.png);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+}

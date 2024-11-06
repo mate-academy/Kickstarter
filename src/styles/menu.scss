@@ -1,0 +1,118 @@
+.menu {
+  padding: 0 34px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: #f9f9f9;
+  height: 100vh;
+
+  &__list {
+    padding: 0;
+    margin: 0;
+
+    &-forPhone {
+      display: none;
+
+      @include onPhone {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+
+    &-languagePositioning {
+      display: inline;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    padding-bottom: 40px;
+
+    @include onPhone {
+      padding-bottom: 20px;
+
+      &:last-child() {
+        padding-bottom: 50px;
+      }
+    }
+
+    &-link {
+      text-transform: uppercase;
+      color: #131313;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 28px;
+      text-decoration: none;
+
+      &:hover {
+        font-weight: 700;
+      }
+
+      @include onPhone {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+      }
+    }
+
+    &-languageLink {
+      display: inline-block;
+      margin: 0;
+      text-decoration: none;
+      color: #bdbdbd;
+      text-transform: uppercase;
+
+      &:hover {
+        color: #333;
+      }
+
+      &:focus {
+        color: #333;
+      }
+    }
+
+    &-language {
+      display: inline-block;
+      color: #333;
+    }
+  }
+
+  &__itemInline {
+    display: inline;
+    padding-right: 20px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__button {
+    width: 100%;
+    height: 48px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.65px;
+    text-align: center;
+    color: #fff;
+    background-color: #333;
+
+    &:hover {
+      background-color: #131313;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onPhone {
+      display: block;
+    }
+
+  }
+}

@@ -1,0 +1,50 @@
+.questions {
+
+  &__block {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto;
+
+    @include onTablet {
+      gap: 20px;
+      grid-template-columns: repeat(8, 1fr);
+    }
+
+    @include beforePhone {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 70px;
+    text-transform: uppercase;
+    color: #333;
+
+    grid-column: 1 / 6;
+    width: 100%;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include beforePhone {
+      font-size: 30px;
+      line-height: 40px;
+    }
+  }
+
+  &__feedback {
+    width: 100%;
+    grid-column: 7 /13;
+
+    @include onTablet {
+      grid-column: 5 / 9;
+    }
+  }
+}
