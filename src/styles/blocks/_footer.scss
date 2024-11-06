@@ -1,0 +1,72 @@
+.footer {
+  position: relative;
+
+  &__icons {
+    display: flex;
+    gap: 40px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  &__icon {
+    @include square(24px);
+
+    object-fit: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:hover {
+      transform: scale(120%);
+    }
+
+    &--facebook {
+      background-image: url(../images/icons/facebook.svg);
+    }
+
+    &--twiter {
+      background-image: url(../images/icons/twiter.svg);
+    }
+
+    &--inst {
+      background-image: url(../images/icons/inst.svg);
+    }
+  }
+
+  &__text {
+    text-align: center;
+  }
+
+  &__logoContainer {
+    display: none;
+    justify-content: center;
+    margin-bottom: 60px;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+  &__logo {
+    height: 26px;
+  }
+
+  &__arrow {
+    display: none;
+    position: absolute;
+
+    @include square(50px);
+
+    background: transparent;
+    top: 0;
+    right: 0;
+
+    background-image: url(../images/icons/arrow.svg);
+
+    @include on-tablet {
+      display: block;
+
+      &:hover {
+        transform: scale(120%);
+      }
+    }
+  }
+}

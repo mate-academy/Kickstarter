@@ -1,0 +1,81 @@
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  height: 76px;
+  z-index: 1000;
+
+  background-color: $c-white;
+
+  &__logo {
+    height: 26px;
+    position: relative;
+    z-index: 100;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__specs {
+    @extend %thirdary-text;
+
+    display: block;
+    width: 72px;
+    cursor: pointer;
+
+    &:hover {
+      color: $c-greenTitle;
+    }
+  }
+
+  &__lang {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &__langItem {
+    @extend %thirdary-text;
+    
+    cursor: pointer;
+
+    &:hover {
+      color: $c-greenTitle;
+    }
+
+    color: $c-title;
+
+    &--unactive {
+      color: $c-grayText;
+    }
+  }
+
+  &__buy {
+    display: none;
+
+    @include on-tablet {
+      height: 48px;
+      width: 102px;
+      display: block;
+      margin: 0 30px;
+    }
+
+    @include on-desktop {
+      margin-left: 47px;
+      margin-right: 0;
+    }
+  }
+}
+
+.scroll-padding {
+  padding-top: 76px;
+  margin-top: -76px;
+}

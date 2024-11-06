@@ -1,0 +1,73 @@
+.menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  z-index: 10;
+
+  width: 100%;
+  height: 100%;
+  padding: 107px 30px 30px;
+
+  background-color: $c-white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__item {
+    @extend %thirdary-text;
+
+    text-decoration: none;
+    color: $c-title;
+
+    &:hover {
+      font-weight: 700;
+    }
+  }
+
+  &__specs {
+    @extend %thirdary-text;
+
+    display: block;
+    width: 72px;
+  }
+
+  &__lang {
+    display: flex;
+    margin-top: 50px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__langItem {
+    @extend %thirdary-text;
+
+    color: $c-title;
+
+    &--unactive {
+      color: $c-grayText;
+    }
+  }
+
+  &__buy {
+    width: 100%;
+    height: 48px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &--open {
+    right: 0;
+  }
+}

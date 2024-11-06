@@ -1,0 +1,51 @@
+.quote {
+  position: relative;
+  padding-top: 50px;
+
+  @include on-tablet {
+    padding-top: 60px;
+  }
+
+  @include on-tablet {
+    padding-top: 42px;
+  }
+
+  &__coma {
+    position: absolute;
+    width: 208px;
+    height: 171px;
+    top: 0;
+    left: 50%;
+    z-index: -1;
+    transform: translateX(-50%);
+    background-image: url(../images/icons/come.svg);
+
+    @include on-tablet {
+      width: 233px;
+      height: 189px;
+    }
+  }
+
+  &__text {
+    text-align: center;
+
+    @extend %quote;
+  }
+
+  &__autor {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: 2 / 4;
+    gap: 5px;
+  }
+
+  &__autorImg {
+    @include square(62px);
+    
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 5px;
+  }
+}
