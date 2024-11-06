@@ -55,7 +55,15 @@
 
   function submitButtonClick(event) {
     event.preventDefault();
+    const email = document.getElementById('email');
+    const message = document.getElementById('message');
+
+    if (email.value.trim() === '' || message.value.trim() === '') {
+        alert("Please fill in all required fields.");
+        return;
+    }
     form.reset();
+    alert("Form submitted successfully!");
   }
 
   scrollButton.addEventListener('click', () => window.scrollTo({
