@@ -1,0 +1,58 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  position: relative;
+
+  @include on-decktop {
+    width: 100%;
+
+  }
+
+  @include aside-margins;
+
+
+
+  @include on-tablet {
+    gap: 60px;
+  }
+
+  &__logo {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__up {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url(../images/icons/up.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 0;
+    right: 0;
+
+    @include imageScale;
+  }
+
+  &__icons {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+  &__icon {
+    @include imageScale;
+  }
+
+  &__terms {
+    @include secondary-text;
+    @include aside-margins;
+
+    text-align: center;
+    color: $secondary-color-light;
+  }
+}

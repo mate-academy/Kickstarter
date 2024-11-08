@@ -1,0 +1,77 @@
+.form {
+  @include aside-margins;
+  @include page-grid;
+
+  row-gap: 27px;
+
+  &__header {
+    grid-column: span 4;
+    @include h2;
+    @include on-decktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__form {
+    grid-column: span 4;
+    @include on-decktop {
+      grid-column: span 6;
+    }
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__email {
+    width: 100%;
+    height: 48px;
+    padding: 12px 20px 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid #828282;
+
+    &:focus {
+      border-color: #0c797a;
+    }
+  }
+
+  &__text {
+    width: 100%;
+    height: 128px;
+    @include on-tablet {
+      height: 201px;
+    }
+
+    @include  on-decktop {
+      height: 128px;
+    }
+    resize: none;
+    padding: 12px 20px 12px 20px;
+    text-align: start;
+    box-sizing: border-box;
+    border: 1px solid #828282;
+
+    &:focus {
+      border-color: #0c797a;
+    }
+  }
+
+  &__button {
+    align-self: self-start;
+    width: 102px;
+    height: 40px;
+    background-color: $color-special;
+    color: white;
+
+    @include button-typography;
+
+    &:hover {
+      background-color: #0c797a;
+    }
+  }
+}

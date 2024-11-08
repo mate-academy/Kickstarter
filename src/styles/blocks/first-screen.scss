@@ -1,0 +1,147 @@
+.first-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  @include on-tablet {
+    margin-top: 30px;
+  }
+
+  @include on-tablet {
+    gap: 130px;
+  }
+
+  @include on-decktop {
+    gap: 90px;
+  }
+  &__header {
+    @include on-decktop {
+      width: 100%;
+    }
+
+    @include aside-margins;
+    display: flex;
+    justify-content: space-between;
+    height: 76px;
+    align-items: center;
+    @include on-tablet {
+      height: 48px;
+    }
+  }
+
+  &__body {
+    @include page-grid;
+    row-gap: 40px;
+    @include on-tablet {
+      @include aside-margins;
+    }
+  }
+
+  &__img {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    grid-column: span 4;
+    @include on-tablet {
+      grid-column: span 5;
+      order: 2;
+    }
+
+    @include on-decktop {
+      grid-column: span 8;
+    }
+  }
+
+  &__text-block {
+    @include aside-margins;
+    @include on-tablet {
+      margin: 0;
+    }
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: span 4;
+
+    @include on-tablet {
+      grid-column: span 3;
+      order: 1;
+    }
+
+    @include on-decktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__h1 {
+    z-index: 1;
+    @include h1;
+  }
+
+  &__text {
+    @include main-text;
+  }
+}
+
+.header {
+  &__options {
+    display: flex;
+    gap: 30px;
+    @include on-decktop {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    display: none;
+    @include on-tablet {
+      display: flex;
+      gap: 30px;
+    }
+  }
+
+  &__options-descktop {
+    display: none;
+    @include on-decktop {
+      display: flex;
+      gap: 47px;
+    }
+  }
+
+  &__options-specs-en-ua {
+    display: none;
+    @include on-decktop {
+      display: flex;
+    }
+  }
+
+
+
+  &__burger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-image: url('../images/icons/burger.svg');
+    align-self: center;
+  }
+}
+
+.buy {
+  @include on-tablet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 48px;
+    background-color: $main-color;
+    color: white;
+    @include button-typography;
+
+    &:hover {
+      background-color: $main-color-deep;
+    }
+  }
+}

@@ -1,0 +1,172 @@
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include on-tablet {
+    gap: 30px;
+  }
+  &__h2 {
+    @include aside-margins;
+    max-width: 1194px;
+
+    @include h2;
+    align-self: flex-start;
+  }
+
+  &__container {
+    max-width: 1194px;
+    background-color: #d6ecec;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include on-tablet {
+      position: relative;
+      @include aside-margins;
+    }
+  }
+
+  &__img {
+    @include on-tablet {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &__text-buttons {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    overflow: hidden;
+    @include aside-margins;
+
+    @include on-tablet {
+      margin-left: 70px;
+      margin-top: 60px;
+      margin-bottom: 123px;
+    }
+
+    @include on-decktop {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  &__list {
+    overflow: hidden;
+    display: flex;
+    width: 300%;
+
+    @include on-decktop {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      column-gap: 30px;
+      row-gap: 56px;
+    }
+  }
+  &__feature {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    transition: all ease 1.5s;
+    opacity: 0;
+
+    @include on-decktop {
+      opacity: 1;
+    }
+  }
+
+  &__h3 {
+    color: #0c797a;
+    @include h3;
+  }
+
+  &__feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__text {
+    @include secondary-text;
+    display: flex;
+    gap: 10px;
+
+    &::before {
+      align-self: center;
+      content: "";
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: black;
+    }
+  }
+
+  &__buttons-counter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    @include on-decktop {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    align-self: center;
+    @include on-tablet {
+      align-self: flex-start;
+    }
+  }
+
+  &__button {
+    width: 48px;
+    height: 14px;
+    background-image: url("../images/icons/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: transparent;
+    transition: all 0.5s ease;
+
+    &:hover {
+      background-image: url("../images/icons/arrowBright.svg");
+    }
+
+    &:disabled {
+      background-image: url("../images/icons/arrowDis.svg");
+      cursor: default;
+    }
+  }
+
+  &__counter {
+    height: 24px;
+  }
+
+  &__page {
+    @include main-text;
+  }
+
+  &__pages-amount {
+    font-size: 11px;
+    color: #0c797a;
+  }
+}
+
+.feature-desc-left {
+  grid-column: 2 / 5;
+}
+.feature-desc-right {
+  grid-column: 5 / 8;
+}
+
+.prev-button {
+  rotate: 180deg;
+}

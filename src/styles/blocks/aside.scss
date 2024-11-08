@@ -1,0 +1,103 @@
+.aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-100%);
+  transition: 1s;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(0);
+  }
+
+  &__top-bar {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__close {
+    background-image: url(../images/icons/close.svg);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__item {
+    @include thirdary-text;
+
+    &:hover {
+      @include h6;
+    }
+  }
+
+  &__specs-options {
+    display: flex;
+    gap: 20px;
+
+  }
+
+  &__options-specs-en-ua {
+    display: flex;
+    gap: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+
+
+  &__buy {
+    width: 100%;
+    height: 48px;
+    @include button-typography;
+    color: white;
+    background-color: $main-color;
+    @include on-tablet {
+      display: none;
+    }
+    &:hover {
+      background-color: $main-color-deep;
+    }
+  }
+}
