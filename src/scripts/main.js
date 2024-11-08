@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function checkScreenSize() {
-    if (window.innerWidth <= 740) {
+    if (window.innerWidth <= 768) {
       carousel.style.display = 'block';
       // eslint-disable-next-line no-return-assign
       blocks.forEach(block => block.style.display = 'none');
@@ -90,3 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   formEnable.addEventListener('input', checkFormFields);
 });
+
+const vh = window.innerHeight * 0.01;
+
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
