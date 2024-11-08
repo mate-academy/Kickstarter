@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // hashchange
-
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
     document.body.classList.add('page__body--no-scrol');
@@ -81,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const submitButton = document.getElementById('submitButton');
 
   function checkFormFields() {
-    // Check all required inputs and textareas are filled
     const allFilled = Array.from(formEnable.elements).every(input => {
       return (input.type === 'email' || input.tagName === 'TEXTAREA')
         && input.value.trim() !== '';
@@ -90,6 +88,5 @@ document.addEventListener('DOMContentLoaded', function() {
     submitButton.disabled = allFilled;
   }
 
-  // Attach the event listener to both inputs and textarea fields
   formEnable.addEventListener('input', checkFormFields);
 });
