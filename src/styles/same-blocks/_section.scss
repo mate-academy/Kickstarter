@@ -1,0 +1,238 @@
+.section {
+  grid-template-rows: repeat(4, auto);
+  position: relative;
+  z-index: 1;
+
+  &__title {
+    text-align: left;
+    grid-column: span 4;
+    height: fit-content;
+    display: flex;
+    margin-bottom: 30px;
+    grid-row: 1 / 2;
+    text-transform: uppercase;
+
+    @include for-desktops {
+      @include text-set(56px, 700, 70px);
+    }
+
+    &--about-us {
+      @include for-tablets {
+        grid-column: 5 / span 4;
+        margin-bottom: 30px;
+
+        @include text-set(36px, 700, 46px);
+      }
+
+      @include for-desktops {
+        grid-column: 7 / span 6;
+
+        @include text-set(56px, 700, 70px);
+      }
+    }
+
+    &--technology {
+      @include for-tablets {
+        grid-column: 1 / span 4;
+        margin-bottom: 30px;
+
+        @include text-set(36px, 700, 46px);
+      }
+
+      @include for-desktops {
+        grid-column: 1 / span 6;
+
+        @include text-set(56px, 700, 70px);
+      }
+    }
+
+    @include text-set(30px, 700, 40px);
+
+    color: $dark-color;
+
+    &--features {
+      @include page-paddings;
+
+      @include for-tablets {
+        padding: 0;
+      }
+    }
+
+    &--questions {
+      @include text-set(30px, 700, 40px);
+
+      margin-bottom: 27px;
+
+      @include for-desktops {
+        grid-column: 1 / span 6;
+
+        @include text-set(56px, 700, 70px);
+      }
+    }
+  }
+
+  &__illustration {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    @include for-tablets {
+      object-fit: cover;
+    }
+
+    @include for-desktops {
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    grid-column: span 4;
+    margin: 20px 0 30px;
+    grid-row: 4 / 5;
+    height: fit-content;
+    transition: filter 0.3s ease;
+
+    &--left {
+      @include for-tablets {
+        margin: 0 0 60px;
+        grid-column: 1 / span 4;
+        grid-row: 2 / 3;
+      }
+
+      @include for-desktops {
+        grid-column: 1 / span 6;
+      }
+    }
+
+    &--right {
+      @include for-tablets {
+        margin: 0 0 60px;
+        grid-column: 5 / span 4;
+        grid-row: 2 / 3;
+      }
+
+      @include for-desktops {
+        grid-column: 7 / span 6;
+      }
+    }
+  }
+
+  &__image {
+    grid-column: span 4;
+    min-height: 210px;
+    grid-row: 3 / 4;
+    position: relative;
+    z-index: 2;
+    transition: all $animation-duration ease;
+
+    &:hover {
+      transform: scaleY(1.05);
+      box-shadow:
+        rgba(0, 0, 0, 0.25) 0 54px 55px,
+        rgba(0, 0, 0, 0.12) 0 -12px 30px,
+        rgba(0, 0, 0, 0.12) 0 4px 6px,
+        rgba(0, 0, 0, 0.17) 0 12px 13px,
+        rgba(0, 0, 0, 0.09) 0 -3px 5px;
+
+      ~ * {
+        filter: blur(5px);
+      }
+    }
+
+    &--right {
+      @include for-tablets {
+        grid-column: 5 / span 4;
+        grid-row: span 4;
+        min-height: 415px;
+        min-width: 100%;
+        margin-right: -34px;
+      }
+
+      @include for-desktops {
+        grid-column: 7 / span 6;
+        height: 388px;
+        width: 100%;
+        margin-right: 0;
+      }
+    }
+
+    &--left {
+      @include for-tablets {
+        grid-column: 1 / span 4;
+        grid-row: span 4;
+        min-height: 415px;
+        min-width: 100%;
+        margin-left: -34px;
+      }
+
+      @include for-desktops {
+        grid-column: 1 / span 6;
+        height: 388px;
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__button {
+    grid-column: 1 / span 3;
+    height: fit-content;
+    width: fit-content;
+    grid-row: 5 / 6;
+    transition: filter 0.3s ease;
+
+    &--left {
+      @include for-tablets {
+        grid-column: 1 / span 2;
+        grid-row: 3 / 4;
+      }
+
+      @include for-desktops {
+        grid-column: 1 / span 3;
+      }
+    }
+
+    &--right {
+      @include for-tablets {
+        grid-column: 5 / span 2;
+        grid-row: 3 / 4;
+      }
+
+      @include for-desktops {
+        grid-column: 7 / span 3;
+      }
+    }
+
+    &--link {
+      position: relative;
+      display: block;
+      text-decoration: none;
+      color: $turquoise-color;
+      text-transform: uppercase;
+
+      @include text-set(12px, 700, 14px);
+
+      &::after {
+        content: '';
+        width: 100%;
+        position: absolute;
+        display: block;
+        height: 1px;
+        background-color: $turquoise-color;
+        bottom: -6px;
+
+        transition: $animation-duration;
+        transform: scaleX(40%);
+        transform-origin: left;
+
+        @include for-desktops {
+          transform: scaleX(50%);
+        }
+      }
+
+      &:hover::after {
+        transform: scaleX(100%);
+      }
+    }
+  }
+}

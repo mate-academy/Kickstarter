@@ -1,0 +1,118 @@
+.nav {
+  margin: 31px 0 50px;
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    &--footer {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    &--features {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      li {
+        position: relative;
+        padding-left: 15px;
+        display: flex;
+        align-items: center;
+
+        &::before {
+          content: '•';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          color: black;
+          font-size: 15px;
+        }
+      }
+    }
+
+    &--benefits {
+      flex-direction: row;
+      justify-content: center;
+      gap: 84px;
+      color: #333;
+
+      @include text-set(14px, 400, 20px);
+    }
+  }
+
+  &__item {
+    width: fit-content;
+    transition: all $animation-duration ease;
+
+    &--features {
+      &:hover {
+        transform: translateX(-15px);
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    width: fit-content;
+    color: $dark-color;
+    border: 1px solid transparent;
+    transition: border $animation-duration ease;
+
+    &--aside {
+      &::after {
+        content: '';
+        width: 100%;
+        position: absolute;
+        display: block;
+        height: 1px;
+        background-color: $dark-color;
+        bottom: -5px;
+
+        transition: $animation-duration;
+        transform: scale(0);
+        transform-origin: left;
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
+    }
+
+    &--benefits {
+      transition: all $animation-duration ease;
+
+      &:hover {
+        transform: scale(1.1);
+        font-weight: 700;
+      }
+    }
+
+    &--footer {
+      transition: all $animation-duration ease;
+
+      &:hover {
+        border: 1px solid $dark-color;
+        transform: scale(1.25);
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+}
