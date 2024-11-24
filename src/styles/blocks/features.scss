@@ -1,0 +1,233 @@
+.features {
+  @include fade-in;
+
+  @include on-tablet {
+    @include content-padding-inline;
+  }
+
+  &__title,
+  &__block-title,
+  &__list {
+    margin: 0;
+  }
+
+  &__content {
+    position: relative;
+    margin-top: 30px;
+    padding-top: 30px;
+    background-color: $features-background-color;
+    height: 575px;
+
+    @include to-desktop {
+      padding-inline: 0;
+    }
+
+    @include on-tablet {
+      height: 555px;
+      padding-top: 60px;
+    }
+
+    @include on-desktop {
+      height: 642px;
+    }
+  }
+
+  &__wrapper {
+    width: 260px;
+    height: 333px;
+
+    @include on-small-tablet {
+      width: 320px;
+    }
+
+    @include on-small-desktop {
+      width: fit-content;
+    }
+  }
+
+  @include on-desktop {
+    &__blocks {
+      row-gap: 56px;
+
+      @include main-grid;
+
+      :nth-child(odd) {
+        grid-column: 2 / 6;
+      }
+
+      :nth-child(2) {
+        grid-column: 7 / 10;
+      }
+    }
+  }
+
+  @include to-desktop {
+    &__wrapper {
+      box-sizing: border-box;
+      width: 100%;
+      overflow: hidden;
+      padding-left: 30px;
+
+      @include on-small-tablet {
+        padding-left: 35px;
+      }
+
+      @include on-tablet {
+        padding-left: 90px;
+      }
+    }
+
+    &__blocks {
+      display: flex;
+      transition: transform $transition-duration ease-in-out;
+
+      @include on-desktop {
+        transform: translateX(0);
+      }
+    }
+
+    &__block {
+      min-width: 100%;
+    }
+  }
+
+  &__title {
+    padding-left: 30px;
+
+    @include on-tablet {
+      padding: 0;
+    }
+  }
+
+  &__block-title {
+    font-size: 18px;
+    line-height: 22px;
+    color: $darker-green-color;
+    text-transform: uppercase;
+
+    @include on-small-desktop {
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    width: 245px;
+    margin-top: 20px;
+    padding-left: 15px;
+
+    @include flex-column;
+
+    row-gap: 10px;
+
+    @include on-small-tablet {
+      width: auto;
+    }
+
+    &-item {
+      position: relative;
+      display: block;
+      font-size: 14px;
+      line-height: 21px;
+      font-weight: 400;
+
+      @include on-small-desktop {
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      &::before {
+        position: absolute;
+        content: '';
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #000;
+        left: -14px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    @include on-small-desktop {
+      margin-top: 30px;
+    }
+  }
+
+  &__slider {
+    margin-inline: auto;
+    width: fit-content;
+
+    @include on-small-tablet {
+      margin-left: 50px;
+    }
+
+    @include on-tablet {
+      margin-left: 90px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__buttons,
+  &__button {
+    display: flex;
+  }
+
+  &__button {
+    cursor: pointer;
+
+    &-path {
+      transition: fill $transition-duration;
+    }
+
+    &:hover &-path {
+      fill: $darker-green-color;
+    }
+  }
+
+  &__numbers {
+    margin-top: 20px;
+    margin-left: 50%;
+    width: fit-content;
+    position: relative;
+    color: $darker-green-color;
+    font-size: 11px;
+    line-height: 13.31px;
+  }
+
+  &__current-num {
+    position: absolute;
+    color: $main-black-text-color;
+    font-size: 16px;
+    line-height: 24px;
+    bottom: 0;
+    left: -20px;
+  }
+
+  &__background-img {
+    position: absolute;
+    background-image: url('../images/features-background.png');
+    width: 320px;
+    height: 174px;
+    right: 0;
+    bottom: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include on-tablet {
+      right: 10px;
+      width: 430px;
+      height: 225px;
+    }
+
+    @include on-desktop {
+      right: 20px;
+      width: 582px;
+      height: 302px;
+    }
+  }
+}

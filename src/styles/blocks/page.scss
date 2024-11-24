@@ -1,0 +1,137 @@
+.page {
+  --tamplate-columns: 4;
+  --column-width: 50px;
+  --grid-column-gap: 20px;
+  --logo-height: 26px;
+  --top-bar-padding-block: 25px;
+  --nav-margin-top: 30px;
+  --nav-height: 155px;
+  --mobile-content-margin-top: 50px;
+  --menu-content-height: calc(var(--logo-height) + (var(--top-bar-padding-block) * 2) + var(--nav-margin-top) + var(--nav-height) + var(--mobile-content-margin-top));
+
+  background-color: $main-white-color;
+  font-family: Inter, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color: $main-black-text-color;
+  font-style: normal;
+  font-variation-settings: 'slnt' 0;
+  scroll-behavior: smooth;
+
+  &--translated {
+    font-family: Roboto, sans-serif;
+  }
+
+  &__body {
+    margin: 0;
+  }
+
+  &__wrapper,
+  &:has(.menu:target) {
+    overflow: clip;
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    height: var(--logo-height);
+    width: 161px;
+
+    &-logo-path {
+      transition: all $transition-duration;
+    }
+
+    &:hover &-logo-path {
+      fill: $green-color;
+      stroke: $green-color;
+    }
+  }
+
+  &__section,
+  &__footer {
+    @include content-margin-top;
+
+    &-title {
+      margin: 0;
+      font-size: 30px;
+      line-height: 40px;
+      font-weight: 700;
+      text-transform: uppercase;
+
+      @include on-tablet {
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      @include on-desktop {
+        font-size: 56px;
+        line-height: 70px;
+      }
+    }
+  }
+
+  &__button {
+    border: none;
+    padding: 0;
+
+    @include flex-center-center;
+
+    font-family: Inter, sans-serif;
+
+    &--translated {
+      font-family: Roboto, sans-serif;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    inset: 0;
+    transform: translateY(-100%);
+    transition: transform $transition-duration;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+
+  &__scroll-button {
+    z-index: 1;
+
+    @include flex-center-center;
+
+    border: 1px solid $secondary-light-gray-color;
+    border-radius: 50%;
+    background-color: $main-white-color;
+    width: 45px;
+    height: 45px;
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    transform: translateY(100%);
+    opacity: 0;
+    transition:
+      all $fade-in-duration,
+      border-color $transition-duration;
+
+    &:hover {
+      border-color: $lighter-green-color;
+    }
+
+    &-path {
+      transition: fill $transition-duration;
+    }
+
+    &:hover &-path {
+      fill: $green-color;
+    }
+
+    @include on-small-tablet {
+      right: 45px;
+    }
+
+    @include on-desktop {
+      bottom: 70px;
+      right: 143px;
+    }
+  }
+}
