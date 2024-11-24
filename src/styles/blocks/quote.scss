@@ -1,0 +1,81 @@
+.quote {
+  @include fade-in;
+  @include content-padding-inline;
+  @include main-grid;
+
+  row-gap: 30px;
+  background-image: url('../images/quote-background.svg');
+  background-size: 208px 171px;
+  background-repeat: no-repeat;
+  background-position: top center;
+
+  @include on-tablet {
+    row-gap: 40px;
+    background-size: 233px 189px;
+  }
+
+  @include on-desktop {
+    row-gap: 30px;
+    background-size: 233px 192px;
+  }
+
+  &__text {
+    padding-top: 50px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      padding-top: 60px;
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    @include on-desktop {
+      padding-top: 42px;
+      grid-column: 3 / 11;
+    }
+  }
+
+  &__author {
+    align-items: center;
+
+    @include flex-column;
+
+    grid-column: 2 / 4;
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / 8;
+    }
+
+    &-avatar {
+      width: 62px;
+      height: 62px;
+    }
+
+    &-name {
+      margin: 0;
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 22px;
+
+      @include on-tablet {
+        margin-top: 20px;
+      }
+    }
+
+    &-position {
+      text-align: center;
+      margin-top: 5px;
+      font-size: 14px;
+      line-height: 21px;
+      color: $description-color;
+    }
+  }
+}
