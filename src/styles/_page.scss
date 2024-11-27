@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  border: none;
+  background-color: white;
+}
+
+.page {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: $main-color;
+  background-color: $white-color;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    background-color: $white-color;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
+.container {
+  margin: 0 auto;
+  @include onDesktop {
+    max-width: 1440px;
+  }
+}
+
+.icon {
+  display: block;
+
+  &--menu {
+    display: block;
+    background-image: url(../images/icons/burger-menu-icon.png);
+    width: 32px;
+    height: 32px;
+    @include onDesktop {
+      display: none;
+    }
+  }
+  &--close {
+    display: block;
+    background-image: url(../images/icons/Icon-Close.png);
+    width: 24px;
+    height: 24px;
+  }
+}

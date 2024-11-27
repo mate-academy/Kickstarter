@@ -1,0 +1,143 @@
+.header {
+  background-color: #fff;
+
+  @include contentPaddingInline();
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 0;
+
+  &__content {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__info {
+    display: none;
+    @include onTablet {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__set {
+    & button {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 300;
+      color: $lang-color;
+      width: 20px;
+      height: 20px;
+      &:hover {
+        font-weight: 400;
+        color: $title-color;
+      }
+    }
+  }
+
+  &__ref {
+    display: inline-block;
+    width: 45px;
+    height: 17px;
+  }
+
+  &__buy {
+    display: block;
+    background-color: $title-color;
+    color: $white-color;
+    padding: 16px 38px;
+    text-align: center;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: $dark-color;
+    }
+  }
+}
+
+.hero {
+  text-align: center;
+  @include onTablet {
+    padding-top: 115px;
+    --columns: 6;
+
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    // padding-top: 170px;
+    --columns: 12;
+
+    column-gap: 30px;
+  }
+
+  &__content {
+    @include onTablet {
+      grid-column: 1/3;
+    }
+
+    @include onDesktop {
+      grid-column: 1/4;
+    }
+  }
+
+  &__img {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      background-image: url(../images/tablet-img/header-tablet-img.jpg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: left;
+
+      grid-column: 4/-1;
+    }
+
+    @include onDesktop {
+      display: block;
+      background-image: url(../images/desktop-img/header-desktop-img.jpg);
+
+      grid-column: 5/10;
+    }
+
+    &--temp {
+      display: block;
+      width: 100%;
+      height: 40vh;
+      margin: 0 auto;
+      background-image: url(../images/mobile-img/header-mobile-img.jpg);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-position: left;
+
+      @include onTablet {
+        display: none;
+      }
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+  &__title {
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 52px;
+    text-align: left;
+    color: $title-color;
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    color: $title-color;
+  }
+}

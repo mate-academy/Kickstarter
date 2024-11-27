@@ -1,0 +1,104 @@
+.about-us {
+  @include contentPaddingInline();
+  @include paddingTop();
+  background-color: $white-color;
+
+  &__block {
+    --columns: 2;
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+
+    @include onTablet {
+      --columns: 8;
+      column-gap: 20px;
+    }
+
+    @include onDesktop {
+      --columns: 12;
+      column-gap: 30px;
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: left;
+    color: $title-color;
+    margin-bottom: 30px;
+  }
+
+  &__img {
+    @include onTablet {
+      display: block;
+
+      background-image: url(../images/tablet-img/about-us-tablet-img.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 50vh;
+
+      grid-column: 1/5;
+    }
+
+    @include onDesktop {
+      display: block;
+
+      background-image: url(../images/desktop-img/about-us-desktop-img.jpg);
+      grid-column: 1/7;
+      column-gap: 30px;
+    }
+
+    &--mobile {
+      display: block;
+      background-image: url(../images/mobile-img/about-us-mobile-img.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-bottom: 20px;
+      height: 50vh;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__content {
+    grid-column: 1/-1;
+
+    @include onTablet {
+      grid-column: 5/-1;
+    }
+
+    @include onDesktop {
+      grid-column: 7/-1;
+    }
+  }
+
+  &__text {
+    margin-block: 20px 30px;
+  }
+
+  &__link {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-align: left;
+    color: $accent-color;
+    text-transform: uppercase;
+
+    @include onTablet {
+    }
+
+    @include onDesktop {
+    }
+  }
+  &__link::after {
+    content: '';
+    display: block;
+    width: 53px;
+    height: 1px;
+    background-color: $accent-color;
+    margin-top: 5px;
+  }
+}
