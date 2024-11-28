@@ -1,0 +1,131 @@
+.benefits {
+  @include contentPaddingInline();
+  @include paddingTop();
+  @include paddingBottom();
+
+  background-color: $light-color;
+
+  &__title {
+    display: none;
+  }
+}
+
+.cards {
+  display: grid;
+  column-gap: 20px;
+
+  @include OnTablet {
+    row-gap: 64px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include OnDesktop {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+  }
+
+  &__item {
+    display: none;
+
+    @include OnTablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+    }
+
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+
+      @include OnTablet {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+      }
+    }
+  }
+
+  &__link {
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    &--round {
+      background-image: url(../images/icons/round.png);
+    }
+    &--sound {
+      background-image: url(../images/icons/sound.png);
+    }
+    &--wifi {
+      background-image: url(../images/icons/wifi.png);
+    }
+    &--sun {
+      background-image: url(../images/icons/sun.png);
+    }
+    ´ &:hover {
+      scale: 1.15;
+    }
+  }
+
+  &__title {
+    height: 56px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+    color: $title-color;
+
+    @include OnTablet {
+      margin-bottom: 18px;
+    }
+
+    @include OnDesktop {
+      margin-bottom: 24px;
+      margin-top: 30px;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.nav {
+  display: none;
+
+  @include OnDesktop {
+    display: block;
+  }
+  &__list {
+    display: flex;
+    gap: 84px;
+    justify-content: center;
+
+    align-items: center;
+
+    margin-bottom: 90px;
+  }
+
+  &__item:hover {
+    scale: 1.15;
+    transition: scale 0.5s;
+  }
+
+  &__link {
+    text-transform: uppercase;
+    color: $title-color;
+    line-height: 20px;
+    text-align: center;
+
+    &:hover {
+      color: $dark-color;
+    }
+  }
+}

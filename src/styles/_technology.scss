@@ -1,0 +1,106 @@
+.technology {
+  @include contentPaddingInline();
+  @include paddingTop();
+  background-color: $light-color;
+
+  &__block {
+    --columns: 2;
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+
+    @include OnTablet {
+      --columns: 8;
+      column-gap: 20px;
+    }
+
+    @include OnDesktop {
+      --columns: 12;
+      column-gap: 30px;
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: left;
+    color: $title-color;
+    margin-bottom: 30px;
+  }
+
+  &__img {
+    @include OnTablet {
+      display: block;
+
+      background-image: url(../images/tablet-img/technology-tablet-img.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      height: 50vh;
+
+      grid-column: 5/-1;
+    }
+
+    @include OnDesktop {
+      display: block;
+
+      background-image: url(../images/desktop-img/technology-desktop-img.jpg);
+      grid-column: 7/-1;
+      column-gap: 30px;
+    }
+
+    &--mobile {
+      display: block;
+      background-image: url(../images/mobile-img/technology-mobile-img.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-bottom: 20px;
+      height: 50vh;
+      background-position: center;
+
+      @include OnTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__content {
+    grid-column: 1/-1;
+
+    @include OnTablet {
+      grid-column: 1/5;
+    }
+
+    @include OnDesktop {
+      grid-column: 1/7;
+    }
+  }
+
+  &__text {
+    margin-block: 20px 30px;
+  }
+
+  &__link {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-align: left;
+    color: $accent-color;
+    text-transform: uppercase;
+  }
+
+  &__link::after {
+    content: '';
+    display: block;
+    width: 53px;
+    height: 1px;
+    background-color: $accent-color;
+    margin-top: 5px;
+  }
+
+  &__link:hover::after {
+    width: 120px;
+    transition: width 1s;
+  }
+}
