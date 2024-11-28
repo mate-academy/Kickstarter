@@ -1,5 +1,5 @@
 .header {
-  background-color: #fff;
+  background-color: $light-color;
 
   @include contentPaddingInline();
 }
@@ -10,6 +10,7 @@
 
   &__content {
     display: flex;
+
     gap: 30px;
   }
 
@@ -39,8 +40,14 @@
 
   &__ref {
     display: inline-block;
+    color: $middle-color;
     width: 45px;
     height: 17px;
+    &:hover {
+      color: $dark-color;
+      scale: 1.15;
+      transition: scale 0.5s;
+    }
   }
 
   &__buy {
@@ -69,7 +76,6 @@
   }
 
   @include OnDesktop {
-    // padding-top: 170px;
     --columns: 12;
 
     column-gap: 30px;

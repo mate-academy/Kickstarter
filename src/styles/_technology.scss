@@ -1,19 +1,19 @@
 .technology {
   @include contentPaddingInline();
   @include paddingTop();
-  background-color: $white-color;
+  background-color: $light-color;
 
   &__block {
     --columns: 2;
     display: grid;
     grid-template-columns: repeat(var(--columns), 1fr);
 
-    @include OnTablet() {
+    @include OnTablet {
       --columns: 8;
       column-gap: 20px;
     }
 
-    @include OnDesktop() {
+    @include OnDesktop {
       --columns: 12;
       column-gap: 30px;
     }
@@ -89,6 +89,7 @@
     color: $accent-color;
     text-transform: uppercase;
   }
+
   &__link::after {
     content: '';
     display: block;
