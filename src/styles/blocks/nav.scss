@@ -1,0 +1,60 @@
+.nav {
+  &__desktop {
+    &-list {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 84px;
+
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+      }
+    }
+
+    &-link {
+      color: $dark-grey;
+      text-decoration: none;
+
+      @include font-style(400, 14px, 20px);
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    list-style: none;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $dark-grey;
+
+    @include font-style(400, 14px, 20px);
+
+    @include on-tablet {
+      @include font-style(400, 22px, 28px);
+    }
+
+    &-first {
+      font-weight: 700;
+    }
+
+    &-hover {
+      @include underline(0, $dark-grey, width, 100%);
+    }
+  }
+
+  &__button {
+    width: 100%;
+  }
+}

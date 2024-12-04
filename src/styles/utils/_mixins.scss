@@ -1,6 +1,71 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: all $transition-time;
+
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin underline($_underline_width, $color, $_property, $_toValue) {
+  position: relative;
+
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    height: 1px;
+    width: $_underline_width;
+    background-color: $color;
+    transition: all $transition-time;
+  }
+
+  &:hover::after {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin font-style($_weightValue, $_sizeValue, $_heightValue) {
+  font-family: inherit;
+  font-weight: $_weightValue;
+  font-size: $_sizeValue;
+  line-height: $_heightValue;
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin page-gap {
+  display: flex;
+  flex-direction: column;
+  gap: $main-elements-gap-phone;
+
+  @include on-tablet {
+    gap: $main-elements-gap-tablet;
+  }
+
+  @include on-desktop {
+    gap: $main-elements-gap-desktop;
+  }
+}
+
+@mixin padding-inline {
+  padding-inline: 30px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
   }
 }

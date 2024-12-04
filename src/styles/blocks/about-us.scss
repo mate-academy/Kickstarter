@@ -1,0 +1,70 @@
+.about-us {
+  @include page-gap;
+
+  &__content {
+    @include padding-inline;
+
+    @include on-tablet {
+      display: flex;
+      gap: 20px;
+
+      &-reverse {
+        flex-direction: row-reverse;
+      }
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__title {
+    color: $dark-grey;
+    text-transform: uppercase;
+    margin-block: 0 30px;
+
+    &-bigDevice {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+      }
+    }
+
+    @include font-style(700, 30px, 40px);
+
+    @include on-tablet {
+      margin: 0;
+
+      @include font-style(700, 36px, 46px);
+
+      &-smallDevice {
+        display: none;
+      }
+    }
+
+    @include on-desktop {
+      @include font-style(700, 56px, 70px);
+    }
+  }
+
+  &__text {
+    color: $grey;
+    margin-block: 20px 30px;
+
+    @include font-style(400, 16px, 24px);
+
+    @include on-tablet {
+      margin-block: 30px 60px;
+    }
+  }
+
+  &__link {
+    color: $ocean;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include font-style(700, 12px, 14px);
+    @include underline(50%, $ocean, width, 100%);
+  }
+}

@@ -1,0 +1,170 @@
+.features {
+  box-sizing: border-box;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
+  }
+
+  &__title {
+    color: $dark-grey;
+    text-transform: uppercase;
+
+    margin: 0;
+    padding-bottom: 32px;
+    padding-inline: 30px;
+
+    @include font-style(700, 30px, 40px);
+
+    @include on-tablet {
+      padding-inline: 0;
+    }
+
+    @include on-desktop {
+      @include font-style(700, 56px, 70px);
+    }
+  }
+
+  &__content {
+    background-color: $light-ocean;
+
+    position: relative;
+
+    @include on-desktop {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__section {
+      @include on-desktop {
+        width: 50%;
+      }
+
+      &-desktop {
+        display: none;
+
+        @include on-desktop {
+          display: block;
+        }
+      }
+    }
+
+    &-title {
+      color: $dark-ocean;
+      text-transform: uppercase;
+
+      margin: 0;
+      padding: 30px 30px 20px;
+
+      @include font-style(700, 18px, 22px);
+
+      @include on-tablet {
+        padding-top: 60px;
+        padding-left: 90px;
+      }
+
+      @include on-desktop {
+        @include font-style(700, 34px, 42px);
+
+        padding-left: 102px;
+        padding-bottom: 30px;
+      }
+    }
+
+    &-list {
+      margin: 0;
+      padding: 0;
+      padding-inline: 46px 30px;
+
+      @include on-tablet {
+        padding-left: 106px;
+      }
+
+      @include on-desktop {
+        padding-left: 118px;
+      }
+    }
+
+    &-item {
+      color: $dark-grey;
+
+      @include font-style(400, 14px, 21px);
+
+      @include on-desktop {
+        @include font-style(400, 16px, 24px);
+      }
+
+      &:not(:nth-child(1)) {
+        margin-top: 10px;
+      }
+    }
+
+    &__menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include on-tablet {
+        display: block;
+
+        padding-left: 100px;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+
+      &-position {
+        display: flex;
+        flex-direction: row;
+
+        margin-block: 50px 13px;
+      }
+
+      &-icon {
+        display: flex;
+
+        @include hover(transform, scale(1.1));
+      }
+
+      &-button {
+        position: relative;
+        border: none;
+        outline: none;
+
+        width: 60px;
+        padding: 0;
+
+        background-color: $light-ocean;
+        color: $dark-ocean;
+
+        @include font-style(400, 11px, 14px);
+      }
+
+      &-active {
+        color: $dark-grey;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        @include font-style(400, 16px, 24px);
+      }
+    }
+
+    &-photo {
+      display: flex;
+      justify-content: center;
+
+      @include on-tablet {
+        justify-content: end;
+      }
+
+      @include on-desktop {
+        width: 48%;
+      }
+    }
+  }
+}

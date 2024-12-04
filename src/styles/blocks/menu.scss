@@ -1,0 +1,83 @@
+.menu {
+  box-sizing: border-box;
+
+  height: 100vh;
+  background-color: $page-background;
+
+  overflow: auto;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px;
+
+    height: 100%;
+
+    &-link {
+      text-decoration: none;
+      color: $dark-metal;
+
+      @include font-style(300, 14px, 16px);
+      @include underline(0, $dark-metal, width, 100%);
+
+      @include on-desktop {
+        line-height: 20px;
+      }
+    }
+
+    &-button {
+      @include font-style(300, 14px, 16px);
+
+      padding: 0;
+
+      border: none;
+      outline: none;
+
+      background-color: $page-background;
+      color: $metal;
+
+      cursor: pointer;
+
+      &--first {
+        font-weight: 400;
+        color: $dark-grey;
+      }
+
+      @include on-desktop {
+        line-height: 20px;
+      }
+    }
+
+    @include on-tablet {
+      padding: 40px 34px;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      height: 100%;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: row;
+
+      gap: 20px;
+      margin-top: 50px;
+    }
+  }
+}
