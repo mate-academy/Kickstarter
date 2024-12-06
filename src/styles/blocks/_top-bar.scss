@@ -1,0 +1,50 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 0;
+
+  @include on-tablet {
+    padding: 30px 0;
+  }
+
+  &__logo {
+    @include hover(scale, 1.1);
+    @include active(scale, 0.95);
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+  }
+
+  &__btns {
+    column-gap: 30px;
+    display: none;
+
+    @include on-desktop {
+      column-gap: 47px;
+    }
+
+    @include on-tablet {
+      display: inherit;
+    }
+  }
+}
+
+.options__language {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.language {
+  color: #bdbdbd;
+  transition: color 0.1s ease;
+}
+
+.language.active {
+  color: #333;
+}

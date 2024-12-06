@@ -1,0 +1,130 @@
+.features {
+  margin-bottom: 110px;
+
+  @include on-tablet {
+    position: relative;
+    margin-bottom: 140px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 170px;
+  }
+
+  &__title {
+    margin-bottom: 60px;
+  }
+
+  &__container {
+    background-color: #d6ecec;
+
+    @include on-tablet {
+      background-color: inherit;
+    }
+  }
+
+  &__swiper {
+    padding-top: 30px;
+
+    @include on-tablet {
+      padding-bottom: 150px;
+      background-color: #d6ecec;
+
+      .swiper {
+        margin-left: 90px;
+        margin-right: auto;
+      }
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__img {
+    display: flex;
+    background-color: #d6ecec;
+
+    @include on-tablet {
+      position: absolute;
+      right: 34px;
+      bottom: 0;
+      background-color: inherit;
+    }
+
+    img {
+      margin-left: auto;
+
+      @include on-tablet {
+        max-width: 430px;
+      }
+    }
+
+    &--mobile {
+      @include on-desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__desktop {
+    display: none;
+    background-color: #d6ecec;
+    padding-top: 60px;
+    padding-left: 100px;
+
+    @include on-desktop {
+      @include page-grid;
+
+      row-gap: 56px;
+    }
+  }
+
+  &__desktop-item {
+    grid-auto-rows: max-content;
+    grid-column: span 6;
+  }
+}
+
+.features-item {
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #0c797a;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+
+    @include on-desktop {
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__ul {
+    display: grid;
+    gap: 10px;
+  }
+
+  &__li {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+
+    @include on-desktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: #000;
+      margin-right: 10px;
+    }
+  }
+}
