@@ -1,0 +1,68 @@
+.menu {
+  // overflow-y: auto;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-color;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.3s;
+  transform: translateX(100%);
+  pointer-events: none;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  &:target {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+
+  &__top {
+    margin-bottom: 30px;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-grow: 1;
+  }
+
+  &__nav {
+    margin-bottom: 50px;
+  }
+
+  &__nav .nav__ul {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__nav .nav__link {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  &__options {
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__btn {
+    margin-top: auto;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}
