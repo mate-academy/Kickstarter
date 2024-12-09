@@ -1,0 +1,47 @@
+.page {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: $main-text-color;
+  background-color: #f7f7f7;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+
+    &:has(.page__menu:target) {
+      overflow: hidden;
+    }
+
+    @include on-desktop {
+      &:has(.page__menu:target) {
+        overflow: auto;
+      }
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.3s;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}
