@@ -1,0 +1,110 @@
+.technology {
+  &__cards-mobile {
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__cards-tablet {
+    display: none;
+
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__card {
+    @include on-tablet {
+      grid-column: 1 / span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__title {
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: 700;
+    color: inherit;
+    line-height: 46px;
+
+    @include on-tablet {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__paragraph {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 30px;
+    color: $lite-text-color;
+
+    @include on-tablet {
+      margin: 30px auto 54px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: #0db2b3;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 14px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      display: block;
+      height: 1px;
+      width: 40%;
+      background-color: #0db2b3;
+
+      transition: all $effectDuration;
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      width: 100%;
+      transform: scale(1);
+    }
+  }
+
+  &__img {
+    background-image: url(/src/images/Mobile-Luna-Eye.png);
+    height: 210px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 20px auto;
+
+    @include on-tablet {
+      background-image: url(/src/images/Tablet-Luna-Eye.png);
+      grid-column: 5 / span 4;
+      height: 415px;
+      width: 100%;
+      margin: 0;
+    }
+
+    @include on-desktop {
+      background-image: url(/src/images/Desktop-Luna-Eye.png);
+      height: 388px;
+      grid-column: 7 / span 6;
+      width: 100%;
+      background-position-x: 0;
+    }
+  }
+}
