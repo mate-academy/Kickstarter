@@ -1,0 +1,76 @@
+.slider {
+  &__block {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+}
+
+.slider1:checked ~ .slider__content .slider__block--one,
+.slider2:checked ~ .slider__content .slider__block--two,
+.slider3:checked ~ .slider__content .slider__block--three {
+  display: block;
+}
+
+.slider__button label {
+  display: none;
+}
+
+.slider1:checked ~ .slider__button .next1,
+.slider2:checked ~ .slider__button .next2,
+.slider3:checked ~ .slider__button .next3,
+.slider1:checked ~ .slider__button .prev3,
+.slider2:checked ~ .slider__button .prev1,
+.slider3:checked ~ .slider__button .prev2 {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  color: #333;
+}
+
+.slider1:checked ~ .slider__content .slider__button .next1,
+.slider2:checked ~ .slider__content .slider__button .next2,
+.slider3:checked ~ .slider__content .slider__button .next3 {
+  display: inline-block;
+}
+
+.slider1:checked ~ .slider__content .slider__button .prev3,
+.slider2:checked ~ .slider__content .slider__button .prev1,
+.slider3:checked ~ .slider__content .slider__button .prev2 {
+  display: inline-block;
+}
+
+.prev {
+  background-image: url('../images/icon/vector-left.svg');
+  object-fit: cover;
+  background-repeat: no-repeat;
+  width: 48px;
+  height: 14px;
+  cursor: pointer;
+
+  &:hover {
+    background-image: url('../images/icon/vector-left-hover.svg');
+  }
+}
+
+.next {
+  background-image: url('../images/icon/vector-right.svg');
+  object-fit: cover;
+  background-repeat: no-repeat;
+  width: 48px;
+  height: 14px;
+  cursor: pointer;
+
+  &:hover {
+    background-image: url('../images/icon/vector-right-hover.svg');
+  }
+}
+
+.slider input[type='radio'] {
+  display: none;
+}
