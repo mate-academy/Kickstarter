@@ -1,0 +1,131 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+
+  @include on-tablet {
+    gap: 140px;
+  }
+
+  @include on-desktop {
+    gap: 170px;
+  }
+
+  &__content {
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: left;
+    text-transform: uppercase;
+    color: $c-dark-brown;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      grid-column: span 4;
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__img-first {
+    @include on-tablet {
+      grid-area: 1 / 1 / 4 / 5;
+      max-height: 415px;
+      margin-left: -34px;
+    }
+
+    @include on-desktop {
+      margin: 0;
+      grid-column: span 6;
+    }
+  }
+
+  &__img-second {
+    @include on-tablet {
+      grid-area: 1 / 5 / 4 / -1;
+      max-height: 415px;
+      margin-right: -34px;
+    }
+
+    @include on-desktop {
+      margin: 0;
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__img {
+    width: 100%;
+
+    @include on-tablet {
+      object-fit: cover;
+      background-position: center;
+      height: 100%;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+    color: $c-light-brown;
+    margin-block: 20px 30px;
+
+    @include on-tablet {
+      grid-column: span 4;
+      font-size: 16px;
+      line-height: 24px;
+      margin-block: 0 60px;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__link {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    color: $c-accent;
+    text-transform: uppercase;
+    position: relative;
+
+    @include on-tablet {
+      grid-column: span 2;
+    }
+
+    &::after {
+      content: '';
+      background-color: $c-accent;
+      height: 1px;
+      width: 100%;
+      margin-top: 5px;
+      display: block;
+      position: absolute;
+      transform: scaleX(0.4);
+      transform-origin: 0;
+      transition: all 0.3s;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+
+      @include on-desktop {
+        transform: scaleX(88%);
+      }
+    }
+  }
+}
