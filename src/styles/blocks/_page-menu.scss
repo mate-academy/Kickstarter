@@ -1,0 +1,104 @@
+.page {
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 100vh;
+
+    opacity: 1;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
+
+.menu {
+  background-color: $c-white;
+
+  @include on-tablet {
+    margin-bottom: 64px;
+  }
+
+  &__top-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 55px;
+  }
+
+  &__close-icon {
+    display: block;
+  }
+
+  &__controls {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 162px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__specs {
+    color: $c-icon;
+    cursor: pointer;
+
+    &:hover {
+      font-weight: 700;
+    }
+  }
+
+  &__button {
+    display: block;
+    text-align: center;
+    width: 100%;
+    background-color: $c-btn-bg-buy;
+    padding-block: 16px;
+    color: $c-text-btn;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &:hover {
+      background-color: #131313;
+    }
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 25px;
+    margin-bottom: 50px;
+
+    @include on-tablet {
+      gap: 40px;
+    }
+  }
+
+  &__link {
+    &:hover {
+      font-weight: 700;
+    }
+
+    @include on-tablet {
+      font-size: 22px;
+    }
+  }
+}
