@@ -1,0 +1,31 @@
+.page {
+  overflow-x: hidden;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    margin: 0;
+    padding: 0;
+  }
+
+   &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+    }
+   }
+}

@@ -1,0 +1,273 @@
+.features {
+  @include on-desctop {
+    padding-inline: 123px;
+  }
+
+  &__title {
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: left;
+    font-size: 30px;
+    margin-block: 0 30px;
+    padding-inline: 30px;
+
+    @include on-desctop {
+      font-size: 56px;
+      line-height: 70px;
+      padding-bottom: 30px;
+    }
+  }
+
+  &__content {
+    @media (max-width: 1279px) {
+      display: none;
+    }
+
+    background-color: $features-color;
+    padding-top: 60px;
+
+    @include page-grid;
+  }
+
+  &__article {
+    &--1 {
+      grid-column: 2/6;
+      padding-bottom: 56px;
+    }
+
+    &--2 {
+      grid-column: 7/11;
+    }
+
+    &--3 {
+      grid-column: 2/6;
+      padding-bottom: 56px;
+
+    }
+
+    &--4 {
+      grid-column: 6/-1;
+    }
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 42px;
+    text-align: left;
+    text-transform: uppercase;
+    font-family: Inter;
+    color: $hover-blue;
+    padding-bottom: 30px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 10px;
+  }
+
+  &__item {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    font-family: Inter;
+    color: $black-color;
+  }
+
+  &__img {
+    width: 543px;
+    height: 301px;
+  }
+
+  &__swiper {
+    padding: 20px 0;
+    position: relative;
+    overflow: hidden;
+    background-color: $features-color;
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 575px;
+
+  @media (min-width: 1280px) {
+    display: none;
+    padding: 0;
+    margin: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  &-slide {
+    padding-inline: 30px;
+    position: relative;
+
+    @include on-tablet {
+      padding-inline: 90px;
+    }
+  }
+
+  &-image {
+    position: absolute; // Абсолютне позиціювання для розташування внизу
+    bottom: 0;// Відступ віднизу
+    left: 50%; // Центрування по горизонталі
+    transform: translateX(-50%);
+
+    @include on-tablet {
+      left: 70%;
+    }
+  }
+
+  &-img {
+    width: 320px;
+    height: 173px;
+
+    @include on-tablet {
+      width: 415px;
+      height: 225px;
+    }
+  }
+
+  &-title {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: left;
+    color: $hover-blue;
+    text-transform: uppercase;
+    margin: 0;
+    padding-block: 30px 20px;
+
+    @include on-tablet {
+      padding-block: 60px 20px;
+    }
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 10px;
+    padding: 0 0 50px 0;
+
+    @include on-tablet {
+     max-width: 255px;
+    }
+  }
+
+  &-item {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+  }
+
+  &-button {
+    padding-top: 40px;
+    position: absolute;
+    bottom: 210px; // Відступ віднизу
+    width: 100%;
+    display: flex;
+    justify-content: center; // Стрілки по краях
+    z-index: 5;
+
+    @include on-tablet {
+      width: 50%;
+      bottom: 150px;
+    }
+
+    .swiper-button-prev {
+      position: relative;
+      width: 48px;
+      height: 17px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-size: contain;
+      background-position: center;
+      transition: background-image 0.3s ease;
+      background-repeat: no-repeat;
+
+      margin-right: 10px; // Відступ до пагінації
+      background-image: url(/src/images/icons/arrow-prev.svg);
+
+      &:hover {
+        background-image: url(/src/images/icons/arrow-prev-action.svg);
+      }
+    }
+
+    .swiper-button-next {
+      position: relative;
+      width: 48px;
+      height: 17px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-size: contain;
+      background-position: center;
+      transition: background-image 0.3s ease;
+      background-repeat: no-repeat;
+
+      margin-left: 10px; // Відступ до пагінації
+      background-image: url(/src/images/icons/arrow-next.svg);
+
+      &:hover {
+        background-image: url(/src/images/icons/arrow-next-active.svg);
+      }
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+       display: none;
+    }
+  }
+
+  &-pagination {
+    position: absolute;
+    bottom: 190px; // Відстань від нижнього краю слайдера
+    left: 42%; // Центрування
+    transform: translateX(-50%);
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 13.31px;
+    text-align: left;
+    font-size: 11px;
+    color: $black-color;
+    display: flex;
+    z-index: 4;
+    justify-content: center;
+
+    @include on-tablet {
+      left: 22%;
+      bottom: 130px;
+    }
+
+    &-current {
+      font-size: 16px;
+      margin-right: 5px;
+
+      &:hover {
+        color: $black-color;
+
+        transform: scale(1.1);
+      }
+    }
+
+    &-total {
+      margin-left: 5px;
+      color: $hover-blue;
+    }
+  }
+}
