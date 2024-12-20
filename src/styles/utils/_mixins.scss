@@ -4,3 +4,77 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin hover-icon($transform: null, $color: null) {
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    @if $transform {
+      transform: $transform;
+    }
+
+    @if $color {
+      path {
+        fill: $color;
+      }
+    }
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $min-width-on-tablet) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $min-width-on-desktop) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: 30px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
+  }
+}
+
+@mixin max-width {
+  margin-inline: auto;
+  max-width: 320px;
+
+  @include on-tablet {
+    max-width: 768px;
+  }
+
+  @include on-desktop {
+    max-width: 1440px;
+  }
+}
+
+.container {
+  @include content-padding-inline;
+  @include max-width;
+}
+
+@mixin page-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+}
