@@ -1,0 +1,128 @@
+.features {
+  &_title {
+    font-family: Inter;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    color: $c-dark;
+    margin-bottom: 32px;
+    padding-inline: 30px;
+  }
+
+  &_info {
+    display: none;
+    flex-direction: column;
+    background-color: $c-blue-light;
+    padding: 0 30px;
+
+    &--active {
+      display: flex;
+    }
+
+    &_title {
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 22px;
+      color: $c-greener;
+      margin-bottom: 20px;
+      margin-top: 30px;
+    }
+
+    &_list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 50px;
+    }
+
+    &_li {
+      font-size: 14px;
+      line-height: 21px;
+      display: flex;
+
+      &::before {
+        content: '';
+        width: 4px;
+        height: 4px;
+        background-color: #000;
+        margin-right: 18px;
+        align-self: center;
+        border-radius: 50%;
+      }
+    }
+
+    &_slider-things {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &_controlls {
+        display: flex;
+        margin-bottom: 20px;
+
+        &_controll {
+          width: 48px;
+          height: 2px;
+          background-color: $c-dark;
+          position: relative;
+          cursor: pointer;
+
+          &:hover {
+            background-color: $c-greener;
+
+            &::after {
+              background-color: $c-greener;
+            }
+          }
+        }
+
+        &_left {
+          &::after {
+            content: '';
+            width: 20px;
+            height: 2px;
+            background-color: $c-dark;
+            transform-origin: left;
+            transform: rotate(30deg);
+            position: absolute;
+            left: 0;
+          }
+        }
+
+        &_right {
+          margin-top: 12px;
+
+          &::after {
+            content: '';
+            right: 0;
+            width: 20px;
+            height: 2px;
+            background-color: $c-dark;
+            transform-origin: right;
+            transform: rotate(30deg);
+            position: absolute;
+          }
+        }
+      }
+
+      &_nums {
+        font-size: 11px;
+        line-height: 13.31px;
+        color: $c-dark-gray;
+
+        &_num {
+          &--active {
+            color: $c-greener;
+          }
+        }
+      }
+    }
+  }
+
+  &_img {
+    width: 100%;
+  }
+
+}
