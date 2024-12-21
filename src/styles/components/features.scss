@@ -14,6 +14,12 @@
     flex-direction: column;
     background-color: $c-blue-light;
     padding: 0 30px;
+    position: relative;
+    padding-bottom: 225px;
+
+    @include on-tablet {
+      padding-left: 90px;
+    }
 
     &--active {
       display: flex;
@@ -57,6 +63,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
+
+      @include on-tablet {
+        align-items: flex-start;
+        width: fit-content;
+      }
 
       &_controlls {
         display: flex;
@@ -112,6 +124,13 @@
         line-height: 13.31px;
         color: $c-dark-gray;
 
+        @include on-tablet {
+          position: absolute;
+          left: 50%;
+          bottom: -8;
+          transform: translateX(-50%);
+        }
+
         &_num {
           &--active {
             color: $c-greener;
@@ -123,6 +142,13 @@
 
   &_img {
     width: 100%;
+
+    @include on-tablet {
+      width: 415px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
   }
 
 }
