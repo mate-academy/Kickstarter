@@ -5,14 +5,18 @@
 }
 
 .card {
+  position: relative;
   width: 260px;
   height: 254px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  @include hover (transform, scale(1.1));
+  transition: transform 0.3s ease; /* Плавний перехід */
 
+  &:hover {
+    transform: scale(1.05);
+  }
 
   @include on-tablet {
     width: 340px;
@@ -96,6 +100,10 @@
 
     @include on-tablet {
       margin: 50px 0 20px;
+    }
+
+    @include on-desctop {
+      margin: 30px 0 40px;
     }
 
     &--1 {
