@@ -19,6 +19,8 @@
     background-color: $c-blue-light;
     padding: 0 30px;
     position: relative;
+    opacity: 0;
+    animation: fadeIn $animation ease forwards;
 
     @include on-tablet {
       padding-left: 90px;
@@ -27,6 +29,8 @@
 
     &--active {
       display: flex;
+      opacity: 1;
+
     }
 
     &_title {
@@ -84,12 +88,14 @@
           background-color: $c-dark;
           position: relative;
           cursor: pointer;
+          transition: $animation;
 
           &:hover {
             background-color: $c-greener;
 
             &::after {
               background-color: $c-greener;
+              transition: $animation;
             }
           }
         }
@@ -159,4 +165,14 @@
     }
   }
 
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
