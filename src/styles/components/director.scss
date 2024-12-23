@@ -1,8 +1,20 @@
 .director {
+  @include on-tablet {
+    display: flex;
+    justify-content: center;
+  }
+
   &_wrapper {
     text-align: center;
     position: relative;
-    height: 320px;
+
+    @include on-tablet {
+      width: 500px;
+    }
+
+    @include on-desktop {
+      width: 700px;
+    }
   }
 
   &_quote {
@@ -57,7 +69,11 @@
     }
 
     @media screen and (min-width: 560px) {
-      top: -28%;
+      top: -35%;
+    }
+
+    @include on-desktop {
+      top: -38%;
     }
   }
 }

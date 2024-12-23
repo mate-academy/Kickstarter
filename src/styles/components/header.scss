@@ -3,12 +3,22 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 110px;
+    max-width: $w-max;
+    margin: auto;
+    margin-bottom: 110px;
 
     @include on-tablet {
       flex-direction: row-reverse;
       gap: 20px;
       padding-inline: 34px;
       margin-top: 130px;
+      margin-bottom: 140px;
+    }
+
+    @include on-desktop {
+      padding-inline: 123px;
+      margin-top: 170px;
+      margin-bottom: 140px;
     }
   }
 
@@ -19,6 +29,18 @@
     @include on-tablet {
       content: '../images/header-img-tablet.svg';
       margin-bottom: 0;
+      flex: 1;
+    }
+
+    @include on-desktop {
+      content: '../images/header-img-desktop.svg';
+      margin-bottom: 0;
+      flex: 1;
+    }
+
+    @media screen and (min-width: 1024px) {
+      align-self: flex-start;
+      flex-grow: 2;
     }
   }
 
@@ -27,6 +49,8 @@
 
     @include on-tablet {
       padding: 0;
+      flex: 1;
+      align-self: center;
     }
   }
 
@@ -41,6 +65,11 @@
     @include on-tablet {
       font-size: 48px;
       line-height: 62px;
+    }
+
+    @include on-desktop {
+      font-size: 62px;
+      line-height: 78px;
     }
   }
 

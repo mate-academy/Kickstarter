@@ -3,6 +3,16 @@
     padding-bottom: 140px;
   }
 
+  @include on-desktop {
+    padding-bottom: 170px;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
+    max-width: $w-max;
+    margin: auto;
+  }
+
   &_wrapper {
     display: flex;
     gap: 110px;
@@ -25,11 +35,19 @@
     @include on-tablet {
       margin-right: 35px;
     }
+
+    @include on-desktop {
+      margin: 0;
+    }
   }
 
   &_item:nth-child(2) {
     @include on-tablet {
       margin-left: 35px;
+    }
+
+    @include on-desktop {
+      margin: 0;
     }
   }
 
@@ -54,6 +72,11 @@
         display: block;
         line-height: 46px;
       }
+
+      @include on-desktop {
+        font-size: 56px;
+        line-height: 70px;
+      }
     }
   }
 
@@ -62,21 +85,18 @@
     margin-bottom: 20px;
 
     @include on-tablet {
-      margin: 0;
-      display: none;
+      display: block;
+      width: 374px;
     }
 
-    &--tablet {
-      display: none;
-
-      @include on-tablet {
-        display: block;
-        width: 374px;
-      }
+    @include on-desktop {
+      width: 572px;
     }
 
     &--reversed {
-      order: 1;
+      @include on-tablet {
+        order: 1;
+      }
     }
   }
 
@@ -94,6 +114,7 @@
     text-decoration: none;
     color: $c-green;
     position: relative;
+    transition: $animation;
   }
 
   &_see-more::after{
@@ -104,5 +125,15 @@
     width: 53px;
     height: 1px;
     background-color: $c-green;
+    transition: $animation;
+  }
+
+  &_see-more:hover::after{
+    width: 100%;
+    background-color: $c-green;
+  }
+
+  &--reversed {
+    order: 1;
   }
 }
