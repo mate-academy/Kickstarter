@@ -1,6 +1,29 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin on-tablet {
+  @media screen and (min-width: $w-tablet){
+    @content;
   }
+}
+
+@mixin on-desktop {
+  @media screen and (min-width: $w-desktop){
+    @content;
+  }
+}
+
+@mixin paddings-inline {
+  padding-inline: 30px;
+
+  @include on-tablet {
+    padding-inline: 35px;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
+    max-width: $w-max;
+    margin: auto;
+  }
+}
+
+.container {
+  @include paddings-inline;
 }
