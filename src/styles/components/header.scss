@@ -1,0 +1,80 @@
+.header {
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 110px;
+    max-width: $w-max;
+    margin: auto;
+    margin-bottom: 110px;
+
+    @include on-tablet {
+      flex-direction: row-reverse;
+      gap: 20px;
+      padding-inline: 34px;
+      margin-top: 130px;
+      margin-bottom: 140px;
+    }
+
+    @include on-desktop {
+      padding-inline: 123px;
+      margin-top: 170px;
+      margin-bottom: 140px;
+    }
+  }
+
+  &_img {
+    width: 100%;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      content: '../images/header-img-tablet.svg';
+      margin-bottom: 0;
+      flex: 1;
+    }
+
+    @include on-desktop {
+      content: '../images/header-img-desktop.svg';
+      margin-bottom: 0;
+      flex: 1;
+    }
+
+    @media screen and (min-width: 1024px) {
+      align-self: flex-start;
+      flex-grow: 2;
+    }
+  }
+
+  &_info {
+    padding-inline: 30px;
+
+    @include on-tablet {
+      padding: 0;
+      flex: 1;
+      align-self: center;
+    }
+  }
+
+  &_title {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 52px;
+    color: $c-dark;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include on-desktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &_text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

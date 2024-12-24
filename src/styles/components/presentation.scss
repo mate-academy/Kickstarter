@@ -1,0 +1,139 @@
+.presentation {
+  @include on-tablet {
+    padding-bottom: 140px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 170px;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
+    max-width: $w-max;
+    margin: auto;
+  }
+
+  &_wrapper {
+    display: flex;
+    gap: 110px;
+    flex-direction: column;
+    padding: 0 30px;
+
+    @include on-tablet {
+      padding: 0;
+    }
+  }
+
+  &_item {
+    @include on-tablet {
+      display: flex;
+      gap: 20px;
+    }
+  }
+
+  &_item:nth-child(1) {
+    @include on-tablet {
+      margin-right: 35px;
+    }
+
+    @include on-desktop {
+      margin: 0;
+    }
+  }
+
+  &_item:nth-child(2) {
+    @include on-tablet {
+      margin-left: 35px;
+    }
+
+    @include on-desktop {
+      margin: 0;
+    }
+  }
+
+  &_title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    color: $c-dark;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+
+    &--mobile {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        line-height: 46px;
+      }
+
+      @include on-desktop {
+        font-size: 56px;
+        line-height: 70px;
+      }
+    }
+  }
+
+  &_img {
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      display: block;
+      width: 374px;
+    }
+
+    @include on-desktop {
+      width: 572px;
+    }
+
+    &--reversed {
+      @include on-tablet {
+        order: 1;
+      }
+    }
+  }
+
+  &_text {
+    font-size: 14px;
+    line-height: 21px;
+    color: $c-gray-third;
+    margin-bottom: 30px;
+  }
+
+  &_see-more {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-decoration: none;
+    color: $c-green;
+    position: relative;
+    transition: $animation;
+  }
+
+  &_see-more::after{
+    content: '';
+    position: absolute;
+    bottom: -5;
+    left: 0;
+    width: 53px;
+    height: 1px;
+    background-color: $c-green;
+    transition: $animation;
+  }
+
+  &_see-more:hover::after{
+    width: 100%;
+    background-color: $c-green;
+  }
+
+  &--reversed {
+    order: 1;
+  }
+}
