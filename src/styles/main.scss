@@ -1,7 +1,44 @@
-@import 'utils';
 @import 'fonts';
+@import 'utils';
 @import 'typography';
+@import 'blocks/header';
+@import './blocks/aside';
+@import './blocks/benefits';
+@import './blocks/presentation';
+@import './blocks/about-us';
+@import './blocks/technology';
+@import './blocks/testimonials';
+@import './blocks/features';
+@import './blocks/questions';
+@import './blocks/footer';
+@import './blocks/buttons';
 
 body {
-  background: $c-gray;
+  width: 100vw;
+  background-color: $light-color;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: Inter, sans-serif;
+}
+
+.main {
+  @include page-paddings;
+}
+
+body:has(.aside:target) {
+  overflow: hidden;
+}
+
+section {
+  margin: 110px 0;
+
+  @include on-tablet {
+    margin: 140px 0;
+  }
+
+  @include on-desktop {
+    margin: 170px 0;
+  }
 }

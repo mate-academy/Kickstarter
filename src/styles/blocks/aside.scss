@@ -1,0 +1,130 @@
+.aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+
+  @include page-paddings;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  height: 100vh;
+  z-index: 10;
+  background-color: $white-color;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__top {
+    height: 74px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &--logo {
+      height: 26px;
+    }
+
+    &--wrap {
+      width: 24px;
+      height: 24px;
+
+      &--cross {
+        width: 16px;
+        height: 16px;
+        background-image: url(../images/icons/cross.svg);
+        background-size: cover;
+      }
+    }
+  }
+
+  &__nav {
+    margin-top: 30px;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+
+    &--list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      list-style: none;
+      padding: 0;
+    }
+
+    &--item {
+      text-decoration: none;
+      color: $black2-color;
+
+      @include thirdary-text;
+
+      @include on-tablet {
+        font-size: 22px;
+        line-height: 28px;
+      }
+
+      @include hover('font-weight', 700);
+    }
+  }
+
+  &__tools {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &--specs,
+    &--language {
+      font-family: Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 18px;
+      text-transform: uppercase;
+    }
+
+    &--specs {
+      color: $black3-color;
+    }
+    &--language {
+      display: flex;
+      flex-direction: row;
+      gap: 3px;
+      color: $lang-default-color;
+
+      .language__slash,
+      .language__en {
+        color: $black2-color;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .button__buy {
+    position: absolute;
+    bottom: 30px;
+    width: calc(100% - 60px);
+    height: 48px;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    @include hover(background-color, $black-color);
+
+    &:disabled {
+      background-color: $grey3-color;
+    }
+  }
+}

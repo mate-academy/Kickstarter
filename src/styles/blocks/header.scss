@@ -1,0 +1,158 @@
+.header {
+  width: 100vw;
+
+  &__top-bar {
+    @include page-paddings;
+
+    height: 74px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-desktop {
+      height: 48px;
+      margin-top: 30px;
+    }
+
+    &--logo {
+      height: 26px;
+    }
+
+    &--tools {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      justify-content: end;
+      align-items: center;
+
+      .specs,
+      .language,
+      .button__buy {
+        font-family: Helvetica, sans-serif;
+        display: none;
+      }
+
+      @include on-tablet {
+        .specs,
+        .language {
+          display: block;
+          font-size: 14px;
+          line-height: 18px;
+          color: $black3-color;
+          font-weight: 300;
+          text-transform: uppercase;
+
+          @include on-desktop {
+            @include thirdary-text;
+          }
+        }
+
+        .language {
+          display: flex;
+          gap: 3px;
+          color: $lang-default-color;
+
+          &__slash,
+          &__en {
+            color: $black2-color;
+            font-weight: 400;
+          }
+        }
+
+        .button__buy {
+          font-weight: 500;
+          display: block;
+          width: 100px;
+          height: 48px;
+          font-family: Helvetica, sans-serif;
+          color: $white-color;
+          background-color: $black2-color;
+
+          @include on-tablet {
+            width: 100px;
+            height: 48px;
+          }
+
+          @include hover(background-color, $black-color);
+
+          &:disabled {
+            background-color: $grey3-color;
+          }
+        }
+      }
+
+      .menu-icon {
+        display: block;
+        width: 32px;
+        height: 32px;
+        fill: $icon-black-color;
+
+        @include on-desktop {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__main {
+    @include page-paddings;
+    @include page-grid;
+
+    flex-direction: column;
+    align-items: center;
+
+    @include on-tablet {
+      margin-top: 130px;
+    }
+
+    @include on-desktop {
+      margin-top: 90px;
+    }
+
+    &--photo {
+      grid-column: span 4;
+      height: 245px;
+      background-image: url(../images/photos/1-mobile.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @include on-tablet {
+        grid-column: 4 / -1;
+        order: 2;
+        height: 320px;
+        background-image: url(../images/photos/1-tablet.png);
+      }
+
+      @include on-desktop {
+        grid-column: 5 / -1;
+        height: 464px;
+        background-image: url(../images/photos/1.png);
+      }
+    }
+
+    &--wrap {
+      grid-column: span 4;
+      z-index: 10;
+
+      @include on-tablet {
+        grid-column: 1 / 4;
+        order: 1;
+        margin-inline: 0;
+      }
+
+      &--title {
+        @extend %h1;
+
+        margin-top: 40px;
+      }
+
+      &--description {
+        @include main-text;
+
+        margin-top: 20px;
+      }
+    }
+  }
+}

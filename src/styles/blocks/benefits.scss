@@ -1,0 +1,123 @@
+.benefits {
+  .page-menu {
+    display: none;
+
+    @include on-desktop {
+      height: 76px;
+      display: block;
+      margin-bottom: 62px;
+
+      &__nav {
+        &--list {
+          display: flex;
+          flex-direction: row;
+          gap: 84px;
+          justify-content: center;
+          list-style: none;
+          padding: 0;
+        }
+
+        &--item {
+          text-decoration: none;
+          color: $black2-color;
+
+          @include thirdary-text;
+          @include hover('font-weight', 700);
+        }
+      }
+    }
+  }
+
+  &__blocks {
+    @include page-grid;
+
+    .block {
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      grid-column: span 4;
+
+      @include on-tablet {
+        grid-column: span 4;
+      }
+
+      @include on-desktop {
+        grid-column: span 3;
+      }
+
+      &__icon {
+        height: 50px;
+        width: 70px;
+        margin-bottom: 40px;
+
+        @include on-tablet {
+          margin-bottom: 50px;
+        }
+
+        @include on-desktop {
+          margin-bottom: 30px;
+        }
+      }
+
+      &__wrap {
+        &--title {
+          @extend %h4;
+
+          margin-bottom: 20px;
+        }
+
+        &--description {
+          color: $grey-color;
+
+          @include secondary-text;
+
+          @include on-tablet {
+            margin-bottom: 65px;
+          }
+
+          @include on-desktop {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .icon {
+      fill: $black3-color;
+      background-position: contain;
+      background-repeat: no-repeat;
+
+      &__design {
+        background-image: url(../images/icons/design.svg);
+      }
+
+      &__volume {
+        background-image: url(../images/icons/volume.svg);
+      }
+
+      &__wifi {
+        background-image: url(../images/icons/wifi.svg);
+      }
+
+      &__light {
+        background-image: url(../images/icons/sun.svg);
+      }
+    }
+  }
+
+  .light,
+  .wifi,
+  .volume {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
