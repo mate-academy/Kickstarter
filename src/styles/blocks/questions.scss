@@ -1,0 +1,81 @@
+.questions {
+  @include on-tablet {
+    @include page-grid;
+  }
+
+  &__title {
+    @extend %h2;
+
+    margin-bottom: 27px;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  .form {
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+
+    &__email {
+      height: 48px;
+      margin-bottom: 20px;
+    }
+
+    &__message {
+      height: 128px;
+      margin-bottom: 30px;
+      padding-top: 12px;
+
+      @include on-tablet {
+        height: 200px;
+      }
+
+      @include on-desktop {
+        height: 128px;
+      }
+    }
+
+    &__email,
+    &__message {
+      padding-left: 20px;
+      width: calc(100% - 20px);
+      border: 1px solid $lang-default-color;
+
+      @include main-text;
+
+      &::placeholder {
+        color: $grey2-color;
+      }
+
+      &:focus,
+      &:hover {
+        border: 1.3px solid $button-ocean-hover;
+        color: $black2-color;
+        outline: none;
+      }
+    }
+
+    &__button {
+      color: $white-color;
+      width: 102px;
+      height: 40px;
+      background-color: $ocean-color;
+
+      @include hover(background-color, $button-ocean-hover);
+
+      &:disabled {
+        background-color: $light-blue-color;
+      }
+    }
+  }
+}

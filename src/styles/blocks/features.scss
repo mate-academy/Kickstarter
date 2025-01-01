@@ -1,0 +1,162 @@
+.features {
+  &__title {
+    @extend %h2;
+
+    margin-bottom: 32px;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__blocks {
+    padding-top: 30px;
+    margin-inline: -30px;
+
+    @include on-tablet {
+      margin-inline: 0;
+      padding-top: 60px;
+
+      @include page-grid;
+    }
+
+    background-color: $background-color-ocean;
+
+    .block {
+      @include page-paddings;
+
+      @include on-tablet {
+        margin-inline: -34px;
+      }
+
+      @include on-desktop {
+        margin-inline: -123px;
+      }
+
+      &__connect,
+      &__app {
+        display: none;
+
+        @include on-desktop {
+          display: block;
+        }
+      }
+
+      @include on-desktop {
+        &__connect,
+        &__sound {
+          grid-column: 2 / 5;
+          width: 100%;
+        }
+
+        &__app {
+          grid-column: 7 / 10;
+        }
+      }
+
+      &__sound {
+        @include on-tablet {
+          grid-column: 2 / 5;
+          width: 100%;
+        }
+      }
+
+      &--title {
+        @extend %h3;
+
+        color: $button-ocean-hover;
+        margin-bottom: 20px;
+
+        @include on-desktop {
+          margin-bottom: 30px;
+        }
+      }
+
+      &--list {
+        padding-left: 20px;
+        margin-bottom: 50px;
+
+        @include on-desktop {
+          margin-bottom: 56px;
+        }
+      }
+
+      &--item {
+        @include secondary-text;
+
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .slider {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      @include on-tablet {
+        grid-column: span 8;
+
+        @include page-grid;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / -1;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: contain;
+        background-image: url(../images/photos/3.svg);
+      }
+
+      &__nav {
+        @include on-tablet {
+          grid-column: 2 / 4;
+        }
+
+        @include on-desktop {
+          display: none;
+        }
+
+        &--numbers {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          gap: 4px;
+
+          @include main-text;
+
+          &--1 {
+            margin-top: 10px;
+            color: $black2-color;
+          }
+
+          &--slash,
+          &--3 {
+            margin-top: 21px;
+            color: $button-ocean-hover;
+            font-weight: 400;
+            font-size: 11px;
+            line-height: 13.31px;
+          }
+        }
+      }
+
+      &__image {
+        object-position: contain;
+        width: 100%;
+
+        @include on-tablet {
+          grid-column: 4 / -1;
+        }
+
+        @include on-desktop {
+          display: none;
+        }
+      }
+    }
+  }
+}
