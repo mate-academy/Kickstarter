@@ -1,0 +1,288 @@
+.features {
+  padding-bottom: 90px;
+
+  @include on-tablet {
+    padding: 0 30px 140px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 170px;
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+
+    text-align: left;
+    margin-bottom: 32px;
+    padding: 0 30px;
+
+    color: $main-color;
+
+    @include on-tablet {
+      padding: 0;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__container {
+    background-color: $secondary-background;
+
+    @include on-tablet {
+      height: 555px;
+    }
+
+    @include on-desktop {
+      height: 680px;
+      padding-top: 60px;
+    }
+  }
+
+  &__slider {
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__box-first {
+    display: none;
+    gap: 132px;
+    padding: 0;
+    margin-bottom: 56px;
+    padding-left: 22px;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+
+  &__box-second {
+    display: none;
+    gap: 132px;
+    padding: 0;
+    width: 100%;
+    padding-left: 22px;
+    overflow: hidden;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+}
+
+.slider {
+  padding-top: 30px;
+  overflow: hidden;
+
+  @include on-tablet {
+    padding-top: 60px;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__container {
+    display: flex;
+    width: 100%;
+
+    transition: transform 0.5s ease-in-out;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 50px;
+
+    @include on-tablet {
+      justify-content: start;
+      padding-left: 90px;
+      position: relative;
+      z-index: 5;
+    }
+  }
+
+  &__button-prev {
+    background-image: url(/src/images/feature/slider__left.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    width: 48px;
+    height: 14px;
+
+    background-color: $secondary-background;
+
+    @include hover(
+      background-image,
+      url('/src/images/feature/slider__left-hover.png')
+    );
+  }
+
+  &__button-next {
+    background-image: url(/src/images/feature/slider__right.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    width: 48px;
+    height: 14px;
+
+    background-color: $secondary-background;
+
+    @include hover(
+      background-image,
+      url('/src/images/feature/slider__right-hover.png')
+    );
+  }
+
+  &__counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+
+    @include on-tablet {
+      justify-content: start;
+      padding-left: 114px;
+    }
+  }
+
+  &__counter-number {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+
+    text-align: left;
+    margin-right: 4px;
+
+    color: $main-color;
+  }
+
+  &__counter-length {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13px;
+
+    text-align: left;
+
+    color: $link-color;
+  }
+
+  &__banner {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+
+    @include on-tablet {
+      position: relative;
+      bottom: 48px;
+      right: 0;
+      z-index: 1;
+    }
+
+    @include on-desktop {
+      display: flex;
+      justify-content: start;
+      bottom: 0;
+    }
+  }
+
+  &__banner-img {
+    background-image: url(/src/images/feature/features__banner.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    width: 320px;
+    height: 173px;
+
+    background-color: $secondary-background;
+
+    @include on-tablet {
+      width: 415px;
+      height: 225px;
+    }
+
+    @include on-desktop {
+      background-image: url(/src/images/feature/features__banner-desk.png);
+      width: 543px;
+      height: 300px;
+    }
+  }
+}
+
+.slide {
+  padding: 0 30px;
+  min-width: 100%;
+
+  @include on-desktop {
+    min-width: max-content;
+    padding: 0;
+  }
+
+  @include on-tablet {
+    padding: 0 30px 0 90px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+
+    margin-bottom: 20px;
+    text-align: left;
+
+    text-transform: uppercase;
+
+    color: $slider-title;
+
+    @include on-desktop {
+      font-size: 34px;
+      line-height: 42px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__item {
+    position: relative;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+
+    text-align: left;
+    margin-left: 10px;
+
+    color: $main-color;
+
+    @include on-desktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__item::before {
+    content: ('');
+    position: absolute;
+
+    left: -10px;
+    top: 50%;
+    width: 4px;
+    height: 4px;
+
+    background-color: $main-color;
+  }
+}
