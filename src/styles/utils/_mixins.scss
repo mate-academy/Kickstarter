@@ -4,3 +4,128 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: $min-width-tablet) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $min-width-desktop) {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  --columns: 4;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --columns: 8;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+
+    column-gap: 30px;
+  }
+}
+
+@mixin h1-font {
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 130%;
+  text-transform: uppercase;
+
+  @include on-tablet {
+    font-size: 48px;
+    line-height: 129%;
+  }
+
+  @include on-desktop {
+    font-size: 64px;
+    line-height: 121%;
+  }
+}
+
+@mixin h2-font {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 133%;
+  text-transform: uppercase;
+
+  @include on-tablet {
+    font-size: 36px;
+    line-height: 128%;
+  }
+
+  @include on-desktop {
+    font-size: 56px;
+    line-height: 125%;
+  }
+}
+
+@mixin h3-font {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 122%;
+  text-transform: uppercase;
+
+  @include on-tablet {
+    font-size: 24px;
+    line-height: 125%;
+  }
+
+  @include on-desktop {
+    font-size: 34px;
+    line-height: 124%;
+  }
+}
+
+@mixin h4-font {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 127%;
+  text-transform: uppercase;
+}
+
+@mixin h5-font {
+  font-weight: 700;
+  line-height: 136%;
+}
+
+@mixin h6-font {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 143%;
+}
+
+@mixin quote {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 143%;
+
+  @include on-desktop {
+    font-size: 24px;
+  }
+}
+
+@mixin thirdary-text {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+@mixin secondary-text {
+  font-size: 14px;
+}
+
+@mixin button-font {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 117%;
+  text-transform: uppercase;
+}
