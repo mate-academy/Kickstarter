@@ -1,0 +1,95 @@
+.section {
+  &__container {
+    @include grid-rules;
+
+    margin: 0 auto;
+
+    @include margin-top-section;
+
+    @include padding-inline-section;
+    box-sizing: border-box;
+    &--benefits {
+      row-gap: 62px;
+    }
+
+    &--meet {
+      height: 50vh;
+      background-image: url(/images/mobile/mobile_img_2.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      @include on-tablet {
+        background-image: url(/images/tablet/tablet_img_3.png);
+      }
+
+      @include on-desktop {
+        background-image: url(/images/desktop/desktop_img_2.png);
+      }
+    }
+
+    &--designed {
+      row-gap: 110px;
+      @include on-tablet {
+        padding-inline: 0;
+      }
+    }
+
+    &--features {
+      padding-inline: 0;
+
+      @include on-tablet {
+        @include padding-inline-section;
+      }
+    }
+
+    @include on-desktop {
+      box-sizing: content-box;
+    }
+  }
+
+  &__menu {
+    grid-column: 3 / -3;
+    margin-bottom: 62px;
+  }
+
+  &__card {
+    grid-column: 1 / -1;
+
+    &:not(:first-of-type) {
+      display: none;
+    }
+
+    @include on-tablet {
+      &:not(:first-of-type) {
+        display: flex;
+      }
+
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+  }
+
+  &__article {
+    grid-column: 1 / -1;
+  }
+
+  &__slider {
+    grid-column: 1 / -1;
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: span 4 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: span 6 / -1;
+    }
+  }
+}

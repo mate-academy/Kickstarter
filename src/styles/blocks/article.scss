@@ -1,0 +1,81 @@
+.article {
+  display: flex;
+  flex-direction: column;
+
+  &--designed {
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      column-gap: 20px;
+
+      grid-template-areas: "img tl"
+        "img tx"
+        "img tx"
+        "img ln"
+        "img .";
+    }
+  }
+
+  &--img_left {
+    @include on-tablet {
+      padding-right: 34px;
+    }
+  }
+
+  &--img_right {
+    @include on-tablet {
+      padding-left: 34px;
+      grid-template-areas: "tl img"
+        "tx img"
+        "tx img"
+        "ln img"
+        ". img";
+    }
+  }
+
+  &--reviews {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 786px;
+    justify-content: center;
+    align-items: center;
+
+    @include on-desktop {
+      grid-column: 2 / -2;
+    }
+  }
+
+  &__title {
+    grid-area: tl;
+    margin-bottom: 30px;
+  }
+
+  &__img {
+    grid-area: img;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 0;
+      align-self: stretch;
+      justify-self: stretch;
+    }
+
+    &--img {
+      width: 100%;
+    }
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__text {
+    grid-area: tx;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+
+  &__link {
+    grid-area: ln;
+  }
+}
