@@ -80,7 +80,12 @@
   }
 
   &__go-top {
-    justify-self: end;
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      justify-self: end;
+    }
   }
 
   &__icons {
@@ -98,6 +103,10 @@
 
   &__icon {
     margin: 0 auto;
+
+    &--hover {
+      @include hover(fill, black);
+    }
   }
 
   &__text {
