@@ -3,10 +3,14 @@
   top: 0;
   left: 0;
   right: 0;
-
+ bottom: 0;
   transition: all 0.3s;
   opacity: 1;
   transform: translateX(100%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   background-color: white;
   box-sizing: border-box;
@@ -58,9 +62,12 @@
     line-height: 20px;
     color: $text-color;
     transition: all 0.3s;
+    display: inline-block;
+    width: 101px;
     &:hover {
       color: #131313;
       font-weight: 700;
+
     }
   }
 
@@ -74,7 +81,11 @@
   }
 
   &__button {
-    width: 100%;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    width: calc(100% - 60px);
     padding-block: 17px;
     background-color: $text-color;
     font-size: 12px;
@@ -84,8 +95,6 @@
     color: white;
     cursor: pointer;
     border: none;
-    margin-top: 239px;
-    margin-bottom: 30px;
 
     @include hover(background-color, #131313);
 
