@@ -1,0 +1,78 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 25px;
+
+  &__icons {
+    display: flex;
+    gap: 30px;
+
+    align-items: center;
+  }
+
+  &__links-tablet {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    @include on-desktop {
+      gap: 0;
+    }
+  }
+
+  &__specs {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 16.93px;
+    color: #4f4f4f;
+
+    @include on-desktop {
+      margin-right: 30px;
+    }
+  }
+
+  &__language {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    color: #828282;
+
+    &--actief {
+      color: $text-color;
+      font-weight: 400;
+    }
+  }
+
+  &__button {
+    padding: 17px 38px;
+    background-color: $text-color;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.65px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    border: none;
+
+    @include hover(background-color, #131313);
+
+    @include on-desktop {
+      margin-left: 47px;
+    }
+
+    &:disabled {
+      background-color: #d0d0d0;
+    }
+  }
+
+  &__burger-menu {
+    @include on-desktop {
+      display: none;
+    }
+  }
+}
