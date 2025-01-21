@@ -23,7 +23,7 @@ function getChangeLanguage(language) {
 }
 
 document
-  .querySelector('.actions__buttons-en')
+  .querySelector('.actions-desk__buttons-en')
   .addEventListener('click', () => getChangeLanguage('en'));
 
 document
@@ -31,7 +31,7 @@ document
   .addEventListener('click', () => getChangeLanguage('en'));
 
 document
-  .querySelector('.actions__buttons-ua')
+  .querySelector('.actions-desk__buttons-ua')
   .addEventListener('click', () => getChangeLanguage('ua'));
 
 document
@@ -70,4 +70,53 @@ nextButton.addEventListener('click', () => {
 
 previousButton.addEventListener('click', () => {
   changeSlide(currentSlide - 1);
+});
+
+// відкривання та закривання меню
+const openButton = document.querySelector('.burger-menu__open');
+const closeButton = document.querySelector('.burger-menu__close');
+const menu = document.querySelector('.menu');
+const body = document.body;
+const menuLinks = document.querySelectorAll('.nav__link');
+
+function toggleButtons(isOpen) {
+  openButton.classList.toggle('rotated', isOpen);
+  openButton.style.display = isOpen ? 'none' : 'block';
+  closeButton.style.display = isOpen ? 'block' : 'none';
+}
+
+function openMenu() {
+  toggleButtons(true);
+  menu.classList.add('menu--active');
+  body.classList.add('no-scroll');
+}
+
+function closeMenu() {
+  toggleButtons(false);
+  menu.classList.remove('menu--active');
+  body.classList.remove('no-scroll');
+}
+
+menuLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    closeMenu();
+
+    const targetId = link.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: 'smooth',
+      });
+    }
+  });
+});
+
+openButton.addEventListener('click', openMenu);
+closeButton.addEventListener('click', closeMenu);
+
+document.querySelector('a.external-link').forEach((link) => {
+  link.setAttribute('target', '_blank');
+  link.setAttribute('rel', 'noopener noreferrer');
 });
