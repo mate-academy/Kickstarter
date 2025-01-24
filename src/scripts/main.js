@@ -1,4 +1,18 @@
 'use strict';
+
+const btnPrev = document.querySelector('.features__nav__buttons--prev');
+const btnNext = document.querySelector('.features__nav__buttons--next');
+
+btnPrev.addEventListener('click', () => {
+  plusSlides(-1);
+});
+
+btnNext.addEventListener('click', () => {
+  plusSlides(1);
+});
+
+
+
 let slideIndex = 1;
 //showSlides(slideIndex);
 
