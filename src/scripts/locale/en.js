@@ -57,10 +57,10 @@ const en = {
   featuresSlideAppThree: 'Home Detection Auto Wake Up',
   featuresSlideAppFout: 'Color Wheel',
 
-  featuresItemTitleThird: 'Sound &amp; Music',
+  featuresItemTitleThird: 'Sound & Music',
   featuresSlideSoundOne: 'Feel-in-chest Base Power',
   featuresSlideSoundTwo: 'Lossless Digital Audio Transmission',
-  featuresSlideSoundThree: 'Easy &amp; Stable Stereo Pairing',
+  featuresSlideSoundThree: 'Easy & Stable Stereo Pairing',
   featuresSlideSoundFour: 'Crisp and Clear High Frequency Sound',
   featuresSlideSoundFive: 'Streams from Cloud Music and Local Library',
   featuresSlideSoundSix: 'Auto Music from Last Song Stopped',
