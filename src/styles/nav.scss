@@ -1,0 +1,53 @@
+.nav {
+  margin-top: 22px;
+  margin-bottom: 22px;
+
+  &__list {
+    color: #333;
+    text-align: left;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+
+  &__link {
+    width: 100%;
+    color: inherit;
+    text-transform: uppercase;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 34px;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+
+    &:hover {
+      font-weight: 700;
+    }
+
+    @include on-tablet {
+      font-size: 22px;
+      line-height: 64px;
+    }
+
+    &::after {
+      content: '';
+      transform-origin: 0;
+      transform: scale(0);
+      background-color: #333;
+      width: 100%;
+      height: 1px;
+      transition: transform 0.3s;
+      display: block;
+      position: absolute;
+      bottom: -5px;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
