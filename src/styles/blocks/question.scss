@@ -1,0 +1,126 @@
+.questions {
+  padding-bottom: 110px;
+
+  @include on-tablet {
+    padding-bottom: 140px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 170px;
+  }
+
+  &__container {
+    padding: 0 30px;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+
+    text-align: left;
+
+    color: $main-color;
+
+    @include on-tablet {
+      width: 50%;
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  margin-top: 28px;
+
+  @include on-tablet {
+    min-width: 340px;
+    margin-top: 0;
+  }
+
+  @include on-desktop {
+    min-width: 582px;
+  }
+
+  &__email {
+    height: 48px;
+    font-size: 14px;
+    line-height: 24px;
+
+    margin-bottom: 20px;
+  }
+
+  &__message {
+    height: 128px;
+    outline: none;
+    resize: none;
+    margin-bottom: 30px;
+  }
+
+  &__email,
+  &__message {
+    padding: 12px 0 12px 20px;
+    border: 1px solid #828282;
+    color: $main-color;
+
+    @include hover(border-color, $link-color);
+    @include hover(transform, scale(1.05));
+
+    &:focus {
+      border-color: $hover-color;
+    }
+
+    &:-webkit-autofill {
+      $box-shadow: 0 1000px $background-color inset;
+
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    &:-webkit-autifill:hover,
+    &:-webkit-autofill:focus {
+      box-shadow: 0 1000px $hover-background-color inset;
+    }
+  }
+
+  &__button {
+    display: flex;
+    cursor: pointer;
+
+    height: 42px;
+    width: 102px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+
+    padding: 13px 34px;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $link-color;
+    color: white;
+
+    @include hover(background-color, $slider-title);
+
+    @include on-desktop {
+      padding: 17px 42px;
+      height: 48px;
+      width: 124px;
+    }
+  }
+}

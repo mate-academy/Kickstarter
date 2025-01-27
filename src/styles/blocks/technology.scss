@@ -1,0 +1,167 @@
+.technology {
+  padding: 0 30px;
+
+  @include on-tablet {
+    padding: 0 0 0 30px;
+  }
+
+  @include on-desktop {
+    padding: 0 30px;
+  }
+
+  &__title-phone {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 46px;
+
+    text-align: left;
+    margin-bottom: 30px;
+
+    color: $main-color;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__title-tablet {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 46px;
+
+      text-align: left;
+      margin-bottom: 30px;
+
+      color: $main-color;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 70px;
+
+      text-align: left;
+      margin-bottom: 30px;
+
+      color: $main-color;
+    }
+  }
+
+  &__container {
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+
+      @include on-desktop {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+      }
+    }
+  }
+
+  &__image {
+    background-image: url(/src/images/technology/technology__banner-phone.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    width: 260px;
+    height: 210px;
+    margin: 0 auto;
+
+    @include on-tablet {
+      border-image: url(/src/images/technology/technology__banner-tablet.png);
+
+      width: 374px;
+      height: 415px;
+      margin: 0;
+      margin-left: 10px;
+    }
+
+    @include on-desktop {
+      background-image: url(/src/images/technology/technology__banner-desktop.png);
+
+      width: 582px;
+      height: 388px;
+      margin-left: 0;
+
+      @include hover(transform, scale(1.05));
+    }
+  }
+}
+
+.info {
+  margin-top: 20px;
+
+  @include on-tablet {
+    max-width: 340px;
+    margin-top: 0;
+
+    @include on-desktop {
+      max-width: 582px;
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+
+    text-align: left;
+
+    color: $second-color;
+
+    @include on-tablet {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__block {
+    margin-top: 30px;
+    max-width: max-content;
+
+    @include on-tablet {
+      margin-top: 60px;
+    }
+  }
+
+  &__link {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+
+    text-align: left;
+
+    color: $link-color;
+  }
+
+  &__design {
+    display: block;
+
+    width: 53px;
+    height: 1px;
+
+    margin-top: 5px;
+
+    background-color: $link-color;
+
+    transition: width 0.3s ease;
+    cursor: pointer;
+
+    @include on-desktop {
+      width: 64px;
+    }
+  }
+}
+
+.info__block:hover .info__design {
+  width: 100%;
+}

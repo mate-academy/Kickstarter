@@ -1,0 +1,51 @@
+.header {
+  &__container {
+    padding: 30px 25px;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  &__img {
+    @include hover(transform, scale(1.2));
+  }
+}
+
+.burger-menu {
+  @include on-desktop {
+    display: none;
+  }
+
+  &__open {
+    background-image: url(/src/images/icons/Icon-Burger-open.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-color: #f9f9f9;
+
+    width: $iconWidth;
+    height: $iconHeight;
+
+    cursor: pointer;
+
+    @include hover(transform, scale(1.4));
+  }
+
+  &__close {
+    display: none;
+
+    background-image: url(/src/images/icons/Icon-Close.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: $iconWidth;
+    height: $iconHeight;
+
+    cursor: pointer;
+  }
+}
