@@ -63,31 +63,38 @@
     line-height: 24px;
 
     margin-bottom: 20px;
-    padding: 12px 0 12px 20px;
-    border: 1px solid #828282;
-
-    color: $main-color;
-
-    @include hover(border-color, $link-color);
-    @include hover(transform, scale(1.05));
-
-    &:focus {
-      border-color: $link-color;
-    }
   }
 
   &__message {
     height: 128px;
     outline: none;
     resize: none;
-
-    border: 1px solid #828282;
-
-    padding: 12px 20px;
     margin-bottom: 30px;
+  }
+
+  &__email,
+  &__message {
+    padding: 12px 0 12px 20px;
+    border: 1px solid #828282;
+    color: $main-color;
 
     @include hover(border-color, $link-color);
     @include hover(transform, scale(1.05));
+
+    &:focus {
+      border-color: $hover-color;
+    }
+
+    &:-webkit-autofill {
+      $box-shadow: 0 1000px $background-color inset;
+
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    &:-webkit-autifill:hover,
+    &:-webkit-autofill:focus {
+      box-shadow: 0 1000px $hover-background-color inset;
+    }
   }
 
   &__button {

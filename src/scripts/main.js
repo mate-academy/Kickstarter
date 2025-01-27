@@ -116,7 +116,10 @@ menuLinks.forEach((link) => {
 openButton.addEventListener('click', openMenu);
 closeButton.addEventListener('click', closeMenu);
 
-document.querySelector('a.external-link').forEach((link) => {
-  link.setAttribute('target', '_blank');
-  link.setAttribute('rel', 'noopener noreferrer');
-});
+// form
+document
+  .getElementById('questionsForm')
+  .addEventListener('submit', function (e) {
+    e.preventDefault();
+    this.reset();
+  });
