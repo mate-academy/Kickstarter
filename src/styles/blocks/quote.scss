@@ -1,0 +1,78 @@
+.quote {
+  @include page-grid;
+
+  align-content: start;
+  position: relative;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    width: 233px;
+    height: 192px;
+    z-index: -1;
+  }
+
+  &__name {
+    margin: 20px 0 0;
+    text-transform: unset;
+    transition: transform 0.3s ease-in-out;
+
+    @include on-phone {
+      margin: 10px 0 0;
+    }
+  }
+
+  &__role {
+    @include text-styler(400, 14px, 21px, $c-tertiary-gray);
+
+    transition: transform 0.3s ease-in-out;
+    margin: 5px 0 0;
+  }
+
+  &__content {
+    grid-column: 3 / -3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      .quote__name,
+      .quote__role {
+        transform: scale(1.1);
+      }
+    }
+
+    @include on-tablet {
+      grid-column: span 8;
+    }
+  }
+
+  &__description {
+    text-align: center;
+    margin: 42px 0 0;
+
+    @include on-tablet {
+      margin: 60px 0 0;
+    }
+
+    @include on-phone {
+      margin: 50px 0 0;
+    }
+  }
+
+  &__avatar {
+    width: 62px;
+    height: 62px;
+    margin: 30px 0 0;
+
+    @include on-tablet {
+      margin: 40px 0 0;
+    }
+
+    @include on-phone {
+      margin: 30px 0 0;
+    }
+  }
+}

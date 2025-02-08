@@ -1,0 +1,134 @@
+.footer {
+  @include page-grid;
+
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin-top: 170px;
+
+  @include on-tablet {
+    margin-top: 140px;
+  }
+
+  @include on-phone {
+    margin-top: 110px;
+  }
+
+  &__logo {
+    &-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      justify-self: center;
+      grid-column: 6 / 8;
+      grid-row: 1;
+      width: 161px;
+      height: 26px;
+
+      @include hover(transform, scale(1.05));
+
+      @include on-tablet {
+        grid-column: 3 / 7;
+        width: 184px;
+        height: 25px;
+      }
+
+      @include on-phone {
+        display: none;
+      }
+    }
+
+    &-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 161px;
+      height: 26px;
+
+      @include on-tablet {
+        width: 184px;
+        height: 25px;
+      }
+    }
+  }
+
+  &__arrow-scroll {
+    &-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 24px;
+      height: 24px;
+      top: 0;
+      right: 0;
+      grid-column: -1 / -2;
+      justify-self: end;
+
+      @include hover(transform, scale(1.1));
+
+      @include on-tablet {
+        width: 50px;
+        height: 50px;
+      }
+
+      @include on-phone {
+        display: none;
+      }
+    }
+
+    &-image {
+      width: 21px;
+      height: 25px;
+    }
+  }
+
+  &__media {
+    display: flex;
+    justify-self: center;
+    gap: 40px;
+    margin: 60px 0 0;
+    grid-row: 2;
+    grid-column: 6 / 8;
+
+    @include on-tablet {
+      grid-column: 3 / 7;
+      gap: 50px;
+    }
+
+    @include on-phone {
+      grid-column: span 4;
+      gap: 40px;
+      margin: 0;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__terms {
+    margin: 60px 0 30px;
+    text-align: center;
+    grid-row: 3;
+    grid-column: span 12;
+    justify-self: center;
+
+    @include text-styler(400, 14px, 21px, $c-quatenary-gray);
+
+    @include on-tablet {
+      grid-column: span 8;
+    }
+
+    @include on-phone {
+      grid-column: span 4;
+      margin: 30px 0 20px;
+    }
+  }
+}
