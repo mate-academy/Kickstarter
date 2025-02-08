@@ -1,0 +1,33 @@
+.features {
+  @include page-grid;
+
+  &__title {
+    grid-column: span 4;
+    margin: 0 0 30px;
+
+    @include on-phone {
+      margin: 0 0 32px;
+    }
+  }
+
+  &__slider {
+    @include element-grid;
+
+    grid-column: span 12;
+    background-color: $c-secondary-teal;
+
+    h3:nth-of-type(3).slide__title {
+      grid-column: 7 / 12;
+      grid-row: 1;
+    }
+
+    ul:nth-of-type(3).slide__list {
+      grid-column: 7 / 12;
+      grid-row: 2;
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}

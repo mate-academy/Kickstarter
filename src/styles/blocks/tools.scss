@@ -1,0 +1,81 @@
+.tools {
+  display: flex;
+  align-items: center;
+  grid-column: -4 / -1;
+
+  @include on-tablet {
+    justify-content: end;
+    grid-column: -5 / -1;
+  }
+
+  @include on-phone {
+    grid-column: -2 / -1;
+  }
+
+  &__specs {
+    @include text-styler(400, 14px, 20px, $c-secondary-gray);
+
+    text-decoration: none;
+
+    @include hover(font-weight, 600);
+    @include active(font-weight, 800);
+
+    @include on-phone {
+      display: none;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 48px;
+    background-color: $c-primary-gray;
+    color: $c-white;
+    text-decoration: none;
+    margin-left: 47px;
+
+    @include button-styles;
+    @include hover(border-radius, 8px);
+    @include active(transform, scale(1.05));
+
+    @include on-tablet {
+      width: 100px;
+      margin-left: 30px;
+    }
+
+    @include on-phone {
+      display: none;
+    }
+  }
+
+  &__menu {
+    &-link {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        margin: 0 0 0 30px;
+      }
+
+      @include on-phone {
+        margin: 0;
+      }
+    }
+
+    &-image {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        width: 24px;
+        height: 16px;
+      }
+    }
+  }
+}

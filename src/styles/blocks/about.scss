@@ -1,0 +1,146 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 170px;
+  position: relative;
+
+  @include on-tablet {
+    gap: 140px;
+  }
+
+  @include on-phone {
+    gap: 110px;
+  }
+
+  &__item:nth-child(1) {
+    @include on-tablet {
+      height: 415px;
+    }
+
+    @include on-phone {
+      height: unset;
+    }
+
+    .item__content {
+      grid-column: span 6;
+
+      @include on-tablet {
+        grid-column: 5 / 9;
+      }
+
+      @include on-phone {
+        grid-column: span 4;
+      }
+    }
+
+    .item__picture {
+      @include on-tablet {
+        grid-column: 1 / 5;
+        grid-row: 1;
+
+        position: absolute;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        width: calc(50vw - 17px);
+        height: 415px;
+      }
+
+      @include on-phone {
+        grid-column: span 4;
+        grid-row: 2;
+
+        position: relative;
+        top: unset;
+        left: unset;
+        width: 259px;
+        height: 210px;
+      }
+    }
+  }
+
+  &__item:nth-child(2) {
+    @include on-tablet {
+      height: 415px;
+    }
+
+    @include on-phone {
+      height: unset;
+    }
+
+    .item__content {
+      grid-column: span 6;
+
+      @include on-tablet {
+        grid-column: 1 / 5;
+      }
+
+      @include on-phone {
+        grid-column: span 4;
+      }
+    }
+
+    .item__picture {
+      grid-column: 7 / 12;
+      grid-row: 1;
+
+      @include on-tablet {
+        grid-column: 5 / 9;
+        height: 415px;
+
+        position: absolute;
+        object-fit: cover;
+        bottom: 0;
+        right: 0;
+        width: calc(50vw - 17px);
+      }
+
+      @include on-phone {
+        grid-column: span 4;
+        grid-row: 2;
+
+        position: relative;
+        top: unset;
+        left: unset;
+        width: 259px;
+        height: 210px;
+      }
+    }
+
+    .item__title {
+      grid-column: 1 / 6;
+      grid-row: 1;
+
+      @include on-tablet {
+        grid-column: 1 / 5;
+      }
+    }
+
+    .item__description {
+      grid-column: 1 / 6;
+      grid-row: 1;
+
+      @include on-tablet {
+        grid-column: 1 / 5;
+      }
+    }
+
+    .margin {
+      grid-column: 1 / 6;
+      grid-row: 1;
+
+      @include on-tablet {
+        grid-column: 1 / 5;
+      }
+    }
+
+    .item__link {
+      grid-column: 1 / 6;
+      grid-row: 1;
+
+      @include on-tablet {
+        grid-column: 1 / 5;
+      }
+    }
+  }
+}

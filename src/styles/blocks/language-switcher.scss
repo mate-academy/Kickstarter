@@ -1,0 +1,27 @@
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: 30px;
+  transition: all 0.3s;
+
+  @include on-phone {
+    display: none;
+  }
+
+  &__option {
+    @include text-styler(400, 14px, 20px, $c-quatenary-gray);
+    @include hover(font-weight, 600);
+    @include active(font-weight, 800);
+
+    text-decoration: none;
+
+    &--checked {
+      @include text-styler(400, 14px, 20px, $c-primary-gray);
+    }
+  }
+
+  &__separator {
+    @include text-styler(400, 14px, 20px, $c-primary-gray);
+  }
+}

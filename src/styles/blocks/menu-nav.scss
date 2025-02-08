@@ -1,0 +1,83 @@
+.menu-nav {
+  @include page-grid;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    grid-column: span 3;
+    gap: 40px;
+    padding: 0;
+    margin: 40px 0 0;
+  }
+
+  &__link {
+    @include text-styler(400, 22px, 28px, $c-primary-gray);
+
+    text-decoration: none;
+    transition-duration: 0.2s;
+    transition-behavior: allow-discrete;
+
+    @include on-phone {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &:hover {
+      font-weight: 600;
+    }
+
+    &:active {
+      font-weight: 700;
+    }
+  }
+
+  &__mobile-tools {
+    display: flex;
+    align-items: center;
+    grid-column: 1 / 3;
+    height: 18px;
+    margin: 50px 0 0;
+  }
+
+  &__mobile-specs {
+    display: none;
+
+    @include on-phone {
+      @include text-styler(300, 14px, 20px, $c-secondary-gray);
+
+      display: block;
+      text-decoration: none;
+      color: $c-black;
+    }
+  }
+
+  &__language-switcher {
+    display: none;
+
+    @include on-phone {
+      display: flex;
+    }
+  }
+
+  &__mobile-button {
+    display: none;
+
+    @include on-phone {
+      @include text-styler(500, 12px, 14.65px, $c-white);
+
+      display: flex;
+      position: absolute;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      bottom: 30px;
+      left: 30px;
+      right: 30px;
+      height: 40px;
+      background-color: $c-primary-gray;
+      color: $c-white;
+    }
+  }
+}

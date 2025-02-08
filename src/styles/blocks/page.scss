@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  scroll-behavior: smooth;
+  min-width: 320px;
+
+  &__body {
+    font-family: Inter, sans-serif;
+    background-color: $c-white;
+    transition: all 0.4s ease-in-out;
+    margin: 0;
+  }
+
+  &:has(.page__menu:target) {
+    overflow-y: hidden;
+
+    .top-bar__menu-link {
+      opacity: 0;
+      transform: scale(-1);
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    z-index: 1;
+    transform: translateX(100%);
+
+    &:target {
+      opacity: 1;
+      transform: translate(0);
+      pointer-events: all;
+    }
+  }
+}
