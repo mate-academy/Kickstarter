@@ -1,0 +1,62 @@
+@import 'menu/menu';
+@import 'nav/nav';
+@import 'topbar/icon';
+@import 'topbar/topbar';
+@import 'topbar/specs';
+
+.header {
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    @include page-grid;
+
+    @include on-tablet {
+      margin-top: 110px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    min-width: 320px;
+    aspect-ratio: 4/3;
+    background-image: url(../images/header-bg-moblie.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 4 / 9;
+      z-index: -1;
+      align-self: end;
+      margin: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / -1;
+    }
+  }
+
+  &__bottom {
+    padding-inline: 30px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      order: -1;
+      padding: 0 0 0 34px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 /5;
+      padding: 0 0 0 123px;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+}

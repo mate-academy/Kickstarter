@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  color: $main-font-color;
+  scroll-behavior: smooth;
+
+  &__body {
+    background: $bg-color;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 110px;
+  }
+
+  &__menu {
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
+.container {
+  @include content-paddint-inline;
+  @include content-padding-block;
+}
