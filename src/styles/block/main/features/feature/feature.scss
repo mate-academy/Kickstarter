@@ -1,0 +1,34 @@
+.feature {
+  display: flex;
+  flex-direction: column;
+
+  &:not(:first-child) {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+
+  @include content-paddint-inline;
+
+  @include on-tablet {
+    padding-inline: 0;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    color: $primary-button-green-hover;
+  }
+
+  &__list {
+    list-style-position: inside;
+    margin-bottom: 50px;
+  }
+
+  &__control-panel {
+    @include on-desktop {
+      display: none;
+    }
+  }
+}
