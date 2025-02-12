@@ -1,0 +1,128 @@
+.features {
+  &__container {
+    padding-inline: 0;
+
+    @include on-tablet {
+      padding-inline: 34px;
+    }
+
+    @include on-desktop {
+      padding-inline: 123px;
+    }
+  }
+
+  &__content {
+    background-image: url('../images/features/features-bg.png');
+    background-repeat: no-repeat;
+    background-color: $c-bg-features;
+    background-position: right bottom;
+    background-size: contain;
+    row-gap: 50px;
+    padding: 30px 30px 173px;
+
+    @include page-grid;
+
+    @include on-tablet {
+      background-size: 415px 225px;
+      padding-block: 60px;
+      padding-bottom: 123px;
+    }
+
+    @include on-desktop {
+      background-position: right 46px bottom;
+      background-size: 543px 301px;
+      row-gap: 56px;
+      padding-block: 60px;
+    }
+  }
+
+  &__list {
+    height: 290px;
+
+    @include on-desktop {
+      height: auto;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    padding-inline: 30px;
+
+    @include on-tablet {
+      padding-inline: 0;
+    }
+  }
+
+  &__block {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    &-connect {
+      grid-column: 1 / -1;
+
+      @include on-tablet {
+        grid-column: 2 / span 4;
+      }
+
+      @include on-desktop {
+        display: block;
+        grid-column: 2 / span 4;
+      }
+    }
+
+    &-app {
+      grid-column: 1 / -1;
+
+      @include on-tablet {
+        grid-column: 2 / span 4;
+      }
+
+      @include on-desktop {
+        display: block;
+        grid-column: 7 / span 3;
+      }
+    }
+
+    &-sound {
+      grid-column: 1 / -1;
+
+      @include on-tablet {
+        grid-column: 2 / span 4;
+      }
+
+      @include on-desktop {
+        display: block;
+        grid-column: 2 / span 4;
+      }
+    }
+  }
+
+  &__item-title {
+    color: $c-item-title-features;
+    margin-bottom: 20px;
+
+    @include on-desktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: $c-black;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+  }
+}
