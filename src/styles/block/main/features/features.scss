@@ -6,9 +6,12 @@
     margin-bottom: 30px;
   }
 
-  &__content {
+  &__container {
     background-color: $bg-light-green;
+    position: relative;
+  }
 
+  &__content {
     @include page-grid;
 
     &__feature {
@@ -30,27 +33,31 @@
         }
       }
     }
+  }
 
-    &__bg {
-      grid-column: span 4;
+  &__bg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 
-      @include on-tablet {
-        grid-column: 4 / 8;
-      }
+    width: 100%;
+    max-width: 320px;
+    max-height: 180px;
+    aspect-ratio: 4/3;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../images/features-bg.png);
+    padding: 0;
+    margin-left: auto;
 
-      @include on-desktop {
-        grid-column: 6 / 9;
-      }
+    @include on-tablet {
+      max-width: 380px;
+      max-height: 210px;
+    }
 
-      width: 100%;
-      max-width: 320px;
-      max-height: 180px;
-      aspect-ratio: 4/3;
-      background-size: cover;
-      background-position: center;
-      background-image: url(../images/features-bg.png);
-      padding: 0;
-      margin-left: auto;
+    @include on-desktop {
+      max-width: 640px;
+      max-height: 340px;
     }
   }
 }
