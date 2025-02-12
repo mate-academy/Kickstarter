@@ -1,0 +1,47 @@
+.header {
+  background-image: url('../images/header/img-mobile.svg');
+  background-repeat: no-repeat;
+  background-size: 320px 245px;
+  background-position: center 20%;
+
+  @include on-tablet {
+    background-image: none;
+  }
+
+  &__content {
+    padding-top: 285px;
+
+    @include on-tablet {
+      @include page-grid;
+
+      padding-top: 0;
+      background-image: url('../images/header/img-tablet.svg');
+      background-repeat: no-repeat;
+      background-size: 430px 317px;
+      background-position: right bottom;
+    }
+
+    @include on-desktop {
+      background-image: url('../images/header/img-desktop.svg');
+      background-size: 816px 464px;
+      height: 464px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__text {
+    color: $c-three;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+  }
+}
