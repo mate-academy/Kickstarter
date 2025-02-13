@@ -1,3 +1,60 @@
 .footer {
-  display: none;
+  &__content {
+    @include page-grid;
+
+    place-items: center;
+    row-gap: 30px;
+
+    @include on-tablet {
+      row-gap: 60px;
+    }
+  }
+
+  &__logo {
+    grid-column: 1 / -1;
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__socials {
+    grid-column: 1 / -1;
+
+    &__list {
+      display: flex;
+      flex-direction: row;
+      gap: 50px;
+      list-style: none;
+    }
+
+    &__link {
+      height: 24px;
+      width: 24px;
+      display: block;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      &--fb {
+        background-image: url(../images/svg/facebook.svg);
+      }
+
+      &--x {
+        background-image: url(../images/svg/x.svg);
+      }
+
+      &--instagram {
+        background-image: url(../images/svg/insta.svg);
+      }
+    }
+  }
+
+  &__legals {
+    grid-column: 1 / -1;
+    color: $tertiary-font-color;
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 30px;
+  }
 }
