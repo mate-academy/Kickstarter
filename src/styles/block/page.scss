@@ -26,10 +26,19 @@
     top: 0;
     right: 0;
     left: 0;
+    transform: translateX(-100%);
+    transition: all $animation-duration ease-in-out;
+    z-index: 100;
 
     &:target {
       opacity: 1;
       pointer-events: all;
+      transform: translateX(0);
+
+      & ~ .page__body {
+        overflow: hidden;
+        height: 100%;
+      }
     }
   }
 }
