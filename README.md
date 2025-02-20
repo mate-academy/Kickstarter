@@ -16,10 +16,10 @@ Created a landing page for a hi-fi devices brand, showcasing various products an
 - **Parcel** – Bundler for efficient development and build processes  
 
 ## 🌐 Demo
-- [Demo](https://AndriiZakharenko.github.io/kickstarter/)
+🔗 [Demo](https://AndriiZakharenko.github.io/kickstarter/)
 
 ## 🎨 Figma
-- [Figma](https://www.figma.com/file/Ujp7bCFuvuJlkn8TSbQPSZ/%E2%84%9611-(kickstarter)?node-id=19655%3A33)
+🔗 [Figma](https://www.figma.com/file/Ujp7bCFuvuJlkn8TSbQPSZ/%E2%84%9611-(kickstarter)?node-id=19655%3A33)
 
 ## 📜 License
 This project is forked from 💻 [Mate Academy](https://github.com/mate-academy/Kickstarter)
