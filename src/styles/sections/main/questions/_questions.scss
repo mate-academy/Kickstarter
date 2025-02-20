@@ -1,0 +1,72 @@
+.questions {
+  &__content {
+    @include page-grid;
+
+    row-gap: 30px;
+  }
+
+  &__title {
+    grid-column: 1 / 5;
+  }
+
+  &__form {
+    grid-column: 1 / 5;
+  }
+
+  @include tablet {
+    &__title {
+      grid-column: 1 / 5;
+    }
+
+    &__form {
+      grid-column: -1 / -5;
+    }
+  }
+
+  @include desktop {
+    &__title {
+      grid-column: 1 / 7;
+    }
+
+    &__form {
+      grid-column: -1 / -7;
+    }
+  }
+
+  &__input {
+    box-sizing: border-box;
+    outline: none;
+    padding: 12px 30px;
+    border: 1px solid #828282;
+    border-radius: 2px;
+    background-color: $background-color;
+
+    width: 100%;
+    margin-bottom: 20px;
+
+    font-size: 16px;
+    line-height: 24px;
+
+    &--mess {
+      font-family: $main-text-family;
+      margin-bottom: 30px;
+      resize: none;
+    }
+
+    &:hover {
+      border: 1px solid rgba(12, 121, 122, 1);
+    }
+
+    &:focus {
+      border: 1px solid rgba(235, 87, 87, 1);
+    }
+  }
+
+  &__button {
+    background-color: rgba(13, 178, 179, 1);
+
+    font-weight: 700;
+
+    @include hover(background-color, rgba(12, 121, 122, 1));
+  }
+}
