@@ -1,0 +1,52 @@
+.page {
+  font-family: Inter, sans-serif;
+  color: $color-text-primary;
+  font-size: 16;
+  font-weight: 400;
+  scroll-behavior: smooth;
+
+  &__body {
+    padding-inline: $padding-mobile;
+    background: $color-bg;
+    max-width: 1440px;
+    margin: 0 auto;
+    min-width: 320px;
+
+    @include on-tablet {
+      padding-inline: $padding-tablet;
+    }
+
+    @include on-desktop {
+      padding-inline: $padding-desktop;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  
+}
+
+
