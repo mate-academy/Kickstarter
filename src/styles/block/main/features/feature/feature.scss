@@ -1,16 +1,17 @@
 .feature {
-  display: flex;
+  display: none;
   flex-direction: column;
-  margin-top: 30px;
+  margin-block: 20px;
+  min-height: 240px;
 
-  margin-bottom: 180px;
+  @include on-tablet {
+    min-height: 350px;
+  }
 
-  &:not(:first-child) {
-    display: none;
-
-    @include on-desktop {
-      display: flex;
-    }
+  @include on-desktop {
+    min-height: 0;
+    display: flex;
+    margin-bottom: 180px;
   }
 
   @include content-paddint-inline;
@@ -21,6 +22,10 @@
 
   @include on-desktop {
     margin-bottom: 0;
+  }
+
+  &--active {
+    display: flex;
   }
 
   &__title {
