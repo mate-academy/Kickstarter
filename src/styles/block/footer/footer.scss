@@ -10,6 +10,15 @@
     }
   }
 
+  &__top {
+    grid-column: 1 / -1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
   &__logo {
     grid-column: 1 / -1;
     display: none;
@@ -19,6 +28,26 @@
     @include on-tablet {
       display: block;
     }
+  }
+
+  &--arrow {
+    position: absolute;
+    right: 30px;
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/svg/arrow-top.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    pointer-events: noone;
+    visibility: hidden;
+
+    @include on-tablet {
+      visibility: visible;
+      pointer-events: all;
+    }
+
+    @include hover(transform, scale(1.2));
   }
 
   &__socials {
