@@ -1,7 +1,656 @@
-@import 'utils';
-@import 'fonts';
-@import 'typography';
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
 
-body {
-  background: $c-gray;
+  @include on-tablet {
+    row-gap: 140px;
+    grid-column: 1 / -1;
+
+    @include page-grid;
+  }
+
+  @include on-desktop {
+    row-gap: 170px;
+  }
+  &__container {
+    width: 100%;
+    padding-inline: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 110px;
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: row;
+      gap: 84px;
+      width: fit-content;
+      margin: 0 auto;
+      grid-column: 1 / -1;
+    }
+    &-list {
+      display: flex;
+      flex-direction: row;
+      gap: 84px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333;
+  }
+
+  &__articles {
+    width: 100%;
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      gap: 65px;
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop {
+      flex-direction: row;
+      gap: 30px;
+      align-items: center;
+      height: 286px;
+    }
+
+    &-content {
+      display: flex;
+      gap: 20px;
+      height: 286px;
+
+      @include on-desktop {
+        gap: 30px;
+        flex: 1;
+      }
+    }
+  }
+
+  &__article {
+    width: 100%;
+    box-sizing: border-box;
+    flex: 1;
+    &-image {
+      display: block;
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 40px;
+      object-fit: contain;
+
+      @include on-desktop {
+        width: 70px;
+      }
+    }
+
+    &-title {
+      font-weight: 700;
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 20px;
+
+      @include on-desktop {
+        height: 56px;
+      }
+    }
+
+    &-text {
+      font-weight: 400;
+      font-size: 14px;
+      color: #7c7c7c;
+      text-align: center;
+    }
+
+    &--mobile {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &--left {
+      @include on-tablet {
+        grid-column: 1 / 4;
+      }
+    }
+  }
+
+  &__background {
+    background-image: url('../images/meet-luna-image.png');
+    background-size: contain;
+    aspect-ratio: 296 / 195;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      width: 100%;
+      margin: 0;
+    }
+
+    @include on-desktop {
+      background-image: url('../images/meet-luna-image-large.png');
+      background-repeat: no-repeat;
+      height: 520px;
+      width: 846px;
+      margin: 0 auto;
+    }
+  }
+
+  &__section {
+    box-sizing: border-box;
+
+    &-wrapper {
+      @include on-tablet {
+        grid-column: 5 / -1;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / -1;
+      }
+
+      &--left {
+        grid-column: 1 / 5;
+
+        @include on-desktop {
+          grid-column: 1 / 7;
+        }
+      }
+    }
+    &--mobile {
+      @include on-tablet {
+        display: none;
+      }
+    }
+    &--large {
+      display: none;
+
+      @include on-tablet {
+        grid-column: 1 / -1;
+
+        @include page-grid;
+      }
+    }
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+    &-title {
+      font-weight: 700;
+      font-size: 30px;
+      margin-bottom: 30px;
+      height: fit-content;
+
+      @include on-tablet {
+        font-size: 36px;
+      }
+
+      &--large {
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        font-size: 36px;
+      }
+    }
+    &-text {
+      font-weight: 400;
+      font-size: 14px;
+      color: #7c7c7c;
+      margin-bottom: 30px;
+      height: fit-content;
+
+      @include on-tablet {
+        margin-bottom: 60px;
+        font-size: 16px;
+      }
+
+      &--large {
+        font-size: 16px;
+      }
+    }
+
+    &-image {
+      aspect-ratio: 259/210;
+      margin-bottom: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      @include on-tablet {
+        background-size: auto;
+        grid-column: 1 / 5;
+        width: calc(50vw - 10px);
+        aspect-ratio: 374 / 415;
+        margin-bottom: 0;
+      }
+
+      @include on-desktop {
+        width: 100%;
+        height: 388px;
+        background-size: cover;
+        margin: 0;
+      }
+
+      &--future {
+        @include on-tablet {
+          margin-left: calc(100% - 50vw);
+        }
+
+        background-image: url('../images/designed-for-future-image.png');
+
+        @include on-desktop {
+          grid-column: 1 / 7;
+          margin: 0;
+        }
+      }
+      &--luna {
+        @include on-tablet {
+          grid-column: 5 / -1;
+
+          margin-right: calc(100% - 50vw);
+        }
+
+        @include on-desktop {
+          grid-column: 7 / -1;
+          margin: 0;
+        }
+
+        background-image: url('../images/luna-eye-image.png');
+      }
+    }
+
+    &-link {
+      text-decoration: none;
+      position: relative;
+      font-weight: 700;
+      font-size: 12px;
+      color: #0db2b3;
+      text-transform: uppercase;
+      margin-top: 30px;
+      padding-bottom: 5px;
+
+      @include on-tablet {
+        grid-column: 5 / -1;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 53px;
+        background-color: #0db2b3;
+        left: 0;
+        bottom: 0;
+        transition: width 0.3s ease;
+      }
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__comments {
+    background-image: url('../images/comment-background-image.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / -3;
+    }
+  }
+  &__comment-text {
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 50px;
+
+    @include on-tablet {
+      padding-top: 60px;
+      font-size: 24px;
+    }
+
+    @include on-desktop {
+      position: relative;
+      padding-top: 42px;
+    }
+
+    &--large {
+      font-size: 16px;
+    }
+    &--grey {
+      margin-top: 5px;
+      font-weight: 400;
+      font-size: 14px;
+      color: #7c7c7c;
+    }
+  }
+
+  &__comment-avatar {
+    background-image: url('../images/commentator-avatar-image.png');
+    background-size: contain;
+    margin: 30px auto 10px;
+    width: 62px;
+    height: 62px;
+  }
+
+  &__comment-author {
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  &__comment-role {
+    font-weight: 400;
+    font-size: 14px;
+    color: #7c7c7c;
+    text-align: center;
+  }
+
+  &__list-wrapper {
+    &--large {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+      }
+    }
+  }
+
+  &__features {
+    position: relative;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+
+    &-title {
+      @include on-desktop {
+        font-weight: 700;
+        font-size: 56px;
+        margin-bottom: 30px;
+      }
+    }
+    &-content {
+      position: relative;
+      background-color: #d6ecec;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      padding-top: 30px;
+      margin-top: 32px;
+
+      @include on-tablet {
+        box-sizing: border-box;
+        grid-column: 1 / -1;
+        height: 555px;
+        width: 100vw;
+        padding-top: 60px;
+      }
+
+      @include on-desktop {
+        @include page-grid;
+
+        margin-inline: auto;
+        height: fit-content;
+      }
+    }
+
+    &-left-part {
+      @include on-desktop {
+        grid-column: 2 / 6;
+        display: flex;
+        flex-direction: column;
+        gap: 56px;
+        margin-bottom: 60px;
+      }
+    }
+    &-right-part {
+      @include on-desktop {
+        grid-column: 7 / 10;
+      }
+    }
+
+    &-bottom-part {
+      width: 100%;
+
+      @include on-tablet {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+      &-wrapper {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        @include on-tablet {
+          margin-left: 90px;
+          width: fit-content;
+          display: flex;
+          gap: 4px;
+          height: 24px;
+        }
+
+        @include on-desktop {
+          display: none;
+        }
+      }
+    }
+
+    &-numbers {
+      display: flex;
+      margin-top: 10px;
+      gap: 4px;
+
+      &-number {
+        font-weight: 400;
+
+        &--large {
+          font-size: 16px;
+          align-self: center;
+        }
+        &--small {
+          align-self: flex-end;
+
+          font-size: 11px;
+          color: #0c797a;
+        }
+      }
+    }
+
+    &-images {
+      display: flex;
+
+      &-image {
+        width: 48px;
+        height: 14px;
+        background-repeat: no-repeat;
+        &--left {
+          background-image: url('../images/features-detail-left-part-image.png');
+        }
+
+        &--right {
+          background-image: url('../images/features-detail-right-part-image.png');
+        }
+      }
+    }
+
+    &-image {
+      aspect-ratio: 320 / 173;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url('../images/features-image.png');
+
+      @include on-tablet {
+        width: 60%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+
+      &--large {
+        display: none;
+        width: 543px;
+        height: 301px;
+        right: 46px;
+
+        @include on-desktop {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__list {
+    padding: 0;
+    margin-inline: 46px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include on-tablet {
+      margin-inline: 106px;
+    }
+
+    @include on-desktop {
+      margin-inline: 0;
+    }
+    &-title {
+      margin: 0 30px 20px;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 18px;
+      color: #0c797a;
+
+      @include on-tablet {
+        margin-left: 90px;
+      }
+
+      @include on-desktop {
+        margin-inline: 0;
+        font-size: 34px;
+        margin-bottom: 30px;
+      }
+    }
+    &-item {
+      font-weight: 400;
+      font-size: 14px;
+
+      @include on-desktop {
+        margin-left: 16px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__form {
+    @include on-tablet {
+      grid-column: 1 / -1;
+
+      @include page-grid;
+    }
+
+    &-inputs {
+      @include on-tablet {
+        grid-column: 5 / -1;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / -1;
+      }
+    }
+    &-title {
+      font-weight: 700;
+      font-size: 30px;
+
+      @include on-tablet {
+        grid-column: 1 / 5;
+        font-size: 36px;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 7;
+        font-size: 56px;
+      }
+    }
+    &-input {
+      width: 100%;
+      border: 1px solid #828282;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      font-weight: 400;
+      font-size: 16px;
+      &::placeholder {
+        font-weight: 400;
+        font-size: 16px;
+        color: #bdbdbd;
+      }
+
+      &:focus {
+        border-color: #0db2b3;
+        box-shadow: 0 0 8px rgba(13, 178, 179, 0.5);
+        background-color: #fdfdfd;
+        outline: none;
+      }
+
+      &--email {
+        height: 48px;
+        margin-block: 27px 20px;
+
+        @include on-tablet {
+          margin-top: 0;
+        }
+      }
+
+      &--message {
+        font-family: Inter, serif;
+        font-weight: 400;
+        font-size: 16px;
+        height: 128px;
+        resize: none;
+      }
+    }
+
+    &-button-submit {
+      margin-top: 30px;
+      padding: 0;
+      background-color: #0db2b3;
+      width: 102px;
+      height: 40px;
+      border: none;
+      font-weight: 700;
+      font-size: 12px;
+      color: #fff;
+
+      @include on-tablet {
+        grid-column: 5 / -1;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / -1;
+        width: 124px;
+        height: 48px;
+      }
+
+      &:hover {
+        background-color: #0c797a;
+      }
+    }
+  }
 }
