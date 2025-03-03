@@ -1,0 +1,46 @@
+.feature {
+  display: none;
+  flex-direction: column;
+  margin-block: 20px;
+  min-height: 240px;
+
+  @include on-tablet {
+    min-height: 350px;
+  }
+
+  @include on-desktop {
+    min-height: 0;
+    display: flex;
+    margin-bottom: 180px;
+  }
+
+  @include content-paddint-inline;
+
+  @include on-tablet {
+    padding-inline: 0;
+  }
+
+  @include on-desktop {
+    margin-bottom: 0;
+  }
+
+  &--active {
+    display: flex;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    color: $primary-button-green-hover;
+  }
+
+  &__list {
+    list-style-position: inside;
+    margin-bottom: 50px;
+  }
+
+  &__control-panel {
+    @include on-desktop {
+      display: none;
+    }
+  }
+}

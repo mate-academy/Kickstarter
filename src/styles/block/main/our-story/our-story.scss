@@ -1,0 +1,114 @@
+.our-story {
+  &__content {
+    @include content-paddint-inline;
+    @include page-grid;
+
+    @include on-tablet {
+      padding: 0;
+      min-height: 415px;
+    }
+
+    &--1 {
+      margin-bottom: 110px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    min-width: 260px;
+    aspect-ratio: 3/2;
+    background-size: cover;
+    background-position: center;
+    grid-column: 1 / -1;
+    margin-bottom: 20px;
+
+    &--1 {
+      background-image: url(../images/mobile/our-story.jpg);
+
+      @include on-tablet {
+        grid-column: span 4;
+        height: 100%;
+        background-image: url(../images/tablet/our-story.jpg);
+        margin: 0;
+      }
+
+      @include on-desktop {
+        grid-column: span 6;
+        aspect-ratio: unset;
+        background-image: url(../images/desktop/our-story.jpg);
+      }
+    }
+
+    &--2 {
+      background-image: url(../images/mobile/luna-eye.jpg);
+
+      @include on-tablet {
+        grid-column: span 4;
+        height: 100%;
+        background-image: url(../images/tablet/luna-eye.jpg);
+        margin: 0;
+        order: 2;
+      }
+
+      @include on-desktop {
+        grid-column: span 6;
+        aspect-ratio: unset;
+        background-image: url(../images/desktop/luna-eye.jpg);
+      }
+    }
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+
+    &__title {
+      display: none;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+
+      &--mobile {
+        grid-column: 1 /-1;
+        margin-bottom: 30px;
+      }
+
+      @include on-tablet {
+        display: block;
+
+        &--mobile {
+          display: none;
+        }
+      }
+    }
+
+    &__description {
+      margin-bottom: 30px;
+      font-size: 14px;
+      line-height: 16px;
+      color: $tertiary-font-color;
+
+      @include on-tablet {
+        margin-bottom: 60px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    @include on-tablet {
+      grid-column: span 4;
+      margin-right: 34px;
+
+      &--2 {
+        margin-left: 34px;
+      }
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+      margin-right: 123px;
+
+      &-- {
+        margin-left: 123px;
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  scroll-behavior: smooth;
+  font-family: Inter, sans-serif;
+  color: $main-font-color;
+  font-size: 16px;
+  line-height: 24px;
+
+  &:has(&__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    background: $bg-color;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 110px;
+  }
+
+  &__menu {
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all $animation-duration ease-in-out;
+    z-index: 100;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+    }
+  }
+}
+
+.container {
+  @include content-paddint-inline;
+}

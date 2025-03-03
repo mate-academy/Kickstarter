@@ -1,0 +1,25 @@
+.link {
+  position: relative;
+  color: $link-green;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background-color: $link-green;
+    transform: scale(0.4);
+    transition: transform $animation-duration ease;
+    transform-origin: left;
+  }
+  &:hover::after {
+    transform: scale(1);
+  }
+}
