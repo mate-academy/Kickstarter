@@ -1,70 +1,82 @@
 .sectionone {
-  position: relative;
   padding-right: 0;
   padding-left: 0;
+  display: grid;
+  grid-template: auto auto / 1fr;
+  gap: 20px;
+  grid-template-areas:
+    'img'
+    '.'
+    'content';
 
   @media (min-width: 640px) {
-    display: flex;
-    align-items: flex-end;
+    grid-template-columns: repeat(8, 70px);
+    grid-template-areas: 'content content content content img img img img';
+
+    align-items: center;
+    gap: 20px;
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(12, 72px);
+    grid-template-areas: 'content content content content img img img img img img img img';
+    gap: 30px;
+  }
+
+  &__content {
+    grid-area: content;
+    text-align: left;
+
+    @media (min-width: 640px) {
+      text-align: left;
+      align-self: left;
+      grid-column: 1/4;
+    }
+
+    @media (min-width: 1280px) {
+      grid-column: 1/4;
+    }
+
+    .sectionone__header {
+      padding: 0 30px 20px;
+      max-width: 186px;
+
+      @media (min-width: 640px) {
+        padding: 0 0 30px;
+      }
+    }
+
+    .sectionone__paragraph {
+      padding: 0 30px;
+      max-width: 250px;
+
+      @media (min-width: 640px) {
+        padding: 0;
+      }
+    }
   }
 
   &__img {
     background-image: url('../images/picture1.png');
     background-repeat: no-repeat;
     background-size: cover;
-
+    background-position: center;
     width: 320px;
     height: 245px;
-    grid-column: 1 / -1;
+    grid-area: img;
     box-sizing: border-box;
-    padding: 0;
-
-    background-position: 0%;
 
     @media (min-width: 640px) {
       width: 430px;
       height: 317px;
-      transform: translate(64%, -19%);
+      grid-column: 4/8;
     }
 
     @media (min-width: 1280px) {
       width: 816px;
       height: 464px;
-      transform: translate(41%, -9%);
-    }
-  }
 
-  &__content {
-    padding-top: 40px;
-
-    @media (min-width: 640px) {
-      padding-top: 142px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-72%, -88%);
-      text-align: center;
-      width: 80%;
-    }
-    @media (min-width: 1280px) {
-      transform: translate(-71%, -80%);
-    }
-
-    .sectionone__header {
-      padding: 0 30px 20px;
-      text-align: left;
-
-      @media (min-width: 640px) {
-        max-width: 186px;
-      }
-    }
-    .sectionone__paragraph {
-      padding: 0 30px;
-      text-align: left;
-
-      @media (min-width: 640px) {
-        max-width: 250px;
-      }
+      grid-column: 5/12;
     }
   }
 }
