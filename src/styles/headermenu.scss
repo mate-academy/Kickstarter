@@ -2,6 +2,7 @@
   box-sizing: border-box;
   max-width: 1200px;
   background: $c-gray;
+  margin: 0 auto;
 
   @media (min-width: 640px) {
     padding-bottom: 142px;
@@ -13,10 +14,7 @@
 }
 
 .navmenu {
-  display: flex;
-  justify-content: space-between;
   padding: 0 30px;
-
   @media (min-width: 640px) {
     padding: 0 35px;
   }
@@ -25,13 +23,36 @@
     padding: 0 123px;
   }
 
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: 'logo' 'right';
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(8, 70px);
+      gap: 20px;
+    }
+
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(12, 72px);
+      gap: 30px;
+    }
+  }
   &__logo {
     width: 161px;
     height: 26px;
     padding-top: 25px;
+    grid-column: 1/3;
   }
 
   &__right {
+    @media (min-width: 640px) {
+      grid-column: 8/8;
+    }
+    @media (min-width: 1280px) {
+      grid-column: 12/12;
+    }
+
     &--icon {
       width: 24px;
       height: 24px;
