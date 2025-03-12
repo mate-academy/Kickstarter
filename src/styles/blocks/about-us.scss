@@ -1,0 +1,154 @@
+.about-us {
+  margin-inline: 30px;
+  margin-top: 130px;
+
+  @include onTablet {
+    margin-inline: 34px;
+    margin-top: 140px;
+  }
+
+  @include onDesktop {
+    margin-inline: 123px;
+    margin-top: 90px;
+  }
+
+  &__content {
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__block {
+    @include onTablet {
+      display: grid;
+      grid-column: 1 / 5;
+    }
+
+    @include onDesktop {
+      grid-column: span 3;
+      grid-row: 1;
+    }
+
+    &2 {
+      @include onTablet {
+        display: grid;
+        grid-column: 5 / -1;
+      }
+
+      @include onDesktop {
+        grid-column: span 3;
+      }
+
+      &__speaker {
+        grid-row: 1;
+      }
+    }
+
+    &__bottom {
+      margin-top: 65px;
+      grid-row: 2;
+
+      @include onDesktop {
+        grid-row: 1;
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__block2, &__block3, &__block4 {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__image--wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__image {
+    width: 50px;
+    height: 40px;
+
+    @include onDesktop {
+      width: 70px;
+      height: 50px;
+    }
+  }
+
+  &__wrapper {
+    text-align: center;
+    font-family: Inter;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    margin: 40px 0 20px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    color: $text-color;
+
+    @include onTablet {
+      height: 28px;
+    }
+
+    @include onDesktop {
+      margin-top: 30px;
+      height: 60px;
+    }
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #7C7C7C;
+  }
+
+
+  &__bottom {
+    margin-top: 110px;
+
+    @include onTablet {
+      margin-top: 140px;
+    }
+
+    @include onTablet {
+      margin-top: 170px;
+    }
+
+    &__image--wrapper {
+      margin-inline: -18px;
+
+      @include onTablet {
+        margin-inline: 0;
+      }
+
+      @include onDesktop {
+        margin-inline: 174px;
+      }
+    }
+
+    &__image {
+      @include paramentrsForPictures;
+
+      @include onTablet {
+        display: none;
+      }
+
+      &2 {
+        display: none;
+
+        @include onTablet {
+          @include paramentrsForPictures;
+
+          display: block;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+.header {
+  box-sizing: border-box;
+  height: 100%;
+
+  &__content {
+    @include onTablet {
+      display: grid;
+
+      @include pageGrid;
+
+      margin-top: 95px;
+      padding-inline: 34px;
+    }
+
+    @include onDesktop {
+      padding-inline: 123px;
+      margin-top: 146px;
+    }
+  }
+
+  &__block__img {
+    @include onTablet {
+      padding-inline: 0;
+      grid-column: 4/-1;
+    }
+
+    @include onDesktop {
+      grid-column: 5/-1;
+      margin-top: -100px;
+    }
+  }
+
+  &__image-background {
+    @include paramentrsForPictures;
+
+    padding-bottom: 40px;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &2 {
+      display: none;
+
+      @include onTablet {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        display: block;
+        height: 317px;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &3 {
+      display: none;
+
+      @include onDesktop {
+        @include paramentrsForPictures;
+
+        display: block;
+        height: 464px;
+        width: auto;
+      }
+    }
+  }
+
+  &__bottom {
+    padding-inline: 30px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      padding-inline: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__title {
+    font-family: Inter;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 52px;
+    text-align: left;
+    color: #333;
+
+    @include onTablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include onDesktop{
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__subtitle {
+    font-family: Inter;
+    line-height: 24px;
+    text-align: left;
+    color: #333;
+    margin: 0;
+    margin-top: 20px;
+
+    @include onTablet {
+      margin-top: 30px;
+    }
+  }
+}
