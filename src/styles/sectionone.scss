@@ -1,91 +1,70 @@
 .sectionone {
-  padding-right: 0;
-  padding-left: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  text-align: left;
+  place-items: center;
 
   @media (min-width: 744px) {
-    padding-right: 35px;
-    padding-left: 35px;
+    padding: 0 35px 140px;
+    gap: 20px;
+    grid-template-columns: repeat(8, 70px);
+    align-items: center;
   }
 
-  &__container {
-    display: grid;
-    grid-template: auto auto / 1fr;
-    gap: 20px;
-    grid-template-areas:
-      'img'
-      '.'
-      'content';
-    place-items: center;
-
-    @media (min-width: 744px) {
-      grid-template-columns: repeat(8, 70px);
-      grid-template-areas: 'content content content content img img img img';
-
-      align-items: center;
-      gap: 20px;
-    }
-
-    @media (min-width: 1280px) {
-      grid-template-columns: repeat(12, 72px);
-      grid-template-areas: 'content content content content img img img img img img img img';
-      gap: 30px;
-    }
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(12, 72px);
+    gap: 30px;
   }
 
   &__content {
-    grid-area: content;
-    text-align: left;
+    display: grid;
+    gap: 20px;
+    padding: 0 30px;
 
     @media (min-width: 744px) {
-      text-align: left;
-      align-self: left;
-      grid-column: 1/4;
+      grid-area: 1 / 1 / auto / 5;
     }
 
     @media (min-width: 1280px) {
-      grid-column: 1/4;
+      grid-area: 1 / 1 / auto / 6;
     }
 
-    .sectionone__header {
-      padding: 0 30px 20px;
-      max-width: 186px;
-
-      @media (min-width: 744px) {
-        padding: 0 0 30px;
-      }
+    &--header {
+      margin: 0;
     }
 
-    .sectionone__paragraph {
-      padding: 0 30px;
-      max-width: 250px;
-
+    &--paragraph {
+      margin: 0;
       @media (min-width: 744px) {
-        padding: 0;
+        max-width: 250px;
       }
     }
   }
 
   &__img {
-    background-image: url('../images/picture1.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 320px;
-    height: 245px;
-    grid-area: img;
-    box-sizing: border-box;
-    background-position: left;
+    // Poprawione, teraz jest na właściwym poziomie
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 320px;
+      height: auto;
+    }
 
     @media (min-width: 744px) {
-      width: 430px;
-      height: 317px;
-      grid-column: 4/8;
+      grid-area: 1 / 5 / auto / 9;
+      img {
+        width: 430px;
+      }
     }
 
     @media (min-width: 1280px) {
-      width: 816px;
-      height: 464px;
-
-      grid-column: 5/12;
+      grid-area: 1 / 6 / auto / 12;
+      img {
+        width: 816px;
+      }
     }
   }
 }
