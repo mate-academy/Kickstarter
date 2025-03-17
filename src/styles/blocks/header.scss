@@ -27,55 +27,69 @@
       padding-left: 30px;
       padding-right: 30px;
 
-
-      &--data {
-        padding-top: 260px;
-        grid-row: 2;
-        display: flex;
-        flex-direction: column;
+      @include onTablet {
+        margin-top: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         align-items: center;
         gap: 20px;
-
-
-        @include pageGrid;
-
-        @include onTablet {
-          padding-top: 0;
-          grid-column: 1/5;
-
-        }
-      }
-
-      @include onTablet {
-        @include pageGrid;
       }
 
       &__img {
         grid-row: 1;
         background-image: url(/src/images/header-img.png);
         padding-top: 0;
+        background-size: contain;
+        background-position: center;
         background-repeat: no-repeat;
         height: 245px;
         width: 100%;
 
 
         @include onTablet {
-          padding-top: 0;
-          background-size: 430px 317px;
-          background-position: right bottom;
-          grid-column: 4 / 9;
+          @include pageGrid;
+          margin-top: 163px;
+          padding-top:0 ;
+
+          background-size:  contain;
+          background-position: right center;
+          grid-column: 2;
+          height: 317px;
+          width: calc(100% - 34px);
+
+
 
         }
       }
 
+      &__data {
+        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        @include onTablet {
+          display: flex;
+          align-items: flex-start;
+          grid-column: 1;
+          padding-top: 0;
+          text-align: left;
+
+        }
+
+
         &__title {
+          margin: 0;
+          padding-top: 40px;
           font-weight: 700;
           font-size: 40px;
           line-height: 52px;
           text-transform: uppercase;
 
           @include onTablet {
-            grid-column: 1 / 5
+            @include pageGrid;
+            grid-column: 1 / 5;
           }
         }
 
@@ -86,9 +100,11 @@
           margin: 0;
 
           @include onTablet {
-            grid-column: 1 / 4
+            @include pageGrid;
+            grid-column: 1 / 4;
           }
         }
+      }
     }
   }
 }
