@@ -1,3 +1,4 @@
+@include onMobile{
 .header {
   height: 100vh;
 
@@ -5,9 +6,7 @@
     padding-left: 30px;
     padding-top: 25px;
     padding-bottom: 25px;
-
     @include hover(transform, scale(1.2));
-
   }
 
   &__top {
@@ -27,6 +26,19 @@
     padding-right: 30px;
     max-width: 260px;
 
+    &--data {
+      padding-top: 260px;
+
+      @include onTablet {
+        padding-top: 0;
+
+      }
+    }
+
+    @include onTablet {
+      @include pageGrid;
+    }
+
     &__img {
       background-image: url(/src/images/header-img.png);
       padding-top: 0;
@@ -34,32 +46,37 @@
       background-size: 320px 245px;
 
       @include onTablet {
-        @include pageGrid;
-
         padding-top: 0;
         background-size: 430px 317px;
         background-position: right bottom;
+        grid-column: 4 / 9;
 
       }
 
       &__title {
-
         padding-bottom: 20px;
         margin-top: 285px;
-
         font-weight: 700;
         font-size: 40px;
         line-height: 52px;
         text-transform: uppercase;
+
+        @include onTablet {
+          grid-column: 1 / 5
+        }
       }
 
       &__text {
-
         font-weight: 400;
         font-size: 16px;
         line-height: 24px;
         margin: 0;
+
+        @include onTablet {
+          grid-column: 1 / 4
+        }
       }
     }
   }
+}
 }
