@@ -1,16 +1,22 @@
 .header {
   height: 100vh;
 
+  @include onTablet{
+    @include pageGrid;
+    }
+
   &__logo {
     padding-left: 30px;
     padding-top: 25px;
-    padding-right: 67px;
     padding-bottom: 25px;
+
+    @include hover(transform, scale(1.2));
 
   }
 
-  &__top{
+  &__top {
     display: flex;
+    justify-content: space-between;
   }
 
   &__button {
@@ -25,32 +31,36 @@
     padding-right: 30px;
     max-width: 260px;
 
-
     &__img {
       max-width: 320px;
       padding: 0;
       object-fit: cover;
       object-position: center;
-    }
 
-    &__title {
+      @include onTablet {
+        grid-column: 4/9;
+        grid-row: 1/9;
+      }
 
-      padding-bottom: 20px;
-      padding-top: 40px;
-      margin: 0;
+      &__title {
 
-      font-weight: 700;
-      font-size: 40px;
-      line-height: 52px;
-      text-transform: uppercase;
-    }
+        padding-bottom: 20px;
+        padding-top: 40px;
+        margin: 0;
 
-    &__text {
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 52px;
+        text-transform: uppercase;
+      }
 
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 24px;
-      margin: 0;
+      &__text {
+
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0;
+      }
     }
   }
 }

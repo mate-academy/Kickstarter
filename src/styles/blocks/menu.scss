@@ -6,10 +6,13 @@
 
   &__top {
     display: flex;
+    justify-content: space-between;
   }
 
   &__content{
-    padding-inline: 30px;
+
+    @include contentPaddingInline;
+
     padding-top: 21px;
   }
 
@@ -23,14 +26,13 @@
       padding: 0;
 
       &__text{
-        text-decoration: none;
         color: #4F4F4F;
         font-family: 'Helvetica', sans-serif;
         font-weight: 300;
-        font-size: 14px;
         line-height: 100%;
 
         &:hover {
+          transform: scale(1.2);
           font-weight: 400;
           color: #333333;
           cursor: pointer;
@@ -46,12 +48,11 @@
 
       &__text,
       &__text-1  {
-        text-decoration: none;
         color: #828282;
         font-family: 'Helvetica', sans-serif;
         font-weight: 300;
-        font-size: 14px;
         line-height: 100%;
+
         &:hover {
           font-weight: 400;
           color: #333333;
@@ -61,14 +62,21 @@
     }
 
     &__buy {
+      display: flex;
+      align-items: center;
       position: fixed;
+      justify-content: center;
+      text-align: center;
       bottom: 30px;
-      margin-bottom: 30px;
       left: 50%;
       transform: translateX(-50%);
-      width: 260;
-      height: 48;
+      width: 260px;
+      height: 48px;
       background-color: #333333;
+
+      &:hover{
+        background-color: #131313;
+      }
 
       &__text {
         font-family: 'Helvetica', sans-serif;
@@ -76,8 +84,6 @@
         font-size: 12px;
         line-height: 100%;
         text-align: center;
-        text-decoration: none;
-        text-transform: uppercase;
         color: #F7F7F7;
       }
     }
