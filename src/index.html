@@ -47,7 +47,7 @@
               <span class="navmenu__right--notbold">/UA</span>
             </div>
             <div class="navmenu__right--button">
-              <button class="button button--buy">BUY</button>
+              <button class="button button-buy">BUY</button>
             </div>
             <div class="navmenu__right--icon">
               <img
@@ -251,71 +251,174 @@
       </section>
 
       <section class="section sectionseven">
+        <h2 class="sectionseven__header">FEATURES</h2>
         <div class="sectionseven__container">
-          <h2 class="sectionseven__container--header">FEATURES</h2>
           <div class="sectionseven__content">
-            <div class="sectionseven__list">
+            <div class="sectionseven__list active">
               <h3 class="sectionseven__list--title">Connectivity</h3>
               <ul class="sectionseven__list--items">
                 <li class="sectionseven__list--item">
                   Hands Free Wireless Audio
                 </li>
-                <li class="sectionseven__list-item">Bluetooth 4.0 LE</li>
-                <li class="sectionseven__list-item">
+                <li class="sectionseven__list--item">Bluetooth 4.0 LE</li>
+                <li class="sectionseven__list--item">
                   Wi-Fi 2.4 GHz (802.11 b/g/n)
                 </li>
-                <li class="sectionseven__list-item">
+                <li class="sectionseven__list--item">
                   Smart Multiroom System Set Up
                 </li>
-                <li class="sectionseven__list-item">
+                <li class="sectionseven__list--item">
                   Party Mode with 6.0 Units and above
                 </li>
-                <li class="sectionseven__list-item">
+                <li class="sectionseven__list--item">
                   MESHNET Multi Speaker Network
                 </li>
               </ul>
             </div>
 
             <div class="sectionseven__list">
-              <h3 class="sectionseven__list-title">Sound & Music</h3>
-              <ul class="sectionseven__list-items">
-                <li class="sectionseven__list-item">
+              <h3 class="sectionseven__list--title">Sound & Music</h3>
+              <ul class="sectionseven__list--items">
+                <li class="sectionseven__list--item">
                   Feel-in-chest Base Power
                 </li>
-                <li class="sectionseven__list-item">
+                <li class="sectionseven__list--item">
                   Lossless Digital Audio Transmission
                 </li>
-                <li class="sectionseven__list-item">
+                <li class="sectionseven__list--item">
                   Easy & Stable Stereo Pairing
                 </li>
-                <li class="sectionseven__list-item">
+                <li class="sectionseven__list--item">
                   Crisp and Clear High Frequency Sound
                 </li>
-                <li class="sectionseven__list-item">
+                <li class="sectionseven__list--item">
                   Streams from Cloud Music and Local Library
                 </li>
-                <li class="sectionseven__list-item">
+                <li class="sectionseven__list--item">
                   Auto Music from Last Song Stopped
                 </li>
               </ul>
             </div>
             <div class="sectionseven__list">
-              <h3 class="sectionseven__list-title">App Features</h3>
-              <ul class="sectionseven__list-items">
-                <li class="sectionseven__list-item">
+              <h3 class="sectionseven__list--title">App Features</h3>
+              <ul class="sectionseven__list--items">
+                <li class="sectionseven__list--item">
                   Customize Music Schedule
                 </li>
-                <li class="sectionseven__list-item">
+                <li class="sectionseven__list--item">
                   Wake Up with Favorite Songs
                 </li>
-                <li class="sectionseven__list-item">
+                <li class="sectionseven__list--item">
                   Home Detection Auto Wake Up
                 </li>
-                <li class="sectionseven__list-item">Color Wheel</li>
+                <li class="sectionseven__list--item">Color Wheel</li>
               </ul>
             </div>
+            <div class="sectionseven__arrows">
+              <button class="sectionseven__arrows--button">
+                <img
+                  class="sectionseven__arrows--left"
+                  src="./images/arrowleft.png"
+                  alt="arrow left"
+                  data-default="./images/arrowleft.png"
+                  data-hover="./images/arrowlefthover.png"
+                  data-click="./images/arrowlefthover.png"
+                />
+              </button>
+
+              <button class="sectionseven__arrows--button">
+                <img
+                  class="sectionseven__arrows--right"
+                  src="./images/arrowright.png"
+                  alt="arrow right"
+                  data-default="./images/arrowright.png"
+                  data-hover="./images/arrowhover.png"
+                  data-click="./images/arrowhover.png"
+                />
+              </button>
+              <div class="sectionseven__arrows--pagenumber active">
+                <span class="sectionseven__arrows--pagenumberone">01</span>
+                <span class="sectionseven__arrows--pagenumbertwo">/03</span>
+              </div>
+              <div class="sectionseven__arrows--pagenumber">
+                <span class="sectionseven__arrows--pagenumberone">02</span>
+                <span class="sectionseven__arrows--pagenumbertwo">/03</span>
+              </div>
+              <div class="sectionseven__arrows--pagenumber">
+                <span class="sectionseven__arrows--pagenumberone">03</span>
+                <span class="sectionseven__arrows--pagenumbertwo">/03</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sectionseven__image">
+            <img
+              class="sectionseven__image--element"
+              src="./images/picture4.png"
+              alt="wireless"
+            />
           </div>
         </div>
+        <script>
+          const lists = document.querySelectorAll('.sectionseven__list');
+          const pages = document.querySelectorAll(
+            '.sectionseven__arrows--pagenumber',
+          );
+          const prevBtn = document.querySelector('.sectionseven__arrows--left');
+          const nextBtn = document.querySelector(
+            '.sectionseven__arrows--right',
+          );
+
+          const order = window.innerWidth <= 1280 ? [2, 1, 3] : [1, 2, 3];
+          let currentPage = 1;
+
+          function updateList() {
+            lists.forEach((list, index) => {
+              list.classList.toggle(
+                'active',
+                index + 1 === order[currentPage - 1],
+              );
+            });
+            updatePagination();
+          }
+
+          function updatePagination() {
+            pages.forEach((p, index) => {
+              p.classList.toggle('active', index + 1 === currentPage);
+            });
+          }
+
+          pages.forEach((page, index) => {
+            page.addEventListener('click', () => {
+              currentPage = index + 1;
+              updateList();
+            });
+          });
+
+          prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+              currentPage--;
+              updateList();
+            }
+          });
+
+          nextBtn.addEventListener('click', () => {
+            if (currentPage < pages.length) {
+              currentPage++;
+              updateList();
+            }
+          });
+
+          window.addEventListener('resize', () => {
+            let newOrder = window.innerWidth <= 1280 ? [2, 1, 3] : [1, 2, 3];
+            if (JSON.stringify(order) !== JSON.stringify(newOrder)) {
+              currentPage = 1;
+              updateList();
+            }
+          });
+
+          updateList();
+        </script>
       </section>
     </main>
     <footer class="footer"></footer>
