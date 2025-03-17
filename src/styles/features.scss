@@ -1,12 +1,24 @@
 .features {
   &__content {
-    @include page-grid;
-
     background-color: $features-bg;
+    height: 545px;
     margin-top: 32px;
+    position: relative;
 
     @include on-tablet {
       margin-top: 30px;
+    }
+
+    @include on-desktop {
+      height: 672px;
+    }
+  }
+
+  &__content-desktop {
+    display: none;
+
+    @include on-desktop {
+      @include page-grid;
     }
   }
 
@@ -30,23 +42,13 @@
     }
 
     &--connectivity {
-      display: none;
-
-      @include on-desktop {
-        display: block;
-        grid-row: 1/2;
-        grid-column: 2/6;
-      }
+      grid-row: 1/2;
+      grid-column: 2/6;
     }
 
     &--app {
-      display: none;
-
-      @include on-desktop {
-        display: block;
-        grid-row: 1/2;
-        grid-column: 7/10;
-      }
+      grid-row: 1/2;
+      grid-column: 7/10;
     }
   }
 
@@ -76,7 +78,7 @@
   }
 
   &__element-title {
-    color: $main-turquoise;
+    color: $features-title;
     font-size: 18px;
     line-height: 22px;
     text-align: left;
@@ -113,28 +115,28 @@
   }
 
   &__background {
-    place-self: end center;
+    position: absolute;
     width: 320px;
     height: 173px;
-    background-image: url(/src/images/features-bg.png);
+    background-image: url(/src/images/features-image.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 
     @include on-tablet {
-      margin: 0;
-      grid-column: 4/-1;
-      grid-row: 2/3;
       width: 416px;
       height: 225px;
-      justify-self: end;
+      right: 0;
+      left: auto;
+      transform: none;
     }
 
     @include on-desktop {
-      grid-column: 7/-1;
       width: 543px;
       height: 301px;
-      justify-self: start;
     }
   }
 }
