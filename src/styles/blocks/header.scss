@@ -1,10 +1,6 @@
 .header {
   height: 100vh;
 
-  @include onTablet{
-    @include pageGrid;
-    }
-
   &__logo {
     padding-left: 30px;
     padding-top: 25px;
@@ -32,21 +28,24 @@
     max-width: 260px;
 
     &__img {
-      max-width: 320px;
-      padding: 0;
-      object-fit: cover;
-      object-position: center;
+      background-image: url(/src/images/header-img.png);
+      padding-top: 0;
+      background-repeat: no-repeat;
+      background-size: 320px 245px;
 
       @include onTablet {
-        grid-column: 4/9;
-        grid-row: 1/9;
+        @include pageGrid;
+
+        padding-top: 0;
+        background-size: 430px 317px;
+        background-position: right bottom;
+
       }
 
       &__title {
 
         padding-bottom: 20px;
-        padding-top: 40px;
-        margin: 0;
+        margin-top: 285px;
 
         font-weight: 700;
         font-size: 40px;
