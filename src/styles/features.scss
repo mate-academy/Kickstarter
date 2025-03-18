@@ -1,0 +1,142 @@
+.features {
+  &__content {
+    background-color: $features-bg;
+    height: 545px;
+    margin-top: 32px;
+    position: relative;
+
+    @include on-tablet {
+      margin-top: 30px;
+    }
+
+    @include on-desktop {
+      height: 672px;
+    }
+  }
+
+  &__content-desktop {
+    display: none;
+
+    @include on-desktop {
+      @include page-grid;
+    }
+  }
+
+  &__element {
+    @include padding-inline;
+
+    padding-top: 30px;
+
+    @include on-tablet {
+      padding-top: 60px;
+      padding-inline: 0;
+      grid-column: 2/5;
+    }
+
+    &--sound {
+      @include on-desktop {
+        grid-row: 2/3;
+        grid-column: 2/6;
+        margin-bottom: 60px;
+      }
+    }
+
+    &--connectivity {
+      grid-row: 1/2;
+      grid-column: 2/6;
+    }
+
+    &--app {
+      grid-row: 1/2;
+      grid-column: 7/10;
+    }
+  }
+
+  &__title {
+    padding-inline: 30px;
+
+    @include on-tablet {
+      padding: 0;
+    }
+  }
+
+  &__list {
+    padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+    position: relative;
+
+    @include on-tablet {
+      padding-top: 30px;
+    }
+  }
+
+  &__item {
+    color: $main-dark;
+  }
+
+  &__element-title {
+    color: $features-title;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: left;
+
+    @include on-desktop {
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__icons {
+    width: 93px;
+    height: 47px;
+    font-size: 11px;
+    line-height: 11px;
+    color: $main-turquoise;
+    text-align: right;
+    padding-top: 34px;
+    padding-right: 25px;
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 50px;
+    justify-self: center;
+
+    @include on-tablet {
+      grid-column: 2/4;
+      grid-row: 2/3;
+      justify-self: start;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    width: 320px;
+    height: 173px;
+    background-image: url(/src/images/features-image.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include on-tablet {
+      width: 416px;
+      height: 225px;
+      right: 0;
+      left: auto;
+      transform: none;
+    }
+
+    @include on-desktop {
+      width: 543px;
+      height: 301px;
+    }
+  }
+}

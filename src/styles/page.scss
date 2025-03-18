@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+}
+
+.page {
+  background-color: $page-bg;
+  scroll-behavior: smooth;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: $grey-text;
+  font-family: Inter, serif;
+
+  :has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    position: relative;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}

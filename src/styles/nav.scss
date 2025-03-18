@@ -1,0 +1,64 @@
+.nav {
+  &--header {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      grid-column: 1/-1;
+      margin-inline: auto;
+      margin-top: 170px;
+      padding-block: 28px;
+    }
+  }
+
+  &__list {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+
+    @include on-tablet {
+      gap: 40px;
+    }
+
+    &--header {
+      display: flex;
+      flex-direction: row;
+      grid-column: 1/-1;
+      gap: 84px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $main-dark;
+    line-height: 20px;
+
+    &:hover {
+      color: $main-turquoise;
+    }
+
+    &--bold {
+      font-weight: 700;
+    }
+
+    @include on-tablet {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    @include on-desktop {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  &__item {
+    @include hover(transform, scale(1.1));
+
+    &--menu {
+      transform-origin: center left;
+    }
+  }
+}

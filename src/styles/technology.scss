@@ -1,0 +1,55 @@
+.technology {
+  @include page-grid;
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      grid-column: 1/5;
+      margin-bottom: 30px;
+    }
+
+    @include on-desktop {
+      grid-column: 1/7;
+    }
+  }
+
+  &__photo {
+    display: flex;
+    width: 259px;
+    height: 210px;
+    object-position: center;
+    object-fit: cover;
+    justify-self: center;
+
+    @include on-tablet {
+      height: 415px;
+      width: 375px;
+      grid-column: 5/-1;
+      grid-row: 1/4;
+      justify-self: end;
+    }
+
+    @include on-desktop {
+      grid-column: 7/-1;
+      height: 388px;
+      width: 582px;
+    }
+  }
+
+  &__description {
+    color: $grey-text;
+    margin-top: 20px;
+    line-height: 24px;
+    font-size: 16px;
+
+    @include on-tablet {
+      grid-column: 1/5;
+      margin-top: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 1/7;
+    }
+  }
+}

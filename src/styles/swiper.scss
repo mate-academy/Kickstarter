@@ -1,0 +1,79 @@
+.swiper {
+  height: 372px;
+
+  @include on-tablet {
+    width: 260px;
+    margin-left: 90px;
+    height: 450px;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &-slide {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-button {
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 14px;
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    bottom: 0;
+
+    &::after {
+      content: '';
+    }
+  }
+
+  &-button-prev {
+    background-image: url(/src/images/curve-1.png);
+    top: 345px;
+    left: 45%;
+
+    @include on-tablet {
+      top: 430px;
+      left: 30px;
+    }
+  }
+
+  &-button-next {
+    background-image: url(/src/images/curve-2.png);
+    top: 346px;
+    left: 55%;
+
+    &:hover {
+      background-image: url(/src/images/curve-down-hover.svg);
+    }
+
+    @include on-tablet {
+      top: 430px;
+      left: 77px;
+    }
+  }
+
+  &-pagination {
+    top: 348px;
+    color: $features-title;
+    font-size: 11px;
+    line-height: 100%;
+
+    @include on-tablet {
+      top: 430px;
+      text-align: left;
+      left: 40px;
+    }
+  }
+
+  &-pagination-current {
+    color: $main-dark;
+    font-size: 16px;
+    line-height: 24px;
+    position: relative;
+    bottom: 2px;
+  }
+}
