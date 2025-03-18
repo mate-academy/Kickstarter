@@ -1,8 +1,15 @@
 .sectionseven {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
   place-items: center;
+  width: 320px;
+  width: 100%;
+  max-width: 700px;
 
   @media (min-width: 744px) {
-    padding: 0 0 140px;
+    padding: 0 34px 140px;
+    min-width: 700px;
   }
 
   @media (min-width: 1280px) {
@@ -11,8 +18,7 @@
 
   &__header {
     justify-self: self-start;
-    padding-right: 30px;
-    padding-left: 30px;
+    padding: 0 30px 32px;
 
     @media (min-width: 744px) {
       padding-right: 0;
@@ -25,6 +31,7 @@
     grid-template-columns: 1fr;
     gap: 0;
     text-align: left;
+    width: 100%;
 
     @media (min-width: 744px) {
       gap: 20px;
@@ -40,11 +47,19 @@
 
   &__content {
     grid-area: 1 / 1 / auto / 2;
-
+    min-height: 575px;
     background-color: #d6ecec;
+    background-image: url('../images/picture4.png');
+    background-position: 50% 100%;
+    background-size: 320px 173px;
+    background-repeat: no-repeat;
 
     @media (min-width: 744px) {
       min-width: 556px;
+      background-position: 100% 100%;
+
+      background-size: 436px 226px;
+
       grid-area: 1 / 1 / auto / 9;
     }
 
@@ -56,13 +71,12 @@
   &__list {
     display: none;
     flex-direction: column;
-    min-width: 320px;
 
-    padding: 30px;
+    padding: 30px 30px 0;
 
     @media (min-width: 744px) {
       grid-area: 1 / 4 / auto / 5;
-
+      max-width: 260px;
       padding: 60px 90px 0;
     }
 
@@ -145,37 +159,6 @@
       @include maintext;
 
       color: #333;
-    }
-  }
-
-  &__image {
-    grid-area: 3 / 1 / auto / 2;
-
-    background-color: #d6ecec;
-
-    @media (min-width: 744px) {
-      grid-area: 1 / 5 / auto / 9;
-      place-self: self-end;
-    }
-
-    @media (min-width: 1280px) {
-      grid-area: 1 / 1 / auto / 12;
-    }
-
-    &--element {
-      width: 335px;
-      height: 174px;
-      object-fit: cover;
-
-      @media (min-width: 744px) {
-        width: 436px;
-        height: 226px;
-      }
-
-      @media (min-width: 1280px) {
-        width: 335px;
-        height: 174px;
-      }
     }
   }
 }
