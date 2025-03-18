@@ -1,95 +1,114 @@
-.menu {
-  height: 100vh;
-  background-color: #F7F7F7;
-  font-weight: 400;
-  text-transform: uppercase;
+@include onMobile {
+  .menu {
+    height: 100vh;
+    background-color: #F7F7F7;
+    font-weight: 400;
+    text-transform: uppercase;
 
-  &__top {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__content{
-
-    @include contentPaddingInline;
-
-    padding-top: 21px;
-  }
-
-  &__button {
-    padding: 0;
-
-    &__specs {
-      border: none;
-      background: none;
-      margin-top: 50px;
-      padding: 0;
-
-      &__text{
-        color: #4F4F4F;
-        font-family: 'Helvetica', sans-serif;
-        font-weight: 300;
-        line-height: 100%;
-
-        &:hover {
-          transform: scale(1.2);
-          font-weight: 400;
-          color: #333333;
-          cursor: pointer;
-        }
-      }
-    }
-
-    &__en-ua {
-      border: none;
-      background: none;
-      padding: 0;
-      margin-left: 20px;
-
-      &__text,
-      &__text-1  {
-        color: #828282;
-        font-family: 'Helvetica', sans-serif;
-        font-weight: 300;
-        line-height: 100%;
-
-        &:hover {
-          font-weight: 400;
-          color: #333333;
-          cursor: pointer;
-        }
-      }
-    }
-
-    &__buy {
+    &__top {
       display: flex;
-      align-items: center;
-      position: fixed;
-      justify-content: center;
-      text-align: center;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 260px;
-      height: 48px;
-      background-color: #333333;
+      justify-content: space-between;
+    }
 
-      &:hover{
-        background-color: #131313;
+    &__content {
+
+      @include contentPaddingInline;
+
+      padding-top: 31px;
+
+      @include onTablet{
+        padding-top: 40px;
+      }
+    }
+
+    &__button {
+      padding: 0;
+
+      @include onTablet{
+        display: none;
       }
 
-      &__text {
-        font-family: 'Helvetica', sans-serif;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 100%;
+      &__specs {
+        border: none;
+        background: none;
+        margin-top: 50px;
+        padding: 0;
+
+        @include onTablet{
+          display: none;
+        }
+
+        &__text {
+          color: #4F4F4F;
+          font-family: 'Helvetica', sans-serif;
+          font-weight: 300;
+          line-height: 100%;
+
+          &:hover {
+            transform: scale(1.2);
+            font-weight: 400;
+            color: #333333;
+            cursor: pointer;
+
+          }
+        }
+      }
+
+      &__en-ua {
+        border: none;
+        background: none;
+        padding: 0;
+        margin-left: 20px;
+
+        &__text,
+        &__text-1 {
+          color: #828282;
+          font-family: 'Helvetica', sans-serif;
+          font-weight: 300;
+          line-height: 100%;
+
+          &:hover {
+            font-weight: 400;
+            color: #333333;
+            cursor: pointer;
+          }
+        }
+      }
+
+      &__buy {
+        display: flex;
+        align-items: center;
+        position: fixed;
+        justify-content: center;
         text-align: center;
-        color: #F7F7F7;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 260px;
+        height: 48px;
+        background-color: #333333;
+
+        &:hover {
+          background-color: #131313;
+        }
+
+        @include onTablet{
+          display: none;
+        }
+        
+        &__text {
+          font-family: 'Helvetica', sans-serif;
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 100%;
+          text-align: center;
+          color: #F7F7F7;
+        }
       }
     }
   }
-}
 
-.page:has(.page__menu:target) {
-  overflow: hidden;
+  .page:has(.page__menu:target) {
+    overflow: hidden;
+  }
 }

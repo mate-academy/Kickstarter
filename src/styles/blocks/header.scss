@@ -6,8 +6,17 @@
     &__logo {
       padding-left: 30px;
       padding-top: 25px;
-      padding-bottom: 25px;
+
       @include hover(transform, scale(1.2));
+
+      @include onTablet {
+        padding-top: 40px;
+      }
+
+      @include onDesktop {
+        padding-left: 123px;
+        padding-top: 42px;
+      }
     }
 
     &__top {
@@ -15,17 +24,14 @@
       justify-content: space-between;
     }
 
-    &__button {
-      display: none;
-    }
-
     &__info {
       display: grid;
       grid-template-rows: auto auto;
       grid-template-columns: 1fr;
       align-items: center;
-      padding-left: 30px;
       padding-right: 30px;
+      padding: 0;
+      margin: 0;
 
       @include onTablet {
         margin-top: 0;
@@ -33,32 +39,44 @@
         grid-template-columns: 1fr 1fr;
         align-items: center;
         gap: 20px;
+        margin-top: 142px;
+      }
+
+      @include onDesktop{
+        margin-top: 90px;
       }
 
       &__img {
         grid-row: 1;
-        background-image: url(/src/images/header-img.png);
+        background-image: url(scr/images/header/header-img-mobile.png);
         padding-top: 0;
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
         height: 245px;
-        width: 100%;
+        width: 320px;
 
 
         @include onTablet {
           @include pageGrid;
-          margin-top: 163px;
-          padding-top:0 ;
+          padding-top: 0;
 
-          background-size:  contain;
+          background-size: contain;
           background-position: right center;
           grid-column: 2 / 3;
           height: 317px;
+          width: 430px;
           width: calc(100% - 34px);
 
+          background-image: url(src/images/header/header-img-tablet.png);
+        }
 
+        @include onDesktop{
+          height: 464px;
+          width: 816px;
+          padding: 0;
 
+          background-image: url(src/images/header/header-img-desktop.png);
         }
       }
 
@@ -72,8 +90,9 @@
         @include onTablet {
           display: flex;
           align-items: flex-start;
-          grid-column: 1;
-          padding-top: 0;
+          grid-column: 1 / 2;
+          grid-row: 1;
+          padding: 0;
           text-align: left;
 
         }
@@ -85,11 +104,24 @@
           font-weight: 700;
           font-size: 40px;
           line-height: 52px;
+          padding-left: 30px;
           text-transform: uppercase;
 
           @include onTablet {
             @include pageGrid;
             grid-column: 1 / 5;
+            padding-left: 0;
+
+            font-size: 48px;
+            line-height: 62px;
+            gap: 0;
+          }
+
+          @include onDesktop {
+            font-size: 62px;
+            line-height: 78px;
+            padding-right: 0;
+            gap: 0;
           }
         }
 
@@ -97,11 +129,103 @@
           font-weight: 400;
           font-size: 16px;
           line-height: 24px;
+          padding-left: 30px;
           margin: 0;
 
           @include onTablet {
-            @include pageGrid;
-            grid-column: 1 / 4;
+            width: 250px;
+          }
+
+          @include onDesktop{
+            padding-left: 123px;
+          }
+        }
+      }
+    }
+
+    &__buttons {
+      display: none;
+
+      &__buy {
+        display: none;
+      }
+    }
+
+    @include onTablet {
+
+      &__buttons {
+        display: flex;
+        gap: 30px;
+        padding: 0;
+
+        &__specs {
+          border: none;
+          background: none;
+          padding-top: 40px;
+          padding-left: 223px;
+
+
+
+          &__text {
+            color: #4F4F4F;
+            font-family: 'Helvetica', sans-serif;
+            font-weight: 300;
+            line-height: 100%;
+
+            &:hover {
+              transform: scale(1.2);
+              font-weight: 400;
+              color: #333333;
+              cursor: pointer;
+
+            }
+          }
+        }
+
+
+        &__en-ua {
+          border: none;
+          background: none;
+          padding-top: 40px;
+
+          &__text,
+          &__text-1 {
+            color: #828282;
+            font-family: 'Helvetica', sans-serif;
+            font-weight: 300;
+            line-height: 100%;
+
+            &:hover {
+              font-weight: 400;
+              color: #333333;
+              cursor: pointer;
+            }
+          }
+        }
+
+
+        &__buy {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          bottom: 30px;
+          width: 100px;
+          height: 48px;
+          background-color: #333333;
+          margin-top: 29px;
+
+          &:hover {
+            background-color: #131313;
+          }
+
+          &__text {
+            font-family: 'Helvetica', sans-serif;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 100%;
+            text-align: center;
+            color: #F7F7F7;
           }
         }
       }

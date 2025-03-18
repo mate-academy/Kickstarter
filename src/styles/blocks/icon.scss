@@ -1,29 +1,42 @@
-.icon{
-display: block;
-@include hover(transform,scale(1.2));
+@include onMobile {
+  .icon {
+    display: block;
+    @include hover(transform, scale(1.2));
 
-  &__menu{
-    height: 32px;
-    width: 32px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    background-image: url(/src/images/icon/icon-menu.png) ;
-    background-repeat: no-repeat;
-    padding-right: 30px;
+    &__menu {
+      height: 32px;
+      width: 32px;
+      margin-top: 30px;
+      background-image: url(/images/icon/icon-menu.png);
+      background-repeat: no-repeat;
 
-    &:hover{
-      background-image: url(/src/images/icon/icon-menu-2.png)
+      &:hover {
+        background-image: url(/images/icon/icon-menu-2.png)
+      }
+
+      @include onTablet{
+        margin-top: 45px;
+      }
+
+      @include onDesktop{
+        display: none;
+      }
     }
-  }
 
-  &__close{
-    height: 32px;
-    width: 32px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    background-image: url(/src/images/icon/icon-close.png);
-    background-repeat: no-repeat;
+    &__close {
+      height: 32px;
+      width: 32px;
+      margin-top: 30px;
+      background-image: url(/images/icon/icon-close.png);
+      background-repeat: no-repeat;
 
+      @include onTablet{
+        margin-top: 45px;
+      }
 
+      @include onDesktop{
+        display: none;
+      }
+    }
   }
 }
