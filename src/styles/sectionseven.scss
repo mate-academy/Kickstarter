@@ -14,6 +14,7 @@
 
   @media (min-width: 1280px) {
     padding: 0 0 170px;
+    min-width: 1194px;
   }
 
   &__header {
@@ -55,7 +56,7 @@
     background-repeat: no-repeat;
 
     @media (min-width: 744px) {
-      min-width: 556px;
+      min-height: 557px;
       background-position: 100% 100%;
 
       background-size: 436px 226px;
@@ -64,7 +65,14 @@
     }
 
     @media (min-width: 1280px) {
-      grid-area: 1 / 1 / auto / 12;
+      min-height: 642px;
+
+      grid-area: 1 / 1 / auto / 13;
+      display: grid;
+      grid-template-columns: repeat(12, 72px);
+      gap: 56px 30px;
+      background-size: 582px 302px;
+      background-position: 83% 100%;
     }
   }
 
@@ -72,16 +80,35 @@
     display: none;
     flex-direction: column;
 
-    padding: 30px 30px 0;
+    padding: 30px 30px 50px;
 
     @media (min-width: 744px) {
       grid-area: 1 / 4 / auto / 5;
-      max-width: 260px;
-      padding: 60px 90px 0;
+
+      padding: 60px 90px 50px;
     }
 
     @media (min-width: 1280px) {
       grid-area: 1 / 1 / auto / 12;
+    }
+
+    &--one {
+      @media (min-width: 1280px) {
+        grid-area: 1 / 2 / auto / 6;
+        padding: 60px 0 0;
+      }
+    }
+    &--two {
+      @media (min-width: 1280px) {
+        grid-area: 2 / 2 / auto / 6;
+        padding: 0 0 60px;
+      }
+    }
+    &--three {
+      @media (min-width: 1280px) {
+        grid-area: 1 / 6 / auto / 10;
+        padding: 60px 0 0;
+      }
     }
 
     &--title {
@@ -92,6 +119,10 @@
       list-style: disc;
       margin-left: 10px;
       padding-top: 20px;
+
+      @media (min-width: 1280px) {
+        padding-top: 30px;
+      }
     }
     &--item {
       @include secondary;
@@ -105,23 +136,39 @@
   }
 
   &__arrows {
-    justify-self: center;
-    background-color: #d6ecec;
-    padding-top: 50px;
-
     grid-area: 2 / 1 / auto / 2;
+    justify-items: center;
+    position: relative;
 
-    @media (min-width: 744px) {
-      justify-self: left;
-      padding-left: 90px;
-      padding-bottom: 123px;
+    @media (min-width: 1280px) {
+      display: none;
+    }
+
+    &--btnleft {
+      position: absolute;
+      top: 0;
+      left: 113.5px;
+
+      @media (min-width: 744px) {
+        left: 90px;
+      }
+    }
+
+    &--btnright {
+      position: absolute;
+      top: 0;
+      left: 158.5px;
+
+      @media (min-width: 744px) {
+        left: 135px;
+      }
     }
 
     &--button {
       border: none;
       cursor: pointer;
-      background-color: #d6ecec;
-      padding-bottom: 8px;
+      background: none;
+      padding: 0;
     }
     &--left {
       width: 48px;
@@ -147,8 +194,15 @@
       font-size: 11px;
       line-height: 100%;
       justify-self: center;
+      position: absolute;
+      top: 22px;
+      left: 137.5px;
 
       color: #0c797a;
+
+      @media (min-width: 744px) {
+        left: 114px;
+      }
     }
 
     .active {
