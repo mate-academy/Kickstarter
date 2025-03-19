@@ -418,6 +418,92 @@
           updateList();
         </script>
       </section>
+      <section class="section sectioneight">
+        <h2 class="sectioneight__header">DO YOU HAVE ANY QUESTIONS?</h2>
+        <div class="sectioneight__form">
+          <form
+            class="sectioneight__form--content"
+            id="contactForm"
+          >
+            <label
+              class="sectioneight__form--label"
+              for="email"
+            >
+              Email
+            </label>
+            <input
+              class="sectioneight__form--input"
+              type="email"
+              id="inputFieldEmail"
+              name="email"
+              placeholder="Your email"
+              required
+            />
+
+            <label
+              class="sectioneight__form--label"
+              for="message"
+            >
+              Message
+            </label>
+            <textarea
+              class="sectioneight__form--textarea"
+              id="inputFieldMessage"
+              name="message"
+              rows="5"
+              placeholder="Your message..."
+              required
+            ></textarea>
+
+            <div class="sectioneight__form--button">
+              <button
+                class="button button-send"
+                type="submit"
+              >
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+        <script>
+          const form = document.getElementById('contactForm');
+          const emailInput = document.getElementById('inputFieldEmail');
+          const messageInput = document.getElementById('inputFieldMessage');
+
+          form.addEventListener('submit', (event) => {
+            let isValid = true;
+
+            [emailInput, messageInput].forEach((input) => {
+              if (!input.value.trim()) {
+                input.classList.add('error');
+                isValid = false;
+              } else {
+                input.classList.remove('error');
+              }
+            });
+
+            if (!isValid) {
+              event.preventDefault();
+            }
+          });
+
+          [emailInput, messageInput].forEach((input) => {
+            input.addEventListener('input', () => {
+              if (input.value.trim()) {
+                input.classList.remove('error');
+              }
+            });
+          });
+        </script>
+        <script>
+          document
+            .getElementById('contactForm')
+            .addEventListener('submit', function (event) {
+              event.preventDefault();
+              console.log('Formularz został wysłany!');
+            });
+        </script>
+      </section>
     </main>
     <footer class="footer"></footer>
   </body>
