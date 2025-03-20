@@ -418,6 +418,7 @@
           updateList();
         </script>
       </section>
+
       <section class="section sectioneight">
         <h2 class="sectioneight__header">DO YOU HAVE ANY QUESTIONS?</h2>
         <div class="sectioneight__form">
@@ -466,35 +467,22 @@
           </form>
         </div>
         <script>
-          const form = document.getElementById('contactForm');
-          const emailInput = document.getElementById('inputFieldEmail');
-          const messageInput = document.getElementById('inputFieldMessage');
+          document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contactForm');
+            const inputs = form.querySelectorAll('input, textarea');
 
-          form.addEventListener('submit', (event) => {
-            let isValid = true;
-
-            [emailInput, messageInput].forEach((input) => {
-              if (!input.value.trim()) {
-                input.classList.add('error');
-                isValid = false;
-              } else {
-                input.classList.remove('error');
-              }
-            });
-
-            if (!isValid) {
-              event.preventDefault();
-            }
-          });
-
-          [emailInput, messageInput].forEach((input) => {
-            input.addEventListener('input', () => {
-              if (input.value.trim()) {
-                input.classList.remove('error');
-              }
+            inputs.forEach((input) => {
+              input.addEventListener('input', () => {
+                if (!input.checkValidity()) {
+                  input.classList.add('error');
+                } else {
+                  input.classList.remove('error');
+                }
+              });
             });
           });
         </script>
+
         <script>
           document
             .getElementById('contactForm')

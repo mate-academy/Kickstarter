@@ -10,7 +10,7 @@
     padding: 0 0 140px;
     gap: 20px;
     grid-template-columns: repeat(8, 70px);
-    align-items: center;
+    align-items: flex-start;
   }
 
   @media (min-width: 1280px) {
@@ -21,14 +21,30 @@
   &__header {
     width: 259px;
     justify-self: left;
+
+    @media (min-width: 744px) {
+      width: 339px;
+      grid-area: 1/1 / auto/5;
+    }
+
+    @media (min-width: 1280px) {
+      width: 584px;
+      grid-area: 1/1 / auto/6;
+    }
   }
   &__form {
+    @media (min-width: 744px) {
+      grid-area: 1/5 / auto/9;
+    }
+    @media (min-width: 1280px) {
+      grid-area: 1/-1 / auto/-7;
+    }
+
     &--content {
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
 
-      place-items: center;
       text-align: left;
     }
 
@@ -38,12 +54,25 @@
 
     &--input {
       height: 48px;
+      padding: 20px 12px;
     }
 
     &--textarea {
       height: 128px;
       resize: none;
       margin-bottom: 10px;
+      padding: 20px 15px;
+
+      color: #333;
+      border: 1px solid #828282;
+
+      @media (min-width: 744px) {
+        height: 201px;
+      }
+
+      @media (min-width: 1280px) {
+        height: 128px;
+      }
     }
 
     &--input,
@@ -51,57 +80,51 @@
       min-width: 260px;
       border: 1px solid #828282;
       background: none;
-      padding: 20px 12px;
+
       box-sizing: border-box;
       text-align: left;
-
+      color: #bdbdbd;
       @include maintext;
 
       @media (min-width: 744px) {
-        width: 288px;
+        width: 340px;
       }
 
       @media (min-width: 1260px) {
-        width: 411px;
+        width: 582px;
       }
 
       &::placeholder {
         color: #bdbdbd;
         text-align: left;
-        @include maintext;
-      }
-
-      &:hover {
-        border: 1px solid #0c797a;
-
-        &::placeholder {
-          color: #333;
-        }
       }
 
       &:focus {
         border: 1px solid #0c797a;
-        outline: none;
-        cursor: text;
-        font-family: Helvetica Neue;
+        color: #333;
+        font-family: 'Helvetica Neue', serif;
         font-weight: 500;
         font-size: 14px;
         line-height: 24px;
+        outline: none;
       }
 
-      &:focus::placeholder {
-        color: #333;
-      }
-      &.sectioneight__form--input .error {
-        border-color: #eb5757;
+      &.error {
+        border: 1px solid #eb5757 !important;
+        color: #eb57574d;
+        font-family: 'Helvetica Neue', serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 100%;
 
         &::placeholder {
-          color: #eb57574d;
+          color: #eb57574d !important;
         }
       }
     }
-    &--button {
-      justify-self: left;
-    }
+  }
+
+  &--button {
+    justify-self: left;
   }
 }
