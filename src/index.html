@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Title</title>
+    <title>Kickstarter</title>
     <link
       rel="stylesheet"
       href="./styles/main.scss"
@@ -28,30 +28,35 @@
   <body>
     <header
       class="header"
-      id="header"
+      id="home"
     >
       <nav class="navmenu">
         <div class="navmenu__container">
-          <a href="#header">
+          <a
+            href="#header"
+            class="navmenu__logo"
+          >
             <img
-              class="navmenu__logo"
+              class="navmenu__iconlogo"
               src="./images/logo.png"
               alt="logo"
             />
           </a>
 
           <div class="navmenu__right">
-            <div class="navmenu__right--changes">SPECS</div>
-            <div class="navmenu__right--changes">
-              <span class="navmenu__right--bold">EN</span>
-              <span class="navmenu__right--notbold">/UA</span>
+            <div class="navmenu__disappear">
+              <div class="navmenu__item">SPECS</div>
+              <div class="navmenu__language">
+                <span class="navmenu__language--bold">EN</span>
+                <span class="navmenu__language--notbold">/UA</span>
+              </div>
+              <div class="navmenu__button">
+                <button class="button button-buy">BUY</button>
+              </div>
             </div>
-            <div class="navmenu__right--button">
-              <button class="button button-buy">BUY</button>
-            </div>
-            <div class="navmenu__right--icon">
+            <div class="navmenu__icon">
               <img
-                class="navmenu__right--iconmenu"
+                class="navmenu__icon--menu"
                 src="./images/menu.png"
                 alt="menu"
               />
@@ -60,6 +65,7 @@
         </div>
       </nav>
     </header>
+
     <main class="main">
       <section class="section sectionone">
         <div class="sectionone__img">
@@ -492,7 +498,170 @@
             });
         </script>
       </section>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const menuSection = document.querySelector('.menu__section');
+          const menuIcon = document.querySelector('.nav__menu');
+          const menuLogo = document.querySelector('.nav__logo--menu');
+          const menuClose = document.querySelector('.nav__close');
+          const menuLinks = document.querySelectorAll('.links__link');
+
+          menuIcon.addEventListener('click', () => {
+            menuSection.classList.add('active');
+          });
+
+          function closeMenu() {
+            menuSection.classList.remove('active');
+          }
+
+          function scrollToAnchor(event) {
+            event.preventDefault();
+            const targetId = event.target.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            closeMenu();
+          }
+
+          menuClose.addEventListener('click', closeMenu);
+
+          menuLogo.addEventListener('click', closeMenu);
+
+          menuLinks.forEach((link) => {
+            link.addEventListener('click', scrollToAnchor);
+          });
+        });
+      </script>
+      <div>..............</div>
+      <section class="menu">
+        <nav class="nav">
+          <img
+            class="nav__logo nav__logo--menu"
+            src="./images/logo.png"
+            alt="logo"
+          />
+
+          <div class="nav__right">
+            <div class="nav__right--icon">
+              <img
+                class="nav__close"
+                src="./images/close.png"
+                alt="close"
+              />
+            </div>
+          </div>
+        </nav>
+        <nav class="links">
+          <ul class="links__list">
+            <li class="links__item">
+              <a
+                href="#home"
+                class="links__link"
+              >
+                OUR STORY
+              </a>
+            </li>
+            <li class="links__item">
+              <a
+                href="#hours"
+                class="links__link"
+              >
+                ABOUT US
+              </a>
+            </li>
+            <li class="links__item">
+              <a
+                href="#nowonview"
+                class="links__link"
+              >
+                FEATURES
+              </a>
+            </li>
+            <li class="links__item">
+              <a
+                href="#exploreonline"
+                class="links__link"
+              >
+                GET IN TOUCH
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="navmenu__right--changes">SPECS</div>
+        <div class="navmenu__right--changes">
+          <span class="navmenu__right--bold">EN</span>
+          <span class="navmenu__right--notbold">/UA</span>
+        </div>
+        <div class="navmenu__right--button">
+          <button class="button button-buy">BUY</button>
+        </div>
+      </section>
     </main>
-    <footer class="footer"></footer>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__logo">
+          <img
+            class="footer__logo--icon"
+            src="./images/logo.png"
+            alt="logo"
+          />
+        </div>
+        <div class="footer__content">
+          <a
+            class="footer__icon"
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="footer__icon--facebook"
+              src="./images/facebook.svg"
+              alt="facebook"
+            />
+          </a>
+          <a
+            class="footer__icon"
+            href="https://www.x.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="footer__icon--twitter"
+              src="./images/twitter.svg"
+              alt="twitter"
+            />
+          </a>
+          <a
+            class="footer__icon"
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="footer__icon--instagram"
+              src="./images/ig.png"
+              alt="instagram"
+            />
+          </a>
+        </div>
+        <div class="footer__copyright">
+          &copy; 2019 All rights reserved. Terms of Use & Privacy Policy
+        </div>
+        <a
+          href="#home"
+          class="footer__arrowUP"
+        >
+          <img
+            class="footer__arrowUP--img"
+            src="./images/arrowUP.png"
+            alt="arrowUP"
+          />
+        </a>
+      </div>
+    </footer>
   </body>
 </html>
