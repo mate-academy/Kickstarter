@@ -1,0 +1,52 @@
+@include onMobile {
+  .scroll-to-top {
+    display: none;
+  }
+}
+
+@include onTablet {
+  .scroll-to-top {
+    position: fixed;
+    bottom: 170px;
+    right: 34px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+
+    // Миксин для десктопов
+    @include onDesktop {
+      bottom: 197px;
+      right: 123px;
+      width: 50px;
+      height: 50px;
+    }
+
+    &.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    & img {
+      width: 24px;
+      height: 20px;
+    }
+  }
+}
+
+body:has(:not(:root)) {
+  .scroll-to-top {
+    opacity: 1;
+  }
+}
