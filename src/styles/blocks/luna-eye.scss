@@ -5,9 +5,29 @@
     padding-right: 30px;
     margin: 0;
 
+    @include onTablet {
+      @include pageGrid;
+      flex-direction: row;
+      align-items: start;
+    }
+
     &__title {
       font-size: 36px;
       line-height: 46px;
+
+      @include onTablet {
+        grid-column: 1 / 5;
+        grid-row: 1;
+        padding: 0;
+        margin-top: 140px;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 7;
+        grid-row: 1;
+        padding: 0;
+        margin-top: 170px;
+      }
     }
 
     &__img {
@@ -24,6 +44,28 @@
         @include hover(transform, scale(1.05));
       }
 
+      @include onTablet {
+        background-image: url(/images/luna-eye/luna-eye--tablet.png);
+        background-size: cover;
+        width: 374px;
+        height: 415px;
+        padding: 0;
+        margin-top: 140px;
+        margin-right: -35px;
+        grid-column: 5 / 9;
+        justify-self: end;
+      }
+
+      @include onDesktop {
+        background-image: url(/images/luna-eye/luna-eye--desktop.png);
+        background-size: cover;
+        width: 582px;
+        height: 388px;
+        padding: 0;
+        margin-top: 170px;
+        margin-right: 0;
+        grid-column: 7 / 13;
+      }
     }
 
     &__text {
@@ -32,6 +74,22 @@
       color: #7C7C7C;
       padding-top: 20px;
       margin: 0;
+
+      @include onTablet {
+        grid-column: 1 / 5;
+        grid-row: 1;
+        padding: 0;
+        margin-top: 216px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 7;
+        grid-row: 1;
+        padding: 0;
+        margin-top: 270px;
+      }
     }
 
     &__link {
@@ -51,6 +109,23 @@
       &:hover {
         border-bottom: 1px solid #0DB2B3;
         width: fit-content;
+      }
+
+      @include onTablet {
+        display: flex;
+        grid-column: 1 / 5;
+        grid-row: 1;
+        padding-top: 0;
+        margin-top: 372px;
+      }
+
+      @include onDesktop {
+        display: flex;
+        grid-column: 1 / 7;
+        grid-row: 1;
+        padding-top: 0;
+        margin-top: 402px;
+        width: 64px;
       }
     }
   }
