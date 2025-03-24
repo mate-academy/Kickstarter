@@ -34,6 +34,7 @@
         <div class="navmenu__container">
           <a
             href="#header"
+            id="header"
             class="navmenu__logo"
           >
             <img
@@ -67,7 +68,121 @@
     </header>
 
     <main class="main">
-      <section class="section sectionone">
+      <section class="section sectionMenu">
+        <nav class="nav">
+          <img
+            class="nav__logo"
+            src="./images/logo.png"
+            alt="logo"
+            href="#home"
+          />
+
+          <div class="nav__right">
+            <div class="nav__right--icon">
+              <img
+                class="nav__close"
+                src="./images/close.png"
+                alt="close"
+              />
+            </div>
+          </div>
+        </nav>
+        <nav class="links">
+          <ul class="links__list">
+            <li class="links__item">
+              <a
+                href="#ourstory"
+                class="links__link"
+              >
+                OUR STORY
+              </a>
+            </li>
+            <li class="links__item">
+              <a
+                href="#aboutus"
+                class="links__link"
+              >
+                ABOUT US
+              </a>
+            </li>
+            <li class="links__item">
+              <a
+                href="#features"
+                class="links__link"
+              >
+                FEATURES
+              </a>
+            </li>
+            <li class="links__item">
+              <a
+                href="#getintouch"
+                class="links__link"
+              >
+                GET IN TOUCH
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="options">
+          <div class="menu-options">SPECS</div>
+          <div class="language__switch">
+            <span class="language__switch--bold">EN</span>
+            <span class="language__switch--notbold">/UA</span>
+          </div>
+        </div>
+
+        <div class="nav__right--button">
+          <button class="button button-buy">BUY</button>
+        </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const menuSection = document.querySelector('.sectionMenu');
+            const menuClose = document.querySelector('.nav__close');
+            const menuLogo = document.querySelector('.nav__logo');
+            const menuIcon = document.querySelector('.navmenu__icon--menu');
+            const menuLinks = document.querySelectorAll('.links__link');
+
+            if (menuIcon) {
+              menuIcon.addEventListener('click', () => {
+                menuSection.classList.add('active');
+              });
+            }
+
+            function closeMenu() {
+              menuSection.classList.remove('active');
+            }
+
+            function scrollToAnchor(event) {
+              event.preventDefault();
+              const targetId = event.target.getAttribute('href').substring(1);
+              const targetElement = document.getElementById(targetId);
+
+              if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+              }
+
+              closeMenu();
+            }
+
+            if (menuClose) {
+              menuClose.addEventListener('click', closeMenu);
+            }
+
+            if (menuLogo) {
+              menuLogo.addEventListener('click', closeMenu);
+            }
+
+            menuLinks.forEach((link) => {
+              link.addEventListener('click', scrollToAnchor);
+            });
+          });
+        </script>
+      </section>
+
+      <section
+        class="section sectionone"
+        id="ourstory"
+      >
         <div class="sectionone__img">
           <img
             class="sectionone__img--element"
@@ -93,18 +208,18 @@
             <ul class="links__list">
               <li class="links__item">
                 <a
-                  href="#header"
+                  href="#ourstory"
                   class="links__link"
                 >
-                  <h6>OUR STORY</h6>
+                  OUR STORY
                 </a>
               </li>
               <li class="links__item">
                 <a
-                  href="#aboutss"
+                  href="#aboutus"
                   class="links__link"
                 >
-                  <h6>ABOUT US</h6>
+                  ABOUT US
                 </a>
               </li>
               <li class="links__item">
@@ -112,7 +227,7 @@
                   href="#features"
                   class="links__link"
                 >
-                  <h6>FEATURES</h6>
+                  FEATURES
                 </a>
               </li>
               <li class="links__item">
@@ -120,13 +235,16 @@
                   href="#getintouch"
                   class="links__link"
                 >
-                  <h6>GET IN TOUCH</h6>
+                  GET IN TOUCH
                 </a>
               </li>
             </ul>
           </nav>
         </div>
-        <div class="sectiontwo__container">
+        <div
+          class="sectiontwo__container"
+          id="aboutus"
+        >
           <div class="sectiontwo__content">
             <img
               class="sectiontwo__content--compasses"
@@ -256,7 +374,10 @@
         </div>
       </section>
 
-      <section class="section sectionseven">
+      <section
+        class="section sectionseven"
+        id="features"
+      >
         <h2 class="sectionseven__header">FEATURES</h2>
         <div class="sectionseven__container">
           <div class="sectionseven__content">
@@ -425,7 +546,10 @@
         </script>
       </section>
 
-      <section class="section sectioneight">
+      <section
+        class="section sectioneight"
+        id="getintouch"
+      >
         <h2 class="sectioneight__header">DO YOU HAVE ANY QUESTIONS?</h2>
         <div class="sectioneight__form">
           <form
@@ -498,118 +622,20 @@
             });
         </script>
       </section>
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const menuSection = document.querySelector('.menu__section');
-          const menuIcon = document.querySelector('.nav__menu');
-          const menuLogo = document.querySelector('.nav__logo--menu');
-          const menuClose = document.querySelector('.nav__close');
-          const menuLinks = document.querySelectorAll('.links__link');
-
-          menuIcon.addEventListener('click', () => {
-            menuSection.classList.add('active');
-          });
-
-          function closeMenu() {
-            menuSection.classList.remove('active');
-          }
-
-          function scrollToAnchor(event) {
-            event.preventDefault();
-            const targetId = event.target.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-              targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-
-            closeMenu();
-          }
-
-          menuClose.addEventListener('click', closeMenu);
-
-          menuLogo.addEventListener('click', closeMenu);
-
-          menuLinks.forEach((link) => {
-            link.addEventListener('click', scrollToAnchor);
-          });
-        });
-      </script>
-      <div>..............</div>
-      <section class="menu">
-        <nav class="nav">
-          <img
-            class="nav__logo nav__logo--menu"
-            src="./images/logo.png"
-            alt="logo"
-          />
-
-          <div class="nav__right">
-            <div class="nav__right--icon">
-              <img
-                class="nav__close"
-                src="./images/close.png"
-                alt="close"
-              />
-            </div>
-          </div>
-        </nav>
-        <nav class="links">
-          <ul class="links__list">
-            <li class="links__item">
-              <a
-                href="#home"
-                class="links__link"
-              >
-                OUR STORY
-              </a>
-            </li>
-            <li class="links__item">
-              <a
-                href="#hours"
-                class="links__link"
-              >
-                ABOUT US
-              </a>
-            </li>
-            <li class="links__item">
-              <a
-                href="#nowonview"
-                class="links__link"
-              >
-                FEATURES
-              </a>
-            </li>
-            <li class="links__item">
-              <a
-                href="#exploreonline"
-                class="links__link"
-              >
-                GET IN TOUCH
-              </a>
-            </li>
-          </ul>
-        </nav>
-
-        <div class="navmenu__right--changes">SPECS</div>
-        <div class="navmenu__right--changes">
-          <span class="navmenu__right--bold">EN</span>
-          <span class="navmenu__right--notbold">/UA</span>
-        </div>
-        <div class="navmenu__right--button">
-          <button class="button button-buy">BUY</button>
-        </div>
-      </section>
     </main>
+
     <footer class="footer">
       <div class="footer__container">
-        <div class="footer__logo">
+        <a
+          class="footer__logo"
+          href="#header"
+        >
           <img
             class="footer__logo--icon"
             src="./images/logo.png"
             alt="logo"
           />
-        </div>
+        </a>
         <div class="footer__content">
           <a
             class="footer__icon"
