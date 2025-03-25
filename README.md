@@ -4,7 +4,7 @@
 
 [DEMO LINK](https://OlkowskaK.github.io/Kickstarter/)
 
-# *Responsive Layout for a Wireless Speakers Website*
+### *Responsive Layout for a Wireless Speakers Website*
 
 In this project, I created a modern, responsive layout for a website showcasing wireless speakers. The project was built using *HTML, SCSS, and JavaScript*, following the *BEM methodology* and utilizing *mixins* for better code readability and scalability.
 
