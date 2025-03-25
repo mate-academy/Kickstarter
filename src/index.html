@@ -48,8 +48,8 @@
             <div class="navmenu__disappear">
               <div class="navmenu__item">SPECS</div>
               <div class="navmenu__language">
-                <span class="navmenu__language--bold">EN</span>
-                <span class="navmenu__language--notbold">/UA</span>
+                <span class="navmenu__language--switch active">EN</span>
+                <span class="navmenu__language--switch">/UA</span>
               </div>
               <div class="navmenu__button">
                 <button class="button button-buy">BUY</button>
@@ -65,6 +65,18 @@
           </div>
         </div>
       </nav>
+      <script>
+        document.querySelectorAll('.navmenu__language').forEach((menu) => {
+          const buttons = menu.querySelectorAll('.navmenu__language--switch');
+
+          buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+              buttons.forEach((btn) => btn.classList.remove('active'));
+              button.classList.add('active');
+            });
+          });
+        });
+      </script>
     </header>
 
     <main class="main">
@@ -125,25 +137,16 @@
         </nav>
         <div class="options">
           <div class="menu-options">SPECS</div>
-          <div class="language__switch">
-            <button
-              class="language__switch--button active"
-              data-lang="EN"
-            >
-              EN
-            </button>
-            <button
-              class="language__switch--button"
-              data-lang="UA"
-            >
-              /UA
-            </button>
+          <div class="navmenu__language">
+            <span class="navmenu__language--switch active">EN</span>
+            <span class="navmenu__language--switch">/UA</span>
           </div>
         </div>
 
         <div class="nav__right--button">
           <button class="button button-buy">BUY</button>
         </div>
+
         <script>
           document.addEventListener('DOMContentLoaded', () => {
             const langButtons = document.querySelectorAll(
@@ -199,6 +202,19 @@
 
             menuLinks.forEach((link) => {
               link.addEventListener('click', scrollToAnchor);
+            });
+          });
+        </script>
+
+        <script>
+          document.querySelectorAll('.navmenu__language').forEach((menu) => {
+            const buttons = menu.querySelectorAll('.navmenu__language--switch');
+
+            buttons.forEach((button) => {
+              button.addEventListener('click', () => {
+                buttons.forEach((btn) => btn.classList.remove('active'));
+                button.classList.add('active');
+              });
             });
           });
         </script>
