@@ -126,14 +126,41 @@
         <div class="options">
           <div class="menu-options">SPECS</div>
           <div class="language__switch">
-            <span class="language__switch--bold">EN</span>
-            <span class="language__switch--notbold">/UA</span>
+            <button
+              class="language__switch--button active"
+              data-lang="EN"
+            >
+              EN
+            </button>
+            <button
+              class="language__switch--button"
+              data-lang="UA"
+            >
+              /UA
+            </button>
           </div>
         </div>
 
         <div class="nav__right--button">
           <button class="button button-buy">BUY</button>
         </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const langButtons = document.querySelectorAll(
+              '.language__switch--button',
+            );
+
+            langButtons.forEach((button) => {
+              button.addEventListener('click', () => {
+                // Usuwanie klasy 'active' ze wszystkich przycisków
+                langButtons.forEach((btn) => btn.classList.remove('active'));
+
+                // Dodawanie klasy 'active' klikniętemu przyciskowi
+                button.classList.add('active');
+              });
+            });
+          });
+        </script>
         <script>
           document.addEventListener('DOMContentLoaded', function () {
             const menuSection = document.querySelector('.sectionMenu');
@@ -206,7 +233,7 @@
         <div class="sectiontwo__menu">
           <nav class="links">
             <ul class="links__list">
-              <li class="links__item">
+              <li class="links__item links__item--story">
                 <a
                   href="#ourstory"
                   class="links__link"
@@ -214,7 +241,7 @@
                   OUR STORY
                 </a>
               </li>
-              <li class="links__item">
+              <li class="links__item--us">
                 <a
                   href="#aboutus"
                   class="links__link"
@@ -222,7 +249,7 @@
                   ABOUT US
                 </a>
               </li>
-              <li class="links__item">
+              <li class="links__item--features">
                 <a
                   href="#features"
                   class="links__link"
@@ -230,7 +257,7 @@
                   FEATURES
                 </a>
               </li>
-              <li class="links__item">
+              <li class="links__item--touch">
                 <a
                   href="#getintouch"
                   class="links__link"
