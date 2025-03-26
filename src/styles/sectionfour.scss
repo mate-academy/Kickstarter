@@ -1,0 +1,117 @@
+.sectionfour {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  text-align: left;
+  place-items: center;
+
+  padding: 0 35px 110px;
+
+  @media (min-width: 744px) {
+    padding: 0 0 140px;
+    gap: 20px;
+    grid-template-columns: repeat(8, 70px);
+    align-items: center;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 0 0 170px;
+    grid-template-columns: repeat(12, 72px);
+    gap: 30px;
+  }
+
+  &__header {
+    order: -1;
+    margin: 0;
+    padding-bottom: 10px;
+    justify-self: self-start;
+
+    @media (min-width: 744px) {
+      position: absolute;
+      top: 0;
+
+      grid-area: 1 / 5 / auto / 9;
+      order: 0;
+      text-align: left;
+    }
+
+    @media (min-width: 1280px) {
+      position: absolute;
+      top: 0;
+      left: 105px;
+      grid-area: 1 / 6 / auto / 12;
+    }
+  }
+
+  &__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 0;
+
+    img {
+      width: 259px;
+      height: 210px;
+      max-width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @media (min-width: 744px) {
+      grid-area: 1 / 1 / auto / 5;
+      order: 0;
+
+      img {
+        width: 374px;
+        height: 415px;
+        object-position: -100px;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      grid-area: 1 / 1 / auto / 7;
+      img {
+        width: 582px;
+        height: 388px;
+        object-position: 14px;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    order: 1;
+
+    @media (min-width: 744px) {
+      position: absolute;
+      grid-area: 1 / 5 / auto / 9;
+      order: 0;
+      text-align: left;
+      gap: 60px;
+
+      top: 122px;
+    }
+
+    @media (min-width: 1280px) {
+      position: absolute;
+      gap: 60px;
+      left: 107px;
+      top: 170px;
+      grid-area: 1 / 6 / auto / 12;
+    }
+
+    &--paragraph {
+      margin: 0;
+
+      color: #7c7c7c;
+      @include secondary;
+
+      @media (min-width: 744px) {
+        @include maintext;
+      }
+    }
+  }
+}

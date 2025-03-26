@@ -1,0 +1,124 @@
+@mixin button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    0.3s ease,
+    color 0.3s ease;
+  border: none;
+  font-family: 'Helvetica Neue', serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+}
+
+@mixin button-primary {
+  width: 260px;
+  height: 48px;
+  color: #fff;
+
+  @media (min-width: 640px) {
+    width: 100px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 102px;
+  }
+}
+
+@mixin button-variant($bg-color, $hover-color, $disabled-color) {
+  background-color: $bg-color;
+
+  &:hover {
+    background: $hover-color;
+  }
+
+  &:disabled {
+    background: $disabled-color;
+    cursor: not-allowed;
+  }
+}
+
+.button-buy {
+  @include button;
+  @include button-primary;
+  @include button-variant(#333, #131313, #d0d0d0);
+}
+
+.button-send {
+  @include button;
+  @include button-primary;
+  @include button-variant(#39bebf, #0c797a, #cfeff0);
+}
+
+.button-homepage {
+  @include button;
+
+  background: #f8f9fa;
+  color: #0db2b3;
+  background-color: #f9f9f9;
+  border: 1px solid #0db2b3;
+
+  &:hover {
+    background: #0c797a;
+    color: #fff;
+  }
+}
+
+.button-add-to-cart {
+  @include button;
+
+  background: #f8f9fa;
+  color: #333;
+  background-color: #f9f9f9;
+  border: 1px solid #333;
+
+  &:hover {
+    background: #131313;
+    color: #fff;
+  }
+}
+
+.button-see-more {
+  @include button;
+
+  font-family: Inter, serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: #0db2b3;
+  position: relative;
+  text-decoration: none;
+  padding: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 50%;
+    height: 1px;
+    background-color: #0db2b3;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.button-return-to-cart {
+  @include button;
+
+  background: #f8f9fa;
+  font-weight: 400;
+  color: #4f4f4f;
+
+  &:hover {
+    border: 1px solid #333;
+    background-color: #f9f9f9;
+  }
+}

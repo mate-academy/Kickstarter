@@ -1,0 +1,141 @@
+.navmenu {
+  padding: 0 30px;
+
+  @media (min-width: 744px) {
+    padding: 0;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: 'logo' 'right';
+
+    @media (min-width: 744px) {
+      gap: 0 20px;
+      grid-template-columns: repeat(8, 70px);
+      grid-template-rows: repeat(1, 76px);
+    }
+
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(12, 72px);
+      grid-template-rows: 48px;
+      gap: 0 30px;
+    }
+  }
+
+  &__logo {
+    width: 161px;
+    height: 26px;
+    padding-top: 25px;
+
+    @media (min-width: 744px) {
+      grid-area: 1/1 / auto/5;
+      padding: 0;
+      align-self: center;
+    }
+
+    @media (min-width: 1280px) {
+      grid-area: 1/1 / auto/5;
+    }
+  }
+
+  &__right {
+    @media (min-width: 744px) {
+      grid-area: 1/8 / auto/9;
+
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      padding: 0;
+
+      place-self: center;
+      justify-self: flex-end;
+    }
+
+    @media (min-width: 1280px) {
+      grid-area: 1/12 / auto/13;
+      justify-self: flex-end;
+    }
+  }
+
+  &__disappear {
+    display: none;
+
+    @media (min-width: 744px) {
+      grid-area: 1/8 / auto/9;
+
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      padding: 0;
+      align-self: center;
+    }
+  }
+
+  &__item {
+    font-family: 'Helvetica Neue', serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 100%;
+    color: #4f4f4f;
+
+    @media (min-width: 744px) {
+      padding: 0;
+      align-self: center;
+    }
+
+    @media (min-width: 1280px) {
+     @include thirdary;
+    }
+  }
+
+  .navmenu {
+    &__language {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Helvetica Neue', serif;
+      font-size: 14px;
+      line-height: 18px;
+      cursor: pointer;
+
+      .navmenu__language--switch {
+        color: #bdbdbd;
+        font-weight: 400;
+        transition: color 0.3s ease;
+
+        @media(min-width:1280px){
+          @include thirdary;
+        }
+
+        &.active {
+          color: #333;
+        }
+
+        &:hover {
+          color: #333;
+          transition: color 0s ease;
+        }
+      }
+    }
+  }
+  &__icon {
+    width: 24px;
+    height: 24px;
+    padding-top: 30px;
+
+    @media (min-width: 744px) {
+      padding: 0;
+      align-self: center;
+    }
+
+    @media (min-width: 1280px) {
+      display: none;
+    }
+  }
+
+  &__icon--menu {
+    width: 24px;
+    height: 16px;
+  }
+}

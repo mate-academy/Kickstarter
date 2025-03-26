@@ -6,14 +6,748 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Title</title>
+    <title>Kickstarter</title>
     <link
       rel="stylesheet"
       href="./styles/main.scss"
     />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
-    <script src="scripts/main.js"></script>
+  <body class="no-scroll">
+    <header
+      class="header"
+      id="home"
+    >
+      <nav class="navmenu">
+        <div class="navmenu__container">
+          <a
+            href="#header"
+            id="header"
+            class="navmenu__logo"
+          >
+            <img
+              class="navmenu__iconlogo"
+              src="./images/logo.png"
+              alt="logo"
+            />
+          </a>
+
+          <div class="navmenu__right">
+            <div class="navmenu__disappear">
+              <div class="navmenu__item">SPECS</div>
+              <div class="navmenu__language">
+                <span class="navmenu__language--switch active">EN</span>
+                <span class="navmenu__language--switch">/UA</span>
+              </div>
+              <div class="navmenu__button">
+                <button class="button button-buy">BUY</button>
+              </div>
+            </div>
+            <div class="navmenu__icon">
+              <img
+                class="navmenu__icon--menu"
+                src="./images/menu.png"
+                alt="menu"
+              />
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script>
+        document.querySelectorAll('.navmenu__language').forEach((menu) => {
+          const buttons = menu.querySelectorAll('.navmenu__language--switch');
+
+          buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+              buttons.forEach((btn) => btn.classList.remove('active'));
+              button.classList.add('active');
+            });
+          });
+        });
+      </script>
+    </header>
+
+    <main class="main">
+      <section class="section sectionMenu">
+        <nav class="nav">
+          <img
+            class="nav__logo"
+            src="./images/logo.png"
+            alt="logo"
+            href="#home"
+          />
+
+          <div class="nav__right">
+            <div class="nav__right--icon">
+              <img
+                class="nav__close"
+                src="./images/close.png"
+                alt="close"
+              />
+            </div>
+          </div>
+        </nav>
+        <nav class="links">
+          <ul class="links__list">
+            <li class="links__item">
+              <a
+                href="#ourstory"
+                class="links__link"
+              >
+                OUR STORY
+              </a>
+            </li>
+            <li class="links__item">
+              <a
+                href="#aboutus"
+                class="links__link"
+              >
+                ABOUT US
+              </a>
+            </li>
+            <li class="links__item">
+              <a
+                href="#features"
+                class="links__link"
+              >
+                FEATURES
+              </a>
+            </li>
+            <li class="links__item">
+              <a
+                href="#getintouch"
+                class="links__link"
+              >
+                GET IN TOUCH
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="options">
+          <div class="menu-options">SPECS</div>
+          <div class="navmenu__language">
+            <span class="navmenu__language--switch active">EN</span>
+            <span class="navmenu__language--switch">/UA</span>
+          </div>
+        </div>
+
+        <div class="nav__right--button">
+          <button class="button button-buy">BUY</button>
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const langButtons = document.querySelectorAll(
+              '.language__switch--button',
+            );
+
+            langButtons.forEach((button) => {
+              button.addEventListener('click', () => {
+                langButtons.forEach((btn) => btn.classList.remove('active'));
+
+                button.classList.add('active');
+              });
+            });
+          });
+        </script>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const menuSection = document.querySelector('.sectionMenu');
+            const menuClose = document.querySelector('.nav__close');
+            const menuLogo = document.querySelector('.nav__logo');
+            const menuIcon = document.querySelector('.navmenu__icon--menu');
+            const menuLinks = document.querySelectorAll('.links__link');
+
+            if (menuIcon) {
+              menuIcon.addEventListener('click', () => {
+                menuSection.classList.add('active');
+              });
+            }
+
+            function closeMenu() {
+              menuSection.classList.remove('active');
+            }
+
+            function scrollToAnchor(event) {
+              event.preventDefault();
+              const targetId = event.target.getAttribute('href').substring(1);
+              const targetElement = document.getElementById(targetId);
+
+              if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+              }
+
+              closeMenu();
+            }
+
+            if (menuClose) {
+              menuClose.addEventListener('click', closeMenu);
+            }
+
+            if (menuLogo) {
+              menuLogo.addEventListener('click', closeMenu);
+            }
+
+            menuLinks.forEach((link) => {
+              link.addEventListener('click', scrollToAnchor);
+            });
+          });
+        </script>
+
+        <script>
+          document.querySelectorAll('.navmenu__language').forEach((menu) => {
+            const buttons = menu.querySelectorAll('.navmenu__language--switch');
+
+            buttons.forEach((button) => {
+              button.addEventListener('click', () => {
+                buttons.forEach((btn) => btn.classList.remove('active'));
+                button.classList.add('active');
+              });
+            });
+          });
+        </script>
+      </section>
+
+      <section
+        class="section sectionone"
+        id="ourstory"
+      >
+        <div class="sectionone__img">
+          <img
+            class="sectionone__img--element"
+            src="./images/picture1.png"
+            alt="Futuristic Wireless Speaker"
+          />
+        </div>
+        <div class="sectionone__content">
+          <h1 class="sectionone__content--header">
+            Futuristic Wireless Speaker
+          </h1>
+          <p class="sectionone__content--paragraph maintext">
+            Luna’s performance is balanced and smooth in all frequency ranges,
+            making the music both naturally pleasant and distinctly more
+            layered.
+          </p>
+        </div>
+      </section>
+
+      <section class="section sectiontwo">
+        <div class="sectiontwo__menu">
+          <nav class="links">
+            <ul class="links__list">
+              <li class="links__item links__item--story">
+                <a
+                  href="#ourstory"
+                  class="links__link"
+                >
+                  OUR STORY
+                </a>
+              </li>
+              <li class="links__item--us">
+                <a
+                  href="#aboutus"
+                  class="links__link"
+                >
+                  ABOUT US
+                </a>
+              </li>
+              <li class="links__item--features">
+                <a
+                  href="#features"
+                  class="links__link"
+                >
+                  FEATURES
+                </a>
+              </li>
+              <li class="links__item--touch">
+                <a
+                  href="#getintouch"
+                  class="links__link"
+                >
+                  GET IN TOUCH
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          class="sectiontwo__container"
+          id="aboutus"
+        >
+          <div class="sectiontwo__content">
+            <img
+              class="sectiontwo__content--compasses"
+              src="./images/compasses.png"
+              alt="compasses"
+            />
+            <h4 class="sectiontwo__header">Futuristic Design</h4>
+            <p class="sectiontwo__paragraph--one secondary">
+              To give Luna a truly flawless look, we specifically picked
+              aircraft grade aluminum as its material and adopted both
+              three-dimensional stretch-bending technology and a high precision
+              cold forging technique.
+            </p>
+          </div>
+          <div class="sectiontwo__content">
+            <img
+              class="sectiontwo__content--volum"
+              src="./images/volum.png"
+              alt="volum"
+            />
+            <h4 class="sectiontwo__header">Tweeter Speaker System</h4>
+            <p class="sectiontwo__paragraph--two secondary">
+              To deliver a more layered sound performance better than a sole
+              full-range speaker, our team equipped Luna with one more tweeter
+              speaker responsible for high-frequency sound independently.
+            </p>
+          </div>
+          <div class="sectiontwo__content">
+            <img
+              class="sectiontwo__content--wifi"
+              src="./images/wifi.png"
+              alt="wifi"
+            />
+            <h4 class="sectiontwo__header">Multiroom System</h4>
+            <p class="sectiontwo__paragraph--three secondary">
+              Luna is natively compatible with your home Wi-Fi. Set up multiple
+              speakers in different rooms to expand your music experience into
+              the entire house.
+            </p>
+          </div>
+          <div class="sectiontwo__content">
+            <img
+              class="sectiontwo__content--sun"
+              src="./images/sun.png"
+              alt="sun"
+            />
+            <h4 class="sectiontwo__header">Intuitive Lighting System</h4>
+            <p class="sectiontwo__paragraph--four secondary">
+              An intuitive user interface allows you to adjust the hue and
+              saturation of color for lighting that fits any mood and situation.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="section sectionthree">
+        <div class="sectionthree__container"></div>
+      </section>
+      <section class="section sectionfour">
+        <h2 class="sectionfour__header">DESIGNED FOR THE FUTURE</h2>
+
+        <div class="sectionfour__img">
+          <img
+            class="picture"
+            src="./images/picture5.png"
+            alt="picture"
+          />
+        </div>
+        <div class="sectionfour__content">
+          <p class="sectionfour__content--paragraph">
+            In 2014, a group of geeky industrial designers, engineering veterans
+            and acoustic experts formed crazybaby. This is a bunch of passionate
+            people who are crazy enough to think they can challenge the industry
+            with disruptive audio products.
+          </p>
+
+          <div class="sectionfour__content--button">
+            <button class="button-see-more">See more about us</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section sectionfifth">
+        <h2 class="sectionfifth__header">Luna Eye</h2>
+
+        <div class="sectionfifth__img">
+          <img
+            class="picture"
+            src="./images/picture3.png"
+            alt="picture"
+          />
+        </div>
+        <div class="sectionfifth__content">
+          <p class="sectionfifth__content--paragraph">
+            Luna Eye is to the essence of this innovative light and audio
+            system. It comprises an independent tweeter speaker, a light guiding
+            component, a dome and a ring ornament.
+          </p>
+
+          <div class="sectionfifth__content--button">
+            <button class="button-see-more">See more about us</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section sectionsix">
+        <div class="sectionsix__container">
+          <div class="sectionsix__container--img">
+            <img
+              src="./images/vector6.png"
+              alt="vector"
+            />
+          </div>
+          <div class="sectionsix__container--quote">
+            “It really took me by surprise honestly to have such full beautiful
+            sound that coming out of this small compact device. And with the
+            brush aluminum surface, it feels so familiar. Like my iPhone.”
+          </div>
+          <div class="sectionsix__content">
+            <img
+              class="sectionsix__content--img"
+              src="./images/person.png"
+              alt="person"
+            />
+            <h5 class="sectionsix__content--header">Garrett Martin</h5>
+            <p class="sectionsix__content--paragraph">Creative Director</p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section sectionseven"
+        id="features"
+      >
+        <h2 class="sectionseven__header">FEATURES</h2>
+        <div class="sectionseven__container">
+          <div class="sectionseven__content">
+            <div class="sectionseven__list sectionseven__list--one active">
+              <h3 class="sectionseven__list--title">Connectivity</h3>
+              <ul class="sectionseven__list--items">
+                <li class="sectionseven__list--item">
+                  Hands Free Wireless Audio
+                </li>
+                <li class="sectionseven__list--item">Bluetooth 4.0 LE</li>
+                <li class="sectionseven__list--item">
+                  Wi-Fi 2.4 GHz (802.11 b/g/n)
+                </li>
+                <li class="sectionseven__list--item">
+                  Smart Multiroom System Set Up
+                </li>
+                <li class="sectionseven__list--item">
+                  Party Mode with 6.0 Units and above
+                </li>
+                <li class="sectionseven__list--item">
+                  MESHNET Multi Speaker Network
+                </li>
+              </ul>
+            </div>
+
+            <div class="sectionseven__list sectionseven__list--two">
+              <h3 class="sectionseven__list--title">Sound & Music</h3>
+              <ul class="sectionseven__list--items">
+                <li class="sectionseven__list--item">
+                  Feel-in-chest Base Power
+                </li>
+                <li class="sectionseven__list--item">
+                  Lossless Digital Audio Transmission
+                </li>
+                <li class="sectionseven__list--item">
+                  Easy & Stable Stereo Pairing
+                </li>
+                <li class="sectionseven__list--item">
+                  Crisp and Clear High Frequency Sound
+                </li>
+                <li class="sectionseven__list--item">
+                  Streams from Cloud Music and Local Library
+                </li>
+                <li class="sectionseven__list--item">
+                  Auto Music from Last Song Stopped
+                </li>
+              </ul>
+            </div>
+            <div class="sectionseven__list sectionseven__list--three">
+              <h3 class="sectionseven__list--title">App Features</h3>
+              <ul class="sectionseven__list--items">
+                <li class="sectionseven__list--item">
+                  Customize Music Schedule
+                </li>
+                <li class="sectionseven__list--item">
+                  Wake Up with Favorite Songs
+                </li>
+                <li class="sectionseven__list--item">
+                  Home Detection Auto Wake Up
+                </li>
+                <li class="sectionseven__list--item">Color Wheel</li>
+              </ul>
+            </div>
+            <div class="sectionseven__arrows">
+              <button
+                class="sectionseven__arrows--button sectionseven__arrows--btnright"
+              >
+                <img
+                  class="sectionseven__arrows--right"
+                  src="./images/arrowright.png"
+                  alt="arrow right"
+                  data-default="./images/arrowright.png"
+                  data-hover="./images/arrowhover.png"
+                  data-click="./images/arrowhover.png"
+                />
+              </button>
+
+              <button
+                class="sectionseven__arrows--button sectionseven__arrows--btnleft"
+              >
+                <img
+                  class="sectionseven__arrows--left"
+                  src="./images/arrowleft.png"
+                  alt="arrow left"
+                  data-default="./images/arrowleft.png"
+                  data-hover="./images/arrowlefthover.png"
+                  data-click="./images/arrowlefthover.png"
+                />
+              </button>
+              <div class="sectionseven__arrows--pagenumber active">
+                <span class="sectionseven__arrows--pagenumberone">01</span>
+                <span class="sectionseven__arrows--pagenumbertwo">/03</span>
+              </div>
+              <div class="sectionseven__arrows--pagenumber">
+                <span class="sectionseven__arrows--pagenumberone">02</span>
+                <span class="sectionseven__arrows--pagenumbertwo">/03</span>
+              </div>
+              <div class="sectionseven__arrows--pagenumber">
+                <span class="sectionseven__arrows--pagenumberone">03</span>
+                <span class="sectionseven__arrows--pagenumbertwo">/03</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          const lists = document.querySelectorAll('.sectionseven__list');
+          const pages = document.querySelectorAll(
+            '.sectionseven__arrows--pagenumber',
+          );
+          const prevBtn = document.querySelector('.sectionseven__arrows--left');
+          const nextBtn = document.querySelector(
+            '.sectionseven__arrows--right',
+          );
+
+          let currentPage = 1;
+
+          function updateList() {
+            if (window.innerWidth >= 1280) {
+              lists.forEach((list) => list.classList.add('active'));
+              pages.forEach((page) => page.classList.remove('active'));
+            } else {
+              lists.forEach((list, index) => {
+                list.classList.toggle(
+                  'active',
+                  index + 1 === getOrder()[currentPage - 1],
+                );
+              });
+              updatePagination();
+            }
+          }
+
+          function getOrder() {
+            return [2, 1, 3];
+          }
+
+          function updatePagination() {
+            pages.forEach((p, index) => {
+              p.classList.toggle('active', index + 1 === currentPage);
+            });
+          }
+
+          pages.forEach((page, index) => {
+            page.addEventListener('click', () => {
+              currentPage = index + 1;
+              updateList();
+            });
+          });
+
+          prevBtn.addEventListener('click', () => {
+            currentPage = currentPage === 1 ? 3 : currentPage - 1;
+            updateList();
+          });
+
+          nextBtn.addEventListener('click', () => {
+            currentPage = currentPage === 3 ? 1 : currentPage + 1;
+            updateList();
+          });
+
+          window.addEventListener('resize', () => {
+            currentPage = 1;
+            updateList();
+          });
+
+          updateList();
+        </script>
+      </section>
+
+      <section
+        class="section sectioneight"
+        id="getintouch"
+      >
+        <h2 class="sectioneight__header">DO YOU HAVE ANY QUESTIONS?</h2>
+        <div class="sectioneight__form">
+          <form
+            class="sectioneight__form--content"
+            id="contactForm"
+          >
+            <label
+              class="sectioneight__form--label"
+              for="inputFieldEmail"
+            >
+              Email
+            </label>
+            <input
+              class="sectioneight__form--input"
+              type="email"
+              id="inputFieldEmail"
+              name="email"
+              placeholder="Your email"
+              required
+            />
+
+            <label
+              class="sectioneight__form--label"
+              for="inputFieldMessage"
+            >
+              Message
+            </label>
+            <textarea
+              class="sectioneight__form--textarea"
+              id="inputFieldMessage"
+              name="message"
+              rows="5"
+              placeholder="Your message..."
+              required
+            ></textarea>
+
+            <div class="sectioneight__form--button">
+              <button
+                class="button button-send"
+                type="submit"
+              >
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contactForm');
+            const inputs = form.querySelectorAll('input, textarea');
+
+            inputs.forEach((input) => {
+              input.addEventListener('input', () => {
+                if (!input.checkValidity()) {
+                  input.classList.add('error');
+                } else {
+                  input.classList.remove('error');
+                }
+              });
+            });
+          });
+        </script>
+
+        <script>
+          document
+            .getElementById('contactForm')
+            .addEventListener('submit', function (event) {
+              event.preventDefault();
+              console.log('Formularz został wysłany!');
+              this.reset();
+            });
+        </script>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container">
+        <a
+          class="footer__logo"
+          href="#header"
+        >
+          <img
+            class="footer__logo--icon"
+            src="./images/logo.png"
+            alt="logo"
+          />
+        </a>
+        <div class="footer__content">
+          <a
+            class="footer__icon"
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="footer__icon--facebook"
+              src="./images/facebook.svg"
+              alt="facebook"
+            />
+          </a>
+          <a
+            class="footer__icon"
+            href="https://www.x.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="footer__icon--twitter"
+              src="./images/twitter.svg"
+              alt="twitter"
+            />
+          </a>
+          <a
+            class="footer__icon"
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="footer__icon--instagram"
+              src="./images/ig.png"
+              alt="instagram"
+            />
+          </a>
+        </div>
+        <div class="footer__copyright">
+          &copy; 2019 All rights reserved. Terms of Use & Privacy Policy
+        </div>
+        <a
+          href="#home"
+          class="footer__arrowUP"
+        >
+          <img
+            class="footer__arrowUP--img"
+            src="./images/arrowUP.png"
+            alt="arrowUP"
+          />
+        </a>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const body = document.body;
+        const menu = document.querySelector('.sectionMenu');
+
+        function toggleScroll() {
+          if (menu.classList.contains('active')) {
+            body.style.overflow = "hidden";
+          } else {
+            body.style.overflow = "";
+          }
+        }
+
+        const observer = new MutationObserver(toggleScroll);
+        observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+      });
+    </script>
+
   </body>
 </html>
