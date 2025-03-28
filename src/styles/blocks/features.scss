@@ -1,12 +1,11 @@
 @include onMobile {
   .features {
-
-    &__fon {
+    &__content {
       background-color: #D6ECEC;
       margin: 0;
       padding: 0;
       position: relative;
-
+      min-height: 320px;
 
       @include onTablet {
         margin-left: 34px;
@@ -21,36 +20,9 @@
       }
     }
 
-    &__info {
+    &__block {
 
-
-      &__desktop-1 {
-        display: none;
-
-        @include onTablet {
-          display: none;
-        }
-
-        @include onDesktop {
-          display: block;
-        }
-      }
-
-      &__desktop-2{
-
-        @include onDesktop {
-          display: block;
-          padding-bottom: 59px;
-        }
-      }
-
-      &__desktop-3 {
-        display: none;
-
-        @include onTablet {
-          display: none;
-        }
-
+      &--three {
         @include onDesktop {
           display: block;
           position: absolute;
@@ -59,87 +31,10 @@
         }
       }
 
-      &__img {
-        width: 335px;
-        height: 173px;
-        object-fit: cover;
-        bottom: 0;
-        position: absolute;
-
-        @include onTablet {
-          width: 436px;
-          height: 226px;
-          position: absolute;
-          right: 14px;
-        }
-
+      &--two {
         @include onDesktop {
-          width: 543px;
-          height: 301px;
-        }
-      }
-
-      &__title {
-        padding-left: $mobile-padding-left;
-        padding-top: 30px;
-        padding-bottom: 20px;
-        margin: 0;
-
-        font-weight: $bold-font-weight;
-        font-size: 18px;
-        line-height: 22px;
-        vertical-align: middle;
-        text-transform: uppercase;
-        color: #0C797A;
-
-        @include onTablet {
-          padding-left: 90px;
-          padding-top: 60px;
-        }
-
-        @include onDesktop {
-          font-size: 34px;
-          line-height: 42px;
-          padding-left: 102px;
-          padding-bottom: 30px;
-        }
-
-        &__desktop-3{
-
-          @include onDesktop {
-            padding-left: 0;
-          }
-        }
-      }
-
-      &__list {
-        display: flex;
-        margin: 0;
-        padding-bottom: 50px;
-        gap: 10px;
-        flex-direction: column;
-        padding-left: 46px;
-
-        line-height: 21px;
-        vertical-align: middle;
-
-        @include onTablet {
-          padding-left: 106px;
-        }
-
-        @include onDesktop {
-          font-size: 16px;
-          line-height: 24px;
-          padding-left: 118px;
-          padding-bottom: 0;
-        }
-
-        &__desktop-3{
-
-          @include onDesktop{
-            padding-left: 16px;
-            padding-bottom: 0;
-          }
+          display: block;
+          padding-bottom: 59px;
         }
       }
     }
@@ -163,13 +58,246 @@
         padding-left: 123px;
         padding-right: 123px;
       }
+
     }
 
-    &__button {
+    &__subtitle {
+      padding-left: $mobile-padding-left;
+      padding-top: 30px;
+      padding-bottom: 20px;
+      margin: 0;
+
+      font-weight: $bold-font-weight;
+      font-size: 18px;
+      line-height: 22px;
+      vertical-align: middle;
+      text-transform: uppercase;
+      color: #0C797A;
+
+      @include onTablet {
+        padding-left: 90px;
+        padding-top: 60px;
+      }
+
+      @include onDesktop {
+        font-size: 34px;
+        line-height: 42px;
+        padding-left: 102px;
+        padding-bottom: 30px;
+      }
+
+      &__desktop-3 {
+
+        @include onDesktop {
+          padding-left: 2px;
+        }
+      }
+
+    }
+
+    &__list {
+      display: flex;
+      margin: 0;
+      padding-bottom: 50px;
+      gap: 10px;
+      flex-direction: column;
+      padding-left: 46px;
+
+      line-height: 21px;
+      vertical-align: middle;
+
+      @include onTablet {
+        padding-left: 106px;
+      }
+
+      @include onDesktop {
+        font-size: 16px;
+        line-height: 24px;
+        padding-left: 118px;
+        padding-bottom: 0;
+      }
+
+      &__desktop-3 {
+
+        @include onDesktop {
+          padding-left: 16px;
+          padding-bottom: 0;
+
+        }
+      }
+
+
+    }
+
+    &__item {
+      color: $c-dark-brown;
+
+      &::marker {
+        color: rgba(0, 0, 0, 1);
+      }
+    }
+
+    &__switch {
+      @include onTablet {
+        display: block;
+        align-self: flex-start;
+      }
 
       @include onDesktop {
         display: none;
       }
     }
+
+    &__slider-buttons {
+      display: flex;
+      justify-content: center;
+
+      @include onTablet {
+        margin-left: 90px;
+        justify-content: initial;
+      }
+    }
+
+    &__slider-numbers {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+
+      @include onTablet {
+        margin-left: 114px;
+        justify-content: initial;
+      }
+    }
+
+    &__slider-one {
+      text-align: left;
+      color: $c-dark-brown;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      margin-top: 8px;
+    }
+
+    &__slider-slash {
+      color: rgb(12, 121, 122);
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 13.31px;
+      transform: translateY(10px);
+      margin-top: 12px;
+
+      @include onTablet {
+        line-height: 100%;
+      }
+    }
+
+    &__slider-two {
+      text-align: left;
+      color: rgb(12, 121, 122);
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 24px;
+      transform: translateY(7px);
+      margin-top: 13px;
+    }
+
+    &__backgarund {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      position: relative;
+      bottom: 0;
+      display: flex;
+
+      @include onTablet {
+        width: 436px;
+        height: 226px;
+        position: absolute;
+        right: 14px;
+      }
+
+      @include onDesktop {
+        width: 543px;
+        height: 301px;
+      }
+    }
+  }
+
+
+  .slider {
+    &__block {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+
+  .slider1:checked~.slider__content .slider__block--one,
+  .slider2:checked~.slider__content .slider__block--two,
+  .slider3:checked~.slider__content .slider__block--three {
+    display: block;
+  }
+
+  .slider__button label {
+    display: none;
+  }
+
+  .slider1:checked~.slider__button .next1,
+  .slider2:checked~.slider__button .next2,
+  .slider3:checked~.slider__button .next3,
+  .slider1:checked~.slider__button .prev3,
+  .slider2:checked~.slider__button .prev1,
+  .slider3:checked~.slider__button .prev2 {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #333;
+  }
+
+  .slider1:checked~.slider__content .slider__button .next1,
+  .slider2:checked~.slider__content .slider__button .next2,
+  .slider3:checked~.slider__content .slider__button .next3 {
+    display: inline-block;
+  }
+
+  .slider1:checked~.slider__content .slider__button .prev3,
+  .slider2:checked~.slider__content .slider__button .prev1,
+  .slider3:checked~.slider__content .slider__button .prev2 {
+    display: inline-block;
+  }
+
+  .prev {
+    background-image: url(/images/features/features--arrow-1.svg);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 14px;
+    cursor: pointer;
+
+    &:hover {
+      background-image: url(/images/features/features--arrow-1.svg);
+    }
+  }
+
+  .next {
+    background-image: url(/images/features/features--arrow-2.svg);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 14px;
+    cursor: pointer;
+
+    &:hover {
+      background-image: url(/images/features/features--arrow-2.svg);
+    }
+  }
+
+  .slider input[type='radio'] {
+    display: none;
   }
 }
