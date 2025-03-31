@@ -1,64 +1,71 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover($property, $toValue) {
+  transition: $property 0.3s ease-in-out;
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $toValue;
   }
 }
 
-@mixin onMobile{
+
+@mixin on-mobile{
   @media (min-width: $mobile-min-width) {
     @content;
   }
 }
 
-@mixin onTablet{
+@mixin on-tablet{
   @media (min-width: $tablet-min-width) {
     @content;
   }
 }
 
-@mixin onDesktop{
+@mixin on-desktop{
   @media (min-width: $desktop-min-width) {
     @content;
   }
 }
 
-@mixin contentPaddingInline(){
+@mixin content-padding-inline(){
   padding-inline: 30px;
 
-@include onTablet {
+@include on-tablet {
   padding-inline: 34px;
 }
 }
 
-@mixin pageGrid {
+@mixin page-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  column-gap: 50px;
   gap: 20px;
-  padding-left: 30px;
+  column-gap: 50px;
+
   padding-right: 30px;
+  padding-left: 30px;
 
 
-  @include onTablet{
+  @include on-tablet{
     grid-template-columns: repeat(8, 1fr);
-    column-gap: 70px;
     gap: 20px;
-    padding-left:34px;
+    column-gap: 70px;
+
     padding-right: 34px;
+    padding-left:34px;
   }
 
-  @include onDesktop{
+  @include on-desktop{
     grid-template-columns: repeat(12, 1fr);
-    column-gap: 72px;
     gap: 30px;
-    padding-left: 123px;
+    column-gap: 72px;
+
     padding-right: 123px;
+    padding-left: 123px;
 
   }
 }
 
 @mixin validation {
+  &:placeholder-shown {
+		border: 1px solid #828282;
+	}
 	&:focus {
 		border: 1px solid #0C797A;
 	}
@@ -66,11 +73,8 @@
 		border: 1px solid #0C797A;
 	}
 	&:focus:invalid:not(:placeholder-shown) {
-    font-family: 'Inter', sans-serif;
 		border: 1px solid #EB5757;
+    font-family: Inter, sans-serif;
     color: #EB57574D;
-	}
-	&:placeholder-shown {
-		border: 1px solid #828282;
 	}
 }

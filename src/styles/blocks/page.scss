@@ -1,12 +1,13 @@
-@include onMobile {
+@include on-mobile {
   .page {
+    scroll-behavior: smooth;
+
     font-family: $text-font-family;
-    font-weight: 400;
     font-size: 14px;
-    background-color: #F7F7F7;
+    font-weight: 400;
     color: $color-text;
 
-    scroll-behavior: smooth;
+    background-color: #F7F7F7;
 
     &__body {
       margin: 0;
@@ -14,33 +15,35 @@
     }
 
     &__menu {
+      pointer-events: none;
+
       position: fixed;
       top: 0;
       right: 0;
       left: 0;
+      transform: translate(-100%);
+
+      opacity: 0;
 
       transition: all 0.3s;
-      opacity: 0;
-      transform: translate(-100%);
-      pointer-events: none;
 
       &:target {
-        opacity: 1;
-        transform: translate(0);
         pointer-events: all;
+        transform: translate(0);
+        opacity: 1;
       }
 
-      @include onDesktop{
+      @include on-desktop{
         display: none;
       }
     }
   }
 
   @font-face {
-    font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
-    src: url('../fonts/Roboto-Regular-webfont.woff') format('woff');
+    font-family: Roboto, Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-style: normal;
+    src: url('../fonts/Roboto-Regular-webfont.woff') format('woff');
   }
 }
 

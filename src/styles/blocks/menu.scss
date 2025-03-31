@@ -1,9 +1,9 @@
-@include onMobile {
+@include on-mobile {
   .menu {
     height: 100vh;
-    background-color: #F7F7F7;
     font-weight: 400;
     text-transform: uppercase;
+    background-color: #F7F7F7;
 
     &__top {
       display: flex;
@@ -12,15 +12,15 @@
 
     &__content {
 
-      @include contentPaddingInline;
+      @include content-padding-inline;
 
       padding-top: 31px;
 
-      @include onTablet {
+      @include on-tablet {
         padding-top: 40px;
       }
 
-      @include onDesktop {
+      @include on-desktop {
         padding-top: 198px;
       }
     }
@@ -28,41 +28,42 @@
     &__button {
       padding: 0;
 
-      @include onTablet {
+      @include on-tablet {
         display: none;
       }
 
       &__specs {
         min-width: 50px;
-        border: none;
-        background: none;
         margin-top: 50px;
         padding: 0;
+        border: none;
 
-        @include onTablet {
+        background: none;
+
+        @include on-tablet {
           display: none;
         }
 
         &__text {
-          color: $color-text-grey;
           font-family: $main-text-font-family;
           font-weight: 300;
           line-height: 100%;
+          color: $color-text-grey;
 
           &:hover {
+            cursor: pointer;
             transform: scale(1.2);
             font-weight: 400;
             color: $color-text;
-            cursor: pointer;
 
           }
         }
       }
 
       &__en-ua span {
-        padding: 0;
-        min-width: 20px;
         display: inline-block;
+        min-width: 20px;
+        padding: 0;
       }
 
       &__en-ua {
@@ -72,48 +73,52 @@
 
         &__text,
         &__text-1 {
-          color: $color-text-light-grey;
           font-family: $main-text-font-family;
           font-weight: 300;
           line-height: 100%;
+          color: $color-text-light-grey;
 
 
           &:hover {
+            cursor: pointer;
             font-weight: 400;
             color: $color-text;
-            cursor: pointer;
           }
         }
       }
 
       &__buy {
-        display: flex;
-        align-items: center;
         position: fixed;
-        justify-content: center;
-        text-align: center;
         bottom: 30px;
         left: 50%;
         transform: translateX(-50%);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         width: 260px;
         height: 48px;
+
+        text-align: center;
+
         background-color: $color-text;
 
         &:hover {
           background-color: #131313;
         }
 
-        @include onTablet {
+        @include on-tablet {
           display: none;
         }
 
         &__text {
           font-family: $main-text-font-family;
-          font-weight: 500;
           font-size: 12px;
+          font-weight: 500;
           line-height: 100%;
-          text-align: center;
           color: #F7F7F7;
+          text-align: center;
         }
       }
     }

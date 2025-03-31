@@ -1,38 +1,40 @@
-@include onMobile {
+@include on-mobile {
   .features {
     &__content {
-      background-color: #D6ECEC;
+      position: relative;
+
+      min-height: 320px;
       margin: 0;
       padding: 0;
-      position: relative;
-      min-height: 320px;
 
-      @include onTablet {
-        margin-left: 34px;
-        margin-right: 34px;
+      background-color: #D6ECEC;
+
+      @include on-tablet {
         min-height: 557px;
+        margin-right: 34px;
+        margin-left: 34px;
       }
 
-      @include onDesktop {
-        margin-left: 123px;
-        margin-right: 123px;
+      @include on-desktop {
         min-height: 642px;
+        margin-right: 123px;
+        margin-left: 123px;
       }
     }
 
     &__block {
 
       &--three {
-        @include onDesktop {
-          display: block;
+        @include on-desktop {
           position: absolute;
-          padding-left: 621px;
           top: 0;
+          display: block;
+          padding-left: 621px;
         }
       }
 
       &--two {
-        @include onDesktop {
+        @include on-desktop {
           display: block;
           padding-bottom: 59px;
         }
@@ -40,56 +42,56 @@
     }
 
     &__title {
-      padding-left: $mobile-padding-left;
       padding-right: $mobile-padding-right;
       padding-bottom: 32px;
+      padding-left: $mobile-padding-left;
 
 
-      @include onTablet {
-        padding-left: 34px;
+      @include on-tablet {
         padding-right: 34px;
         padding-bottom: 30px;
+        padding-left: 34px;
 
       }
 
-      @include onDesktop {
+      @include on-desktop {
+        padding-right: 123px;
+        padding-left: 123px;
         font-size: 56px;
         line-height: 70px;
-        padding-left: 123px;
-        padding-right: 123px;
       }
 
     }
 
     &__subtitle {
-      padding-left: $mobile-padding-left;
+      margin: 0;
       padding-top: 30px;
       padding-bottom: 20px;
-      margin: 0;
+      padding-left: $mobile-padding-left;
 
-      font-weight: $bold-font-weight;
       font-size: 18px;
+      font-weight: $bold-font-weight;
       line-height: 22px;
-      vertical-align: middle;
-      text-transform: uppercase;
       color: #0C797A;
+      text-transform: uppercase;
+      vertical-align: middle;
 
-      @include onTablet {
-        padding-left: 90px;
+      @include on-tablet {
         padding-top: 60px;
+        padding-left: 90px;
       }
 
-      @include onDesktop {
+      @include on-desktop {
+        padding-bottom: 30px;
+        padding-left: 102px;
         font-size: 34px;
         line-height: 42px;
-        padding-left: 102px;
-        padding-bottom: 30px;
       }
 
       &__desktop-3 {
 
-        @include onDesktop {
-          padding-left: 0px;
+        @include on-desktop {
+          padding-left: 0;
         }
       }
 
@@ -97,32 +99,33 @@
 
     &__list {
       display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      min-height: 226px;
       margin: 0;
       padding-bottom: 50px;
-      gap: 10px;
-      flex-direction: column;
       padding-left: 46px;
 
       line-height: 21px;
       vertical-align: middle;
-      min-height: 226px;
 
-      @include onTablet {
+      @include on-tablet {
         padding-left: 106px;
       }
 
-      @include onDesktop {
+      @include on-desktop {
+        padding-bottom: 0;
+        padding-left: 118px;
         font-size: 16px;
         line-height: 24px;
-        padding-left: 118px;
-        padding-bottom: 0;
       }
 
       &__desktop-3 {
 
-        @include onDesktop {
-          padding-left: 16px;
+        @include on-desktop {
           padding-bottom: 0;
+          padding-left: 16px;
 
         }
       }
@@ -137,12 +140,12 @@
     }
 
     &__switch {
-      @include onTablet {
+      @include on-tablet {
         display: block;
         align-self: flex-start;
       }
 
-      @include onDesktop {
+      @include on-desktop {
         display: none;
       }
     }
@@ -151,9 +154,9 @@
       display: flex;
       justify-content: center;
 
-      @include onTablet {
-        margin-left: 90px;
+      @include on-tablet {
         justify-content: initial;
+        margin-left: 90px;
       }
     }
 
@@ -162,60 +165,68 @@
       justify-content: center;
       margin-top: 10px;
 
-      @include onTablet {
-        margin-left: 114px;
+      @include on-tablet {
         justify-content: initial;
+        margin-left: 114px;
       }
     }
 
     &__slider-one {
-      text-align: left;
-      color: $color-text;
+      margin-top: 8px;
+
       font-size: 16px;
       font-weight: 400;
       line-height: 24px;
-      margin-top: 8px;
+      color: $color-text;
+      text-align: left;
     }
 
     &__slider-slash {
-      color: rgb(12, 121, 122);
+      transform: translateY(10px);
+
+      margin-top: 12px;
+
       font-size: 11px;
       font-weight: 400;
       line-height: 13.31px;
-      transform: translateY(10px);
-      margin-top: 12px;
+      color: rgb(12, 121, 122);
 
-      @include onTablet {
+      @include on-tablet {
         line-height: 100%;
       }
     }
 
     &__slider-two {
-      text-align: left;
-      color: rgb(12, 121, 122);
+      transform: translateY(7px);
+
+      margin-top: 13px;
+
       font-size: 11px;
       font-weight: 400;
       line-height: 24px;
-      transform: translateY(7px);
-      margin-top: 13px;
+      color: rgb(12, 121, 122);
+      text-align: left;
     }
 
     &__backgarund {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
       position: relative;
       bottom: 0;
+
       display: flex;
 
-      @include onTablet {
-        width: 436px;
-        height: 226px;
+      width: 100%;
+      height: auto;
+
+      object-fit: cover;
+
+      @include on-tablet {
         position: absolute;
         right: 14px;
+        width: 436px;
+        height: 226px;
       }
 
-      @include onDesktop {
+      @include on-desktop {
         width: 543px;
         height: 301px;
       }

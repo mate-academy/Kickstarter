@@ -1,9 +1,9 @@
-@include onMobile{
+@include on-mobile{
   .slider {
     &__block {
       display: none;
 
-      @include onDesktop {
+      @include on-desktop {
         display: block;
       }
     }
@@ -25,13 +25,16 @@
   .slider1:checked~.slider__button .prev3,
   .slider2:checked~.slider__button .prev1,
   .slider3:checked~.slider__button .prev2 {
-    display: inline-block;
     cursor: pointer;
+
+    display: inline-block;
+
     border-radius: 50%;
-    text-align: center;
-    line-height: 40px;
+
     font-size: 20px;
+    line-height: 40px;
     color: #333;
+    text-align: center;
   }
 
   .slider1:checked~.slider__content .slider__button .next1,
@@ -47,12 +50,14 @@
   }
 
   .prev {
-    background-image: url(/images/features/features--arrow-1.svg);
-    object-fit: cover;
-    background-repeat: no-repeat;
+    cursor: pointer;
+
     width: 48px;
     height: 14px;
-    cursor: pointer;
+
+    object-fit: cover;
+    background-image: url(/images/features/features--arrow-1.svg);
+    background-repeat: no-repeat;
 
     &:hover {
       background-image: url(/images/features/features--arrow-1.svg);
@@ -60,12 +65,14 @@
   }
 
   .next {
-    background-image: url(/images/features/features--arrow-2.svg);
-    object-fit: cover;
-    background-repeat: no-repeat;
+    cursor: pointer;
+
     width: 48px;
     height: 14px;
-    cursor: pointer;
+
+    object-fit: cover;
+    background-image: url(/images/features/features--arrow-2.svg);
+    background-repeat: no-repeat;
 
     &:hover {
       background-image: url(/images/features/features--arrow-2.svg);
@@ -77,9 +84,10 @@
   }
 }
 
-.slider #slider1~.features__content .features__slider-numbers label {
+.slider [id="slider1"] ~ .features__content .features__slider-numbers label {
   display: none;
 }
+
 @for $i from 1 through 3 {
   .slider #slider#{$i}:checked ~ .features__content .features__slider-numbers .features__slider-#{$i} {
     display: block;

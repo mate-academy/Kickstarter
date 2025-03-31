@@ -1,21 +1,22 @@
-@include onMobile {
+@include on-mobile {
   .footer {
-    padding-left: $mobile-padding-left;
-    padding-right: 30px;
     position: relative;
+    padding-right: 30px;
+    padding-left: $mobile-padding-left;
 
 
     &__icon {
       display: flex;
-      justify-content: center;
-      align-items: center;
       gap: 40px;
+      align-items: center;
+      justify-content: center;
+
       margin-top: 110px;
       padding-bottom: 30px;
 
-      @include onTablet {
-        margin: 0;
+      @include on-tablet {
         gap: 49px;
+        margin: 0;
         padding-bottom: 60px;
       }
 
@@ -24,9 +25,11 @@
         height: 24px;
         transition: transform 0.3s, filter 0.3s;
 
+        @include hover(transform, scale(1.5));
+
         &:hover {
           cursor: pointer;
-          @include hover(transform, scale(1.5));
+
           filter: brightness(0) saturate(100%) invert(54%) sepia(55%) saturate(607%) hue-rotate(132deg) brightness(92%) contrast(94%);
         }
       }
@@ -36,9 +39,11 @@
         height: 24px;
         transition: transform 0.3s, filter 0.3s;
 
+        @include hover(transform, scale(1.5));
+
         &:hover {
           cursor: pointer;
-          @include hover(transform, scale(1.5));
+
           filter: brightness(0) saturate(100%) invert(54%) sepia(55%) saturate(607%) hue-rotate(132deg) brightness(92%) contrast(94%);
         }
       }
@@ -48,9 +53,11 @@
         height: 24px;
         transition: transform 0.3s, filter 0.3s;
 
+        @include hover(transform, scale(1.5));
+
         &:hover {
           cursor: pointer;
-          @include hover(transform, scale(1.5));
+
           filter: brightness(0) saturate(100%) invert(54%) sepia(55%) saturate(607%) hue-rotate(132deg) brightness(92%) contrast(94%);
         }
       }
@@ -59,40 +66,43 @@
     &__logo {
       display: none;
 
+      @include hover(transform, scale(1.5));
+
       &:hover{
         cursor: pointer;
-        @include hover(transform, scale(1.5));
       }
 
-      @include onTablet {
+      @include on-tablet {
         display: flex;
-        justify-content: center;
         align-items: center;
-        margin: 141px auto 61px;
+        justify-content: center;
+
         width: 184px;
         height: 25px;
+        margin: 141px auto 61px;
       }
 
-      @include onDesktop {
-        margin: 170px auto 60px;
+      @include on-desktop {
         width: 161px;
         height: 26px;
+        margin: 170px auto 60px;
       }
     }
 
     &__text {
-      line-height: 21px;
-      text-align: center;
-      color: #BDBDBD;
-      padding-bottom: 20px;
       margin: 0;
+      padding-bottom: 20px;
 
-      @include onTablet {
+      line-height: 21px;
+      color: #BDBDBD;
+      text-align: center;
+
+      @include on-tablet {
         padding-bottom: 30px;
         font-weight: 300;
       }
 
-      @include onDesktop {
+      @include on-desktop {
         font-weight: 400;
       }
     }

@@ -1,21 +1,21 @@
-@include onMobile {
+@include on-mobile {
   .header {
-    height: 100%;
     width: 100%;
+    height: 100%;
 
     &__logo {
-      padding-left: $mobile-padding-left;
       padding-top: 25px;
+      padding-left: $mobile-padding-left;
 
       @include hover(transform, scale(1.2));
 
-      @include onTablet {
+      @include on-tablet {
         padding-top: 40px;
       }
 
-      @include onDesktop {
-        padding-left: 123px;
+      @include on-desktop {
         padding-top: 42px;
+        padding-left: 123px;
       }
     }
 
@@ -25,86 +25,94 @@
 
       &__tablet {
         display: flex;
-        justify-content: flex-end;
         gap: 30px;
+        justify-content: flex-end;
       }
     }
 
     &__info {
       display: grid;
-      grid-template-rows: auto auto;
       grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
       align-items: center;
-      padding-right: $mobile-padding-right;
-      padding: 0;
-      margin: 0;
 
-      @include onTablet {
-        margin-top: 0;
+      margin: 0;
+      padding: 0;
+      padding-right: $mobile-padding-right;
+
+      @include on-tablet {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        gap: 0;
         align-items: center;
-        gap: 0px;
+
+        margin-top: 0;
         margin-top: 142px;
 
       }
 
-      @include onDesktop {
-        margin-top: 90px;
+      @include on-desktop {
         gap: 0;
+        margin-top: 90px;
       }
 
       &__img {
         grid-row: 1;
-        background-image: url(/images/header/header-img-mobile.png);
-        padding: 0;
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 245px;
+
         width: 100%;
+        height: 245px;
+        padding: 0;
+
+        background-image: url(/images/header/header-img-mobile.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
 
 
-        @include onTablet {
-          @include pageGrid;
-          padding: 0;
+        @include on-tablet {
+          @include page-grid;
 
-          background-size: contain;
-          background-position: center;
           grid-column: 2 / 3;
-          height: 317px;
-          width: 430px;
+
           box-sizing: border-box;
+          width: 430px;
+          height: 317px;
+          padding: 0;
 
           background-image: url(/images/header/header-img-tablet.png);
+          background-position: center;
+          background-size: contain;
         }
 
-        @include onDesktop {
-          margin-top: 90px;
+        @include on-desktop {
           grid-template-columns: 1fr 1fr 2fr;
           gap: 0;
-          height: 464px;
-          width: 816px;
-          padding: 0;
+
           box-sizing: border-box;
+          width: 816px;
+          height: 464px;
+          margin-top: 90px;
+          padding: 0;
 
           background-image: url(/images/header/header-img-desktop.png);
         }
       }
 
       &__data {
-        grid-row: 2;
         display: flex;
+        grid-row: 2;
         flex-direction: column;
-        align-items: center;
         gap: 20px;
+        align-items: center;
 
-        @include onTablet {
+        @include on-tablet {
           display: flex;
-          align-items: flex-start;
           grid-column: 1 / 2;
           grid-row: 1;
+          align-items: flex-start;
+
           padding: 0;
+
           text-align: left;
         }
 
@@ -112,27 +120,29 @@
         &__title {
           margin: 0;
           padding-top: 40px;
-          font-weight: $bold-font-weight;
-          font-size: 40px;
-          line-height: 52px;
           padding-left: $mobile-padding-left;
+
+          font-size: 40px;
+          font-weight: $bold-font-weight;
+          line-height: 52px;
           text-transform: uppercase;
 
-          @include onTablet {
-            padding-left: 34px;
+          @include on-tablet {
             grid-column: 1 / 5;
+            gap: 0;
+
             max-width: 339px;
+            padding-left: 34px;
+
             font-size: 48px;
             line-height: 62px;
-            gap: 0;
           }
 
-          @include onDesktop {
-            max-width: 378px;
-            font-size: 62px;
-            line-height: 78px;
-            padding-right: 0;
+          @include on-desktop {
             gap: 0;
+
+            max-width: 378px;
+            padding-right: 0;
             padding-left: 123px;
 
             font-size: 62px;
@@ -141,22 +151,24 @@
         }
 
         &__text {
-          font-weight: 400;
-          font-size: 16px;
-          line-height: 24px;
-          padding-left: $mobile-padding-left;
-          padding-right: $mobile-padding-right;
           align-items: center;
-          margin: 0;
 
-          @include onTablet {
+          margin: 0;
+          padding-right: $mobile-padding-right;
+          padding-left: $mobile-padding-left;
+
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+
+          @include on-tablet {
             max-width: 249px;
             padding-right: 0;
           }
 
-          @include onDesktop {
-            padding-left: 123px;
+          @include on-desktop {
             max-width: 276px;
+            padding-left: 123px;
           }
         }
       }
@@ -170,7 +182,7 @@
       }
     }
 
-    @include onTablet {
+    @include on-tablet {
 
       &__buttons {
         display: flex;
@@ -179,22 +191,22 @@
 
 
         &__specs {
-          border: none;
-          background: none;
           padding-top: 40px;
           padding-left: 223px;
+          border: none;
+          background: none;
 
           &__text {
-            color: $color-text-grey;
             font-family: $main-text-font-family;
             font-weight: 300;
             line-height: 100%;
+            color: $color-text-grey;
 
             &:hover {
+              cursor: pointer;
               transform: scale(1.2);
               font-weight: 400;
               color: $color-text;
-              cursor: pointer;
 
             }
           }
@@ -202,9 +214,9 @@
 
 
         &__en-ua span {
-          padding-top: 40px;
-          min-width: 20px;
           display: inline-block;
+          min-width: 20px;
+          padding-top: 40px;
         }
 
         &__en-ua {
@@ -217,33 +229,38 @@
 
           &__text,
           &__text-1 {
-            color: $color-text-light-grey;
             font-family: $main-text-font-family;
             font-weight: 300;
             line-height: 100%;
+            color: $color-text-light-grey;
 
             &:hover {
+              cursor: pointer;
               font-weight: 400;
               color:$color-text;
-              cursor: pointer;
             }
           }
         }
 
 
         &__buy {
+          cursor: pointer;
+
+          bottom: 30px;
+
           display: flex;
           align-items: center;
           justify-content: center;
-          text-align: center;
-          bottom: 30px;
+
           width: 100px;
           height: 48px;
-          background-color:$color-text;
           margin-top: 29px;
-          cursor: pointer;
 
-          @include onDesktop {
+          text-align: center;
+
+          background-color:$color-text;
+
+          @include on-desktop {
             margin-right: 123px;
             margin-left: 10px;
           }
@@ -254,11 +271,11 @@
 
           &__text {
             font-family: $main-text-font-family;
-            font-weight: 500;
             font-size: 12px;
+            font-weight: 500;
             line-height: 100%;
-            text-align: center;
             color: #F7F7F7;
+            text-align: center;
           }
         }
       }

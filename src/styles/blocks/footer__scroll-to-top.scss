@@ -1,36 +1,41 @@
-@include onMobile {
+@include on-mobile {
   .footer__scroll-to-top {
     display: none;
   }
 }
 
-@include onTablet {
+@include on-tablet {
   .footer__scroll-to-top {
+    cursor: pointer;
+
     position: absolute;
-    bottom: 170px;
     right: 34px;
-    width: 50px;
-    height: 50px;
-    background-color: transparent;
-    border: none;
-    border-radius: 50%;
+    bottom: 170px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+
     opacity: 1;
+    background-color: transparent;
+
     transition: opacity 0.3s, transform 0.3s;
 
-    @include onDesktop {
-      bottom: 197px;
+    @include on-desktop {
       right: 123px;
+      bottom: 197px;
       width: 50px;
       height: 50px;
     }
 
     &.show {
-      opacity: 1;
       transform: translateY(0);
+      opacity: 1;
     }
 
     &:hover {

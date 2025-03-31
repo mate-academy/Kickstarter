@@ -1,38 +1,42 @@
-@include onMobile {
+@include on-mobile {
   .picture {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     &__img {
-      background-image: url(/images/picture/picture--mobile.png);
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
+      width: 296px;
+      height: 195px;
       margin-top: 110px;
       padding: 0;
-      height: 195px;
-      width: 296px;
 
-      @include onTablet {
-        background-image: url(/images/picture/picture--tablet.png);
+      background-image: url(/images/picture/picture--mobile.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+
+      @include on-tablet {
+        width: 700px;
+        height: 430px;
         margin-top: 140px;
         padding: 0;
-        height: 430px;
-        width: 700px;
+
+        background-image: url(/images/picture/picture--tablet.png);
       }
 
-      @include onDesktop {
-        background-image: url(/images/picture/picture--desktop.png);
+      @include on-desktop {
+        width: 846px;
+        height: 520px;
         margin-top: 170px;
         padding: 0;
-        height: 520px;
-        width: 846px;
+
+        background-image: url(/images/picture/picture--desktop.png);
       }
+
+      @include hover(transform, scale(1.2));
 
       &:hover{
         cursor: pointer;
-        @include hover(transform, scale(1.2));
       }
     }
   }
