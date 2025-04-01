@@ -1,0 +1,131 @@
+@include on-mobile {
+  .menu {
+    height: 100vh;
+    font-weight: 400;
+    text-transform: uppercase;
+    background-color: #F7F7F7;
+
+    &__top {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__content {
+
+      @include content-padding-inline;
+
+      padding-top: 31px;
+
+      @include on-tablet {
+        padding-top: 40px;
+      }
+
+      @include on-desktop {
+        padding-top: 198px;
+      }
+    }
+
+    &__button {
+      padding: 0;
+
+      @include on-tablet {
+        display: none;
+      }
+
+      &__specs {
+        min-width: 50px;
+        margin-top: 50px;
+        padding: 0;
+        border: none;
+
+        background: none;
+
+        @include on-tablet {
+          display: none;
+        }
+
+        &__text {
+          font-family: $main-text-font-family;
+          font-weight: 300;
+          line-height: 100%;
+          color: $color-text-grey;
+
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+            font-weight: 400;
+            color: $color-text;
+
+          }
+        }
+      }
+
+      &__en-ua span {
+        display: inline-block;
+        min-width: 20px;
+        padding: 0;
+      }
+
+      &__en-ua {
+        margin-left: 20px;
+        border: none;
+        background: none;
+
+        &__text,
+        &__text-1 {
+          font-family: $main-text-font-family;
+          font-weight: 300;
+          line-height: 100%;
+          color: $color-text-light-grey;
+
+
+          &:hover {
+            cursor: pointer;
+            font-weight: 400;
+            color: $color-text;
+          }
+        }
+      }
+
+      &__buy {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: none;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 260px;
+        height: 48px;
+
+        text-align: center;
+
+        background-color: $color-text;
+
+        &:hover {
+          background-color: #131313;
+        }
+
+        @include on-tablet {
+          display: none;
+        }
+
+        &__text {
+          font-family: $main-text-font-family;
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 100%;
+          color: #F7F7F7;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .page:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}

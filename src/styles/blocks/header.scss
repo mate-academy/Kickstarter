@@ -1,0 +1,300 @@
+@include on-mobile {
+  .header {
+    width: 100%;
+    height: 100%;
+
+    &__logo {
+      padding-top: 25px;
+      padding-left: $mobile-padding-left;
+
+      @include hover(transform, scale(1.2));
+
+      @include on-tablet {
+        padding-top: 40px;
+      }
+
+      @include on-desktop {
+        padding-top: 42px;
+        padding-left: 123px;
+      }
+    }
+
+    &__top {
+      display: flex;
+      justify-content: space-between;
+
+      &__tablet {
+        display: flex;
+        gap: 30px;
+        justify-content: flex-end;
+      }
+    }
+
+    &__info {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      align-items: center;
+
+      margin: 0;
+      padding: 0;
+      padding-right: $mobile-padding-right;
+
+      @include on-tablet {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        align-items: center;
+
+        margin-top: 0;
+        margin-top: 142px;
+
+      }
+
+      @include on-desktop {
+        gap: 0;
+        margin-top: 90px;
+      }
+
+      &__img {
+        grid-row: 1;
+
+        width: 100%;
+        height: 245px;
+        padding: 0;
+
+        background-image: url(/images/header/header-img-mobile.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+
+
+        @include on-tablet {
+          @include page-grid;
+
+          grid-column: 2 / 3;
+
+          box-sizing: border-box;
+          width: 430px;
+          height: 317px;
+          padding: 0;
+
+          background-image: url(/images/header/header-img-tablet.png);
+          background-position: center;
+          background-size: contain;
+        }
+
+        @include on-desktop {
+          grid-template-columns: 1fr 1fr 2fr;
+          gap: 0;
+
+          box-sizing: border-box;
+          width: 816px;
+          height: 464px;
+          margin-top: 90px;
+          padding: 0;
+
+          background-image: url(/images/header/header-img-desktop.png);
+        }
+      }
+
+      &__data {
+        display: flex;
+        grid-row: 2;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+
+        @include on-tablet {
+          display: flex;
+          grid-column: 1 / 2;
+          grid-row: 1;
+          align-items: flex-start;
+
+          padding: 0;
+
+          text-align: left;
+        }
+
+
+        &__title {
+          margin: 0;
+          padding-top: 40px;
+          padding-left: $mobile-padding-left;
+
+          font-size: 40px;
+          font-weight: $bold-font-weight;
+          line-height: 52px;
+          text-transform: uppercase;
+
+          @include on-tablet {
+            grid-column: 1 / 5;
+            gap: 0;
+
+            max-width: 339px;
+            padding-left: 34px;
+
+            font-size: 48px;
+            line-height: 62px;
+          }
+
+          @include on-desktop {
+            gap: 0;
+
+            max-width: 378px;
+            padding-right: 0;
+            padding-left: 123px;
+
+            font-size: 62px;
+            line-height: 78px;
+          }
+        }
+
+        &__text {
+          align-items: center;
+
+          margin: 0;
+          padding-right: $mobile-padding-right;
+          padding-left: $mobile-padding-left;
+
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+
+          @include on-tablet {
+            max-width: 249px;
+            padding-right: 0;
+          }
+
+          @include on-desktop {
+            max-width: 276px;
+            padding-left: 123px;
+          }
+        }
+      }
+    }
+
+    &__buttons {
+      display: none;
+
+      &__buy {
+        display: none;
+      }
+    }
+
+    @include on-tablet {
+
+      &__buttons {
+        display: flex;
+        gap: 30px;
+        padding: 0;
+
+
+        &__specs {
+          padding-top: 40px;
+          padding-left: 223px;
+          border: none;
+          background: none;
+
+          &__text {
+            font-family: $main-text-font-family;
+            font-weight: 300;
+            line-height: 100%;
+            color: $color-text-grey;
+
+            transition: color 0.3s ease-in-out, letter-spacing 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+
+
+            &:hover {
+              cursor: pointer;
+              color: $color-text;
+              font-weight: 400;
+              letter-spacing: 0.5px;
+              transform: scale(1.05);
+
+
+            }
+          }
+        }
+
+
+        &__en-ua span {
+          display: inline-block;
+          min-width: 20px;
+          padding-top: 40px;
+        }
+
+        &__en-ua {
+          border: none;
+          background: none;
+          white-space: nowrap;
+
+
+          &__slash {
+            min-width: 5px;
+          }
+
+          &__text,
+          &__text-1 {
+            font-family: $main-text-font-family;
+            font-weight: 300;
+            line-height: 100%;
+            color: $color-text-light-grey;
+            transition: color 0.3s ease-in-out, letter-spacing 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+
+            &:hover {
+              cursor: pointer;
+              font-weight: 400;
+              letter-spacing: 0.5px;
+              transform: scale(1.05);
+              color:$color-text;
+            }
+          }
+        }
+
+
+        &__buy {
+          cursor: pointer;
+          border: none;
+
+          bottom: 30px;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          width: 100px;
+          height: 48px;
+          margin-top: 29px;
+
+          text-align: center;
+
+          background-color:$color-text;
+
+          transition: background-color 0.5s ease-in-out;
+
+          @include on-desktop {
+            margin-right: 123px;
+            margin-left: 10px;
+          }
+
+
+          &:hover {
+            background-color: #131313;
+          }
+
+          &__text {
+            font-family: $main-text-font-family;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 100%;
+            color: #F7F7F7;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

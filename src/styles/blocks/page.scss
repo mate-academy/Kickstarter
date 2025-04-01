@@ -1,0 +1,50 @@
+@include on-mobile {
+  .page {
+    scroll-behavior: smooth;
+
+    font-family: $text-font-family;
+    font-size: 14px;
+    font-weight: 400;
+    color: $color-text;
+
+    background-color: #F7F7F7;
+
+    &__body {
+      margin: 0;
+      padding: 0;
+    }
+
+    &__menu {
+      pointer-events: none;
+
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      transform: translate(-100%);
+
+      opacity: 0;
+
+      transition: all 0.3s;
+
+      &:target {
+        pointer-events: all;
+        transform: translate(0);
+        opacity: 1;
+      }
+
+      @include on-desktop{
+        display: none;
+      }
+    }
+  }
+
+  @font-face {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/Roboto-Regular-webfont.woff') format('woff');
+  }
+}
+
+

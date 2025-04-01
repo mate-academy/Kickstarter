@@ -1,0 +1,80 @@
+@mixin hover($property, $toValue) {
+  transition: $property 0.3s ease-in-out;
+  &:hover {
+    #{$property}: $toValue;
+  }
+}
+
+
+@mixin on-mobile{
+  @media (min-width: $mobile-min-width) {
+    @content;
+  }
+}
+
+@mixin on-tablet{
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop{
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline(){
+  padding-inline: 30px;
+
+@include on-tablet {
+  padding-inline: 34px;
+}
+}
+
+@mixin page-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  column-gap: 50px;
+
+  padding-right: 30px;
+  padding-left: 30px;
+
+
+  @include on-tablet{
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
+    column-gap: 70px;
+
+    padding-right: 34px;
+    padding-left:34px;
+  }
+
+  @include on-desktop{
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+    column-gap: 72px;
+
+    padding-right: 123px;
+    padding-left: 123px;
+
+  }
+}
+
+@mixin validation {
+  &:placeholder-shown {
+		border: 1px solid #828282;
+	}
+	&:focus {
+		border: 1px solid #0C797A;
+	}
+	&:focus:invalid:placeholder-shown {
+		border: 1px solid #0C797A;
+	}
+	&:focus:invalid:not(:placeholder-shown) {
+		border: 1px solid #EB5757;
+    font-family: Inter, sans-serif;
+    color: #EB57574D;
+	}
+}

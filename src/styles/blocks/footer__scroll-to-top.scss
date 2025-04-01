@@ -1,0 +1,56 @@
+@include on-mobile {
+  .footer__scroll-to-top {
+    display: none;
+  }
+}
+
+@include on-tablet {
+  .footer__scroll-to-top {
+    cursor: pointer;
+
+    position: absolute;
+    right: 34px;
+    bottom: 170px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+
+    opacity: 1;
+    background-color: transparent;
+
+    transition: opacity 0.3s, transform 0.3s;
+
+    @include on-desktop {
+      right: 123px;
+      bottom: 197px;
+      width: 50px;
+      height: 50px;
+    }
+
+    &.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    & img {
+      width: 24px;
+      height: 20px;
+    }
+  }
+}
+
+body:has(:not(:root)) {
+  .scroll-to-top {
+    opacity: 1;
+  }
+}
