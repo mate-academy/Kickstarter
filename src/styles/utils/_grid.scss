@@ -1,1 +1,53 @@
-// TODO: Add layout-related styles here
+@use 'media' as *;
+
+// Domyślny układ: 2 kolumny na mobile, 7 na tablet, 12 na desktop
+@mixin grid() {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, 185px);
+  gap: 20px;
+
+  @include for-tablet() {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  @include for-desktop() {
+    grid-template-columns: repeat(12, 63px);
+  }
+}
+
+// Grid z daną liczbą kolumn
+@mixin grid-columns($columns, $gap: 2rem) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Grid z autoszerokościami
+@mixin grid-auto($min: 250px, $gap: 2rem) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
+  gap: $gap;
+}
+
+// Grid z ręcznie określonym template
+@mixin grid-template($template, $gap: 2rem) {
+  display: grid;
+  grid-template-columns: $template;
+  gap: $gap;
+}
+
+// 🔥 BONUS: pełna kontrola
+@mixin grid-responsive($mobile, $tablet, $desktop, $gap: 2rem) {
+  display: grid;
+  grid-template-columns: repeat($mobile, 1fr);
+  gap: $gap;
+
+  @include for-tablet() {
+    grid-template-columns: repeat($tablet, 1fr);
+  }
+
+  @include for-desktop() {
+    grid-template-columns: repeat($desktop, 1fr);
+  }
+}

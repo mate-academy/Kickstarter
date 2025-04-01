@@ -1,1 +1,83 @@
-// TODO: Add layout-related styles here
+@use '../utils/variables' as *;
+@use '../utils/media' as *;
+@use '../utils/grid' as *;
+@use '../utils/helpers' as *;
+
+
+.header {
+  justify-content: center;
+  background-color: black;
+  background-image: url('../images/mobile_banner.png');
+  background-size: cover;
+  box-sizing: border-box;
+  background-position: center;
+  min-height: 100vh;
+
+
+  width: 100vw;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include grid();
+  grid-template-rows: 1fr 1fr; // top, spacer, bottom
+  align-items: center;
+
+
+.header__button {
+  // grid-column: 1 / 2;
+  // grid-row: 2;
+  //   align-self: end;
+
+}
+
+  &__logo {
+    display: grid;
+    grid-column: 1 / 1;
+    grid-row: 1;
+    margin-top: 16px;
+    align-self: start;
+
+
+    @include for-tablet() {
+      grid-column: 1 / span 2;
+    }
+
+    @include for-desktop() {
+      grid-column: 1 / span 3;
+    }
+
+  }
+  &__title {
+    display: grid;
+    grid-column: 1 / 2;
+    grid-row: 2;
+    align-self: end;
+    margin-bottom: 156px;
+  }
+
+  &__burger {
+  display: grid;
+  grid-column: 2 / 3;
+  grid-row: 1;
+  margin-top: 28px;
+  align-self: start;
+  justify-self: end;
+  }
+
+
+
+
+
+
+
+    &__nav {
+      display: none;
+
+      @include for-tablet() {
+        display: block;
+      }
+    }
+  }
+

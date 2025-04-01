@@ -1,1 +1,132 @@
-// TODO: Add layout-related styles here
+.button {
+  position: relative;
+
+  display: grid;
+
+  cursor: pointer;
+
+  padding: 1rem 2.5rem;
+
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: $color-light;
+  text-align: center;
+  overflow: hidden;
+
+  border: none;
+
+  background: linear-gradient(135deg, $color-primary, color.adjust($color-primary, $lightness: -10%));
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  @include rounded(0.5rem);
+
+  @include for-tablet {
+    display: inline-block;
+  }
+
+  &::before {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+
+    width: 150%;
+    height: 100%;
+
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.15) 20%,
+      rgba(255, 255, 255, 0.05) 40%,
+      transparent 60%
+    );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.6s ease;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  &:focus {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  &--secondary {
+    display: grid;
+
+    cursor: pointer;
+
+    padding: 1rem 2.5rem;
+
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: $color-light;
+    text-align: center;
+    overflow: hidden;
+
+    border: 2px solid $color-primary;
+
+    background: linear-gradient(135deg, $color-primary, color.adjust($color-primary, $lightness: -10%));
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    @include rounded(0.5rem);
+
+    &:hover {
+      color: $color-light;
+      background-color: $color-primary;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &--wide {
+    display: block;
+    width: 100%;
+  }
+
+  &--first {
+    cursor: pointer;
+
+    padding: 1rem 2.5rem;
+
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: $color-light;
+    text-align: center;
+    overflow: hidden;
+
+    border: none;
+
+    background: linear-gradient(135deg, $color-primary, color.adjust($color-primary, $lightness: -10%));
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    @include rounded(0.5rem);
+
+    grid-column: 1 / 2;
+    grid-row: 2;
+    align-self: end;
+  }
+}
