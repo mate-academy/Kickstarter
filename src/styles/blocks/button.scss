@@ -1,67 +1,76 @@
 .button {
-  background: linear-gradient(135deg, #f8b500, #f29610, #e6890e);
-  background-size: 200% 200%;
   border: 2px solid transparent;
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  color: black;
+
+  background: linear-gradient(135deg, #f8b500, #f29610, #e6890e);
+  background-size: 200% 200%;
+
+  color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: 'Roboto', sans-serif;
+
+  font-family: Roboto, sans-serif;
   font-size: 18px;
   font-weight: 700;
+
   overflow: hidden;
   padding: 16px 15px;
   position: relative;
+
   text-align: center;
   text-decoration: none;
   transition: all 0.3s ease;
+
   width: 170px;
   z-index: 0;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
 }
 
 .button::before {
-  animation: prestige-shine 3.5s infinite ease-in-out;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  transform: skewX(-20deg);
+  z-index: 1;
+
   background: linear-gradient(
     120deg,
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0.3) 50%,
     rgba(255, 255, 255, 0) 100%
   );
-  content: '';
-  height: 100%;
-  left: -50%;
-  position: absolute;
-  top: 0;
-  transform: skewX(-20deg);
-  width: 200%;
-  z-index: 1;
+
+  animation: prestige-shine 3.5s infinite ease-in-out;
 }
 
 .button::after {
-  animation: prestige-glow 5s infinite ease-in-out;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.06), transparent 70%);
-  border-radius: 12px;
   content: '';
+  position: absolute;
   inset: 0;
   opacity: 0;
-  position: absolute;
   z-index: 0;
+
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.06), transparent 70%);
+  border-radius: 12px;
+
+  animation: prestige-glow 5s infinite ease-in-out;
 }
 
 .button:hover {
-  background-position: 100% 0;
+  transform: translateY(-3px) scale(1.01);
   border-color: rgba(255, 255, 255, 0.4);
   box-shadow: 0 12px 30px rgba(242, 150, 16, 0.4);
-  transform: translateY(-3px) scale(1.015);
-  color: #1768A2;
 }
 
 .button:active {
-  border: 3px solid #1768A2;
-  box-shadow: 0 0 0 2px #f29610, inset 0 0 12px rgba(255, 255, 255, 0.15);
   transform: translateY(0) scale(0.99);
-
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px #f29610, inset 0 0 12px rgba(255, 255, 255, 0.15);
 }
 
 @keyframes prestige-shine {
