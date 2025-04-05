@@ -1,0 +1,82 @@
+.questions {
+  @include margin;
+
+  &__content {
+    row-gap: 20px;
+
+    @include grid;
+  }
+
+  &__title,
+  &__form {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__input {
+    padding: 12px 20px;
+    border: 1px solid #828282;
+    transition: outline 0.3s;
+
+    @extend %main-text;
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+
+    &:focus {
+      outline: 1px solid #0c797a;
+
+      &::placeholder {
+        color: $black-middle;
+      }
+    }
+
+    &--area {
+      resize: none;
+      height: 320px;
+    }
+
+    &--done {
+      outline: 1px solid #eb5757;
+      pointer-events: none;
+
+      &::placeholder {
+        color: #eb5757;
+      }
+    }
+  }
+
+  &__button {
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    background-color: $sea;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    @extend %button;
+
+    &:hover {
+      background-color: #0c797a;
+    }
+
+    &:disabled {
+      background-color: #cfeff0;
+      pointer-events: none;
+    }
+  }
+}

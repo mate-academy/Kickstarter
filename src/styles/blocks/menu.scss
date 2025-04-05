@@ -1,0 +1,66 @@
+.menu {
+  padding-block: 25px;
+
+  background-color: $white;
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(-100%);
+  pointer-events: none;
+  z-index: 1001;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+
+  overflow: auto;
+
+  &:target {
+    transform: translateY(0%);
+
+    opacity: 1;
+    pointer-events: all;
+
+    @include on-desktop {
+      opacity: 0;
+      transform: translateX(-100%);
+      pointer-events: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__close {
+    display: flex;
+  }
+
+  &__list {
+    flex-direction: column;
+    gap: 40px !important;
+  }
+
+  &__button {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+    width: 100%;
+    transition:
+      transform 0.3s,
+      opacity 0.3s !important;
+
+    @include on-tablet {
+      opacity: 0;
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
+  }
+}
