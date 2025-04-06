@@ -1,0 +1,51 @@
+.qoute {
+  @include margin;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  &__bg {
+    position: absolute;
+    width: 233px;
+    height: 190px;
+    top: -25%;
+  }
+
+  &__text {
+    text-align: center;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      max-width: 550px;
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      max-width: 790px;
+      margin-bottom: 30px;
+    }
+
+    @extend %qoute;
+  }
+
+  &__avatar {
+    width: 62px;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    margin-bottom: 5px;
+  }
+
+  &__secondary {
+    color: $gray;
+
+    @extend %secondary-text;
+  }
+}

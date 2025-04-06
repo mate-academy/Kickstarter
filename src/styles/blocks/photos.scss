@@ -1,0 +1,123 @@
+.photos {
+  position: relative;
+
+  &__content {
+    @include grid;
+  }
+
+  &__block {
+    grid-column: 1 / -1;
+
+    @include grid;
+    @include margin;
+
+    @include on-tablet {
+      height: 415px;
+    }
+
+    & > img {
+      display: none;
+
+      @include on-tablet {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__img {
+    grid-column: 1 / -1;
+    height: 210px;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      position: absolute;
+      width: calc(100% / 2 - 20px);
+      height: 415px;
+      z-index: 1;
+      margin-bottom: 0;
+
+      &--left {
+        left: 0;
+      }
+
+      &--right {
+        right: 0;
+      }
+    }
+
+    @include on-desktop {
+      height: 390px;
+      position: relative;
+      grid-column: span 6;
+      order: -1;
+      width: 100%;
+
+      &--right {
+        order: 1;
+      }
+    }
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include on-tablet {
+      gap: 30px;
+
+      &--left {
+        grid-column: 5 / -1;
+      }
+
+      &--right {
+        grid-column: span 4;
+      }
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+
+    & > img {
+      @include on-tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__secondary {
+    margin-bottom: 30px;
+
+    @extend %secondary-text;
+  }
+
+  &__button {
+    position: relative;
+    text-align: left;
+    color: $sea;
+    background-color: $white;
+    cursor: pointer;
+    max-width: 130px;
+
+    @extend %button;
+
+    &::before {
+      content: '';
+      width: 50px;
+      height: 1px;
+      background-color: $sea;
+      display: block;
+      position: absolute;
+      bottom: -10px;
+      transition: width 0.3s;
+    }
+
+    &:hover{
+      &::before{
+        width: 100%;
+      }
+    }
+  }
+}
