@@ -1,42 +1,42 @@
 .button {
+  cursor: pointer;
+
+  position: relative;
+  z-index: 0;
+
+  overflow: hidden;
+  display: inline-block;
+
+  width: 170px;
+  padding: 16px 15px;
   border: 2px solid transparent;
   border-radius: 12px;
-
-  background: linear-gradient(135deg, #f8b500, #f29610, #e6890e);
-  background-size: 200% 200%;
-
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
 
   font-family: Roboto, sans-serif;
   font-size: 18px;
   font-weight: 700;
-
-  overflow: hidden;
-  padding: 16px 15px;
-  position: relative;
-
+  color: #fff;
   text-align: center;
   text-decoration: none;
-  transition: all 0.3s ease;
 
-  width: 170px;
-  z-index: 0;
-
+  background: linear-gradient(135deg, #f8b500, #f29610, #e6890e);
+  background-size: 200% 200%;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 
+  transition: all 0.3s ease;
 }
 
 .button::before {
   content: '';
+
   position: absolute;
+  z-index: 1;
   top: 0;
   left: -50%;
+  transform: skewX(-20deg);
+
   width: 200%;
   height: 100%;
-  transform: skewX(-20deg);
-  z-index: 1;
 
   background: linear-gradient(
     120deg,
@@ -50,13 +50,19 @@
 
 .button::after {
   content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  z-index: 0;
 
-  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.06), transparent 70%);
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+
   border-radius: 12px;
+
+  opacity: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.06),
+    transparent 70%
+  );
 
   animation: prestige-glow 5s infinite ease-in-out;
 }
@@ -70,7 +76,9 @@
 .button:active {
   transform: translateY(0) scale(0.99);
   border: 3px solid #fff;
-  box-shadow: 0 0 0 2px #f29610, inset 0 0 12px rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 0 0 2px #f29610,
+    inset 0 0 12px rgba(255, 255, 255, 0.15);
 }
 
 @keyframes prestige-shine {
