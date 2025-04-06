@@ -37,27 +37,37 @@
       opacity: 0.5;
     }
 
+    &--area {
+      resize: none;
+      height: 130px;
+
+      @include on-tablet {
+        height: 200px;
+      }
+
+      @include on-desktop {
+        height: 130px;
+      }
+    }
+
+    &--done {
+      border-color: #eb5757;
+
+      &::placeholder {
+        color: #eb5757;
+      }
+    }
+
+
     &:focus {
-      outline: 1px solid #0c797a;
+      outline: none;
+      border-color: #0c797a;
 
       &::placeholder {
         color: $black-middle;
       }
     }
 
-    &--area {
-      resize: none;
-      height: 320px;
-    }
-
-    &--done {
-      outline: 1px solid #eb5757;
-      pointer-events: none;
-
-      &::placeholder {
-        color: #eb5757;
-      }
-    }
   }
 
   &__button {

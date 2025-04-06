@@ -58,5 +58,9 @@ form.addEventListener('submit', (e) => {
   const inputs = document.querySelectorAll('.questions__input');
   inputs.forEach((input) => input.classList.add('questions__input--done'));
   button.setAttribute('disabled', 'true');
+  setTimeout(() => {
+    button.removeAttribute('disabled');
+    inputs.forEach((input) => input.classList.remove('questions__input--done'));
+  }, 2000);
   form.reset();
 });
