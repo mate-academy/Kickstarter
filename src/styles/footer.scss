@@ -1,1 +1,93 @@
-// footer
+@use './utils/mixins' as *;
+
+.footer {
+  margin-inline: 30px;
+  @include on-tablet {
+    margin-inline: 34px;
+  }
+
+  @include on-desktop {
+    margin-inline: 123px;
+  }
+
+  &__links {
+    display: flex;
+    gap: 40px;
+    width: fit-content;
+    align-items: center;
+    margin: 0 auto;
+
+    @include on-tablet {
+      gap: 50px;
+    }
+    &__link {
+      &--icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &__cellar {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #BDBDBD;
+  }
+}
+
+.top-f {
+  @include on-tablet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+  }
+
+  &__logo {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+
+    &--img {
+      width: 184px;
+      height: 25px;
+    }
+  }
+
+  &__vector {
+    display: none;
+
+    @include on-tablet {
+      width: 24px;
+      height: 24px;
+      border: none;
+      background-color: #f7f7f7;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+    }
+
+    &--img {
+      width: 24px;
+      height: 21px;
+      display: block;
+      object-fit: contain;
+      cursor: pointer;
+
+      &:hover {
+        transition: all 0.3s ease-in-out;
+        transform: scale(1.05);
+      }
+    }
+  }
+}

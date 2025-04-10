@@ -1,0 +1,74 @@
+@use './utils/mixins' as *;
+
+.main {
+  margin-bottom: 110px;
+
+  &__nav {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: row;
+      gap: 84px;
+      width: fit-content;
+      margin: 0 auto;
+    }
+  }
+
+  &__benefits {
+    @include page-grid;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  &__about-us {
+    display: grid;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__technology {
+    display: grid;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__form {
+    @include page-grid;
+  }
+
+  &__container {
+    width: 100%;
+    padding: 0 30px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 110px;
+
+    @include on-tablet {
+      padding: 0 34px;
+      gap: 140px;
+    }
+
+    @include on-desktop {
+      padding-inline: 123px;
+      gap: 170px;
+    }
+  }
+}
