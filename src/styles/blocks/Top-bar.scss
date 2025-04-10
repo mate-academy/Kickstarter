@@ -1,0 +1,135 @@
+.top-bar {
+  display: grid;
+  grid-template-columns: 160px 32px;
+  justify-content: space-between;
+  align-items: center;
+  height: 74px;
+  padding-block-start: $padding-bloc-start-mobile;
+  margin-inline: $padding-inline-mobile;
+
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: 160px 1fr auto auto;
+    gap: 30px;
+    padding-block-start: $padding-bloc-start-tablet;
+    margin-inline: $padding-inline-tablet;
+  }
+
+  @include on-desktop {
+    grid-template-columns: 160px 1fr auto;
+    padding-block-start: $padding-bloc-start-desktop;
+    margin-inline: $padding-inline-desktop;
+  }
+
+  .logo {
+    width: 161px;
+  }
+
+  .lang-block-linc {
+    @include text-style (
+        $font-family-helvetica, $font-size-sm, $font-weight-light, falce
+    );
+    color: $text-secondary;
+    line-height: 18px;
+  }
+
+  .active {
+    color: $text-primary;
+    font-weight: $font-weight-regular;
+  }
+
+  .nav__lang-button>.lang-slash {
+    color: $text-primary;
+    font-weight: $font-weight-regular;
+  }
+
+  .lang-block-linc:hover {
+    font-weight: 400;
+  }
+
+  .buy__button {
+    display: none;
+    width: 100%;
+    height: 48px;
+    color: #eee;
+    background-color: $text-primary;
+    line-height: 14px;
+
+    @include text-style (
+        $font-family-inter, $font-size-xs, $font-weight-bold, true
+    );
+
+    @include hover-delay(background-color);
+
+    &:hover {
+      background-color: $text-dark;
+    }
+
+    &:disabled {
+      background-color: $gray-light;
+    }
+
+    @include on-tablet {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+    }
+  }
+
+  .btn-burger-close {
+    width: 40px;
+
+    @include on-desktop {
+      display: none;
+    }
+
+    .icon-burger-menu {
+      width: 100%;
+    }
+  }
+}
+
+.page__list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-block-start: 30px;
+}
+
+.nav__link {
+  @include text-style(
+      $font-family-inter, $font-size-sm, $font-weight-regular, true
+  );
+  color: $text-secondary;
+  line-height: 150%;
+
+  @include hover-delay(color) {
+    color: $text-dark;
+    font-weight: $font-weight-bold;
+  }
+}
+
+.lang-button,
+.nav__lang-button {
+  .lang-en {
+    color: $text-primary;
+    font-weight: $font-weight-regular;
+    @include hover-delay(color);
+  }
+
+  .lang-ua {
+    color: $text-lang;
+    font-weight: $font-weight-light;
+    @include hover-delay(color);
+  }
+
+  @include hover-delay{
+    .lang-en {
+      color: $text-lang;
+    }
+    .lang-ua {
+      color: $text-primary;
+    }
+  }
+}

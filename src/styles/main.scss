@@ -1,7 +1,75 @@
-@import 'utils';
-@import 'fonts';
-@import 'typography';
+@import '_utils';
+@import '_fonts';
+@import '_typography';
+@import "utils/vars";
+@import 'utils/mixins';
+@import "blocks/Top-bar";
+@import "blocks/Header/Header";
+@import "blocks/Aside";
+@import "blocks/Presentation";
+@import "blocks/Benefits";
+@import "blocks/About-us";
+@import "blocks/Technology";
+@import "blocks/About-Technology";
+@import "blocks/Testimonilas";
+@import "blocks/Features";
+@import "blocks/Questions";
+@import "blocks/Footer";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  a {
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  input,
+  textarea {
+    outline: none;
+    background-color: transparent;
+    border-style: none;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
   background: $c-gray;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+
+  @include on-tablet {
+    gap: 140px;
+  }
+
+  @include on-desktop {
+    gap: 170px;
+  }
 }

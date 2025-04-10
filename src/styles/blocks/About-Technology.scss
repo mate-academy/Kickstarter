@@ -1,0 +1,119 @@
+.about,
+.technology {
+  width: 100%;
+  padding-inline: $padding-inline-mobile;
+
+  @include on-tablet {
+    padding-inline: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 27% auto;
+    column-gap: 20px;
+
+    .img-box {
+      grid-area: img-box;
+    }
+
+    .title {
+      grid-area: title;
+    }
+
+    .description-box {
+      grid-area: description-box;
+    }
+  }
+
+  @include on-desktop {
+    grid-template-columns: 49% 49%;
+    grid-template-rows: 40% auto;
+    column-gap: 30px;
+    padding-inline: $padding-inline-desktop;
+    margin-inline-start: 0;
+  }
+
+  .title {
+    @include text-style (
+        $font-family-inter, $font-size-4xl, $font-weight-bold, true
+    );
+    column-gap: 30px;
+    line-height: 120%;
+    color: $text-primary;
+    margin-block-end: 30px;
+
+    @include on-tablet {
+      @include text-style (
+          $font-family-inter, false, $font-weight-bold, true
+      );
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    @include on-desktop {
+      height: 140px;
+      font-size: clamp(2rem, 4.5vw, 4.8rem);
+    }
+  }
+
+  .img-box {
+    width: 100%;
+    aspect-ratio: 260 / 210;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-block-end: 20px;
+
+    @include on-tablet {
+      aspect-ratio: 374 / 415;
+    }
+
+    @include on-desktop {
+      aspect-ratio: 582 / 388;
+    }
+  }
+
+  .description-box {
+    .description {
+      @include text-style (
+          $font-family-inter, $font-size-sm, $font-weight-regular, false
+      );
+      line-height: 150%;
+      color: $text-muted;
+      margin-block-end: 30px;
+
+      @include on-tablet {
+        @include text-style (
+            $font-family-inter, false, $font-weight-regular, false
+        );
+        font-size: clamp(0.8rem, 2vw, 2rem);
+      }
+
+      @include on-desktop {
+        font-size: clamp(0.3rem, 1.2vw, 1.2rem);
+      }
+    }
+
+    .description-linc {
+      @include text-style (
+          $font-family-inter, $font-size-xs, $font-weight-bold, true
+      );
+      display: inline-block;
+      line-height: 115%;
+      color: $primary-color;
+      &::after {
+        content: "";
+        display: block;
+        width: 43%;
+        height: 1px;
+        background-color: $primary-color;
+        margin-top: 5px;
+
+        @include on-desktop {
+          width: 55%;
+        }
+      }
+
+      &:hover::after  {
+        width: 100%;
+      }
+    }
+  }
+}

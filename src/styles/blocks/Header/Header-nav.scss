@@ -1,0 +1,39 @@
+.page-menu {
+  height: 100%;
+  gap: 84px;
+  margin-inline-end: 40px;
+
+  @include on-desktop {
+    justify-content: center;
+    height: 74px;
+  }
+
+  .page__list {
+    @include on-desktop {
+      flex-direction: row;
+      gap: 84px;
+    }
+
+    .nav__link {
+      color: $text-primary;
+      line-height: 150%;
+      @include text-style (
+          $font-family-inter, false, $font-weight-regular, true
+      );
+      font-size: clamp(14px, 1vw, 28px);
+
+      @include hover-delay(color) {
+        color: $text-dark;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}
+
+.page-menu.header__page-menu {
+  display: none;
+
+  @include on-desktop {
+    display: flex;
+  }
+}

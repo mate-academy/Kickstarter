@@ -1,0 +1,131 @@
+.questions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-inline: $padding-inline-mobile;
+  margin-block-end: 110px;
+
+  @include on-tablet {
+    flex-direction: row;
+    gap: 20px;
+    padding-inline: $padding-inline-tablet;
+    margin-block-end: 140px;
+  }
+
+  @include on-desktop {
+    gap: 30px;
+    padding-inline: $padding-inline-desktop;
+    margin-block-end: 170px;
+  }
+
+  .questions__title {
+    @include text-style(
+        $font-family-inter, $font-size-4xl, $font-weight-bold, true
+    );
+    color: $text-primary;
+    line-height: 130%;
+    margin-block-end: 20px;
+
+    @include on-tablet {
+      width: 100%;
+      font-size: clamp(1rem, 4vw, 4rem);
+    }
+  }
+
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      width: 100%;
+    }
+
+    .input-email {
+      width: 100%;
+      height: 48px;
+      padding: 12px 20px;
+      margin-block-end: 20px;
+      border: 1px solid $text-lang;
+
+      &::placeholder {
+        @include placeholder-style;
+      }
+
+      @include hover-delay(border-color) {
+        border-color: #318CE7;
+      }
+    }
+
+    .error-message {
+      display: none;
+      width: 100%;
+      color: #fff;
+      background-color: orangered;
+      border: 1px solid;
+      padding: 5px;
+      margin-bottom: 10px;
+
+      font-size: 14px;
+    }
+
+    .success-message {
+      color: white;
+      background-color: #4caf50;
+      text-align: center;
+      opacity: 0;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      transform: translateY(-10px);
+      transition:
+        opacity 0.5s ease-in-out,
+        transform 0.5s ease-in-out;
+    }
+
+    .success-message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .textarea {
+      width: 100%;
+      min-height: 128px;
+      resize: none;
+      padding: 12px 20px;
+      margin-block-end: 30px;
+      border: 1px solid $text-lang;
+
+      &::placeholder {
+        @include placeholder-style;
+      }
+
+      @include hover-delay(border-color) {
+        border-color: #318CE7;
+      }
+    }
+
+    .form__btn {
+      @include text-style(
+          $font-family-inter, $font-size-xs, $font-weight-bold, true
+      );
+      width: 102px;
+      height: 40px;
+      color: #fff;
+      background-color: $primary-color;
+
+      @include hover-delay(background-color) {
+        background-color: #0C797A;
+      }
+
+      &:disabled {
+        background-color: #0C797A;
+      }
+
+      @include on-desktop {
+        width: 124px;
+        height: 48px;
+      }
+    }
+  }
+}
