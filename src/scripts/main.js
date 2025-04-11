@@ -1,33 +1,70 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const enBtn = document.querySelector('.top__lang--item-en');
-  const uaBtn = document.querySelector('.top__lang--item-ua');
+function animateSections() {
+  const sections = document.querySelectorAll('.section--left, .section--right');
 
-  async function changeLang(lang) {
-    try {
-      const response = await fetch(`../translate/${lang}.json`);
+  if (!sections.length) return;
 
-      if (!response.ok) {
-        console.log('Error');
+  function isSectionVisible(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top <= window.innerHeight * 0.75 && rect.bottom >= 0;
+  }
+
+  function handleScroll() {
+    sections.forEach((section) => {
+      if (isSectionVisible(section)) {
+        section.classList.add('animated');
+      } else {
+        section.classList.remove('animated');
       }
+    });
+  }
 
-      const texts = await response.json();
+  handleScroll();
 
-      Object.entries(texts).forEach(([key, text]) => {
-        document.querySelectorAll(`[data-key="${key}"]`).forEach((el) => {
-          el.textContent = text;
-        });
-      });
+  let isScrolling;
+  window.addEventListener(
+    'scroll',
+    () => {
+      window.clearTimeout(isScrolling);
+      isScrolling = setTimeout(handleScroll, 50);
+    },
+    { passive: true },
+  );
+}
 
-      localStorage.setItem('lang', lang);
-    } catch (error) {
-      console.log('Error');
+document.addEventListener('DOMContentLoaded', animateSections);
+
+function handleScrollButton() {
+  const scrollButton = document.querySelector('.scroll-button');
+  const benefitsSection = document.querySelector('.benefits');
+
+  if (!scrollButton || !benefitsSection) return;
+
+  function checkVisibility() {
+    const benefitsRect = benefitsSection.getBoundingClientRect();
+    const scrollPosition = window.scrollY || window.pageYOffset;
+    const isBenefitsPassed = scrollPosition > benefitsRect.bottom;
+    const isAboveBenefits = scrollPosition < benefitsRect.top;
+
+    if (isBenefitsPassed) {
+      scrollButton.classList.add('scroll-button--active');
+    } else if (isAboveBenefits) {
+      scrollButton.classList.remove('scroll-button--active');
     }
   }
 
-  enBtn?.addEventListener('click', () => changeLang('en'));
-  uaBtn?.addEventListener('click', () => changeLang('ua'));
+  checkVisibility();
 
-  changeLang(localStorage.getItem('lang') || 'en');
-});
+  let isScrolling;
+  window.addEventListener(
+    'scroll',
+    () => {
+      clearTimeout(isScrolling);
+      isScrolling = setTimeout(checkVisibility, 50);
+    },
+    { passive: true },
+  );
+}
+
+document.addEventListener('DOMContentLoaded', handleScrollButton);

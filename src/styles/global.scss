@@ -21,4 +21,70 @@ html {
 body {
   margin: 0;
   background-color: #F7F7F7;
+  overflow-x: hidden;
+}
+
+.scroll-button {
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid #828282;
+  border-radius: 50%;
+  background-color: #f7f7f7;
+  width: 45px;
+  height: 45px;
+  position: fixed;
+  bottom: 70px;
+  right: 30px;
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s ease, opacity 0.5s ease, border-color 0.3s;
+
+  &:hover {
+    border-color: #cfeff0;
+  }
+
+  &-path {
+    transition: fill 0.3s;
+  }
+
+  &:hover &-path {
+    fill: #0db2b3;
+  }
+
+  @include on-tablet {
+    right: 45px;
+  }
+
+  @include on-desktop {
+    bottom: 70px;
+    right: 133px;
+  }
+
+  &--active {
+    transform: translateY(0);
+    transition: transform 0.4s;
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.section--left {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.section--right {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+.section--left.animated, .section--right.animated {
+  opacity: 1;
+  transform: translateX(0);
 }
