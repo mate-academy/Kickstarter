@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-env browser */
 
 function animateSections() {
   const sections = document.querySelectorAll('.section--left, .section--right');
