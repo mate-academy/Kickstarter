@@ -1,17 +1,48 @@
+@use '../utils/mixins' as *;
+@use 'sass:color';
+
 .why {
   display: flex;
   flex-direction: column;
-
+  gap: 50px;
+  padding: 30px 25px;
   box-sizing: border-box;
   border-radius: 15px;
-
   background-color: #0b0c0b;
 
-  &__content {
-    display: flex;
-    align-items: center;
+  @include for-laptop {
+    flex-direction: row;
     justify-content: space-between;
-    margin: 20px 20px 70px;
+  }
+
+  @include for-desktop {
+    flex-direction: row;
+    justify-content: space-between;
+
+  }
+
+  &__block {
+    flex: 1 1 100%;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #111111;
+    text-align: center;
+
+
+    @include for-laptop {
+      flex: 1 1 33%;
+      max-width: 33%;
+
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    align-items: center;
+    gap: 20px;
   }
 
   &__image {
@@ -24,18 +55,19 @@
     font-family: Roboto, sans-serif;
     font-size: 28px;
     font-weight: 700;
-    font-style: normal;
     line-height: 28px;
     letter-spacing: -0.02em;
+    text-align: left;
 
     &--secondary {
       margin-right: 90px;
     }
   }
 
-
-
   &__description {
-    padding: 0 20px;
+    padding: 0 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left;
   }
 }

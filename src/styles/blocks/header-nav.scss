@@ -1,13 +1,12 @@
 @use '../utils/mixins' as *;
+@use 'sass:color';
 
 .header-nav {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  padding: 25px 20px;
-
   background-color: #0b0c0b;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 20px;
 
   @include for-minitablet {
     padding: 20px 40px;
@@ -18,64 +17,69 @@
   }
 
   @include for-desktop {
-    padding: 20px 40px;
+    align-items: center;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    padding: 20px 40px;
 
+      position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
   }
-&__logo {
-width: 229px;
-}
 
-&__burger {
+  &__logo {
+    width: 229px;
+  }
 
-  @include for-desktop {
-    min-width: 100vw;
-    font-size: 16px;
-    background-image: url(../images/header_drewniak_desctop2.webp);
+  &__burger {
+    @include for-desktop {
+      background-image: url(../images/header_drewniak_desctop2.webp);
+      display: none;
+      font-size: 16px;
+      min-width: 100vw;
+    }
+  }
+
+  &__item {
+    text-align: center;
+  }
+
+  &__links {
     display: none;
-  }
-}
-&__item {
 
-  text-align: center;
 
-}
-&__links {
-  display: flex;
-  gap: 25px;
-  @include for-desktop {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 8px;
+    @include for-desktop {
+      display: flex;
+      gap: 25px;
+      margin-top: 8px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
-}
+  &__cta {
+    display: none;
 
-&__cta {
-  display: none;
+    @include for-desktop {
+      background-color: #f29610;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 600;
+      margin-left: 40px;
+      padding: 10px 24px;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease;
+    }
 
-  @include for-desktop {
-    display: inline-block;
-    background-color: #f29610;
-    color: #fff;
-    font-weight: 600;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-left: 40px;
-    font-size: 16px;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: color.adjust(#f29610, $lightness: -10%);
+    }
   }
-
-  &:hover {
-    background-color: darken(#f29610, 10%); // jeśli masz SCSS
-    // lub ręcznie:
-    // background-color: #c87c0e;
-  }
-}
 }
