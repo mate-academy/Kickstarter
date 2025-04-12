@@ -19,8 +19,63 @@
 
   @include for-desktop {
     padding: 20px 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+  }
+&__logo {
+width: 229px;
+}
+
+&__burger {
+
+  @include for-desktop {
+    min-width: 100vw;
+    font-size: 16px;
+    background-image: url(../images/header_drewniak_desctop2.webp);
+    display: none;
+  }
+}
+&__item {
+
+  text-align: center;
+
+}
+&__links {
+  display: flex;
+  gap: 25px;
+  @include for-desktop {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
   }
 
-  // &__item {
-  // }
+}
+
+&__cta {
+  display: none;
+
+  @include for-desktop {
+    display: inline-block;
+    background-color: #f29610;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 40px;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+
+  &:hover {
+    background-color: darken(#f29610, 10%); // jeśli masz SCSS
+    // lub ręcznie:
+    // background-color: #c87c0e;
+  }
+}
 }
