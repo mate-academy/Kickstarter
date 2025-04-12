@@ -1,23 +1,42 @@
 @use '../utils/mixins' as *;
 @use 'sass:color';
+
 .wrapper {
+  background-color: #111;
+  border-radius: 15px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin: 50px 0;
-  border-radius: 15px;
-  background-color: #111;
-  @include for-desktop {
-    width: 532px;
-    background-color: #f30e0e;
+  gap: 50px;
+  padding: 30px 25px;
+
+  @include for-laptop {
+    flex-direction: row;
+    justify-content: space-between;
   }
+
+  @include for-desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 40vw;
+  }
+
+  &__comparison {
+    @include for-desktop {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
   &--second {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
-
     margin-top: 15px;
 
-
+    @include for-desktop {
+      margin-top: 50px;
+    }
   }
 }

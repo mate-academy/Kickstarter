@@ -1,26 +1,49 @@
+@use '../utils/mixins' as *;
+@use 'sass:color';
+
 .comparison {
   display: flex;
   justify-content: center;
   padding: 20px;
 
+  &__image {
+    @include for-desktop {
+      display: flex;
+      width: 1060px;
+    }
+  }
+
   &__figure {
-    margin-bottom: 50px;
     background-position: center;
     background-size: cover;
+    margin-bottom: 50px;
   }
 
   &__caption {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
-
     line-height: 20px;
     text-align: center;
-   }
+
+    @include for-desktop {
+      font-family: 'roboto', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 28px;
+      margin: 0 0 130px;
+      text-align: justify;
+    }
+  }
 
   &__check {
-    display: flex;
     align-items: center;
+    display: flex;
     width: 12%;
+
+    @include for-desktop {
+      align-self: flex-start;
+      width: 5%;
+    }
   }
 }
