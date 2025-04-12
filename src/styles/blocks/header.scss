@@ -1,12 +1,19 @@
 @use '../utils/mixins' as *;
 
 .header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+display: grid;
+justify-content: center;
+
+grid-template-columns: repeat(2, 130px);
+gap: 30px;
+
+
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-between;
 
   min-height: 70vh;
-  padding: 20px 40px;
+  padding: 20px 30px;
 
   background-color: black;
   background-image: url(../images/header_drewniak_mobile3.webp);
@@ -14,21 +21,25 @@
   background-position: center center;
   background-size: cover;
 
-  @include for-minitablet {
-    min-width: 100vw;
-    padding: 30px 40px;
-    font-size: 16px;
-    background-image: url(../images/header_drewniak_desctop2.webp);
-  }
+  // @include for-minitablet {
+  //   min-width: 100vw;
+  //   padding: 30px 1px;
+  //   font-size: 16px;
+  //   background-image: url(../images/header_drewniak_desctop2.webp);
+  // }
 
-  @include for-laptop {
-    font-size: 16px;
-  }
+  // @include for-laptop {
+  //   font-size: 16px;
+  // }
 
   @include for-desktop {
+    display: grid;
+    grid-template-columns: repeat(12, 130px);
+    grid-template-rows: 1fr;
+    gap: 30px;
     min-width: 100vw;
-    margin-top: 80px;
-    padding: 0 100px 60px;
+    margin-top: 65px;
+    padding: 0 64px 60px;
 
     font-size: 16px;
 
