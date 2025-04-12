@@ -3,6 +3,7 @@
 .header {
   margin-bottom: 110px;
   margin-inline: 30px;
+  max-width: 1280px;
 
   @include on-tablet {
     margin-bottom: 140px;
@@ -11,8 +12,8 @@
 
   @include on-desktop {
     margin-top: 30px;
-    margin-inline: 123px;
     margin-bottom: 170px;
+    margin-inline: 123px;
   }
 
   &__top {
@@ -20,8 +21,8 @@
     align-items: center;
     justify-content: space-between;
 
-    height: 76px;
     box-sizing: border-box;
+    height: 76px;
     width: 100%;
 
     @include on-desktop {
@@ -39,7 +40,7 @@
     }
 
     @include on-desktop {
-      padding-top: 90px;
+      padding-top: 170px;
     }
   }
 }
@@ -76,20 +77,24 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-weight: 400;
+
     font-size: 14px;
-    line-height: 18px;
+    font-weight: 400;
+
     gap: 3px;
+    line-height: 18px;
+
     margin-right: 30px;
   }
 
-  /* #region specs */
   &__specs {
+    display: none;
     position: relative;
     font-size: 14px;
     line-height: 100%;
-    display: none;
+
     color: #bdbdbd;
+
     text-decoration: none;
     margin-right: 30px;
 
@@ -99,13 +104,16 @@
   }
 
   &__specs::after {
-    position: absolute;
     content: '';
-    left: 0;
+    position: absolute;
+
     bottom: -4px;
+    left: 0;
+
     width: 0;
     height: 2px;
-    background-color: #333333;
+
+    background-color: #333;
     transition: width, 0.4s, ease-out;
   }
 
@@ -116,7 +124,7 @@
   &__specs:hover {
     color: #333333;
   }
-  /* #endregion */
+
   &__lang--item-en,
   &__lang--item-ua {
     display: none;
@@ -126,7 +134,6 @@
     }
   }
 
-  /* #region item-ua */
   &__lang--item-ua {
     position: relative;
     color: #bdbdbd;
@@ -134,8 +141,8 @@
 
   &__lang--item-ua::after {
     content: '';
-    background-color: #333333;
     position: absolute;
+    background-color: #333333;
     left: 0;
     height: 2px;
     width: 0;
@@ -144,16 +151,14 @@
   }
 
   &__lang--item-ua:hover::after {
-    color: #333333;
+    color: #333;
     width: 100%;
   }
 
   &__lang--item-ua:hover {
-    color: #333333;
+    color: #333;
   }
-  /* #endregion */
 
-  /* #region item-en */
   &__lang--item-en {
     position: relative;
   }
@@ -274,14 +279,14 @@
     }
 
     @include on-desktop {
-      font-size: 62px;
       margin-inline: 0;
+      font-size: 62px;
     }
   }
 
   &__text {
-    font-weight: 400;
     font-size: 16px;
+    font-weight: 400;
     margin: 0;
 
     @include on-desktop {

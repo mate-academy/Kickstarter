@@ -1,41 +1,6 @@
 'use strict';
 /* eslint-env browser */
 
-function animateSections() {
-  const sections = document.querySelectorAll('.section--left, .section--right');
-
-  if (!sections.length) return;
-
-  function isSectionVisible(el) {
-    const rect = el.getBoundingClientRect();
-    return rect.top <= window.innerHeight * 0.75 && rect.bottom >= 0;
-  }
-
-  function handleScroll() {
-    sections.forEach((section) => {
-      if (isSectionVisible(section)) {
-        section.classList.add('animated');
-      } else {
-        section.classList.remove('animated');
-      }
-    });
-  }
-
-  handleScroll();
-
-  let isScrolling;
-  window.addEventListener(
-    'scroll',
-    () => {
-      window.clearTimeout(isScrolling);
-      isScrolling = setTimeout(handleScroll, 50);
-    },
-    { passive: true },
-  );
-}
-
-document.addEventListener('DOMContentLoaded', animateSections);
-
 function handleScrollButton() {
   const scrollButton = document.querySelector('.scroll-button');
   const benefitsSection = document.querySelector('.benefits');
@@ -67,5 +32,35 @@ function handleScrollButton() {
     { passive: true },
   );
 }
-
 document.addEventListener('DOMContentLoaded', handleScrollButton);
+
+const sections = document.querySelectorAll('.section--left, .section--right');
+
+function isInView(element) {
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.bottom > 0 &&
+    rect.top < (window.innerHeight || document.documentElement.clientHeight)
+  );
+}
+
+window.addEventListener('load', function () {
+  sections.forEach((section) => {
+    if (isInView(section)) {
+      section.classList.add('animated');
+    }
+  });
+});
+
+let lastScrollTop = 0;
+document.addEventListener('scroll', function () {
+  sections.forEach((section) => {
+    if (isInView(section)) {
+      section.classList.add('animated');
+    } else {
+      section.classList.remove('animated');
+    }
+  });
+
+  lastScrollTop = window.scrollY || document.documentElement.scrollTop;
+});
