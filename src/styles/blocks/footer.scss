@@ -1,74 +1,99 @@
-.footer {
-  padding: 64px 30px;
+@use '../utils/mixins' as *;
+@use 'sass:color';
 
+.footer {
+  background-color: #080808;
   font-family: Roboto, sans-serif;
   font-size: 16px;
-  font-weight: 400;
   font-style: normal;
+  font-weight: 400;
   line-height: 27px;
+  padding: 64px 30px;
 
-  &__container {
-    // background-color: #1C1C1E;
-
+  &__bottom {
+    margin: 20px 30px;
   }
-
 
   &__brand {
     margin-bottom: 80px;
+
+    @include for-desktop {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
-  &__logo {
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 50px;
+  &__container {
+    background-color: #1c1c1e;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 30px;
+    padding: 20px;
+
+    @include for-desktop {
+      flex-direction: row;
+    }
   }
-
-  &__tagline {
-    margin-top: 20px;
-
-    font-family: Roboto, sans-serif;
-    font-size: 38px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 38px;
-    text-align: center;
-  }
-
-  &__title {
-    margin: 20px 0;
-    font-size: 32px;
-  }
-
 
   &__contact {
-    margin: 20px 0 40px;
-
     font-family: Roboto, sans-serif;
     font-size: 20px;
-    font-weight: 400;
     font-style: normal;
+    font-weight: 400;
     line-height: 20px;
+    margin: 20px 0 40px;
     text-align: left;
-  }
-  &__nav {
-    margin-top: 20px;
-
-    font-family: Roboto, sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 30px;
-    text-align: left;
-
   }
 
   &__icons {
     display: flex;
     justify-content: space-between;
-
-    width: 50%;
     margin: 0 auto;
-    padding-top: 50px;
     padding-bottom: 50px;
+    padding-top: 50px;
+    width: 50%;
+  }
+
+  &__logo {
+    margin: 50px auto 0;
+    width: 50%;
+
+    @include for-desktop {
+      margin-left: 30px;
+      margin-top: 50px;
+      width: 10%;
+    }
+  }
+
+  &__nav {
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    margin-top: 20px;
+    text-align: left;
+  }
+
+  &__tagline {
+    font-family: Roboto, sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 38px;
+    margin-top: 20px;
+    text-align: center;
+
+    @include for-desktop {
+      margin-left: -20px;
+      margin-top: 25px;
+      width: 20%;
+    }
+  }
+
+  &__title {
+    font-size: 32px;
+    margin: 20px 0;
   }
 }
