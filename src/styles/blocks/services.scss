@@ -1,41 +1,109 @@
+@use '../utils/mixins' as *;
+@use 'sass:color';
+
 .services {
+  background-color: #0b0c0b;
+  border-radius: 15px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
 
-  box-sizing: border-box;
-  border-radius: 15px;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
 
-  background-color: #0b0c0b;
+    @include for-desktop {
+      align-items: stretch;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__block {
+    background-color: #111;
+    border-radius: 8px;
+    margin: 20px;
+
+    @include for-desktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 500px;
+      width: 700px;
+    }
+  }
 
   &__content {
-    display: flex;
     align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
     justify-content: space-between;
-    margin: 20px 20px 70px;
+    margin: 20px;
+
+    @include for-desktop {
+      display: flex;
+      flex-direction: row;
+    }
   }
 
   &__image {
     display: block;
-    width: 60px;
     height: auto;
-  }
+    width: 60px;
 
-  &__title {
-    font-family: Roboto, sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    font-style: normal;
-    line-height: 28px;
-    letter-spacing: -0.02em;
-
-    &--secondary {
-      margin-right: 90px;
+    @include for-desktop {
+      width: 100px;
     }
   }
 
+  &__title {
+    display: inline-block;
+    font-family: Roboto, sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 28px;
+    margin-left: auto;
+    text-align: left;
 
+    @include for-desktop {
+      font-family: Roboto, sans-serif;
+      font-size: 38px;
+      font-style: normal;
+      font-weight: 400;
+
+      line-height: 38px;
+      padding: 20px 20px;
+      text-align: left;
+    }
+    &--secondary {
+      margin-right: -90px;
+    }
+  }
 
   &__description {
-    padding: 0 20px;
+    flex: 1;
+    font-family: Roboto, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 28px;
+    padding: 80px 20px;
+    text-align: left;
+
+    @include for-desktop {
+      font-family: Roboto, sans-serif;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 400;
+
+      line-height: 38px;
+      padding: 80px 20px;
+      text-align: left;
+    }
   }
 }
