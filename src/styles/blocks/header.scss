@@ -1,69 +1,48 @@
 @use '../utils/mixins' as *;
 
 .header {
-display: grid;
-justify-content: center;
-
-grid-template-columns: repeat(2, 170px);
-gap: 30px;
-justify-content: space-between;
-min-height: 70vh;
-padding: 20px 30px;
-
-background-color: black;
-background-image: url(../images/header_drewniak_mobile3.webp);
-background-repeat: no-repeat;
-background-position: center center;
-background-size: cover;
-
-  // @include for-minitablet {
-  //   min-width: 100vw;
-  //   padding: 30px 1px;
-  //   font-size: 16px;
-  //   background-image: url(../images/header_drewniak_desctop2.webp);
-  // }
-
-  // @include for-laptop {
-  //   font-size: 16px;
-  // }
+  background-color: black;
+  background-image: url(../images/header_drewniak_mobile3.webp);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(2, 170px);
+  justify-content: space-between;
+  min-height: 70vh;
+  padding: 20px 30px;
 
   @include for-desktop {
-    display: grid;
-    grid-template-columns: repeat(12, 130px);
-    grid-template-rows: 1fr;
-    gap: 30px;
-    min-width: 100vw;
-    margin-top: 65px;
-    padding: 0 64px 60px;
-
-    font-size: 16px;
-
     background-image: url(../images/header_drewniak_desctop2.webp);
+    display: grid;
+    font-size: 16px;
+    gap: 30px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    margin-top: 90px;
+    min-height: 80vh;
+    padding: 0 100px;
   }
 
-
-
-
   &__img {
-    width: 30%;
     margin-left: 20px;
     padding-top: 20px;
+    width: 30%;
   }
 
   &__title {
     align-self: flex-end;
-
-    margin-bottom: 30px;
-
     font-size: 48px;
     font-weight: 700;
-    line-height: 48px;
     letter-spacing: 4%;
+    line-height: 48px;
+    margin-bottom: 30px;
 
     @include for-desktop {
-     font-size: 74px;
-     line-height: 74px;
+      font-size: 74px;
+      grid-column: 1 / 8;
+      line-height: 74px;
     }
-
   }
 }

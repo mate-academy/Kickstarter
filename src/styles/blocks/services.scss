@@ -1,102 +1,68 @@
 @use '../utils/mixins' as *;
-@use 'sass:color';
 
 .services {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  border-radius: 15px;
+  padding-top: 90px;
 
   &__wrapper {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
 
     @include for-desktop {
-      flex-direction: row;
-      align-items: stretch;
-      justify-content: space-between;
+      grid-template-columns: repeat(12, 1fr);
     }
   }
 
   &__block {
-    margin: 20px;
-    border-radius: 8px;
     background-color: #111;
-
-    @include for-desktop {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-
-      width: 700px;
-      min-height: 500px;
-    }
-  }
-
-  &__content {
+    border-radius: 15px;
+    color: #fff;
     display: flex;
-    flex-direction: row;
-    gap: 20px;
-    align-items: center;
-    justify-content: space-between;
-
-    margin: 20px;
+    flex-direction: column;
+    gap: 1.5rem;
+    grid-column: 1 / 3;
+    padding: 2rem;
 
     @include for-desktop {
-      flex-direction: row;
+      grid-column: span 4;
     }
   }
 
-  &__image {
+  &__header {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__icon {
     display: block;
-    width: 60px;
+    flex-shrink: 0;
     height: auto;
+    max-width: 100%;
+    width: 50px;
 
     @include for-desktop {
-      width: 100px;
+      width: 60px;
     }
   }
 
   &__title {
-    display: inline-block;
-
-    margin-left: auto;
-
-    font-family: Roboto, sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    font-style: normal;
-    line-height: 28px;
-    text-align: left;
-    letter-spacing: -0.02em;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.3;
+    margin: 0;
 
     @include for-desktop {
-      padding: 20px;
-      font-size: 38px;
-      font-weight: 400;
-      line-height: 38px;
-    }
-
-    &--secondary {
-      margin-right: -90px;
+      font-size: 1.6rem;
     }
   }
 
   &__description {
-    flex: 1;
-
-    padding: 80px 20px;
-
-    font-family: Roboto, sans-serif;
-    font-size: 22px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 28px;
-    text-align: left;
-    letter-spacing: -0.02em;
+    font-size: 0.95rem;
+    line-height: 1.5;
 
     @include for-desktop {
-      line-height: 38px;
+      font-size: 1.1rem;
     }
   }
 }

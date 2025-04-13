@@ -2,34 +2,21 @@
 @use 'sass:color';
 
 .header-nav {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  padding: 25px 20px;
-
   background-color: #0b0c0b;
-
-  @include for-minitablet {
-    padding: 20px 40px;
-  }
-
-  @include for-laptop {
-    padding: 20px 40px;
-  }
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  padding: 25px 60px;
 
   @include for-desktop {
-    position: fixed;
-    z-index: 999;
-    top: 0;
+    grid-template-columns: auto 1fr auto;
     left: 0;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    width: 100%;
     padding: 20px 100px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
   }
 
   &__logo {
@@ -39,9 +26,23 @@
   &__burger {
     @include for-desktop {
       display: none;
-      min-width: 100vw;
-      font-size: 16px;
-      background-image: url(../images/header_drewniak_desctop2.webp);
+    }
+  }
+
+  &__links {
+    display: none;
+
+    @include for-desktop {
+      align-items: center;
+      display: flex;
+      font-family: 'roboto', sans-serif;
+      font-size: 12px;
+      gap: 60px;
+      grid-column: 2 / 3;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
   }
 
@@ -49,47 +50,27 @@
     text-align: center;
   }
 
-  &__links {
-    display: none;
-
-
-    @include for-desktop {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-
-      display: flex;
-      gap: 60px;
-
-      margin-top: 8px;
-    }
-  }
-
   &__cta {
     display: none;
 
     @include for-desktop {
-      cursor: pointer;
-
-      display: inline-block;
-
-      margin-left: 40px;
-      padding: 10px 24px;
+      background-color: #f29610;
       border: none;
       border-radius: 6px;
-
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
       font-size: 16px;
       font-weight: 600;
-      color: #fff;
+      grid-column: 3 / 4;
+      margin-left: 40px;
+      padding: 10px 24px;
       text-transform: uppercase;
-
-      background-color: #f29610;
-
       transition: background-color 0.3s ease;
-    }
 
-    &:hover {
-      background-color: color.adjust(#f29610, $lightness: -10%);
+      &:hover {
+        background-color: color.adjust(#f29610, $lightness: -10%);
+      }
     }
   }
 }

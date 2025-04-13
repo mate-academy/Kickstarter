@@ -1,107 +1,148 @@
 @use '../utils/mixins' as *;
-@use 'sass:color';
 
 .footer {
-  padding: 64px 30px;
-
+  background-color: #111;
+  color: #fff;
   font-family: Roboto, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 27px;
+  overflow-x: hidden;
+  padding: 2rem;
 
-  background-color: #080808;
-
-  &__bottom {
-    margin: 20px 30px;
-  }
-
-  &__brand {
-    margin-bottom: 80px;
+  &__wrapper {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
 
     @include for-desktop {
-      display: flex;
-      flex-direction: column;
+      gap: 2rem;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto auto auto;
+      margin: 0 auto;
+      max-width: 1200px;
+      text-align: left;
     }
   }
 
-  &__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    margin: 0 30px;
-    padding: 20px;
-
-    background-color: #1c1c1e;
-
-    @include for-desktop {
-      flex-direction: row;
-    }
-  }
-
-  &__contact {
-    margin: 20px 0 40px;
-
-    font-family: Roboto, sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 20px;
-    text-align: left;
-  }
-
-  &__icons {
-    display: flex;
-    justify-content: space-between;
-
-    width: 50%;
-    margin: 0 auto;
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-
-  &__logo {
-    width: 50%;
-    margin: 50px auto 0;
-
-    @include for-desktop {
-      width: 10%;
-      margin-top: 50px;
-      margin-left: 30px;
-    }
-  }
-
-  &__nav {
-    margin-top: 20px;
-
-    font-family: Roboto, sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 30px;
-    text-align: left;
-  }
-
-  &__tagline {
-    margin-top: 20px;
-
-    font-family: Roboto, sans-serif;
-    font-size: 28px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 38px;
+  &__logo-block {
+    grid-column: 1;
     text-align: center;
 
     @include for-desktop {
-      width: 20%;
-      margin-top: 25px;
-      margin-left: -20px;
+      grid-column: 1 / 13;
     }
   }
 
-  &__title {
-    margin: 20px 0;
-    font-size: 32px;
+  &__logo {
+    align-self: start;
+    display: inline-block;
+    height: auto;
+    max-width: 180px;
+    width: 100%;
+    @include for-desktop {
+      display: grid;
+    }
+  }
+
+  &__main {
+    display: grid;
+    gap: 2rem;
+    grid-column: 1;
+    grid-template-columns: 1fr;
+    text-align: center;
+
+    @include for-desktop {
+      gap: 1rem;
+      grid-column: 1 / 13;
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__address {
+    font-size: 0.9rem;
+    grid-column: 1;
+    margin-bottom: 1rem;
+
+    p {
+      margin: 0.25rem 0;
+    }
+
+    @include for-desktop {
+      grid-column: 1 / 5;
+      margin-bottom: 0;
+      text-align: left;
+    }
+  }
+
+  &__links {
+    font-size: 0.9rem;
+    grid-column: 1;
+    margin-bottom: 1rem;
+
+    @include for-desktop {
+      grid-column: 5 / 9;
+      text-align: center;
+    }
+
+    .footer__nav {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin: 0.3rem 0;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__social {
+    font-size: 0.9rem;
+    grid-column: 1;
+
+    @include for-desktop {
+      grid-column: 9 / 13;
+      text-align: right;
+    }
+
+    .footer__icons {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin: 0.3rem 0;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    color: #ccc;
+    font-size: 0.85rem;
+    grid-column: 1;
+    text-align: center;
+
+    @include for-desktop {
+      grid-column: 1 / 13;
+    }
+
+    p {
+      margin: 0.3rem 0;
+    }
   }
 }
