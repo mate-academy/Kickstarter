@@ -34,7 +34,9 @@ function handleScrollButton() {
 }
 document.addEventListener('DOMContentLoaded', handleScrollButton);
 
-const sections = document.querySelectorAll('.section--left, .section--right');
+const sections = document.querySelectorAll(
+  '.section--left, .section--right, .section--down',
+);
 
 function isInView(element) {
   const rect = element.getBoundingClientRect();
