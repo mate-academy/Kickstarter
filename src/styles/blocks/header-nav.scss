@@ -2,21 +2,27 @@
 @use 'sass:color';
 
 .header-nav {
-  align-items: center;
-  background-color: #0b0c0b;
   display: grid;
   grid-template-columns: auto auto;
+  align-items: center;
   justify-content: space-between;
+
   padding: 25px 60px;
 
+  background-color: #0b0c0b;
+
   @include for-desktop {
-    grid-template-columns: auto 1fr auto;
-    left: 0;
-    padding: 20px 100px;
     position: fixed;
-    top: 0;
-    width: 100%;
     z-index: 999;
+    top: 0;
+    left: 0;
+
+    grid-template-columns: auto 1fr auto;
+
+    width: 100%;
+    padding: 20px 100px;
+
+
   }
 
   &__logo {
@@ -33,16 +39,19 @@
     display: none;
 
     @include for-desktop {
-      align-items: center;
       display: flex;
-      font-family: 'roboto', sans-serif;
-      font-size: 12px;
-      gap: 60px;
       grid-column: 2 / 3;
+      gap: 60px;
+      align-items: center;
       justify-content: center;
-      list-style: none;
+
       margin: 0;
       padding: 0;
+
+      font-family: 'roboto', sans-serif;
+      font-size: 12px;
+      list-style: none;
+      font-weight: 400;
     }
   }
 
@@ -54,18 +63,23 @@
     display: none;
 
     @include for-desktop {
-      background-color: #f29610;
-      border: none;
-      border-radius: 6px;
-      color: #fff;
       cursor: pointer;
+
       display: inline-block;
-      font-size: 16px;
-      font-weight: 600;
       grid-column: 3 / 4;
+
       margin-left: 40px;
       padding: 10px 24px;
+      border: none;
+      border-radius: 6px;
+
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
       text-transform: uppercase;
+
+      background-color: #f29610;
+
       transition: background-color 0.3s ease;
 
       &:hover {
