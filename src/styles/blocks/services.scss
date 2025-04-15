@@ -28,6 +28,12 @@
 
     @include for-desktop {
       grid-column: span 4;
+      perspective: 1000px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      &:hover {
+        transform: rotateY(3deg) rotateX(3deg) scale(1.03);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
     }
   }
 
@@ -48,6 +54,11 @@
 
     @include for-desktop {
       width: 60px;
+
+      &:hover svg path {
+        stroke: #f9a825; // lub fill, w zależności od SVG
+        transition: stroke 0.3s ease;
+      }
     }
   }
 
