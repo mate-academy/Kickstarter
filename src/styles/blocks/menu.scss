@@ -1,3 +1,4 @@
+@use '../utils/mixins' as *;
 .menu {
   position: fixed;
   top: 0;
@@ -16,6 +17,10 @@ background-color: #0B0C0B;
 
   transition: transform 0.3s ease-in-out;
 
+  @include for-surface {
+    padding: 25px 100px 20px;
+  }
+
   &:target {
     transform: translateX(0);
     height: 100vh;
@@ -23,6 +28,11 @@ background-color: #0B0C0B;
   &__links {
     margin-bottom: 70px;
 
+  }
+
+  &__item {
+    background-color: red;
+    margin: 100px;
   }
 
   &__paragraph {

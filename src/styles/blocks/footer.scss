@@ -15,6 +15,16 @@
     grid-template-columns: 1fr;
     gap: 2rem;
 
+    @include for-iPadPro {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto auto auto;
+      gap: 2rem;
+
+      max-width: 1200px;
+      margin: 0 auto;
+
+      text-align: left;
+    }
     @include for-desktop {
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: auto auto auto;
@@ -30,9 +40,14 @@
   &__logo-block {
     grid-column: 1;
     text-align: center;
+    @include for-iPadPro {
+      grid-column: 1 / 4;
+      text-align: left;
+    }
 
     @include for-desktop {
-      grid-column: 1 / 13;
+      grid-column: 1 / 4;
+      text-align: left;
     }
   }
 
@@ -44,6 +59,9 @@
     max-width: 180px;
     height: auto;
 
+    @include for-iPadPro {
+      display: grid;
+    }
     @include for-desktop {
       display: grid;
     }
@@ -56,7 +74,11 @@
     gap: 2rem;
 
     text-align: center;
-
+    @include for-iPadPro {
+      grid-column: 1 / 13;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
     @include for-desktop {
       grid-column: 1 / 13;
       grid-template-columns: repeat(12, 1fr);
@@ -68,7 +90,11 @@
     grid-column: 1;
     margin-bottom: 1rem;
     font-size: 0.9rem;
-
+    @include for-iPadPro {
+      grid-column: 1 / 5;
+      margin-bottom: 0;
+      text-align: left;
+    }
     @include for-desktop {
       grid-column: 1 / 5;
       margin-bottom: 0;
@@ -84,7 +110,10 @@
     grid-column: 1;
     margin-bottom: 1rem;
     font-size: 0.9rem;
-
+    @include for-iPadPro {
+      grid-column: 5 / 9;
+      text-align: center;
+    }
     @include for-desktop {
       grid-column: 5 / 9;
       text-align: center;
@@ -113,7 +142,10 @@
   &__social {
     grid-column: 1;
     font-size: 0.9rem;
-
+    @include for-iPadPro {
+      grid-column: 9 / 13;
+      text-align: right;
+    }
     @include for-desktop {
       grid-column: 9 / 13;
       text-align: right;
@@ -144,7 +176,9 @@
     font-size: 0.85rem;
     color: #ccc;
     text-align: center;
-
+    @include for-iPadPro{
+      grid-column: 1 / 13;
+    }
     @include for-desktop {
       grid-column: 1 / 13;
     }

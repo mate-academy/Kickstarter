@@ -11,6 +11,12 @@
     @include for-desktop {
       grid-template-columns: repeat(12, 1fr);
     }
+    @include for-iPadPro {
+      grid-template-columns: repeat(12, 1fr);
+    }
+    @include for-surface {
+      grid-template-columns: repeat(12, 1fr);
+    }
   }
 
   &__block {
@@ -25,6 +31,24 @@
     color: #fff;
 
     background-color: #111;
+    @include for-surface {
+      grid-column: span 4;
+      perspective: 1000px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      &:hover {
+        transform: rotateY(3deg) rotateX(3deg) scale(1.03);
+        box-shadow: 0 10px 20px rgba(18, 17, 17, 0.4);
+      }
+    }
+    @include for-iPadPro {
+      grid-column: span 4;
+      perspective: 1000px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      &:hover {
+        transform: rotateY(3deg) rotateX(3deg) scale(1.03);
+        box-shadow: 0 10px 20px rgba(18, 17, 17, 0.4);
+      }
+    }
 
     @include for-desktop {
       grid-column: span 4;
@@ -32,9 +56,11 @@
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       &:hover {
         transform: rotateY(3deg) rotateX(3deg) scale(1.03);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 10px 20px rgba(18, 17, 17, 0.4);
       }
     }
+
+
   }
 
   &__header {

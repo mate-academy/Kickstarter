@@ -11,6 +11,31 @@
 
   background-color: #0b0c0b;
 
+  @include for-surface {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    display: grid;
+
+
+
+    width: 100%;
+    padding: 20px 100px;
+  }
+  @include for-iPadPro {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    display: grid;
+
+    grid-template-columns: repeat(12, 1fr);
+
+    width: 100%;
+    padding: 20px 100px;
+  }
+
   @include for-desktop {
     position: fixed;
     z-index: 999;
@@ -22,21 +47,44 @@
     width: 100%;
     padding: 20px 100px;
 
-
   }
+
 
   &__logo {
     width: 229px;
   }
 
   &__burger {
+
+
+
+    // @include for-surface {
+    //   display: none;
+    // }
+    @include for-iPadPro {
+      display: none;
+    }
+
     @include for-desktop {
       display: none;
     }
+
   }
 
   &__links {
     display: none;
+
+    @include for-iPadPro {
+      display: flex;
+      grid-column: 2 / 9;
+      gap: 30px;
+      align-self: center;
+      justify-content: center;
+
+      margin: 0;
+      padding-top: 2px;
+
+    }
 
     @include for-desktop {
       display: flex;
@@ -48,11 +96,10 @@
       margin: 0;
       padding: 0;
 
-      font-family: roboto, sans-serif;
-      font-size: 12px;
-      font-weight: 400;
-      list-style: none;
+
     }
+
+
   }
 
   &__item {
@@ -61,6 +108,31 @@
 
   &__cta {
     display: none;
+
+    @include for-iPadPro {
+      cursor: pointer;
+
+      display: inline-block;
+      grid-column: 10 / 13;
+
+      margin-left: 40px;
+      padding: 10px 24px;
+      border: none;
+      border-radius: 6px;
+
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      text-transform: uppercase;
+
+      background-color: #f29610;
+
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: color.adjust(#f29610, $lightness: -10%);
+      }
+    }
 
     @include for-desktop {
       cursor: pointer;
