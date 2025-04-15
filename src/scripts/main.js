@@ -66,3 +66,5 @@ document.addEventListener('scroll', function () {
 
   lastScrollTop = window.scrollY || document.documentElement.scrollTop;
 });
+
+document.body.style.overflowX = 'hidden';
