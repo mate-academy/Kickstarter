@@ -39,6 +39,17 @@ h1 {
   font-weight: 100;
   font-style: normal;
 }
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .top-bar {
   display: grid;
   grid-template-columns: 160px 32px;
@@ -342,6 +353,7 @@ h1 {
 }
 
 .aside {
+  height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -372,7 +384,7 @@ h1 {
 
 .aside.open {
   position: absolute;
-  height: fit-content;
+  height: 100vh;
   transition: all 0.3s;
   transform: translateY(0);
   background-color: #F9F9F9;
@@ -382,7 +394,8 @@ h1 {
   z-index: 3;
   display: grid;
   grid-template-columns: auto 1fr auto;
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: 74px auto auto auto;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
   grid-template-areas: "logo . close" "menu menu menu" "lang lang lang" "buy buy buy";
 }
 .aside.open .logo {
@@ -1193,6 +1206,11 @@ h1 {
 .footer .footer__socials .footer__social-link {
   width: 24px;
   height: 24px;
+  color: #4f4f4f;
+}
+.footer .footer__socials .footer__social-link:hover {
+  animation: bounce 0.5s ease;
+  color: #318CE7;
 }
 .footer .footer__credits {
   font-family: Inter, Arial, Helvetica, sans-serif;
