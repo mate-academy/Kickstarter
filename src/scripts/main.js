@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function initBurgerMenu() {
-  const header = document.querySelector(".header");
+  // const header = document.querySelector(".header");
   const burgerMenu = document.querySelector(".burger-menu");
   const aside = document.querySelector(".aside");
   const close = document.querySelector(".close");
@@ -21,7 +21,7 @@ function initBurgerMenu() {
   close.addEventListener("click", function () {
     aside.classList.remove("open");
     body.classList.remove('no-scroll');
-    header.style.display = "grid";
+    // header.style.display = "grid";
   });
 }
 
