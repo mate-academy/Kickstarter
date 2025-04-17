@@ -15,6 +15,7 @@
     @include text-style(
         $font-family-inter, $font-size-4xl, $font-weight-bold, true
     );
+
     color: $text-primary;
     margin-block-end: 30px;
     padding-inline: $padding-inline-mobile;
@@ -41,13 +42,8 @@
 
     @include on-desktop {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      column-gap: 132px;
-      row-gap: 56px;
-      grid-template-areas:
-      "connectivity app-features"
-      "sound-music img-box";
+      grid-template: "connectivity app-features" 1fr "sound-music img-box" 1fr / 1fr 1fr;
+      gap: 56px 132px;
       padding-inline: 100px 0;
     }
 
@@ -56,6 +52,7 @@
         @include text-style(
             $font-family-inter, $font-size-lg, $font-weight-bold, true
         );
+
         color: #0C797A;
         line-height: 120%;
         margin-block-end: 20px;
@@ -75,6 +72,7 @@
         @include text-style(
             $font-family-inter, false, $font-weight-regular, false
         );
+
         font-size: clamp(0.8rem, 4vw, 1.2rem);
         color: $text-primary;
         line-height: 150%;
@@ -163,9 +161,6 @@
   .img-box {
     grid-area: img-box;
     align-items: center;
-
-    @include on-tablet {
-    }
 
     @include on-desktop{
       width: 100%;
