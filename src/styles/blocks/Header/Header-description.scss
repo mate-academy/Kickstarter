@@ -1,0 +1,98 @@
+.header__description {
+  @include on-tablet {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding-inline: $padding-inline-tablet;
+  }
+
+  @include on-desktop {
+    padding-inline: $padding-inline-desktop;
+    margin-block: 82px 170px;
+  }
+
+  .luna-speaker-silver {
+    background-size: cover;
+    min-width: 320px;
+    aspect-ratio: 320 / 245;
+    background-position: center;
+    background-image: url("./../images/Bluetooth-headphones-mobile/luna-speaker-silver-mobile.png");
+    margin-block-end: 40px;
+
+    @include on-tablet {
+      width: 60%;
+      aspect-ratio: 369 / 273;
+      background-image: url("./../images/Bluetooth-headphones-tablet/luna-speaker-silver-tablet.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 1;
+    }
+
+    @include on-desktop {
+      width: 70%;
+      aspect-ratio: 727 / 413;
+      background-image: url("./../images/Bluetooth-headphones-desktop/luna-speaker-silver-desktop.png");
+    }
+  }
+
+  .presentation-content {
+    color: $text-primary;
+    width: 100%;
+    padding-inline: $padding-inline-mobile;
+
+    @include on-tablet {
+      width: 37%;
+      padding-inline: 0;
+      margin-block-start: -20px;
+      z-index: 1;
+    }
+
+    @include on-desktop {
+      margin-block-start: 0;
+    }
+
+    .main-title {
+      @include text-style(
+          $font-family-inter, $font-size-8xl, $font-weight-bold, true
+      );
+
+      color: $text-primary;
+      line-height: 130%;
+      margin-block-end: 20px;
+
+      @include on-tablet {
+        font-size: clamp(1em, 6.5vw, 9em);
+        margin-block: -10px 30px;
+        z-index: 10;
+      }
+
+      @include on-desktop {
+        @include text-style (
+            $font-family-inter, $font-size-11xl, $font-weight-bold, true
+        );
+
+        font-size: clamp(1em, 4.5vw, 9em);
+      }
+    }
+
+    .text {
+      @include text-style (
+          $font-family-inter, $font-size-md, $font-weight-regular, false
+      );
+
+      width: 100%;
+      color: $text-primary;
+      line-height: 150%;
+
+      @include on-tablet {
+        font-size: clamp(0.1em, 2.2vw, 9em);
+        margin-block-start: 33px;
+      }
+
+      @include on-desktop {
+        width: 70%;
+        font-size: clamp(1em, 1.3vw, 9em);
+      }
+    }
+  }
+}
