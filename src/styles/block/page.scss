@@ -1,0 +1,62 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.page {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0%;
+  background-color: $color-white;
+  color: $color-black;
+  min-width: 320px;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+    
+    @include on-desktop {
+      display: none;
+    }
+  }
+}
+
+.language-switcher {
+  font-weight: 300;
+  font-size: 14px;
+  color: $color-light-gray;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px; /* Відстань між мовами */
+
+  .lang {
+    cursor: pointer;
+    color: #aaa; /* Колір для неактивних мов */
+    font-weight: 400; /* Нормальна товщина шрифта */
+    transition:
+      color 0.3s,
+      font-weight 0.3s; /* Плавний перехід для кольору і товщини шрифта */
+
+    &.active {
+      color: #222; /* Темний колір для активної мови */
+      font-weight: 600; /* Товстіший шрифт для активної мови */
+    }
+  }
+}
