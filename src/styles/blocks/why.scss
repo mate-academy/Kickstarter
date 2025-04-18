@@ -21,6 +21,10 @@
     grid-template-columns: repeat(12, 1fr);
     gap: 30px;
   }
+  @include for-desktop-hd {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 80px;
+  }
 
   &__block {
     grid-column: 1 / 3;
@@ -32,6 +36,10 @@
 
     background-color: #111;
 
+    &:hover {
+      border: 1px solid #F29610;
+    }
+
     @include for-desktop {
       // min-height: 700px;
     }
@@ -42,6 +50,9 @@
       }
 
       @include for-desktop {
+        grid-column: 1 / 5;
+      }
+      @include for-desktop-hd {
         grid-column: 1 / 5;
       }
     }
@@ -77,9 +88,21 @@
     text-align: left;
 
     @include for-desktop {
-      margin-top: 60px;
-      font-size: 18px;
-      line-height: 28px;
+      padding: 40px;
+      margin-top: 50px;
+      font-size: 20px;
+      line-height: 42px;
+      font-weight: 400;
+      color: #d3d3d3;
+    }
+
+    @include for-desktop-hd {
+      padding: 40px;
+      margin-top: 80px;
+      font-size: 24px;
+      line-height: 52px;
+      font-weight: 400;
+      color: #d3d3d3;
     }
   }
 
@@ -88,7 +111,11 @@
     width: 50px;
 
     @include for-desktop {
-      width: 80px;
+      height: 80px;
+    }
+    @include for-desktop-hd {
+
+      height: 90px;
     }
   }
 
@@ -103,6 +130,12 @@
     @include for-desktop {
       font-size: 32px;
       line-height: 42px;
+      letter-spacing: 1px;
+    }
+    @include for-desktop-hd {
+      font-size: 34px;
+      line-height: 48px;
+      letter-spacing: 1px;
     }
 
     &--secondary {
@@ -118,5 +151,11 @@
     justify-content: space-between;
 
     margin: 30px 20px;
+    @include for-desktop {
+      padding: 20px;
+    }
+    @include for-desktop-hd {
+      padding: 20px;
+    }
   }
 }
