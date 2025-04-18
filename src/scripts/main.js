@@ -91,3 +91,26 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('.questions__form');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // не оновлює сторінку
+
+    form.reset(); // очищає поля
+
+    const inputs = form.querySelectorAll('.questions__input');
+    inputs.forEach(input => {
+      input.classList.add('success'); // додає червоний стиль
+
+      // Через 3 секунди стиль забирається
+      setTimeout(() => {
+        input.classList.remove('success');
+      }, 3000);
+    });
+  });
+
+});
+
