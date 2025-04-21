@@ -1,7 +1,7 @@
 @use './utils/mixins' as *;
 
 .aside {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
@@ -14,6 +14,7 @@
   box-sizing: border-box;
   z-index: 1000;
   background: #f7f7f7;
+  overflow-y: auto;
 
   &:target {
     transform: translateX(0);
@@ -95,10 +96,6 @@
     font-weight: 700;
     transition: font-weight, 0.5s;
   }
-}
-
-body:has(.aside:target) {
-  overflow: hidden;
 }
 
 .bottom-bar {
