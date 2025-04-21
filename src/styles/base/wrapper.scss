@@ -1,0 +1,40 @@
+@use '../utils/mixins' as *;
+@use 'sass:color';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  box-sizing: border-box;
+  border-radius: 15px;
+
+  @include for-ipad-pro {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @include for-desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 40vw;
+  }
+
+  &__comparison {
+    @include for-desktop {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &--second {
+    // display: grid;
+    gap: 30px;
+    margin-top: 15px;
+
+    @include for-desktop {
+      margin-top: 50px;
+    }
+  }
+}

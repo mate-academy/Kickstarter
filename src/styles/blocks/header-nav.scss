@@ -1,0 +1,151 @@
+@use '../utils/mixins' as *;
+@use 'sass:color';
+
+.header-nav {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 25px 60px;
+
+  background-color: #0b0c0b;
+
+  @include for-surface {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+
+    display: grid;
+
+    width: 100%;
+    padding: 20px 100px;
+  }
+
+  @include for-ipad-pro {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    width: 100%;
+    padding: 20px 100px;
+  }
+
+  @include for-desktop {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+
+    grid-template-columns: auto 1fr auto;
+
+    width: 100%;
+    padding: 20px 100px;
+  }
+
+  &__logo {
+    width: 229px;
+  }
+
+  &__burger {
+    // @include for-surface {
+    //   display: none;
+    // }
+    @include for-ipad-pro {
+      display: none;
+    }
+
+    @include for-desktop {
+      display: none;
+    }
+  }
+
+  &__links {
+    display: none;
+
+    @include for-ipad-pro {
+      display: flex;
+      grid-column: 2 / 9;
+      gap: 30px;
+      align-self: center;
+      justify-content: center;
+
+      margin: 0;
+      padding-top: 2px;
+    }
+
+    @include for-desktop {
+      display: flex;
+      grid-column: 2 / 3;
+      gap: 60px;
+      align-items: center;
+      justify-content: center;
+
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__item {
+    text-align: center;
+  }
+
+  &__cta {
+    display: none;
+
+    @include for-ipad-pro {
+      cursor: pointer;
+
+      display: inline-block;
+      grid-column: 10 / 13;
+
+      margin-left: 40px;
+      padding: 10px 24px;
+      border: none;
+      border-radius: 6px;
+
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      text-transform: uppercase;
+
+      background-color: #f29610;
+
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: color.adjust(#f29610, $lightness: -10%);
+      }
+    }
+
+    @include for-desktop {
+      cursor: pointer;
+
+      display: inline-block;
+      grid-column: 3 / 4;
+
+      margin-left: 40px;
+      padding: 10px 24px;
+      border: none;
+      border-radius: 6px;
+
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      text-transform: uppercase;
+
+      background-color: #f29610;
+
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: color.adjust(#f29610, $lightness: -10%);
+      }
+    }
+  }
+}

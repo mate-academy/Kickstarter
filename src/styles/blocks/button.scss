@@ -1,0 +1,103 @@
+.button {
+  cursor: pointer;
+
+  position: relative;
+  z-index: 0;
+
+  overflow: hidden;
+  display: inline-block;
+
+  width: 170px;
+  padding: 16px 15px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+
+  background: linear-gradient(135deg, #f8b500, #f29610, #e6890e);
+  background-size: 200% 200%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+  transition: all 0.3s ease;
+}
+
+.button::before {
+  content: '';
+
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: -50%;
+  transform: skewX(-20deg);
+
+  width: 200%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  animation: prestige-shine 3.5s infinite ease-in-out;
+}
+
+.button::after {
+  content: '';
+
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+
+  border-radius: 12px;
+
+  opacity: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.06),
+    transparent 70%
+  );
+
+  animation: prestige-glow 5s infinite ease-in-out;
+}
+
+.button:hover {
+  transform: translateY(-3px) scale(1.01);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 30px rgba(242, 150, 16, 0.4);
+}
+
+.button:active {
+  transform: translateY(0) scale(0.99);
+  border: 3px solid #fff;
+  box-shadow:
+    0 0 0 2px #f29610,
+    inset 0 0 12px rgba(255, 255, 255, 0.15);
+}
+
+@keyframes prestige-shine {
+  0% {
+    left: -50%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}
+
+@keyframes prestige-glow {
+  0%,
+  100% {
+    opacity: 0.05;
+  }
+
+  50% {
+    opacity: 0.12;
+  }
+}
