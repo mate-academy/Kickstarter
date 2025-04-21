@@ -1,0 +1,242 @@
+@use './utils/mixins' as *;
+
+.aside {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+  transform: translateX(-100%);
+  box-sizing: border-box;
+  z-index: 1000;
+  background: #f7f7f7;
+  overflow-y: auto;
+
+  &:target {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 24px 30px;
+
+    @include on-tablet {
+      margin: 24px 34px;
+    }
+  }
+
+  &__center-bar {
+    margin-top: 31px;
+    margin-inline-start: 30px;
+
+    @include on-tablet {
+      margin-top: 40px;
+      margin-inline-start: 34px;
+    }
+  }
+}
+
+.top-bar {
+  &__logo {
+    &--image {
+      width: 161px;
+      height: 26px;
+    }
+  }
+  &__close {
+    &--image {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.center-bar {
+  margin-bottom: 50px;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+  }
+  &__link {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #333333;
+    text-decoration: none;
+
+    @include on-tablet {
+      font-size: 22px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 25px;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__link:hover {
+    color: #131313;
+    font-weight: 700;
+    transition: font-weight, 0.5s;
+  }
+}
+
+.bottom-bar {
+  &__right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    margin-inline: 30px;
+    font-family: Inter;
+    width: 115px;
+    height: 18px;
+    gap: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__specs {
+    position: relative;
+    font-size: 14px;
+    line-height: 100%;
+    color: #bdbdbd;
+    text-decoration: none;
+    font-weight: 300;
+  }
+
+  &__specs::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: #333333;
+    transition: width, 0.4s, ease-out;
+  }
+
+  &__specs:hover::after {
+    width: 100%;
+  }
+
+  &__specs:hover {
+    color: #333333;
+  }
+
+  &__lang--item-ua {
+    position: relative;
+    color: #bdbdbd;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  &__lang--item-ua::after {
+    content: '';
+    background-color: #333333;
+    position: absolute;
+    left: 0;
+    height: 2px;
+    width: 0;
+    bottom: -4px;
+    transition: width, 0.4s, ease-out;
+  }
+
+  &__lang--item-ua:hover::after {
+    color: #333333;
+    width: 100%;
+  }
+
+  &__lang--item-ua:hover {
+    color: #333333;
+  }
+
+  &__lang--item-en {
+    position: relative;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  &__lang--item-en::after {
+    color: #333333;
+    content: '';
+    background-color: #333333;
+    position: absolute;
+    left: 0;
+    height: 2px;
+    width: 0;
+    bottom: -3px;
+    transition: width, 0.4s, ease-out;
+  }
+
+  &__lang--item-en:hover::after {
+    color: #333333;
+    width: 100%;
+  }
+
+  &__lang--item-en:hover {
+    color: #333333;
+  }
+
+  &__lang--separator {
+    color: #828282;
+  }
+
+  &__lang {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  &__buy {
+    background-color: #333333;
+    color: white;
+    height: 48px;
+    margin-left: 30px;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    width: calc(100% - 60px);
+    bottom: 30px;
+    position: absolute;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__buy:hover {
+    transition: all 0.3 ease;
+    background-color: #131313;
+    box-shadow: 2px 4px 15px rgba(150, 150, 150, 0.5);
+    border: none;
+  }
+
+  &__buy:active {
+    transform: translateY(1px);
+    background-color: #131313;
+    box-shadow: 2px 4px 15px rgba(150, 150, 150, 0.3);
+  }
+}

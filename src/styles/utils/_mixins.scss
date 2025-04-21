@@ -1,6 +1,46 @@
+@use './vars' as *;
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin mobile {
+  @media (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: 700px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1194px) {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+
+  margin: 0 auto;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+  min-width: 320px;
+  max-width: 1280px;
+
+  @include on-tablet {
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 20px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
   }
 }

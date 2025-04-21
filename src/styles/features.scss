@@ -1,0 +1,101 @@
+@use './utils/mixins' as *;
+
+.features {
+  width: 100%;
+
+  &__articles {
+    grid-column: 1/-1;
+    background-color: #d6ecec;
+
+    @include page-grid;
+
+    @include on-desktop {
+      grid-template-rows: 1fr 1fr;
+    }
+  }
+  &__nav {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    vertical-align: middle;
+    color: #333333;
+  }
+  &__list {
+    padding: 0;
+    margin-inline: 15px;
+  }
+  &__title {
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #0c797a;
+    margin: 0 0 20px 0;
+  }
+  &__headline {
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    padding-inline: 30px;
+
+    @include on-tablet {
+      padding-inline: 0;
+    }
+  }
+  &__article {
+    display: grid;
+    padding: 30px;
+    grid-column: 1/-1;
+
+    &--connectivity {
+      @include on-desktop {
+        grid-column: 1/5;
+      }
+    }
+
+    &--sound-music {
+      display: none;
+      @include on-desktop {
+        display: grid;
+        grid-column: 1/5;
+      }
+    }
+
+    &--app-features {
+      display: none;
+      @include on-desktop {
+        display: grid;
+        grid-column: 6/-1;
+        grid-row: 1;
+      }
+    }
+  }
+  &__image {
+    grid-column: 1/-1;
+    aspect-ratio: 320 / 173;
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../images/features-image.8d5c49aa.png);
+
+    @include on-tablet {
+      width: 60%;
+      grid-column: 4/-1;
+      width: 416px;
+      height: 225px;
+      background-size: contain;
+    }
+
+    @include on-desktop {
+      grid-column: 6/-1;
+      width: 543px;
+      height: 301px;
+    }
+  }
+}

@@ -1,0 +1,102 @@
+@use './utils/mixins' as *;
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  padding-inline: 30px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
+  }
+
+  &__links {
+    display: flex;
+    gap: 40px;
+    width: fit-content;
+    align-items: center;
+    margin: 0 auto;
+    padding-bottom: 30px;
+
+    @include on-tablet {
+      gap: 50px;
+      padding-bottom: 30px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    width: 24px;
+    height: 24px;
+
+    &--icon {
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &__link--icon:hover, &__link:hover {
+    transform: scale(1.18);
+  }
+
+  &__link:hover {
+    transform: translateY(-2px);
+  }
+
+  &__cellar {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #bdbdbd;
+    padding: 0 0 20px 0;
+    margin: 0;
+
+    @include on-tablet {
+      padding: 0 0 30px 0;
+    }
+  }
+}
+
+.icon {
+  &--facebook {
+    width: 11px;
+    height: 19px;
+  }
+  &--x {
+    width: 22px;
+    height: 17px;
+  }
+  &--instagram {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.top-f {
+  @include on-tablet {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      padding-bottom: 60px;
+    }
+
+    &--img {
+      width: 184px;
+      height: 25px;
+    }
+  }
+}

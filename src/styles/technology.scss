@@ -1,0 +1,82 @@
+@use './utils/mixins' as *;
+
+.technology {
+  padding-inline: 30px;
+
+  &__right {
+    grid-column: 1;
+  }
+
+  &__title {
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+  }
+  &__image {
+    display: none;
+
+    @include on-tablet {
+      background-image: url('../images/image_main_3.png');
+      display: block;
+      height: 415px;
+      margin-right: calc(100% - 50vw);
+      background-size: auto;
+      grid-column: 2;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    @include on-desktop {
+      margin-right: 0;
+    }
+
+    &--mobile {
+      min-width: 259px;
+      min-height: 210px;
+      height: auto;
+      width: 100%;
+      margin: 0 auto;
+      object-fit: cover;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+  }
+  &__text {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  &__link {
+    line-height: 14px;
+    font-family: Inter;
+    text-decoration: none;
+    position: relative;
+    font-weight: 700;
+    font-size: 12px;
+    color: #0db2b3;
+    text-transform: uppercase;
+    margin-top: 30px;
+    padding-bottom: 5px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 53px;
+      background-color: #0db2b3;
+      left: 0;
+      bottom: 0;
+      transition: width 0.3s ease;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

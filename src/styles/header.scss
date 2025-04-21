@@ -1,0 +1,299 @@
+@use './utils/mixins' as *;
+
+.header {
+  margin-bottom: 110px;
+  margin-inline: 30px;
+  max-width: 1280px;
+
+  @include on-tablet {
+    margin-bottom: 140px;
+    margin-inline: 34px;
+  }
+
+  @include on-desktop {
+    margin-top: 30px;
+    margin-bottom: 170px;
+    margin-inline: 123px;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    height: 76px;
+    width: 100%;
+
+    @include on-desktop {
+      max-width: 1280px;
+      padding-inline: 0;
+    }
+  }
+
+  &__bottom {
+    display: grid;
+
+    @include on-tablet {
+      column-gap: 20px;
+      padding-top: 130px;
+    }
+
+    @include on-desktop {
+      padding-top: 170px;
+    }
+  }
+}
+
+.top {
+  &__logo {
+    &--image {
+      width: 161px;
+      height: 25px;
+    }
+  }
+
+  &__menu {
+    &--image {
+      width: 24px;
+      height: 16px;
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__right {
+    font-family: Inter;
+
+    @include on-tablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__lang {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    gap: 3px;
+    line-height: 18px;
+
+    margin-right: 30px;
+  }
+
+  &__specs {
+    display: none;
+    position: relative;
+    font-size: 14px;
+    line-height: 100%;
+
+    color: #bdbdbd;
+
+    text-decoration: none;
+    margin-right: 30px;
+    cursor: pointer;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__specs::after {
+    content: '';
+    position: absolute;
+
+    bottom: -4px;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    background-color: #333;
+    transition: width, 0.4s, ease-out;
+  }
+
+  &__specs:hover::after {
+    width: 100%;
+  }
+
+  &__specs:hover {
+    color: #333333;
+  }
+
+  &__lang--item-en,
+  &__lang--item-ua {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      cursor: pointer;
+    }
+  }
+
+  &__lang--item-ua {
+    position: relative;
+    color: #bdbdbd;
+  }
+
+  &__lang--item-ua::after {
+    content: '';
+    position: absolute;
+    background-color: #333333;
+    left: 0;
+    height: 2px;
+    width: 0;
+    bottom: -3px;
+    transition: width, 0.4s, ease-out;
+  }
+
+  &__lang--item-ua:hover::after {
+    color: #333;
+    width: 100%;
+  }
+
+  &__lang--item-ua:hover {
+    color: #333;
+  }
+
+  &__lang--item-en {
+    position: relative;
+  }
+
+  &__lang--item-en::after {
+    color: #333333;
+    content: '';
+    background-color: #333333;
+    position: absolute;
+    left: 0;
+    height: 2px;
+    width: 0;
+    bottom: -3px;
+    transition: width, 0.4s, ease-out;
+  }
+
+  &__lang--item-en:hover::after {
+    color: #333333;
+    width: 100%;
+  }
+
+  &__lang--item-en:hover {
+    color: #333333;
+  }
+
+  &__lang--separator {
+    display: none;
+    color: #828282;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__buy {
+    display: none;
+    background-color: #333333;
+    color: white;
+    width: 100px;
+    height: 48px;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+
+    @include on-tablet {
+      display: block;
+      width: 102px;
+      margin-right: 30px;
+    }
+
+    @include on-desktop {
+      margin-right: 0px;
+    }
+  }
+
+  &__buy:hover {
+    transition: all 0.3 ease;
+    background-color: #131313;
+    box-shadow: 2px 4px 15px rgba(150, 150, 150, 0.5);
+  }
+
+  &__buy:active {
+    transform: translateY(1px);
+    background-color: #131313;
+    box-shadow: 2px 4px 15px rgba(150, 150, 150, 0.3);
+    cursor: pointer;
+  }
+}
+
+.bottom {
+  font-family: Inter;
+  display: grid;
+  margin-inline: auto;
+
+  @include on-tablet {
+    height: 336px;
+    background-size: 61%;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-image: url('../images/image_header_tablet.png');
+    grid-template-columns: 0.65fr 1.1fr;
+  }
+
+  @include on-desktop {
+    background-image: url('../images/image_header_desktop.png');
+  }
+
+  &__image {
+    background-repeat: no-repeat;
+    background-position: center;
+    aspect-ratio: 320 / 245;
+    background-image: url('../images/image_header_tablet.png');
+    background-size: contain;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__contest {
+    grid-column: 1;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 62px;
+    text-transform: uppercase;
+    color: #333333;
+    margin: 0 0 20px 0;
+
+    @include on-tablet {
+      font-size: 48px;
+      margin: 0 0 30px 0;
+    }
+
+    @include on-desktop {
+      margin-inline: 0;
+      font-size: 62px;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+
+    @include on-desktop {
+      margin-inline: 0;
+    }
+  }
+}
