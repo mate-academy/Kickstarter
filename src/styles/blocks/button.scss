@@ -1,0 +1,79 @@
+.button {
+  cursor: pointer;
+  border: none;
+  background-color: unset;
+
+  &--buy {
+    display: block;
+
+    width: 100%;
+    height: 48px;
+
+    font-family: 'Helvetica Neue Medium', sans-serif;
+    font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+
+    background-color: $grey-33;
+
+    &--header {
+      font-size: 12px;
+    }
+
+    &:hover {
+      background-color: $grey-13;
+    }
+
+    &:disabled {
+      background-color: $grey-d0;
+    }
+  }
+
+  &--send {
+    width: 102px;
+    height: 40px;
+    color: #fff;
+    background-color: $green-39;
+
+    &:hover {
+      background-color: $green-0c;
+    }
+
+    &:disabled {
+      background-color: $green-cf;
+    }
+  }
+
+  &--see-more {
+    position: relative;
+    display: block;
+    width: max-content;
+    color: $green-0d;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      transform-origin: left;
+      transform: scale(0.53);
+
+      display: block;
+
+      width: 100%;
+      height: 1px;
+      margin-top: 6px;
+
+      background-color: $green-0d;
+
+      transition: transform 0.3s;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}

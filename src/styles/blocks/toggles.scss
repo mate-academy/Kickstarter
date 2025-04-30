@@ -1,0 +1,61 @@
+.toggles {
+  display: flex;
+  flex-direction: column;
+  width: 93px;
+
+  &__container {
+    position: relative;
+    height: max-content;
+  }
+
+  &__toggle {
+    position: absolute;
+
+    &--prev {
+      top: 2px;
+      left: 0;
+    }
+
+    &--next {
+      top: 0;
+      right: 0;
+    }
+  }
+
+  &__pages {
+    display: flex;
+    align-items: last baseline;
+    justify-content: center;
+    margin-top: 23px;
+  }
+}
+
+.arrow {
+  fill: $grey-33;
+
+  &--next {
+    transform: rotateX(180deg) rotateY(180deg);
+  }
+
+  &:hover {
+    fill: $green-0c;
+  }
+
+  &[aria-disabled='true'] {
+    cursor: default;
+    fill: $grey-bd;
+  }
+}
+
+.pages {
+  font-family: 'DIN Pro Regular', sans-serif;
+  font-size: 11px;
+  color: $grey-bd !important;
+}
+
+.page {
+  &--active {
+    font-size: 16px;
+    color: $grey-33;
+  }
+}
