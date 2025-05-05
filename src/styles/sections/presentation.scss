@@ -1,22 +1,24 @@
 .presentation {
-  display: flex;
+  @include content-grid;
+
   padding-inline: 12px;
 
   @include on-tablet {
     @include content-padding-inline;
-    @include content-grid;
   }
 
-  &__img {
-    display: inline-block;
-    margin: 0 auto;
-
-    @include on-tablet {
-      grid-column: 1 / -1;
-    }
+  &__container {
+    width: 100%;
+    grid-column: 1 / -1;
 
     @include on-desktop {
       grid-column: 3 / -2;
     }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
   }
 }

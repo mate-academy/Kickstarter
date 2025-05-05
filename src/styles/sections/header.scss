@@ -71,8 +71,6 @@
   &__img {
     display: inline-block;
     order: 1;
-    height: 245px;
-    object-fit: cover;
 
     @include on-tablet {
       z-index: 1;
@@ -80,13 +78,17 @@
       display: flex;
       grid-column: 4 / -1;
       order: 2;
-
-      height: unset;
     }
 
     @include on-desktop {
       grid-column: 5 / -1;
     }
+  }
+
+  &__mainPicture {
+    display: block;
+    width: 100%;
+    object-fit: cover;
   }
 
   &__text {
@@ -107,6 +109,10 @@
   }
 
   &__description {
+    @extend %text;
+
+    @include text-props(16, 24);
+
     margin-top: 20px;
 
     @include on-tablet {
