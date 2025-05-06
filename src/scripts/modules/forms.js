@@ -66,7 +66,7 @@ function onSubmit(...inputs) {
 
   sendBtn.setAttribute(disabled, '');
 
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
 }
 
 function onInput(formName, content) {
