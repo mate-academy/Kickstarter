@@ -1,0 +1,35 @@
+.nav {
+  @include on-tablet {
+    @include text-props(22, 28);
+  }
+
+  @include on-desktop {
+    @include text-props(14, 20);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    &--main {
+      flex-direction: row;
+      gap: 80px;
+    }
+  }
+
+  &__item {
+    &--main {
+      width: 101px;
+      text-align: center;
+    }
+  }
+
+  &__link {
+    transition: text-shadow 0.1s ease-in;
+
+    &:hover {
+      text-shadow: 0 0 1px currentColor;
+    }
+  }
+}

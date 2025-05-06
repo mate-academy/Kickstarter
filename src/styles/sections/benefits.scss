@@ -1,0 +1,63 @@
+.benefits {
+  @include content-padding-inline;
+
+  &__swiper {
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__container {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__list {
+    @include on-tablet {
+      @include content-grid;
+
+      row-gap: 65px;
+      align-items: center;
+    }
+
+    @include on-desktop {
+      align-items: baseline;
+      margin-top: 62px;
+    }
+  }
+
+  &__item {
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+  }
+}
+
+.benefit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__img {
+    display: block;
+    width: 50px;
+    height: 40px;
+  }
+
+  &__title {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  &__paragraph {
+    margin-top: 20px;
+    text-align: center;
+  }
+}

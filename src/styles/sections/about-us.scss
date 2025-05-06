@@ -1,0 +1,149 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+  row-gap: 110px;
+
+  @include on-tablet {
+    row-gap: 140px;
+  }
+
+  @include on-desktop {
+    row-gap: 170px;
+  }
+
+  &__article {
+    @include content-grid;
+    @include content-padding-inline;
+
+    position: relative;
+    height: min-content;
+
+    @include on-tablet {
+      height: 415px;
+      padding: 0;
+    }
+
+    @include on-desktop {
+      @include content-padding-inline;
+
+      height: 388px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      order: 1;
+    }
+
+    &--future {
+      @include on-tablet {
+        grid-column: 5 / -1;
+        padding-right: $on-tablet-padding-inline;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / -1;
+      }
+    }
+
+    &--luna {
+      @include on-tablet {
+        grid-column: 1 / 5;
+        padding-left: $on-tablet-padding-inline;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+
+  &__img {
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+
+    @include on-tablet {
+      position: absolute;
+      order: 0;
+      margin: 0;
+    }
+
+    &--future {
+      @include on-tablet {
+        grid-column: 1 / 5;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 7;
+      }
+    }
+
+    &--luna {
+      @include on-tablet {
+        grid-column: 5 / -1;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / -1;
+      }
+    }
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+    order: 2;
+
+    &--future {
+      @include on-tablet {
+        grid-column: 5 / -1;
+        padding-right: $on-tablet-padding-inline;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / -1;
+      }
+    }
+
+    &--luna {
+      @include on-tablet {
+        grid-column: 1 / 5;
+        padding-left: $on-tablet-padding-inline;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+
+  &__paragraph {
+    margin-top: 20px;
+
+    @include on-tablet {
+      @include text-props(16, 24);
+
+      margin-top: 30px;
+    }
+  }
+
+  &__button {
+    margin-top: 30px;
+
+    @include on-tablet {
+      margin-top: 60px;
+    }
+  }
+}
+
+.img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}

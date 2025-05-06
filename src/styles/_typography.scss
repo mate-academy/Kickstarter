@@ -1,3 +1,102 @@
 h1 {
-  @extend %h1;
+  @extend %h;
+  @include text-props(40, 52);
+
+  @include on-tablet {
+    @include text-props(48, 62);
+  }
+
+  @include on-desktop {
+    @include text-props(64, 78);
+  }
+}
+
+h2 {
+  @extend %h;
+  @include text-props(30, 40);
+
+  @include on-tablet {
+    @include text-props(36, 46);
+  }
+
+  @include on-desktop {
+    @include text-props(56, 70);
+  }
+}
+
+h3 {
+  @extend %h;
+  @include text-props(18, 22);
+
+  @include on-tablet {
+    @include text-props(24, 30);
+  }
+
+  @include on-desktop {
+    @include text-props(34, 42);
+  }
+}
+
+h4 {
+  @extend %h;
+  @include text-props(22, 28);
+}
+
+h5 {
+  @extend %h;
+  @include text-props(16, 22);
+
+  text-transform: none;
+}
+
+.btnText {
+  @extend %h;
+  @include text-props(12, 14);
+}
+
+.quote {
+  @extend %h;
+  @include text-props(14, 20);
+
+  text-align: center;
+  text-transform: none;
+
+  @include on-tablet {
+    @include text-props(24, 36);
+  }
+}
+
+.specs {
+  font-family: 'Helvetica Neue Light', sans-serif;
+  font-size: 14px;
+  color: $grey-4f;
+  text-transform: uppercase;
+
+  @include on-desktop {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+  }
+}
+
+.thirdaryText {
+  @extend %text;
+  @include text-props(14, 20);
+
+  text-transform: uppercase;
+}
+
+.additionalText {
+  @extend %text;
+
+  @include text-props(14, 21);
+}
+
+.secondaryText {
+  @extend %text;
+  @include text-props(14, 21);
+
+  @include on-tablet {
+    @include text-props(16, 24);
+  }
 }
