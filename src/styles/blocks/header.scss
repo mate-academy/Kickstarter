@@ -1,0 +1,88 @@
+.header {
+  width: 100%;
+  margin-bottom: 110px;
+
+  @include on-desktop {
+    height: 100vh;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      gap: 10px;
+      flex-direction: row-reverse;
+      flex-basis: auto;
+
+      @include padding-inline;
+    }
+  }
+
+  &__image {
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      align-content: flex-end;
+      margin-bottom: 0;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    @include on-tablet {
+      border-radius: 30px;
+
+      &:hover {
+        transform: scale(1.03);
+        transition: 0.3s ease-in-out;
+        box-shadow: 0 9px 18px #252931;
+      }
+    }
+  }
+
+  &__wrapper {
+    padding-inline: 30px;
+
+    @include on-tablet {
+      padding-inline: 0;
+      padding-top: 130px;
+    }
+
+    @include on-desktop {
+      padding-top: 145px;
+    }
+  }
+
+  &__title {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    color: $main-text-color;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 62px;
+      margin-bottom: 30px;
+    }
+
+    @include on-desktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__text {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $main-text-color;
+  }
+}
