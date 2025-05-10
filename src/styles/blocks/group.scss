@@ -1,0 +1,114 @@
+.group {
+  display: none;
+
+  @include on-tablet {
+    display: grid;
+    margin-bottom: 100px;
+
+    @include padding-inline;
+  }
+
+  &__wrapper {
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__content {
+    margin-bottom: 40px;
+
+    &--compass {
+      @include on-tablet {
+        grid-column: 1 / 5;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 4;
+      }
+    }
+
+    &--sound {
+      @include on-tablet {
+        grid-column: 5 / 9;
+      }
+
+      @include on-desktop {
+        grid-column: 4 / 7;
+      }
+    }
+
+    &--wifi {
+      @include on-tablet {
+        grid-column: 1 / 5;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / 10;
+      }
+    }
+
+    &--sun {
+      @include on-tablet {
+        grid-column: 5 / 9;
+      }
+
+      @include on-desktop {
+        grid-column: 10 / 13;
+      }
+    }
+  }
+
+  &__benefit {
+    justify-items: center;
+
+    @include on-desktop {
+      display: grid;
+      grid-template-rows: 70px 80px 150px;
+    }
+  }
+
+  &__icon {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 46px;
+    height: 40px;
+    margin-bottom: 30px;
+
+    @include on-desktop {
+      grid-row: 1;
+    }
+
+    &--compass {
+      background-image: url(../images/icons/icon-compass.png);
+    }
+
+    &--sound {
+      background-image: url(../images/icons/icon-sound.png);
+    }
+
+    &--wifi {
+      background-image: url(../images/icons/icon-wifi.png);
+    }
+
+    &--sun {
+      background-image: url(../images/icons/icon-sun.png);
+    }
+  }
+
+  &__h4-title {
+    text-align: center;
+
+    @include on-desktop {
+      grid-row: 2;
+    }
+  }
+
+  &__text {
+    text-align: center;
+
+    @include on-desktop {
+      grid-row: 3;
+    }
+  }
+}

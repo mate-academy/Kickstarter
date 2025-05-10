@@ -1,0 +1,147 @@
+.features {
+  margin-bottom: 80px;
+
+  @include on-tablet {
+    @include padding-inline;
+  }
+
+  &__wrapper {
+    background-color: $bg-green-color;
+
+    @include page-grid;
+
+    @include on-desktop {
+      position: relative;
+    }
+  }
+
+  &__img {
+    background-image: url(../images/image/feature-img.png);
+    width: 100%;
+    padding-bottom: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      background-size: contain;
+      grid-column: 4 / 9;
+    }
+
+    @include on-desktop {
+      position: absolute;
+      bottom: 0;
+      grid-column: 6 / 13;
+    }
+  }
+
+  &__content {
+    &--connectivity {
+      @media (max-width: 1279px) {
+        display: none;
+      }
+
+      @include on-desktop {
+        grid-column: 2 / 6;
+      }
+    }
+
+    &--app-features {
+      @media (max-width: 1279px) {
+        display: none;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / 13;
+      }
+    }
+
+    &--sound-music {
+      grid-column: 1 / -1;
+      padding-bottom: 30px;
+
+      @media (max-width: 639px) {
+        padding-left: 30px;
+      }
+
+      @include on-tablet {
+        grid-column: 2 / 6;
+        padding-bottom: 60px;
+      }
+
+      @include on-desktop {
+        grid-column: 2 / 7;
+      }
+    }
+  }
+
+  &__h2-title {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $main-text-color;
+    margin-bottom: 30px;
+
+    @media (max-width: 639px) {
+      padding-left: 30px;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__h3-title {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: $green-text-color;
+    padding-top: 30px;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      padding-top: 60px;
+    }
+
+    @include on-desktop {
+      font-size: 34px;
+      line-height: 42px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__list {
+    padding-left: 10px;
+  }
+
+  &__item {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: $main-text-color;
+
+    @include on-desktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__slides {
+    grid-column: 2 / 4;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}
