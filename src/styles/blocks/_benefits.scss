@@ -1,0 +1,45 @@
+.benefits {
+  @include responsive-grid;
+  padding: 110px 30px;
+  background-color: $bg-color;
+
+  @media (min-width: 744px) {
+    padding: 140px 34px;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 170px 123px;
+  }
+
+  &__wrapper {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @media (min-width: 744px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 65px 20px;
+    }
+
+    @media (min-width: 1440px) {
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+      row-gap: 62px;
+    }
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+
+    @media (max-width: 1439.5px) {
+      display: none;
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 84px;
+    }
+  }
+}
