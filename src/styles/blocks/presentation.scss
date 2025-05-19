@@ -1,0 +1,150 @@
+.presentation {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+  margin-bottom: 110px;
+
+
+  &__cart {
+
+    @include on-tablet {
+
+      @include page-grid;
+      grid-template-rows: repeat(3, 3fr);
+      // grid-row: 3;
+
+    }
+  }
+
+  &__title {
+    font-family: Inter, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      grid-column: 5/9;
+      font-size: 36px;
+      line-height: 46px;
+
+      margin-bottom: 30px;
+    }
+
+    &--left {
+      @include on-tablet {
+        grid-column: 1/5;
+        // margin-bottom: 60px;
+      }
+
+    }
+
+
+  }
+
+  &__text {
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+
+    text-align: center;
+    margin: 0;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      margin-bottom: 60px;
+      text-align: left;
+      grid-column: 5/9;
+    }
+
+    &--left {
+      @include on-tablet {
+        grid-column: 1/5;
+      }
+
+    }
+
+
+  }
+
+  &__photo {
+    margin-bottom: 110px;
+
+    @include on-tablet {
+      // display: flex;
+      display: grid;
+      grid-column: 1/5;
+      grid-row: 1/-1;
+      margin-bottom: 0;
+      margin-left: -34px;
+
+    }
+
+    &--style {
+      width: 100%;
+    }
+
+    &--right {
+      @include on-tablet {
+        grid-column: 5/9;
+        grid-row: 1/-1;
+        margin-bottom: 0;
+        margin-right: -34px;
+      }
+    }
+
+
+  }
+
+  &__link {
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #0DB2B3;
+
+    text-decoration: none;
+    position: relative;
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    &::after {
+      content: '';
+      background: #0DB2B3;
+      width: 50%;
+      left: 0;
+      height: 1px;
+      position: absolute;
+      bottom: -50%;
+
+      transition: all 0.3s;
+    }
+
+    @include on-tablet {
+      grid-column: 5/9;
+    }
+
+    &--left {
+      @include on-tablet {
+        grid-column: 1/5;
+      }
+    }
+
+
+  }
+
+  &__position {
+    grid-column: 5/9;
+
+    &--left {
+      grid-column: 1/5;
+
+    }
+  }
+}
