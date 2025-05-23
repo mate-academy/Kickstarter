@@ -4,14 +4,20 @@
   gap: 110px;
   margin-bottom: 110px;
 
+  @include on-tablet {
+    gap: 140px;
+  }
+
+  @include on-desktop {
+    gap: 170px;
+  }
 
   &__cart {
 
     @include on-tablet {
 
       @include page-grid;
-      grid-template-rows: repeat(3, 3fr);
-      // grid-row: 3;
+      grid-template-rows: auto auto auto;
 
     }
   }
@@ -33,10 +39,23 @@
       margin-bottom: 30px;
     }
 
+    @include on-desktop {
+      grid-column: 7/13;
+
+      font-size: 56px;
+      line-height: 70px;
+
+    }
+
     &--left {
       @include on-tablet {
         grid-column: 1/5;
         // margin-bottom: 60px;
+      }
+
+      @include on-desktop {
+        grid-column: 1/7;
+
       }
 
     }
@@ -54,15 +73,26 @@
     margin: 0;
     margin-bottom: 30px;
 
+    color: #7C7C7C;
+
     @include on-tablet {
       margin-bottom: 60px;
       text-align: left;
       grid-column: 5/9;
     }
 
+    @include on-desktop {
+      grid-column: 7/13;
+
+    }
+
     &--left {
       @include on-tablet {
         grid-column: 1/5;
+      }
+
+      @include on-desktop {
+        grid-column: 1/7;
       }
 
     }
@@ -74,12 +104,17 @@
     margin-bottom: 110px;
 
     @include on-tablet {
-      // display: flex;
       display: grid;
       grid-column: 1/5;
       grid-row: 1/-1;
       margin-bottom: 0;
       margin-left: -34px;
+
+    }
+
+    @include on-desktop {
+      grid-column: 1/7;
+      margin-left: 0;
 
     }
 
@@ -89,10 +124,17 @@
 
     &--right {
       @include on-tablet {
+        display: grid;
         grid-column: 5/9;
         grid-row: 1/-1;
         margin-bottom: 0;
         margin-right: -34px;
+      }
+
+      @include on-desktop {
+        grid-column: 7/13;
+        margin-right: 0;
+
       }
     }
 
@@ -130,9 +172,19 @@
       grid-column: 5/9;
     }
 
+    @include on-desktop {
+      grid-column: 7/13;
+
+    }
+
     &--left {
       @include on-tablet {
         grid-column: 1/5;
+      }
+
+      @include on-desktop {
+        grid-column: 1/7;
+
       }
     }
 
@@ -142,8 +194,20 @@
   &__position {
     grid-column: 5/9;
 
+    @include on-desktop {
+      grid-column: 7/13;
+
+    }
+
+
+
     &--left {
       grid-column: 1/5;
+
+      @include on-desktop {
+        grid-column: 1/7;
+
+      }
 
     }
   }
