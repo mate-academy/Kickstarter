@@ -1,0 +1,237 @@
+.about-us-card {
+  display: flex;
+  flex-direction: column;
+
+  @include on-tablet {
+    @include page-grid;
+
+    grid-template-rows: 76px 46px auto;
+  }
+
+  @include on-desktop {
+    grid-template-rows: 100px 70px auto;
+  }
+
+  &__image-container {
+    display: block;
+
+    width: 100%;
+    max-width: 350px;
+    height: 210px;
+
+    transition: all $time-transform;
+
+    @include on-tablet {
+      grid-row: 1/4;
+      max-width: 650px;
+      height: 415px;
+    }
+
+    @include on-desktop {
+      height: 388px;
+    }
+
+    &--image--right {
+      align-self: end;
+
+      @include on-tablet {
+        grid-column: 5/9;
+        place-self: auto right;
+        margin-left: -34px;
+      }
+
+      @include on-desktop {
+        grid-column: 7/13;
+        margin-left: 0;
+      }
+    }
+
+    &--image--left {
+      align-self: start;
+
+      @include on-tablet {
+        grid-column: 1/5;
+        align-self: auto;
+        margin-left: -34px;
+      }
+
+      @include on-desktop {
+        grid-column: 1/7;
+        margin-left: 0;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: 2px 2px 5px rgba(31, 31, 31, 0.5);
+    }
+  }
+
+  &__image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    @include on-tablet {
+      width: calc(100% + 34px);
+    }
+
+    @include on-desktop {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    @include font-inter-bold;
+
+    max-width: 350px;
+    margin-bottom: 30px;
+
+    font-size: 30px;
+    line-height: 40px;
+    color: $font-color-primary;
+    text-transform: uppercase;
+
+    &--image--left {
+      align-self: end;
+
+      @include on-tablet {
+        grid-column: 5/9;
+        grid-row: 1/3;
+        align-self: auto;
+      }
+
+      @include on-desktop {
+        grid-column: 7/13;
+      }
+    }
+
+    &--image--right {
+      align-self: start;
+      margin-bottom: 20px;
+      font-size: 36px;
+      line-height: 46px;
+
+      @include on-tablet {
+        grid-column: 1/5;
+        grid-row: 1/2;
+        align-self: auto;
+      }
+
+      @include on-desktop {
+        grid-column: 1/7;
+      }
+    }
+
+    @include on-tablet {
+      grid-row: 1/2;
+      margin-bottom: 30px;
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include on-desktop {
+      max-width: 582px;
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__info {
+    max-width: 350px;
+
+    @include on-tablet {
+      max-width: 582px;
+    }
+
+    &--image--left {
+      align-self: end;
+
+      @include on-tablet {
+        grid-column: 5/9;
+        grid-row: 3/4;
+        align-self: auto;
+      }
+
+      @include on-desktop {
+        grid-column: 7/13;
+      }
+    }
+
+    &--image--right {
+      align-self: start;
+
+      @include on-tablet {
+        grid-column: 1/5;
+        grid-row: 2/4;
+        align-self: auto;
+      }
+
+      @include on-desktop {
+        grid-column: 1/7;
+      }
+    }
+  }
+
+  &__main-text {
+    @include font-inter-regular;
+
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    font-size: 14px;
+    line-height: 21px;
+    color: $font-color-secondary;
+
+    &--image--right {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @include on-tablet {
+      margin-top: 0;
+      margin-bottom: 60px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    @include font-inter-bold;
+
+    position: relative;
+
+    font-size: 12px;
+    line-height: 14px;
+    color: rgba(13, 178, 179, 1);
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+
+      width: 53px;
+      height: 1px;
+
+      background-color: rgba(13, 178, 179, 1);
+
+      transition: all $time-transform;
+
+      @include on-desktop {
+        width: 64px;
+      }
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

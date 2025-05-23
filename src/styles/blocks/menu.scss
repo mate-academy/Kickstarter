@@ -1,0 +1,119 @@
+.menu {
+  height: 568px;
+  background-color: rgba(249, 249, 249, 1);
+
+  @include on-tablet {
+    height: 992px;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__nav {
+    margin-top: 31px;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+  }
+
+  &__button {
+    @include on-tablet {
+      display: none;
+    }
+
+    @include font-open-sans-medium;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 260px;
+    height: 48px;
+    margin-top: 162px;
+    margin-inline: auto;
+
+    font-size: 12px;
+    line-height: 100%;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    background-color: rgba(51, 51, 51, 1);
+
+    transition: all $time-transform;
+
+    &:hover {
+      transform: scale(1.05);
+      border-radius: 3px;
+      background-color: rgba(19, 19, 19, 1);
+      box-shadow: 3px 3px 6px rgba(31, 31, 31, 0.5);
+    }
+
+    &:active {
+      background-color: rgba(51, 51, 51, 1);
+      box-shadow: 1px 1px 3px rgba(31, 31, 31, 0.3);
+    }
+  }
+
+  &__specs {
+    @include on-tablet {
+      display: none;
+    }
+
+    @include font-open-sans-light;
+
+    font-size: 14px;
+    line-height: 100%;
+    color: rgba(79, 79, 79, 1);
+    text-decoration: none;
+
+    @include hover(color, rgba(57, 190, 191, 1));
+  }
+
+  &__lang--switcher {
+    display: flex;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__divider {
+    @include font-open-sans-regular;
+
+    font-size: 14px;
+    line-height: 18px;
+    color: $font-color-primary;
+  }
+
+  &__lang {
+    @include font-open-sans-regular;
+
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 18px;
+    color: $font-color-primary;
+
+    &--inactive {
+      @include font-open-sans-light;
+
+      color: rgba(130, 130, 130, 1);
+    }
+
+    @include hover(color, rgba(57, 190, 191, 1));
+  }
+
+  &__additional-block {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    margin-top: 50px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}

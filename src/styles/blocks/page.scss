@@ -1,0 +1,40 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    margin-bottom: 20px;
+    background: $background-color-primary;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateY(-100%);
+
+    opacity: 0;
+
+    transition: all 0.5s;
+
+    &:target {
+      pointer-events: all;
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}

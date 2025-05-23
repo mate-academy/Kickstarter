@@ -1,0 +1,82 @@
+.switcher {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 93px;
+  height: 47px;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__indicator {
+    display: flex;
+    align-items: end;
+    width: 43px;
+    height: 24px;
+  }
+
+  &__arrows {
+    position: relative;
+    width: 93px;
+    height: 15px;
+  }
+
+  &__card-number {
+    @include font-inter-regular;
+
+    align-self: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: $font-color-primary;
+  }
+
+  &__divider {
+    @include font-inter-regular;
+
+    margin-right: 4px;
+    margin-left: 3px;
+
+    font-size: 11px;
+    line-height: 100%;
+    color: rgba(12, 121, 122, 1);
+  }
+
+  &__cards-size {
+    @include font-inter-regular;
+
+    font-size: 11px;
+    line-height: 100%;
+    color: rgba(12, 121, 122, 1);
+  }
+
+  &__arrow {
+    cursor: pointer;
+
+    position: absolute;
+
+    width: 48px;
+    height: 14px;
+
+    background-size: cover;
+
+    &--left {
+      top: 1px;
+      background-image: url(../images/icons/arrow-left.svg);
+    }
+
+    &--right {
+      top: 0;
+      right: 0;
+      left: auto;
+
+      height: 13px;
+
+      background-image: url(../images/icons/arrow-right.svg);
+    }
+
+    @include hover(transform, scale(1.1));
+  }
+}

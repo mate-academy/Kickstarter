@@ -1,0 +1,75 @@
+.footer {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 96px;
+
+    @include on-tablet {
+      height: 191px;
+    }
+  }
+
+  &__logo-link {
+    display: flex;
+
+    &--hidden {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+      }
+    }
+  }
+
+  &__logo {
+    height: 26px;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 152px;
+    height: 24px;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+
+    &--facebook {
+      background-image: url(../images/icons/icon-facebook.svg);
+    }
+
+    &--twitter {
+      background-image: url(../images/icons/icon-twitter.svg);
+    }
+
+    &--instagram {
+      background-image: url(../images/icons/icon-instagram.svg);
+    }
+
+    @include hover(transform, scale(1.3));
+  }
+
+  &__bottom {
+    @include font-inter-regular;
+
+    font-size: 14px;
+    line-height: 21px;
+    color: $font-color-additional;
+    text-align: center;
+  }
+
+  &__bottom-divider {
+    @media (min-width: 440px) {
+      display: none;
+    }
+  }
+}
