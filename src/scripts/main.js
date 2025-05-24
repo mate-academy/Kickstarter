@@ -70,3 +70,16 @@ function changeCard(value) {
   cards[index].classList.remove('feature-card--hidden');
   cardNumber.textContent = numbers[index];
 }
+
+const benefits = document.querySelectorAll('.benefit-card');
+const switchers = document.querySelectorAll('.benefit-card__icon');
+let indexCard = 0;
+
+switchers.forEach(switcher => switcher.addEventListener('click', () => {
+  benefits[indexCard].classList.add('benefit-card--hidden');
+  indexCard++;
+  if (indexCard === 3) {
+    indexCard = 0;
+  }
+  benefits[indexCard].classList.remove('benefit-card--hidden');
+}));
