@@ -1,0 +1,70 @@
+.feature-card {
+  height: 275px;
+
+  @include on-tablet {
+    grid-column: 2/5;
+    height: 302px;
+  }
+
+  @include on-desktop {
+    grid-column: 2/6;
+    height: auto;
+  }
+
+  &--hidden {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &--start {
+    @include on-desktop {
+      grid-column: 7/10;
+    }
+  }
+
+  &__title {
+    @include font-inter-bold;
+
+    font-size: 18px;
+    line-height: 22px;
+    color: rgba(12, 121, 122, 1);
+    text-transform: uppercase;
+    vertical-align: middle;
+
+    @include on-desktop {
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding-left: 16px;
+
+    @include on-desktop {
+      margin-top: 30px;
+    }
+  }
+
+  &__item {
+    @include font-inter-regular;
+
+    font-size: 14px;
+    line-height: 21px;
+    color: $font-color-primary;
+    vertical-align: middle;
+
+    @include on-desktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}

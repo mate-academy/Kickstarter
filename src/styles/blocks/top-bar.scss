@@ -1,0 +1,158 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+
+  @include on-tablet {
+    height: 108px;
+  }
+
+  &__logo {
+    height: 26px;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__icon {
+    &--menu {
+      width: 32px;
+      height: 32px;
+      background-image: url(../images/icons/icon-menu.svg);
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    &--close {
+      width: 32px;
+      height: 32px;
+
+      background-image: url(../images/icons/icon-close.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    @include hover(transform, scale(1.3));
+  }
+
+  &__right {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+    @include on-desktop {
+      gap: 0;
+    }
+  }
+
+  &__specs {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+
+    @include on-desktop {
+      width: 72px;
+    }
+
+    @include font-open-sans-light;
+
+    font-size: 14px;
+    line-height: 100%;
+    color: rgba(79, 79, 79, 1);
+    text-decoration: none;
+
+    transition: all $time-transform;
+
+    &:hover {
+      @include font-open-sans-regular;
+
+      color: rgba(57, 190, 191, 1);
+    }
+  }
+
+  &__lang--switcher {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &__divider {
+    @include font-open-sans-regular;
+
+    font-size: 14px;
+    line-height: 18px;
+    color: $font-color-primary;
+  }
+
+  &__lang {
+    @include font-open-sans-regular;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    line-height: 18px;
+    color: $font-color-primary;
+
+    transition: all $time-transform;
+
+    &--inactive {
+      @include font-open-sans-light;
+
+      color: rgba(130, 130, 130, 1);
+    }
+
+    &:hover {
+      @include font-open-sans-regular;
+
+      color: rgba(57, 190, 191, 1);
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include font-open-sans-medium;
+
+    width: 100px;
+    height: 48px;
+
+    font-size: 12px;
+    line-height: 100%;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    background-color: rgba(51, 51, 51, 1);
+
+    transition: all $time-transform;
+
+    @include on-tablet {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include on-desktop {
+      margin-left: 47px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      border-radius: 3px;
+      background-color: rgba(19, 19, 19, 1);
+      box-shadow: 3px 3px 6px rgba(31, 31, 31, 0.5);
+    }
+
+    &:active {
+      background-color: rgba(51, 51, 51, 1);
+      box-shadow: 1px 1px 3px rgba(31, 31, 31, 0.3);
+    }
+  }
+}
