@@ -14,6 +14,8 @@
   &__indicator {
     display: flex;
     align-items: end;
+    justify-content: end;
+
     width: 43px;
     height: 24px;
   }
@@ -21,7 +23,7 @@
   &__arrows {
     position: relative;
     width: 93px;
-    height: 15px;
+    height: 16px;
   }
 
   &__card-number {
@@ -57,26 +59,43 @@
 
     position: absolute;
 
-    width: 48px;
+    width: 52px;
     height: 14px;
 
     background-size: cover;
 
+    transition: all $time-transform;
+
     &--left {
       top: 1px;
-      background-image: url(../images/icons/arrow-left.svg);
+      background-image: url(../images/icons/arrow-left-black.svg);
+
+      &:hover {
+        transform: scale(1.1);
+        background-image: url(../images/icons/arrow-left-green.svg);
+      }
+
+      &--disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+        background-image: url(../images/icons/arrow-left-disabled.svg);
+      }
     }
 
     &--right {
-      top: 0;
       right: 0;
-      left: auto;
+      background-image: url(../images/icons/arrow-right-black.svg);
 
-      height: 13px;
+      &:hover {
+        transform: scale(1.1);
+        background-image: url(../images/icons/arrow-right-green.svg);
+      }
 
-      background-image: url(../images/icons/arrow-right.svg);
+      &--disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+        background-image: url(../images/icons/arrow-right-disabled.svg);
+      }
     }
-
-    @include hover(transform, scale(1.1));
   }
 }
