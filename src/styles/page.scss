@@ -1,0 +1,41 @@
+.page {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+    &:has(.page__menu:target) {
+      overflow: hidden;
+
+      @include on-desktop {
+        overflow: visible;
+      }
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    inset: 0;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+      max-height: 100vh;
+      overflow: hidden;
+    }
+
+    @include on-desktop {
+      all: unset;
+    }
+  }
+}

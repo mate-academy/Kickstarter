@@ -1,0 +1,62 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background-color: $c-gray;
+  overflow: hidden;
+
+  @include content-space-inline;
+
+  @include on-tablet {
+    z-index: 3;
+  }
+
+  &__top-bar {
+    padding-inline: 0;
+    margin-bottom: 30px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__tools {
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__button {
+    display: block;
+    width: 260px;
+    height: 48px;
+    background-color: #333;
+    position: absolute;
+    bottom: 30px;
+    align-self: center;
+
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 48px;
+    color: #fff;
+
+    @include hover(transform, scale(1.2));
+
+    &:hover {
+      background-color: #131313;
+    }
+
+    &:disabled {
+      background-color: #d0d0d0;
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}

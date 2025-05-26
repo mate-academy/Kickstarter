@@ -1,0 +1,50 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 25px;
+  margin-bottom: 50px;
+
+  @include on-tablet {
+    gap: 40px;
+  }
+
+  @include on-desktop {
+    display: grid;
+    align-self: center;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 84px;
+    margin-bottom: 90px;
+  }
+
+  &__link {
+    @include thirdary-text;
+
+    display: block;
+    margin: 0;
+    padding: 0;
+    color: #131313;
+
+    text-decoration: none;
+    transform-origin: left;
+    transition: transform 0.3s;
+
+    @include on-tablet {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    @include on-desktop {
+      text-align: center;
+      font-size: 14px;
+      transform-origin: center;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+      font-weight: 700;
+    }
+  }
+}

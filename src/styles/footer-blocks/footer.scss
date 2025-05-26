@@ -1,0 +1,120 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+
+  @include on-tablet {
+    gap: 60px;
+  }
+
+  @include content-space-inline;
+
+  &-logo {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 0;
+    }
+
+    &__link {
+      display: flex;
+      width: 184px;
+      height: 25px;
+      justify-content: center;
+
+      @include hover(transform, scale(1.2));
+    }
+
+    &__logo {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    &__go-to-top {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0;
+      padding: 0;
+      height: 50px;
+      width: 50px;
+      background-image: url(../images/icons/go-to-top.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @include hover(transform, scale(1.2));
+
+      @include on-desktop {
+        height: 24px;
+        width: 24px;
+
+        @include hover(transform, scale(1.4));
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      gap: 50px;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      gap: 40px;
+    }
+
+    &-link {
+      display: block;
+      margin: 0;
+      padding: 0;
+      width: 24px;
+      height: 24px;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @include hover(transform, scale(1.4));
+
+      &--facebook {
+        background-image: url(../images/icons/facebook.svg);
+      }
+
+      &--twitter {
+        background-image: url(../images/icons/twitter.svg);
+      }
+
+      &--instagram {
+        background-image: url(../images/icons/instagram.svg);
+      }
+    }
+  }
+
+  &__rights {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+    }
+
+    @include secondary-text;
+
+    color: #bdbdbd;
+  }
+}
