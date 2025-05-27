@@ -119,8 +119,6 @@ textInput.addEventListener('input', () => {
   } else {
     textInput.classList.remove('invalid');
   }
-
-  checkFormValid()
 })
 
 mailInput.addEventListener('input', () => {
@@ -129,19 +127,14 @@ mailInput.addEventListener('input', () => {
   } else {
     mailInput.classList.remove('invalid');
   }
-
-  checkFormValid()
 })
 
-function checkFormValid() {
-  if (mailInput.checkValidity() && textInput.checkValidity()) {
-    formButton.disabled = false;
-
-    return;
+formButton.addEventListener('click', (event) => {
+  if (!mailInput.checkValidity() || !textInput.checkValidity()) {
+    event.preventDefault();
   }
+})
 
-  formButton.disabled = true;
-}
 //#endregion
 
 const scrollBtn = document.querySelector('.go-top');
