@@ -1,0 +1,40 @@
+.sidebar {
+  display: none;
+  overflow-y: auto;
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: #f9f9f9;
+
+  @include on-tablet {
+    display: block;
+  }
+
+  &__content {
+    padding: 41px 34px 0;
+
+    @include on-mobile {
+      padding: 33px 34px 0;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  &__menu {
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+  }
+  &__menu:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
