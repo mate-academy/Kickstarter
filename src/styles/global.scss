@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+a {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+  width: fit-content;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 52px;
+  text-transform: uppercase;
+
+  @include on-tablet {
+    font-size: 48px;
+    line-height: 62px;
+  }
+
+  @include on-desktop {
+    font-size: 64px;
+    line-height: 78px;
+  }
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 40px;
+  text-transform: uppercase;
+
+  @include on-tablet {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  @include on-desktop {
+    font-size: 56px;
+    line-height: 70px;
+  }
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+
+  @include on-tablet {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  @include on-desktop {
+    font-size: 34px;
+    line-height: 42px;
+  }
+}
+
+h4 {
+  font-size: 22px;
+  line-height: 28px;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 30px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 20px;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+}
+
+// #region global block
+.icon {
+  height: 24px;
+  width: 24px;
+  background-position: center;
+
+  @include hover(transform, scale(1.1));
+}
+
+.button-block {
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  line-height: 18px;
+  font-size: 14px;
+
+  @include on-desktop {
+    font-family: Inter, sans-serif;
+    line-height: 20px;
+    font-weight: 400;
+  }
+}
+
+.specs {
+  transition-duration: 0.3s;
+  color: #4f4f4f;
+
+  &:hover {
+    color: #0db2b3;
+  }
+}
+
+.change-lang {
+  display: flex;
+  gap: 3px;
+
+  &__button {
+    color: #828282;
+    transition-duration: 0.3s;
+
+    &:hover {
+      color: #0db2b3;
+    }
+  }
+
+  &__separator {
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: #333;
+    cursor: default;
+  }
+}
+
+.active-lang {
+  color: #333;
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.buy-button {
+  font-family: Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #333;
+  padding-block: 16px;
+  justify-content: center;
+  transition-duration: 0.3s;
+
+  @include on-desktop {
+    font-weight: 700;
+    font-family: Inter, sans-serif;
+  }
+
+  &:hover {
+    background-color: #131313;
+  }
+
+  &:active {
+    border-radius: 8px;
+  }
+
+  &:disabled {
+    background-color: #d0d0d0;
+  }
+}
+
+// #endregion

@@ -1,0 +1,141 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  @include on-tablet {
+    height: $header-height-tablet;
+  }
+
+  @include on-desktop {
+    height: 100vh;
+  }
+
+  &__content {
+    background-image: url(../images/header_img_mobile.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    gap: 20px;
+
+    @include on-tablet {
+      background-position: bottom right;
+      background-image: url(../images/header_img_tablet.png);
+      background-size: 50%;
+      gap: 30px;
+      grid-template-rows: auto min-content;
+    }
+
+    @include on-desktop {
+      background-image: url(../images/header_img_desktop.png);
+      background-size: 50%;
+    }
+  }
+
+  &__title {
+    margin-top: auto;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+  }
+
+  &__info {
+    line-height: 24px;
+
+    @include on-tablet {
+      grid-column: span 4;
+      grid-row: 2;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+  }
+}
+
+// #region header top-bar
+.header__button {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+
+  @include on-desktop {
+    gap: 47px;
+  }
+}
+
+.header__button-block {
+  display: none;
+
+  @include on-tablet {
+    display: flex;
+    gap: 30px;
+  }
+
+  @include on-desktop {
+    gap: 47px;
+  }
+}
+
+.header__buy-button {
+  display: none;
+
+  @include on-tablet {
+    display: flex;
+    padding-inline: 38px;
+  }
+}
+
+// #endregion
+
+// #region header menu position
+.header__menu {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 1.3s;
+  transform: translateY(-100%);
+
+  &:target {
+    pointer-events: all;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+// #endregion
+
+// #region header nav
+.header__bottom {
+  display: none;
+
+  @include on-desktop {
+    display: block;
+  }
+}
+
+.header__nav {
+  @include on-desktop {
+    padding-top: 198px;
+  }
+}
+
+.header__nav__list {
+  @include on-desktop {
+    gap: 84px;
+    justify-content: center;
+  }
+}
+
+// #endregion

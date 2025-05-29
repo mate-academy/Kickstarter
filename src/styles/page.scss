@@ -1,0 +1,49 @@
+.page {
+  scroll-behavior: smooth;
+  font-family: Inter, sans-serif;
+  color: $page-text-color;
+  background-color: $page-background-color;
+}
+
+.page__body {
+  display: flex;
+  flex-direction: column;
+  row-gap: 110px;
+
+  @include on-tablet {
+    row-gap: 140px;
+  }
+
+  @include on-desktop {
+    row-gap: 0;
+  }
+}
+
+.go-top {
+  background-image: url(../icons/arrow-def.svg);
+  background-repeat: no-repeat;
+  opacity: 0;
+  position: fixed;
+  bottom: -100px;
+  transition-duration: 0.3s;
+
+  @include on-tablet {
+    display: block;
+    right: 50px;
+    bottom: 185px;
+  }
+
+  @include on-desktop {
+    right: 90px;
+    bottom: 197px;
+  }
+
+  &:hover {
+    background-image: url(../icons/arrow-hov.svg);
+  }
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
