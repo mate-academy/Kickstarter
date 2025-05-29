@@ -116,6 +116,7 @@ let formButton = document.querySelector('.questions__button');
 textInput.addEventListener('input', () => {
   if(!textInput.checkValidity()) {
     textInput.classList.add('invalid');
+    textInput.reportValidity();
   } else {
     textInput.classList.remove('invalid');
   }
@@ -124,6 +125,7 @@ textInput.addEventListener('input', () => {
 mailInput.addEventListener('input', () => {
   if(!mailInput.checkValidity()) {
     mailInput.classList.add('invalid');
+    mailInput.reportValidity();
   } else {
     mailInput.classList.remove('invalid');
   }
