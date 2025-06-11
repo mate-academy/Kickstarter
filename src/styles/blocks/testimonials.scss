@@ -1,0 +1,89 @@
+.testimonials {
+  padding-top: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  @include on-tablet {
+    padding-top: 60px;
+  }
+
+  @include on-desktop {
+    padding-top: 42px;
+  }
+
+  &::before {
+    position: absolute;
+    content: '';
+    background-image: url(../images/icons/quote.png);
+    height: 171px;
+    width: 208px;
+    top: 0;
+
+    @include on-tablet {
+      height: 189px;
+      width: 233px;
+    }
+
+    @include on-desktop {
+      height: 192px;
+    }
+  }
+
+  &__content {
+    @include grid;
+
+    justify-items: center;
+    text-align: center;
+  }
+
+  &__quote {
+    grid-column: 1 / -1;
+    margin: 0 0 30px;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / -3;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__text {
+    @extend%quote;
+
+    margin: 0;
+  }
+
+  &__img {
+    height: 62px;
+    width: 62px;
+    border-radius: 50%;
+    grid-column: 1 / -1;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    @include on-tablet {
+      margin-bottom: 20px;
+    }
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__author {
+    @extend%h5;
+
+    display: block;
+    grid-column: 1 / -1;
+    margin-bottom: 5px;
+  }
+
+  &__author-position {
+    @extend%secondary-text;
+
+    display: block;
+    grid-column: 1 / -1;
+  }
+}

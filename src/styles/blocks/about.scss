@@ -1,0 +1,99 @@
+.about {
+  &__content {
+    @include grid;
+
+    position: relative;
+    padding-top: 110px;
+
+    @include on-tablet {
+      padding-top: 0;
+    }
+  }
+
+  &__img {
+    grid-column: 1 / -1;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin: 0 0 0 -34px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+      margin: 0;
+    }
+
+    @include hover(box-shadow, 3px 3px 10px 3px $text-color);
+  }
+
+  &__img-mobile,
+  &__img-tablet,
+  &__img-desktop {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  &__wrapper {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__title {
+    @extend%h2;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+      position: static;
+    }
+  }
+
+  &__description {
+    @extend%main-text;
+
+    color: $text-color;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__btn {
+    @extend%button;
+
+    padding-bottom: 5px;
+    position: relative;
+    color: $accent-color;
+
+    &::after {
+      position: absolute;
+      content: '';
+      height: 1px;
+      width: 100%;
+      background-color: $accent-color;
+      bottom: 0;
+      left: 0;
+      transform: scaleX(0.45);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+}
