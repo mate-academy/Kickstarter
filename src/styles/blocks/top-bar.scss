@@ -1,0 +1,141 @@
+.top-bar {
+  padding: 22px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo-link {
+    z-index: 2;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 30px;
+
+    @include on-tablet {
+      align-items: center;
+    }
+  }
+
+  &__specs {
+    @extend%thirdary-text;
+
+    margin-right: 20px;
+    text-decoration-line: none;
+
+    @include hover(font-variation-settings, 'wght' 700);
+
+    @include on-tablet {
+      margin-right: 0;
+    }
+  }
+
+  &__lang-btn {
+    @extend%thirdary-text;
+
+    color: $secondary-text-color;
+    display: flex;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  &__lang-value {
+    transition:
+      font-variation-settings 0.3s,
+      color 0.3s;
+  }
+
+  &__lang-value.top-bar__lang-value--active {
+    color: $main-color;
+    font-variation-settings: 'wght' 700;
+  }
+
+  &__btn {
+    @extend%button;
+
+    width: 100%;
+    padding: 17px 0;
+    color: white;
+    background-color: $main-color;
+    text-decoration-line: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 260px;
+    margin: 0 auto;
+
+    @include on-tablet {
+      width: 100px;
+    }
+
+    @include hover(background-color, $hover-btn-color);
+    @include disabled(background-color, $disabled-btn-color);
+  }
+
+  &__menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8px 4px;
+    position: relative;
+    border: none;
+    background-color: transparent;
+    height: 31px;
+    width: 32px;
+    cursor: pointer;
+    z-index: 2;
+
+    @include on-small-desktop {
+      display: none;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      height: 3px;
+      width: 24px;
+      background-color: #292929;
+      border-radius: 2px;
+      transform-origin: center;
+      transition:
+        transform 0.3s,
+        top 0.3s;
+    }
+
+    &::before {
+      top: 7px;
+    }
+
+    &::after {
+      bottom: 7px;
+    }
+  }
+
+  &__menu-btn-line {
+    display: flex;
+    height: 3px;
+    width: 24px;
+    background-color: #292929;
+    border-radius: 2px;
+    transition: transform 0.3s;
+  }
+
+  &__menu-btn.top-bar__menu-btn--active {
+    &::before {
+      transform: rotateZ(45deg);
+      top: 50%;
+    }
+
+    &::after {
+      transform: rotateZ(-45deg);
+      top: 50%;
+    }
+
+    .top-bar__menu-btn-line {
+      transform: scaleX(0);
+    }
+  }
+}
