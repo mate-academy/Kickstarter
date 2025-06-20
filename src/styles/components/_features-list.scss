@@ -1,0 +1,32 @@
+.features__list {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &-title {
+    text-transform: uppercase;
+
+    @include text-style(
+      $title-font-size-small-desktop-lg,
+      $font-weight-bold,
+      34px
+    );
+
+    @include respond-to(tablet, phone) {
+      @include text-size($title-font-size-small-phone, 22px);
+    }
+  }
+
+  &-item {
+    list-style: disc inside;
+
+    @include text-style($text-font-size-large, $font-weight-regular, 24px);
+
+    @include respond-to(tablet, phone) {
+      width: 280px;
+
+      @include text-size($text-font-size-medium, 22px);
+    }
+  }
+}

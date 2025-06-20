@@ -1,0 +1,187 @@
+$header-top-tablet-height: 74px;
+
+.header {
+  margin: 0 $desktop-margin-side;
+
+  @include respond-to(tablet) {
+    margin: 0 $tablet-margin-side;
+  }
+
+  @include respond-to(phone) {
+    margin: 0;
+  }
+
+  &-top {
+    padding-top: 30px;
+
+    @include flex(space-between);
+
+    @include respond-to(tablet, phone) {
+      position: fixed;
+      height: $header-top-tablet-height;
+      padding: 0 $tablet-margin-side;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin-top: 0;
+    }
+
+    @include respond-to(phone) {
+      padding: 0 $phone-margin-side;
+    }
+
+    &--scrolled {
+      background-color: white;
+      box-shadow: 0 8px 35px rgba(0, 0, 0, 0.11);
+    }
+
+    &__list {
+      @include flex(space-between);
+
+      gap: 45px;
+    }
+
+    @include respond-to(phone) {
+      &__item {
+        &:not(:last-child) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &-bottom {
+    margin-top: 90px;
+    display: flex;
+
+    @include respond-to(tablet) {
+      margin-top: 90px + $header-top-tablet-height;
+    }
+
+    @include respond-to(phone) {
+      margin-top: $header-top-tablet-height;
+      flex-direction: column-reverse;
+    }
+
+    &__content {
+      @include respond-to(phone) {
+        max-width: 260px;
+        margin: 0 auto;
+      }
+    }
+
+    &__title {
+      margin-top: 80px;
+      text-transform: uppercase;
+
+      @include text-style(
+        $title-font-size-large-desktop-lg,
+        $font-weight-bold,
+        78px
+      );
+
+      @include respond-to(tablet) {
+        margin-top: 0;
+
+        @include text-size($title-font-size-large-desktop-md, 62px);
+      }
+
+      @include respond-to(phone) {
+        margin-top: 40px;
+
+        @include text-size($title-font-size-large-phone, 40px);
+      }
+    }
+
+    &__description {
+      margin-top: 30px;
+      max-width: 260px;
+
+      @include text-style($text-font-size-large, $font-weight-regular, 24px);
+
+      @include respond-to(phone) {
+        margin-top: 20px;
+      }
+    }
+
+    &__image {
+      max-height: 464px;
+      width: 100%;
+      overflow-x: hidden;
+      object-fit: contain;
+      object-position: center center;
+
+      @include respond-to(tablet) {
+        max-height: 400px;
+      }
+
+      @include respond-to(phone) {
+        max-height: 320px;
+      }
+    }
+  }
+}
+
+.brand-title__link {
+  position: relative;
+  padding-right: 35px;
+  text-transform: uppercase;
+
+  @include text-style(
+    $title-font-size-small-desktop-md,
+    $font-weight-bold,
+    100%,
+    #000
+  );
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    background: url(../assets/icons/favicon.svg) no-repeat;
+    background-size: contain;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}
+
+.language-switcher {
+  &__separator,
+  &__button {
+    background-color: transparent;
+    text-transform: uppercase;
+
+    @include text-style($text-font-size-medium, $font-weight-regular, 20px);
+  }
+
+  &__button {
+    color: #bdbdbd;
+
+    &:hover {
+      color: $color-dark-gray;
+    }
+
+    &--active {
+      color: $color-dark-gray;
+    }
+  }
+}
+
+.specs-link {
+  text-transform: uppercase;
+
+  @include text-style(
+    $text-font-size-medium,
+    $font-weight-regular,
+    20px,
+    #4f4f4f
+  );
+
+  &:hover {
+    color: $color-dark-gray;
+    font-weight: 500;
+  }
+}
