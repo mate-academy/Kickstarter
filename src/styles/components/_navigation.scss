@@ -1,0 +1,43 @@
+.nav {
+  &__link {
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include text-style($text-font-size-medium, $font-weight-regular, 20px);
+
+    @include respond-to(tablet) {
+      @include text-size(22px, 28px);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      width: 0;
+      height: 1px;
+      background-color: $color-black-soft;
+      font-weight: 700;
+      transition:
+        width 0.3s ease,
+        left 0.3s ease;
+      transform-origin: center;
+    }
+
+    &:active,
+    &--active {
+      color: $color-black-soft;
+      font-weight: 700;
+    }
+
+    &:not(.nav__link--active):hover {
+      color: $color-black-soft;
+
+      &::after {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+}

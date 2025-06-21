@@ -1,0 +1,44 @@
+.benefit-card {
+  max-width: 300px;
+  justify-self: center;
+  position: relative;
+
+  @include flex(flex-start, center, column);
+
+  @include respond-to(tablet) {
+    grid-template-columns: 2;
+    gap: $grid-gutter-tablet;
+  }
+
+  @include respond-to(phone) {
+    &:not(:first-child) {
+      display: none;
+    }
+  }
+
+  &__icon {
+    height: 50px;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__title {
+    margin-top: 80px;
+    min-height: 30px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include text-style(22px, $font-weight-bold, 28px);
+  }
+
+  &__description {
+    margin-top: 110px;
+    text-align: center;
+
+    @include text-style($text-font-size-medium, $font-weight-regular, 22px);
+  }
+}

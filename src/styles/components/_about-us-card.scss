@@ -1,0 +1,128 @@
+.about-us {
+  &__card {
+    @include grid(2, $grid-gutter-desktop);
+
+    grid-template-rows: auto;
+    grid-template-areas:
+      'img title'
+      'img description'
+      'img link';
+
+    @include respond-to(tablet) {
+      min-width: 350px;
+      gap: $grid-columns-tablet;
+
+      &:nth-child(even) {
+        margin-left: $tablet-margin-side;
+      }
+
+      &:nth-child(odd) {
+        margin-right: $tablet-margin-side;
+      }
+    }
+
+    @include respond-to(phone) {
+      margin: 0 auto;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas:
+        'title'
+        'img'
+        'description'
+        'link';
+      gap: 20px;
+    }
+
+    &--reversed {
+      @include respond-to(desktop, tablet) {
+        grid-template-areas:
+          'title img'
+          'description img'
+          'link img';
+      }
+    }
+  }
+
+  &__title {
+    grid-area: title;
+    text-transform: uppercase;
+
+    @include text-style(
+      $title-font-size-medium-desktop-lg,
+      $font-weight-bold,
+      70px
+    );
+
+    @include respond-to(tablet) {
+      @include text-size($title-font-size-medium-desktop-md, 46px);
+    }
+
+    @include respond-to(phone) {
+      @include text-size($title-font-size-medium-phone, 40px);
+    }
+  }
+
+  &__description {
+    grid-area: description;
+    height: max-content;
+
+    @include text-style($text-font-size-large, $font-weight-regular, 24px);
+  }
+
+  &__link {
+    grid-area: link;
+    height: max-content;
+    width: max-content;
+    position: relative;
+    text-transform: uppercase;
+
+    @include text-style(
+      $text-font-size-small,
+      $font-weight-bold,
+      14px,
+      $color-teal
+    );
+
+    @include respond-to(phone) {
+      margin-top: 10px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 40%;
+      height: 1px;
+      bottom: -5px;
+      left: 0;
+      background-color: $color-teal;
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__img {
+    grid-area: img;
+    max-height: 390px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 8px grey;
+      transform: scale(1.02);
+    }
+
+    @include respond-to(tablet) {
+      min-height: 375px;
+    }
+
+    @include respond-to(phone) {
+      margin-top: 10px;
+    }
+  }
+}
