@@ -1,40 +1,73 @@
-# Kickstarter landing page (HARD)
+# [🔊 Kickstarter – Landing Page](https://gtailde.github.io/Kickstarter)
 
-**⚠️ Attention: this is a hard landing page for development. We highly recommend choosing this landing page only if you didn't have a lot of troubles with previous homework tasks and if you sent all homework in time (didn't miss deadlines).** 
+## **Live demo:** [gh pages](https://gtailde.github.io/Kickstarter)
 
-Implement landing page according to [Figma design](https://www.figma.com/file/Ujp7bCFuvuJlkn8TSbQPSZ/%E2%84%9611-(kickstarter)?node-id=19655%3A33) - Use BEM and SCSS
-- The design 1440px
-- Desktop 1280px
-- Tablet 640px
-- Mobile (> 320px)
+## 🖼️ Preview
 
-1. Implement the header with `nav`.
-1. Implement `Benefits` block.
-1. Implement `Presentation` block.
-1. Implement `About us` block.
-1. Implement `Technology` block.
-1. Implement `Testimonilas` block.
-1. Implement `Features` block.
-1. Implement `Questions` block
-1. Implement the footer.
+![Preview](https://i.postimg.cc/mk1SD4dY/2025-06-21-02-29-11.png)
 
+**Kickstarter** is a responsive landing page designed to showcase Crazybaby speakers. It's crafted with clean, semantic code, leveraging a robust SCSS architecture and dynamic JavaScript for an engaging user experience.
 
-## Github flow
+---
 
-1. **Fork** the repo.
-2. **Clone** the forked one. (The project link should have your name but not `mate-academy`)
-3. Run `npm install` (or just `npm i`)
-4. Run `npm start`.
-5. Open one more terminal window for the next steps
-6. `git checkout -b develop` - to create new branch and switch on it
-7. Write you code in `src` folder
-8. Run `npm run lint` and fix code style errors.
-9. Run `npm run deploy` to deploy your solution to `gh-pages`
-10. `git add . && git commit -m 'solution'` to save your changes
-11. `git push origin develop` - to send you code for PR
-12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
-13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/Kickstarter/)
-14. Copy `DEMO LINK` to the PR description
+## 🔧 Technologies Used
 
-> To update you PR repeat steps 7-11
+- **HTML5** with semantic elements for structure and accessibility
+- **SCSS (SASS)** for powerful, maintainable styling, utilizing mixins and variables. [Read more](./docs/mixins.md)
+- **JavaScript (Vanilla JS)**
+  - Custom scroll-triggered animations using IntersectionObserver and responsive breakpoints. [Read more](./docs/animations.md)
+- **BEM methodology** for clear and scalable CSS class naming
+- **Responsive design** ensuring optimal viewing across mobile, tablet, and desktop devices
+- **Full interactivity** for all user-accessible elements, including forms and navigation
+
+---
+
+## 💡 Features
+ - Dynamic Animations: Smooth animations on scroll, powered by Intersection Observer.
+ - Modular SCSS: Component-based architecture with reusable mixins for consistent styling.
+ - Flexible Responsiveness: Custom responsive thresholds for animation triggers across devices.
+ - Structured Styling: Well-structured BEM class naming convention for easy maintenance.
+ - Enhanced User Experience: All interactive elements (e.g., buttons, links, form inputs) include proper focus and hover states.
+ - Semantic & Accessible Markup: Built with semantic HTML5 tags to improve accessibility and SEO.
+
+---
+
+## 📚 Documentation
+
+For a detailed understanding of the project's custom functionalities:
+
+[Animations Documentation](./docs/animations.md): Explore how scroll-based animations are configured and implemented.
+
+[Mixins Documentation](./docs/mixins.md): Learn about the reusable SCSS mixins used throughout the project.
+
+---
+
+## 📐 Code Style & Structure
+The project adheres to best practices for code organization and style, prioritizing clarity, accessibility, and performance.
+
+ - BEM methodology for CSS classes, greatly improving clarity and maintainability.
+ - Semantic HTML5 tags are used throughout to enhance accessibility and SEO.
+ - Component-based SCSS architecture with reusable mixins and variables ensures styles are DRY (Don't Repeat Yourself) and consistent.
+ - All interactive elements (buttons, links, form fields) include hover and focus states to improve user experience.
+ - Written in vanilla JavaScript without heavy frameworks, keeping the project lightweight and fast.
+ - Images are optimized and compressed for faster loading times.
+
+---
+
+## 🚀 Local Setup
+If you’d like to run the project locally:
+
+```bash
+git clone https://github.com/gtailde/Kikstarter.git
+cd Kickstarter
+npm install
+npm run start
+```
+
+---
+
+## 🛠️ Technology Badges
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white)
