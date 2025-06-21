@@ -74,7 +74,6 @@ window.addEventListener('resize', () => resetObserversOnResize());
 ]
 ```
 
-## 🔍 Property Reference
 
 ## 🔍 Property Reference
 
