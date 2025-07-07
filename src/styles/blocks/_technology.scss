@@ -1,0 +1,156 @@
+.technology {
+  &__item {
+    @include page-grid;
+
+    grid-template-rows: min-content;
+
+    &:not(:last-child) {
+      margin-bottom: 110px;
+    }
+
+    @include media(tabl) {
+      height: 415px;
+    }
+
+    @include media(desc) {
+      max-height: 388px;
+    }
+
+    &--start {
+      @include media(tabl) {
+        padding-right: 35px;
+      }
+
+      @include media(desc) {
+        padding-right: 0;
+      }
+    }
+
+    &--end {
+      @include media(tabl) {
+        padding-left: 35px;
+      }
+
+      @include media(desc) {
+        padding-left: 0;
+      }
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    margin-bottom: 30px;
+
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+
+    @include media(tabl) {
+      grid-column: span 3;
+    }
+
+    @include media(desc) {
+      grid-column: span 6;
+    }
+  }
+
+  &__photo {
+    grid-column: 1 / -1;
+
+    width: 100%;
+    height: 210px;
+    margin-bottom: 20px;
+
+    background-position: center;
+    background-size: cover;
+
+    &--start {
+      background-image: url('../images/design/design-tabl1.jpg');
+
+      @include media(tabl) {
+        grid-column: 1 / 5;
+        grid-row: 1 / span 2;
+        height: 100%;
+        margin: 0;
+      }
+
+      @include media(desc) {
+        grid-column: 1 / 7;
+      }
+    }
+
+    &--end {
+      background-image: url('../images/design/design-tabl2.jpg');
+
+      @include media(tabl) {
+        grid-column: 5 / -1;
+        grid-row: 1 / span 2;
+        height: 100%;
+        margin: 0;
+      }
+
+      @include media(desc) {
+        grid-column: 7 / -1;
+      }
+    }
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+
+    @include media(tabl) {
+      grid-column: span 4;
+    }
+
+    @include media(desc) {
+      grid-column: span 6;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #7c7c7c;
+
+    @include media(tabl) {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    padding-bottom: 6px;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    color: #0db2b3;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 50%;
+      height: 1px;
+
+      background-color: #0db2b3;
+
+      transition: width 0.5s ease-in-out;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
