@@ -17,25 +17,20 @@ menuLinks.forEach((menuLink) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1) Только мобилка
   if (window.innerWidth > 400) return;
 
-  // 2) Ищем viewport
   const vp = document.querySelector('.benefits__slider');
   if (!vp) return;
 
-  // 3) Создаём плагин автоплей: он сам остановится при взаимодействии
   const autoplay = EmblaCarouselAutoplay({
-    delay: 1000,
-    stopOnInteraction: true, // <-- как только юзер дотянет/свейпнет — автоплей уйдёт в паузу
+    delay: 3000,
+    stopOnInteraction: true,
   });
 
-  // 4) Инициализируем карусель
   EmblaCarousel(vp, { loop: true, align: 'start', skipSnaps: false }, [
     autoplay,
   ]);
 
-  // 5) Останавливаем/запускаем автоплей в зависимости от видимости на экране
   new IntersectionObserver(
     ([{ isIntersecting }]) => {
       if (isIntersecting) autoplay.play();
