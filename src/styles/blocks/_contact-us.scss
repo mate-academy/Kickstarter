@@ -1,17 +1,19 @@
 .contact-us {
   &__title {
-    font-weight: 700;
+    margin-bottom: 27px;
+
     font-size: 30px;
+    font-weight: 700;
     line-height: 40px;
     text-transform: uppercase;
-    margin-bottom: 27px;
 
     @include media(tabl) {
       max-width: 339px;
+      margin-bottom: 0;
       font-size: 36px;
       line-height: 46px;
-      margin-bottom: 0;
     }
+
     @include media(desc) {
       max-width: 584px;
       font-size: 56px;
@@ -27,6 +29,7 @@
       flex-direction: row;
       column-gap: 21px;
     }
+
     @include media(desc) {
       flex-direction: row;
       column-gap: 28px;
@@ -34,16 +37,25 @@
   }
 
   &__input {
-    outline: none;
     box-sizing: border-box;
     width: 100%;
     padding: 12px 20px;
-    font-weight: 400;
+    border: 1px solid #828282;
+
     font-size: 16px;
+    font-weight: 400;
     line-height: 24px;
     color: #bdbdbd;
-    line-height: 24px;
-    border: 1px solid #828282;
+
+    outline: none;
+
+    &::placeholder {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      color: #bdbdbd;
+    }
+
     /*     transition: border 0.3s ease;
  */
     &:hover {
@@ -51,15 +63,8 @@
     }
 
     &:focus {
-      color: #131313;
       border: 1px solid #0c797a;
-    }
-
-    &::placeholder {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 24px;
-      color: #bdbdbd;
+      color: #131313;
     }
 
     &--email {
@@ -67,13 +72,14 @@
     }
 
     &--textarea {
-      min-height: 128px;
       resize: none;
+      min-height: 128px;
       margin-bottom: 30px;
 
       @include media(tabl) {
         min-height: 201px;
       }
+
       @include media(desc) {
         min-height: 128px;
       }

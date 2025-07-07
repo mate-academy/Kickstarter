@@ -1,11 +1,12 @@
 .feature {
   &__title {
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 40px;
-    text-transform: uppercase;
     margin-bottom: 30px;
     padding-inline: 30px;
+
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
 
     @include media(tabl) {
       padding-inline: 0;
@@ -15,6 +16,7 @@
   &__content {
     height: 575px;
     padding: 30px;
+
     background-color: $feature-bg-color;
     background-image: url(../images/future-bg/future-bg.png);
     background-repeat: no-repeat;
@@ -22,14 +24,15 @@
     background-size: auto 173px;
 
     @include media(tabl) {
-      background-size: 415px 225px;
-      background-position: bottom right 10px;
       padding: 60px 90px;
+      background-position: bottom right 10px;
+      background-size: 415px 225px;
     }
+
     @include media(desc) {
+      padding: 60px 100px;
       background-position: bottom right 50px;
       background-size: 543px 301px;
-      padding: 60px 100px;
     }
   }
 
@@ -39,9 +42,9 @@
     @include media(desc) {
       display: flex;
       flex-wrap: wrap;
-      row-gap: 55px;
-      column-gap: 130px;
+      gap: 55px 130px;
       justify-content: flex-start;
+
       margin-bottom: 0;
     }
   }
@@ -53,18 +56,19 @@
   }
 
   &__block-title {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 22px;
-    text-transform: uppercase;
-    color: #0c797a;
     margin-bottom: 20px;
 
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #0c797a;
+    text-transform: uppercase;
+
     @include media(desc) {
-      font-weight: 700;
-      font-size: 34px;
-      line-height: 42px;
       margin-bottom: 30px;
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 42px;
     }
   }
 
@@ -73,11 +77,12 @@
   }
 
   &__item {
-    font-weight: 400;
+    padding-left: 10px;
+
     font-size: 14px;
+    font-weight: 400;
     line-height: 21px;
     text-indent: -10px; /* отрицательный отступ первой строки */
-    padding-left: 10px;
 
     @include media(desc) {
       font-size: 16px;
@@ -93,19 +98,24 @@
 .swiper-button-prev,
 .swiper-button-next {
   all: unset; /* сбрасывает всё – padding, margin, display, position и т.д. */
+
+  cursor: pointer;
+
   display: block;
+
   width: 48px;
   height: 14px;
-  background-size: contain;
+
   background-repeat: no-repeat;
   background-position: center;
-  -webkit-mask-repeat: no-repeat;
+  background-size: contain;
+
   -webkit-mask-position: center;
-  -webkit-mask-size: contain;
-  mask-repeat: no-repeat;
   mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
   mask-size: contain;
-  cursor: pointer;
 }
 
 .swiper-button-next::after,
@@ -117,18 +127,20 @@
 }
 
 .swiper-button-prev {
+  rotate: 180deg;
+  background-color: #bdbdbd;
+
   /*   background-image: url(../images/slider/slider-green.svg) */
   -webkit-mask-image: url(../images/slider/slider-green.svg);
   mask-image: url(../images/slider/slider-green.svg);
-  background-color: #bdbdbd;
-  rotate: 180deg;
 }
 
 .swiper-button-next {
+  background-color: #333;
+
   /*   background-image: url(../images/slider/slider-black.svg); */
   -webkit-mask-image: url(../images/slider/slider-black.svg);
   mask-image: url(../images/slider/slider-black.svg);
-  background-color: #333333;
 }
 
 .swiper-button-prev:hover,
@@ -144,9 +156,11 @@
 .feature__nav {
   display: flex;
   justify-content: center;
+
   @include media(tabl) {
     justify-content: start;
   }
+
   @include media(desc) {
     display: none;
   }
@@ -158,34 +172,34 @@
 
 .feature__counter {
   display: flex;
-  height: 24px;
   gap: 3px;
   align-items: flex-end;
+  height: 24px;
 }
 
 
 .feature__counter-current {
-  font-weight: 400;
   font-size: 16px;
+  font-weight: 400;
   line-height: 24px;
 }
 
 
 .feature__counter-divider {
-  color: #0c797a; /* зелёный */
-  font-weight: 400;
   font-size: 11px;
+  font-weight: 400;
+  color: #0c797a; /* зелёный */
 }
 
 .feature__counter-total {
-  font-weight: 400;
   font-size: 11px;
+  font-weight: 400;
   color: #0c797a;
 }
 
 .future__nav-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 8px;
+  align-items: center;
 }

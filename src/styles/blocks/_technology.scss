@@ -1,6 +1,7 @@
 .technology {
   &__item {
     @include page-grid;
+
     grid-template-rows: min-content;
 
     &:not(:last-child) {
@@ -38,10 +39,12 @@
 
   &__title {
     grid-column: 1 / -1;
+
     margin-bottom: 30px;
+
     font-size: 30px;
-    line-height: 40px;
     font-weight: 700;
+    line-height: 40px;
     text-transform: uppercase;
 
     @include media(tabl) {
@@ -55,19 +58,22 @@
 
   &__photo {
     grid-column: 1 / -1;
-    background-size: cover;
-    background-position: center;
+
     width: 100%;
     height: 210px;
     margin-bottom: 20px;
 
+    background-position: center;
+    background-size: cover;
+
     &--start {
       background-image: url('../images/design/design-tabl1.jpg');
+
       @include media(tabl) {
         grid-column: 1 / 5;
+        grid-row: 1 / span 2;
         height: 100%;
         margin: 0;
-        grid-row: 1 / span 2;
       }
 
       @include media(desc) {
@@ -77,11 +83,12 @@
 
     &--end {
       background-image: url('../images/design/design-tabl2.jpg');
+
       @include media(tabl) {
         grid-column: 5 / -1;
+        grid-row: 1 / span 2;
         height: 100%;
         margin: 0;
-        grid-row: 1 / span 2;
       }
 
       @include media(desc) {
@@ -104,8 +111,9 @@
 
   &__text {
     margin-bottom: 30px;
-    font-weight: 400;
+
     font-size: 16px;
+    font-weight: 400;
     line-height: 24px;
     color: #7c7c7c;
 
@@ -115,23 +123,29 @@
   }
 
   &__link {
-    font-weight: 700;
+    position: relative;
+
+    padding-bottom: 6px;
+
     font-size: 12px;
+    font-weight: 700;
     line-height: 14px;
-    text-transform: uppercase;
     color: #0db2b3;
     text-decoration: none;
-    padding-bottom: 6px;
-    position: relative;
+    text-transform: uppercase;
 
     &::after {
       content: '';
+
       position: absolute;
+      bottom: 0;
+      left: 0;
+
       width: 50%;
       height: 1px;
+
       background-color: #0db2b3;
-      left: 0;
-      bottom: 0;
+
       transition: width 0.5s ease-in-out;
     }
 

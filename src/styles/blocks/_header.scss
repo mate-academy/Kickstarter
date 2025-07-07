@@ -2,43 +2,48 @@
   position: relative;
 
   &__wrapper {
-    padding-top: calc(100vw * 0.765 + 40px);
+    padding-top: calc(100vw * 0.76 + 40px);
 
     @include media(tabl) {
       display: flex;
-      padding-top: 130px;
       height: 336px;
+      padding-top: 130px;
     }
+
     @include media(desc) {
-      padding-top: 102px;
       height: 464px;
+      padding-top: 102px;
     }
   }
 
   &__content {
-    background-image: url(../images/header-BG/header-bg-mob.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    padding-bottom: 76.5%;
     position: absolute;
     top: 76px;
-    left: 0;
     right: 0;
+    left: 0;
+
+    padding-bottom: 76%;
+
+    background-image: url(../images/header-BG/header-bg-mob.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 
     @include media(tabl) {
-      background-image: url(../images/header-BG/header-bg-tabl.jpg);
       position: relative;
-      padding-bottom: 0;
-      width: 100%;
+      z-index: -1;
       top: 19px;
       left: -28px;
-      z-index: -1;
+
+      width: 100%;
+      padding-bottom: 0;
+
+      background-image: url(../images/header-BG/header-bg-tabl.jpg);
     }
 
     @include media(desc) {
-      background-image: url(../images/header-BG/header-bg-desc.jpg);
       top: 0;
+      background-image: url(../images/header-BG/header-bg-desc.jpg);
     }
   }
 
@@ -46,22 +51,24 @@
     @include media(tabl) {
       max-width: 298px;
     }
+
     @include media(desc) {
       max-width: 378px;
     }
   }
 
   &__title {
-    text-transform: uppercase;
+    padding-bottom: 20px;
+
     font-size: 40px;
     font-weight: 700;
     line-height: 52px;
-    padding-bottom: 20px;
+    text-transform: uppercase;
 
     @include media(tabl) {
+      padding-bottom: 30px;
       font-size: 48px;
       line-height: 62px;
-      padding-bottom: 30px;
     }
 
     @include media(desc) {
@@ -72,8 +79,8 @@
   }
 
   &__descr {
-    font-weight: 400;
     font-size: 16px;
+    font-weight: 400;
     line-height: 24px;
 
     @include media(tabl) {

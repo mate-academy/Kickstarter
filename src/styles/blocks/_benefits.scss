@@ -1,21 +1,21 @@
 .benefits {
   &__list {
     display: flex;
+
     @include media(tabl) {
-      flex-direction: row;
-      flex-wrap: wrap;
-      row-gap: 65px;
-      column-gap: 20px;
+      flex-flow: row wrap;
+      gap: 65px 20px;
     }
 
     @include media(desc) {
-      column-gap: 30px;
       flex-wrap: nowrap;
+      column-gap: 30px;
     }
   }
 
   &__slider {
     overflow: hidden;
+
     @include media(tabl) {
       overflow: visible;
     }
@@ -23,10 +23,13 @@
 
   &__item {
     position: relative;
+
     flex: 1 0 100%;
+
     padding-top: 80px;
     border: 1px solid transparent;
     border-radius: 5%;
+
     transition: border 0.3s ease-in-out;
 
     @include media(tabl) {
@@ -39,15 +42,17 @@
 
     &::before {
       content: '';
+
       position: absolute;
-      width: 50px;
-      height: 40px;
-      background-repeat: no-repeat;
-      background-size: contain;
       top: 0;
       left: 50%;
-
       transform: translateX(-50%);
+
+      width: 50px;
+      height: 40px;
+
+      background-repeat: no-repeat;
+      background-size: contain;
     }
 
     &--design::before {
@@ -72,19 +77,20 @@
   }
 
   &__title {
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 28px;
-    text-transform: uppercase;
-    text-align: center;
     margin-bottom: 20px;
+
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
   }
 
   &__text {
-    font-weight: 400;
     font-size: 14px;
+    font-weight: 400;
     line-height: 21px;
-    text-align: center;
     color: #7c7c7c;
+    text-align: center;
   }
 }
