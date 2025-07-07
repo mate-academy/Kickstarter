@@ -1,0 +1,90 @@
+.benefits {
+  &__list {
+    display: flex;
+    @include media(tabl) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      row-gap: 65px;
+      column-gap: 20px;
+    }
+
+    @include media(desc) {
+      column-gap: 30px;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__slider {
+    overflow: hidden;
+    @include media(tabl) {
+      overflow: visible;
+    }
+  }
+
+  &__item {
+    position: relative;
+    flex: 1 0 100%;
+    padding-top: 80px;
+    border: 1px solid transparent;
+    border-radius: 5%;
+    transition: border 0.3s ease-in-out;
+
+    @include media(tabl) {
+      flex: 0 1 320px;
+    }
+
+    @include media(desc) {
+      flex: 1 1 0%;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 40px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      top: 0;
+      left: 50%;
+
+      transform: translateX(-50%);
+    }
+
+    &--design::before {
+      background-image: url('../images/benefits-icon/futuristic-icon.svg');
+    }
+
+    &--audio::before {
+      background-image: url('../images/benefits-icon/audio-icon.svg');
+    }
+
+    &--wifi::before {
+      background-image: url('../images/benefits-icon/wifi-icon.svg');
+    }
+
+    &--light::before {
+      background-image: url('../images/benefits-icon/light.svg');
+    }
+
+    &:hover {
+      border: 1px solid aqua;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #7c7c7c;
+  }
+}
