@@ -1,6 +1,89 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin media($breakpoint) {
+  @if $breakpoint == mob {
+    @media (min-width: 320px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tabl {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desc {
+    @media (min-width: 1440px) {
+      @content;
+    }
+  }
+}
+
+.container {
+  margin-inline: auto;
+  padding-inline: 30px;
+
+  &--fluid {
+    max-width: 100%;
+    padding-inline: 0;
+  }
+
+  &--feature {
+    @include media(mob) {
+      max-width: 100%;
+      padding-inline: 0;
+    }
+  }
+
+  &--presentation {
+    @include media(mob) {
+      padding-inline: 12px;
+    }
+  }
+
+  @include media(tabl) {
+    max-width: 700px;
+    padding-inline: 34px;
+  }
+
+  @include media(desc) {
+    max-width: 1194px;
+    padding-inline: 123px;
+    &--fluid {
+      max-width: 100%;
+      padding-inline: 0;
+    }
+
+    &--presentation {
+      @include media(mob) {
+        padding-inline: 12px;
+      }
+    }
+  }
+
+  &--technology {
+    @include media(tabl) {
+      max-width: 100%;
+      padding-inline: 0;
+    }
+  }
+}
+
+@mixin page-grid {
+  --column: 4;
+
+  display: grid;
+  grid-template-columns: repeat(var(--column), 1fr);
+  column-gap: 20px;
+
+  @include media(tabl) {
+    --column: 8;
+
+    column-gap: 20px;
+  }
+
+  @include media(desc) {
+    --column: 12;
+
+    column-gap: 30px;
   }
 }
