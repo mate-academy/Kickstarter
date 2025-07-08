@@ -1,0 +1,188 @@
+// margins are not 100% precise here
+.features {
+  position: relative;
+
+  @include on-tablet {
+    @include page-grid;
+  }
+
+  &::before {
+    --height: 76px;
+
+    @include no-padding;
+
+    content: "";
+    position: absolute;
+    top: 72px;
+
+    height: calc(100% - var(--height)); // 72px covered more than necessary
+    width: 100vw;
+    background-color: #D6ECEC;
+
+    z-index: -1;
+
+    @include on-tablet {
+      --height: 72px;
+
+      margin: 0;
+
+      width: calc(100vw - 64px); // margins from both sides
+    }
+
+    @include on-desktop {
+      top: 100px; // not precise
+
+      width: calc(100vw - 246px); // margins from both sides
+      max-width: 1196px; // 1440 px - 246px
+    }
+  }
+
+  &__title {
+    margin-block: 0;
+
+    @include title;
+
+    @include on-tablet {
+      grid-column: span 8;
+    }
+  }
+
+  &__feature {
+    margin-top: 30px; // approximate
+
+    @include on-tablet {
+      grid-column: 2 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / 6;
+
+      &:nth-child(3) {
+        grid-column: 7 / -1;
+      }
+
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__name {
+    margin-top: 60px; // not precise
+
+    font-size: 18px;
+    line-height: 22px;
+    color: $teal;
+
+    text-transform: uppercase;
+
+      @include on-desktop {
+        font-size: 34px;
+        line-height: 42px;
+
+        &-last {
+          margin-top: 40px;
+        }
+      }
+    }
+
+  &__list {
+    padding-left: 15px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    height: 225px; // to make the cards be of the same height
+  }
+
+  &__item {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  &__card-sliders {
+    margin-top: 30px;
+    align-self: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include on-tablet {
+      grid-column: 2 / 3;
+
+      margin-top: -70px; // had to remove the unnecessary space
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__sliders {
+    display: flex;
+  }
+
+  &__slider {
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 48px;
+    height: 14px;
+
+    cursor: pointer;
+    transition: .3s ease-in-out;
+
+    &--left {
+      background-image: url(../images/icons/sliders/slider--normal.svg);
+
+      &:hover {
+        background-image: url(../images/icons/sliders/slider--hover.svg);
+      }
+
+      transform: rotate(-180deg);
+    }
+
+    &--right {
+      margin-left: -3px; // to make them overlap each other
+
+      background-image: url(../images/icons/sliders/slider--normal.svg);
+
+      &:hover {
+        background-image: url(../images/icons/sliders/slider--hover.svg);
+      }
+    }
+  }
+
+  &__card-slider-index {
+    margin-top: 15px;
+
+    font-size: 11px;
+    line-height: 13px;
+    color: $teal;
+  }
+
+  &__img {
+    @include no-padding;
+
+    width: 100vw;
+
+    @include on-tablet {
+      margin: 0;
+      margin-top: -15px; // grid doesn't let 2 items collide
+      grid-column: 4 / -1;
+
+      max-width: 100%;
+    }
+
+    @include on-desktop {
+      margin: 0;
+
+      position: absolute;
+      grid-column: 7 / -1;
+
+      bottom: -27px; // was necessary to align the image
+      right: 20px;
+    }
+  }
+}
