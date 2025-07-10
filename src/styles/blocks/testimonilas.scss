@@ -1,0 +1,78 @@
+.testimonilas {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 30px;
+
+  @include padding-inline;
+
+  &__background {
+    width: 233px;
+    height: 192px;
+
+    background-image: url(./../images/testimonilas/testimonilas_bg.svg);
+
+    position: absolute;
+    z-index: -1;
+  }
+
+  &__text {
+    display: flex;
+    text-align: center;
+    color: $dark-grey;
+
+    margin: 0;
+    padding-top: 55px;
+
+    max-width: 320px;
+
+    @include font-style(700, 14px, 20px);
+
+    @include on-tablet {
+      @include font-style(700, 24px, 36px);
+
+      max-width: 720px;
+    }
+
+    @include on-desktop {
+      padding-top: 60px;
+      max-width: 1084px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &-photo {
+      height: 62px;
+      width: 62px;
+
+      margin: 0 auto;
+    }
+
+    &-name {
+      color: $dark-grey;
+
+      margin: 0;
+      padding-block: 10px 5px;
+
+      @include font-style(700, 16px, 22px);
+
+      @include on-tablet {
+        padding-top: 20px;
+      }
+    }
+
+    &-work {
+      color: $grey;
+      margin: 0;
+
+      @include font-style(400, 14px, 21px);
+    }
+  }
+}

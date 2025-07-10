@@ -1,0 +1,53 @@
+.footer {
+  @include padding-inline;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  padding-bottom: 20px;
+
+  @include on-tablet {
+    gap: 60px;
+    padding-bottom: 30px;
+  }
+
+  &__menu {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: center;
+
+      position: relative;
+    }
+
+    &__logo-link {
+      display: block;
+
+      @include hover(transform, scale(1.1));
+    }
+
+    &-go-back {
+      position: absolute;
+
+      right: 0;
+      top: 0;
+    }
+  }
+
+  &__network {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  &__text {
+    color: $light-metal;
+    text-align: center;
+
+    margin: 0;
+
+    @include font-style(400, 14px, 21px);
+  }
+}

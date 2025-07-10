@@ -1,0 +1,92 @@
+.contact {
+  @include padding-inline;
+
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+
+  @include on-tablet {
+    flex-direction: row;
+  }
+
+  &__title {
+    margin: 0;
+    color: $dark-grey;
+
+    @include font-style(700, 30px, 40px);
+
+    @include on-tablet {
+      @include font-style(700, 36px, 46px);
+    }
+
+    @include on-desktop {
+      @include font-style(700, 56px, 70px);
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &-email {
+      font-family: inherit;
+      height: 48px;
+
+      padding-inline: 20px;
+
+      border: 1px solid $metal;
+
+      @include on-tablet {
+        padding-inline: 30px;
+      }
+
+      @include on-desktop {
+        padding-inline: 36px;
+      }
+    }
+
+    &-textarea {
+      font-family: inherit;
+      height: 128px;
+
+      margin-block: 20px 30px;
+      padding: 12px 20px;
+
+      border: 1px solid $metal;
+      resize: none;
+
+      @include on-tablet {
+        padding-inline: 30px;
+      }
+
+      @include on-desktop {
+        padding: 16px 36px;
+      }
+    }
+
+    &-psevdo-class {
+      box-sizing: border-box;
+
+      background-color: $page-background;
+
+      transition: $transition-time;
+
+      &::placeholder {
+        color: $light-metal;
+      }
+
+      &:hover {
+        outline: none;
+        border-color: $dark-ocean;
+        border-width: 1px;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $dark-ocean;
+        border-width: 1px;
+      }
+    }
+  }
+}
