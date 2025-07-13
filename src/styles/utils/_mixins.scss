@@ -1,6 +1,212 @@
+// #region-resolutions
+
+@mixin onMobile {
+  @media (max-width: 569px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 570px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onLargeDesktop {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+// #endregion
+
+// #region-paddings
+
+@mixin inlinePadding {
+  padding-inline: 30px;
+
+  @include onTablet {
+    padding-inline: 34px;
+  }
+
+  @include onDesktop {
+    padding-inline: 123px;
+  }
+
+  @include onLargeDesktop {
+    padding-inline: 200px;
+  }
+}
+
+$inlinePadding: 30px;
+
+@include onTablet {
+  :root {
+    --inlinePadding: 34px;
+  }
+}
+
+@include onDesktop {
+  :root {
+    --inlinePadding: 123px;
+  }
+}
+
+@include onLargeDesktop {
+  :root {
+    --inlinePadding: 200px;
+  }
+}
+
+// #endregion
+
+// #region-hover
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
   }
 }
+
+// #endregion
+
+// #region-fonts
+@mixin fontH1 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 52px;
+  text-transform: uppercase;
+
+  @include onTablet {
+    font-size: 48px;
+    line-height: 62px;
+  }
+
+  @include onDesktop {
+    font-size: 62px;
+    line-height: 78px;
+  }
+}
+
+@mixin fontH2 {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @include onTablet {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  @include onDesktop {
+    font-size: 56px;
+    line-height: 70px;
+  }
+}
+
+@mixin fontH3 {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @include onTablet {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  @include onDesktop {
+    font-size: 34px;
+    line-height: 42px;
+  }
+}
+
+@mixin fontH4 {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@mixin fontH5 {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
+}
+
+@mixin fontH6 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@mixin fontQuote {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+
+  @include onTablet {
+    font-size: 24px;
+    line-height: 36px;
+  }
+}
+
+@mixin fontButton {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+}
+
+@mixin fontMain {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin fontSecondary {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #7C7C7C;
+}
+
+@mixin fontThirdary {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+
+
+// #endregion
+
+// #region-icon-sizes
+
+@mixin iconSize{
+  height: 32px;
+  width: 32px;
+
+  @include onTablet {
+    height: 26px;
+    width: 161px;
+  }
+
+  @include onDesktop {
+    height: 26px;
+    width: 161px;
+  }
+}
+
+
+// #endregion
