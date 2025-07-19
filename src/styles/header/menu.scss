@@ -1,0 +1,71 @@
+.menu {
+  background-color: $white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1;
+
+  &__top {
+    padding-block: 25px;
+    height: 98px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__manual {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__specs, &__translate {
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: $black-3;
+    cursor: pointer;
+  }
+
+  &__specs {
+    &:hover {
+      font-weight: bold;
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__translate {
+    &--eu, &--ua {
+      &:hover {
+        font-weight: 700;
+        color: $black-2;
+      }
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}
+
+.page {
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all .3s;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
