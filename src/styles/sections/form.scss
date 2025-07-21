@@ -1,0 +1,82 @@
+@import './../utils/mixins';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__email {
+    height: 48px;
+    background: #fff;
+    color: #BDBDBD;
+    line-height: 1.5;
+    border: 1px solid #828282;
+    outline: none;
+    padding: 12px 35px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: #BDBDBD;
+      opacity: 1;
+    }
+  }
+
+  &__textarea {
+    height: 128px;
+    background: #fff;
+    color: #BDBDBD;
+    line-height: 1.5;
+    border: 1px solid #828282;
+    outline: none;
+    padding: 12px 35px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+
+    @include on-tablet {
+      height: 201px;
+    }
+
+    @include on-dekstop {
+      height: 128px;
+    }
+
+    &::placeholder {
+      color: #BDBDBD;
+      opacity: 1;
+    }
+  }
+
+  &__btn {
+    width: 102px;
+    height: 40px;
+    background: #0DB2B3;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.16;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+
+    @include on-dekstop {
+      width: 120px;
+      height: 48px;
+    }
+
+    &:hover {
+      background-color: #11D6D7;
+    }
+  }
+}

@@ -1,0 +1,95 @@
+@import './../utils/mixins';
+
+.features {
+
+  .container {
+    padding: 0;
+
+    @include on-tablet {
+      padding: 0 34px;
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-transform: uppercase;
+    padding-left: 30px;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      padding-left: 0;
+    }
+
+    @include on-dekstop {
+      font-size: 56px;
+    }
+  }
+
+  &__wrapper {
+    background-color: #D6ECEC;
+    background-image: url(./../images/features-bg-mobile.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 555px;
+    box-sizing: border-box;
+
+    @include on-tablet {
+      padding: 60px 90px;
+      background-image: url(./../images/features-bg-tablet.png);
+    }
+
+    @include on-dekstop {
+      padding: 60px 100px;
+      gap: 55px;
+      height: initial;
+      background-image: url(./../images/features-bg.png);
+    }
+  }
+}
+
+.feature {
+  display: none;
+
+  @include on-dekstop {
+    width: 45%;
+    display: block;
+  }
+
+  &--active {
+    display: block;
+  }
+
+  &__title {
+    color: #0C797A;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.23;
+    text-transform: uppercase;
+
+    @include on-dekstop {
+      font-size: 34px;
+    }
+  }
+
+  &__list {
+    padding: 0;
+    margin: 30px 0 0;
+    list-style-position: inside;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__item {
+    font-size: 14px;
+
+    @include on-dekstop {
+      font-size: 16px;
+    }
+  }
+}
