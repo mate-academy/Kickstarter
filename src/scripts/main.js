@@ -3,13 +3,23 @@
 const menuIcon = document.querySelector('.top-bar__icon');
 const closeIcon = document.querySelector('.sidebar__close');
 const sidebar = document.querySelector('.sidebar');
+const menuLink = document.querySelectorAll('.menu__item a');
 
 menuIcon.addEventListener('click', () => {
   sidebar.classList.add('sidebar--active');
+  document.body.classList.add('no-scroll');
 });
 
 closeIcon.addEventListener('click', () => {
   sidebar.classList.remove('sidebar--active');
+  document.body.classList.remove('no-scroll');
+});
+
+menuLink.forEach((link) => {
+  link.addEventListener('click', () => {
+    sidebar.classList.remove('sidebar--active');
+    document.body.classList.remove('no-scroll');
+  });
 });
 
 const arrow = document.querySelector('.footer__totop');
@@ -39,4 +49,12 @@ function smoothScrollToTop(duration = 500) {
 
 arrow.addEventListener('click', () => {
   smoothScrollToTop(500);
+});
+
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  this.reset();
 });
