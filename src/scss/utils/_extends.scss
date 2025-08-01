@@ -1,0 +1,385 @@
+/* ==========================================================================
+   _placeholders.scss | SCSS Placeholders (Extends)
+   Description: Reusable placeholder selectors for layout, grid, and spacing
+   Descrição: Seletores de placeholder reutilizáveis para layout, grid e espaçamento
+   ========================================================================== */
+
+@use './variables' as *;
+@use './tokens' as *;
+
+/* =============================================================
+   GRID SYSTEM / SISTEMA DE GRID
+   ============================================================= */
+
+/// @placeholder %grid-row
+/// @desc Defines a 12-column grid row with default spacing
+/// @desc Define uma linha de grid com 12 colunas e espaçamento padrão
+///
+/// @example
+/// .container {
+///   @extend %grid-row;
+/// }
+%grid-row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: $space-md;
+}
+
+/// @placeholder %center-grid
+/// @desc Centers content both horizontally and vertically using grid
+/// @desc Centraliza conteúdo horizontal e verticalmente com grid
+///
+/// @example
+/// .box {
+///   @extend %center-grid;
+/// }
+%center-grid {
+  display: grid;
+  place-items: center;
+}
+
+/// @placeholder %auto-grid
+/// @desc Responsive auto-columns with a minimum width of 250px
+/// @desc Grid automático com colunas responsivas (mínimo de 250px)
+///
+/// @example
+/// .gallery {
+///   @extend %auto-grid;
+/// }
+%auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $space-md;
+}
+
+/// @placeholder %col-span-* (1 to 12)
+/// @desc Creates placeholders for columns spanning from 1 to 12 parts
+/// @desc Cria placeholders para colunas que ocupam de 1 a 12 frações
+///
+/// @example
+/// .item {
+///   @extend %col-span-6;
+/// }
+@for $i from 1 through 12 {
+  %#{'col-span-#{$i}'} {
+    grid-column: span #{$i} / span #{$i};
+  }
+}
+
+/// @placeholder %no-gap
+/// @desc Removes spacing between grid items
+/// @desc Remove espaçamento entre itens do grid
+///
+/// @example
+/// .compact-grid {
+///   @extend %no-gap;
+/// }
+%no-gap {
+  gap: 0;
+}
+
+/// @placeholder %grid-align-start
+/// @desc Aligns grid items to the top
+/// @desc Alinha os itens no topo do grid
+///
+/// @example
+/// .top-content {
+///   @extend %grid-align-start;
+/// }
+%grid-align-start {
+  align-items: start;
+}
+
+/// @placeholder %grid-align-center
+/// @desc Vertically centers grid items
+/// @desc Alinha verticalmente os itens ao centro
+///
+/// @example
+/// .centered-section {
+///   @extend %grid-align-center;
+/// }
+%grid-align-center {
+  align-items: center;
+}
+
+/// @placeholder %grid-align-end
+/// @desc Aligns items to the bottom of the grid
+/// @desc Alinha os itens à base do grid
+///
+/// @example
+/// .footer {
+///   @extend %grid-align-end;
+/// }
+%grid-align-end {
+  align-items: end;
+}
+
+/* =============================================================
+   SPACING / ESPAÇAMENTO
+   ============================================================= */
+
+/// @placeholder %spacing-sm
+/// @desc Applies a small margin (e.g. top & bottom)
+/// @desc Aplica margem pequena (ex: topo e base)
+///
+/// @example
+/// .card {
+///   @extend %spacing-sm;
+/// }
+%spacing-sm {
+  margin: $space-sm 0;
+}
+
+/// @placeholder %spacing-md
+/// @desc Applies medium spacing around element
+/// @desc Aplica espaçamento médio ao redor do elemento
+///
+/// @example
+/// .section {
+///   @extend %spacing-md;
+/// }
+%spacing-md {
+  margin: $space-md;
+}
+
+/// @placeholder %padding-horizontal
+/// @desc Adds horizontal padding (left & right)
+/// @desc Adiciona padding horizontal (esquerda e direita)
+///
+/// @example
+/// .container {
+///   @extend %padding-horizontal;
+/// }
+%padding-horizontal {
+  padding-left: $space-md;
+  padding-right: $space-md;
+}
+
+/* =============================================================
+   RESPONSIVE HELPERS / AJUDAS RESPONSIVAS
+   ============================================================= */
+
+/// @placeholder %responsive-hide
+/// @desc Hides element on small screens
+/// @desc Oculta o elemento em telas pequenas
+///
+/// @example
+/// .nav-text {
+///   @extend %responsive-hide;
+/// }
+%responsive-hide {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+/// @placeholder %responsive-show
+/// @desc Shows element only on small screens
+/// @desc Exibe o elemento apenas em telas pequenas
+///
+/// @example
+/// .mobile-menu {
+///   @extend %responsive-show;
+/// }
+%responsive-show {
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+/* =============================================================
+   TRANSITIONS / TRANSIÇÕES
+   ============================================================= */
+
+/// @placeholder %fade-in
+/// @desc Smooth fade-in transition
+/// @desc Transição suave de opacidade
+///
+/// @example
+/// .tooltip {
+///   @extend %fade-in;
+/// }
+%fade-in {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+  &.visible {
+    opacity: 1;
+  }
+}
+
+/// @placeholder %fade-up
+/// @desc Initial visible state for fade-up animation
+/// @desc Estado visível inicial para animação fade-up
+%fade-up {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/// @placeholder %fade-up-exit
+/// @desc Exit state for fade-up animation
+/// @desc Estado de saída para animação fade-up
+%fade-up-exit {
+  opacity: 0;
+}
+
+/// @placeholder %scale-hover
+/// @desc Adds a slight scale on hover
+/// @desc Adiciona um leve zoom ao passar o mouse
+///
+/// @example
+/// .card {
+///   @extend %scale-hover;
+/// }
+%scale-hover {
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+/// @placeholder %font-h1
+/// @desc Apply H1 styles responsively
+/// @placeholder %font-h1
+/// @desc Apply H1 styles responsively (mobile-first, sem mixin)
+%font-h1 {
+  font-size: $font-size-h1-mobile;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-h1-mobile;
+  text-transform: uppercase;
+
+  @media (min-width: 640px) {
+    font-size: $font-size-h1-tablet;
+    line-height: $line-height-h1-tablet;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: $font-size-h1-desktop;
+    line-height: $line-height-h1-desktop;
+  }
+}
+
+/* =============================================================
+   BUTTON STATES / ESTADOS DE BOTÕES
+   ============================================================= */
+
+/// @placeholder %btn-base
+/// @desc Base style for buttons — alignment, padding, font and color
+/// @desc Estilo base para botões — alinhamento, tamanho e cor padrão
+%btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 2px solid $btn-send-default-color;
+  background-color: $btn-send-default-color;
+  color: $btn-text-color;
+  text-transform: uppercase;
+  transition: all 0.6s ease-in-out;
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+/// @placeholder %btn-hover
+/// @desc Hover state for buttons — filled background and white text
+/// @desc Estado hover do botão — fundo colorido e texto branco
+%btn-hover {
+  background-color: $btn-send-hover-color;
+  color: $btn-text-color;
+  border-color: $btn-send-hover-color;
+}
+
+/// @placeholder %btn-focused
+/// @desc Focused button state — dark background and high contrast
+/// @desc Estado focado do botão — fundo escuro com contraste
+%btn-focused {
+  background-color: $btn-send-hover-color;
+  color: $btn-text-color;
+  border-color: $btn-send-hover-color;
+}
+
+/// @placeholder %btn-disabled
+/// @desc Disabled state for buttons — faded visuals and no pointer
+/// @desc Estado desabilitado do botão — visual atenuado com cursor bloqueado
+%btn-disabled {
+  color: $btn-text-color;
+  border-color: transparent;
+  background-color: $btn-send-disabled-color;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/// @placeholder %btn-buy
+/// @desc Base style for buttons — alignment, padding, font and color
+/// @desc Estilo base para botões — alinhamento, tamanho e cor padrão
+%btn-buy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 2px solid $btn-buy-default-color;
+  background-color: $btn-buy-default-color;
+  color: $btn-text-color;
+  text-transform: uppercase;
+  transition: all 0.6s ease-in-out;
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+/// @placeholder %btn-buy-hover
+/// @desc Hover state for buttons — filled background and white text
+/// @desc Estado hover do botão — fundo colorido e texto branco
+%btn-buy-hover {
+  background-color: $btn-buy-hover-color;
+  color: $btn-text-color;
+  border-color: $btn-buy-hover-color;
+}
+
+/// @placeholder %btn-buy-focused
+/// @desc Focused button state — dark background and high contrast
+/// @desc Estado focado do botão — fundo escuro com contraste
+%btn-buy-focused {
+  background-color: $btn-buy-hover-color;
+  color: $btn-text-color;
+  border-color: $btn-buy-hover-color;
+}
+
+/// @placeholder %btn-buy-disabled
+/// @desc Disabled state for buttons — faded visuals and no pointer
+/// @desc Estado desabilitado do botão — visual atenuado com cursor bloqueado
+%btn-buy-disabled {
+  color: $btn-text-color;
+  border-color: transparent;
+  background-color: $btn-buy-disabled-color;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* =============================================================
+   UTILITIES / UTILITÁRIOS
+   ============================================================= */
+
+/// @placeholder %flex-center
+/// @desc Utility to center content with flexbox
+/// @desc Utilitário para centralização flexível de conteúdo
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/// @placeholder %visually-hidden
+/// @desc Accessible hidden element without removing it from DOM
+/// @desc Elemento oculto visualmente (acessibilidade sem remover do DOM)
+%visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}

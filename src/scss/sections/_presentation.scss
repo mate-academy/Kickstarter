@@ -1,0 +1,35 @@
+@use '../utils/mixins' as *;
+
+.presentation {
+  margin-inline: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include scroll-margin-top(50px);
+
+  &__img {
+    width: 296px;
+    height: 195px;
+    background-image: url(../assets/images/media/img_mobile-2.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 110px;
+    @include hover-zoom(1.05);
+
+    @include respond(tablet) {
+      width: 580px;
+      height: 357px;
+      background-image: url(../assets/images/media/img_tablet-2.png);
+      margin-bottom: 140px;
+    }
+
+    @include respond(desktop) {
+      width: 846px;
+      height: 520px;
+      background-image: url(../assets/images/media/img_desktop-2.png);
+      margin-bottom: 170px;
+    }
+  }
+}

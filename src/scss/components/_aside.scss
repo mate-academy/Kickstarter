@@ -1,0 +1,123 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/tokens' as *;
+
+.aside {
+  @include container-grid;
+
+  position: fixed;
+  inset: 0;
+
+  transform: translateX(-100%);
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    transform 0.8s ease,
+    opacity 0.4s ease;
+
+  z-index: 999;
+
+  overflow-y: auto;
+
+  background-color: var(--bg-default-color);
+
+  margin-inline: auto;
+
+  &:target {
+    pointer-events: all;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  &__nav {
+    @include flex-container(
+      260px,
+      640px,
+      76px,
+      row,
+      space-between,
+      center,
+      auto,
+      true
+    );
+
+    &--logo,
+    &--menu-close {
+      @include hover-zoom(1.1);
+    }
+  }
+
+  &__menu {
+    &--list {
+      @include flex-layout(column, center, left);
+
+      gap: 25px;
+      margin-top: 31px;
+
+      &-item {
+        &-link {
+          transform-origin: center center;
+          display: inline-block;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+
+        &:hover {
+          h6 {
+            font-weight: $font-weight-bold;
+          }
+        }
+      }
+    }
+
+    &--bottom {
+      @include flex-layout(row, start, center);
+
+      gap: 20px;
+      margin-block: 50px 162px;
+
+      &-specs-link,
+      &-i18n-link {
+        font-family: $font-secundary;
+        color: $color-slate-grey;
+        transform-origin: center center;
+        display: inline-block;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          color: $color-charcoal;
+
+          @include interactive;
+        }
+      }
+
+      &-i18n {
+        @include flex-layout(row, center, start);
+
+        gap: 3px;
+
+        &-link.active {
+          font-weight: $font-weight-bold;
+        }
+      }
+    }
+
+    &--btn-buy {
+      width: 260px;
+      margin-bottom: 30px;
+
+      @include respond(tablet) {
+        display: none;
+      }
+    }
+  }
+}

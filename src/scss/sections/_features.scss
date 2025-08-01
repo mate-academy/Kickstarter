@@ -1,0 +1,124 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.features {
+  @include flex-layout(column, center, center);
+  @include container-xl;
+  @include scroll-margin-top(50px);
+
+  margin-inline: auto;
+
+  &__title {
+    grid-area: title;
+    width: 260px;
+    height: 72px;
+    align-self: start;
+    margin-left: 30px;
+  }
+
+  &-carousel {
+    grid-area: carousel;
+    @include container-grid;
+
+    height: 100%;
+    background-color: $features-bgc-color;
+  }
+
+  &__bg-img {
+    grid-area: image;
+    width: 100%;
+    max-width: 320px;
+    height: 175px;
+    background-image: url(../assets/images/media/img-bg-features.png);
+    background-position: center;
+    background-size: cover;
+  }
+
+  @include respond(tablet) {
+    position: relative;
+    max-width: 640px;
+    @include container-grid;
+    @include layout-grid(
+      $columns: 1fr 1fr,
+      $rows: auto auto,
+      $areas: (
+        'title title' 'carousel carousel',
+      ),
+      $flow: column
+    );
+
+    &__title {
+      grid-area: title;
+      width: 260px;
+      height: 72px;
+      font-size: $font-size-h2-mobile;
+      align-self: start;
+      margin-left: 0;
+    }
+
+    &-carousel {
+      grid-area: carousel;
+      @include container-grid;
+
+      position: relative;
+      background-color: $features-bgc-color;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+    }
+
+    &__bg-img {
+      position: absolute;
+      width: 100%;
+      max-width: 320px;
+      height: 170px;
+      background-image: url(../assets/images/media/img-bg-features.png);
+      background-position: center;
+      background-size: cover;
+      pointer-events: none;
+      top: 83%;
+      left: 50%;
+      transform: translate(-12%, -38%);
+      z-index: 2;
+    }
+  }
+
+  @include respond(desktop) {
+    position: relative;
+    max-width: 1280px;
+    @include container-grid;
+    @include layout-grid(
+      $columns: 1fr 1fr,
+      $rows: auto auto,
+      $areas: (
+        'title title' 'carousel carousel',
+      ),
+      $flow: column
+    );
+
+    &__title {
+      grid-area: title;
+      width: 350px;
+      height: 110px;
+      align-self: start;
+      margin: 0;
+    }
+
+    &__bg-img {
+      position: absolute;
+      width: 100%;
+      max-width: 540px;
+      height: 300px;
+      background-image: url(../assets/images/media/img-bg-features.png);
+      background-position: center;
+      background-size: cover;
+      pointer-events: none;
+      top: 85%;
+      left: 55%;
+      transform: translate(-05%, -61%);
+      z-index: 2;
+    }
+  }
+}

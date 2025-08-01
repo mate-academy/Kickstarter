@@ -1,0 +1,22 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.contact__form--inp,
+.contact__form--textarea {
+  border: 1px solid $inp-default-border-color;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  &::placeholder {
+    color: $inp-placeholder-default-color;
+  }
+
+  &:focus {
+    border: 1px solid $inp-selected-border-color;
+  }
+
+  &:valid:not(:placeholder-shown) {
+    border: 1px solid $inp-success-border-color;
+  }
+}
