@@ -1,0 +1,137 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.about-us {
+  @include container-xl;
+
+  @include scroll-margin-top(50px);
+
+  &__container {
+    @include container-grid;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &--title {
+      grid-area: title;
+      align-self: start;
+    }
+
+    &--img {
+      grid-area: image;
+      width: 260px;
+      height: 210px;
+      background-image: url(../assets/images/media/img_mobile-3.png);
+      background-size: cover;
+      background-position: center;
+      margin-block: 30px 20px;
+      @include hover-zoom(1.05);
+    }
+
+    &--text {
+      grid-area: text;
+      color: $text-color-secondary;
+    }
+
+    &--link {
+      grid-area: link;
+      width: 150px;
+      align-self: start;
+      margin-top: 30px;
+
+      a {
+        display: inline-block;
+        transform-origin: center center;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    @include respond(tablet) {
+      padding-inline: 0 20px;
+      max-width: 640px;
+
+      @include layout-grid(
+        $columns: 2fr 1fr,
+        $rows: auto auto,
+        $areas: (
+          'image title' 'image text' 'image link',
+        ),
+        $flow: column
+      );
+
+      &--img {
+        grid-area: image;
+        width: 315px;
+        height: 350px;
+        background-image: url(../assets/images/media/img_tablet-3.png);
+        background-size: cover;
+        background-position: center;
+        margin-block: 0;
+      }
+
+      &--title {
+        grid-area: title;
+        width: 280px;
+      }
+
+      &--text {
+        grid-area: text;
+        width: 280px;
+        margin-block: 20px;
+      }
+
+      &--link {
+        grid-area: link;
+        width: 160px;
+        margin-block: 0 40px;
+      }
+    }
+
+    @include respond(desktop) {
+      max-width: 1194px;
+      padding-inline: 0;
+
+      @include layout-grid(
+        $columns: 2fr 1fr,
+        $rows: auto auto,
+        $areas: (
+          'image title' 'image text' 'image link',
+        ),
+        $flow: column
+      );
+
+      &--img {
+        grid-area: image;
+        width: 582px;
+        height: 388px;
+        background-image: url(../assets/images/media/img_desktop-3.png);
+        background-size: cover;
+        background-position: center;
+        margin-right: 30px;
+      }
+
+      &--title {
+        grid-area: title;
+        width: 582px;
+      }
+
+      &--text {
+        grid-area: text;
+        width: 570px;
+        margin-block: 30px 60px;
+      }
+
+      &--link {
+        grid-area: link;
+        width: 210px;
+        margin-block: 0 40px;
+      }
+    }
+  }
+}

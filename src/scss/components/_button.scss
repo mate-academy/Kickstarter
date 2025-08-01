@@ -1,0 +1,58 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+.button {
+  @include button-style(default);
+  @include interactive;
+
+  &:focus {
+    @include button-style(focused);
+    @include interactive;
+  }
+
+  &:hover:not(.button--disabled) {
+    @include button-style(hover);
+    @include interactive;
+  }
+
+  &--disabled {
+    @include button-style(disabled);
+  }
+
+  @include respond(tablet) {
+    width: 326px;
+  }
+
+  @include respond(desktop) {
+    width: 260px;
+  }
+}
+
+.button-buy {
+  @include button-style-buy(default);
+  @include interactive;
+
+  &:focus {
+    @include button-style-buy(focused);
+    @include interactive;
+  }
+
+  &:hover:not(.button--disabled) {
+    @include button-style-buy(hover);
+    @include interactive;
+  }
+
+  &--disabled {
+    @include button-style-buy(disabled);
+  }
+
+  @include respond(tablet) {
+    width: 100px;
+    height: 48px;
+  }
+
+  @include respond(desktop) {
+    width: 102px;
+  }
+}

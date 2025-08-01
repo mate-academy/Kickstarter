@@ -1,0 +1,34 @@
+/* ==========================================================================
+   Components / Links
+   Classe utilitária para underline animado em hover
+   ========================================================================== */
+
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.hover-line {
+  position: relative;
+  font-size: $font-size-button;
+  line-height: $line-height-button;
+  font-weight: $font-weight-bold;
+  color: $text-color-seemore-link;
+  text-transform: uppercase;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $hover-line-color;
+    transform: scaleX(0.5); // valor inicial
+    transform-origin: left; // direção de crescimento
+    transition: transform 0.3s ease;
+    display: block;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}

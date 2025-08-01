@@ -1,0 +1,105 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.contact {
+  @include flex-layout(column, center, center);
+  @include container-xl;
+  @include container-grid;
+  @include scroll-margin-top(50px);
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    width: 255px;
+    align-self: start;
+    margin-bottom: 27px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &--inp,
+    &--textarea {
+      padding-left: 20px;
+    }
+
+    &--inp {
+      width: 260px;
+      height: 48px;
+    }
+
+    &--textarea {
+      width: 260px;
+      height: 128px;
+      margin-block: 20px 30px;
+      padding-top: 12px;
+    }
+
+    &--btn {
+      width: 102px;
+      height: 40px;
+      align-self: flex-start;
+    }
+  }
+
+  @include respond(tablet) {
+    &__container {
+      max-width: 572px;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    &__title {
+      width: 290px;
+      align-self: start;
+      margin-bottom: 27px;
+    }
+
+    &__form {
+      &--inp {
+        width: 290px;
+        height: 48px;
+      }
+
+      &--textarea {
+        width: 290px;
+        margin-block: 20px 30px;
+      }
+    }
+  }
+
+  @include respond(desktop) {
+    &__container {
+      max-width: 1280px;
+      width: 1194px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 26px;
+    }
+
+    &__title {
+      width: 584px;
+      margin-bottom: 0;
+    }
+
+    &__form {
+      &--inp,
+      &--textarea {
+        width: 584px;
+      }
+
+      &--btn {
+        width: 124px;
+        height: 48px;
+      }
+    }
+  }
+}

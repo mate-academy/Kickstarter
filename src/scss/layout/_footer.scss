@@ -1,0 +1,94 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.ftr {
+  @include flex-layout(column, center, center);
+  @include container-xl($margin-bottom: 20px);
+  @include container-grid;
+
+  &__container--top {
+    display: none;
+  }
+
+  &__social-media {
+    margin-block: 0 30px;
+
+    &--list {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+
+      &-item {
+        width: 24px;
+        height: 24px;
+        @include hover-zoom(1.1);
+      }
+    }
+  }
+
+  &__copyrights {
+    color: $text-color-ftr-copyright;
+    text-align: center;
+  }
+
+  @include respond(tablet) {
+    &__container--top {
+      width: 572px;
+      height: 50px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      &-logo,
+      &-arrow-up {
+        @include hover-zoom(1.05);
+      }
+
+      &-logo {
+        width: 184px;
+        height: 25px;
+        margin-inline: 207px auto;
+      }
+
+      &-arrow-up {
+        width: 50px;
+        height: 50px;
+        align-self: end;
+      }
+    }
+
+    &__social-media {
+      margin-block: 30px 40px;
+
+      &--list {
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+      }
+    }
+  }
+
+  @include respond(desktop) {
+    &__container--top {
+      width: 1194px;
+      height: 50px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      &-logo {
+        margin-inline: 520px auto;
+      }
+    }
+
+    &__social-media {
+      margin-block: 45px 60px;
+
+      &--list {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+      }
+    }
+  }
+}

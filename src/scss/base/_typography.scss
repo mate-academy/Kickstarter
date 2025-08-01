@@ -1,0 +1,207 @@
+/* ========================================================
+   TYPOGRAPHY STYLES
+   Description: Defines global font settings and responsive headings
+   Descrição: Define configurações globais de fonte e títulos responsivos
+   ======================================================== */
+
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/tokens' as *;
+
+/* Base font declaration */
+$font-primary: 'Inter', sans-serif;
+$font-secundary: 'Helvetica Neue', sans-serif;
+
+:root {
+  --font-size-body: 16px;
+  --font-family: #{$font-primary};
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  font-weight: normal;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
+
+/* ========================================================
+   HEADINGS
+   Description: Responsive and styled heading levels
+   Descrição: Títulos responsivos e estilizados (h1-h6)
+   ======================================================== */
+
+h1,
+.h1 {
+  font-size: $font-size-h1-mobile;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-h1-mobile;
+  text-transform: uppercase;
+
+  @include respond(tablet) {
+    font-size: $font-size-h1-tablet;
+    line-height: $line-height-h1-tablet;
+  }
+
+  @include respond(desktop) {
+    font-size: $font-size-h1-desktop;
+    line-height: $line-height-h1-desktop;
+  }
+}
+
+html.lang-pt h1,
+html.lang-pt .h1 {
+  hyphens: auto;
+  word-break: break-word;
+
+  @include respond(tablet) {
+    font-size: calc(#{$font-size-h1-tablet} * 0.8);
+  }
+
+  @include respond(desktop) {
+    font-size: calc(#{$font-size-h1-desktop} * 0.9);
+  }
+}
+
+h2,
+.h2 {
+  font-size: $font-size-h2-mobile;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-h2-mobile;
+  text-transform: uppercase;
+
+  @include respond(tablet) {
+    font-size: $font-size-h2-tablet;
+    line-height: $line-height-h2-tablet;
+  }
+
+  @include respond(desktop) {
+    font-size: $font-size-h2-desktop;
+    line-height: $line-height-h2-desktop;
+  }
+}
+
+h3,
+.h3 {
+  font-size: $font-size-h3-mobile;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-h3-mobile;
+  text-transform: uppercase;
+
+  @include respond(tablet) {
+    font-size: $font-size-h3-tablet;
+    line-height: $line-height-h3-tablet;
+  }
+
+  @include respond(desktop) {
+    font-size: $font-size-h3-desktop;
+    line-height: $line-height-h3-desktop;
+  }
+}
+
+h4,
+.h4 {
+  font-size: $font-size-h4;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-h4;
+  text-transform: uppercase;
+}
+
+h5,
+.h5 {
+  font-size: $font-size-h5;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-h5;
+}
+
+h6,
+.h6 {
+  font-size: $font-size-h6;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-h6;
+  text-transform: uppercase;
+}
+
+/* ========================================================
+   TEXT CLASSES
+   Description: Generic text classes for layout styling
+   Descrição: Classes genéricas de texto para estilização de layout
+   ======================================================== */
+
+.main-text {
+  font-size: $font-size-main;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-main;
+}
+
+.secondary-text {
+  font-size: $font-size-secondary;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-secondary;
+
+  @include respond(tablet) {
+    font-size: $font-size-main;
+    line-height: $line-height-main;
+  }
+}
+
+.pagination-off {
+  font-size: $font-size-pagination-off;
+  font-weight: $font-weight-regular;
+  line-height: 100%;
+  color: $features-pagination-off-color;
+}
+
+.thirdary-text {
+  font-size: $font-size-thirdary;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-thirdary;
+  text-transform: uppercase;
+}
+
+/* ========================================================
+   QUOTE STYLES
+   Description: Emphasized text for citations
+   Descrição: Texto enfatizado para citações
+   ======================================================== */
+
+.quote {
+  font-size: $font-size-quote-mobile;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-quote-mobile;
+
+  @include respond(tablet) {
+    font-size: $font-size-quote-tablet;
+    line-height: $line-height-quote-tablet;
+  }
+
+  @include respond(desktop) {
+    font-size: $font-size-quote-desktop;
+    line-height: $line-height-quote-desktop;
+  }
+}
+
+/* ========================================================
+   BUTTON STYLES
+   Description: Unified button typography
+   Descrição: Tipografia unificada para botões
+   ======================================================== */
+
+/* .button {
+  font-size: $font-size-button;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-button;
+  text-transform: uppercase;
+} */
+
+/* ========================================================
+   CODE & PRE STYLES
+   Description: Monospaced styles for code blocks
+   Descrição: Estilos monoespaçados para blocos de código
+   ======================================================== */
+
+code,
+pre {
+  font-family: monospace;
+  font-size: 1em;
+}

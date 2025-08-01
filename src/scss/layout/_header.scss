@@ -1,0 +1,249 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.header {
+  @include flex-layout(column, center);
+
+  @include container-grid;
+
+  @include scroll-margin-top(50px);
+
+  @include respond(tablet) {
+    max-width: 640px;
+    margin-top: 30px;
+  }
+
+  @include respond(desktop) {
+    max-width: 1280px;
+    margin-top: 30px;
+  }
+
+  &__nav {
+    @include flex-container(
+      320px,
+      960px,
+      76px,
+      row,
+      space-between,
+      center,
+      auto,
+      true
+    );
+
+    &--logo {
+      @include interactive;
+
+      width: 161px;
+      height: 26px;
+      align-self: left;
+    }
+
+    &--list {
+      display: none;
+    }
+
+    &--menu {
+      @include interactive;
+
+      width: 32px;
+      height: 32px;
+      align-self: right;
+    }
+
+    @include respond(tablet) {
+      max-width: 640px;
+      height: 48px;
+      display: flex;
+      align-self: center;
+
+      &--logo {
+        align-self: left;
+      }
+
+      &--list {
+        display: flex;
+        flex-direction: row;
+        align-self: right;
+        align-items: center;
+        gap: 30px;
+
+        html.lang-pt & {
+          gap: 15px; // reduz o espaçamento entre os itens no tablet quando for PT
+        }
+
+        &-item-link {
+          font-family: $font-secundary;
+          color: $color-slate-grey;
+          text-transform: uppercase;
+          display: inline-block;
+
+          &:hover {
+            color: $color-charcoal;
+            @include interactive;
+          }
+        }
+
+        &-item-change-language {
+          display: flex;
+          flex-direction: row;
+          gap: 3px;
+          color: $color-slate-grey;
+
+          &-link:hover {
+            @include interactive;
+
+            color: $color-charcoal;
+          }
+
+          &-link.active {
+            font-weight: bold;
+          }
+        }
+      }
+
+      &--menu {
+        align-self: right;
+      }
+    }
+
+    @include respond(desktop) {
+      max-width: 1194px;
+      height: 48px;
+      align-self: center;
+
+      &--logo {
+        align-self: left;
+      }
+
+      &--list {
+        display: flex;
+        flex-direction: row;
+        align-self: right;
+        align-items: center;
+        gap: 30px;
+
+        html.lang-pt & {
+          gap: 30px;
+        }
+      }
+
+      &--menu {
+        display: none;
+      }
+    }
+  }
+
+  &__hero {
+    height: 100%;
+    margin-bottom: 110px;
+    align-self: center;
+
+    &--img {
+      width: 100vw;
+      max-width: 320px;
+      height: 245px;
+      background-image: url(../assets/images/media/img_mobile-1.png);
+      background-position: center;
+      background-size: cover;
+    }
+
+    &--title,
+    &--text {
+      margin-inline: 30px;
+    }
+
+    &--title {
+      width: 260px;
+      height: 156px;
+      margin-block: 40px 20px;
+    }
+
+    &--text {
+      color: $text-color-default;
+      width: 260px;
+      height: 120px;
+    }
+
+    @include respond(tablet) {
+      max-width: 640px;
+      width: 572px;
+      position: relative;
+      display: grid;
+      grid-template:
+        'title img'
+        'text img'
+        / 1fr 1fr;
+
+      margin-block: 130px;
+
+      &--img {
+        grid-area: img;
+        width: 350px;
+        max-width: 350px;
+        height: 250px;
+        aspect-ratio: 4 / 3;
+        background-image: url(../assets/images/media/img_tablet-1.png);
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        z-index: 0;
+        pointer-events: none;
+        top: 160px;
+        left: 45%;
+        transform: translate(-50%, -50%);
+      }
+
+      &--title-container {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 20px;
+      }
+
+      &--title,
+      &--text {
+        margin-inline: 0;
+        max-width: 100%;
+        z-index: 1;
+      }
+
+      &--title {
+        grid-area: title;
+        margin-block: 0;
+      }
+
+      &--text {
+        grid-area: text;
+      }
+    }
+
+    @include respond(desktop) {
+      max-width: 1194px;
+      width: 100%;
+      align-self: center;
+      margin-block: 170px;
+
+      &--img {
+        width: 815px;
+        max-width: 815px;
+        height: 465px;
+        background-image: url(../assets/images/media/img_desktop-1.png);
+        background-position: center;
+        background-size: cover;
+      }
+
+      &--title-container {
+        width: 400px;
+      }
+
+      &--title {
+        width: 378px;
+        height: 240px;
+      }
+
+      &--text {
+        width: 276px;
+      }
+    }
+  }
+}

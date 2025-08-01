@@ -1,0 +1,249 @@
+/* ==========================================================================
+   _mixins.scss | SCSS Reusable Mixins
+   🇺🇸 Description: Helper mixins for interaction, responsiveness, layout and components
+   🇧🇷 Descrição: Mixins auxiliares para interação, responsividade, layout e componentes
+   ========================================================================== */
+
+@use './variables' as *;
+@use './extends' as *;
+@use 'sass:map';
+
+/* ==========================================================================
+   RESPONSIVENESS / RESPONSIVO
+   ========================================================================== */
+
+/// @mixin respond
+/// 🇺🇸 Wraps content in media queries based on $breakpoints map
+/// 🇧🇷 Envolve conteúdo em media queries com base no mapa $breakpoints
+/// @param {String} $breakpoint - Key from $breakpoints map (e.g., 'mobile', 'tablet', 'desktop')
+/// @example
+/// @include respond(tablet) {
+///   font-size: 1.2rem;
+/// }
+@mixin respond($breakpoint) {
+  $value: map.get($breakpoints, $breakpoint);
+
+  @if $value {
+    @media (min-width: #{$value}) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$breakpoint}' not found in $breakpoints map.";
+  }
+}
+
+/* ==========================================================================
+   GRID LAYOUT / LAYOUT EM GRADE
+   ========================================================================== */
+
+/// @mixin layout-grid
+/// 🇺🇸 Creates a grid layout with named areas and direction control
+/// 🇧🇷 Cria um layout em grid com áreas nomeadas e controle de direção
+/// @param {List} $columns - Grid columns (e.g., 1fr 2fr)
+/// @param {List} $rows - Grid rows (e.g., auto auto)
+/// @param {List} $areas - Named grid areas (required)
+/// @param {String} $flow - Auto-flow direction ('row' or 'column')
+@mixin layout-grid($areas, $columns: 1fr 1fr, $rows: auto, $flow: row) {
+  @if not $areas {
+    @error "O parâmetro `$areas` é obrigatório. Informe as áreas do grid.";
+  }
+
+  display: grid;
+  grid-template: $rows / $columns;
+  grid-auto-flow: $flow;
+  grid-template-areas: $areas;
+}
+
+/// @mixin container-grid
+/// 🇺🇸 Applies side paddings and centers the container responsively
+/// 🇧🇷 Aplica paddings laterais e centraliza o contêiner de forma responsiva
+@mixin container-grid {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 30px;
+
+  @include respond(tablet) {
+    padding-inline: 34px;
+  }
+
+  @include respond(desktop) {
+    padding-inline: 43px;
+  }
+}
+
+/// @mixin container-xl
+/// 🇺🇸 Max-width container with centering and bottom spacing
+/// 🇧🇷 Contêiner com largura máxima, centralizado e com espaçamento inferior
+/// @param {Length} $max-width - Default: 1280px
+/// @param {Length | auto} $margin-inline - Default: auto
+/// @param {Length} $margin-bottom - Default: 110px
+@mixin container-xl(
+  $max-width: 1280px,
+  $margin-inline: auto,
+  $margin-bottom: 110px
+) {
+  max-width: $max-width;
+  margin-bottom: $margin-bottom;
+  margin-inline: $margin-inline;
+}
+
+/// @mixin centered-container
+/// 🇺🇸 Full-width container with a max-width limit
+/// 🇧🇷 Container largura total com limite de largura máxima
+/// @param {Length} $max-width - Default: 1280px
+@mixin centered-container($max-width: 1280px) {
+  width: 100%;
+  max-width: $max-width;
+  margin-inline: auto;
+}
+
+/* ==========================================================================
+   FLEX LAYOUT / LAYOUT FLEXÍVEL
+   ========================================================================== */
+
+/// @mixin flex-row-center
+/// 🇺🇸 Horizontal flex layout, center aligned
+/// 🇧🇷 Layout flexível horizontal, centralizado
+@mixin flex-row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/// @mixin flex-layout
+/// 🇺🇸 Flexible layout with direction, justification and alignment
+/// 🇧🇷 Layout flexível com direção, justificação e alinhamento
+/// @param {String} $direction - flex direction (row, column)
+/// @param {String} $justify - justify-content
+/// @param {String} $align - align-items
+@mixin flex-layout($direction: column, $justify: center, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+/// @mixin flex-container
+/// 🇺🇸 Customizable full flex container
+/// 🇧🇷 Container flexível completo e personalizável
+/// @example
+/// .header {
+///   @include flex-container(320px, 960px, 76px, row, space-between, center, auto, true);
+/// }
+@mixin flex-container(
+  $width: 100%,
+  $max-width: null,
+  $height: auto,
+  $flex-direction: row,
+  $justify-content: center,
+  $align-items: center,
+  $align-self: auto,
+  $responsive: false
+) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+  align-self: $align-self;
+  box-sizing: border-box;
+
+  width: $width;
+  height: $height;
+
+  @if $responsive {
+    width: 100%;
+  }
+
+  @if $max-width {
+    max-width: $max-width;
+  }
+}
+
+/* ==========================================================================
+   INTERACTION / INTERAÇÃO
+   ========================================================================== */
+
+/// @mixin hover-zoom
+/// 🇺🇸 Smooth zoom and shadow on hover
+/// 🇧🇷 Zoom e sombra suave no hover
+/// @param {Number} $scale - Default: 1.02
+/// @param {Time} $duration - Default: 0.3s
+/// @param {String} $timing - Default: ease
+@mixin hover-zoom($scale: 1.02, $duration: 0.3s, $timing: ease) {
+  transition:
+    transform #{$duration} #{$timing},
+    box-shadow #{$duration} #{$timing};
+
+  &:hover {
+    transform: scale(#{$scale});
+  }
+}
+
+/// @mixin interactive
+/// 🇺🇸 Adds pointer cursor and optional scale/translate hover effects
+/// 🇧🇷 Adiciona cursor pointer e efeitos de escala/translate no hover
+/// @param {Number} $scale - Default: 1.05
+/// @param {String} $origin - Transform origin (default: center center)
+/// @param {Length} $translateX - Default: 0
+@mixin interactive($scale: 1.05, $origin: center center, $translateX: 0) {
+  cursor: pointer;
+  transform-origin: $origin;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale($scale) translateX($translateX);
+  }
+}
+
+/* ==========================================================================
+   SCROLL / ROLAGEM
+   ========================================================================== */
+
+/// @mixin scroll-margin-top
+/// 🇺🇸 Applies top scroll margin
+/// 🇧🇷 Aplica margem de rolagem superior
+/// @param {Length} $value - Default: 50px
+@mixin scroll-margin-top($value: 50px) {
+  scroll-margin-top: $value;
+  @content;
+}
+
+/* ==========================================================================
+   COMPONENTS / COMPONENTES
+   ========================================================================== */
+
+/// @mixin button-style
+/// 🇺🇸 Button states via placeholders
+/// 🇧🇷 Estilos de botão via placeholders
+/// @param {String} $state - Options: default, hover, focused, disabled
+@mixin button-style($state: default) {
+  @extend %btn-base;
+
+  @if $state == hover {
+    @extend %btn-hover;
+  } @else if $state == focused {
+    @extend %btn-focused;
+  } @else if $state == disabled {
+    @extend %btn-disabled;
+  }
+
+  @content;
+}
+
+/// @mixin button-style-buy
+/// 🇺🇸 Buy button states via placeholders
+/// 🇧🇷 Botão de compra com estados via placeholders
+/// @param {String} $state - Options: default, hover, focused, disabled
+@mixin button-style-buy($state: default) {
+  @extend %btn-buy;
+
+  @if $state == hover {
+    @extend %btn-buy-hover;
+  } @else if $state == focused {
+    @extend %btn-buy-focused;
+  } @else if $state == disabled {
+    @extend %btn-buy-disabled;
+  }
+
+  @content;
+}
