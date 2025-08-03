@@ -1,0 +1,114 @@
+.features {
+  &__container {
+    background-color: $second-turquoise-color;
+
+    @include on-tablet {
+      @include page-grid;
+      position: relative;
+      padding-bottom: 120px;
+      padding-inline: 0;
+    }
+
+    @include on-desktop {
+      padding-bottom: 60px;
+    }
+  }
+
+  &__content {
+    &--sound-music {
+      margin-inline: 30px;
+      @include on-tablet {
+        grid-column: 2 / 5;
+      }
+
+      @include on-desktop {
+        grid-column: 2 / 6 ;
+      }
+    }
+
+    &--connectivity {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+        flex-direction: column;
+        grid-column: 2 / 6 ;
+      }
+    }
+
+    &--app-features {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+        flex-direction: column;
+        grid-column: 7 / 10;
+        grid-row: 1;
+      }
+    }
+  }
+
+  &__title {
+    @include font-style(mobile, h2);
+    margin-bottom: 30px;
+
+    @include on-desktop {
+      @include font-style(desctop, h2);
+    }
+  }
+
+  &__subtitle {
+    padding-top: 30px;
+    @include font-style(mobile, h3);
+    color: $dark-turquoise-color;
+
+    @include on-desktop {
+      padding-top: 60px;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    padding-left: 16px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__item {
+    @include font-style(desctop, secondary-text);
+  }
+
+  &__slider-arrows {
+    margin-top: 50px;
+    margin-inline: auto;
+    height: 47px;
+    width: 93px;
+    background-image: url(../images/icons/icon-arrows.svg);
+
+    @include on-tablet {
+      margin-inline: 0;
+      grid-column: 2 / 5;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+
+    @include on-tablet {
+      position: absolute;
+      width: 50vw;
+      max-width: 700px;
+      right: 0;
+      bottom: 0;
+      margin-inline: 0;
+    }
+  }
+}

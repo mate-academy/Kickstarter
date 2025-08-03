@@ -1,0 +1,121 @@
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline() {
+  padding-inline: 30px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    max-width: 1194px;
+    margin-inline: auto;
+    padding-inline: 123px;
+  }
+}
+
+@mixin page-grid {
+  --columns: 4;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 8;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+    column-gap: 30px;
+  }
+}
+
+@mixin font-style($device, $heading) {
+  font-family: "Inter", sans-serif;
+
+  @if $device == mobile {
+    font-weight: 700;
+
+    @if $heading == h1 {
+      font-size: 40px;
+      line-height: 52px;
+      text-transform: uppercase;
+    } @else if $heading == h2 {
+      font-size: 30px;
+      line-height: 40px;
+      text-transform: uppercase;
+    } @else if $heading == h3 {
+      font-size: 18px;
+      line-height: 22px;
+      text-transform: uppercase;
+    } @else if $heading == quote {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  } @else if $device == tablet {
+    font-weight: 700;
+    text-transform: uppercase;
+
+    @if $heading == h1 {
+      font-size: 48px;
+      line-height: 62px;
+    } @else if $heading == h2 {
+      font-size: 36px;
+      line-height: 46px;
+    }
+  } @else if $device == desctop {
+    @if $heading == h1 {
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 78px;
+      text-transform: uppercase;
+    } @else if $heading == h2 {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 70px;
+      text-transform: uppercase;
+    } @else if $heading == h4 {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 28px;
+      text-transform: uppercase;
+    } @else if $heading == h5 {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+    } @else if $heading == h6 {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+      text-transform: uppercase;
+    } @else if $heading == button {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 14px;
+      text-transform: uppercase;
+    } @else if $heading == main-text {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+    } @else if $heading == secondary-text {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+    } @else if $heading == thirdary-text {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      text-transform: uppercase;
+    }
+  }
+}
