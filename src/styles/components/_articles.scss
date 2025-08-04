@@ -1,0 +1,156 @@
+.articles {
+  margin-bottom: 170px;
+  padding: 0 123px;
+}
+
+.article {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: 30px;
+  width: auto;
+
+  &__info {
+    width: 100%;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 70px;
+    grid-area: title;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 60px;
+    color: #7c7c7c;
+  }
+
+  &__link {
+    color: #0db2b3;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 64.6px;
+      height: 1px;
+      background-color: #0db2b3;
+      bottom: -5px;
+      left: 0;
+    }
+  }
+
+  &__visual {
+    height: 388px;
+    grid-area: visual;
+  }
+}
+
+.article--1 {
+  margin-bottom: 170px;
+  grid-template-areas:
+    'visual title'
+    'visual info';
+
+  .article__visual {
+    background: url('../images/future-design.jpg') center/cover no-repeat;
+  }
+}
+
+.article--2 {
+  grid-template-areas:
+    'title visual'
+    'info visual';
+
+  .article__visual {
+    background: url('../images/luna-eye.jpg') center/cover no-repeat;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .articles {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 140px;
+  }
+
+  .article {
+    &__title {
+      font-size: 36px;
+      line-height: 46px;
+      margin-bottom: 0;
+    }
+
+    &__visual {
+      height: auto;
+      aspect-ratio: 374 / 415;
+    }
+
+    &__info {
+      grid-area: info;
+    }
+  }
+
+  .article--1 {
+    margin-left: -34px;
+    padding: 0 34px 0 0;
+  }
+
+  .article--2 {
+    margin-right: 0;
+    padding: 0 0 0 34px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .articles {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 160px;
+  }
+
+  .article {
+    display: flex;
+    gap: 20px;
+    width: auto;
+    flex-direction: column;
+    padding: 0 30px;
+
+    &__title {
+      font-size: 30px;
+      line-height: 40px;
+      order: 1;
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    &__visual {
+      height: auto;
+      aspect-ratio: 374 / 415;
+      order: 2;
+      width: 100%;
+    }
+
+    &__info {
+      order: 3;
+      width: 100%;
+    }
+
+    &__text {
+      margin-bottom: 30px;
+    }
+  }
+
+  .article--1 {
+    margin-bottom: 110px;
+  }
+}
