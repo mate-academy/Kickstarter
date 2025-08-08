@@ -1,6 +1,55 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin text-style(
+  $font-size: $text-font-size-medium,
+  $font-weight: $font-weight-regular,
+  $line-height: 100%,
+  $text_color: $color-dark-gray,
+  $letter-spacing: 0
+) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  letter-spacing: $letter-spacing;
+  line-height: $line-height;
+  color: $text_color;
+}
+
+@mixin text-size($font-size, $line-height) {
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+@mixin flex($justify: center, $align: center, $direction: row, $wrap: nowrap) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-flow: $direction $wrap;
+}
+
+@mixin grid(
+  $columns: $grid-columns-desktop,
+  $column-gap: $grid-gutter-desktop,
+  $row-gap: 0
+) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $row-gap $column-gap;
+}
+
+@mixin respond-to($device1, $device2: null) {
+  @if $device1 == phone or $device2 == phone {
+    @media (max-width: #{$breakpoint-tablet}) {
+      @content;
+    }
+  }
+
+  @if $device1 == tablet or $device2 == tablet {
+    @media (min-width: #{ $breakpoint-tablet + 1 }) and (max-width: #{$breakpoint-desktop}) {
+      @content;
+    }
+  }
+
+  @if $device1 == desktop or $device2 == desktop {
+    @media ((min-width: #{ $breakpoint-desktop + 1})) {
+      @content;
+    }
   }
 }
