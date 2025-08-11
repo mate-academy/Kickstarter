@@ -1,0 +1,58 @@
+.hero {
+  padding-top: $header-height;
+  background-image: url(../images/hero-img-mobile.png);
+  background-repeat: no-repeat;
+  background-position: center $header-height;
+  background-size: 100%;
+
+  @include tablet {
+    background-image: unset;
+  }
+
+  &__content {
+    padding-top: 95%;
+
+    @include grid-markup;
+
+    @include tablet {
+      padding-top: 100px;
+      background-image: url(../images/hero-img-tablet.png);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      background-size: 61%;
+    }
+
+    @include desktop {
+      background-image: url(../images/hero-img-desktop.png);
+      background-size: 68%;
+    }
+  }
+
+  &__heading {
+    grid-column: 1/-1;
+    margin-bottom: 20px;
+
+    @include tablet {
+      grid-column: 1/5;
+      margin-bottom: 30px;
+      max-width: 450px;
+    }
+
+    @include desktop {
+      max-width: unset;
+    }
+  }
+
+  &__text {
+    grid-column: 1/-1;
+
+    @include tablet {
+      grid-column: 1/4;
+      max-width: 250px;
+    }
+
+    @include desktop {
+      max-width: unset;
+    }
+  }
+}
