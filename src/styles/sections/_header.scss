@@ -1,0 +1,55 @@
+.header {
+  background-image: url(../images/header/header-bg-mob.png);
+  background-repeat: no-repeat;
+  background-position: center 76px;
+  background-size: 100% 50%;
+  height: 100vh;
+
+  @include on-tablet {
+    background-image: url(../images/header/header-bg-tablet.png);
+    background-position: calc(100% - 34px) center;
+    background-size: 50% auto;
+  }
+
+  @include on-desktop {
+    background-image: url(../images/header/header-bg-desktop--wb.png);
+    background-position: calc(100% - 120px) center;
+    background-size: 50% 55%;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin-top: 50vh;
+
+    @include on-tablet {
+      @include page-grid;
+
+      height: max-content;
+      margin-top: 101px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    color: $greyC;
+    height: max-content;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin-bottom: 30px;
+      max-width: 340px;
+    }
+  }
+
+  &__text {
+    color: $greyC;
+    height: max-content;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      max-width: 240px;
+    }
+  }
+}

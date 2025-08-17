@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  border: none;
+}
+
+.page {
+  &__body {
+    scroll-behavior: smooth;
+    background-color: $whiteC;
+    min-width: 320px;
+    width: 100%;
+    transition: $effectDuration;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transition: all $effectDuration;
+    transform: translateX(-100%);
+    opacity: 1;
+    background-color: $whiteF9C;
+    pointer-events: all;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &::before {
+    content: '';
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $effectDuration;
+  }
+
+  &:has(.page__menu:target)::before {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.page,
+.page__body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+  pointer-events: all;
+}
+
+.main {
+  width: 100%;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  transition-duration: $effectDuration;
+  color: $greyC;
+}
+
+.logo {
+  transition-duration: $effectDuration;
+
+  @include hover(transform, scale(1.1));
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: transparent;
+  -webkit-box-shadow: 0 0 0 1000px $whiteC inset;
+}
+
+input:-webkit-autofill:not(:placeholder-shown) {
+  -webkit-text-fill-color: $greyC;
+}
