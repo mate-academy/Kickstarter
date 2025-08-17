@@ -1,0 +1,56 @@
+body {
+  font-family: $font-family-base;
+}
+
+[class*='__container'] {
+  @include content-padding-inline;
+}
+
+.home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: $color-base;
+  background-color: #f7f7f7;
+
+  & > *:not(:last-child) {
+    margin-bottom: 110px;
+
+    @include on-tablet {
+      margin-bottom: 140px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 170px;
+    }
+  }
+}
+
+.main {
+  flex: 1 1 auto;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 110px;
+  overflow: hidden;
+
+  @include on-tablet {
+    row-gap: 140px;
+  }
+
+  @include on-desktop {
+    gap: 170px;
+  }
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: rgba(247, 247, 247, 0.8);
+  z-index: 10;
+
+  & .benefits__menu {
+    grid-column: 1 / -1;
+  }
+}

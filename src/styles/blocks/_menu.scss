@@ -1,0 +1,77 @@
+.menu {
+  height: 100vh;
+  background-color: #f9f9f9;
+  z-index: 10;
+
+  &__container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include on-tablet {
+    height: 992px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 25px;
+    margin-bottom: 31px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    margin-bottom: 50px;
+  }
+
+  &__link {
+    color: $color-base;
+
+    @include hover(color, $color-accent);
+
+    &--active {
+      font-weight: 700;
+      color: $color-base-dark;
+    }
+  }
+
+  &__icon--close {
+    background-image: url(../images/icons/icon-close.png);
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    @include hover(transform, rotate(180deg));
+  }
+
+  &__utils {
+    justify-content: start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__languages {
+    flex-grow: 1;
+  }
+
+  &__buy-button {
+    width: 260px;
+    margin: 0 auto 30px;
+  }
+
+  &__specs-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-grow: 1;
+  }
+}

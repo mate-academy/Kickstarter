@@ -1,0 +1,133 @@
+.benefits {
+  position: relative;
+
+  &__container {
+    @include page-grid;
+
+    @include on-tablet {
+      row-gap: 65px;
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    @include on-tablet {
+      width: calc(100vw * 0.44);
+      flex-grow: 0;
+    }
+
+    @include on-desktop {
+      width: auto;
+    }
+  }
+
+  &__item:not(:first-child) {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__image {
+    height: 40px;
+    margin-bottom: 40px;
+
+    @include on-desktop {
+      height: 50px;
+    }
+  }
+
+  &__item:nth-child(1) {
+    grid-column: 1 / 5;
+
+    @include on-desktop {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__item:nth-child(2) {
+    grid-column: 5 / -1;
+
+    @include on-desktop {
+      grid-column: 4 / 7;
+    }
+  }
+
+  &__item:nth-child(3) {
+    grid-column: 1 / 5;
+
+    @include on-desktop {
+      grid-column: 7 / 10;
+    }
+  }
+
+  &__item:nth-child(4) {
+    grid-column: 5 / -1;
+
+    @include on-desktop {
+      grid-column: 10 / -1;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    text-align: center;
+
+    @include on-desktop {
+      flex-grow: 1;
+    }
+  }
+
+  &__description {
+    color: $color-base-light;
+    text-align: center;
+    flex-grow: 1;
+
+    @include on-desktop {
+      flex-grow: 0;
+      min-height: 126px;
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      margin-bottom: 62px !important;
+    }
+  }
+
+  &__menu-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 84px;
+  }
+
+  &__menu-link {
+    line-height: 76px;
+    color: $color-base;
+    cursor: pointer;
+
+    @include hover(color, $color-accent);
+
+    &--active {
+      font-weight: 700;
+      color: $color-base-dark;
+    }
+  }
+}

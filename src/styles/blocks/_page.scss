@@ -1,0 +1,29 @@
+.page {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transition: all 0.3s ease;
+    transform: translateX(-100%);
+    pointer-events: none;
+    z-index: 5;
+
+    @include on-tablet {
+      transform: translateY(-100%);
+    }
+
+    &:target {
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
