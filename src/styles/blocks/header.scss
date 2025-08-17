@@ -1,0 +1,82 @@
+.header {
+  background-color: $c-background;
+  &__top-bar {
+    margin: 0;
+  }
+
+  @include on-tablet {
+    &__top-bar {
+      margin-bottom: 142px;
+    }
+  }
+
+  &__bottom {
+    @include page-grid;
+
+    @include on-mobile {
+      row-gap: 40px;
+    }
+  }
+
+  &__photo {
+    object-fit: cover;
+    object-position: left;
+    width: 100%;
+    height: 100%;
+
+    grid-column: 1 / 5;
+
+    @include on-tablet {
+      grid-column: 4 / 9;
+      grid-row: 1 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 13;
+      grid-row: 1 / -1;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / 5;
+
+    @include on-tablet {
+      grid-column: 1 /4;
+      grid-row: 1 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 1 /4;
+      grid-row: 1 / -1;
+    }
+  }
+
+  &__title {
+    text-align: left;
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    margin-bottom: 40px;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    color: $c-text;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 62px;
+      margin-bottom: 30px;
+    }
+
+    @include on-desktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__paragraph {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $c-text;
+  }
+}

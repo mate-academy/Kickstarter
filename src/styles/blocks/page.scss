@@ -1,0 +1,43 @@
+.page {
+  &__body {
+    margin: 0;
+    background-color: $c-background;
+    min-width: 320px;
+
+    &:has(.page__menu:target) {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: transform, 0.6s;
+    transform: translateX(-100%);
+  }
+
+  &__menu:target {
+    opacity: 1;
+    pointer-events: auto;
+
+    transform: translateX(0%);
+  }
+
+  &__menu--desktop {
+    margin: 170px 0 62px;
+  }
+
+  &__main {
+    margin-block: 110px;
+
+    @include on-tablet {
+      margin-block: 140px;
+    }
+  }
+}
