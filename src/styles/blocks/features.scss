@@ -1,0 +1,64 @@
+.features {
+  &__title {
+    @extend%h2;
+
+    margin-bottom: 32px;
+  }
+
+  &__content {
+    @include grid;
+
+    padding: 30px 0 173px;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: '';
+      inset: 0 -30px;
+      background-color: #d6ecec;
+
+      @include on-tablet {
+        inset: 0;
+      }
+    }
+
+    @include on-tablet {
+      padding: 60px 0 123px;
+      margin-inline: 0;
+    }
+
+    @include on-small-desktop {
+      padding: 60px 0;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    left: -30px;
+    right: -30px;
+    max-width: 320px;
+    margin-left: auto;
+
+    @include on-tablet {
+      right: 0;
+      left: auto;
+      max-width: 415px;
+    }
+
+    @include on-desktop {
+      max-width: 543px;
+      margin-right: 46px;
+    }
+  }
+
+  &__img-desktop {
+    display: block;
+    width: 100%;
+  }
+
+  &__img-mobile {
+    display: block;
+    width: 100%;
+  }
+}

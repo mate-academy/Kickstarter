@@ -1,0 +1,92 @@
+.benefits {
+  &__content {
+    @include grid;
+  }
+
+  &__nav {
+    @include on-small-desktop {
+      display: flex;
+      padding: 28px 0;
+      grid-column: 3 / -3;
+      margin-bottom: 62px;
+      justify-content: space-between;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / -4;
+    }
+  }
+
+  &__items {
+    @include grid;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      row-gap: 65px;
+    }
+
+    @include on-desktop {
+      justify-content: space-between;
+      gap: 30px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    grid-column: 1 / -1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:nth-child(n + 2) {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+      }
+    }
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+  }
+
+  &__item-img {
+    display: block;
+    height: 50px;
+    width: 70px;
+    margin-bottom: 30px;
+    cursor: pointer;
+
+    @include on-tablet {
+      margin-bottom: 45px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 30px;
+    }
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__item-title {
+    @extend%h4;
+
+    margin-bottom: 20px;
+
+    @include on-desktop {
+      flex-basis: 56px;
+      margin-bottom: 25px;
+    }
+  }
+
+  &__item-description {
+    @extend%secondary-text;
+  }
+}

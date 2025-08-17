@@ -1,0 +1,79 @@
+.footer {
+  padding-bottom: 20px;
+
+  @include on-tablet {
+    padding-bottom: 30px;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__logo-link {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__social {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 40px;
+
+    @include on-tablet {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__social-link {
+    height: 24px;
+    width: 24px;
+    border-radius: 3px;
+
+    &--facebook {
+      background-image: url(../images/icons/facebook-icon.svg);
+    }
+
+    &--x {
+      background-image: url(../images/icons/x-icon.svg);
+    }
+
+    &--instagram {
+      background-image: url(../images/icons/instagram-icon.svg);
+    }
+
+    @include hover(box-shadow, 0 0 0 1px $main-color);
+  }
+
+  &__copyright {
+    @extend%secondary-text;
+
+    color: $secondary-text-color;
+    text-align: center;
+  }
+
+  &__arrow-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    width: 50px;
+    height: 50px;
+    background-image: url(../images/icons/arrow-up-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px;
+
+    @include hover(transform, translateY(-5px));
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+}

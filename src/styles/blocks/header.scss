@@ -1,0 +1,75 @@
+.header {
+  position: relative;
+
+  &__wrapper {
+    @include grid;
+  }
+
+  &__top-bar {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      margin-bottom: 100px;
+    }
+  }
+
+  &__bg {
+    width: 100%;
+    display: block;
+    margin-bottom: 40px;
+    grid-column: 1 / -1;
+    padding-bottom: 95%;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      padding-bottom: 0;
+      order: 1;
+      z-index: -1;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / -1;
+      z-index: 0;
+    }
+  }
+
+  &__bg-mobile {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    @include on-tablet {
+      position: relative;
+    }
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 5;
+      align-self: center;
+    }
+  }
+
+  &__title {
+    @extend%h1;
+
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__description {
+    @extend%main-text;
+
+    margin: 0;
+  }
+}

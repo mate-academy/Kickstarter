@@ -1,0 +1,91 @@
+.form {
+  &__email {
+    @extend%main-text;
+
+    box-sizing: border-box;
+    color: $main-color;
+    height: 48px;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    background-color: $bg-color;
+    border: 1px solid #828282;
+    outline: none;
+
+    @include on-tablet {
+      padding: 12px 30px;
+    }
+
+    @include on-desktop {
+      padding: 12px 35px;
+    }
+
+    &::placeholder {
+      color: $secondary-text-color;
+    }
+
+    @include hover(border, 1px solid $secondary-accent-color);
+    @include focus(border, 1px solid $secondary-accent-color);
+    @include valid(border, 1px solid $form-valid-color);
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: $main-color;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  &__textarea {
+    @extend%main-text;
+
+    box-sizing: border-box;
+    color: $main-color;
+    height: 128px;
+    margin-bottom: 30px;
+    resize: none;
+    padding: 12px 20px;
+    background-color: $bg-color;
+    border: 1px solid #828282;
+    outline: none;
+
+    @include on-tablet {
+      padding: 12px 30px;
+    }
+
+    @include on-desktop {
+      padding: 12px 35px;
+    }
+
+    &::placeholder {
+      color: $secondary-text-color;
+    }
+
+    @include on-tablet {
+      height: 201px;
+    }
+
+    @include on-desktop {
+      height: 128px;
+    }
+
+    @include hover(border, 1px solid $secondary-accent-color);
+    @include focus(border, 1px solid $secondary-accent-color);
+  }
+
+  &__btn {
+    @extend%button;
+
+    color: $white-color;
+    background-color: $accent-color;
+    border: none;
+    padding: 13px 0;
+    width: 102px;
+    cursor: pointer;
+
+    @include on-desktop {
+      padding: 17px 0;
+      width: 124px;
+    }
+
+    @include hover(background-color, $secondary-accent-color);
+    @include disabled(background-color, $thirdary-accent-color);
+  }
+}
