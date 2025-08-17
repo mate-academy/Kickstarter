@@ -1,0 +1,150 @@
+.header {
+  @include margin;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding-block: 25px;
+
+    @include on-tablet {
+      padding-block: 0;
+      margin-bottom: 140px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    @include on-desktop {
+      & > a {
+        pointer-events: none;
+        img {
+          transform: translateY(-100px);
+        }
+      }
+    }
+  }
+
+  &__nav {
+    transition:
+      transform 0.3s,
+      width 0.3s;
+    transform: translateY(-200px);
+    position: absolute;
+    left: 20%;
+
+    @include on-tablet {
+      transform: translateY(0);
+      position: relative;
+      left: 0;
+    }
+  }
+
+  &__content {
+    row-gap: 40px;
+  
+    @include grid;
+
+
+    @include on-desktop {
+      align-items: start;
+    }
+  }
+
+  &__bg {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+
+    @include on-tablet {
+      grid-column: 3 / -1;
+      justify-content: flex-end;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / -1;
+      align-items: flex-start;
+    }
+
+    img {
+      max-width: 320px;
+      min-height: 245px;
+      object-fit: cover;
+      object-position: left;
+
+      @include on-tablet {
+        transform: translateX(50px);
+        max-width: 600px;
+      }
+
+      @include on-desktop {
+        max-width: 100%;
+        object-fit: contain;
+        transform: translate(0, 20px);
+      }
+    }
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      grid-column: span 2;
+      order: -1;
+      z-index: 1;
+      height: fit-content;
+      align-self: flex-end;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__subtitle {
+    color: $black-middle;
+
+    @extend %main-text;
+
+    @include on-tablet {
+      width: 250px;
+    }
+  }
+
+  &__language-block {
+    display: flex;
+    gap: 3px;
+    font-family: inherit;
+
+    label {
+      color: $gray-light;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+
+    input {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1px;
+      height: 1px;
+      pointer-events: none;
+
+      &:checked + label {
+        color: $black-middle;
+      }
+    }
+  }
+}
