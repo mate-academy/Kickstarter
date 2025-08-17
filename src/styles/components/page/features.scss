@@ -1,0 +1,147 @@
+.features {
+  &__container {
+    padding: 0;
+
+    @include onTablet {
+      padding: 0 35px;
+    }
+  }
+
+  &__main {
+    padding: 30px 30px 175px;
+
+    background-color: $colorLightGreen;
+    background-image: url('../images/page/features/background.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+
+    @media (min-width: 480px) {
+      background-position: right bottom;
+      background-size: 50vw;
+    }
+
+    @include onTablet {
+      padding: 60px 10px 123px 90px;
+    }
+
+    @include onDesktop {
+      background-size: 45%;
+
+      padding: 60px 46px 60px 102px;
+    }
+  }
+}
+
+.swiper-features {
+  &__wrapper {
+    @include onDesktop {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 56px;
+    }
+  }
+
+  &__block {
+    padding-top: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    @include onTablet {
+      width: max-content;
+      align-items: start;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+  }
+
+  &__button {
+    position: relative;
+    cursor: pointer;
+
+    @include before {
+      font-family: icomoon;
+    }
+
+    @include onHover {
+      color: $colorDarkGreen;
+    }
+
+    &--prev {
+      @include before {
+        content: '\e900';
+      }
+    }
+
+    &--next {
+      @include before {
+        content: '\e901';
+      }
+    }
+  }
+
+  &__item {
+    align-self: center;
+  }
+}
+
+.swiper-pagination-current {
+  font-size: 16px;
+  color: $colorBlack;
+}
+
+.swiper-pagination-total {
+  font-size: 11px;
+  color: $colorDarkGreen;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__header {
+  }
+
+  &__title {
+    @include title;
+
+    font-size: 18px;
+    color: $colorDarkGreen;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    @include before {
+      flex-shrink: 0;
+
+      width: 4px;
+      height: 4px;
+
+      border-radius: 50%;
+      overflow: hidden;
+
+      background-color: $colorBlack;
+    }
+  }
+}

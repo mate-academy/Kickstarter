@@ -1,0 +1,102 @@
+.hero {
+  &__wrapper {
+    padding-top: 76px;
+
+    @include onTablet {
+      padding-top: 140px;
+    }
+
+    @include onDesktop {
+      padding-top: 168px;
+    }
+  }
+
+  &__container {
+    &--desktop {
+      padding: 0;
+
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 40px;
+
+      @include onTablet {
+        grid-template-columns: 0.4fr 1fr;
+
+        .hero__background {
+          grid-column: 2 / span 1;
+          grid-row: 1;
+        }
+
+        .hero__container {
+          grid-column: 1 / span 1;
+          grid-row: 1;
+        }
+      }
+    }
+  }
+
+  &__background {
+    max-height: 317px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include onDesktop {
+      max-height: 400px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    object-position: center center;
+    object-fit: contain;
+
+    @include onTablet {
+      object-position: left;
+    }
+  }
+
+  &__block {
+    min-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+
+  &__title {
+    @include title;
+
+    font-size: 40px;
+
+    @include lastChild {
+      margin-bottom: 20px;
+    }
+
+    @include onTablet {
+      font-size: 48px;
+    }
+
+    @include onDesktop {
+      font-size: 62px;
+
+      @include lastChild {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    max-width: 260px;
+    width: 100%;
+
+    @include onDesktop {
+      max-width: 276px;
+    }
+  }
+}
