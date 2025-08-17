@@ -1,0 +1,53 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__wrapper {
+    display: flex;
+
+    @include on-tablet {
+      column-gap: 34px;
+      align-items: center;
+    }
+  }
+
+  &__tablet-content {
+    display: none;
+    align-items: center;
+    column-gap: 30px;
+
+    @include on-tablet {
+      display: flex;
+    }
+
+    @include on-desktop {
+      column-gap: 40px;
+    }
+  }
+
+  &__button {
+    width: 100px;
+  }
+
+  &__burger-icon,
+  &__cross-icon {
+    background-repeat: no-repeat;
+  }
+
+  &__burger-icon {
+    width: 24px;
+    height: 16px;
+    background-image: url('../images/icons/top-bar-icons/burger-icon.svg');
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__cross-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url('../images/icons/top-bar-icons/cross-icon.svg');
+  }
+}
