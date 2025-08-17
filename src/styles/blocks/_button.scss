@@ -1,0 +1,73 @@
+.button {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  color: $c-white;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &__header {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: 100px;
+      height: 48px;
+      background-color: $c-dark-brown;
+      border: none;
+    }
+
+    @include on-desktop {
+      width: 102px;
+    }
+
+    &:hover {
+      background-color: $c-black;
+    }
+
+    &:disabled {
+      background-color: $c-light-gray;
+      cursor: not-allowed;
+    }
+  }
+
+  &__menu {
+    width: 100%;
+    height: 48px;
+    background-color: $c-dark-brown;
+    border: none;
+    margin-bottom: 30px;
+
+    &:hover {
+      background-color: $c-black;
+    }
+
+    &:disabled {
+      background-color: $c-light-gray;
+      cursor: not-allowed;
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__questions {
+    width: 120px;
+    height: 40px;
+    background-color: $c-disable;
+    border: none;
+    cursor: not-allowed;
+
+    .questions__form:valid & {
+      background-color: $c-accent;
+      cursor: pointer;
+      border-color: red;
+
+      &:hover {
+        background-color: rgba(12, 121, 122, 1);
+      }
+    }
+  }
+}
