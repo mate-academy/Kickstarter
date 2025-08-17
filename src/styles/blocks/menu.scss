@@ -1,0 +1,94 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  color: $black;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 1s;
+  z-index: 3;
+  overflow: auto;
+
+  &:target {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+
+  &__nav {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include on-tablet {
+      margin-top: 40px;
+      gap: 40px;
+    }
+
+    @include on-desktop {
+      margin-top: 70px;
+      gap: 60px;
+    }
+
+    & > a {
+      color: $black;
+      text-decoration: none;
+      text-align: left;
+      font-family: Inter, serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+
+      @include on-tablet {
+        font-size: 22px;
+        line-height: 28px;
+      }
+
+      @include hover(font-weight, 700);
+    }
+  }
+
+  &__middlepart {
+    margin: 50px 0;
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    line-height: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    & > a {
+      color: $black;
+      text-decoration: none;
+
+      @include hover(font-weight, 700);
+    }
+
+    &__languages {
+      display: flex;
+      gap: 3px;
+
+      & > p {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      &__active {
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__button {
+    margin-bottom: 30px;
+    margin-top: auto;
+  }
+}
