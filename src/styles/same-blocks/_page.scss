@@ -1,0 +1,41 @@
+.page {
+  min-width: 320px;
+  position: relative;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    display: grid;
+    row-gap: 110px;
+
+    @include for-tablets {
+      row-gap: 140px;
+    }
+
+    @include for-desktops {
+      row-gap: 170px;
+    }
+
+    background: $c-gray;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: all $animation_duration;
+    transform: translateX(-100%);
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
