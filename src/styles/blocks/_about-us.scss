@@ -1,0 +1,155 @@
+.about-us {
+  margin-bottom: 110px;
+  padding-inline: 30px;
+
+  @include on-tablet {
+    padding-inline: 0;
+    margin-bottom: 140px;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
+    margin-bottom: 170px;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 110px;
+
+    @include on-tablet {
+      gap: 140px;
+    }
+
+    @include on-desktop {
+      gap: 170px;
+    }
+  }
+
+  &__card {
+    @include on-tablet {
+      justify-content: space-between;
+      display: flex;
+    }
+
+    @include on-desktop {
+      @include page-grid;
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      font-size: 36px;
+      line-height: 46px;
+      max-width: 300px;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      line-height: 70px;
+      max-width: 100%;
+    }
+
+    &--1 {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &--2 {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+
+    @include on-tablet {
+      height: 415px;
+      width: 374px;
+    }
+
+    @include on-desktop {
+      height: 100%;
+      width: 100%;
+
+      grid-column: span 6;
+    }
+
+    &--2 {
+      @include on-tablet {
+        order: 1;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__conteiner-text {
+    @include on-tablet {
+      width: 340px;
+      padding-inline: 34px;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+      padding-inline: 0;
+      width: 100%;
+    }
+  }
+
+  &__discription {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+
+    color: #7c7c7c;
+
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      margin-top: 0;
+      margin-bottom: 60px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__link {
+    color: #0db2b3;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-align: left;
+    text-transform: uppercase;
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      width: 53px;
+      height: 1px;
+      background-color: #0db2b3;
+      position: absolute;
+      bottom: -5px;
+      transition: width 0.3s ease;
+
+      @include on-desktop {
+        width: 65px;
+      }
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
