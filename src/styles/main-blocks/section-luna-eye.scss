@@ -1,0 +1,38 @@
+.section-luna-eye {
+  @include on-tablet {
+    @include page-grid;
+
+    position: relative;
+  }
+
+  &__content {
+    @include on-tablet {
+      grid-column: 1/5;
+      height: 336px;
+    }
+
+    @include on-desktop {
+      grid-column: 1/7;
+      height: fit-content;
+    }
+  }
+
+  &__images {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      position: absolute;
+      right: 0;
+      width: 50%;
+      max-height: 420px;
+    }
+
+    @include on-desktop {
+      position: unset;
+      grid-column: span 6;
+      width: 100%;
+      max-height: 100%;
+    }
+  }
+}

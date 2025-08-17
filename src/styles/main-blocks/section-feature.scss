@@ -1,0 +1,96 @@
+.section-feature {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  gap: 32px;
+
+  @include on-tablet {
+    @include content-space-inline;
+
+    gap: 30px;
+  }
+
+  &__title {
+    display: flex;
+
+    @include content-space-inline;
+
+    @include on-tablet {
+      display: block;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #d6ecec;
+
+    @include on-tablet {
+      @include page-grid;
+    }
+
+    @include on-desktop {
+      padding-block: 60px;
+      row-gap: 56px;
+      position: relative;
+    }
+  }
+
+  &__feature {
+    @include on-tablet {
+      grid-column: 2/6;
+    }
+
+    &--different-column {
+      grid-column: 7/10;
+      align-self: start;
+    }
+  }
+
+  &__slider {
+    display: flex;
+    width: 93px;
+    height: 47px;
+    align-self: center;
+
+    background-image: url(../images/icons/slider.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include hover(transform, scale(1.2));
+
+    &:hover {
+      background-image: url(../images/icons/slider-hover.svg);
+    }
+
+    @include on-tablet {
+      grid-column: 2/4;
+      align-self: start;
+      margin-top: 50px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__images {
+    @include on-tablet {
+      grid-column: span 5;
+    }
+
+    @include on-desktop {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+    }
+  }
+}

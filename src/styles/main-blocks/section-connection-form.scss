@@ -1,0 +1,177 @@
+.section-connection {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+
+  @include on-tablet {
+    @include page-grid;
+  }
+
+  &__title {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__form {
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  &__input {
+    all: unset;
+
+    display: block;
+    box-sizing: border-box;
+    height: 48px;
+    width: 100%;
+    border: 1px solid #828282;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    color: $main-text-color;
+
+    @include on-tablet {
+      padding: 12px 30px;
+    }
+
+    @include on-desktop {
+      padding: 12px 36px;
+    }
+
+    &::placeholder {
+      @include main-text;
+
+      color: #bdbdbd;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      border: 1px solid #0c797a;
+      -webkit-text-fill-color: $main-text-color;
+      -webkit-box-shadow: 0 0 0 1000px $c-gray inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    &:hover {
+      border: 1px solid #0c797a;
+    }
+
+    &:focus {
+      border: 1px solid #0c797a;
+    }
+
+    &:disabled {
+      border: 1px solid #eb5757;
+
+      &::placeholder {
+        color: #eb57574d;
+      }
+    }
+  }
+
+  &__textarea {
+    all: unset;
+
+    display: block;
+    box-sizing: border-box;
+    height: 128px;
+    width: 100%;
+    border: 1px solid #828282;
+    margin-bottom: 30px;
+    padding: 12px 20px;
+
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    color: $main-text-color;
+
+    @include on-tablet {
+      height: 201px;
+      padding: 12px 30px;
+    }
+
+    @include on-desktop {
+      height: 128px;
+      padding: 12px 36px;
+    }
+
+    &::placeholder {
+      @include main-text;
+
+      color: #bdbdbd;
+    }
+
+    &:hover {
+      border: 1px solid #0c797a;
+    }
+
+    &:disabled {
+      border: 1px solid #eb5757;
+
+      &::placeholder {
+        color: #eb57574d;
+      }
+    }
+  }
+
+  &__button {
+    all: unset;
+
+    display: block;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 102px;
+    height: 40px;
+    background-color: #0db2b3;
+
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+
+    @include hover(transform, scale(1.2));
+
+    &:hover {
+      background-color: #0c797a;
+    }
+
+    &:disabled {
+      background-color: #cfeff0;
+    }
+  }
+}

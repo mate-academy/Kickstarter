@@ -1,0 +1,48 @@
+.images {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: fit-content;
+  transition: transform 0.5s;
+  overflow: hidden;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &--non-transform:hover {
+    transform: none;
+  }
+
+  &__image-1 {
+    display: block;
+    width: 100%;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__image-2 {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: 100%;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__image-3 {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      width: 100%;
+    }
+  }
+}
