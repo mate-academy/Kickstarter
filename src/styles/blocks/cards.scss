@@ -1,0 +1,104 @@
+.cards {
+  &__title {
+    padding-top: 30px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #0c797a;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      padding-top: 45px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 30px;
+      padding-top: 30px;
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__nav {
+    max-width: 260px;
+
+    @include on-desktop {
+      max-width: 400px;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    padding-left: 15px;
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include on-desktop {
+      margin-bottom: -30px;
+      gap: 4px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    color: inherit;
+    margin: 0;
+    font-size: 14px;
+    line-height: 21px;
+
+    @include on-desktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 4px;
+      width: 4px;
+      background-color: #000;
+      border-radius: 50%;
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.card--1 {
+  display: none;
+
+  @include on-tablet {
+    grid-column: 2 / span 4;
+  }
+
+  @include on-desktop {
+    display: block;
+    grid-column: 2 / span 5;
+  }
+}
+
+.card--2 {
+  display: none;
+
+  @include on-tablet {
+    grid-column: 2 / span 4;
+  }
+
+  @include on-desktop {
+    display: block;
+    grid-column: 7 / span 5;
+  }
+}
+
+.card--3 {
+  display: block;
+
+  @include on-tablet {
+    grid-column: 2 / span 4;
+  }
+}

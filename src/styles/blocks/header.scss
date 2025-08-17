@@ -1,0 +1,124 @@
+.header {
+  &__bottom {
+    @include page-grid;
+
+    padding-bottom: 40px;
+
+    @include on-tablet {
+      padding-top: 100px;
+    }
+
+    @include on-desktop {
+      padding-block: 140px;
+    }
+
+    &-title {
+      margin: 0;
+      text-transform: uppercase;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 52px;
+      text-align: left;
+      color: $main-text-color;
+      grid-column: span 4;
+
+      @include on-tablet {
+        font-size: 48px;
+        line-height: 62px;
+        grid-column: span 3;
+      }
+
+      @include on-desktop {
+        font-size: 62px;
+        line-height: 78px;
+        grid-column: span 4;
+      }
+    }
+
+    &-paragraph {
+      padding-top: 10px;
+      grid-column: span 4;
+
+      @include on-tablet {
+        grid-column: span 3;
+        margin-top: -110px;
+      }
+
+      @include on-desktop {
+        margin-top: -130px;
+      }
+    }
+
+    &-img {
+      @include on-tablet {
+        background-image: url(/src/images/Tablet-header-bg.png);
+        display: block;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 317px;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        grid-column: 4 / -1;
+        z-index: -1;
+      }
+
+      @include on-desktop {
+        background-image: url(/src/images/Desktop-header-bg.png);
+        margin-top: -80px;
+        height: 464px;
+        grid-column: 5 / -1;
+      }
+    }
+  }
+
+  &__background-img {
+    display: block;
+    background-image: url(/src/images/Mobale-header-bg.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 245px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__nav {
+    text-decoration: none;
+    padding-top: 40px;
+  }
+
+  &__list {
+    display: none;
+    list-style: none;
+
+    @include on-desktop {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 84px;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    transition: all 0.3s;
+
+    &:hover {
+      font-weight: 700;
+    }
+  }
+}
