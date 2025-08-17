@@ -1,0 +1,231 @@
+.features {
+  &__content {
+    @include page-grid;
+
+    box-sizing: border-box;
+    background-color: #d6ecec;
+    background-image: url('../images/mobile/features-transp.png');
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 95%;
+    width: 100%;
+    min-height: 575px;
+    padding-top: 32px;
+    position: relative;
+
+    &::before {
+      z-index: -1;
+      content: '';
+      background-color: #d6ecec;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scaleX(1.23);
+    }
+
+    @include on-tablet {
+      background-image: url('../images/tablet/features-transp.png');
+      background-position: right 10px bottom;
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding: 60px 102px;
+
+      &::before {
+        transform: scaleX(1);
+      }
+    }
+
+    @include on-desktop {
+      background-image: url('../images/desktop/features-transp.png');
+      background-position: right 10px bottom;
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding: 60px 102px;
+
+      &::before {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  &__all {
+    grid-column: 1 col-start / span 4;
+    margin-bottom: 60px;
+
+    &__title {
+      color: #0c797a;
+      text-transform: uppercase;
+      margin-top: 0;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 22px;
+    }
+
+    &__list {
+      margin: 0;
+      padding-left: 20px;
+      list-style: none;
+    }
+
+    &__item {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 30px;
+      transition: all 0.3s ease-out 0.3s;
+      position: relative;
+
+      &:hover {
+        color: #0c797a;
+      }
+
+      &::before {
+        content: '•';
+        position: absolute;
+        top: 0;
+        left: -20px;
+      }
+
+      &:hover::before {
+        transform: scale(1.4);
+      }
+    }
+
+    @include on-desktop {
+      &__title {
+        font-size: 34px;
+        line-height: 42px;
+      }
+
+      &__item {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 30px;
+      }
+    }
+  }
+
+  &__connectivity {
+    display: block;
+
+    @include on-tablet {
+      grid-column: 1 col-start / span 8;
+    }
+
+    @include on-desktop {
+      grid-column: 1 col-start / span 6;
+    }
+  }
+
+  &__app-features {
+    display: none;
+
+    @include on-tablet {
+      grid-column: 1 col-start / span 8;
+    }
+
+    @include on-desktop {
+      grid-column: 7 col-start / span 6;
+      display: block;
+    }
+  }
+
+  &__sound-music {
+    display: none;
+
+    @include on-tablet {
+      grid-column: 1 col-start / span 8;
+    }
+
+    @include on-desktop {
+      grid-column: 1 col-start / span 6;
+      display: block;
+    }
+  }
+
+  &__nav {
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+
+    &__buttons {
+      margin-top: -100px;
+      padding-block: 10px;
+
+      &--prev {
+        cursor: pointer;
+        background-image: url('../images/icons/button-prev.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 48px;
+        height: 14px;
+        transition: all 0.3s;
+        display: inline-block;
+
+        &:hover {
+          background-image: url('../images/icons/button-prev-hover.png');
+        }
+      }
+
+      &--next {
+        cursor: pointer;
+        background-image: url('../images/icons/button-next.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 48px;
+        height: 14px;
+        transition: all 0.3s;
+        display: inline-block;
+
+        &:hover {
+          background-image: url('../images/icons/button-next-hover.png');
+        }
+      }
+    }
+
+    &__numbers {
+      color: #0c797a;
+      margin-bottom: 20px;
+      font-size: 11px;
+
+      &--active {
+        color: #333;
+        font-size: 16px;
+      }
+    }
+
+    @include on-tablet {
+      grid-column: 1 col-start / span 8;
+      width: 101px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  @include on-desktop {
+    &__slides {
+      display: block !important;
+    }
+  }
+}
+
+/* features__slides effect */
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
