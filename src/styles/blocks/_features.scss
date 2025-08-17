@@ -1,0 +1,243 @@
+.features {
+  @include responsive-grid;
+  padding-inline: 30px;
+  background-color: $bg-color;
+
+  @media (min-width: 744px) {
+    padding-inline: 34px;
+  }
+
+  @media (min-width: 1440px) {
+    padding-inline: 123px;
+  }
+
+  &__wrapper {
+    grid-column: 1 / -1;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin: 0;
+    margin-bottom: 32px;
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 700;
+
+    @media (min-width: 744px) {
+      margin-bottom: 30px;
+    }
+
+    @media (min-width: 1440px) {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__container {
+    grid-column: 1 / -1;
+    padding-inline: 30px;
+    padding-top: 30px;
+    background-color: #D6ECEC;
+    margin-inline: calc(-1 * 30px);
+
+    @media (min-width: 744px) {
+      margin-inline: 0;
+      padding-inline: 0;
+      padding-top: 60px;
+      padding-left: 90px;
+    }
+
+    @media (min-width: 1440px) {
+      padding-left: 102px;
+    }
+  }
+
+  &__footer {
+    height: 100%;
+
+    @media (min-width: 1440px) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      column-gap: 125px;
+    }
+  }
+
+  &__list {
+    pointer-events: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 0;
+    display: none;
+    z-index: 0;
+
+    @media (min-width: 744px) {
+      margin-bottom: 0px;
+      width: 260px;
+    }
+
+    @media (min-width: 1440px) {
+      margin-bottom: 0px;
+      display: flex !important;
+      flex-direction: column;
+      flex-basis: 35%;
+    }
+
+    &.is-visible {
+      display: block;
+      pointer-events: auto;
+      z-index: 1;
+      height: 275px;
+      margin-bottom: 50px;
+      animation: fadeIn 0.6s ease forwards;
+    }
+  }
+
+  &__subheading {
+    color: $features-color;
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__item {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background-color: #000000;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: 744px) {
+      justify-content: center;
+    }
+
+    @media (min-width: 1440px) {
+      display: none;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8px;
+  }
+
+  &__arrow {
+    width: 48px;
+    height: 13px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &--prev {
+      background-image: url(../images/icons/features-arrow-up.svg);
+
+      &:hover {
+        background-image: url(../images/icons/features-arrow-up-hover.svg);
+      }
+    }
+
+    &--next {
+      background-image: url(../images/icons/features-arrow-down.svg);
+
+      &:hover {
+        background-image: url(../images/icons/features-arrow-hover-down.svg);
+      }
+    }
+  }
+
+  &__separator,
+  &__page {
+    font-size: 11px;
+    font-weight: 400;
+    color: $features-color;
+
+    &--active {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+      color: $text-color;
+    }
+  }
+
+  &__image {
+    aspect-ratio: 16 / 9;
+    background-image: url(../images/icons/features-bg.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: -30px;
+    width: calc(100% + 60px);
+
+    @media (min-width: 1440px) {
+      height: 301px;
+      margin-right: 46px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.features__footer-wrapper {
+
+  @media (min-width: 744px) {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
