@@ -1,0 +1,136 @@
+.questions {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  margin-bottom: 110px;
+
+  @include on-tablet {
+    padding: 0 34px;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 140px;
+  }
+
+  @include on-desktop {
+    padding: 0 123px;
+    margin-bottom: 170px;
+  }
+
+  &__title {
+    color: $colorTextMain;
+    margin: 0;
+    margin-bottom: 27px;
+
+    @extend %h2-mobile;
+
+    @include on-tablet {
+      width: 340px;
+
+      @include h2-tablet;
+    }
+
+    @include on-desktop {
+      width: 584px;
+
+      @include h2-desktop;
+    }
+  }
+
+  &__group {
+    &-form {
+      @include on-tablet {
+        width: 340px;
+      }
+
+      @include on-desktop {
+        width: 582px;
+      }
+    }
+
+    &-email {
+      height: 24px;
+      width: calc(100% - 40px);
+      padding: 12px 20px;
+      outline: none;
+      border: 1px solid $colorBorder;
+      margin-bottom: 20px;
+      background-color: $colorBgPage;
+
+      color: $colorTextMain;
+      font-size: 14px;
+      line-height: 24px;
+
+      @include main;
+      @include hover(transform, scale(1.05));
+
+      @include on-tablet {
+        padding: 12px 30px;
+        width: calc(100% - 60px);
+      }
+
+      @include on-desktop {
+        padding: 12px 36px;
+        width: calc(100% - 72px);
+      }
+
+      &:focus {
+        border-color: $colorHoverWhite;
+      }
+
+      &:valid {
+        border-color: $colorBorderSuccess;
+      }
+    }
+
+    &-text {
+      height: 104px;
+      width: calc(100% - 40px);
+      padding: 12px 20px;
+      outline: none;
+      resize: none;
+      border: 1px solid $colorBorder;
+      margin-bottom: 30px;
+      background-color: $colorBgPage;
+
+      color: $colorTextMain;
+      font-size: 14px;
+      line-height: 24px;
+
+      @include main;
+      @include hover(transform, scale(1.05));
+
+      @include on-tablet {
+        height: 177px;
+        padding: 12px 30px;
+        width: calc(100% - 60px);
+      }
+
+      @include on-desktop {
+        padding: 12px 36px;
+        width: calc(100% - 72px);
+      }
+
+      &:focus {
+        border-color: $colorHoverWhite;
+      }
+
+      &:valid {
+        border-color: $colorBorderSuccess;
+      }
+    }
+
+    &-button {
+      height: 40px;
+      width: 102px;
+
+      @include hover(transform, scale(1.05));
+      @extend %button-full-white;
+      @extend %button;
+
+      @include on-desktop {
+        height: 48px;
+        width: 124px;
+      }
+    }
+  }
+}

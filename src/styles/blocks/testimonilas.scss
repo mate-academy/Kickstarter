@@ -1,0 +1,77 @@
+.testimonilas {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: 320px;
+  background-image: url(./../images/Vectors/bg-testimonials.svg);
+  background-repeat: no-repeat;
+  background-position: top;
+  padding: 0 30px;
+  margin-bottom: 110px;
+
+  @include on-tablet {
+    padding: 0 34px;
+    height: 374px;
+    margin-bottom: 140px;
+  }
+
+  @include on-desktop {
+    padding: 0 123px;
+    width: 786px;
+    height: 310px;
+    margin-bottom: 170px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__text {
+    margin: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    color: $colorTextMain;
+
+    @extend %quote-mobile;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+
+      @include quote-desktop;
+    }
+
+    @include on-desktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &-img {
+      height: 62px;
+      width: 62px;
+      margin-bottom: 10px;
+
+      @include on-tablet {
+        margin-bottom: 20px;
+      }
+    }
+
+    &-name {
+      margin: 0;
+      margin-bottom: 5px;
+      color: $colorTextMain;
+
+      @extend %h5-desktop;
+    }
+
+    &-job {
+      margin: 0;
+      color: $colorTextSecondary;
+
+      @extend %secondary;
+    }
+  }
+}
