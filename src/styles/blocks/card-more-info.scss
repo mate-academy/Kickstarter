@@ -1,0 +1,81 @@
+.card-more-info {
+  @include grid-layout;
+
+  justify-items: left;
+
+  &--reversed {
+    direction: rtl;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin-bottom: 30px;
+    color: $c-black;
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+      grid-row: 1 / 2;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__image-box {
+    grid-column: 1 / -1;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    display: flex;
+    width: 100%;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      grid-row: 1 / 4;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include hover(scale, 1.1);
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+
+    margin-bottom: 60px;
+
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: last baseline;
+    row-gap: 30px;
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+      row-gap: 60px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    width: 100%;
+
+    @include secondary-text-style;
+
+    color: $c-dark-gray;
+  }
+}
