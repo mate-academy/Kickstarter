@@ -1,0 +1,137 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+
+  @include block-margin-bottom;
+
+  @include tablet-width {
+    flex-direction: row;
+    gap: $mobile-column-gap;
+  }
+
+  @include desktop-width {
+    gap: $desktop-column-gap;
+  }
+
+  &__title {
+    @include tablet-width {
+      width: 50%;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 27px;
+
+    @include tablet-width {
+      width: 50%;
+      margin-top: 0;
+    }
+  }
+
+  &__input {
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    background-color: inherit;
+    color: #bdbdbd;
+
+    padding-inline: 20px;
+
+    border: 1px solid #828282;
+    transition:
+      border-color $effectDuration,
+      color $effectDuration;
+
+    @include tablet-width {
+      padding-inline: 30px;
+    }
+
+    @include desktop-width {
+      padding-inline: 36px;
+    }
+
+    &::placeholder {
+      color: inherit;
+      opacity: 1;
+    }
+
+    &:focus {
+      color: $main-text-color;
+      border-color: #0c797a;
+    }
+
+    &:valid {
+      color: $text-color-yellow;
+      border-color: #eb5757;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: #bdbdbd;
+      transition: background-color 5000s ease 5000s;
+    }
+
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: $main-text-color;
+    }
+
+    &:-webkit-autofill:valid {
+      -webkit-text-fill-color: $text-color-yellow;
+    }
+
+    &--email {
+      height: 48px;
+    }
+
+    &--message {
+      margin-top: 20px;
+      padding-block: 12px;
+      height: 128px;
+      resize: none;
+
+      @include tablet-width {
+        height: 201px;
+      }
+
+      @include desktop-width {
+        padding-block: 16px;
+        height: 128px;
+      }
+    }
+  }
+
+  &__submit {
+    border: 0;
+    margin-top: 30px;
+    height: 40px;
+    width: 102px;
+    background-color: #cfeff0;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+    transition: background-color $effectDuration;
+
+    @include desktop-width {
+      height: 48px;
+      width: 124px;
+    }
+
+    &.active {
+      background-color: #0db2b3;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0c797a;
+      }
+    }
+  }
+}

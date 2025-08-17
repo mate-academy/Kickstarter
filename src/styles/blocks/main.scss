@@ -1,0 +1,27 @@
+.main {
+  &-image {
+    padding-inline: 12px;
+
+    @include block-margin-bottom;
+    @include page-grid;
+
+    @include tablet-width {
+      padding-inline: $tablet-padding-inline;
+    }
+
+    @include desktop-width {
+      padding-inline: $desktop-padding-inline;
+    }
+
+    &__img {
+      width: 100%;
+      grid-column: 1 / -1;
+
+      @include desktop-width {
+        width: calc(100% + ($desktop-column-gap * 2));
+        transform: translateX(-$desktop-column-gap);
+        grid-column: 3 / 11;
+      }
+    }
+  }
+}

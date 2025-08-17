@@ -1,0 +1,88 @@
+.menu {
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: #f9f9f9;
+  overflow: auto;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    &--container {
+      display: flex;
+      box-sizing: border-box;
+      flex-direction: column;
+      justify-content: space-between;
+      height: calc(100vh - 70px);
+      padding-block: 30px;
+    }
+  }
+
+  &__language {
+    display: flex;
+  }
+
+  &__additional {
+    display: flex;
+    gap: 20px;
+
+    @include tablet-width {
+      display: none;
+    }
+
+    &--link {
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 300;
+      color: #828282;
+      text-decoration: none;
+      transition: all $effectDuration;
+
+      &:hover {
+        color: $main-text-color;
+        font-weight: 400;
+      }
+    }
+
+    &--link.active {
+      color: $main-text-color;
+      font-weight: 400;
+    }
+
+    &--separator {
+      font-family: Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 400;
+      padding-inline: 3px;
+    }
+  }
+
+  &__button {
+    font-family: Helvetica, sans-serif;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    font-size: 12px;
+    line-height: 14.65px;
+    font-weight: 500;
+    height: 48px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color $effectDuration;
+
+    @include tablet-width {
+      display: none;
+    }
+
+    &:hover {
+      background-color: #131313;
+    }
+
+    &--top-bar {
+      display: block;
+      width: 100px;
+    }
+  }
+}

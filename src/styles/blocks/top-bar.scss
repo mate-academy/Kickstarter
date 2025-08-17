@@ -1,0 +1,69 @@
+.top-bar {
+  padding-block: 22px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include tablet-width {
+    padding-block: 29px 0;
+  }
+
+  &__logo-link {
+    display: flex;
+  }
+
+  &__logo {
+    height: 26px;
+    transition: transform $effectDuration;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 30px;
+
+    &--tablet {
+      display: none;
+      align-items: center;
+      flex-direction: row;
+      gap: 30px;
+
+      @include tablet-width {
+        display: flex;
+      }
+    }
+  }
+}
+
+.icon {
+  display: block;
+  background-size: cover;
+  background-position: center;
+  height: 32px;
+  width: 32px;
+  transition: transform $effectDuration;
+
+  @include desktop-width {
+    display: none;
+  }
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &--menu {
+    background-image: url(../images/icons/icon-burger-menu.svg);
+  }
+
+  &--close {
+    background-image: url(../images/icons/icon-close.svg);
+    height: 24px;
+    width: 24px;
+  }
+}
