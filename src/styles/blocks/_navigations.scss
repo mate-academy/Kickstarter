@@ -1,0 +1,89 @@
+.navigations {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+
+  &__wrapper {
+    &--header {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+        justify-content: end;
+        gap: 30px;
+        align-items: center;
+      }
+
+      @include on-desktop {
+        gap: 47px;
+      }
+    }
+
+    &--menu {
+      height: 90%;
+      grid-template-rows: 1fr auto;
+      align-items: start;
+
+      @include page-grid;
+
+      & :first-child {
+        grid-column: span 1;
+      }
+
+      & :nth-child(2) {
+        grid-column: span 1;
+      }
+
+      & :nth-child(3) {
+        grid-column: 1/-1;
+      }
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+  }
+  &__spec {
+    color: $light-dark-grey-color;
+
+    @include hover(font-weight, 600);
+  }
+
+  &__spec,
+  &__button-lang {
+    text-decoration: none;
+  }
+
+  &__button-lang {
+    color: #828282;
+
+    @include hover(font-weight, 600);
+  }
+
+  &__button-lang--active {
+    color: $dark-gray-color;
+    font-weight: 400;
+    pointer-events: none;
+  }
+
+  &__button {
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    line-height: 122%;
+    padding-block: 16px;
+    background-color: $dark-gray-color;
+
+    @include hover(background-color, $black-color);
+
+    &--header {
+      width: 100px;
+    }
+
+    &--menu {
+      display: block;
+      width: 100%;
+    }
+  }
+}

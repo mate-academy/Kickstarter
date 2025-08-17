@@ -1,0 +1,55 @@
+.menu {
+  transform: translateX(-100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: $c-gray;
+  transition: transform 0.3s;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__content {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nav {
+    padding-block: 31px 50px;
+
+    @include on-tablet {
+      padding-block: 40px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 25px;
+    transition:
+      font-size 0.3s,
+      font-weight 0.3s,
+      line-height 0.3s;
+
+    @include thirdary-text;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+
+    &:hover {
+      @include h6-font;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $dark-gray-color;
+  }
+
+  &__navigations {
+    flex: 1 0 auto;
+  }
+}

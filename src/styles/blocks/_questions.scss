@@ -1,0 +1,97 @@
+.questions {
+  margin-bottom: 110px;
+
+  @include on-tablet {
+    margin-bottom: 140px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 170px;
+  }
+
+  &__content {
+    @include on-tablet {
+      display: flex;
+      column-gap: 20px;
+    }
+
+    @include on-desktop {
+      column-gap: 30px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 27px;
+    flex: 0 0 50%;
+  }
+
+  &__form {
+    flex: 0 0 50%;
+  }
+
+  &__textarea {
+    resize: none;
+  }
+
+  &__email {
+    margin-bottom: 20px;
+    transition: border 0.3s;
+  }
+
+  &__email,
+  &__textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 20px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    line-height: 171%;
+    color: $dark-gray-color;
+    border: 1px solid #828282;
+    margin-bottom: 30px;
+    background-color: $c-gray;
+    transition: outline 0.3s;
+
+    &::placeholder {
+      color: #bdbdbd;
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 150%;
+    }
+
+    &:hover,
+    &:focus {
+      outline: #0c797a 1px solid;
+    }
+
+    &:valid {
+      outline: 1px solid border #eb5757;
+    }
+
+    &:-webkit-autofill {
+      outline: none;
+      border: 1px solid #0c797a;
+      box-sizing: border-box;
+      -webkit-text-fill-color: $dark-gray-color;
+      -webkit-box-shadow: 0 0 0 40rem $c-gray inset;
+    }
+  }
+
+  &__button {
+    width: 102px;
+    text-align: center;
+    border: none;
+    background-color: $aqua-color;
+    color: #fff;
+    padding-block: 13px;
+
+    @include button-font;
+
+    @include on-desktop {
+      width: 120px;
+    }
+
+    @include hover(background-color, #0c797a);
+  }
+}
