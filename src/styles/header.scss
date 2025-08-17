@@ -1,0 +1,61 @@
+.header {
+  &__container {
+    @include page-grid;
+
+    padding-top: 130px;
+    margin-inline: 34px;
+
+    @include on-tablet {
+      height: 336px;
+      background-size: 61%;
+      background-position: right bottom;
+      background-repeat: no-repeat;
+      background-image: url('../images/header-image.png');
+    }
+
+    @include on-desktop {
+      background-image: url('../images/header-image-large.png');
+      margin-inline: auto;
+    }
+  }
+  &__image {
+    aspect-ratio: 320 / 245;
+    background-image: url('../images/header-image.png');
+    background-size: contain;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__title {
+    margin-inline: 30px;
+    font-weight: 700;
+    font-size: 40px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      font-size: 48px;
+    }
+
+    @include on-desktop {
+      font-size: 62px;
+      margin-inline: 0;
+    }
+  }
+
+  &__text {
+    margin-inline: 30px;
+    font-weight: 400;
+    font-size: 16px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      margin-inline: 0;
+    }
+  }
+}
