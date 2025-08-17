@@ -1,0 +1,70 @@
+.benefits {
+  @include grid-layout;
+
+  @include on-tablet {
+    row-gap: 65px;
+  };
+
+  & > :not(:first-child) {
+    height: 0;
+    overflow: hidden;
+
+    @include on-tablet {
+      height: auto;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-rows: 80px 80px auto;
+    flex-direction: column;
+    justify-items: center;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+
+  }
+
+  &__description {
+    color: $color-text-secondary;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+  }
+
+  &__icon {
+    width: 70px;
+    height: 50px;
+
+    &--circle {
+      background-image: url(./../images/icons/benefits-1.svg);
+    }
+
+    &--speaker {
+      background-image: url(./../images/icons/benefits-2.svg);
+    }
+
+    &--wi-fi {
+      background-image: url(./../images/icons/benefits-3.svg);
+    }
+
+    &--sun {
+      background-image: url(../images/icons/benefits-4.svg);
+    }
+  }
+}
