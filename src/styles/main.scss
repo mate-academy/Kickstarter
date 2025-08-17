@@ -2,6 +2,69 @@
 @import 'fonts';
 @import 'typography';
 
+* {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+section,
+article,
+a,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+html,
 body {
+  min-width: 320px;
+  padding: 0;
+  margin: 0;
   background: $c-gray;
+}
+
+/* Change Autocomplete styles*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:active {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+  -webkit-transition-delay: 9999s;
+  -webkit-transition-property: background-color, color;
+}
+
+.container {
+  @include inline-padding;
+
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  color: $c-black;
+  text-decoration: none;
+  transition: all $transition-duration;
+
+  &:visited {
+    color: $c-black;
+  }
+
+  &:hover {
+    font-weight: bold;
+  }
 }
