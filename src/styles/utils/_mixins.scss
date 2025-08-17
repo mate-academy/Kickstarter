@@ -1,6 +1,83 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $effect-duration;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin padding-inline-content {
+  padding-inline: $padding-inline-mobile;
+
+  @include on-tablet {
+    padding-inline: $padding-inline-tablet;
+  }
+
+  @include on-desktop {
+    padding-inline: $padding-inline-desktop;
+  }
+}
+
+.container {
+  &--none-mobile {
+    padding-inline: 0;
+  }
+
+  @include padding-inline-content;
+
+  overflow-x: hidden;
+
+  &--right {
+    @include on-tablet {
+      padding-left: 0;
+    }
+
+    @include on-desktop {
+      @include padding-inline-content;
+    }
+  }
+
+  &--left {
+    @include on-tablet {
+      padding-right: 0;
+    }
+
+    @include on-desktop {
+      @include padding-inline-content;
+    }
+  }
+
+  @include on-desktop {
+    max-width: $desktop-min-width;
+    margin-inline: auto;
+  }
+}
+
+@mixin page-grid {
+  --columns: 4;
+
+  display: grid;
+  column-gap: $column-gap-mobile-tablet;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 8;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+
+    column-gap: $column-gap-desktop;
   }
 }
