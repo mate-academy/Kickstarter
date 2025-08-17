@@ -1,0 +1,131 @@
+.get-in-touch {
+  @include content-padding-inline;
+
+  @include on-tablet {
+    @include main-grid;
+  }
+
+  &__title,
+  &__form {
+    @include fade-in;
+  }
+
+  &__title {
+    transform: translateX(-100%);
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__form {
+    transform: translateX(100%);
+    margin-top: 30px;
+    max-width: 400px;
+
+    @include on-tablet {
+      grid-column: span 4;
+      max-width: none;
+      margin-top: 0;
+    }
+
+    @include on-desktop {
+      margin-top: 15px;
+      grid-column: span 6;
+    }
+
+    &-input,
+    &-textarea {
+      background-color: $main-white-color;
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      outline: none;
+      width: 100%;
+      margin: 0;
+      display: block;
+
+      &::placeholder {
+        color: $placeholder-color;
+      }
+
+      &--translated {
+        font-family: Roboto, sans-serif;
+      }
+    }
+
+    &-input {
+      height: 48px;
+    }
+
+    &-textarea-wrapper {
+      margin-top: 20px;
+      height: 128px;
+
+      @include on-tablet {
+        height: 200px;
+      }
+
+      @include on-desktop {
+        height: 185px;
+      }
+    }
+
+    &-textarea {
+      padding: 0;
+      height: 100%;
+      resize: none;
+      border: none;
+    }
+
+    &-input,
+    &-textarea-wrapper {
+      border: 1px solid $secondary-light-gray-color;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      transition: border-color $transition-duration;
+
+      &:hover {
+        border-color: $darker-green-color;
+      }
+    }
+
+    &-input--invalid,
+    &-textarea-wrapper--invalid,
+    &-textarea--invalid {
+      border-color: $required-color;
+
+      &::placeholder {
+        color: $required-color;
+      }
+    }
+
+    &-button {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 14px;
+      height: 40px;
+      width: 102px;
+      background-color: $green-color;
+      color: #fff;
+      margin-top: 30px;
+      transition: background-color $transition-duration;
+
+      @include on-desktop {
+        width: 120px;
+      }
+
+      &:hover {
+        background-color: $darker-green-color;
+      }
+
+      &:disabled {
+        background-color: $lighter-green-color;
+      }
+    }
+  }
+}
