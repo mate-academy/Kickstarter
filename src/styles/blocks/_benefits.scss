@@ -1,0 +1,39 @@
+.benefits {
+  &__nav {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      margin-bottom: 90px;
+    }
+
+    &-list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 84px;
+    }
+
+    &-link {
+      &:hover {
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__cards {
+    @include page-grid;
+
+    @include on-tablet {
+      row-gap: 65px;
+    }
+
+    & > :nth-child(n + 2) {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+      }
+    }
+  }
+}
