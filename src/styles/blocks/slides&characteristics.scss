@@ -1,0 +1,170 @@
+
+  .slide {
+    position: absolute;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(100%);
+    opacity: 0;
+
+    @media on-mobile {
+      position: relative;
+    }
+  }
+
+  .slide.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .slide.prev {
+  transform: translateX(-100%);
+}
+
+
+.slide.next {
+  transform: translateX(100%);
+}
+
+  .controls {
+    position: absolute;
+    align-items: center;
+    gap: 20px;
+    margin-left: 90px;
+    bottom: 123px;
+
+     @include on-mobile {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      order: 2;
+      align-items: center;
+      bottom: 173px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+  }
+
+    &__top {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    &__controller {
+      width: 40px;
+      height: auto;
+      filter: brightness(20%) grayscale(0);
+      transition: filter 0.3s ease;
+      opacity: 1;
+    }
+}
+
+.controls__indicator-total {
+    color: #0C797A !important;
+    }
+
+.controls button:disabled .controls__controller {
+  filter: brightness(60%) grayscale(100%);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.controls button:not(.disabled):hover .controls__controller {
+  filter: invert(34%) sepia(86%) saturate(416%) hue-rotate(157deg) brightness(92%) contrast(91%);
+}
+
+
+  .controls button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.controls button img {
+  width: 40px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+.controls button:hover img {
+  transform: scale(1.1);
+  color: #0C797A;
+}
+
+.characteristics {
+  font-size: 30px;
+  font-weight: 700;
+  height: 40px;
+
+
+  &__technical {
+    padding-left: 10px;
+  }
+
+  &__description {
+    margin-left: 90px;
+
+    &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  &::marker {
+    margin-right: 18px;
+  }
+  }
+
+
+
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    margin-left: 90px;
+    color: #0C797A;
+
+
+    @include on-tablet {
+      margin-top: 60px;
+    }
+  }
+}
+
+.characteristic {
+  margin-top: 30px;
+  background-color: #D6ECEC;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 555px;
+
+  @include on-mobile {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  @include on-mobile {
+  &__photo {
+      order: 3;
+      margin-top: auto;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      transform: none;
+      width: 320px;
+      height: 173px;
+  }
+}
+
+  @include on-tablet {
+    &__photo {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+}
+}
+

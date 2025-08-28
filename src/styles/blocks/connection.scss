@@ -1,0 +1,141 @@
+.connection__title {
+  margin: 0;
+  margin-bottom: 48px;
+
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 100%;
+
+  @include on-tablet {
+    margin-bottom: 56px;
+    font-size: 40px;
+  }
+
+  @include on-desktop {
+    font-size: 48px;
+  }
+}
+
+.connection {
+  @include page-grid;
+
+  &__button {
+    display: block;
+    background-color: #0DB2B3;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 27px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 14.5px 0;
+    margin-bottom: 48px;
+    border:
+      2px,
+      solid transparent;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+
+    @include on-tablet {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__message {
+    padding: 14px 16px;
+    background-color: #f8f8fa;
+    border:
+      1px,
+      solid transparent;
+    box-sizing: border-box;
+    height: 148px;
+    resize: none;
+    border-color:#828282;
+    transition: all 0.3s ease-in-out;
+
+    &:focus {
+      outline: none;
+      border-color:#EB5757;
+    }
+
+      &:valid {
+    border-color: #0C797A;
+  }
+  }
+
+  &__inputs {
+    display: grid;
+    row-gap: 16px;
+    grid-column: 1 / -1;
+    width: 100%;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: span 5;
+    }
+  }
+
+  &__input {
+    padding: 14px 16px;
+    background-color: #f8f8fa;
+    box-sizing: border-box;
+    border-color: #828282;
+    border: 1px solid;
+    transition: all 0.3s ease-in-out;
+
+    &:focus {
+      outline: none;
+      border-color: #EB5757;
+    }
+
+      &:invalid:not(:placeholder-shown) {
+    color: #EB5757;
+  }
+
+  &:valid {
+    color: $main-text-color;
+    border-color: #0C797A;
+
+  }
+  }
+
+  &__contacts {
+    display: grid;
+    height: min-content;
+    row-gap: 24px;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 1/-1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 10;
+    }
+
+    &-lable {
+      display: grid;
+      row-gap: 8px;
+      font-size: 14px;
+      line-height: 19.6px;
+      color: #9393a3;
+      cursor: pointer;
+    }
+
+    &-link {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22.4px;
+      color: $main-text-color;
+
+      &:hover {
+        color:$hover-color-link;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+}
+
