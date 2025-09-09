@@ -1,0 +1,51 @@
+.menu-button {
+  height: 32px;
+  width: 32px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &__burger-menu {
+    position: relative;
+    width: 24px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      top: -0;
+      transform: translateY(-100%);
+
+      @include burger-menu-lines-style;
+    }
+
+    &::after {
+      content: '';
+      top: 100%;
+      transform: translateY(0%);
+
+      @include burger-menu-lines-style;
+    }
+
+    &--close::before {
+      transform: rotate(45deg);
+      top: 50%;
+    }
+
+    &--close::after {
+      transform: rotate(-45deg);
+      top: 50%;
+    }
+
+    &--line {
+      @include burger-menu-lines-style;
+    }
+
+    // central line off on close
+
+    &--close &--line {
+      opacity: 0;
+    }
+  }
+}

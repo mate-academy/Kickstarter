@@ -1,3 +1,1 @@
-module.exports = {
-  extends: '@mate-academy/eslint-config',
-};
+export default { extends: ['@mate-academy/eslint-config'] };

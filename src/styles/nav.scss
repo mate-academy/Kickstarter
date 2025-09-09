@@ -1,0 +1,46 @@
+.nav {
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include desktop {
+      flex-direction: row;
+      gap: 84px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+
+    @include hover(font-weight, 700);
+  }
+
+  &__link--1 {
+    text-decoration: none;
+
+    @include hover(font-weight, 700);
+
+    @include desktop {
+      font-weight: 700;
+    }
+  }
+}
+
+/* when div1 is hovered make div2 blue */
+
+body:has(.nav__link:hover) .nav__link--1 {
+  // background: blue;
+
+  @include desktop {
+    font-weight: 400;
+  }
+}
+
+/* when div2 is hovered make div1 purple */
+// body:has(.nav__link1:hover) .nav__link {
+// background: purple;
+// }
