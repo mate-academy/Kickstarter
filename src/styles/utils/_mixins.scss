@@ -1,6 +1,216 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin on-tablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin container-padding-inline {
+  min-width: 320px;
+
+  // padding-inline: $container-padding-inline;
+  padding-left: $container-padding-inline;
+  padding-right: $container-padding-inline;
+
+  @include on-tablet {
+    // padding-inline: 34px;
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+
+  @include on-desktop {
+    // padding-inline: 123px;
+    padding-left: 123px;
+    padding-right: 123px;
+
+    // margin-inline: auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+  grid-template-columns: repeat($grid-column-mobile, 1fr);
+  column-gap: $grid-gap-mobile;
+
+  @include on-tablet {
+    grid-template-columns: repeat($grid-column-tablet, 1fr);
+    column-gap: $grid-gap-tablet;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat($grid-column-desktop, 1fr);
+    column-gap: $grid-gap-desktop;
+  }
+}
+
+@mixin list-column($gap: 25px) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin nav-style {
+  display: flex;
+  justify-content: center;
+  gap: 84px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin about-us-link-hover {
+  position: relative;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transform-origin: left;
+    transform: scaleX(0.5);
+    display: block;
+    width: 100%;
+    height: 1px;
+
+    background-color: $color-main;
+
+    transition: transform $animation-speed ease-in-out;
+  }
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+@mixin hover($property, $toValue) {
+  transition: #{$property} $animation-speed;
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $toValue;
+  }
+}
+
+@mixin logo-hover {
+  display: inline-block;
+
+  &:hover {
+    animation: jump ($animation-speed * 3) ease;
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-6px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@mixin input-hover {
+  transition: all $animation-speed;
+
+  // &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+    border-color: $color-btn;
+    &::placeholder {
+      color: $color-dark-gray;
+    }
+  }
+
+  &:valid {
+    outline: none;
+    border-color: $color-ogange;
+    &::placeholder {
+      color: $color-ogange;
+    }
+  }
+}
+
+@mixin text-area-hover {
+  transition: all $animation-speed;
+
+  &:valid,
+  &:focus,
+  &:active {
+    outline: none;
+    &::placeholder {
+      color: $color-dark-gray;
+    }
+  }
+}
+
+@mixin social-link-hover {
+  transition: all $animation-speed ease;
+
+  &:hover {
+    filter: invert(58%) sepia(75%) saturate(4500%) hue-rotate(155deg)
+      brightness(95%) contrast(90%);
+    transform: scale(1.2);
+  }
+}
+
+@mixin blink {
+  cursor: pointer;
+  &:hover {
+    animation: blink ($animation-speed * 5) infinite ease-in-out;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@mixin animation-pulse {
+  cursor: pointer;
+  &:hover {
+    animation: pulse ($animation-speed * 3) infinite;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@mixin shadow {
+  transition: all $animation-speed;
+
+  &:hover {
+    box-shadow: 0 0 20px $color-main;
   }
 }

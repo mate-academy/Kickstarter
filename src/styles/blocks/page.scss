@@ -1,0 +1,67 @@
+.page {
+  font-family: Inter, sans-serif;
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    background-color: $color-off-white;
+    margin: 0;
+
+    @include on-tablet {
+      margin-top: 30px;
+    }
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    transform: translateY(-100%);
+    background-color: #f9f9f9;
+
+    opacity: 0;
+    transition:
+      transform ($animation-speed * 2) ease-in-out,
+      opacity $animation-speed ease;
+
+    &:target {
+      pointer-events: all;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    ul {
+      li {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease;
+      }
+    }
+
+    &:target ul li {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &:target ul li:nth-child(1) {
+      transition-delay: ($animation-speed * 2);
+    }
+    &:target ul li:nth-child(2) {
+      transition-delay: ($animation-speed * 2 + 0.1);
+    }
+    &:target ul li:nth-child(3) {
+      transition-delay: ($animation-speed * 2 + 0.2);
+    }
+    &:target ul li:nth-child(4) {
+      transition-delay: ($animation-speed * 2 + 0.3);
+    }
+  }
+}

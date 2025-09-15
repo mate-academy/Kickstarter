@@ -1,0 +1,93 @@
+.benefits {
+  margin-bottom: 110px;
+
+  @include on-tablet {
+    margin-bottom: 140px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 170px;
+  }
+
+  &__content {
+    @include page-grid;
+
+    row-gap: 64px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+
+    &--2,
+    &--3,
+    &--4 {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+      }
+    }
+
+    transition: all ($animation-speed * 2) ease;
+
+    &:hover {
+      img {
+        transform: scale(1.3) rotate(360deg);
+      }
+    }
+  }
+
+  &__img {
+    width: 50px;
+    height: 40px;
+
+    transition: all $animation-speed ease;
+
+    @include on-desktop {
+      width: 70px;
+      height: 50px;
+    }
+  }
+
+  &__title {
+    margin-top: 40px;
+    margin-bottom: 0;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    text-transform: uppercase;
+    text-align: center;
+
+    min-height: 56px; // для однакової висоти у сітці
+
+    @include on-desktop {
+      margin-top: 50px;
+    }
+
+    @include on-desktop {
+      margin-top: 30px;
+    }
+  }
+
+  &__text {
+    margin-top: 20px;
+    margin-bottom: 0;
+    text-align: center;
+
+    @include on-desktop {
+      margin-top: 24px;
+    }
+  }
+}

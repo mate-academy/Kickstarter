@@ -1,0 +1,160 @@
+.about-us {
+  margin-bottom: 110px;
+
+  @include on-tablet {
+    margin-bottom: 140px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 170px;
+  }
+
+  &__content {
+    @include page-grid;
+
+    row-gap: 110px;
+
+    @include on-tablet {
+      row-gap: 140px;
+    }
+
+    @include on-desktop {
+      row-gap: 170px;
+    }
+  }
+
+  &__item {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__card {
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__title--mobile {
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__title--card {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__title {
+    margin: 0 0 30px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $color-dark-gray;
+
+    @include on-tablet {
+      font-size: 36px;
+      line-height: 46px;
+      margin-bottom: 30px;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__text {
+    margin: 0 0 30px;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 21px;
+    color: $color-gray;
+
+    @include on-tablet {
+      margin-bottom: 60px;
+      margin-top: 0;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    max-width: 128px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: $color-main;
+    text-decoration: none;
+
+    @include about-us-link-hover;
+  }
+
+  &__img-wrapper {
+    align-self: start;
+    height: auto;
+    min-height: 0;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+
+      margin-left: -34px; // зсув ліворуч за контейнер
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+      margin-left: 0;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 415px;
+    object-fit: cover;
+
+    @include animation-pulse;
+    @include shadow;
+  }
+
+  &__item--reverse {
+    @include on-tablet {
+      .about-us__card {
+        grid-column: 1 / 5;
+        grid-row: 1;
+      }
+
+      .about-us__img-wrapper {
+        grid-column: 5 / -1;
+        grid-row: 1;
+
+        margin-right: -34px; // зсув ліворуч за контейнер
+        margin-left: 0;
+      }
+    }
+
+    @include on-desktop {
+      .about-us__card {
+        grid-column: 1 / 7;
+      }
+
+      .about-us__img-wrapper {
+        grid-column: 7 / -1;
+        margin-right: 0;
+      }
+    }
+  }
+}

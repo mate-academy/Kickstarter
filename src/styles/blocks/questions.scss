@@ -1,0 +1,125 @@
+.questions {
+  margin-bottom: 100px;
+
+  @include on-tablet {
+    margin-bottom: 140px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 170px;
+  }
+
+  &__content {
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 27px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: $color-dark-gray;
+
+    @include on-tablet {
+      margin-bottom: 0;
+      font-size: 36px;
+      line-height: 46px;
+
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      line-height: 70px;
+
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    font-family: inherit;
+    padding: 12px 20px;
+    border: 1px solid $color-icon-hover;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    box-sizing: border-box;
+    height: auto;
+
+    &::placeholder {
+      color: $color-light-gray;
+      opacity: 1;
+    }
+
+    &--email {
+      height: 48px;
+      margin-bottom: 20px;
+
+      @include input-hover;
+    }
+
+    &--text {
+      height: 128px;
+      margin-bottom: 30px;
+      resize: none;
+
+      @include text-area-hover;
+
+      @include on-tablet {
+        height: 201px;
+      }
+
+      @include on-desktop {
+        height: 128px;
+      }
+    }
+  }
+
+  &__btn {
+    width: 102px;
+    height: 40px;
+    background-color: $color-main;
+    border: none;
+    padding: 0;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: $color-white;
+    cursor: pointer;
+
+    transition: all $animation-speed;
+
+    &:hover {
+      background-color: $color-btn;
+    }
+
+    &:disabled {
+      background-color: $color-secondary;
+    }
+
+    @include on-desktop {
+      width: 124px;
+      height: 48px;
+    }
+  }
+}
