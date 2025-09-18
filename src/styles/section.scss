@@ -1,0 +1,127 @@
+.section {
+  display: grid;
+  grid-template-areas: 'image description';
+  gap: 30px;
+  padding-bottom: 170px;
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: flex-start;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 56px;
+    font-weight: 700;
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-weight: 400;
+    color: $text-gray;
+  }
+
+  &__link {
+    position: relative;
+    font-weight: 500;
+    color: $blue-color;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+
+      width: 50%;
+      height: 2px;
+
+      background-color: $blue-color;
+
+      transition: width 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 1279px) and (min-width: 640px) {
+  .section {
+    align-items: stretch;
+
+    &__image-full {
+      width: calc(100% + 34px);
+      padding: 0;
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+      margin: 0;
+
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &__description {
+      padding: 20px;
+    }
+
+    &__title {
+      font-size: 36px;
+    }
+  }
+
+  .section--left-image .section__image-full {
+    margin-right: 0;
+    margin-left: -34px;
+    object-position: left center;
+  }
+
+  .section--right-image .section__image-full {
+    margin-right: -34px;
+    margin-left: 0;
+    object-position: right center;
+  }
+}
+
+@media (max-width: 639px) {
+  .section {
+    grid-template-areas:
+      'title'
+      'image'
+      'description';
+    padding-bottom: 110px;
+
+    &__description {
+      display: contents;
+    }
+
+    &__title {
+      grid-area: title;
+      font-size: 30px;
+    }
+
+    &__image-full {
+      grid-area: image;
+      width: 100%;
+    }
+
+    &__image-full img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    &__text,
+    &__link {
+      grid-area: description;
+    }
+  }
+}
