@@ -1,0 +1,253 @@
+@import '../utils/mixins';
+
+.features {
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #cfeff0;
+
+  @include on-tablet {
+    position: relative;
+    min-height: 500px;
+    padding-inline: 90px;
+  }
+
+  @include on-desktop {
+    margin: 40px auto; // центрування на десктопі
+  }
+
+  &__tittle {
+    margin-top: 170px;
+    margin-left: 30px;
+
+    font-family: Inter, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    font-style: Bold;
+    line-height: 40px;
+    text-transform: uppercase;
+
+    @include on-desktop {
+      width: 100%; // займає всю ширину батька
+      max-width: 900px; // обмежує ширину
+      margin: 0 auto 20px; // центрування горизонтально + відступ знизу
+      text-align: left;
+    }
+  }
+
+  &__bottom {
+    position: relative; // щоб на десктопі і мобільних залишалася по центру
+
+    display: block;
+
+    width: 100%; // адаптивна ширина за замовчуванням
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto;
+
+    @include on-tablet {
+      position: absolute;
+      right: 0; // приклеюємо до правого краю
+      bottom: 0; // прилягає до низу секції
+      left: auto;
+      transform: none;
+
+      width: 50%; // чітко задаємо ширину картинки
+      max-width: none; // прибираємо обмеження
+      margin: 0; // скидаємо автозсув
+    }
+  }
+
+  &__about {
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0c797a;
+    text-transform: uppercase;
+    vertical-align: middle;
+
+    @include on-desktop {
+      font-size: 34px;
+    }
+  }
+
+  &__link {
+    margin-top: 10px;
+
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    vertical-align: middle;
+
+    @include on-desktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+
+    @include on-desktop {
+      @include page-grid;
+
+      position: relative;
+      gap: 20px;
+    }
+  }
+
+  .feature-card {
+    pointer-events: none;
+
+    position: absolute;
+    right: 0;
+    left: 0;
+    transform: scale(0.98);
+
+    margin: auto;
+    padding: 20px;
+    border-radius: 12px;
+
+    opacity: 0;
+
+    transition: all 0.4s ease;
+
+    @include on-desktop {
+      pointer-events: auto;
+
+      position: relative;
+      transform: none;
+
+      width: auto !important;
+
+      opacity: 1;
+    }
+
+    &.second {
+      @include on-desktop {
+        grid-column: 1 / 6; // можна налаштувати потрібне місце
+        grid-row: 2;
+      }
+    }
+
+    &.third {
+      @include on-desktop {
+        grid-column: 6 / 13; // приклад
+        grid-row: 1;
+        margin-top: 0;
+      }
+    }
+
+    ul {
+      margin: 0; // прибираємо зовнішні відступи
+      padding-left: 1.2em; // відступ для маркерів
+      list-style-position: outside; // маркер зовні тексту
+    }
+
+    li {
+      margin-bottom: 0.5em; // відстань між рядками
+    }
+
+    &.active {
+      pointer-events: auto;
+
+      position: relative;
+      transform: scale(1);
+
+      display: block;
+
+      opacity: 1;
+
+      @include on-desktop {
+        grid-column: 1 / 6;
+      }
+    }
+
+    @include on-desktop {
+      pointer-events: auto;
+
+      position: relative;
+      transform: none;
+
+      display: block !important;
+
+      width: calc(33.33% - 20px);
+
+      opacity: 1;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 15px;
+
+    @include on-tablet {
+      align-items: flex-start;
+      margin-left: 40px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    .arrows {
+      display: flex;
+      gap: 10px; // стрілки майже одна біля одної
+      margin-bottom: -5px; // трохи підняти стрілки відносно цифр
+    }
+
+    .arrow {
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+
+      padding: 0;
+      border: none;
+
+      background: none;
+
+      &:hover {
+        @include transision;
+      }
+
+      img {
+        width: 40px;
+        height: auto;
+      }
+    }
+
+    .counter {
+      display: flex;
+      flex-direction: column; // цифри вертикально
+      align-items: flex-start;
+
+      .current {
+        position: relative;
+        transform: translate(-10px, 10px); // базова позиція
+
+        font-family: Inter, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        color: #333; // колір першої цифри
+      }
+
+      .total {
+        position: relative;
+        transform: translate(15px, 1px); // трохи по діагоналі (право і вниз)
+
+        font-family: Inter, sans-serif;
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 100%;
+        color: #0c797a; // колір другої цифри
+      }
+    }
+  }
+}

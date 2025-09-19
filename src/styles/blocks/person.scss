@@ -1,0 +1,63 @@
+@import '../utils/mixins';
+
+.person {
+  margin-top: 116px;
+  text-align: center;
+
+  &__back--image {
+    display: flex; // робимо flex-контейнер
+    align-items: center; // центрує текст вертикально
+    justify-content: center; // центрує текст горизонтально
+
+    min-height: 170px; // висота блоку
+    padding: 20px; // щоб текст не лип до країв
+
+    background-image: url(../images/person--backgrnd.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; // щоб лапки не обрізалися
+  }
+
+  &__top {
+    max-width: 260px;
+
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+
+    @include on-tablet {
+      max-width: 700px;
+    }
+  }
+
+  &__image {
+    width: 62px;
+    height: 62px;
+    margin-top: 30px;
+
+    &:hover {
+      @include transision;
+    }
+  }
+
+  &__tittle {
+    margin-top: 10px;
+
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    font-style: Bold;
+    line-height: 22px;
+    text-align: center;
+  }
+
+  &__about {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #7c7c7c;
+    text-align: center;
+  }
+}

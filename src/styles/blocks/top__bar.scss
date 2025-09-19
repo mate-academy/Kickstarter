@@ -1,0 +1,141 @@
+@import '../utils/mixins';
+
+.top__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  margin-bottom: 50px;
+
+  &--container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; // розкине лого вліво, меню вправо
+
+    width: 100%;
+    height: 60px;
+  }
+  &--wrapper {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: flex-end; /* вміст прижати до правого краю */
+  }
+  &__logo {
+    display: flex;
+    width: auto;
+    height: 26px;
+    margin-top: 9px;
+
+    &:hover {
+      @include transision;
+    }
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+  }
+
+  &--language {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      gap: 20px;
+
+      margin-top: 40px;
+      margin-left: 40px;
+
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 100%;
+      color: #4f4f4f;
+
+      a {
+        font-size: 14px;
+        color: gray;
+        text-decoration: none;
+      }
+
+      a.active {
+        font-weight: bold;
+        color: black;
+      }
+    }
+  }
+  &--languages {
+    display: flex;
+    gap: 20px;
+
+    margin-top: 50px;
+
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 100%;
+    color: #4f4f4f;
+
+    a {
+      font-size: 14px;
+      color: gray;
+      text-decoration: none;
+    }
+
+    a.active {
+      font-weight: bold;
+      color: black;
+    }
+  }
+  &--icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 60px;
+  }
+}
+
+.top--bars {
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 50px;
+}
+
+.top__container {
+  display: none;
+
+  @include on-tablet {
+    display: block;
+    width: 70px;
+    margin-top: 29px;
+    margin-left: -20px;
+  }
+}
+
+.top__button {
+  cursor: pointer;
+
+  position: relative;
+
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  width: 100px;
+  height: 48px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  text-decoration: none;
+
+  background-color: #333;
+  &:hover {
+    background-color: #131313;
+  }
+}

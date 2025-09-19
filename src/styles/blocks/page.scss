@@ -1,0 +1,57 @@
+@import '../utils/mixins';
+
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  scroll-behavior: smooth;
+  size: 16px;
+  font-family: Manrope, serif;
+  line-height: 22.4px;
+
+  &__body {
+    margin: 0;
+    background-color: #f9f9f9;
+  }
+
+  &__menus {
+    pointer-events: none;
+
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateX(-100%);
+
+    overflow-y: auto;
+
+    color: #f9f9f9;
+
+    opacity: 0;
+    background-color: #f9f9f9;
+
+    transition: all 0.3s;
+
+    &.active {
+      pointer-events: all;
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+html.no-scroll,
+body.no-scroll {
+  overflow: hidden;
+  height: 100%; /* іноді потрібно */
+}
+
+body.no-scroll {
+  position: relative; /* щоб уникнути зсувів */
+  overflow: hidden;
+  height: 100vh; /* щоб не було прокрутки */
+}
