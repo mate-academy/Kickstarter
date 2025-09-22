@@ -1,0 +1,75 @@
+.testimonilas {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include on-laptop-large {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+    justify-items: center;
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    width: 208px;
+    height: 171px;
+  }
+
+  &__description {
+    margin-top: 50px;
+    margin-bottom: 30px;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+
+    @include on-laptop-large {
+      grid-column: 3 / 11;
+    }
+  }
+
+  &__avatar {
+    width: 62px;
+    height: 62px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include on-laptop-large {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__name {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+
+    @include on-laptop-large {
+      grid-column: 6 / 8;
+    }
+  }
+
+  &__post {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+
+    @include on-laptop-large {
+      grid-column: 6 / 8;
+    }
+  }
+}
