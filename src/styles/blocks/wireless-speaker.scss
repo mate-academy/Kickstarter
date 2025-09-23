@@ -1,0 +1,80 @@
+.wireless-speaker-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding-inline: 30px;
+
+  &__photo {
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 52px;
+    text-transform: uppercase;
+  }
+}
+
+.wireless-speaker-tablet {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  column-gap: 20px;
+
+  margin-top: 130px;
+  padding-inline: 35px;
+
+  @include on-laptop {
+    margin-top: 90px;
+  }
+
+  @include on-laptop {
+    grid-template-columns: repeat(10, 1fr);
+    column-gap: 25px;
+  }
+
+  &__photo {
+    grid-column: 5 / -1;
+
+    width: 420px;
+    height: 317px;
+
+    object-fit: cover;
+    object-position: center;
+
+    @include on-laptop {
+      width: 560px;
+      height: 420px;
+    }
+  }
+
+  &__info {
+    @include on-laptop {
+      padding-top: 70px;
+    }
+
+    grid-column: 1 / 5;
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 62px;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

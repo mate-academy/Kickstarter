@@ -1,0 +1,49 @@
+.page {
+  scroll-behavior: smooth;
+
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: $c-gray;
+
+  background-color: #f7f7f7;
+
+  &__body {
+    min-width: 320px;
+    max-width: 1194px;
+    margin: 0 auto;
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateY(-100%);
+
+    overflow: auto;
+
+    padding-top: 25px;
+
+    @include on-tablet {
+      padding-top: 35px;
+    }
+
+    opacity: 0;
+
+    transition: all 0.5s;
+
+    &:target {
+      pointer-events: all;
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
