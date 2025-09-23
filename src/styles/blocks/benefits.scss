@@ -1,0 +1,72 @@
+.benefits {
+  &__wrapper {
+    @include page-grid;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+
+    overflow-y: scroll;
+    gap: 40px;
+
+    height: 254px;
+
+    @include on-tablet {
+      overflow-y: visible;
+      row-gap: 65px;
+      height: auto;
+    }
+
+    @include on-desktop {
+      row-gap: 90px;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.benefit {
+  scroll-snap-align: start;
+
+  display: flex;
+  grid-column: 1 / -1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  height: 254px;
+
+  text-align: center;
+
+  @include on-tablet {
+    grid-column: span 4;
+    height: auto;
+  }
+
+  @include on-desktop {
+    grid-column: span 3;
+  }
+  .benefit__icon {
+    width: 50px;
+    height: 40px;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      margin-bottom: 50px;
+    }
+
+    @include on-desktop {
+      width: 70px;
+      height: 50px;
+      margin-bottom: 30px;
+    }
+  }
+  .benefit__title {
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      height: 56px;
+    }
+  }
+}

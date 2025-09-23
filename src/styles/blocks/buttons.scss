@@ -1,0 +1,152 @@
+.button {
+  cursor: pointer;
+
+  height: 48px;
+
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+
+  &--primary {
+    padding: 16px 35px;
+    color: #fff;
+    background-color: $light-btn-bc;
+
+    @include effects;
+
+    &:hover {
+      background-color: $light-btn-hover;
+    }
+
+    &--dark {
+      background-color: $dark-btn-bc;
+      &:hover {
+        background-color: $dark-bnt-hover;
+      }
+    }
+  }
+
+  &--secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    font-size: 12px;
+    font-weight: 700;
+    color: $accent-color;
+    text-transform: uppercase;
+
+    &::after {
+      content: '';
+
+      display: block;
+
+      width: 53px;
+      height: 1px;
+
+      background-color: currentColor;
+
+      @include effects;
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.button--menu {
+  cursor: pointer;
+
+  position: relative;
+
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  span {
+    @include effects;
+
+    position: absolute;
+    right: 3px;
+    left: 3px;
+
+    width: 18px;
+    height: 2px;
+
+    background-color: $accent-text-color;
+  }
+
+  span:nth-child(1) {
+    top: 6px;
+  }
+  span:nth-child(2) {
+    top: 11px;
+  }
+  span:nth-child(3) {
+    top: 16px;
+  }
+
+  /* active */
+  &--is-active span:nth-child(1) {
+    top: 11px;
+    left: 3px;
+    transform: rotate(45deg);
+    background-color: $accent-text-color;
+  }
+  &--is-active span:nth-child(2) {
+    display: none;
+  }
+  &--is-active span:nth-child(3) {
+    top: 11px;
+    left: 3px;
+    transform: rotate(-45deg);
+    background-color: $accent-text-color;
+  }
+
+  /* hover */
+  &:hover span {
+    background-color: $dark-bnt-hover;
+  }
+  &:hover span:nth-child(1) {
+    transform: translateX(-2px);
+  }
+  &:hover span:nth-child(2) {
+    transform: translateX(2px);
+  }
+  &:hover span:nth-child(3) {
+    transform: translateX(-2px);
+  }
+
+  /* active + hover */
+  &--is-active:hover span:nth-child(1) {
+    transform: rotate(45deg) scale(1.2);
+  }
+  &--is-active:hover span:nth-child(3) {
+    transform: rotate(-45deg) scale(1.2);
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.button-top {
+  cursor: pointer;
+
+  width: 50px;
+  height: 50px;
+  padding: 15px;
+
+  color: $accent-text-color;
+
+  background-color: currentColor;
+
+  -webkit-mask: url(../images/icons/top-arrow.svg) center / contain no-repeat;
+  mask: url(../images/icons/top-arrow.svg) center / contain no-repeat;
+}
