@@ -1,0 +1,29 @@
+.secondary-button {
+  @include button-text-style;
+
+  position: relative;
+  width: fit-content;
+  color: $c-secondary-btn-blue;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transform-origin: left;
+    transform: scaleX(0.5);
+
+    width: 100%;
+    height: 1px;
+
+    background-color: $c-secondary-btn-blue;
+
+    transition: transform $transition-duration;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}

@@ -1,0 +1,49 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    position: relative;
+    min-width: 320px;
+    margin: 0;
+    background-color: $c-white;
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+
+    overflow: hidden auto;
+
+    width: 100%;
+
+    opacity: 0;
+
+    transition: all $transition-duration;
+
+    &:target {
+      pointer-events: all;
+      z-index: 100;
+      transform: translateX(0);
+      opacity: 1;
+
+      & ~ .header,
+      & ~ .page__nav,
+      & ~ .main,
+      & ~ .footer {
+        display: none;
+      }
+    }
+  }
+}
