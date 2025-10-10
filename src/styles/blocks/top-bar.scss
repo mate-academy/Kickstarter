@@ -1,0 +1,115 @@
+.top_bar {
+  @include content-padding-in-line;
+  padding-block: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include on-tablet {
+    padding-block: 40px;
+  }
+
+  @include on-desktop {
+    padding-block: 30px;
+    margin-inline: 0;
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    &__info {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+
+    &__specs {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        text-decoration: none;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 14px;
+        color: $text-color;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &:hover {
+          font-weight: 700;
+        }
+      }
+    }
+
+    &__lang {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        gap: 6px;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 14px;
+
+        &--en, &--ua {
+          &:hover {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    &--laptop {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        height: 46px;
+        width: 100px;
+        background-color: $text-color;
+        font-size: 12px;
+        text-transform: uppercase;
+        border: 1px solid $text-color;
+        color: $background-color-top;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $text-color-active;
+          border: 1px solid $text-color-active;
+        }
+
+        &:active {
+          background-color: $button-color-active;
+          border: 1px solid $button-color-active;
+        }
+      }
+    }
+  }
+
+  &__logo-link {
+    display: flex;
+  }
+
+  &__logo {
+    height: 26px;
+
+    @include on-tablet {
+      height: 24px;
+    }
+
+    &--mob {
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    @include hover(transform, scale(1.2));
+  }
+}

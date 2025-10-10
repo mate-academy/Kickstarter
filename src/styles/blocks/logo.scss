@@ -1,0 +1,34 @@
+.logo {
+  display: none;
+
+  @include on-tablet {
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    @include page-grid;
+
+    &__favicon {
+      grid-column: 4 / 6;
+
+      width: 184px;
+    }
+
+    &__arrow {
+      width: 50px;
+      grid-column: 8 / -1;
+
+      scroll-behavior: smooth;
+    }
+  }
+
+  @include on-desktop {
+    &__favicon {
+      grid-column: 6 / 8;
+    }
+
+    &__arrow {
+      grid-column: 11 / -1;
+    }
+  }
+}

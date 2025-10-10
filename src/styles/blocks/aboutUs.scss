@@ -1,0 +1,120 @@
+.aboutUs {
+  &__wrapper {
+    @include content-padding-in-line;
+    display: grid;
+    row-gap: 40px;
+
+    @include on-tablet {
+      padding-inline: 0px;
+      row-gap: 56px;
+    }
+
+    @include on-desktop {
+      @include content-padding-in-line;
+    }
+  }
+}
+
+.about {
+  @include on-desktop {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__info {
+    @include on-tablet {
+      @include content-padding-in-line;
+    }
+
+    @include on-desktop {
+      padding-inline: 0;
+    }
+  }
+
+  &__photo {
+    margin: 0 0 20px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    @include hover(
+      transform,
+      scale(1.08)
+    );
+
+    @include on-tablet {
+      width: 375px;
+      height: 415px;
+    }
+
+    @include on-desktop {
+      width: 582px;
+      height: 388px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 30px;
+    font-size: 15px;
+    line-height: 22.5px;
+    color: $text-color-p;
+
+    @include on-tablet {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__text {
+    position: relative;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+    color: $green-color;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      display: block;
+      border-radius: 50px;
+      height: 1.5px;
+      width: 20%;
+      background-color: $green-color;
+
+      transition: transform 0.3s;
+      transform: scale(1);
+      transform-origin: left;
+    }
+
+    &:hover {
+      &::after {
+        content: '';
+        position: absolute;
+        width: 33%;
+      }
+    }
+  }
+
+  &__content {
+    &--left {
+      @include on-tablet {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+      }
+    }
+
+    &--right {
+      @include on-tablet {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+      }
+    }
+  }
+}

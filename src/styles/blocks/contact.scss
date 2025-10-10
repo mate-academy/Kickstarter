@@ -1,0 +1,133 @@
+.contact {
+  @include content-padding-in-line;
+
+  @include on-tablet {
+    display: flex;
+    @include page-grid;
+    // justify-content: space-between;
+  }
+
+  @include on-desktop {
+    gap: 30px;
+  }
+
+  &__title {
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__form {
+    @include page-grid;
+
+    display: grid;
+    row-gap: 40px;
+    padding-bottom: 48px;
+
+    @include on-tablet {
+      row-gap: 56px;
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__forms {
+    grid-column: 1 / -1;
+
+    @include on-desktop {
+      grid-column: 1 / -1;
+    }
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus{
+    border: 2px solid $green-color;
+    -webkit-text-fill-color: #010810;
+    -webkit-box-shadow: 0 0 0 1000px $background-color-top inset;
+  }
+
+  &__input {
+    width: calc(100% - 22px);
+    background-color: $background-color;
+    border: 1px solid $text-color-p;
+    height: 28px;
+    padding: 10px;
+    font-family: Inter, sans-serif;
+    color: $input-color;
+    outline: none;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 200;
+
+    &:hover {
+      border: 1px solid $input-color;
+    }
+
+    &:not(:placeholder-shown) {
+      font-family: Verdana, sans-serif;
+      border: 2px solid $green-color;
+      -webkit-text-fill-color: #010810;
+      -webkit-box-shadow: 0 0 0 1000px $background-color-top inset;
+    }
+  }
+
+  &__message {
+    width: calc(100% - 22px);
+    background-color: $background-color;
+    border: 1px solid $text-color-p;
+    height: 118px;
+    margin-top: 10px;
+    padding: 10px;
+    resize: none;
+    padding-bottom: 32px;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: $input-color;
+    outline: none;
+    font-weight: 200;
+
+    &:hover {
+      border: 1px solid $input-color;
+    }
+
+    &:valid {
+      font-family: Verdana, sans-serif;
+      border: 2px solid $green-color;
+      -webkit-text-fill-color: #010810;
+      -webkit-box-shadow: 0 0 0 1000px $background-color-top inset;
+    }
+  }
+
+  &__send {
+    width: 35%;
+    height: 40px;
+    background-color: $green-color;
+    border: 0;
+    color: $background-color-top;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $dark-green-color;
+    }
+
+    &:active {
+      background-color: $active-green-color;
+    }
+  }
+
+
+}
