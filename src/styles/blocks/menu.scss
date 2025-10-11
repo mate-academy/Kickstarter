@@ -1,0 +1,186 @@
+.menu {
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: $background-color-top;
+  font-weight: 700;
+  text-transform: capitalize;
+  overflow: hidden;
+
+  @include on-desktop {
+    height: auto;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__top {
+    margin-bottom: 32px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: $background-color-top;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.menu_bottom {
+  @include content-padding-in-line;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+
+  @include on-desktop {
+    flex-grow: 0;
+    margin-bottom: 60px;
+  }
+
+  &__down {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    color: $text-color;
+
+    &:hover {
+      transform: scale(1);
+    }
+  }
+
+  &__specs {
+    text-decoration: none;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    color: $text-color;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &:hover {
+      font-weight: 700;
+    }
+  }
+
+  &__lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &--en, &--ua {
+      &:hover {
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__button {
+    height: 46px;
+    width: 100%;
+    background-color: $text-color;
+    color: $background-color-top;
+    font-size: 12px;
+    text-transform: uppercase;
+    border: 1px solid $text-color;
+    cursor: pointer;
+
+    margin-bottom: 30px;
+
+    &:hover {
+      background-color: $text-color-active;
+      border: 1px solid $text-color-active;
+    }
+
+    &:active {
+      background-color: $button-color-active;
+      border: 1px solid $button-color-active;
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}
+
+.nav {
+  margin-bottom: 48px;
+
+  @include on-desktop {
+    margin: 0;
+  }
+
+  .nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include on-desktop {
+      flex-direction: row;
+      gap: 84px;
+      justify-content: center;
+    }
+  }
+
+  .nav__link {
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    color: $text-color;
+
+    @include on-desktop {
+      font-size: 20px;
+    }
+
+    &:hover {
+      transform: scale(1);
+      color: $text-color-active;
+      font-weight: 700;
+    }
+  }
+}

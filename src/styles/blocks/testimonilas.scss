@@ -1,0 +1,70 @@
+.quotes {
+  @include content-padding-in-line;
+  text-align: center;
+  margin-top: 60px;
+
+  &__back {
+    position: relative;
+    padding: 50px 0 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40vw;
+      max-width: 230px;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      text-align: center;
+      background-image: url('.././images/icons/brek.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 1;
+      z-index: 0;
+    }
+
+    &__text {
+      @include content-padding-in-line;
+      position: relative;
+      z-index: 1;
+      margin-top: 50px;
+      font-family: Inter, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+
+      @include on-tablet {
+        font-size: 24px;
+        line-height: 36px;
+      }
+    }
+
+    @include on-tablet {
+      padding: 60px 0 0;
+    }
+  }
+
+  &__other {
+    text-align: center;
+    margin: 30px 0 0;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+
+    &--name {
+      font-size: 16px;
+      line-height: 22px;
+      color: $text-color-active;
+      margin: 0 0 5px;
+    }
+
+    &--position {
+      font-size: 14px;
+      line-height: 21px;
+      color: $text-color-p;
+      margin: 0;
+    }
+  }
+}
