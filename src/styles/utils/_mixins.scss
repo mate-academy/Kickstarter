@@ -4,3 +4,100 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin visually-hidden() {
+  position: absolute;
+
+  overflow: hidden;
+
+  width: 1px;
+  height: 1px;
+
+  white-space: nowrap;
+
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+@mixin grid() {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-content: center;
+
+  @include for-tablet {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include for-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+  }
+}
+
+@mixin for-tablet() {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin for-desktop() {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin underline-animation($color: #0c797a, $height: 3px, $duration: 0.5s) {
+  position: relative;
+  display: inline-block;
+  transition: color $duration ease;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform-origin: left;
+    transform: scaleX(0);
+
+    width: 100%;
+    height: $height;
+
+    background-color: $color;
+
+    transition: transform $duration ease;
+  }
+
+  &:hover {
+    font-weight: 700;
+
+    &::after {
+      transform-origin: left;
+      transform: scaleX(1);
+    }
+  }
+
+  &:not(:hover)::after {
+    transform-origin: right;
+    transform: scaleX(0);
+  }
+}
+
+
+@mixin fade-up-scroll(
+  $duration: 0.8s,
+  $delay: 0s,
+  $distance: 20px,
+  $easing: ease-out
+) {
+  transform: translateY($distance);
+  opacity: 0;
+  transition: opacity $duration $easing $delay,
+              transform $duration $easing $delay;
+
+  &.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

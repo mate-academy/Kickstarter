@@ -1,0 +1,109 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+.testimonials {
+  text-align: center;
+
+
+
+  @include grid;
+
+  &__text {
+    @extend %p;
+
+    position: relative;
+
+    grid-column: span 4;
+
+    margin-bottom: 30px;
+
+    font-weight: 700;
+    line-height: 20px;
+    color: $primary-color;
+
+    @include for-tablet {
+      grid-column: span 8;
+      font-size: 24px;
+      line-height: 38px;
+    }
+
+    @include for-desktop {
+      grid-column: 3/-3;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+      display: block;
+
+      width: 208px;
+      height: 171px;
+
+      background-image: url('../images/quote.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+     @include fade-up-scroll(0.8s, 0.2s, 30px);
+  }
+
+
+    &__wrapper-img {
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+
+      width: 100%;
+      margin-bottom: 10px;
+      border-radius: 50%;
+    }
+
+    &__img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;}
+
+  &__author {
+    display: flex;
+    grid-column: span 4;
+    flex-direction: column;
+    justify-content: center;
+
+      @include fade-up-scroll(0.8s, 0.2s, 30px);
+
+     @include for-tablet {
+      grid-column: span 8;
+    }
+
+    @include for-desktop {
+      grid-column: span 12;
+    }
+
+
+
+
+    &-name {
+      margin-bottom: 5px;
+      font-weight: 700;
+      line-height: 20px;
+      color: $primary-color;
+
+    }
+
+    &-status {
+      @extend %p;
+
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+
+  }
+}

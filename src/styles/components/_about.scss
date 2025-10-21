@@ -1,0 +1,123 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+body:has(.menu:target) {
+  overflow: hidden;
+}
+
+.about {
+  &__wrapper {
+    @include grid;
+  }
+
+  &__title {
+    @extend %heading;
+
+    grid-column: span 4;
+    font-size: 30px;
+    line-height: 40px;
+
+    @include fade-up-scroll(0.8s, 0.2s, 30px);
+
+    @include for-tablet {
+      grid-column: 5/-1;
+      margin-bottom: 10px;
+      font-size: 38px;
+      line-height: 46px;
+    }
+
+    @include for-desktop {
+      grid-column: 7/-1;
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    &--reversed {
+      @include for-tablet {
+        grid-column: 1/5;
+      }
+    }
+  }
+
+  &__text {
+    @extend %p;
+
+    grid-column: span 4;
+    font-size: 14px;
+
+    @include for-tablet {
+      grid-column: 5/-1;
+      align-self: start;
+    }
+
+    @include for-desktop {
+      grid-column: 7/-1;
+      align-self: start;
+    }
+
+    &--reversed {
+      @include for-tablet {
+        grid-column: 1/5;
+      }
+
+      @include for-desktop {
+        grid-column: 1/7;
+      }
+    }
+
+    @include fade-up-scroll(0.8s, 0.2s, 30px);
+  }
+
+  &__imgbox {
+    position: relative;
+    overflow: hidden;
+    grid-column: span 4;
+
+    @include for-tablet {
+      grid-column: 1/5;
+      grid-row: 1/5;
+      width: 100%;
+    }
+
+    @include for-desktop {
+      grid-column: 1/7;
+      grid-row: 1/5;
+      width: 100%;
+    }
+
+    &--reversed {
+      @include for-tablet {
+        grid-column: 5/-1;
+      }
+
+      @include for-desktop {
+        grid-column: 7/-1;
+      }
+    }
+
+    img {
+      will-change: transform;
+
+      transform-origin: center center;
+
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform 0.6s ease, filter 0.6s ease;
+    }
+
+    &:hover img{
+      transform: scale(1.08);
+    }
+
+
+
+  }
+
+
+}

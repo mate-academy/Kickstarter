@@ -1,0 +1,89 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+.hero {
+  @include grid;
+
+  @include for-tablet {
+    padding: 0 34px;
+  }
+
+   @include for-desktop {
+    padding: 0 125px;
+  }
+
+  &__title {
+    @extend %heading;
+
+    grid-column: span 4;
+    padding: 0 30px;
+    font-size: 40px;
+    line-height: 52px;
+
+    @include for-tablet {
+      z-index: 1;
+
+      grid-column: 1/5;
+      grid-row: 1/2;
+      align-self: bottom;
+
+      margin-bottom: 10px;
+      padding: 0;
+
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include for-desktop {
+      align-self: end;
+      margin-bottom: 10px;
+      font-size: 62px;
+      line-height: 78px;
+    }
+
+    @include fade-up-scroll(0.8s, 0.2s, 30px);
+  }
+
+  &__description {
+    @extend %p;
+
+    grid-column: span 4;
+    justify-self: start;
+    padding: 0 30px;
+    color: $primary-color;
+
+    @include for-tablet {
+      z-index: 1;
+      grid-column: 1/4;
+      grid-row: 2/3;
+      padding: 0;
+    }
+
+    @include fade-up-scroll(0.8s, 0.2s, 30px);
+  }
+
+  &__img {
+    display: block;
+    grid-column: span 4;
+    grid-row: 1/2;
+
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+
+    object-fit: cover;
+
+    @include for-tablet {
+      grid-column: 4/-1;
+      grid-row: 1/3;
+      margin-bottom: 0;
+    }
+
+    @include for-desktop{
+      grid-column: -9/-1;
+      grid-row: 1/3;
+      margin-bottom: 0;
+    }
+  }
+}

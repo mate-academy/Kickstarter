@@ -1,0 +1,144 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+.swiper {
+
+  
+  &-wrapper {
+    margin-bottom: 40px;
+    padding: 30px 30px 0;
+
+    @include for-tablet {
+      padding: 60px 90px 0;
+
+    }
+
+    @include for-desktop{
+      display: contents !important;
+      display: grid !important;
+      grid-auto-rows: auto;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 55px 132px ;
+
+      width: auto !important;
+      margin-bottom: 0;
+      padding: 60px 306px 60px 102px;
+
+
+    }
+  }
+
+  &-slide {
+    flex: 0 0 100%;
+
+    @include for-desktop{
+    flex: none !important;
+      width: auto !important;
+
+    }
+
+    &--first{
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
+
+    &--second{
+      grid-column: 1/2;
+      grid-row: 1/2;
+
+    }
+
+    &--third{
+      grid-column: 2/-1;
+      grid-row: 1/2;
+    }
+
+  }
+
+
+  &__buttons {
+    pointer-events: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+
+
+
+    @include for-tablet {
+      justify-content: start;
+      padding-left: 90px;
+
+    }
+
+    @include for-desktop{
+      display: none;
+    }
+
+  }
+
+
+  &__button-prev,
+  &__button-next {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 14px;
+
+    svg path {
+      transition: fill 0.2s ease;
+    }
+
+    &:hover {
+
+    svg path {
+      fill: $accent-color-dark;
+    }
+  }
+
+
+  }
+
+  &__pagination {
+    display: flex;
+    gap: 11px;
+    justify-content: center;
+
+
+     @include for-tablet {
+      justify-content: start;
+      padding-left: 90px;
+
+    }
+
+    @include for-desktop{
+      display: none;
+    }
+
+    &--current {
+      @extend %p;
+
+      color: $primary-color;
+    }
+
+    &--total {
+      @extend %p;
+
+      align-self: end;
+      font-size: 11px;
+      line-height: 100%;
+      color: $accent-color-dark;
+
+      &::before {
+        content: '/';
+        width: 4px;
+        height: 14px;
+        margin-right: 5px;
+      }
+    }
+  }
+}

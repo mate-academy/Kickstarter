@@ -1,0 +1,95 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.button {
+  cursor: pointer;
+
+  border: none;
+
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  line-height: 48px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  background-color: $primary-color;
+
+  @include hover(background-color, $primary-color-dark);
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $disabled-color;
+  }
+
+  &--secondary {
+    position: relative;
+
+    grid-column: span 3;
+
+    width: 127px;
+    padding: 0 0 5px;
+
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    color: $accent-color;
+    text-transform: uppercase;
+
+    background-color: transparent;
+
+    @include for-tablet {
+      grid-column: 5/-1;
+    }
+
+    @include for-tablet {
+      grid-column: 7/-1;
+    }
+
+    @include hover(background-color, transparent);
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 53;
+      height: 1px;
+
+      background-color: $accent-color;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    &--reversed {
+      @include for-tablet {
+        grid-column: 1/5;
+      }
+
+      @include for-desktop {
+        grid-column: 1/7;
+      }
+    }
+
+    @include fade-up-scroll(0.8s, 0.2s, 30px);
+  }
+
+  &--form {
+    display: inline-block;
+
+    width: 102px;
+    height: 40px;
+
+    line-height: 40px;
+
+    background-color: $accent-color;
+
+    @include hover(background-color, $accent-color-dark);
+  }
+}
