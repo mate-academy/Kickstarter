@@ -1,0 +1,48 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+
+.presentation{
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 0 12px;
+
+
+
+
+  @include grid;
+
+  &__img{
+  transform-origin: center;
+
+    display: block;
+    grid-column: span 4;
+
+    width: 100%;
+    height: auto;
+
+  transition: transform 0.3s ease-in-out;
+
+     @include fade-up-scroll(0.8s, 0.2s, 30px);
+
+    @include for-tablet{
+      grid-column: span 8;
+    }
+
+     @include for-desktop{
+      grid-column: 3/-3;
+    }
+
+
+    &:hover{
+    transform: scale(1.05);
+  }
+  }
+
+
+
+
+
+}

@@ -1,0 +1,131 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+.menu {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
+  transform: translateX(-100%);
+
+  overflow: hidden;
+  align-content: start;
+
+  width: 100%;
+  height: 100vh;
+
+  background-color: $background-menu-mobile;
+
+  transition: transform 0.5s ease-in-out;
+
+  @include grid;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__navigation {
+    display: flex;;
+    grid-column: span 4;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 76px;
+    margin-bottom: 10px;
+    padding: 0 30px;
+
+    @include for-tablet{
+      grid-column: span 8;
+    }
+
+  }
+
+  &__navlink {
+    grid-column: span 4;
+    align-self: start;
+    margin-bottom: 50px;
+    padding: 0 30px;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__item {
+    @extend %heading;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-decoration: none;
+  }
+
+  &__link {
+    color: $primary-color;
+    text-decoration: none;
+
+    &:hover {
+      font-weight: 700;
+    }
+  }
+
+
+  &__nav {
+    grid-column: span 4;
+    padding: 0 30px 30px;
+
+    @include grid;
+
+    @include for-tablet {
+      display: none;
+    }
+
+    @include for-desktop {
+      display: none;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+     grid-column: span 4;
+    flex-direction: row;
+    gap: 20px;
+
+    width: 100%;
+  }
+
+  &__nav-link {
+    @extend %p;
+
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 300px;
+    color: $primary-color;
+    color: $icon-color;
+    text-decoration: none;
+    text-transform: uppercase;
+
+
+
+    &--active {
+      font-weight: 700;
+    }
+  }
+
+  &__language-swiper {
+    &::after {
+      content: '/';
+
+    }
+  }
+
+  &__button{
+    grid-column: span 4;
+    margin-top: 160px;
+
+  }
+}

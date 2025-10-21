@@ -1,0 +1,105 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+.features {
+
+  &__title {
+    @extend %heading;
+
+    margin-bottom: 32px;
+    padding: 0 30px;
+    font-size: 30px;
+    line-height: 40px;
+
+    @include for-tablet{
+      padding: 0;
+    }
+
+    @include for-desktop{
+      font-size: 56px;
+      line-height: 70px;
+
+    }
+  }
+
+  &__wrapper {
+    min-height: 555px;
+
+    background-color: $accent-bg-color;
+    background-image: url('../images/features.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+
+    @include for-tablet{
+      background-position: bottom right;
+      background-size: 435px auto;
+    }
+
+    @include for-desktop{
+      min-height: 100%;
+      background-size: 543px auto;
+    }
+  }
+
+  &__article{
+    @extend %p;
+
+    max-width: 100%;
+
+
+
+  }
+
+
+  &__subtitle {
+    @extend %heading;
+
+    margin-bottom: 20px;
+
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    color: $accent-color-dark;
+
+    @include for-desktop{
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+
+  &__list {
+    display: block;
+
+    width: 260px;
+    padding-left: 10px;
+
+    list-style: disc;
+    list-style-position: outside;
+
+
+    @include for-desktop{
+      width: 378px;
+    }
+
+
+  }
+
+  &__item {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 21px;
+    color: $primary-color;
+
+
+
+
+  }
+
+
+
+
+
+}
