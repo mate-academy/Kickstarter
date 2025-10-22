@@ -1,0 +1,51 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+
+.footer{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+
+  @include for-tablet{
+    gap:60px;
+  }
+
+  &__wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 34px 29px;
+
+  }
+
+  &__social{
+    display: flex;
+    gap: 49px;
+    justify-content: center;
+  }
+
+  &__copy{
+    @extend %p;
+
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    color: $text-color-light;
+    text-align: center;
+
+  }
+
+  &__logo-link{
+    display: none;
+
+    @include for-tablet{
+      display: inline-block;
+    }
+  }
+
+
+}

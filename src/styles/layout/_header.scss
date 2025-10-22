@@ -1,0 +1,99 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/extends' as *;
+
+.header {
+  &__hero {
+    margin-bottom: 100px;
+  }
+
+  &__container {
+    height: 76px;
+    padding: 0 30px;
+
+    @include grid;
+
+    @include for-tablet {
+      margin-bottom: 90px;
+      padding: 0 34px;
+    }
+
+    @include for-desktop {
+      padding: 0 125px;
+    }
+  }
+
+  &__logo-link{
+    grid-column: 1/3;
+    align-self: center;
+
+    @include for-tablet{
+      grid-column: 1/3;
+    }
+
+  }
+
+  &__nav {
+    grid-column: -2/-1;
+    place-self: center end;
+
+    @include for-tablet{
+      grid-column: 5/-1;
+    }
+
+    @include for-tablet {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+
+  &__burger-link{
+    @include for-desktop{
+      display: none;
+    }
+  }
+
+  &__nav-list {
+    display: none;
+
+    @include for-tablet {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      align-items: center;
+      justify-content: flex-end;
+
+      margin-right: 30px;
+    }
+  }
+
+  &__nav-link {
+    @extend %heading;
+
+    font-size: 14px;
+    font-weight: 300;
+    text-decoration: none;
+
+    &--active {
+      font-weight: 700;
+    }
+  }
+
+  &__language-swiper {
+    &::after {
+      content: '/';
+      font-weight: 300;
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    width: 100px;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+}
