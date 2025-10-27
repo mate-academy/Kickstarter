@@ -1,0 +1,261 @@
+@use '../../utils/media';
+@use '../../utils/fonts';
+@use '../../utils/vars';
+@use '../../utils/button';
+@use '../../utils/mixins';
+
+.features {
+  @include media.grid-320;
+
+  position: relative; // Niezbędne do pozycjonowania pseudo-elementu ::before
+
+  margin-bottom: 90px;
+
+  background-color: vars.$green-700;
+
+  &__title {
+    position: relative;
+    right: 50%;
+    left: 50%;
+
+    grid-column: 1 / -1;
+    width: 100vw;
+    margin-right: -50vw;
+    margin-left: -50vw;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    box-sizing: border-box;
+
+    background-color: vars.$white-200;
+
+    @include fonts.h2-mobile;
+  }
+
+  &__content {
+    position: relative;
+    grid-column: 1 / -1;
+
+    min-height: 250px;
+  }
+
+  &__container {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 300ms ease-in-out,
+      visibility 300ms ease-in-out;
+
+    &-title {
+      margin: 30px 0 20px;
+
+      @include fonts.h3-mobile;
+
+      color: vars.$valid;
+    }
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__list {
+    list-style-type: disc;
+    list-style-position: inside;
+
+    &-item {
+      @include fonts.secondary;
+
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &__slider {
+    grid-column: 2 / span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 50px;
+    padding-top: 50px;
+
+    .arrows {
+      display: flex;
+      flex-direction: row;
+
+      button {
+        border: none;
+        background-color: transparent;
+      }
+    }
+
+    .prev,
+    .next {
+      width: 48px;
+      height: 13px;
+      cursor: pointer;
+    }
+
+    .prev {
+      background-image: url('../images/icons/arrow-left.svg');
+
+      &:hover {
+        background-image: url('../images/icons/arrow-left-hover.svg');
+        @include button.hover;
+      }
+    }
+    .next {
+      background-image: url('../images/icons/arrow-right.svg');
+      &:hover {
+        background-image: url('../images/icons/arrow-right-hover.svg');
+        @include button.hover;
+      }
+    }
+
+    .numbers {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .number {
+      color: vars.$black-600;
+      margin-right: 5px;
+
+      @include fonts.main;
+
+      &:not(.active) {
+        display: none;
+      }
+
+      &-visible {
+        color: vars.$valid;
+        transform: translateY(5px);
+
+        @include fonts.secondary;
+      }
+    }
+  }
+
+  &__image {
+    grid-column: 1 / -1;
+    box-sizing: border-box;
+
+    padding-top: 20px;
+    position: relative;
+    right: 50%;
+    left: 50%;
+
+    width: 100vw;
+    margin-right: -50vw;
+    margin-left: -50vw;
+
+    & img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include media.grid-768 {
+    background-clip: content-box; // Przycinamy tło do obszaru contentu
+    margin-bottom: 140px;
+
+    &__title {
+      padding-left: 34px;
+    }
+
+    &__content {
+      grid-column: 2 / span 4;
+    }
+
+    &__slider {
+      grid-column: 2 / span 2;
+
+      justify-self: start;
+    }
+
+    &__image {
+      grid-column: 4 / -1;
+
+      z-index: inherit;
+      background: transparent;
+
+      width: 100%;
+      right: 0;
+      left: 0;
+      margin: 0;
+    }
+  }
+
+  @include media.grid-1440 {
+    margin-bottom: 170px;
+
+    &__title {
+      padding: 0 0 30px;
+      position: static;
+      width: auto;
+      margin-right: 0;
+      margin-left: 0;
+
+      // Resetowanie właściwości z mobile, które nie są już potrzebne
+      right: auto;
+      left: auto;
+      grid-column: 1 / -1;
+
+      @include fonts.h2-desktop;
+    }
+
+    &__content {
+      display: contents;
+      min-height: initial;
+    }
+
+    &__list {
+      &-item {
+        @include fonts.main;
+      }
+    }
+
+    &__slider {
+      display: none;
+    }
+
+    &__container {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      width: 100%;
+
+      &-title {
+        @include fonts.h3-desktop;
+
+        color: vars.$valid;
+      }
+    }
+
+    &__container--1 {
+      grid-column: 2 / span 4;
+      grid-row: 2 / span 1;
+    }
+
+    &__container--2 {
+      grid-column: 7 / span 4;
+      grid-row: 2 / span 1;
+    }
+
+    &__container--3 {
+      grid-column: 2 / span 4;
+      grid-row: 3 / span 1;
+    }
+
+    &__image {
+      grid-column: 7 / span 5;
+      grid-row: 3 / span 1;
+      align-self: end;
+    }
+  }
+}

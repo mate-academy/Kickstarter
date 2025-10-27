@@ -1,6 +1,33 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@use '../utils/vars';
+
+@mixin visually-hidden() {
+  position: absolute;
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+@mixin hover-underline {
+  position: relative;
+
+  padding-top: 10px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    height: 2px;
+    color: vars.$green-900;
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  &:hover::after {
+    opacity: 1;
   }
 }

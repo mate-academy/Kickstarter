@@ -1,0 +1,105 @@
+@use '../../utils/media';
+@use '../../utils/fonts';
+@use '../../utils/vars';
+@use '../../utils/button';
+@use '../../utils/mixins';
+
+.reviews {
+  @include media.grid-320;
+
+  position: relative;
+  margin-bottom: 100px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 233px;
+    height: 233px;
+
+    background-image: url('/src/images/icons/reviews.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+    position: relative; // Niezbędne, aby tekst był nad obrazkiem tła
+
+    text-align: center;
+
+    padding-top: 30px;
+
+    @include fonts.quote-mobile;
+
+    &-name {
+      grid-column: 1 / -1;
+      text-align: center;
+
+      @include fonts.h6;
+    }
+
+    &-position {
+      grid-column: 1 / -1;
+      text-align: center;
+
+      color: vars.$gray-900;
+
+      @include fonts.secondary;
+    }
+  }
+
+  &__image {
+    grid-column: 1 / -1;
+    justify-self: center;
+
+    margin: 30px 0 10px;
+
+    & img {
+      display: block;
+
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include media.grid-768 {
+    margin-bottom: 140px;
+
+    &::before {
+      top: -60px;
+    }
+
+    &__text {
+      @include fonts.quote-desktop;
+
+      &-name {
+        @include fonts.h5;
+      }
+    }
+
+    &__image {
+      margin: 40px 0 20px;
+    }
+  }
+
+  @include media.grid-1440 {
+    margin-bottom: 212px;
+
+    &__text {
+      grid-column: 3 / span 8;
+
+      &-name,
+      &-position {
+        grid-column: 3 / span 8;
+      }
+    }
+
+    &::before {
+      top: -42px;
+    }
+  }
+}

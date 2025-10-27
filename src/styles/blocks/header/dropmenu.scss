@@ -1,0 +1,171 @@
+@use '../../utils/media';
+@use '../../utils/fonts';
+@use '../../utils/vars';
+@use '../../utils/button';
+
+.dropmenu {
+  @include media.grid-320;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+
+  grid-column: 1 / -1;
+  display: block;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  background-color: vars.$white-200;
+  transform: translateX(-100%);
+  transition: transform 0.33s ease-in-out;
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  &__container {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 74px;
+    margin-bottom: 25px;
+  }
+
+  &__nav {
+    &-close {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border: none;
+      background-color: vars.$white-200;
+
+      &:hover {
+        @include button.hover;
+      }
+    }
+  }
+
+  &__link {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    &-item {
+      padding: 0;
+      border: none;
+      background: transparent;
+      text-transform: uppercase;
+
+      @include fonts.third;
+
+      &:not(:first-child) {
+        margin-top: 25px;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+
+        &:visited {
+          color: vars.$black-600;
+        }
+      }
+
+      &:hover {
+        @include button.hover;
+
+        @include fonts.h6;
+      }
+    }
+  }
+
+  &__spec {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-top: 50px;
+    gap: 20px;
+
+    &-a {
+      display: block;
+      text-decoration: none;
+
+      color: vars.$black-300;
+
+      @include fonts.third;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3px;
+    }
+
+    &-item {
+      color: vars.$black-200;
+
+      &--1,
+      &--3 {
+        &:hover {
+          @include button.hover;
+        }
+      }
+
+      &--2 {
+        color: vars.$black-600;
+      }
+
+      &.active {
+        color: vars.$black-600;
+      }
+
+      &.passive {
+        color: vars.$black-200;
+      }
+    }
+  }
+
+  &-btn {
+    color: vars.$white;
+
+    @include button.button;
+
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    left: 30px;
+    width: auto;
+  }
+
+  @include media.grid-768 {
+    &__container {
+      margin-bottom: 30px;
+    }
+
+    &__link {
+      &:not(:first-child) {
+        margin-top: 40px;
+      }
+    }
+
+    &__spec,
+    &-btn {
+      display: none;
+    }
+  }
+
+  @include media.grid-1440 {
+    &__nav {
+      &-close {
+        display: none;
+      }
+    }
+  }
+}

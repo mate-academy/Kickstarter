@@ -1,0 +1,37 @@
+@mixin grid-768() {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin grid-1440() {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin grid-320() {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+
+  padding: 0 30px;
+
+  @include grid-768 {
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 20px;
+
+    padding: 0 34px;
+  }
+
+  @include grid-1440 {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+
+    padding: 0 125px;
+
+    max-width: 1194px;
+    margin: 0 auto;
+  }
+}

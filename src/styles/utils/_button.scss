@@ -1,0 +1,70 @@
+@use '../utils/vars';
+@use '../utils/fonts';
+
+@mixin hover() {
+  // background-color: vars.$black-900;
+  // border: 1px solid vars.$gray-900;
+  // color: vars.$gray-900;
+
+  transition:
+    background-color 300ms,
+    transform 300ms ease-in-out;
+  transform: translateY(-4px) scale(1.01);
+
+  cursor: pointer;
+}
+
+@mixin primery-btn-hover() {
+  background-color: vars.$black-900;
+
+  // border: 1px solid vars.$gray-900;
+  // color: vars.$gray-900;
+
+  transition:
+    background-color 300ms,
+    transform 300ms ease-in-out;
+  transform: translateY(-4px) scale(1.01);
+
+  cursor: pointer;
+}
+
+@mixin link-hover() {
+  border-bottom: 1px solid vars.$valid;
+
+  transition: transform 300ms ease-in-out;
+  transform: translateY(-4px) scale(1.1);
+
+  cursor: pointer;
+}
+
+@mixin button-passed() {
+  // border: 1px solid vars.$gray-600;
+}
+
+@mixin button() {
+  display: block;
+
+  margin: 0;
+  padding: 0;
+
+  border: none;
+  width: 100%;
+  height: 60px;
+
+  @include fonts.button;
+
+  background-color: vars.$black-600;
+  color: vars.$white;
+
+  &:hover {
+    @include primery-btn-hover;
+
+    cursor: pointer;
+  }
+
+  &:focus {
+    @include button-passed;
+
+    cursor: pointer;
+  }
+}

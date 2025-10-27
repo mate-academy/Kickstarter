@@ -1,0 +1,141 @@
+@use '../../utils/media';
+@use '../../utils/fonts';
+@use '../../utils/vars';
+@use '../../utils/button';
+@use '../../utils/mixins';
+
+.luna {
+  @include media.grid-320;
+
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'title-content'
+    'image-content'
+    'text-content'
+    'link-content';
+
+  padding: 0 0 110px;
+  margin: 0 auto;
+
+  &__container {
+    display: contents;
+    grid-column: 1 / -1;
+
+    &-title {
+      grid-area: title-content;
+
+      margin: 0 30px 20px;
+
+      @include fonts.h2-mobile;
+    }
+
+    &-text {
+      grid-area: text-content;
+      align-self: flex-start;
+
+      margin: 20px 30px 0;
+
+      @include fonts.secondary;
+    }
+
+    &-link {
+      grid-area: link-content;
+
+      margin: 30px 30px 0;
+
+      a {
+        color: vars.$green-900;
+        text-decoration: none;
+
+        @include fonts.button;
+      }
+
+      @include button.hover;
+
+      &:hover {
+        transform: translateY(-4px) scale(1.01);
+
+        @include button.link-hover;
+      }
+    }
+
+    &__image {
+      grid-area: image-content;
+
+      width: 100%;
+      margin: 30px 0 20px;
+
+      & img {
+        display: block;
+
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  &__image {
+    width: calc(100vw - 60px);
+    transform: translateX(30px);
+
+    & img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include media.grid-768 {
+    grid-template-columns: 1fr 1fr;
+
+    padding: 0 0 140px;
+
+    &__container {
+      grid-column: 1 / 2;
+      display: flex;
+      flex-direction: column;
+
+      margin-left: 30px;
+
+      &-title {
+        @include fonts.h2-tablet;
+
+        margin: 0;
+      }
+
+      &-text {
+        @include fonts.main;
+
+        margin: 20px 0 60px;
+      }
+
+      &-link {
+        align-self: flex-start;
+
+        margin: 0;
+      }
+    }
+
+    &__image {
+      grid-column: 2 / 3;
+
+      width: calc(100%);
+      margin: 0;
+      transform: translateX(0);
+    }
+  }
+
+  @include media.grid-1440 {
+    padding: 0 0 170px;
+
+    &__container {
+      &-title {
+        @include fonts.h2-desktop;
+      }
+    }
+
+    &__image {
+      margin: 0;
+    }
+  }
+}

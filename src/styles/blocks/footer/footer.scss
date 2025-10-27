@@ -1,0 +1,105 @@
+@use '../../utils/media';
+@use '../../utils/fonts';
+@use '../../utils/vars';
+@use '../../utils/button';
+@use '../../utils/mixins';
+
+.footer {
+  @include media.grid-320;
+
+  position: relative;
+  margin-bottom: 30px;
+
+  background-color: vars.$white-200;
+
+  &__logo,
+  &__top {
+    display: none;
+
+    cursor: pointer;
+
+    &:hover {
+      @include button.hover;
+    }
+  }
+
+  &__links {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 40px;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+
+      &:hover {
+        @include button.hover;
+      }
+    }
+  }
+
+  &__copyright {
+    grid-column: 1 / -1;
+    text-align: center;
+
+    margin-top: 30px;
+
+    @include fonts.secondary;
+
+    color: vars.$gray-600;
+  }
+
+  @include media.grid-768 {
+    margin-bottom: 30px;
+
+    &__logo {
+      display: block;
+      grid-column: 1 / -1;
+      position: relative;
+      text-align: center;
+
+      margin-bottom: 60px;
+
+      img {
+        height: 26px;
+      }
+    }
+
+    &__top {
+      display: block;
+      grid-column: 1 / -1;
+      position: absolute;
+      text-align: center;
+
+      width: 50px;
+      height: 50px;
+
+      top: 0;
+      right: 0;
+
+      &:hover {
+        @include button.hover;
+      }
+    }
+
+    &__links {
+      gap: 50px;
+    }
+
+    &__copyright {
+      margin-top: 60px;
+    }
+  }
+}

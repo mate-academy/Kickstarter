@@ -1,0 +1,45 @@
+@use '../../utils/media';
+@use '../../utils/fonts';
+@use '../../utils/vars';
+@use '../../utils/button';
+
+.meetluna {
+  @include media.grid-320;
+
+  margin: 110px 0;
+
+  &__image {
+    grid-column: 1 / -1;
+
+    width: calc(100% + 30px);
+    transform: translateX(-15px);
+
+    & img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include media.grid-768 {
+    padding: 140px 0;
+    margin: 0 34px;
+
+    &__image {
+      width: 100%;
+      transform: translateX(0);
+    }
+  }
+
+  @include media.grid-1440 {
+    padding: 170px 0;
+
+    margin: 0 auto;
+
+    &__image {
+      max-width: 846px;
+
+      margin: 0 auto;
+    }
+  }
+}

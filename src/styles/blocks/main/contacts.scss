@@ -1,0 +1,130 @@
+@use '../../utils/media';
+@use '../../utils/fonts';
+@use '../../utils/vars';
+@use '../../utils/button';
+@use '../../utils/mixins';
+
+.contacts {
+  @include media.grid-320;
+
+  margin-bottom: 110px;
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @include fonts.h2-mobile;
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+  }
+
+  .message {
+    grid-column: 1 / -1;
+  }
+
+  .form {
+    &__input {
+      width: 100%;
+      height: 48px;
+      margin-bottom: 20px;
+      padding: 0 20px;
+      box-sizing: border-box;
+
+      border: 1px solid vars.$black-200;
+
+      @include fonts.main;
+
+      background-color: vars.$white-200;
+      outline: none;
+
+      &:focus {
+        background-color: vars.$white-200;
+        border: 1px solid vars.$black-600;
+      }
+
+      &:not(:placeholder-shown):valid {
+        color: vars.$valid;
+        background-color: vars.$white-200;
+        border: 1px solid vars.$valid;
+      }
+
+      &:not(:placeholder-shown):invalid {
+        border: 1px solid vars.$invalid;
+        color: vars.$invalid;
+        background-color: vars.$white-200;
+      }
+
+      &--email {
+        margin-top: 40px;
+      }
+
+      &--message {
+        display: block;
+
+        height: 128px;
+        margin-top: 20px;
+        padding-top: 20px;
+      }
+    }
+
+    &__label {
+      &:not(:focus, :active) {
+        @include mixins.visually-hidden;
+      }
+    }
+
+    &__button {
+      display: block;
+
+      margin-top: 43px;
+
+      @include button.button;
+
+      width: 105px;
+
+      background: none;
+      background-color: vars.$green-900;
+    }
+  }
+
+  @include media.grid-768 {
+    margin-bottom: 140px;
+
+    &__title {
+      grid-column: 1 / span 4;
+
+      @include fonts.h2-tablet;
+    }
+
+    &__content {
+      grid-column: 5 / -1;
+    }
+
+    .form {
+      &__input {
+        &--email {
+          margin-top: 0;
+        }
+
+        &__button {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+
+  @include media.grid-1440 {
+    margin-bottom: 170px;
+
+    &__title {
+      grid-column: 1 / span 6;
+
+      @include fonts.h2-desktop;
+    }
+
+    &__content {
+      grid-column: 7 / -1;
+    }
+  }
+}
