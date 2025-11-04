@@ -1,0 +1,171 @@
+.page__menu {
+  pointer-events: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  transform: translateX(-100%);
+  height: 100vh;
+
+  font-weight: 600;
+  text-transform: uppercase;
+
+  opacity: 0;
+  background-color: $bg-color;
+
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+
+  &.menu--open,
+  &.active {
+    pointer-events: all;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  &__content {
+    position: relative;
+    height: 100%;
+    padding: 20px;
+  }
+
+  &__close {
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  &:target {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.menu {
+  &__top {
+    display: flex;
+    flex-direction: row;
+    padding-inline: 30px;
+    padding-block: 24px;
+  }
+
+  &__bottom {
+    margin-top: 40px;
+    padding-inline: 30px;
+    padding-bottom: 30px;
+  }
+
+  &__nav {
+    .nav__list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      @include on-tablet {
+        gap: 40px;
+      }
+
+      &.active {
+        font-weight: 700;
+        color: $text-color-hover;
+      }
+    }
+
+    .nav__link {
+      text-decoration: none;
+      color: $text-color-main;
+      @include thirdary-text;
+
+      @include on-tablet {
+        font-size: 22px;
+        line-height: 28px;
+      }
+
+      &.active {
+        font-weight: 700;
+        color: $text-color-hover;
+      }
+    }
+  }
+
+  &__button {
+    position: absolute;
+    right: 30px;
+    left: 30px;
+    bottom: 30px;
+    border: none;
+
+    @include button-text;
+
+    color: #fff;
+    background-color: $text-color-main;
+
+    &:hover {
+      background-color: $text-color-hover;
+      cursor: pointer;
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+
+    &-item {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &-lang {
+      border: none;
+      background: none;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: $border-color;
+
+      &--active {
+        color: $text-color-main;
+      }
+    }
+
+    &-link {
+      text-decoration: none;
+      align-items: center;
+      padding-inline: 0;
+      color: $text-secondary-color;
+      @include thirdary-text;
+    }
+  }
+
+  &__specs {
+    padding-top: 50px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}
+
+body.menu--open {
+  overflow: hidden;
+}

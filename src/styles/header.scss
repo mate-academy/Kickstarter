@@ -1,0 +1,267 @@
+/* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  &__tools {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    > *:not(.top-bar__burger) {
+      display: none;
+    }
+
+    @include on-tablet {
+      gap: 30px;
+
+      > *:not(.top-bar__burger) {
+        display: flex;
+      }
+    }
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+
+    @include on-desktop {
+      gap: 47px;
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &-link {
+      text-decoration: none;
+      color: $text-secondary-color;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 14px;
+      text-transform: uppercase;
+
+      @include on-tablet {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 12px;
+      }
+
+      @include on-desktop {
+        @include thirdary-text;
+      }
+    }
+
+    &-lang {
+      border: none;
+      color: $border-color;
+      background-color: inherit;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 18px;
+
+      &--active {
+        color: $text-color-main;
+      }
+
+      @include on-tablet {
+        line-height: 18px;
+      }
+
+      @include on-desktop {
+        @include thirdary-text;
+      }
+    }
+
+    &-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 102px;
+      height: 48px;
+      border: none;
+      color: #fff;
+      background-color: $text-color-main;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 12px;
+      text-transform: uppercase;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $text-color-hover;
+      }
+
+      @include on-desktop {
+        @include button-text;
+      }
+    }
+  }
+
+  &__burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+
+    background: none;
+    cursor: pointer;
+
+    img {
+      height: 24px;
+      width: 24px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}
+
+.header__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 0;
+  padding-bottom: 110px;
+
+  &-text {
+    order: 2;
+
+    @include on-tablet {
+      order: 0;
+      max-width: 340px;
+    }
+
+    @include on-desktop {
+      max-width: 380px;
+    }
+  }
+
+  &-text--main {
+    @include on-tablet {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 62px;
+      color: $text-color-main;
+    }
+
+    @include on-desktop {
+      font-size: 62px;
+      font-weight: 700;
+      line-height: 78px;
+    }
+  }
+
+  &-text--desciption {
+    @include main-text;
+
+    @include on-tablet {
+      max-width: 250px;
+    }
+
+    @include on-desktop {
+      max-width: 280px;
+    }
+  }
+
+  @include on-tablet {
+    flex-direction: row;
+    /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+    flex-wrap: nowrap;
+    gap: 19px;
+    justify-content: center;
+    padding-top: 90px;
+    padding-bottom: 140px;
+  }
+
+  @include on-desktop {
+    gap: 30px;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-bottom: 170px;
+  }
+
+  &-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+
+    @include on-tablet {
+      max-width: 430px;
+    }
+
+    @include on-desktop {
+      max-width: 816px;
+    }
+  }
+}
+
+.header__image-wrapper {
+  width: 100%;
+
+  @include on-tablet {
+    overflow: hidden;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    min-width: 380px;
+    max-width: 100%;
+  }
+}
+
+.header__nav {
+  &-list {
+    display: none;
+    flex-direction: row;
+    gap: 84px;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-block: 28px;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+
+  &-link {
+    color: $text-color-main;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 28px;
+    text-transform: uppercase;
+
+    @include on-desktop {
+      @include thirdary-text;
+    }
+
+    &:hover {
+      font-weight: 700;
+      color: $text-color-hover;
+    }
+  }
+}

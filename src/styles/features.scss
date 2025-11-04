@@ -1,0 +1,155 @@
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  &__title {
+    margin: 0;
+    color: $text-color-main;
+  }
+
+  &__slider {
+    position: relative;
+    z-index: 1;
+    display: block;
+    padding-top: 50px;
+  }
+
+  &__main-image {
+    position: relative;
+    display: block;
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+    transform: translateX(50px);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+    box-sizing: border-box;
+    background-color: $light-blue-color;
+    margin-inline: -30px;
+  }
+
+  &__item {
+    display: none;
+    padding-top: 30px;
+
+    &--visible {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__name {
+    margin: 0;
+    color: $btn-blue-color-hover;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 30px 0 0;
+    padding-left: 20px;
+    @include secondary-text;
+  }
+
+  @include on-tablet {
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    &__container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding-left: 90px;
+      position: relative;
+      margin-inline: 0;
+    }
+
+    &__item {
+      display: none;
+      padding-top: 60px;
+
+      &--visible {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+
+    &__slider {
+      bottom: 69px;
+    }
+
+    &__list {
+      margin: 20px 0 0;
+      min-height: 230px;
+      padding-bottom: 100px;
+    }
+
+    &__main-image {
+      position: absolute;
+      right: 20px;
+      bottom: 1px;
+      width: 400px;
+      max-width: 100%;
+      height: auto;
+      transform: translateX(310px);
+    }
+  }
+
+  @include on-desktop {
+    &__item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__title {
+      font-size: 56px;
+      line-height: 70px;
+    }
+
+    &__name {
+      font-size: 34px;
+      line-height: 42px;
+    }
+
+    &__list {
+      font-size: 16px;
+      padding-bottom: 0;
+      min-height: 0;
+    }
+
+    &__slider {
+      display: none;
+    }
+
+    &__container {
+      padding-left: 102px;
+      padding-bottom: 60px;
+    }
+
+    &__main-image {
+      position: absolute;
+      right: -78px;
+      bottom: -60px;
+      width: 543px;
+      height: auto;
+    }
+  }
+}
