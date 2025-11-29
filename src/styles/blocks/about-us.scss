@@ -1,0 +1,175 @@
+.about-us {
+  position: relative;
+
+  @include page-grid;
+
+  gap: 20px;
+
+  @include on-tablet {
+    grid-auto-rows: min-content;
+    gap: 30px;
+    min-height: 415px;
+  }
+
+  @include on-desktop {
+    min-height: 388px;
+  }
+
+  &__title {
+    @include font-main-title;
+
+    grid-column: 1 / -1;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+
+    &--right {
+      @include on-tablet {
+        grid-column: 1 / 5;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+
+  &__info {
+    @include font-main-info;
+
+    grid-column: 1 / -1;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+
+    &--right {
+      @include on-tablet {
+        grid-column: 1 / 5;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    grid-column: 1 / -1;
+    max-width: max-content;
+    text-decoration: none;
+
+    @include font-link;
+
+    &::after {
+      content: '';
+
+      display: block;
+
+      width: 53px;
+      height: 1px;
+      margin-top: 5px;
+
+      background-color: $c-blue;
+
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+
+    &--right {
+      @include on-tablet {
+        grid-column: 1 / 5;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+
+  &__container {
+    overflow: hidden;
+    grid-column: 1 / -1;
+    aspect-ratio: 37 / 30;
+    width: 100%;
+
+    @include on-tablet {
+      position: absolute;
+      left: -34px;
+
+      grid-column: 1 / 5;
+
+      aspect-ratio: 9 / 10;
+      width: calc(100% + 34px);
+      min-height: 415px;
+      max-height: 100%;
+    }
+
+    @include on-desktop {
+      left: 0;
+
+      grid-column: 1 / 7;
+
+      aspect-ratio: 3 / 2;
+      width: 100%;
+      min-height: 388px;
+    }
+
+    &--right {
+      @include on-tablet {
+        position: absolute;
+        right: -34px; // правая граница выходит за пределы
+        left: auto;
+
+        grid-column: 5 / -1;
+
+        width: calc(100% + 34px); // компенсируем ширину
+        min-height: 415px;
+        max-height: 100%;
+      }
+
+      @include on-desktop {
+        right: auto;
+        left: auto;
+
+        grid-column: 7 / -1;
+
+        width: 100%;
+        min-height: 388px;
+      }
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center; // сдвиг фокуса
+
+      @include hover(transform, scale(1.05));
+    }
+  }
+}

@@ -1,0 +1,94 @@
+.header {
+  &__content {
+    @include on-tablet {
+      padding-inline: 34px;
+    }
+
+    @include on-desktop {
+      padding-inline: 123px;
+    }
+
+    @include on-tablet {
+      position: relative;
+      margin-top: 130px;
+
+      // overflow: hidden;
+    }
+
+    @include on-desktop {
+      margin-top: 173px;
+    }
+
+    &-text {
+      @include page-grid;
+
+      gap: 20px;
+      margin-top: 40px;
+      padding-inline: 30px;
+
+      @include on-tablet {
+        gap: 30px;
+        padding: 0;
+      }
+    }
+
+    &-title {
+      z-index: 1;
+      grid-column: 1 / -1;
+      margin: 0;
+
+      @include font-h1;
+
+      @include on-tablet {
+        grid-column: 1 / 5;
+      }
+
+      &-br {
+        display: none;
+
+        @include on-tablet {
+          display: block;
+        }
+      }
+    }
+
+    &-info {
+      grid-column: 1 / -1;
+
+      @include font-info;
+
+      @include on-tablet {
+        grid-column: 1 / 4;
+      }
+    }
+  }
+
+  &__container {
+    overflow: hidden;
+    aspect-ratio: 64 / 51;
+    width: 100%;
+
+    @include on-tablet {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+
+      aspect-ratio: 4 / 3;
+      width: 63%;
+      max-height: 440px;
+    }
+
+    @include on-desktop {
+      aspect-ratio: 16/ 9;
+      width: 67%;
+      max-height: 800px;
+    }
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left; // сдвиг фокуса
+    }
+  }
+}

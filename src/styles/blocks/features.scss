@@ -1,0 +1,132 @@
+.features {
+  @include page-grid;
+
+  gap: 65px;
+  margin-top: 110px;
+
+  @include on-tablet {
+    margin-top: 140px;
+  }
+
+  @include on-desktop {
+    margin-top: 62px;
+  }
+
+  &__icon {
+    cursor: auto;
+    width: 50px;
+    height: 40px;
+    transition: background-image 0.3s ease;
+
+    &--design {
+      background-image: url(../images/icon/1.svg);
+    }
+
+    &--speaker {
+      background-image: url(../images/icon/2.svg);
+    }
+
+    &--multiroom {
+      background-image: url(../images/icon/3.svg);
+    }
+
+    &--lighting {
+      background-image: url(../images/icon/4.svg);
+    }
+  }
+
+  &__title {
+    margin-top: 20px;
+    transition: color 0.3s ease;
+
+    @include font-h4;
+
+    @include on-tablet {
+      height: 56px;
+      margin-top: 30px;
+    }
+  }
+
+  &__info {
+    text-align: center;
+
+    @include font-secondary;
+  }
+
+  &-img {
+    margin: 0;
+
+    @include on-tablet {
+      padding-inline: 34px;
+    }
+
+    @include on-desktop {
+      padding-inline: 123px;
+    }
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__container {
+    grid-column: 1 / -1;
+    width: 100%;
+
+    @include on-desktop {
+      grid-column: 3 / -3;
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__block {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+
+    &--tablet {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+      }
+    }
+
+    &:hover {
+      .features__title {
+        color: $c-blue; // цвет заголовка при наведении
+        transition: color 0.3s ease;
+      }
+
+      .features__icon--design {
+        background-image: url(../images/icon/1-blue.svg); // путь к иконке при наведении
+      }
+
+      .features__icon--speaker {
+        background-image: url(../images/icon/2-blue.svg); // путь к иконке при наведении
+      }
+
+      .features__icon--multiroom {
+        background-image: url(../images/icon/3-blue.svg); // путь к иконке при наведении
+      }
+
+      .features__icon--lighting {
+        background-image: url(../images/icon/4-blue.svg); // путь к иконке при наведении
+      }
+    }
+  }
+}
