@@ -1,0 +1,94 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+
+  @include tablet {
+    gap: 130px;
+  }
+
+  @include mobile {
+    gap: 25px;
+  }
+
+  &__upper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  &__spec {
+    @extend %thirdary-text;
+
+    color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__link {
+    @extend %thirdary-text;
+
+    font-weight: 300;
+    color: #828282;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      color: #0db2b3;
+    }
+
+    &--active {
+      font-weight: 400;
+      color: #333;
+
+      &:hover {
+        color: #333;
+      }
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__buy {
+    cursor: pointer;
+
+    width: 102px;
+    height: 48px;
+    border: none;
+
+    color: $c-white;
+
+    background-color: #333;
+
+    &:hover {
+      background-color: #131313;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    @include tablet {
+      display: block;
+      border: none;
+      background-color: $c-white;
+    }
+  }
+}
