@@ -1,0 +1,77 @@
+.footer {
+  @include set-default-inline-paddings;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+
+  padding-bottom: 20px;
+
+  @include on-tablet {
+    position: relative;
+    gap: 60px;
+    padding-bottom: 30px;
+  }
+
+  &__link {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: 184px;
+    }
+
+    @include on-desktop {
+      width: 161px;
+    }
+  }
+
+  &__logo {
+    width: 100%;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 40px;
+
+    @include on-tablet {
+      gap: 49px;
+    }
+
+    &-link {
+      @include hover(transform, scale(1.1));
+    }
+  }
+
+  &__rights {
+    text-align: center;
+
+    &-text {
+      color: $placeholder-color;
+    }
+  }
+
+  &__button-link {
+    display: none;
+
+    @include on-tablet {
+      position: absolute;
+      top: 10px;
+      right: 50px;
+      display: block;
+
+      @include hover(transform, scale(1.1));
+    }
+
+    @include on-desktop {
+      top: 0;
+      right: 123px;
+    }
+  }
+
+  &__button-img {
+    width: 24px;
+    height: 20px;
+  }
+}

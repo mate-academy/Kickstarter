@@ -1,0 +1,57 @@
+.menu {
+  overflow: auto;
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: $background-color;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    @include set-default-inline-paddings;
+  }
+
+  &__language {
+    display: block;
+  }
+
+  &__specs {
+    @include hover(transform, scale(1.1));
+
+    display: block;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 162px;
+    &-top {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &-bot {
+      @include on-tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__nav {
+    padding-top: 31px;
+
+    @include on-tablet {
+      padding-top: 40px;
+    }
+  }
+}

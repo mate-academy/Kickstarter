@@ -1,0 +1,96 @@
+.header {
+  margin: 0;
+
+  @include set-default-bottom-paddings;
+
+  @include on-desktop {
+    padding-inline: 123px;
+  }
+
+  &__content {
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      gap: 130px;
+    }
+
+    @include on-desktop {
+      gap: 90px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include on-tablet {
+      flex-direction: row-reverse;
+      gap: 0;
+      justify-content: flex-end;
+    }
+  }
+
+  &__background {
+    width: 100%;
+    min-width: 0;
+    height: 245px;
+
+    object-fit: cover;
+    object-position: left;
+
+    @include on-tablet {
+      width: 430px;
+      height: 317px;
+    }
+
+    @include on-desktop {
+      width: 816px;
+      height: 464px;
+    }
+  }
+
+  &__data {
+    padding-inline: 30px;
+
+    @include on-tablet {
+      padding-right: 0;
+      padding-left: 34px;
+    }
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      padding: 0;
+    }
+
+    &-title {
+      max-width: 100%;
+      margin: 0;
+      margin-bottom: 20px;
+
+      @include on-tablet {
+        max-width: 260px;
+        margin-bottom: 30px;
+      }
+
+      @include on-desktop {
+        max-width: 378px;
+      }
+    }
+
+    &-main {
+      display: block;
+      max-width: 260px;
+
+      @include on-tablet {
+        max-width: 250px;
+      }
+
+      @include on-desktop {
+        max-width: 276px;
+      }
+    }
+  }
+}
