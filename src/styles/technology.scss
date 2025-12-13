@@ -1,0 +1,58 @@
+.technology {
+  @include set-default-inline-paddings;
+  @include set-default-bottom-paddings;
+
+  @include on-tablet {
+    display: flex;
+    gap: 20px;
+    padding-right: 0;
+  }
+
+  @include on-desktop {
+    gap: 30px;
+    padding-right: 123px;
+  }
+
+  &__background {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: 50%;
+      height: 415px;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__description {
+    display: block;
+    margin-bottom: 30px;
+    color: $description-color;
+
+    @include on-tablet {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__image {
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}

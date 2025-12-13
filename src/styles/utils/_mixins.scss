@@ -1,6 +1,84 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $animation-speed;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin apply-fonts($font-map) {
+  $mobile: map-get($font-map, mobile);
+
+  font-family: map-get($font-map, font);
+  font-size: map-get($mobile, size);
+  font-weight: map-get($font-map, weight);
+  line-height: map-get($mobile, line-height);
+  text-transform: map-get($font-map, text-transform);
+
+  @include on-tablet {
+    $tablet: map-get($font-map, tablet);
+
+    font-size: map-get($tablet, size);
+    line-height: map-get($tablet, line-height);
+  }
+
+  @include on-desktop {
+    $desktop: map-get($font-map, desktop);
+
+    font-size: map-get($desktop, size);
+    line-height: map-get($desktop, line-height);
+  }
+}
+
+@mixin page-grid {
+  --columns: 4;
+  --gap: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: var(--gap);
+
+  @include on-tablet {
+    --columns: 8;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+    --gap: 30px;
+  }
+}
+
+@mixin set-default-bottom-paddings {
+  padding-bottom: 110px;
+
+  @include on-tablet {
+    padding-bottom: 140px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 170px;
+  }
+}
+
+@mixin set-default-inline-paddings {
+  padding-inline: 30px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 123px;
   }
 }

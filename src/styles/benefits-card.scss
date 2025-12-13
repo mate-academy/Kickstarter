@@ -1,0 +1,60 @@
+.benefits-card {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-direction: column;
+  align-items: center;
+
+  @include on-tablet {
+    grid-column: span 4;
+  }
+
+  @include on-desktop {
+    grid-column: span 3;
+    max-width: 276px;
+  }
+
+  &__icon {
+    width: 50px;
+    height: 40px;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      width: 46px;
+      margin-bottom: 50px;
+    }
+
+    @include on-desktop {
+      width: 70px;
+      height: 50px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      height: 28px;
+      text-align: center;
+    }
+
+    @include on-desktop {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__description {
+    display: block;
+    color: $description-color;
+    text-align: center;
+  }
+
+  &--from-tablet {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+}
