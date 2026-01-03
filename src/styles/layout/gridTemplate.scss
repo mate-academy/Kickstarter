@@ -1,0 +1,41 @@
+.grid {
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
+
+  width: 100%;
+
+  @for $start from 1 through 12 {
+    @for $end from 1 through 13 {
+      &--#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end};
+      }
+    }
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 20px;
+
+    @for $start from 1 through 8 {
+      @for $end from 1 through 9 {
+        &--#{$start}-#{$end}-tab {
+          grid-column: #{$start} / #{$end};
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(4, 1fr);
+
+    @for $start from 1 through 4 {
+      @for $end from 1 through 5 {
+        &--#{$start}-#{$end}-mob {
+          grid-column: #{$start} / #{$end};
+        }
+      }
+    }
+  }
+}

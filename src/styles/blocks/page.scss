@@ -1,0 +1,74 @@
+.page {
+  scroll-behavior: smooth; /* чтоб навигация происходила плавно */
+
+  &:has(.page__menu:target) {
+    overflow: hidden; /* Когда меню открыто, скрывается прокрутка страницы. Чтобы фон не скроллился за меню. */
+  }
+
+  &__body {
+    position: relative;
+    margin: 0;
+    background-color: $c-background;
+  }
+
+  &__menu {
+    pointer-events: none; // Отключаем все клики/нажатия по элементу, пока он скрыт (как будто его "нет")
+    will-change: transform, opacity;
+
+    position: fixed; // Меню фиксировано относительно окна браузера (не скроллится вместе со страницей)
+    z-index: 100; // Ставим меню поверх других элементов (слоёв)
+
+    // Растягиваем меню по горизонтали сверху (от левого края до правого)
+    inset: 0; // Растягиваем по всей высоте экрана
+    transform: translateY(
+      -100%
+    ); // // Сдвигаем меню полностью за пределы экрана вверх (оно скрыто)
+
+    min-height: 100vh; // Гарантируем покрытие всей высоты вьюпорта
+
+    opacity: 0; // Делаем меню полностью прозрачным (невидимым)
+    background-color: $c-white;
+
+    transition: all 0.35s ease; // Синхронизируем скорость появления/скрытия
+
+    &:target {
+      // Когда на меню ссылаются через якорь (например, #menu в URL), оно становится "целью"
+      pointer-events: all; // Теперь меню реагирует на клики и взаимодействие
+      transform: translateY(
+        0
+      ); // Сдвигаем обратно — меню появляется в видимой области экрана
+      /* stylelint-disable-next-line order/properties-order */
+      opacity: 1; // Делаем меню полностью видимым
+    }
+  }
+
+  // Блокируем скролл страницы, когда меню открыто
+  // &:has(&__menu:target) {
+  //   overflow: hidden;
+  // }
+
+  &__scroll-up {
+    position: fixed;
+    right: 0;
+    bottom: 50px;
+
+    display: flex;
+
+    width: 50px;
+    height: 50px;
+
+    background-image: url(../images/icon/arrow-up.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: all 0.3s;
+
+    &:hover {
+      background-image: url(../images/icon/arrow-up-blue.svg);
+    }
+
+    @include on-desktop {
+      right: 30px;
+    }
+  }
+}

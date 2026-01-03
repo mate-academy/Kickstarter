@@ -1,0 +1,70 @@
+.features {
+  position: relative;
+  width: 100%;
+
+  &__title {
+    @extend %h2;
+  }
+
+  &__container {
+    row-gap: 56px;
+
+    min-height: 555px;
+    margin-top: 30px;
+    padding: 60px 0 59px;
+
+    background-color: #d6ecec;
+
+    @include mobile {
+      row-gap: 30px;
+      width: calc(100% + 30px + 30px);
+      margin-left: -30px;
+      padding: 30px 30px 0;
+    }
+  }
+
+  &__section {
+    z-index: 100;
+    min-height: 280px;
+
+    @include tablet {
+      display: none;
+
+      &--active {
+        display: block;
+      }
+    }
+  }
+
+  &__subtitle {
+    @extend %h3;
+
+    color: #0c797a;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-top: 30px;
+
+    list-style: disc;
+  }
+
+  &__point {
+    @extend %main-text;
+  }
+
+  &__img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    @include mobile {
+      position: relative;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}
