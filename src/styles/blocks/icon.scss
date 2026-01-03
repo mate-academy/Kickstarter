@@ -1,0 +1,101 @@
+.icon {
+  /* стабильное масштабирование без рывков */
+  // transform-origin: center;
+  will-change: transform;
+  cursor: pointer;
+
+  display: block;
+
+  background-repeat: no-repeat;
+  background-position: center; // центрирует логотип
+  background-size: contain; //  заставляет изображение масштабироваться так, чтобы полностью поместиться в контейнер, сохраняя пропорции.
+
+  transition: all 0.3s;
+
+  // @include hover(transform, scale(1.2));
+
+  &--menu {
+    width: 32px;
+    height: 32px;
+    background-image: url(../images/icon/menu.svg);
+
+    &:hover {
+      background-image: url(../images/icon/menu-blue.svg);
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &--close {
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/icon/close.svg);
+
+    &:hover {
+      background-image: url(../images/icon/close-blue.svg);
+    }
+  }
+
+  &__showcase {
+    width: 48px;
+    height: 14px;
+  }
+
+  &--stop-left {
+    pointer-events: none;
+    background-image: url(../images/icon/vector-off-left.svg);
+  }
+
+  &--right {
+    background-image: url(../images/icon/vector.svg);
+
+    &:hover {
+      background-image: url(../images/icon/vector-hover.svg);
+    }
+  }
+
+  &--left {
+    background-image: url(../images/icon/vector-left.svg);
+
+    &:hover {
+      background-image: url(../images/icon/vector-hover-left.svg);
+    }
+  }
+
+  &--stop-right {
+    pointer-events: none;
+    background-image: url(../images/icon/vector-off.svg);
+  }
+
+  &__social--fb {
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/icon/facebook.svg);
+
+    &:hover {
+      background-image: url(../images/icon/facebook-blue.svg);
+    }
+  }
+
+  &__social--twitter {
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/icon/x.svg);
+
+    &:hover {
+      background-image: url(../images/icon/x-blue.svg);
+    }
+  }
+
+  &__social--ig {
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/icon/insta.svg);
+
+    &:hover {
+      background-image: url(../images/icon/insta-blue.svg);
+    }
+  }
+}

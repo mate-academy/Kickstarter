@@ -1,0 +1,71 @@
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    margin: 31px 0 0;
+    padding: 0;
+
+    list-style: none;
+
+    &--ds {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+        flex-direction: row;
+        gap: 28px;
+        justify-content: center;
+
+        margin-top: 170px;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__link {
+    @include font-special;
+
+    font-weight: 400;
+    font-style: regular;
+    line-height: 20px;
+    color: $c-default-black;
+    text-decoration: none;
+
+    transition: all 0.3s;
+
+    @include text-grow-hover; //  растягивание текста при наведении
+
+    &--ds {
+      display: inline-block;
+      padding: 28px;
+      text-align: center;
+
+      // предотвращает сдвиг соседних элементов при ховере
+      &::before {
+        content: attr(
+          data-text
+        ); // Вставляет текст из атрибута data-text в HTML. чтобы "скрыто" отрисовать текст с таким же содержимым.
+
+        overflow: hidden;
+        display: block;
+
+        height: 0;
+
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: 0.2em;
+
+        visibility: hidden;
+      }
+    }
+  }
+
+  &__group {
+    display: none;
+  }
+}

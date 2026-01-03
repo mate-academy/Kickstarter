@@ -1,0 +1,63 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+
+  &__logo-link {
+    flex-shrink: 0; // предотвращает сжатие логотипа
+    width: 161px;
+    height: 25px;
+    background-image: url(../images/logo.svg);
+
+    &:hover {
+      background-image: url(../images/logo-blue.svg);
+    }
+  }
+
+  &__block {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+    @include on-desktop {
+      gap: 47px;
+    }
+  }
+
+  &__language {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &__specs {
+    @include font-special;
+
+    text-decoration: none;
+
+    @include hover(color, $c-black);
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &--header {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+      }
+    }
+  }
+}
