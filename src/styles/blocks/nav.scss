@@ -1,0 +1,53 @@
+.nav {
+  &__desktop {
+    display: none;
+
+    @include on-desktop {
+      display: contents;
+    }
+  }
+
+  &__mobile {
+    display: block;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+  &__link {
+    color: $main-text-color;
+    text-decoration: none;
+
+    &:hover {
+      font-weight: 700;
+      color: $hover-black-color;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    margin: 0;
+    padding-top: 30px;
+    padding-inline-start: 0;
+
+    list-style: none;
+
+    @include on-tablet {
+      gap: 40px;
+      padding-top: 40px;
+    }
+
+    @include on-desktop {
+      flex-direction: row;
+      gap: 84px;
+      align-items: center;
+      justify-content: center;
+
+      height: 76px;
+      padding-top: 0;
+    }
+  }
+}

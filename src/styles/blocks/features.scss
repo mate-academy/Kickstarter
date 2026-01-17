@@ -1,0 +1,236 @@
+.features {
+  width: calc(100% + 60px);
+  margin-inline: -30px;
+  padding-block: 110px 90px;
+
+  @include on-tablet {
+    width: 100%;
+    margin-inline: 0;
+    padding-block: 140px;
+  }
+
+  @include on-desktop {
+    width: 100%;
+    margin-inline: 0;
+    padding-block: 170px;
+
+    .features__slide {
+      pointer-events: auto;
+
+      transform: none;
+
+      // критично: прибираємо накладання grid-area: 1/1
+      grid-area: auto;
+
+      opacity: 1;
+
+      transition: none;
+    }
+
+    .features__slide--1 {
+      grid-area: s1;
+    }
+    .features__slide--2 {
+      grid-area: s2;
+    }
+    .features__slide--3 {
+      grid-area: s3;
+    }
+
+    .features__tab--1:checked ~ .features__panel .features__slide--1,
+    .features__tab--2:checked ~ .features__panel .features__slide--2,
+    .features__tab--3:checked ~ .features__panel .features__slide--3 {
+      pointer-events: auto;
+      transform: none;
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    padding-bottom: 30px;
+    padding-left: 30px;
+
+    @include on-tablet {
+      padding-left: 0;
+    }
+  }
+
+  &__tab {
+    // pointer-events: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  &__panel {
+    display: grid;
+    background-color: $background-accent-color;
+
+    @include on-tablet {
+      width: 100%;
+      height: 555px;
+
+      background-image: url(/src/images/speaker3_tablet_test.png);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      background-size: 415px;
+    }
+
+    @include on-desktop {
+      grid-template: 's2 s3' 1fr 's1 .' 1fr / 1fr 1fr;
+      gap: 56px 30px;
+
+      box-sizing: border-box;
+      height: 642px;
+      padding-left: 102px;
+      padding-block: 60px;
+
+      background-size: 543px 301px;
+    }
+  }
+
+  &__slide {
+    pointer-events: none;
+
+    transform: translateX(24px);
+
+    grid-area: 1 / 1;
+
+    opacity: 0;
+
+    transition:
+      opacity 300ms ease,
+      transform 300ms ease;
+
+    @media (max-width: 1279px) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .features__tab--1:checked ~ &__panel .features__slide--1,
+  .features__tab--2:checked ~ &__panel .features__slide--2,
+  .features__tab--3:checked ~ &__panel .features__slide--3 {
+    pointer-events: auto;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    padding-inline: 30px;
+
+    @include on-tablet {
+      align-items: flex-start;
+      padding-top: 60px;
+      padding-inline: 90px;
+    }
+
+    @include on-desktop {
+      padding-top: 0;
+      padding-inline: 0;
+    }
+  }
+
+  &__heading {
+    color: $accent-dark-color;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    height: 233px;
+    margin: 0;
+    padding-left: 13px;
+    padding-block: 20px 50px;
+
+    @include on-tablet {
+      width: 260px;
+    }
+
+    @include on-desktop {
+      width: auto;
+      height: auto;
+      padding-block: 30px 0;
+
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__icon {
+    width: 48px;
+    height: 14px;
+    fill: $main-text-color;
+  }
+
+  &__arrows {
+    display: flex;
+    color: $main-text-color;
+  }
+
+  &__arrow {
+    &:hover .features__icon {
+      fill: $accent-dark-color;
+    }
+
+    &.is-disabled .features__icon {
+      fill: $tertiary-light-text-color;
+    }
+  }
+
+  &__counter {
+    display: flex;
+    gap: 4px;
+    align-items: end;
+  }
+
+  &__current {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  &__sep {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 100%;
+    color: $tertiary-light-text-color;
+  }
+
+  &__total {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 100%;
+    color: $tertiary-light-text-color;
+  }
+
+  &__img {
+    height: 173px;
+
+    background-image: url(/src/images/speaker3_tablet_test.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}
