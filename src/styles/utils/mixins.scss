@@ -1,0 +1,61 @@
+@import './vars';
+
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline() {
+  box-sizing: border-box;
+  margin-inline: 0;
+  padding-inline: 30px;
+
+  @include on-tablet {
+    margin-inline: 0;
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    max-width: $content-max-width;
+    margin-inline: auto;
+    padding-inline: 123px;
+  }
+}
+
+.container {
+  @include content-padding-inline;
+
+  // margin-inline: 0;
+}
+
+@mixin page-grid {
+  --colums: 4;
+
+  display: grid;
+  grid-template-columns: repeat(var(--colums), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --colums: 8;
+  }
+
+  @include on-desktop {
+    --colums: 12;
+
+    column-gap: 30px;
+  }
+}
