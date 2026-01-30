@@ -1,0 +1,64 @@
+.testimonials {
+  @include page-grid;
+
+  &-quote {
+    position: relative;
+    z-index: 1;
+    grid-column: span 4;
+
+    @include quote-style;
+
+    @include on-tablet {
+      grid-column: 1/-1;
+    }
+
+    @include on-desktop {
+      grid-column: 3/-3;
+    }
+
+    &-background {
+      &-img {
+        pointer-events: none;
+
+        position: absolute;
+        z-index: -1;
+
+        // 1. Move o topo e a esquerda para o meio do pai
+        top: 50%;
+        left: 50%;
+
+        // 2. O transform puxa o elemento de volta metade do seu próprio tamanho
+        transform: translate(-50%, -50%);
+
+        height: 100%;
+      }
+    }
+  }
+
+  &-person {
+    display: flex;
+    grid-column: span 4;
+    flex-direction: column;
+    align-items: center;
+
+    @include on-tablet {
+      grid-column: 1/-1;
+    }
+
+    @include on-desktop {
+      grid-column: 3/-3;
+    }
+
+    &-photo {
+      padding-block: 30px 10px;
+    }
+
+    &-name {
+      padding-bottom: 5px
+    }
+
+    &-profission {
+      @include secondtext-style;
+    }
+  }
+}

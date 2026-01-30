@@ -1,0 +1,63 @@
+.presentation {
+  @include page-grid;
+
+  padding-block: 110px;
+
+  @include on-desktop{
+    padding-block: 170px;
+  }
+  &__container {
+    grid-column: span 4;
+    text-align: center;
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+
+    &-logo {
+      display: flex;
+      justify-content: center;
+    }
+
+    &-content {
+      &-title {
+        padding-block: 40px 20px;
+
+      }
+
+      &-desc {
+        @include secondtext-style;
+      }
+    }
+  }
+
+  &__nav {
+    grid-column: 1/-1;
+    padding-block: 60px;
+
+    &-ul {
+      display: flex;
+      flex-direction: row;
+      gap: 84px;
+      justify-content: center;
+
+      padding-block: 28px;
+
+      list-style: none;
+
+      &-li {
+        &-link {
+          @include third-style;
+
+          color:#333;
+          text-transform: uppercase;
+          &:hover {
+            @include h6-style;
+
+            color:#131313
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,19 +3,20 @@
 
 ## Tech review
 
-1. Add favicon
-2. Add a smooth scroll for the whole page (`scroll-behavior: smooth;`)
-3. Menu on mobile should contain navigation links. [Menu example](http://joxi.ru/VrwJRDPcoOzEZA)
-4. Logos should become bigger on hover and lead to the first section
-5. Icons in the “about us” block should be ***animated*** on hover
-6. The arrow icon in the footer should increase when hovering and when clicked smoothly scroll the page to the top
-7. Under the button “see more about us”, the strip should stretch to the full width when hovering and lead to the CrazyBaby website
-8. All interactive elements(**links, buttons, pictures, icons**) ***should have a hover effect and cursor pointer***. User must intuitively understand that he can interact with them
-9. Make sure when you click on logo there is no 404 error (Use `href="#"` in `anchor tag`)
-10. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded
-11. The form shouldn’t submit empty
+1. Add favicon - ok !
+2. Add a smooth scroll for the whole page (`scroll-behavior: smooth;`) ok !
+3. Menu on mobile should contain navigation links. [Menu example](http://joxi.ru/VrwJRDPcoOzEZA) ok !
+4. Logos should become bigger on hover and lead to the first section ok !
+5. Icons in the “about us” block should be ***animated*** on hover - ok !
+6. The arrow icon in the footer should increase when hovering and when clicked smoothly scroll the page to the top -ok !
+7. Under the button “see more about us”, the strip should stretch to the full width when hovering and lead to the CrazyBaby website - not 
+8. All interactive elements(**links, buttons, pictures, icons**) ***should have a hover effect and cursor pointer***. User must intuitively understand that he can interact with them -ok !
+9. Make sure when you click on logo there is no 404 error (Use `href="#"` in `anchor tag`) ok !
+10. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded - ok !
+11. The form shouldn’t submit empty - ok !
 12. After autocomplete the form, change the [default styles](http://joxi.ru/xAeW7w9CMp9GPm). Read more about [changing autocomplete styles](https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/)
-13. OPTIONAL: After everything is done you can add a slider in the “features” section (for mobile version)
+- ok!
+13. OPTIONAL: After everything is done you can add a slider in the “features” section (for mobile version) NO
 
 ## HR review
 

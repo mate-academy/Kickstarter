@@ -1,0 +1,108 @@
+.header {
+  &__menu {
+    @include page-grid;
+
+    pointer-events: none;
+
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translate(100%);
+
+    display: flex;
+    grid-column: 1/-1;
+    flex-direction: column;
+
+    height: 100vh;
+
+    opacity: 0;
+    background-color: #fff;
+
+    transition: all 0.3 ease;
+
+    &:target {
+      pointer-events: all;
+      transform: translate(0);
+      opacity: 1;
+    }
+
+    &-top {
+      display: flex;
+      grid-column: 1/-1;
+      align-items: center;
+      justify-content: space-between;
+
+      height: 70px;
+      border-bottom: 2px solid black;
+
+    }
+
+    &-nav {
+      display: flex;
+      grid-column: 1/-1;
+      flex: 1; // ESSENCIAL: Faz o nav esticar até o final da página
+      flex-direction: column;
+
+      padding-top: 32px;
+
+      &-ul {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        list-style: none;
+
+        &-li {
+          &-link {
+            @include third-style;
+
+            color: #333;
+          }
+        }
+      }
+
+
+
+      &-spec {
+        display: flex;
+        align-items: center;
+        padding-top: 50px;
+      }
+
+      &-link {
+        width: 100%;
+        margin-top: auto;
+        padding-bottom: 30px;
+
+        &-button {
+          width: 100%;
+          height: 60px;
+          margin-top: auto;
+          border: none;
+
+          font-weight: bold;
+          color: white;
+
+          background-color: #333;
+
+          @include button-style;
+        }
+      }
+
+    }
+
+  }
+}
+
+
+.spec-background {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/background/background-spec.png);
+}
+
+.spec-space {
+  padding-left: 20px;
+}

@@ -1,7 +1,194 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import 'nav';
+@import 'blocks/presentation';
+@import 'blocks/benefits';
+@import 'blocks/about';
+@import 'blocks/features';
+@import 'blocks/footer';
+@import 'blocks/questions';
+@import 'blocks/technology';
+@import 'blocks/testimonials';
 
-body {
-  background: $c-gray;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: inter, sans-serif;
+}
+
+.page {
+  scroll-behavior: smooth;
+  background-color: #F7F7F7;
+
+}
+
+h1 {
+  @include h1-style;
+}
+
+h2 {
+  @include h2-style;
+}
+
+h3 {
+  @include h3-style;
+}
+
+h4 {
+  @include h4-style;
+}
+
+h5 {
+  @include h5-style;
+}
+
+h6 {
+  @include h6-style;
+}
+
+// section header
+.header {
+  @include page-grid;
+
+  &-top {
+    display: flex;
+    grid-column: 1/-1;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding-block: 20px;
+
+   
+    &-right {
+      &-icon {
+        @include on-tablet {
+          display: flex;
+          flex-direction: row-reverse;
+          gap: 30px;
+          align-items: center; // Alinha os itens verticalmente ao centro
+        }
+
+        &-opt {
+          order: 5;
+        }
+
+      }
+
+    }
+  }
+}
+
+.logo-svg {
+  fill: black;
+  stroke: black;
+}
+
+.link-azul {
+  position: relative;
+  display: inline-block;
+  color: #0DB2B3;
+  text-decoration: none;
+
+  @include button-style;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+
+    width: 33%; // Começa invisível
+    height: 2px;
+
+    background-color: #0DB2B3;
+
+    transition: width 0.3s ease; // Suaviza o movimento
+  }
+
+  &:hover::after {
+    width: 100%; // Expande a linha até cobrir o link
+  }
+
+}
+
+.svg-claro {
+  fill: #828282;
+}
+
+.svg-escuro {
+  fill: #333;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.ontablet {
+  @include on-tablet {
+    display: none;
+  }
+}
+
+.offmobile {
+  @include off-tablet {
+    display: none;
+  }
+}
+
+.offtablet {
+  @include off-desktop {
+    display: none;
+  }
+}
+
+.offdesktop {
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.link-buy-top {
+
+  &-button {
+    width: 100px;
+    height: 48px;
+
+    @include style-buttondark;
+
+
+  }
+}
+
+.blue-button {
+  &:hover {
+    border: none;
+    background-color: #0C797A;
+  }
+
+  &:disabled {
+    border: none;
+    background-color: #CFEFF0;
+  }
+}
+
+.black-button {
+  &:hover {
+    background-color: #131313;
+  }
+
+  &:disabled {
+    background-color: #D0D0D0;
+  }
+}
+
+.scale-hover {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }

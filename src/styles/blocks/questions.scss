@@ -1,0 +1,88 @@
+.questions {
+  @include page-grid;
+
+  padding-bottom: 110px;
+
+  @include on-tablet {
+    padding-block: 140px;
+  }
+
+  @include on-desktop {
+    padding-block: 170px;
+  }
+
+  &-title {
+    grid-column: span 4;
+    padding-bottom: 28px;
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+
+
+  &-contact {
+    display: flex;
+    grid-column: span 4;
+    flex-direction: column;
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+
+    &-form {
+
+      &-input {
+        width: 100%;
+        height: 48px;
+        padding-inline: 12px;
+        border: 1px solid #828282;
+
+        @include maintext-style;
+
+        &::placeholder {
+          color: #BDBDBD;
+        }
+      }
+
+      &-textarea {
+        resize: vertical; // Permite ao usuário aumentar mas não quebrar a largura
+
+        width: 100%;
+        min-height: 180px; // Altura generosa para a mensagem
+        margin-block: 20px 30px;
+        padding: 20px 12px;
+        border: 1px solid #828282;
+
+        @include maintext-style;
+
+        &::placeholder {
+          color: #BDBDBD;
+        }
+      }
+
+
+      &-button {
+        width: 35%;
+        height: 40px;
+        border: none;
+
+        color: white;
+
+        background-color: #0DB2B3;
+
+        @include button-style;
+
+      }
+    }
+  }
+}
+
+input:-webkit-autofill { 
+  /* Muda apenas a cor do fundo (substitua #ffffff pela cor desejada) */
+  box-shadow: 0 0 0 1000px #fff inset !important;
+
+  /* Muda apenas a cor do texto */
+  -webkit-text-fill-color: #333 !important;
+}
