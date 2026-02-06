@@ -1,0 +1,100 @@
+.my-swiper {
+  background-color: $bg-color-accent-block;
+
+  // *Need this specificity to override default swiper styles.
+  // *Default swiper styles connects later than these styles.
+  & .swiper-wrapper {
+    @include respond-to(lg) {
+      display: grid;
+      grid-auto-rows: min-content;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 50px 30px;
+
+      box-sizing: border-box;
+    }
+  }
+
+  &__slide {
+    &--first {
+      grid-column: 2 / span 4;
+      grid-row: 1;
+    }
+
+    &--second {
+      grid-column: 2 / span 4;
+      grid-row: 2;
+    }
+
+    &--third {
+      grid-column: 7 / span 4;
+      grid-row: 1;
+    }
+  }
+
+  &__navigation {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    @include respond-to(lg) {
+      display: none;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    gap: 4px;
+    align-items: flex-end;
+    justify-content: center;
+
+    font-size: 0.7rem;
+    line-height: 100%;
+  }
+
+  &__divider,
+  &__total {
+    color: $text-accent-color;
+  }
+
+  &__current {
+    font-size: 1rem;
+    line-height: 150%;
+    color: $text-primary-neutral-color;
+  }
+
+  &__button {
+    cursor: pointer;
+
+    position: relative;
+
+    padding: 0;
+    border: none;
+
+    color: $text-primary-neutral-color;
+
+    background-color: transparent;
+
+    transition-property: color;
+
+    &:disabled {
+      cursor: not-allowed;
+      color: $text-accent-color;
+    }
+    @include base-interaction;
+    @include hover {
+      color: $text-accent-hovered-color;
+    }
+    @include active {
+      color: $text-accent-hovered-color;
+    }
+
+    &--next {
+      right: 2px;
+    }
+
+    &--prev {
+      top: 2px;
+      left: 2px;
+    }
+  }
+}

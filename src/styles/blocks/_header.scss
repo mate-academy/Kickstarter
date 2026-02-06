@@ -1,0 +1,114 @@
+.header {
+  &__interactive {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 30px;
+
+    @include respond-to(md) {
+      padding: 0;
+    }
+  }
+
+  &__picture {
+    position: relative;
+    z-index: $z-index-zero;
+
+    display: block;
+    grid-column: 1 / -1;
+    place-self: center;
+
+    @include respond-to(md) {
+      grid-column: 4 / -1;
+      grid-row: 1 / span 2;
+      place-self: end center;
+    }
+
+    @include respond-to(lg) {
+      place-self: end;
+    }
+  }
+
+  &__img {
+    display: block;
+    max-width: 100%;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    max-width: 13ch;
+    margin: 40px 30px 0;
+    word-wrap: break-word;
+
+    @include respond-to(md) {
+      grid-column: 1 / 5;
+      grid-row: 1 / span 1;
+      align-self: end;
+
+      margin: 0;
+
+      word-wrap: normal;
+    }
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+    margin: 20px 30px 0;
+
+    @include respond-to(md) {
+      grid-column: 1 / 4;
+      grid-row: 2 / span 1;
+      margin: 30px 0 0;
+    }
+  }
+
+  &__static {
+    @extend %base-grid-column;
+
+    grid-auto-rows: min-content;
+
+    @include respond-to(md) {
+      margin-top: 130px;
+    }
+
+    @include respond-to(lg) {
+      margin-top: 90px;
+    }
+  }
+
+  &__options {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  &__language-selector {
+    display: none;
+
+    @include respond-to(md) {
+      display: flex;
+    }
+  }
+
+  &__specs-btn {
+    display: none;
+
+    @include respond-to(md) {
+      display: block;
+    }
+  }
+
+  &__buy-btn {
+    display: none;
+
+    @include respond-to(md) {
+      display: block;
+    }
+  }
+
+  &__menu-btn {
+    @include respond-to(lg) {
+      display: none;
+    }
+  }
+}

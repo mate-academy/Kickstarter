@@ -1,0 +1,76 @@
+.page {
+  background-color: $page-bg-color;
+
+  &--no-scroll {
+    overflow: hidden;
+  }
+
+  &__header {
+    @extend %block-max-width;
+
+    @include respond-to(md) {
+      margin-top: 30px;
+    }
+  }
+
+  // &__mobile-menu {
+  //   @extend %block-max-width;
+
+  //   @include respond-to(md) {
+  //     padding-top: 39px;
+  //   }
+  // }
+
+  &__main {
+    @extend %block-max-width;
+
+    overflow: hidden;
+    margin-top: 110px;
+
+    @include respond-to(md) {
+      margin-top: 140px;
+    }
+
+    @include respond-to(lg) {
+      margin-top: 170px;
+    }
+  }
+
+  &__footer {
+    @extend %block-max-width;
+
+    margin-top: 110px;
+    margin-bottom: 20px;
+
+    @include respond-to(md) {
+      margin-top: 140px;
+      margin-bottom: 30px;
+    }
+
+    @include respond-to(lg) {
+      margin-top: 170px;
+    }
+  }
+
+  &__button {
+    pointer-events: none;
+
+    position: fixed;
+    z-index: $z-index-last;
+    right: 35px;
+    bottom: 170px;
+    transform: translateX(20px);
+
+    opacity: 0;
+
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out;
+
+    &--visible {
+      pointer-events: auto;
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
