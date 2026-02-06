@@ -1,4 +1,136 @@
+%heading-base {
+  font-family: $primary-font-family;
+  font-weight: 700;
+  line-height: 125%;
+  text-transform: uppercase;
+}
+
 %h1 {
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
+  @extend %heading-base;
+
+  font-size: 2.5rem;
+  line-height: 130%;
+
+  @include respond-to(md) {
+    font-size: 3rem;
+  }
+
+  @include respond-to(lg) {
+    font-size: 4rem;
+  }
+}
+
+%h2 {
+  @extend %heading-base;
+
+  font-size: 1.9rem;
+  line-height: 130%;
+
+  @include respond-to(md) {
+    font-size: 2.25rem;
+  }
+
+  @include respond-to(lg) {
+    font-size: 3.5rem;
+  }
+}
+
+%h3 {
+  @extend %heading-base;
+
+  font-size: 1.13rem;
+
+  @include respond-to(md) {
+    font-size: 1.5rem;
+  }
+
+  @include respond-to(lg) {
+    font-size: 2.15rem;
+  }
+}
+
+%h4 {
+  @extend %heading-base;
+
+  font-size: 1.38rem;
+}
+
+%h5 {
+  @extend %heading-base;
+
+  font-size: 1rem;
+  line-height: 140%;
+  text-transform: capitalize;
+}
+
+%h6 {
+  @extend %heading-base;
+
+  font-size: 0.88rem;
+  line-height: 145%;
+}
+
+%button {
+  font-family: $secondary-font-family;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+
+%main-text {
+  font-size: 1rem;
+  line-height: 150%;
+}
+
+%secondary-text {
+  font-size: 0.88rem;
+  line-height: 150%;
+}
+
+%thirdary-text {
+  font-size: 0.88rem;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+%quote {
+  font-family: $primary-font-family;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 145%;
+
+  @include respond-to(md) {
+    font-size: 1.5rem;
+    line-height: 150%;
+  }
+}
+
+%block-max-width {
+  max-width: 1200 + 68px;
+  margin-inline: auto;
+
+  @include respond-to(md) {
+    padding-inline: min(4vw, 34px);
+  }
+
+  @include respond-to(lg) {
+    max-width: 1194px;
+    padding-inline: 0;
+  }
+}
+
+%base-grid-column {
+  display: grid;
+  grid-template-columns: repeat($column-grid-sm, 1fr);
+  column-gap: 20px;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat($column-grid-md, 1fr);
+    column-gap: 30px;
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat($column-grid-lg, 1fr);
+  }
 }

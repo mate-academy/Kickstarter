@@ -1,0 +1,164 @@
+.button {
+  cursor: pointer;
+
+  border: none;
+
+  font-family: $secondary-font-family;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+
+  &--thirdary {
+    @extend %thirdary-text;
+
+    padding: 0;
+    color: $text-secondary-color;
+    background-color: transparent;
+    transition-property: color, text-shadow;
+
+    @include base-interaction;
+    @include hover {
+      color: $text-primary-neutral-color;
+      text-shadow:
+        0.5px 0 0 $text-primary-neutral-color,
+        -0.5px 0 0 $text-primary-neutral-color;
+    }
+    @include active {
+      color: $text-primary-neutral-color;
+      text-shadow:
+        0.5px 0 0 $text-primary-neutral-color,
+        -0.5px 0 0 $text-primary-neutral-color;
+    }
+  }
+
+  &--icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+    padding: 0;
+
+    background-color: transparent;
+
+    transition-property: transform;
+
+    @include base-interaction;
+    @include hover {
+      transform: scale(1.2);
+    }
+
+    @include active {
+      transform: scale(0.8);
+    }
+  }
+
+  &--primary-accent {
+    @include button-text(
+      $bg-color: $bg-color-accent-btn,
+      $hover-bg-color: $bg-color-accent-hover-btn,
+      $disabled-bg-color: $bg-color-accent-disabled-btn,
+      $text-color: $text-inverse-color
+    );
+  }
+
+  &--primary-neutral {
+    @include button-text(
+      $bg-color: $bg-color-neutral-btn,
+      $hover-bg-color: $bg-color-neutral-hover-btn,
+      $disabled-bg-color: $bg-color-neutral-disabled-btn,
+      $text-color: $text-inverse-color
+    );
+  }
+
+  &--secondary-accent {
+    @include button-text(
+      $bg-color: transparent,
+      $hover-bg-color: $bg-color-accent-hover-btn,
+      $disabled-bg-color: transparent,
+      $text-color: $text-accent-color,
+      $border: 1px solid $bg-color-accent-btn,
+      $text-hover-color: $text-inverse-color,
+      $disabled-text-color: $text-accent-disabled-color,
+      $disabled-border-color: $bg-color-accent-disabled-btn
+    );
+  }
+
+  &--secondary-neutral {
+    @include button-text(
+      $bg-color: transparent,
+      $hover-bg-color: $bg-color-neutral-hover-btn,
+      $disabled-bg-color: transparent,
+      $text-color: $text-primary-neutral-color,
+      $border: 1px solid $bg-color-neutral-btn,
+      $text-hover-color: $text-inverse-color,
+      $disabled-text-color: $text-lightest-color,
+      $disabled-border-color: $bg-color-neutral-disabled-btn
+    );
+  }
+
+  &--unbordered-accent {
+    padding: 0;
+    color: $text-accent-color;
+    background-color: transparent;
+
+    @include base-interaction;
+
+    transition-property: color;
+
+    &::after {
+      content: '';
+
+      display: block;
+
+      width: 40%;
+      height: 1px;
+      margin-top: 8px;
+
+      background-color: $bg-color-accent-btn;
+
+      transition-property: width, background-color;
+      @include base-interaction;
+    }
+
+    @include hover {
+      color: $text-accent-hovered-color;
+      &::after {
+        width: 100%;
+        background-color: $bg-color-accent-hover-btn;
+      }
+    }
+
+    @include active {
+      color: $text-accent-hovered-color;
+
+      &::after {
+        width: 100%;
+        background-color: $bg-color-accent-hover-btn;
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      color: $text-accent-disabled-color;
+      &::after {
+        background-color: $bg-color-accent-disabled-btn;
+      }
+    }
+  }
+
+  &--unbordered-neutral {
+    @include button-text(
+      $bg-color: transparent,
+      $hover-bg-color: transparent,
+      $disabled-bg-color: transparent,
+      $text-color: $text-secondary-color,
+      $border: 1px solid transparent,
+      $disabled-text-color: $text-lightest-color,
+      $hovered-border-color: $bg-color-neutral-hover-btn
+    );
+
+    font-weight: 400;
+  }
+}

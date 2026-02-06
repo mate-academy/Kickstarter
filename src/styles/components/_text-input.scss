@@ -1,0 +1,73 @@
+.text-input {
+  resize: none;
+
+  padding: 12px clamp(1.3rem, 4vw, 2.4rem);
+  border: 1px solid $border-color-default-input;
+
+  font-family: $primary-font-family;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  color: $text-primary-neutral-color;
+
+  outline: none;
+
+  transition-property: border-color;
+
+  &::placeholder {
+    font-family: $primary-font-family;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: $text-placeholder-color;
+  }
+
+  &:focus {
+    border-color: $border-color-selected-input;
+    font-family: $secondary-font-family;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $bg-color-disabled-input;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    border-color: $border-color-selected-input;
+    box-shadow: 0 0 0 1000px $bg-color-autofill-input inset;
+
+    -webkit-text-fill-color: $text-primary-neutral-color;
+  }
+
+  &--success {
+    border-color: $border-color-success-input;
+
+    &::placeholder {
+      color: $text-placehoder-success-color;
+    }
+  }
+
+  @include base-interaction;
+
+  @include hover {
+    border-color: $border-color-selected-input;
+  }
+
+  @include active {
+    border-color: $border-color-selected-input;
+  }
+
+  &--textarea {
+    height: 128px;
+
+    @include respond-to(md) {
+      height: 200px;
+    }
+
+    @include respond-to(lg) {
+      height: 128px;
+    }
+  }
+}

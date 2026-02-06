@@ -1,0 +1,133 @@
+.article {
+  @extend %base-grid-column;
+
+  grid-auto-rows: min-content;
+
+  &__title {
+    grid-column: 1 / -1;
+    margin: 0;
+
+    @include respond-to(md) {
+      grid-row: 1;
+    }
+
+    &--right {
+      @include respond-to(md) {
+        grid-column: 5 / -1;
+      }
+
+      @include respond-to(lg) {
+        grid-column: 7 / -1;
+      }
+    }
+
+    &--left {
+      @include respond-to(md) {
+        grid-column: 1 / 5;
+      }
+
+      @include respond-to(lg) {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+
+  &__picture {
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: center;
+    margin-top: 30px;
+
+    @include respond-to(md) {
+      grid-row: 1 / span 4;
+      margin-top: 0;
+    }
+
+    &--right {
+      @include respond-to(md) {
+        grid-column: 5 / -1;
+        justify-content: flex-start;
+      }
+
+      @include respond-to(lg) {
+        grid-column: 7 / -1;
+      }
+    }
+
+    &--left {
+      @include respond-to(md) {
+        grid-column: 1 / 5;
+        justify-content: flex-end;
+      }
+
+      @include respond-to(lg) {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+
+  &__text {
+    @extend %main-text;
+
+    grid-column: 1 / -1;
+    margin-top: 20px;
+    margin-bottom: 0;
+    color: $text-muted-color;
+
+    @include respond-to(md) {
+      grid-row: 2;
+      margin-top: 30px;
+    }
+
+    &--right {
+      @include respond-to(md) {
+        grid-column: 5 / -1;
+      }
+
+      @include respond-to(lg) {
+        grid-column: 7 / -1;
+      }
+    }
+
+    &--left {
+      @include respond-to(md) {
+        grid-column: 1 / 5;
+      }
+
+      @include respond-to(lg) {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+
+  &__button {
+    grid-column: 1 / -1;
+    width: fit-content;
+    margin-top: 30px;
+
+    @include respond-to(md) {
+      grid-row: 3;
+      margin-top: 60px;
+    }
+
+    &--right {
+      @include respond-to(md) {
+        grid-column: 5 / -1;
+      }
+
+      @include respond-to(lg) {
+        grid-column: 7 / -1;
+      }
+    }
+
+    &--left {
+      @include respond-to(md) {
+        grid-column: 1 / 5;
+      }
+
+      @include respond-to(lg) {
+        grid-column: 1 / 7;
+      }
+    }
+  }
+}

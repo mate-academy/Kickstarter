@@ -1,6 +1,111 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin base-interaction {
+  transition-timing-function: ease;
+  transition-duration: $transiton-short;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+@mixin hover() {
+  @media (hover: hover) {
+    &:not(:disabled) {
+      &:hover {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin active() {
+  &:not(:disabled) {
+    &:active {
+      @content;
+    }
+  }
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == md {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+}
+
+@mixin base-grid-column {
+  display: grid;
+  grid-template-columns: repeat($column-grid-sm, 1fr);
+  column-gap: 20px;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat($column-grid-md, 1fr);
+    column-gap: 30px;
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat($column-grid-lg, 1fr);
+  }
+}
+
+@mixin button-text(
+  $bg-color,
+  $hover-bg-color,
+  $disabled-bg-color,
+  $text-color,
+  $border: none,
+  $text-hover-color: none,
+  $disabled-text-color: none,
+  $disabled-border-color: none,
+  $hovered-border-color: none
+) {
+  padding: 17px 40px;
+  border: $border;
+
+  color: $text-color;
+
+  background-color: $bg-color;
+
+  transition-property: color, border-color, background-color;
+
+  @include base-interaction;
+
+  @include hover {
+    @if $text-hover-color != none {
+      color: $text-hover-color;
+    }
+
+    @if $hovered-border-color != none {
+      border-color: $hovered-border-color;
+    }
+
+    background-color: $hover-bg-color;
+  }
+
+  @include active {
+    @if $text-hover-color != none {
+      color: $text-hover-color;
+    }
+
+    @if $hovered-border-color != none {
+      border-color: $hovered-border-color;
+    }
+
+    background-color: $hover-bg-color;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $disabled-bg-color;
+
+    @if $disabled-border-color != none {
+      border-color: $disabled-border-color;
+    }
+
+    @if $disabled-text-color != none {
+      color: $disabled-text-color;
+    }
   }
 }
