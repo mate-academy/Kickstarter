@@ -1,0 +1,167 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+  padding-bottom: 110px;
+
+  @include on-tablet {
+    gap: 140px;
+    padding-bottom: 140px;
+  }
+
+  @include on-desktop {
+    gap: 170px;
+    padding-bottom: 170px;
+  }
+}
+
+.block {
+  display: grid;
+  grid-template-areas:
+    'title'
+    'img'
+    'content';
+  grid-template-columns: 1fr;
+
+  &__title {
+    grid-area: title;
+
+    &--mobile {
+      display: block;
+    }
+
+    &--tablet {
+      display: none;
+    }
+
+    &--desktop {
+      display: none;
+    }
+
+    @include on-tablet {
+      &--mobile {
+        display: none;
+      }
+      &--tablet {
+        display: block;
+      }
+      &--desktop {
+        display: none;
+      }
+    }
+
+    @include on-desktop {
+      &--mobile {
+        display: none;
+      }
+      &--tablet {
+        display: none;
+      }
+      &--desktop {
+        display: block;
+      }
+    }
+  }
+
+  &__img {
+    grid-area: img;
+
+    img {
+      display: block;
+      width: 100%;
+      padding-top: 30px;
+
+      @include on-tablet {
+        padding-top: 0;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    grid-area: content;
+    flex-direction: column;
+
+    @include on-tablet {
+      padding-right: 34px;
+    }
+
+    &--reverse {
+      @include on-tablet {
+        padding-left: 34px;
+      }
+
+      @include on-desktop {
+        padding-left: 0;
+      }
+    }
+  }
+
+  &__description {
+    padding-top: 20px;
+    color: $secondary-text-color;
+
+    @include on-tablet {
+      padding-top: 30px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__button {
+    padding-top: 30px;
+
+    @include on-tablet {
+      padding-top: 60px;
+    }
+
+    &__link {
+      position: relative;
+      color: $accent-lignt-color;
+      text-decoration: none;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        transform-origin: left;
+        transform: scaleX(0.42);
+
+        display: block;
+
+        width: 100%;
+        height: 1px;
+
+        background-color: $accent-lignt-color;
+
+        transition: transform 0.5s;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  @include on-tablet {
+    grid-template-areas: 'img content';
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+    align-items: start;
+
+    margin-inline: -34px;
+  }
+
+  &--reverse {
+    @include on-tablet {
+      grid-template-areas: 'content img';
+    }
+  }
+
+  @include on-desktop {
+    gap: 0 30px;
+    margin-inline: 0;
+  }
+}

@@ -1,0 +1,80 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding-block: 110px 20px;
+
+  @include on-tablet {
+    padding-block: 140px 0;
+  }
+
+  @include on-desktop {
+    padding-block: 170px 0;
+  }
+
+  &__top {
+    @include page-grid;
+
+    display: none;
+
+    @include on-tablet {
+      display: grid;
+    }
+  }
+
+  &__logo-link {
+    @include on-tablet {
+      grid-column: 4 / 6;
+      justify-self: center;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / 8;
+      justify-self: center;
+    }
+  }
+
+  &__logo {
+    display: block;
+  }
+
+  &__arrow-link {
+    @include on-tablet {
+      grid-column: -2 / -1; // остання колонка
+      justify-self: end;
+    }
+  }
+
+  &__arrow {
+    display: block;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__media {
+    display: flex;
+    gap: 49px;
+    padding-bottom: 30px;
+
+    @include on-tablet {
+      padding-block: 35px 60px;
+    }
+
+    @include on-desktop {
+      gap: 40px;
+    }
+  }
+
+  &__icon {
+    display: block;
+  }
+
+  &__text {
+    color: $tertiary-light-text-color;
+    text-align: center;
+  }
+}

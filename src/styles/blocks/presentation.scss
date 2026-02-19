@@ -1,0 +1,56 @@
+.presentation {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include on-tablet {
+    grid-template-columns: 1fr 2fr;
+
+    padding-block: 130px 140px;
+
+    background-image: url(/src/images/speaker1_tablet.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 429px 317px;
+  }
+
+  @include on-desktop {
+    padding-block: 170px;
+
+    background-image: url(/src/images/speaker1_desktop.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 816px 464px;
+  }
+
+  &__img {
+    display: block;
+    width: calc(100% + 60px);
+    margin-inline: -30px;
+    padding-bottom: 40px;
+
+    @include on-tablet {
+      display: none;
+      margin-inline: 0;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      gap: 30px;
+    }
+  }
+
+  &__text {
+    @include on-tablet {
+      width: 250px;
+    }
+
+    @include on-desktop {
+      width: 276px;
+    }
+  }
+}
