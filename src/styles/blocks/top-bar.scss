@@ -1,0 +1,123 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  height: $header-height-mobile;
+
+  @include on-tablet {
+    height: $header-height-tablet;
+  }
+
+  &__right-side {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__buy {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 48px;
+
+    color: white;
+
+    background-color: $main-text-color;
+
+    @include on-tablet {
+      width: 100px;
+      height: $header-height-tablet;
+    }
+
+    &:hover {
+      background-color: $hover-black-color;
+    }
+
+    &--mobile {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+      }
+    }
+  }
+}
+
+.specs-block {
+  display: none;
+
+  @include on-tablet {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+
+    height: $header-height-tablet;
+  }
+
+  @include on-desktop {
+    gap: 45px;
+  }
+
+  &__mobile {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__all-specs {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__specs {
+    color: $tertiary-dark-text-color;
+  }
+
+  &__lang {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    justify-content: space-between;
+
+    &--active {
+      color: $main-text-color;
+    }
+
+    &--passive {
+      color: $tertiary-light-text-color;
+
+      &:hover {
+        color: $main-text-color;
+      }
+    }
+  }
+}
+
+.burger_menu {
+  @include on-desktop {
+    display: none;
+  }
+
+  &__img {
+    width: 32px;
+    height: 32px;
+  }
+}
