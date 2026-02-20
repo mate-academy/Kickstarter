@@ -1,0 +1,69 @@
+.our_story {
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__content {
+    align-items: start;
+    row-gap: 65px;
+    margin-bottom: 110px;
+
+    @include page-grid;
+
+    @include on-tablet {
+      margin-bottom: 140px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+  }
+
+  &__title {
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $main-text-color;
+
+    margin-block: 50px 20px;
+
+    @include on-tablet {
+      height: 56px;
+    }
+  }
+
+  &__description {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $our-story-descr-color;
+    margin: 0;
+    width: 100%;
+
+    @include hover(transform, scale(1.05));
+  }
+}

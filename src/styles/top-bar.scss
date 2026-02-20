@@ -1,0 +1,108 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 25px;
+
+  @include on-tablet {
+    padding-block: 29px 0;
+  }
+
+  @include on-desktop {
+    padding-block: 30px 0;
+  }
+
+  &__menu-right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__hidden-menu {
+    display: none;
+    align-items: center;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &__lang-switcher {
+    display: flex;
+
+    &__link {
+      text-decoration: none;
+      color: $light-gray-color;
+
+      font-family: 'Helvetica Neue', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 18px;
+      transition: color 0.3s;
+
+      &--active {
+        font-weight: 400;
+        color: $main-text-color;
+      }
+    }
+
+    &__separator {
+      color: $main-text-color;
+      margin-inline: 3px 4px;
+    }
+  }
+
+  &__logo {
+    height: 26px;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__button {
+    display: flex;
+    height: 48px;
+    width: 100%;
+    background-color: $main-text-color;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1;
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: #131313;
+    }
+
+    @include on-tablet {
+      width: 100px;
+      margin-inline: 30px;
+    }
+
+    @include on-desktop {
+      width: 102px;
+      margin-inline: 47px 0;
+    }
+  }
+
+  &__link {
+    color: $grey-color;
+    text-decoration: none;
+
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1;
+    margin-right: 20px;
+
+    @include on-tablet {
+      margin-right: 30px;
+    }
+  }
+}

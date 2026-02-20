@@ -1,0 +1,231 @@
+.about_us {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 110px;
+
+    @include on-tablet {
+      gap: 140px;
+    }
+
+    @include on-desktop {
+      gap: 170px;
+    }
+  }
+
+  &__left {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__right {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__card {
+    align-items: start;
+
+    @include page-grid;
+
+    &__img {
+      width: 100%;
+      height: auto;
+      margin-block: 20px;
+      object-fit: cover;
+
+      @include on-tablet {
+        margin: 0;
+        height: 415px;
+        grid-row: 1/4;
+      }
+
+      @include on-desktop {
+        height: 388px;
+      }
+    }
+
+    &__title {
+      align-self: start;
+      font-family: Inter, sans-serif;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 40px;
+      text-transform: uppercase;
+      color: $main-text-color;
+      margin: 0;
+      height: auto;
+
+      @include hover(transform, scale(1.05));
+
+      @include on-tablet {
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      @include on-desktop {
+        font-size: 56px;
+        line-height: 1.25;
+      }
+    }
+
+    &__description {
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      margin: 0 0 30px;
+      color: $our-story-descr-color;
+
+      @include hover(transform, scale(1.05));
+
+      @include on-tablet {
+        margin: 30px 0 60px;
+      }
+    }
+
+    &__link {
+      color: #0db2b3;
+      font-family: Inter, sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 14px;
+      margin: 0;
+      text-decoration: none;
+      text-transform: uppercase;
+      width: 127px;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 53px;
+        height: 2px;
+        background-color: #0db2b3;
+        margin-top: 5px;
+        transition: width 0.3s;
+      }
+
+      &:hover::after {
+        width: 128px;
+      }
+
+      @include on-desktop {
+        margin-bottom: 68px;
+      }
+
+      @include on-desktop {
+        margin-bottom: 48px;
+      }
+    }
+  }
+
+  &__coment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: auto;
+    margin-bottom: 110px;
+
+    @include on-tablet {
+      margin-bottom: 140px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 170px;
+    }
+
+    &__description {
+      font-family: Inter, sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: center;
+      color: $main-text-color;
+      margin: 0;
+      padding-top: 50px;
+
+      @include hover(transform, scale(1.05));
+
+      @include on-tablet {
+        font-size: 24px;
+        line-height: 36px;
+        max-width: 786px;
+        padding-top: 60px;
+      }
+
+      @include on-desktop {
+        padding-top: 42px;
+      }
+    }
+
+    &__bg-img {
+      z-index: -3;
+      position: absolute;
+      width: 208px;
+      height: 171px;
+      object-fit: contain;
+
+      @include on-tablet {
+        width: 233px;
+        height: 189px;
+      }
+
+      @include on-desktop {
+        width: 233px;
+        height: 192px;
+      }
+    }
+
+    &__people-img {
+      height: 62px;
+      width: 62px;
+      border-radius: 50px;
+      margin-block: 30px 10px;
+      margin-inline: auto;
+
+      @include hover(transform, scale(1.1));
+
+      @include on-tablet {
+        margin-block: 40px 20px;
+      }
+
+      @include on-desktop {
+        margin-block: 30px 20px;
+      }
+    }
+
+    &__name {
+      font-family: Inter, sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 22px;
+      text-align: center;
+      color: $main-text-color;
+      margin: 0 0 5px;
+    }
+
+    &__position {
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      text-align: center;
+      color: $our-story-descr-color;
+      margin: 0;
+    }
+  }
+}
