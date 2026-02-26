@@ -1,0 +1,90 @@
+@use '../utility/variables' as *;
+@use '../utility/mixins' as *;
+
+.button {
+  width: 150px;
+  height: 48px;
+
+  @include text(button);
+
+  text-transform: uppercase;
+
+  @include transition(color, background-color);
+
+  &--primary-gray {
+    color: #fff;
+    background-color: $gray-600;
+
+    @include hover {
+      background-color: $gray-700;
+    }
+
+    @include disabled {
+      background-color: $gray-200;
+    }
+  }
+
+  &--primary-cyan {
+    color: #fff;
+    background-color: $cyan-300;
+
+    @include hover {
+      background-color: $cyan-500;
+    }
+
+    @include disabled {
+      background-color: $cyan-200;
+    }
+  }
+
+  &--secondary-gray {
+    border: 1px solid $gray-600;
+    color: $gray-600;
+
+    @include hover {
+      color: #fff;
+      background-color: $gray-600;
+    }
+  }
+
+  &--secondary-cyan {
+    border: 1px solid $cyan-400;
+    color: $cyan-400;
+
+    @include hover {
+      color: #fff;
+      background-color: $cyan-400;
+    }
+  }
+
+  &--secondary-underline {
+    position: relative;
+
+    width: unset;
+    height: unset;
+    padding-bottom: 6px;
+
+    color: $cyan-400;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 40%;
+      height: 1px;
+
+      background-color: currentColor;
+
+      @include transition(width);
+    }
+
+    @include hover {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}

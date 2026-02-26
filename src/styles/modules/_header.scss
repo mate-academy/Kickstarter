@@ -1,0 +1,54 @@
+@use '../utility/variables' as *;
+@use '../utility/mixins' as *;
+
+.header {
+  flex-shrink: 0;
+  height: 80px;
+
+  @include flex-center;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  // --- Items --- //
+  &__items {
+    display: flex;
+    align-items: center;
+
+    @include tablet {
+      column-gap: 30px;
+    }
+
+    @include desktop {
+      column-gap: 50px;
+    }
+  }
+
+  // --- Navbar --- //
+  &__navbar {
+    display: none;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  // --- Button --- //
+  &__button {
+    display: none;
+
+    @include tablet {
+      display: block;
+      width: 100px;
+    }
+  }
+
+  &__burger {
+    @include desktop {
+      display: none;
+    }
+  }
+}

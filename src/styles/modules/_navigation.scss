@@ -1,0 +1,48 @@
+@use '../utility/variables' as *;
+@use '../utility/mixins' as *;
+
+.navigation {
+  &__items {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+
+    @include tablet {
+      row-gap: 40px;
+    }
+
+    @include desktop {
+      flex-direction: row;
+      column-gap: 80px;
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-transform: uppercase;
+
+    @include transition(color);
+
+    @include tablet {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    @include desktop {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    @include hover {
+      color: $cyan-500;
+    }
+
+    &--active {
+      pointer-events: none;
+      font-weight: 700;
+      color: $gray-700;
+    }
+  }
+}

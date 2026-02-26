@@ -1,0 +1,59 @@
+@use '../utility/variables' as *;
+@use '../utility/mixins' as *;
+
+.footer {
+  padding-bottom: 20px;
+
+  @include tablet {
+    padding-bottom: 30px;
+  }
+
+  &__container {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    align-items: center;
+
+    text-align: center;
+
+    @include tablet {
+      row-gap: 60px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    column-gap: 40px;
+
+    @include tablet {
+      column-gap: 50px;
+    }
+
+    @include desktop {
+      column-gap: 40px;
+    }
+  }
+
+  &__copyright {
+    @include text(secondary);
+
+    color: $gray-300;
+  }
+
+  &__up {
+    display: none;
+
+    @include tablet {
+      position: absolute;
+      top: 0;
+      right: $padding-tablet;
+      display: block;
+    }
+
+    @include desktop {
+      right: $padding-desktop;
+    }
+  }
+}

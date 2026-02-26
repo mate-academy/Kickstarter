@@ -1,0 +1,120 @@
+@use '../utility/variables' as *;
+@use '../utility/mixins' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+    column-gap: $gap-tablet;
+  }
+
+  @include desktop {
+    column-gap: $gap-desktop;
+  }
+
+  @include hover {
+    .card__image {
+      transform: scale(1.05);
+    }
+  }
+
+  // --- Image--- //
+  &__picture {
+    overflow: hidden;
+    order: 2;
+    margin-bottom: 30px;
+
+    @include tablet {
+      flex: 1;
+      order: unset;
+      margin-bottom: 0;
+      margin-left: -$padding-tablet;
+    }
+
+    @include desktop {
+      margin-left: 0;
+    }
+  }
+
+  &__image {
+    aspect-ratio: 5 / 4;
+    width: 100%;
+    object-fit: cover;
+
+    @include transition(transform);
+
+    @include tablet {
+      aspect-ratio: 4 / 5;
+    }
+
+    @include desktop {
+      aspect-ratio: 3 / 2;
+    }
+  }
+
+  // --- Content--- //
+  &__content {
+    display: contents;
+
+    @include tablet {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    order: 1;
+
+    @include text(h2);
+
+    margin-bottom: 20px;
+
+    @include tablet {
+      order: unset;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__description {
+    order: 3;
+    margin-bottom: 30px;
+    color: $gray-400;
+
+    @include text(secondary);
+
+    @include tablet {
+      order: unset;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__button {
+    order: 4;
+    width: fit-content;
+
+    @include tablet {
+      order: unset;
+    }
+  }
+
+  // --- REVERSE LOGIC --- //
+  &--reverse {
+    @include tablet {
+      flex-direction: row-reverse;
+    }
+
+    .card__picture {
+      @include tablet {
+        margin-right: -$padding-tablet;
+        margin-left: 0;
+      }
+
+      @include desktop {
+        margin-right: 0;
+      }
+    }
+  }
+}

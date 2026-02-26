@@ -1,0 +1,48 @@
+@use '../utility/variables' as *;
+@use '../utility/mixins' as *;
+
+.page {
+  scroll-behavior: smooth;
+  height: 100%;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 320px;
+    min-height: 100%;
+
+    font-family: $font-main;
+    color: $gray-600;
+
+    background-color: $gray-100;
+
+    @include animation(fade-in);
+    @include transition(opacity);
+
+    &--fade-out {
+      opacity: 0;
+    }
+
+    &--no-scroll {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    inset: 0;
+  }
+
+  &__main {
+    margin-bottom: $sections-gap-mobile;
+
+    @include tablet {
+      margin-bottom: $sections-gap-tablet;
+    }
+
+    @include desktop {
+      margin-bottom: $sections-gap-desktop;
+    }
+  }
+}

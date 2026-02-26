@@ -1,0 +1,85 @@
+@use '../utility/variables' as *;
+@use '../utility/mixins' as *;
+
+.testimonials {
+  &__container {
+    @include grid;
+  }
+
+  &__testimonial {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    row-gap: 30px;
+
+    text-align: center;
+
+    @include tablet {
+      row-gap: 40px;
+    }
+
+    @include desktop {
+      grid-column: 3 / 11;
+      row-gap: 30px;
+    }
+  }
+
+  &__quote {
+    position: relative;
+    display: grid;
+    place-items: end center;
+
+    @include desktop {
+      place-items: center;
+    }
+
+    &::before {
+      pointer-events: none;
+      content: '';
+
+      z-index: -1;
+
+      grid-area: 1 / 1;
+
+      width: 208px;
+      height: 170px;
+
+      @include image-contain('/src/images/quote.png');
+    }
+  }
+
+  &__text {
+    grid-area: 1 / 1;
+
+    @include text(quote);
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__avatar {
+    aspect-ratio: 1 / 1;
+    width: 64px;
+    margin-bottom: 10px;
+    border-radius: $radius-round;
+
+    object-fit: cover;
+
+    @include tablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__name {
+    @include text(h5);
+
+    margin-bottom: 5px;
+  }
+
+  &__position {
+    @include text(secondary);
+  }
+}

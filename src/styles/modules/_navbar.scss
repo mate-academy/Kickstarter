@@ -1,0 +1,37 @@
+@use '../utility/variables' as *;
+@use '../utility/mixins' as *;
+
+.navbar {
+  &__items {
+    display: flex;
+    column-gap: 20px;
+  }
+
+  &__item {
+    &--language {
+      color: $gray-600;
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: $gray-500;
+    text-transform: uppercase;
+
+    @include transition(color);
+
+    &--active {
+      pointer-events: none;
+    }
+
+    &--unactive {
+      color: $gray-300;
+    }
+
+    @include hover {
+      color: $cyan-500;
+    }
+  }
+}

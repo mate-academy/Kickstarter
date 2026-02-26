@@ -1,0 +1,172 @@
+@use './variables.scss' as *;
+@use 'sass:list';
+@use 'sass:map';
+
+// --- Responsive --- //
+@mixin tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+// --- Layout --- //
+@mixin content-padding {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: $padding-mobile;
+
+  @include tablet {
+    padding-inline: $padding-tablet;
+  }
+
+  @include desktop {
+    padding-inline: $padding-desktop;
+  }
+}
+
+.container {
+  @include content-padding;
+
+  @include desktop {
+    max-width: $bp-desktop;
+  }
+}
+
+// --- Grid & Flex --- //
+@mixin grid($row-gap: false) {
+  --columns: #{$cols-mobile};
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @if $row-gap {
+    row-gap: $gap-mobile;
+  }
+
+  column-gap: $gap-mobile;
+
+  @include tablet {
+    --columns: #{$cols-tablet};
+
+    @if $row-gap {
+      row-gap: $gap-tablet;
+    }
+
+    column-gap: $gap-tablet;
+  }
+
+  @include desktop {
+    --columns: #{$cols-desktop};
+
+    @if $row-gap {
+      row-gap: $gap-desktop;
+    }
+
+    column-gap: $gap-desktop;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// --- Typography --- //
+@mixin text($level) {
+  $config: map.get($type-scale, $level);
+  $desktop-size: list.nth($config, 1);
+  $tablet-size: list.nth($config, 2);
+  $mobile-size: list.nth($config, 3);
+  $desktop-lh: list.nth($config, 4);
+  $tablet-lh: list.nth($config, 5);
+  $mobile-lh: list.nth($config, 6);
+  $weight: list.nth($config, 7);
+  $family: list.nth($config, 8);
+  $transform: list.nth($config, 9);
+
+  font-family: $family;
+  font-size: $mobile-size;
+  font-weight: $weight;
+  line-height: $mobile-lh;
+  text-transform: $transform;
+
+  @include tablet {
+    font-size: $tablet-size;
+    line-height: $tablet-lh;
+  }
+
+  @include desktop {
+    font-size: $desktop-size;
+    line-height: $desktop-lh;
+  }
+}
+
+@mixin line-clamp($lines: 2) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+}
+
+// --- Interactions --- //
+@mixin transition($property...) {
+  transition-timing-function: $transition-function;
+  transition-duration: $transition-speed;
+  transition-property: $property;
+}
+
+@mixin animation($name) {
+  animation-name: $name;
+  animation-duration: $transition-speed;
+  animation-timing-function: $transition-function;
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin pressed {
+  &:active {
+    @content;
+  }
+}
+
+@mixin disabled {
+  &:disabled,
+  &.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    @content;
+  }
+}
+
+// --- Visuals --- //
+@mixin image-cover($path) {
+  background-image: url($path);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin image-contain($path) {
+  background-image: url($path);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+@mixin mask-contain($url) {
+  -webkit-mask: url($url) no-repeat center / contain;
+  mask: url($url) no-repeat center / contain;
+}

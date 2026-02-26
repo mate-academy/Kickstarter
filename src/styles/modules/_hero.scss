@@ -1,0 +1,64 @@
+@use '../utility/variables' as *;
+@use '../utility/mixins' as *;
+
+.hero {
+  &__container {
+    @include grid;
+
+    row-gap: 40px;
+    align-items: end;
+  }
+
+  // --- Image --- //
+  &__picture {
+    grid-column: 1 / -1;
+    margin-inline: -$padding-mobile;
+
+    @include tablet {
+      grid-column: 4 / -1;
+      grid-row: 1;
+      margin-inline: 0;
+    }
+
+    @include desktop {
+      grid-column: 5 / -1;
+      margin-left: -$gap-desktop;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // --- Content --- //
+  &__content {
+    display: grid;
+    grid-column: 1 / 5;
+    grid-template-columns: subgrid;
+    row-gap: 20px;
+    align-items: end;
+
+    @include tablet {
+      grid-row: 1;
+      row-gap: 30px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @include text(h1);
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+
+    @include text(main);
+
+    @include tablet {
+      grid-column: 1 / 4;
+    }
+  }
+}

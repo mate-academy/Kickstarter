@@ -1,0 +1,31 @@
+@use '../utility/variables' as *;
+@use '../utility/mixins' as *;
+
+.questions {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+
+    @include tablet {
+      flex-direction: row;
+      gap: 0 $gap-tablet;
+    }
+
+    @include desktop {
+      column-gap: $gap-desktop;
+    }
+  }
+
+  &__title {
+    flex: 1;
+
+    @include text(h2);
+  }
+
+  &__form {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+}

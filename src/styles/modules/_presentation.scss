@@ -1,0 +1,35 @@
+@use '../utility/variables' as *;
+@use '../utility/mixins' as *;
+
+.presentation {
+  &__container {
+    @include grid;
+  }
+
+  &__picture {
+    grid-column: 1 / -1;
+    margin-inline: -$padding-mobile / 2;
+
+    @include tablet {
+      margin-inline: 0;
+    }
+
+    @include desktop {
+      grid-column: 3 / 11;
+      margin-inline: -$gap-desktop;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: darken;
+
+    @include transition(transform);
+
+    @include hover {
+      transform: scale(1.05);
+    }
+  }
+}

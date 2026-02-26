@@ -1,0 +1,54 @@
+@use '../utility/variables' as *;
+@use '../utility/mixins' as *;
+
+.menu {
+  pointer-events: none;
+
+  z-index: $z-header;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+
+  height: 100vh;
+
+  opacity: 0;
+  background-color: #f9f9f9;
+
+  @include transition(opacity);
+
+  @include tablet {
+    row-gap: 40px;
+  }
+
+  @include desktop {
+    display: none;
+  }
+
+  &--open {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    height: 100%;
+  }
+
+  &__navbar {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin-block: auto 30px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@use '../utility/variables' as *;
+@use '../utility/mixins' as *;
+
+.form {
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid $gray-400;
+
+    color: $gray-600;
+
+    outline: 0;
+
+    @include text(main);
+    @include transition(color, border-color);
+
+    &::placeholder {
+      color: $gray-300;
+
+      @include transition(color);
+    }
+
+    @include hover {
+      border-color: $cyan-500;
+
+      &::placeholder {
+        color: $cyan-500;
+      }
+    }
+
+    &:focus {
+      border-color: $cyan-500;
+    }
+
+    &--textarea {
+      resize: vertical;
+      min-height: 128px;
+    }
+  }
+
+  &__button {
+    width: 100px;
+    height: 40px;
+
+    @include desktop {
+      width: 140px;
+    }
+  }
+}
