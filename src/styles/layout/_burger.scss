@@ -1,0 +1,66 @@
+.burger {
+  cursor: pointer;
+
+  position: relative;
+  transform: translateX(0);
+
+  width: 24px;
+  height: 16px;
+  border: none;
+
+  background: none;
+
+  transition: all 0.3s ease;
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  &__burger-line,
+  &::before,
+  &::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background-color: $c-acent-dark;
+
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+
+  span {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &--is-active {
+    &::before {
+      top: 7px;
+      transform: rotate(45deg);
+    }
+    &::after {
+      bottom: 7px;
+      transform: rotate(-45deg);
+    }
+    span {
+      transform: translateX(-100%);
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    @include on-tablet {
+      transform: translateX(0);
+      order: 0;
+    }
+  }
+
+  @include hover(scale, 1.05);
+}

@@ -1,0 +1,128 @@
+.about-us-card {
+  width: 100%;
+
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    column-gap: 20px;
+    align-items: stretch;
+  }
+
+  @include on-desktop {
+    column-gap: 30px;
+  }
+
+  &__title {
+    margin: 0;
+    color: $c-typo;
+
+    @include on-tablet {
+      grid-column: 2 / 3;
+      grid-row: 1;
+    }
+
+    &--two {
+      @include on-tablet {
+        grid-column: 1 / 2;
+      }
+    }
+  }
+
+  &__img-wrapper {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 2;
+      grid-row: 1 / 4;
+      margin: 0;
+    }
+
+    &--two {
+      @include on-tablet {
+        grid-column: 2 / 3;
+      }
+    }
+  }
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include hover(scale, 1.05);
+  }
+
+  &__typo {
+    @extend %p-secondary;
+
+    margin: 0;
+    margin-top: 20px;
+    color: $c-typo-secondary;
+
+    @include on-tablet {
+      grid-column: 2 / 3;
+      grid-row: 2;
+      margin-top: 30px;
+    }
+
+    &--two {
+      @include on-tablet {
+        grid-column: 1 / 2;
+      }
+    }
+  }
+
+  &__link {
+    @extend %h-btn;
+
+    position: relative;
+
+    display: block;
+
+    width: 130px;
+    height: 14px;
+    margin-top: 30px;
+
+    color: $c-acent-light;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -5px;
+      transform-origin: left;
+      transform: scaleX(35%);
+
+      display: block;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: $c-acent-light;
+
+      transition: all $transition-time ease-in-out;
+    }
+
+    &:hover {
+      &::after {
+        transform: scaleX(100%);
+      }
+    }
+
+    @include on-tablet {
+      grid-column: 2 / 3;
+      grid-row: 3;
+      margin-top: 60px;
+    }
+    
+        &--two {
+          @include on-tablet {
+            grid-column: 1 / 2;
+          }
+        }
+  }
+}

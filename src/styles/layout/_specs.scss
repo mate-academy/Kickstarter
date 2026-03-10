@@ -1,0 +1,57 @@
+.specs {
+  &__container {
+    @include make-container;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: 1fr 1fr;
+      row-gap: 65px;
+
+      @include grid-gap;
+    }
+
+    @include on-desktop {
+      display: flex;
+      gap: 30px;
+      justify-content: space-between;
+    }
+  }
+
+  &__specs-card {
+    display: none;
+
+    &--one {
+      display: flex;
+
+      @include on-tablet {
+        grid-column: 1 / 5;
+        grid-row: 1;
+      }
+    }
+
+    &--two {
+      @include on-tablet {
+        display: flex;
+        grid-column: 5 / -1;
+        grid-row: 1;
+      }
+    }
+
+    &--three {
+      @include on-tablet {
+        display: flex;
+        grid-column: 1 / 5;
+        grid-row: 2;
+      }
+    }
+
+    &--four {
+      @include on-tablet {
+        display: flex;
+        grid-column: 5 / -1;
+        grid-row: 2;
+      }
+    }
+  }
+}

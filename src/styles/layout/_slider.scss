@@ -1,0 +1,63 @@
+.slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  &__viewport {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+
+    overflow-x: auto;
+
+    width: 100%;
+    height: 100%;
+
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__track {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100%;
+  }
+
+  &__slide {
+    scroll-snap-align: center;
+
+    overflow: hidden;
+    display: block;
+    flex: 0 0 100%;
+
+    height: 175px;
+    margin-right: 25px;
+
+    @include on-tablet {
+      height: 225px;
+    }
+
+    @include on-desktop {
+      height: 300px;
+    }
+
+    &--active {
+      scroll-behavior: smooth;
+      display: block;
+    }
+  }
+
+  &__img {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: bottom;
+  }
+}

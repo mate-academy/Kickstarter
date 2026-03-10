@@ -1,6 +1,228 @@
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} #{$transition-time};
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin make-container($max-w: 1280px, $padding: 30px, $display: block) {
+  display: $display;
+
+  width: 100%;
+  max-width: $max-w;
+  margin: 0 auto;
+  padding-right: $padding;
+  padding-left: $padding;
+
+  @include on-tablet {
+    padding-right: 34px;
+    padding-left: 34px;
+  }
+
+  @include on-desktop {
+    padding-right: 123px;
+    padding-left: 123px;
+  }
+}
+
+@mixin prim-btn-base($color) {
+  @extend %h-btn;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: none;
+
+  @include hover(scale, 1.05);
+
+  transition: all $transition-time ease;
+
+  @if $color == $c-acent-light {
+    background-color: $c-acent-light;
+    &:hover {
+      background-color: $c-acent-hover-light;
+    }
+    &--is-disabled {
+      pointer-events: none;
+
+      // cursor: not-allowed;
+      background-color: $c-acent-disabled-light;
+    }
+  }
+
+  @if $color == $c-acent-dark {
+    background-color: $c-acent-dark;
+    &:hover {
+      background-color: $c-acent-hover-dark;
+    }
+    &--is-disabled {
+      pointer-events: none;
+      background-color: $c-acent-disabled-dark;
+
+      // cursor: not-allowed;
+    }
+  }
+}
+
+@mixin sec-btn-base($color) {
+  @extend %h-btn;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  @include hover(scale, 1.05);
+
+  transition: all $transition-time ease;
+
+  @if $color == $c-acent-light {
+    border: solid 1px;
+    color: $c-acent-light;
+    &:hover {
+      background-color: $c-acent-hover-light;
+    }
+    &--is-disabled {
+      pointer-events: none;
+      background-color: $c-acent-disabled-light;
+
+      // cursor: not-allowed;
+    }
+  }
+
+  @if $color == $c-acent-dark {
+    border: solid 1px;
+    color: $c-acent-dark;
+    &:hover {
+      background-color: $c-acent-hover-dark;
+    }
+    &--is-disabled {
+      pointer-events: none;
+      background-color: $c-acent-disabled-dark;
+
+      // cursor: not-allowed;
+    }
+  }
+}
+
+@mixin cart-btn {
+  @extend %h-btn;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  @include hover(scale, 1.05);
+
+  color: $c-cart;
+
+  &:hover {
+    border: solid 1px $c-cart;
+  }
+}
+
+@mixin h1-tablet {
+  font-size: 48px;
+}
+
+@mixin h1-desktop {
+  font-size: 62px;
+}
+
+@mixin h2-tablet {
+  font-size: 36px;
+}
+
+@mixin h2-desktop {
+  font-size: 56px;
+}
+
+@mixin h3-tablet {
+  font-size: 24px;
+}
+
+@mixin h3-desktop {
+  font-size: 34px;
+}
+
+@mixin p-quote-tablet {
+  font-size: 24px;
+  line-height: 36;
+}
+
+@mixin grid-gap {
+  column-gap: 20px;
+
+  @include on-desktop {
+    column-gap: 30px;
+  }
+}
+
+@mixin reset-form {
+  @extend %p;
+
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+
+  color: $c-placeholder;
+
+  appearance: none;
+  background: none;
+  outline: none;
+  box-shadow: none;
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    transition: background-color 5000s ease-in-out 0s;
+
+    -webkit-shadow-box: 0 0 0 1000px white inset !important;
+    -webkit-text-fill-color: $c-placeholder-focused !important;
+  }
+}
+
+@mixin placeholder-style {
+  &::placeholder {
+    @extend %p;
+
+    color: $c-placeholder;
+    transition: all $transition-time ease-in-out;
+  }
+  &:hover {
+    &::placeholder {
+      color: $c-placeholder-hover;
+    }
+  }
+  &:focus {
+    &::placeholder {
+      color: $c-placeholder-focused;
+
+      // opacity: 0;
+    }
   }
 }
