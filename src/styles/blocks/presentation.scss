@@ -1,0 +1,33 @@
+.presentation {
+  margin: 110px 24px;
+
+  @include on-tablet {
+    margin: 140px 34px;
+  }
+
+  @include on-desktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin: 170px 123px;
+  }
+
+  @include on-large-desktop {
+    margin: 150px 200px;
+  }
+
+  &__picture {
+    @include on-desktop {
+      grid-column: 2 / -2;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

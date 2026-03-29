@@ -1,0 +1,96 @@
+.question {
+  @include padding-inline;
+
+  padding-block: 90px 110px;
+
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding-block: 140px;
+  }
+
+  @include on-desktop {
+    padding-block: 170px;
+  }
+
+  &__title {
+    margin-bottom: 27px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__input {
+    padding: 12px 0 12px 20px;
+    border: 1px solid $language-color;
+
+    color: $main-color;
+
+    background: transparent;
+    outline: none;
+    caret-color: $main-color;
+
+    transition: border-color 0.3s ease;
+
+    &::placeholder {
+      color: $disabled-button;
+      transition: color 0.3s ease;
+    }
+
+    &--textarea {
+      resize: none;
+      padding-bottom: 88px;
+    }
+
+    &.is-invalid {
+      border-color: #eb5757;
+
+      &::placeholder {
+        color: rgba(235, 87, 87, 0.3);
+      }
+    }
+
+    &:hover {
+      border-color: $features-text-color;
+
+      &::placeholder {
+        color: $features-text-color;
+      }
+    }
+
+    &:focus {
+      border-color: $features-text-color;
+
+      &::placeholder {
+        color: $features-text-color;
+      }
+    }
+  }
+
+  &__button {
+    width: 100px;
+    margin-top: 10px;
+    padding-block: 16px;
+    border: none;
+
+    color: $button-color;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    background-color: $secondary-color;
+
+    transition:
+      box-shadow 0.3s ease,
+      background-color 0.3s ease;
+
+    &:hover {
+      background-color: $features-text-color;
+      box-shadow: 5px 10px 10px rgba(12, 121, 122, 0.3);
+    }
+  }
+}

@@ -1,0 +1,60 @@
+.languages {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  @include on-tablet {
+    gap: 30px;
+  }
+
+  &__specs {
+    font: inherit;
+    color: $specs-color;
+  }
+
+  &__slash {
+    font: inherit;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 4px;
+  }
+
+  &__button {
+    cursor: pointer;
+
+    position: relative;
+
+    padding: 0;
+    border: none;
+
+    font: inherit;
+    color: $language-color;
+
+    background: inherit;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 0;
+      height: 1px;
+
+      background-color: $main-color;
+
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    &--active {
+      color: $main-color;
+    }
+  }
+}

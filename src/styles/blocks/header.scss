@@ -1,0 +1,74 @@
+.header {
+  @include on-tablet {
+    @include padding-inline;
+
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &__picture {
+    @include on-tablet {
+      grid-column: 4 / -1;
+      grid-row: 2;
+      padding-top: 58px;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / -1;
+      padding-top: 40px;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+
+    @include on-tablet {
+      height: 100%;
+      max-height: 430px;
+      object-fit: contain;
+    }
+
+    @include on-desktop {
+      max-height: 465px;
+      margin-top: 90px;
+    }
+  }
+
+  &__content {
+    padding: 40px 30px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      padding: 130px 0 0;
+    }
+
+    @include on-desktop {
+      padding-top: 171px;
+    }
+  }
+
+  &__title {
+    padding-bottom: 20px;
+
+    @include on-tablet {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      grid-column: 1 / -1;
+      grid-row: 3;
+      justify-self: center;
+    }
+  }
+}

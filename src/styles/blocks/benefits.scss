@@ -1,0 +1,107 @@
+.benefits {
+  @include padding-inline;
+
+  scroll-margin-top: 120px;
+  margin-top: 110px;
+
+  &__container {
+    overflow: hidden;
+    width: 100%;
+    margin: -20px;
+    padding: 20px;
+
+    @include on-tablet {
+      overflow: visible;
+    }
+  }
+
+  &__wrapper {
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 20px 65px;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    gap: 20px;
+    align-items: center;
+
+    box-sizing: border-box;
+    min-height: 254px;
+    padding: 15px;
+    border-radius: 8px;
+
+    transition: box-shadow 0.6s ease;
+
+    @include on-tablet {
+      grid-column: span 4;
+      gap: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+
+    &:hover {
+      box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &__icon {
+    display: block;
+
+    margin-bottom: 20px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include on-tablet {
+      margin-bottom: 10px;
+    }
+
+    &--design {
+      width: 50px;
+      height: 40px;
+      background-image: url('../images/benefits/design-icon.svg');
+    }
+
+    &--speaker {
+      width: 46px;
+      height: 40px;
+      background-image: url('../images/benefits/speaker-icon.svg');
+    }
+
+    &--multiroom {
+      width: 46px;
+      height: 37px;
+      background-image: url('../images/benefits/multiroom-icon.svg');
+    }
+
+    &--lighting {
+      width: 44px;
+      height: 44px;
+      background-image: url('../images/benefits/lighting-icon.svg');
+    }
+  }
+
+  &__title {
+    min-height: 54px;
+    max-height: 74px;
+    text-align: center;
+  }
+
+  &__description {
+    color: $secondary-text-color;
+    text-align: center;
+  }
+}

@@ -1,0 +1,54 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  list-style: none;
+
+  @include on-tablet {
+    gap: 40px;
+  }
+
+  @include on-desktop {
+    flex-direction: row;
+    gap: 84px;
+    margin-top: 198px;
+  }
+
+  &__link {
+    position: relative;
+    font: inherit;
+    color: $main-color;
+    text-decoration: none;
+
+    @include on-tablet {
+      font-size: 22px;
+    }
+
+    @include on-desktop {
+      font-size: 14px;
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+
+      width: 0;
+      height: 2px;
+
+      background-color: $main-color;
+
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  &__story-link {
+    font-weight: 700;
+  }
+}

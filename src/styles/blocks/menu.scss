@@ -1,0 +1,83 @@
+.menu {
+  @include padding-inline;
+
+  pointer-events: none;
+
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+
+  color: $main-color;
+
+  opacity: 0;
+  background-color: $main-background;
+
+  transition: opacity 0.4s ease;
+
+  &:target {
+    pointer-events: all;
+    opacity: 1;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__top-bar {
+    padding-inline: 0;
+
+    @include on-tablet {
+      padding-top: 37px;
+    }
+  }
+
+  &__nav {
+    margin-block: 30px 50px;
+
+    @include on-tablet {
+      margin-top: 64px;
+    }
+  }
+
+  &__languages {
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__buy-button {
+    display: block;
+
+    margin-block: auto 30px;
+    padding-block: 16px;
+
+    color: $button-color;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    background-color: $main-color;
+
+    transition:
+      box-shadow 0.3s ease,
+      background-color 0.3s ease;
+
+    &:hover {
+      background-color: $button-hover;
+      box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}

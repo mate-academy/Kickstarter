@@ -1,0 +1,101 @@
+.footer {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+
+  margin: 0 30px 20px;
+
+  @include on-tablet {
+    gap: 60px;
+    margin: 0 30px 30px;
+  }
+
+  @include on-desktop {
+    margin-inline: 123px;
+  }
+
+  @include on-large-desktop {
+    margin-inline: 200px;
+  }
+
+  &__logo {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__social-icon {
+    cursor: pointer;
+
+    width: 24px;
+    height: 24px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    transition: transform 0.3s ease;
+
+    &--facebook {
+      background-image: url('../images/social-icons/facebook.svg');
+    }
+
+    &--x {
+      background-image: url('../images/social-icons/x.svg');
+    }
+
+    &--instagram {
+      background-image: url('../images/social-icons/instagram.svg');
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__terms {
+    color: $disabled-button;
+    text-align: center;
+  }
+
+  &__arrow {
+    display: none;
+
+    @include on-tablet {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      display: block;
+
+      width: 24px;
+      height: 24px;
+
+      background-image: url('../images/icons/arrow-icon.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

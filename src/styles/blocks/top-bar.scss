@@ -1,0 +1,111 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 30px;
+
+  @include on-tablet {
+    grid-column: 1 / -1;
+    padding: 29px 0 0;
+  }
+
+  &__image {
+    width: 161px;
+    height: 26px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__right {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  &__languages {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &__buy-button {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+
+      width: 100px;
+      padding-block: 16px;
+      border: none;
+
+      color: $button-color;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      background-color: $main-color;
+
+      transition:
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+
+      &:hover {
+        background-color: $button-hover;
+        box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  &__menu {
+    cursor: pointer;
+
+    display: block;
+
+    width: 24px;
+    height: 16px;
+
+    background-image: url('../images/icons/burger-menu-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    transition: transform 0.3s ease;
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+
+    display: block;
+
+    width: 16px;
+    height: 16px;
+
+    background-image: url('../images/icons/close-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    transition: transform 0.3s ease;
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

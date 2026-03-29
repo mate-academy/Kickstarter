@@ -1,0 +1,208 @@
+.features {
+  scroll-margin-top: 120px;
+
+  @include on-tablet {
+    @include padding-inline;
+  }
+
+  &__main-title {
+    padding: 0 30px 32px;
+
+    @include on-tablet {
+      padding-bottom: 30px;
+      padding-inline: 0;
+    }
+  }
+
+  &__container {
+    position: relative;
+    height: 575px;
+    padding: 30px 30px 50px;
+    background-color: $features-background;
+
+    @include on-tablet {
+      height: 455px;
+    }
+
+    @include on-desktop {
+      height: 642px;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    overflow: hidden;
+    min-height: 275px;
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      row-gap: 56px;
+      padding-block: 60px;
+    }
+  }
+
+  &__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(0);
+
+    width: 100%;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition:
+      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.5s ease,
+      visibility 0.5s ease;
+
+    &--active {
+      position: relative;
+      z-index: 2;
+      transform: translateX(0);
+
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &--enter-right {
+      transform: translateX(100%);
+      transition: none;
+    }
+
+    &--enter-left {
+      transform: translateX(-100%);
+      transition: none;
+    }
+
+    &--exit-left {
+      z-index: 1;
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    &--exit-right {
+      z-index: 1;
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+
+  &__music {
+    @include on-desktop {
+      grid-column: 2 / 6;
+      grid-row: 2;
+    }
+  }
+
+  &__connectivity {
+    @include on-desktop {
+      grid-column: 2 / 6;
+      grid-row: 1;
+    }
+  }
+
+  &__app {
+    @include on-desktop {
+      grid-column: 8 / -1;
+      grid-row: 1;
+    }
+  }
+
+  &__title {
+    padding-bottom: 20px;
+    color: $features-text-color;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style-position: inside;
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    @include on-tablet {
+      align-items: start;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+
+    width: 48px;
+    height: 14px;
+    border: none;
+
+    background: transparent;
+
+    transition: background-color 0.3s ease;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+
+    &--left {
+      -webkit-mask-image: url(../images/features/button-left.svg);
+      mask-image: url(../images/features/button-left.svg);
+    }
+
+    &--right {
+      -webkit-mask-image: url(../images/features/button-right.svg);
+      mask-image: url(../images/features/button-right.svg);
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+      background-color: $disabled-button;
+    }
+
+    &--active {
+      background-color: $main-color;
+
+      &:hover {
+        background-color: $features-text-color;
+      }
+    }
+  }
+
+  &__count {
+    display: flex;
+  }
+
+  &__amount {
+    margin-top: 4px;
+    font-size: 11px;
+    color: $features-text-color;
+  }
+
+  &__image {
+    position: absolute;
+    z-index: 9;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    @include on-tablet {
+      width: 58%;
+    }
+
+    @include on-desktop {
+      right: 20px;
+      max-width: 543px;
+      max-height: 301px;
+    }
+  }
+}
