@@ -1,5 +1,7 @@
 'use strict';
 
+import '../styles/main.scss';
+
 const body = document.body;
 const menuButton = document.querySelector('.header__menu-button');
 const mobileMenu = document.querySelector('#mobile-menu');
