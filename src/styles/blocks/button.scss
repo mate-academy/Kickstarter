@@ -1,0 +1,59 @@
+.button {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  height: 48px;
+  margin-top: auto;
+  margin-bottom: 30px;
+  border: 0 solid transparent;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 100%;
+  color: $color-white;
+  text-align: center;
+  text-transform: uppercase;
+
+  background-color: $main-text-color;
+  outline: none;
+
+  transition: background-color $effectDuration;
+
+  &:hover {
+    background-color: $menu-color-bold;
+  }
+
+  &:active {
+    transform: scale(0.98);
+    background-color: $color-button-disabled;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: $color-button-disabled;
+  }
+
+  @include on-tablet {
+    display: none;
+  }
+
+  &--tablet {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      width: 100px;
+      margin: 0 auto;
+    }
+
+    @include on-desktop {
+      width: 102px;
+    }
+  }
+}

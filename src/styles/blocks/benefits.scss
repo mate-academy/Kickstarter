@@ -1,0 +1,89 @@
+.benefits {
+  padding: 0;
+  font-family: Inter, sans-serif;
+
+  &__content {
+    margin-top: auto;
+
+    @include page-grid;
+  }
+
+  &__item {
+    cursor: pointer;
+    display: flex;
+    grid-column: span 4;
+    flex-direction: column;
+
+    @include card-hover;
+
+    &:nth-child(n + 2) {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+      }
+    }
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+  }
+
+  &__icon {
+    display: block;
+
+    width: 50px;
+    height: 40px;
+    margin: 0 auto 40px;
+
+    background-image: url(../images/benefits-icon/icon-1.svg);
+    background-position: center;
+    background-size: cover;
+
+    @include on-tablet {
+      margin: 0 auto 50px;
+    }
+
+    @include on-desktop {
+      width: 70px;
+      height: 50px;
+      margin: 0 auto 30px;
+    }
+
+    &--2 {
+      background-image: url(../images/benefits-icon/icon-2.svg);
+    }
+
+    &--3 {
+      background-image: url(../images/benefits-icon/icon-3-wifi.svg);
+    }
+
+    &--4 {
+      background-image: url(../images/benefits-icon/icon-4.svg);
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    margin-top: 0;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: $main-color;
+    text-align: center;
+  }
+}

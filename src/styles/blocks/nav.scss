@@ -1,0 +1,97 @@
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: row;
+      gap: 84px;
+      margin-block: 28px;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: inherit;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -4px;
+      transform-origin: left;
+      transform: scale(0);
+
+      display: block;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: $main-text-color;
+
+      transition: transform $effectDuration;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    &--bold {
+      font-weight: 700;
+    }
+  }
+}
+
+.specs {
+  cursor: pointer;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  @include on-tablet {
+    display: none;
+  }
+
+  &--tablet {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      gap: 30px;
+    }
+  }
+
+  &__word {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 100%;
+    color: $speacs-color;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__icon {
+    display: block;
+    width: 50px;
+    height: 18px;
+    background-image: url(../images/main-img/icon-en-ua.svg);
+
+    &:hover {
+      background-image: url(../images/main-img/icon-en-ua-hover.svg);
+    }
+  }
+}
