@@ -1,0 +1,56 @@
+.header {
+  &__image {
+    background-image: url('../images/bg/header-image.png');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    aspect-ratio: 12 / 9;
+
+    &--mob {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &--tab-desktop {
+      display: none;
+
+      @include on-tablet {
+        aspect-ratio: 12 / 9;
+        display: block;
+        grid-column: 4/-1;
+        align-self: flex-end;
+      }
+
+      @include on-small-desktop {
+        aspect-ratio: 16 / 9;
+        grid-column: 5/-1;
+      }
+    }
+  }
+
+  &__text {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      margin-top: 120px;
+
+      gap: 30px;
+      grid-column: 1/4;
+      z-index: 1;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1/5;
+    }
+
+    & p {
+      color: $gray1;
+    }
+  }
+}

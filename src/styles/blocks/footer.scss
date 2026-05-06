@@ -1,0 +1,91 @@
+.footer {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    gap: 30px;
+
+    @include on-tablet {
+      gap: 60px;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+    @include on-tablet {
+      gap: 50px;
+    }
+  }
+
+  &__copyright {
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: $gray4;
+    text-align: center;
+
+    @include on-small-desktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__logo {
+    display: none;
+    width: fit-content;
+    place-self: center;
+
+    @include on-tablet {
+      width: fit-content;
+      justify-self: center;
+      display: block;
+    }
+  }
+
+  &__button-up {
+    display: none;
+    width: 45px;
+    height: 45px;
+    right: 30px;
+    bottom: -50px;
+    position: fixed;
+    border-radius: 50%;
+    background-color: $gray1;
+    z-index: 2;
+
+    -webkit-mask-image: url('../images/icon/arrow-up.svg');
+    mask-image: url('../images/icon/arrow-up.svg');
+
+    -webkit-mask-size: cover;
+    mask-size: cover;
+
+    -webkit-mask-position: center;
+    mask-position: center;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    transition:
+      transform $translition,
+      background-color $translition,
+      bottom $translition;
+
+
+
+    &__show {
+      bottom: 40px;
+    }
+
+    @include on-tablet {
+      display: block;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: $turquoise-accent;
+    }
+  }
+}
