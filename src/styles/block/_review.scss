@@ -1,0 +1,102 @@
+.review {
+  @include flex-center;
+
+  position: relative;
+  margin: auto;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+
+  @include on-tablet {
+    max-width: 710px;
+  }
+
+  @include on-desktop {
+    max-width: 795px;
+    margin-top: 102px;
+  }
+
+  &__title {
+    position: relative;
+    margin: 30px 30px 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+
+    @include on-tablet {
+      font-size: 24px;
+      line-height: 36px;
+      margin: 0 34px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 30%;
+      left: 60%;
+      transform: translate(-50%, -50%);
+
+      width: 100%;
+      height: 170px;
+
+      @include flex-center;
+
+      background-image: url('/src/images/quotes-crazybaby.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      opacity: 1;
+
+      @include on-tablet {
+        left: 85%;
+      }
+
+      @include on-desktop {
+        top: 50%;
+        height: 192px;
+      }
+    }
+  }
+
+  &__avatar {
+    margin-top: 30px;
+
+    @include flex-center;
+
+    flex-direction: column;
+
+    @include on-tablet {
+      margin-top: 55px;
+    }
+
+    @include on-desktop {
+      margin-top: 30px;
+    }
+  }
+
+  &__photo {
+    width: 62px;
+    height: 62px;
+  }
+
+  &__name {
+    margin: 10px 0 5px;
+    color: colors(text-secondary);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+
+    @include on-desktop {
+      margin-top: 20px;
+    }
+  }
+
+  &__profession {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+
+    color: colors(text-main);
+  }
+}

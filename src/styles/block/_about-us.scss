@@ -1,0 +1,164 @@
+.about-us {
+  @include on-tablet {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card {
+    box-sizing: border-box;
+    margin-bottom: 110px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      column-gap: 20px;
+      align-items: start;
+    }
+
+    @include on-desktop {
+      column-gap: 30px;
+    }
+  }
+
+  &__title {
+    margin: 30px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: colors(text-secondary);
+
+    @include on-tablet {
+      grid-column: 2;
+      grid-row: 1;
+      margin: 0 34px 30px 0;
+
+      font-size: 36px;
+      line-height: 46px;
+      max-width: 335px;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      line-height: 70px;
+      max-width: 580px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: colors(text-main);
+    margin: 0 30px;
+
+    @include on-tablet {
+      grid-column: 2;
+      grid-row: 2;
+
+      margin: 0 34px 30px 0;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @include on-desktop {
+      margin: 0;
+      max-width: 580px;
+    }
+  }
+
+  &__photo {
+    box-sizing: border-box;
+    margin: 0 30px 20px;
+
+    @include on-tablet {
+      grid-column: 1;
+      grid-row: 1 / 4;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+  }
+
+  &__info {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: colors(primary);
+    margin: 30px;
+
+    @include on-tablet {
+      grid-column: 2;
+      grid-row: 3;
+
+      margin: 60px 0 30px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: colors(primary);
+      width: 50px;
+      height: 2px;
+      left: 0;
+      bottom: -5px;
+    }
+  }
+
+  @include on-tablet {
+    .about-us__photo--reverse {
+      grid-column: 2;
+      grid-row: 1 / 4;
+
+      margin-right: 0;
+    }
+
+    .about-us__title--reverse {
+      grid-column: 1;
+      grid-row: 1;
+
+      font-size: 36px;
+      line-height: 46px;
+      margin: 0 0 0 34px;
+    }
+
+    .about-us__subtitle--reverse {
+      grid-column: 1;
+      grid-row: 2;
+
+      font-size: 16px;
+      line-height: 24px;
+      margin: 0 0 0 34px;
+    }
+
+    .about-us__info--reverse {
+      grid-column: 1;
+      grid-row: 3;
+      margin: 0 0 0 34px;
+    }
+  }
+
+  @include on-desktop {
+    .about-us__title--reverse {
+      font-size: 56px;
+      line-height: 70px;
+      margin: 0;
+    }
+
+    .about-us__subtitle--reverse {
+      margin: 0;
+    }
+
+    .about-us__info--reverse {
+      margin: 0;
+    }
+  }
+}

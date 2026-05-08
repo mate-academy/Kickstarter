@@ -4,3 +4,49 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin background {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@mixin text-main {
+  font-size: 14px;
+  line-height: 21px;
+  color: colors(text-secondary);
+}
+
+@mixin contenr-padding-in-line() {
+  padding-inline: 30px;
+
+  @include on-tablet {
+    padding-inline: 35px;
+  }
+
+  // @include on-desktop {
+  //   padding-inline: 123px;
+  // }
+}
+
+@mixin on-tablet {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@function cols($n, $col: 72px, $gap: 30px) {
+  @return calc(#{$n} * #{$col} + #{$n - 1} * #{$gap});
+}

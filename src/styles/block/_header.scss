@@ -1,0 +1,97 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__image {
+    display: flex;
+    box-sizing: border-box;
+    background-image: url(/src/images/header-bg-mobile-crazybaby.jpg);
+    width: 100%;
+    min-height: 245px;
+    @include background;
+
+    @include on-tablet {
+      background-image: url(/src/images/header-bg-tablet-crazybaby.jpg);
+      min-width: 320px;
+      flex: 1;
+    }
+
+    @include on-desktop {
+      background-image: url(/src/images/header-bg-desktop-crazybaby.jpg);
+      background-position: center;
+      grid-column: 2;
+      grid-row: 1;
+      min-height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__top {
+    padding-bottom: 40px;
+    @include contenr-padding-in-line;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__bottom {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include on-tablet {
+      box-sizing: border-box;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      margin-top: 171px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      align-items: center;
+      padding: 0;
+    }
+  }
+
+  &__text {
+    padding-bottom: 40px;
+    @include contenr-padding-in-line;
+
+    @include on-desktop {
+      padding: 0;
+      grid-column: 1;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    @include on-desktop {
+      // max-width: 276px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include on-desktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+}

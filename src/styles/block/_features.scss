@@ -1,0 +1,233 @@
+.features {
+  &__title {
+    margin: 30px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      margin: 34px;
+    }
+
+    @include on-desktop {
+      margin: 170px 0 30px;
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__category {
+    background-color: #d6ecec;
+
+    @include on-tablet {
+      max-width: 700px;
+      max-height: 555px;
+      margin: 34px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: colors(primary-dark);
+    padding: 30px 40px 20px;
+
+    @include on-tablet {
+      grid-column: 1;
+      grid-row: 1;
+      margin: 0;
+      padding: 60px 0 20px 90px;
+    }
+
+    @include on-desktop {
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    margin-left: 25px;
+    @include contenr-padding-in-line;
+
+    @include on-tablet {
+      grid-column: 1;
+      grid-row: 2;
+      margin: 0;
+      padding: 0 0 30px 100px;
+    }
+  }
+
+  &__item {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: colors(text-secondary);
+    padding-bottom: 10px;
+
+    @include on-desktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__nav {
+    @include flex-center;
+
+    gap: 20px;
+    padding: 20px 0;
+
+    @include on-tablet {
+      max-height: 233px;
+      grid-column: 1;
+      grid-row: 3;
+      justify-content: flex-start;
+      padding: 0 0 30px 100px;
+    }
+  }
+
+  &__arrow {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    & svg path {
+      fill: #bdbdbd;
+      transition: fill 0.2s;
+    }
+
+    &.active svg path {
+      fill: #333;
+    }
+
+    &:hover svg path {
+      fill: #0c797a;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__image {
+    background-image: url(/src/images/future2.0.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center bottom;
+    width: 70%;
+    min-height: 175px;
+
+    @include on-tablet {
+      grid-column: 2;
+      grid-row: 1 / 4;
+      width: 100%;
+      min-height: 400px;
+      background-size: 100%;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 2px;
+    font-family: initial;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__page--current {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #333;
+    position: relative;
+    top: -3px;
+    margin-top: 10px;
+  }
+
+  &__page--sep {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 100%;
+    color: #0c797a;
+  }
+
+  &__page--total {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 100%;
+    color: #0c797a;
+  }
+
+  // ===== Desktop =====
+  &__desktop {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      background-color: #d6ecec;
+      min-height: 645px;
+    }
+  }
+
+  &__desktop-left {
+    flex: 1;
+    padding: 60px 0 60px 102px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 380px;
+  }
+
+  &__desktop-row {
+    display: flex;
+    gap: 130px;
+  }
+
+  &__desktop-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+
+    .features__subtitle {
+      padding: 0 0 30px;
+    }
+
+    .features__list {
+      margin: 0;
+      padding: 0;
+      @include on-desktop {
+        margin-left: 25px;
+      }
+    }
+  }
+
+  &__desktop-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 0 0 90px;
+  }
+
+  &__desktop-image {
+    flex: 1;
+    background-image: url(/src/images/future2.0.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    min-height: 300px;
+  }
+}

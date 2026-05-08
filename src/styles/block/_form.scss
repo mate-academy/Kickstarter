@@ -1,0 +1,103 @@
+.form {
+  margin: 0 30px;
+
+  @include on-tablet {
+    display: flex;
+    gap: 21px;
+    margin: 0;
+  }
+
+  @include on-desktop {
+    gap: 28px;
+  }
+
+  &__left {
+    @include on-tablet {
+      flex: 1;
+      margin: 140px 0 0 34px;
+    }
+  }
+
+  &__right {
+    @include on-tablet {
+      flex: 1;
+      margin: 140px 34px 0 0;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      font-size: 36px;
+      line-height: 46px;
+      margin: 0;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__input {
+    font-family: inherit;
+    box-sizing: border-box;
+    border: 1px solid #828282;
+    outline: none;
+    cursor: text;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 12px 20px;
+    width: 100%;
+    background-color: colors(background);
+    margin-bottom: 20px;
+
+    &--big {
+      height: 130px;
+
+      @include on-tablet {
+        height: 200px;
+        margin-bottom: 30px;
+      }
+
+      @include on-desktop {
+        height: 128px;
+      }
+    }
+
+    &:focus {
+      border: 1px solid colors(primary-dark);
+      color: colors(text-secondary);
+    }
+
+    &:not(:placeholder-shown):invalid {
+      border: 1px solid #eb5757;
+      color: #eb57574d;
+    }
+  }
+
+  &_btn {
+    border: none;
+    background-color: colors(primary);
+    color: white;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    padding: 13px 35px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: colors(primary-dark);
+    }
+
+    &:disabled {
+      background-color: colors(primary-light);
+    }
+  }
+}
