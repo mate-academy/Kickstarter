@@ -1,0 +1,146 @@
+@use 'utils';
+
+.mobile-menu {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+
+  width: 100%;
+  height: 100vh;
+
+  visibility: hidden;
+  opacity: 0;
+  background-color: utils.$bg-main;
+
+  transition:
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.4s ease,
+    visibility 0.4s;
+  transition-delay: 0.4s, 0.4s, 0.4s;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-bottom: 20px;
+  }
+
+  &__header {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 76px;
+    border-bottom: 1px solid utils.$c-grey-300;
+  }
+
+  &__list {
+    @extend %list-reset;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    padding-top: 31px;
+    padding-bottom: 50.5px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  &__button {
+    width: 100%;
+    height: 48px;
+    margin-top: auto;
+    margin-bottom: 10px;
+  }
+
+  &__close {
+    cursor: pointer;
+
+    position: relative;
+
+    width: 24px;
+    height: 16px;
+
+    transition: transform 0.2s ease;
+
+    &::before {
+      top: 0;
+      transform: translateY(7px) rotate(45deg);
+    }
+    &::after {
+      bottom: 0;
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    &-line,
+    &::before,
+    &::after {
+      @extend %burger-lines;
+
+      transition-delay: 0.2s;
+    }
+    &-line {
+      top: 7px;
+      opacity: 0;
+    }
+
+    .mobile-menu--active & {
+      animation: bounce-in 0.5s ease 0.3s backwards;
+    }
+
+    &:active {
+      transform: scale(0.9) !important;
+    }
+  }
+
+  &--active {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+  }
+
+  @include utils.respond-to('tab') {
+    &__list {
+      gap: 40px;
+      padding-top: 40px;
+    }
+
+    &__actions {
+      display: none !important;
+    }
+
+    &__button {
+      display: none !important;
+    }
+  }
+
+  @include utils.respond-to('desk') {
+    display: none !important;
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.8);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

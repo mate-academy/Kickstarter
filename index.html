@@ -6,14 +6,720 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Title</title>
+
+    <!-- Додано: попереднє завантаження критичного шрифту -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      />
+    </noscript>
+
+    <!-- Додано: Swiper для слайдера -->
     <link
       rel="stylesheet"
-      href="src/styles/main.scss"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Додано: тема браузера для mobile UI -->
+    <meta
+      name="theme-color"
+      content="#333333"
+    />
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/src/images/favicon.svg"
+    />
+    <title>Futuristic Wireless Speaker</title>
+    <!-- Додано: опис сторінки для пошукових систем -->
+    <meta
+      name="description"
+      content="Futuristic Wireless Speaker Luna — інноваційна аудіосистема з підтримкою Wi-Fi, Bluetooth та розумним освітленням."
     />
   </head>
   <body>
-    <h1>Hello Mate Academy</h1>
-    <script src="src/scripts/main.js"></script>
+    <header
+      class="header"
+      id="header"
+    >
+      <div class="container">
+        <div class="header__content">
+          <a
+            href="#header"
+            class="header__logo-link"
+          >
+            <img
+              src="/src/images/logo2.svg"
+              alt="To Home"
+              class="header__logo"
+            />
+          </a>
+          <nav class="header__nav">
+            <div class="header__actions">
+              <a
+                href="/"
+                class="header__specs-btn"
+              >
+                Specs
+              </a>
+              <div class="header__lang">
+                <a
+                  href="/"
+                  class="header__lang-link"
+                >
+                  EN
+                </a>
+                /
+                <a
+                  href="/"
+                  class="header__lang-link"
+                >
+                  UA
+                </a>
+              </div>
+              <button class="header__button">BUY</button>
+              <button
+                class="header__burger-btn"
+                aria-label="Відкрити навігаційне меню"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+              >
+                <span
+                  class="header__burger-btn-line"
+                  aria-hidden="true"
+                ></span>
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu">
+      <div class="container">
+        <div class="mobile-menu__header">
+          <a
+            href="#header"
+            class="mobile-menu__logo-link"
+          >
+            <img
+              src="/src/images/logo2.svg"
+              alt="To Home"
+              class="mobile-menu__logo"
+            />
+          </a>
+
+          <button
+            class="mobile-menu__close"
+            aria-label="Close menu"
+          >
+            <span class="mobile-menu__close-line"></span>
+          </button>
+        </div>
+        <nav class="mobile-menu__nav">
+          <ul class="mobile-menu__list">
+            <li class="mobile-menu__item">
+              <a
+                href="#about"
+                class="mobile-menu__link"
+              >
+                OUR STORY
+              </a>
+            </li>
+            <li class="mobile-menu__item">
+              <a
+                href="#about-us"
+                class="mobile-menu__link"
+              >
+                ABOUT US
+              </a>
+            </li>
+            <li class="mobile-menu__item">
+              <a
+                href="#features"
+                class="mobile-menu__link"
+              >
+                FEATURES
+              </a>
+            </li>
+            <li class="mobile-menu__item">
+              <a
+                href="#questions"
+                class="mobile-menu__link"
+              >
+                GET IN TOUCH
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="mobile-menu__actions">
+          <a
+            href="#"
+            class="mobile-menu__specs-btn"
+          >
+            Specs
+          </a>
+          <div class="mobile-menu__lang">
+            <a
+              href="#"
+              class="mobile-menu__lang-link"
+            >
+              EN
+            </a>
+            /
+            <a
+              href="#"
+              class="mobile-menu__lang-link"
+            >
+              UA
+            </a>
+          </div>
+        </div>
+        <button class="mobile-menu__button">BUY</button>
+      </div>
+    </div>
+
+    <main class="main">
+      <!-- Секция Hero -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero__inner">
+            <div class="hero__box-image">
+              <picture>
+                <source
+                  srcset="/src/images/hero-desk.png"
+                  media="(min-width: 1200px)"
+                />
+
+                <source
+                  srcset="/src/images/hero-tab.png"
+                  media="(min-width: 744px)"
+                />
+
+                <img
+                  src="/src/images/hero-mob.png"
+                  alt="Futuristic Luna Speaker"
+                  class="hero__image"
+                />
+              </picture>
+            </div>
+            <div class="hero__content">
+              <h1 class="hero__title">Futuristic Wireless Speaker</h1>
+              <p class="hero__text">
+                Luna’s performance is balanced and smooth in all frequency
+                ranges which makes the music both naturally pleasant and
+                distinctly more layered.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Секция Anchor nav -->
+      <nav class="anchor-nav">
+        <ul class="anchor-nav__list">
+          <li class="anchor-nav__item">
+            <a
+              href="#about"
+              class="anchor-nav__link"
+            >
+              our story
+            </a>
+          </li>
+          <li class="anchor-nav__item">
+            <a
+              href="#about-us"
+              class="anchor-nav__link"
+            >
+              about us
+            </a>
+          </li>
+          <li class="anchor-nav__item">
+            <a
+              href="#features"
+              class="anchor-nav__link"
+            >
+              features
+            </a>
+          </li>
+          <li class="anchor-nav__item">
+            <a
+              href="#questions"
+              class="anchor-nav__link"
+            >
+              get in touch
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Секция Benefits -->
+      <section
+        class="benefits"
+        id="about-us"
+        aria-label="Key product benefits"
+      >
+        <div class="container">
+          <ul class="benefits__list">
+            <!-- 4 карточки с иконками -->
+            <li class="benefits__item">
+              <img
+                src="/src/images/сyberpunk.svg"
+                class="benefits__image"
+                alt=" "
+                role="presentation"
+              />
+              <h3 class="benefits__title">Futuristic Design</h3>
+              <p class="benefits__text">
+                To give Luna a truly flawless look, we specifically picked
+                aircraft grade aluminum as its material and adopted both
+                three-dimensional stretch-bending technology and a high
+                precision cold forging technique.
+              </p>
+            </li>
+
+            <li class="benefits__item">
+              <img
+                src="/src/images/tweeter.svg"
+                class="benefits__image"
+                alt=" "
+                role="presentation"
+              />
+              <h3 class="benefits__title">Tweeter Speaker System</h3>
+              <p class="benefits__text">
+                To deliver a more layered sound performance better than a sole
+                full sponsible for high-frequency sound independently.
+              </p>
+            </li>
+
+            <li class="benefits__item">
+              <img
+                src="/src/images/system.svg"
+                class="benefits__image"
+                alt=" "
+                role="presentation"
+              />
+              <h3 class="benefits__title">Multiroom System</h3>
+              <p class="benefits__text">
+                Luna is natively compatible with your home Wi-Fi. Set up
+                multiple speakers in different rooms to expand your music
+                experience into the entire house.
+              </p>
+            </li>
+
+            <li class="benefits__item">
+              <img
+                src="/src/images/sun.svg"
+                class="benefits__image"
+                alt=" "
+                role="presentation"
+              />
+              <h3 class="benefits__title">Intuitive Lighting System</h3>
+              <p class="benefits__text">
+                An intuitive user interface allows you to adjust the hue and
+                saturation of color for lighting that fits any mood and
+                situation.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Секция Presentation -->
+      <section
+        class="presentation"
+        aria-label="Product presentation"
+      >
+        <div class="container presentation__container">
+          <picture class="presentation__picture">
+            <source
+              srcset="/src/images/futuristic-luna-desk.png"
+              media="(min-width: 1200px)"
+            />
+            <source
+              srcset="/src/images/futuristic-luna-tab.png"
+              media="(min-width: 744px)"
+            />
+            <img
+              src="/src/images/futuristic-luna-mob.png"
+              alt="Luna Speaker model"
+              class="presentation__img"
+            />
+          </picture>
+        </div>
+      </section>
+
+      <!-- Секция ABOUT -->
+      <section
+        class="about"
+        id="about"
+      >
+        <div class="container about__container">
+          <!-- Картинка вынесена отдельно для сетки -->
+          <picture class="about__picture">
+            <source
+              srcset="/src/images/for-future-desk.png"
+              media="(min-width: 1200px)"
+            />
+            <source
+              srcset="/src/images/for-future-tab.png"
+              media="(min-width: 744px)"
+            />
+            <img
+              src="/src/images/for-future-mob.png"
+              alt="Luna speaker design sketches"
+              class="about__img"
+            />
+          </picture>
+
+          <!-- Весь текст объединяем в один блок -->
+          <div class="about__content">
+            <h2 class="about__title">DESIGNED FOR THE FUTURE</h2>
+            <p class="about__text">
+              In 2014, a group of geeky industrial designers, engineering
+              veterans and acoustic experts formed crazybaby. This is a bunch of
+              passionate people who are crazy enough to think they can challenge
+              the industry with disruptive audio products.
+            </p>
+            <a
+              href="#"
+              class="about__link"
+            >
+              SEE MORE ABOUT US
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Секция technology -->
+      <section class="technology">
+        <div class="container technology__container">
+          <picture class="technology__picture">
+            <source
+              srcset="/src/images/luna-desk.png"
+              media="(min-width: 1200px)"
+            />
+            <source
+              srcset="/src/images/luna-tab.png"
+              media="(min-width: 744px)"
+            />
+            <img
+              src="/src/images/luna-mob.png"
+              alt="Luna Eye speaker on a tree stump"
+              class="technology__img"
+            />
+          </picture>
+          <div class="technology__content">
+            <h2 class="technology__title">LUNA EYE</h2>
+            <p class="technology__text">
+              Luna Eye is to the essence of this innovative light and audio
+              system. It comprises an independent tweeter speaker, a light
+              guiding component, a dome and a ring ornament.
+            </p>
+            <a
+              href="#"
+              class="technology__link"
+            >
+              SEE MORE ABOUT US
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Секция testimonials -->
+      <section class="testimonials">
+        <div class="container">
+          <blockquote class="testimonials__quote">
+            <p class="testimonials__text">
+              It really took me by surprise honestly to have such full beautiful
+              sound that coming out of this small compact device. And with the
+              brush aluminum surface, it feels so familiar. Like my iPhone.
+            </p>
+            <footer class="testimonials__author">
+              <img
+                src="/src/images/user.png"
+                alt="Garrett Martin"
+                class="testimonials__avatar"
+              />
+              <cite class="testimonials__name">Garrett Martin</cite>
+              <p class="testimonials__position">Creative Director</p>
+            </footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- Секция Features -->
+      <section
+        class="features"
+        id="features"
+      >
+        <div class="container">
+          <h2 class="features__title">FEATURES</h2>
+        </div>
+
+        <div class="container features__content">
+          <div class="features__background">
+            <!-- Группа списков -->
+            <div class="features__grid swiper">
+              <!-- swiper-wrapper -->
+              <div class="features__items swiper-wrapper">
+                <!-- Блок 1 (Sound & Music) -->
+                <div class="features__item swiper-slide">
+                  <h3 class="features__subtitle">SOUND & MUSIC</h3>
+                  <ul class="features__list">
+                    <li class="features__list-item">
+                      Feel-in-chest Bass Power
+                    </li>
+                    <li class="features__list-item">
+                      Lossless Digital Audio Transmission
+                    </li>
+                    <li class="features__list-item">
+                      Easy & Stable Stereo Pairing
+                    </li>
+                    <li class="features__list-item">
+                      Crisp and Clear High Frequency Sound
+                    </li>
+                    <li class="features__list-item">
+                      Streams from Cloud Music and Local Library
+                    </li>
+                    <li class="features__list-item">
+                      Auto Music Playback from Last Song Stopped
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Блок 2 (Connectivity) - виден всегда на десктопе -->
+                <div class="features__item swiper-slide">
+                  <h3 class="features__subtitle">CONNECTIVITY</h3>
+                  <ul class="features__list">
+                    <li class="features__list-item">
+                      Hands Free Wireless Audio
+                    </li>
+                    <li class="features__list-item">Bluetooth 4.0 LE</li>
+                    <li class="features__list-item">
+                      Wi-Fi 2.4 GHz (802.11 b/g/n)
+                    </li>
+                    <li class="features__list-item">
+                      Smart Multiroom System Set Up
+                    </li>
+                    <li class="features__list-item">
+                      Party Mode with 6.0 Units and above
+                    </li>
+                    <li class="features__list-item">
+                      MESHNET Multi Speaker Network
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Блок 3 (App Features) -->
+                <div class="features__item swiper-slide">
+                  <h3 class="features__subtitle">APP FEATURES</h3>
+                  <ul class="features__list">
+                    <li class="features__list-item">
+                      Customize Music Schedule
+                    </li>
+                    <li class="features__list-item">
+                      Wake Up with Favorite Songs
+                    </li>
+                    <li class="features__list-item">
+                      Home Detection Auto Wake Up
+                    </li>
+                    <li class="features__list-item">Color Wheel</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="features__box">
+              <!-- Управление слайдером (скрываем на десктопе через display: none) -->
+              <div class="features__slider">
+                <div class="features__arrows">
+                  <button
+                    class="features__btn features__btn--prev"
+                    aria-label="Previous"
+                  >
+                    <svg
+                      width="48"
+                      height="13"
+                      viewBox="0 0 48 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M48 4.19628e-06L0.329261 0L0.329261 0.999998L48 1V4.19628e-06Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M18.2022 11.8047L0.440509 0.000149576L0 1.19548L17.7616 13L18.2022 11.8047Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="features__btn features__btn--next"
+                    aria-label="Next"
+                  >
+                    <svg
+                      width="48"
+                      height="13"
+                      viewBox="0 0 48 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 13H47.6707V12H0V13Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M29.7978 1.19533L47.5595 12.9999L48 11.8045L30.2384 0L29.7978 1.19533Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <span class="features__counter">
+                  <span>01</span>
+                  <small>/ 03</small>
+                </span>
+              </div>
+
+              <picture class="features__picture">
+                <source
+                  srcset="
+                    /src/images/speaker-disassembled-desk-removebg-preview.png
+                  "
+                  media="(min-width: 1200px)"
+                />
+                <source
+                  srcset="/src/images/speaker-disassembled-removebg-preview.png"
+                  media="(min-width: 744px)"
+                />
+                <img
+                  src="/src/images/speaker-disassembled-removebg-preview.png"
+                  alt="Disassembled speaker view"
+                  class="features__img"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Секция questions -->
+      <section
+        class="questions"
+        id="questions"
+      >
+        <div class="container questions__grid">
+          <h2 class="questions__title">DO YOU HAVE ANY QUESTIONS?</h2>
+          <form
+            action="#"
+            class="questions__form"
+          >
+            <input
+              type="email"
+              placeholder="Your email"
+              required
+              class="questions__input"
+            />
+            <textarea
+              placeholder="Your message..."
+              required
+              class="questions__textarea"
+            ></textarea>
+            <button
+              type="submit"
+              class="questions__button"
+            >
+              SEND
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+      <div class="container footer__content">
+        <a
+          href="#header"
+          class="footer__logo-link"
+        >
+          <img
+            src="/src/images/logo2.svg"
+            alt="crazybaby"
+            class="footer__logo"
+          />
+        </a>
+
+        <ul class="footer__socials">
+          <li>
+            <a
+              href="#"
+              class="footer__socials-link"
+            >
+              <img
+                src="/src/images/fb.svg"
+                alt="Facebook"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="footer__socials-link"
+            >
+              <img
+                src="/src/images/tw.svg"
+                alt="Twitter"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="footer__socials-link"
+            >
+              <img
+                src="/src/images/inst.svg"
+                alt="Instagram"
+              />
+            </a>
+          </li>
+        </ul>
+
+        <a
+          href="#header"
+          class="footer__back-to-top"
+        >
+          <img
+            src="/src/images/arrow-up.svg"
+            alt="arrow-up"
+            class="footer__arrow-up"
+          />
+        </a>
+
+        <p class="footer__copy">
+          © 2016 All rights reserved. Terms of Use & Privacy Policy
+        </p>
+      </div>
+    </footer>
+
+    <script
+      type="module"
+      src="/src/scripts/main.js"
+    ></script>
   </body>
 </html>

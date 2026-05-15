@@ -1,0 +1,96 @@
+@use 'utils';
+
+.header {
+  background-color: utils.$c-grey-100;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 76px; // из макета
+    border-bottom: 1px solid utils.$c-grey-300;
+  }
+
+  &__logo {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  &__button {
+    height: 48px;
+
+    @include utils.respond-to('desk') {
+      @include utils.text-style(12px, 700, 14px, uppercase);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+    @include utils.respond-to('desk') {
+      gap: 47px;
+    }
+
+    &__lang {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+
+      font-size: 14px;
+      color: utils.$c-grey-500;
+    }
+
+    // Приховуємо елементи на мобільних пристроях (до 768px)
+    & > .header__specs-btn,
+    & > .header__lang,
+    & > .header__button {
+      display: none;
+
+      @include utils.respond-to('tab') {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  &__burger-btn {
+    position: relative;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 24px;
+
+    // Всі базові стилі (скидання кнопки) приходять з типографіки або екстендів
+    height: 16px;
+
+    background: none;
+
+    @include utils.respond-to('desk') {
+      display: none;
+    }
+
+    // Опис ліній бургера (геометрія)
+    &-line,
+    &::before,
+    &::after {
+      content: '';
+
+      display: block;
+
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+
+      background-color: utils.$c-grey-900;
+
+      transition:
+        transform 0.3s,
+        opacity 0.3s;
+    }
+  }
+}

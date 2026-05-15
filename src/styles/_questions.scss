@@ -1,0 +1,60 @@
+@use 'utils';
+
+.questions {
+  scroll-margin-top: 80px;
+  margin-bottom: 110px;
+
+  &__title {
+    max-width: 480px;
+    margin: 0 0 30px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__input {
+    height: 48px;
+  }
+
+  &__textarea {
+    height: 128px;
+  }
+
+  &__button {
+    margin-top: 10px;
+  }
+
+  @include utils.respond-to('tab') {
+    margin-bottom: 140px;
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    &__input {
+      height: 48px;
+    }
+
+    &__textarea {
+      height: 201px;
+    }
+  }
+
+  @include utils.respond-to('desk') {
+    margin-bottom: 170px;
+
+    &__title {
+      max-width: 600px;
+      margin: 0 0 30px;
+    }
+
+    &__textarea {
+      height: 128px;
+    }
+  }
+}

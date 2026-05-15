@@ -1,6 +1,99 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@use 'vars' as vars;
+@use 'sass:color';
+
+// Міксин для медіа-запитів
+// Використання: @include respond-to('tab') { ... }
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'tab' {
+    @media (min-width: vars.$bp-tablet) {
+      @content;
+    }
   }
+
+  @if $breakpoint == 'desk' {
+    @media (min-width: vars.$bp-desktop) {
+      @content;
+    }
+  }
+}
+
+@mixin hover($property, $value, $duration: 0.3s) {
+  transition: all $duration ease-in-out;
+
+  &:active {
+    #{$property}: #{$value};
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      #{$property}: #{$value};
+    }
+  }
+}
+
+@mixin scale-hover($ratio: 1.05, $duration: 0.3s) {
+  backface-visibility: hidden;
+  transition: all $duration ease-in-out;
+
+  &:active {
+    transform: scale($ratio * 0.9);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      transform: scale($ratio);
+    }
+  }
+}
+
+@mixin text-style($size, $weight: 400, $lh: normal, $transform: none) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lh;
+  text-transform: $transform;
+}
+
+@mixin btn-interactive($bg-default, $bg-active, $bg-dis) {
+  background-color: $bg-default;
+  transition:
+    transform 0.25s ease,
+    background-color 0.2s ease;
+
+  &:active {
+    transform: scale(0.96);
+    background-color: $bg-active;
+    transition: transform 0.05s linear;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $bg-dis;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.02);
+      background-color: color.adjust($bg-default, $lightness: -10%);
+    }
+  }
+}
+
+@mixin link-reset {
+  cursor: pointer;
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin nav-link-base {
+  @include link-reset;
+  @include text-style(14px, 400, 20px, uppercase);
+
+  letter-spacing: 0;
 }

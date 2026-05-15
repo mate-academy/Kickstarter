@@ -1,3 +1,98 @@
+@use './utils/vars' as vars;
+@use './utils/extends' as *;
+@use './utils/mixins' as mix;
+
 h1 {
   @extend %h1;
+}
+
+h2 {
+  @extend %h2;
+}
+
+h3 {
+  @extend %h3;
+}
+
+p {
+  @include mix.text-style(16px, 400, 24px);
+
+  margin-bottom: 1rem;
+  color: vars.$fc-secondary;
+}
+
+.header__specs-btn,
+.header__lang-link {
+  @extend %nav-link-base;
+
+  @include mix.scale-hover(1.08, 0.2s);
+  @include mix.hover(color, vars.$c-grey-900);
+
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    inset: -15px -10px;
+  }
+}
+
+.header__burger-btn,
+.mobile-menu__close {
+  @extend %btn-base;
+
+  @include mix.scale-hover(1.1, 0.2s);
+
+  will-change: transform;
+}
+
+.mobile-menu__link,
+.mobile-menu__specs-btn,
+.mobile-menu__lang-link {
+  @extend %nav-link-base;
+
+  @include mix.scale-hover(1.08, 0.2s);
+  @include mix.hover(color, vars.$c-black);
+
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    inset: -15px -10px;
+  }
+}
+
+.header__logo,
+.mobile-menu__logo {
+  @extend %link-reset;
+
+  @include mix.scale-hover(1.03, 0.2s);
+
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    inset: -15px -10px;
+  }
+}
+
+.header__button,
+.mobile-menu__button {
+  @extend %btn-primary;
+
+  will-change: transform;
+}
+
+.questions__button {
+  @extend %btn-accent;
+
+  width: 102px;
+  height: 40px;
+}
+
+.questions__input,
+.questions__textarea {
+  @extend %input-base;
 }

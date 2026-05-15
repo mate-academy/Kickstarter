@@ -1,0 +1,120 @@
+@use 'utils';
+
+.about {
+  scroll-margin-top: 80px;
+  margin-bottom: 110px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__content {
+    display: contents;
+  }
+
+  &__title {
+    order: -1;
+    margin: 0 0 30px;
+  }
+
+  &__picture {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__text {
+    @include utils.text-style(14px, normal, 21px);
+
+    max-width: 100%;
+    margin: 0 0 30px;
+    color: utils.$c-grey-500;
+  }
+
+  &__link {
+    @extend %link-reset;
+
+    @include utils.text-style(12px, 700, 14px, uppercase);
+
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+    color: utils.$c-primary;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 42%;
+      height: 1px;
+
+      background-color: utils.$c-primary;
+
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  @include utils.respond-to('tab') {
+    margin-bottom: 140px;
+
+    &__container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+
+      padding: 0 34px 0 0;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      height: stretch;
+    }
+
+    &__title {
+      order: 0;
+      max-width: 95%;
+      margin-bottom: 30px;
+    }
+
+    &__picture {
+      margin-bottom: 0;
+    }
+
+    &__text {
+      @include utils.text-style(16px, normal, 24px);
+
+      max-width: 97%;
+      margin-bottom: 60px;
+    }
+  }
+
+  @include utils.respond-to('desk') {
+    margin-bottom: 170px;
+
+    &__container {
+      gap: 30px;
+    }
+
+    &__text {
+      max-width: 600px;
+      margin-bottom: 60px;
+    }
+  }
+}

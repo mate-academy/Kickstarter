@@ -1,0 +1,94 @@
+@use 'utils';
+
+.testimonials {
+  margin-bottom: 110px;
+
+  &__quote {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0;
+    padding-top: 50px;
+
+    text-align: center;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      z-index: -1;
+
+      // Центрируем ровно посередине текстового блока
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      // Мобилка (208 x 171)
+      width: 208px;
+      height: 171px;
+
+      background: url('../images/quotes.svg') no-repeat center;
+      background-size: contain;
+
+      @include utils.respond-to('tab') {
+        width: 233px;
+        height: 189px;
+      }
+
+      @include utils.respond-to('desk') {
+        top: 29%;
+        width: 233px;
+        height: 192px;
+      }
+    }
+  }
+
+  &__text {
+    @extend %quote;
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__avatar {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+
+    object-fit: cover;
+  }
+
+  &__name {
+    @include utils.text-style(16px, 700, 22px);
+
+    margin: 0 0 5px;
+  }
+
+  &__position {
+    @include utils.text-style(14px, 400, 21px);
+
+    margin: 0;
+    color: utils.$c-grey-500;
+  }
+
+  @include utils.respond-to('tab') {
+    margin-bottom: 141px;
+
+    &__avatar {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+    }
+  }
+
+  @include utils.respond-to('desk') {
+    margin-bottom: 162px;
+  }
+}

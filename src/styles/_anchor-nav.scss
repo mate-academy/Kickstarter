@@ -1,0 +1,34 @@
+// @use 'vars';
+@use 'utils';
+
+.anchor-nav {
+  display: none;
+
+  @include utils.respond-to('desk') {
+    display: block;
+    margin-bottom: 65px;
+
+    &__list {
+      @include utils.list-reset;
+
+      display: flex;
+      justify-content: space-between;
+      width: 578px;
+      margin: 0 auto;
+    }
+
+    &__link {
+      @include utils.nav-link-base;
+
+      padding: 28px 0;
+      letter-spacing: 0;
+
+      &:hover {
+        font-weight: 700;
+
+        @include utils.scale-hover(1.05);
+        @include utils.hover(color, utils.$link-hover);
+      }
+    }
+  }
+}

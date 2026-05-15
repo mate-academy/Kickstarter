@@ -1,0 +1,71 @@
+@use 'utils';
+
+.footer {
+  &__logo,
+  &__back-to-top {
+    display: none;
+  }
+
+  &__logo,
+  &__back-to-top,
+  &__socials-link {
+    @extend %link-reset;
+  }
+
+  &__content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  &__socials {
+    @extend %list-reset;
+
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    opacity: 0.9;
+  }
+
+  &__copy {
+    @include utils.text-style(14px, 400, 21px);
+
+    display: flex;
+    justify-content: center;
+    color: utils.$c-grey-400;
+    text-align: center;
+  }
+
+  @include utils.respond-to('tab') {
+    &__content {
+      gap: 60px;
+    }
+
+    &__logo {
+      display: block;
+      width: 184px;
+      object-fit: contain;
+    }
+
+    &__socials {
+      gap: 50px;
+    }
+
+    &__back-to-top {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      display: block;
+
+      padding: 10px 50px;
+
+      color: utils.$c-primary;
+
+      background-color: inherit;
+    }
+  }
+}
