@@ -1,7 +1,44 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import './normalize';
+@import './header/header';
+@import './menu/menu';
+@import './main/mainBlock';
+@import './blocks/blocks';
+@import './footer/footer';
+
 
 body {
+  margin: 0;
+  padding: 0;
   background: $c-gray;
+}
+
+.page {
+  position: relative;
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+
+    opacity: 0;
+
+    transition: all $transition;
+
+    z-index: 2;
+
+    &:target {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 }

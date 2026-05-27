@@ -1,0 +1,116 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 25px;
+
+  @include padding-inline;
+
+  @include on-tablet {
+    padding-inline: 0;
+  }
+
+  @include on-desktop {
+    margin: 0;
+  }
+
+  &__content {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+    &--menu {
+      gap: 25px;
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: 160px;
+    height: 26px;
+
+    background-image: url(../images/icon/logo.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include hover(transform, scale(1.07));
+  }
+
+  &__specs {
+    @extend %therdary-text;
+
+    display: none;
+
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: 400;
+    line-height: 100%;
+    color: $secondary-text;
+    text-transform: uppercase;
+
+    transition: all $transition;
+
+    @include on-tablet {
+      display: block;
+    }
+
+    &:hover {
+      font-weight: 700;
+      color: $main-black;
+    }
+  }
+
+  &__container-language {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      gap: 3px;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__lang {
+    display: block;
+
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    color: $tertiary-text;
+
+    @include hover(color, $main-black);
+    @include hover(font-weight, 700);
+
+    &--active {
+      color: $main-black;
+    }
+  }
+
+  &__burger-menu {
+    display: block;
+    width: 32px;
+    height: 32px;
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &--open {
+      background-image: url(../images/icon/Icon-Burger-menu.svg);
+      background-size: cover;
+
+      @include hover(transform, scale(1.2));
+    }
+
+    &--close {
+      background-image: url(../images/icon/Icon-Close.svg);
+      background-size: cover;
+
+      @include hover(transform, scale(1.2));
+    }
+  }
+}

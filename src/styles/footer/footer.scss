@@ -1,0 +1,99 @@
+.footer {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+
+  padding-bottom: 20px;
+
+  @include on-tablet {
+    padding-bottom: 30px;
+  }
+
+  @include on-desktop {
+    gap: 60px;
+  }
+
+  @include padding-inline;
+
+  &__logo {
+    display: none;
+
+    width: 184px;
+    height: 26px;
+
+    background-image: url(../images/icon/logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include hover(transform, scale(1.2));
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    display: none;
+    top: 0;
+    right:34px;
+
+    transform-origin: center;
+
+    background-image: url(../images/icon/arrowUp.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    cursor: pointer;
+
+    @include hover(transform, rotate(360deg));
+
+    @include on-tablet {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+
+    @include on-desktop {
+      right:123px;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__icon {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include size-icon-footer;
+    @include hover(transform, scale(1.2));
+
+    &--twit {
+      background-image: url(../images/icon/twit.svg);
+    }
+
+    &--face {
+      background-image: url(../images/icon/facebook.svg);
+    }
+
+    &--inst {
+      background-image: url(../images/icon/inst.svg);
+    }
+  }
+
+  &__policy {
+    @extend %secondary-text;
+
+    color: $arrow;
+    text-align: center;
+  }
+}

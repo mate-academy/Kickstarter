@@ -1,0 +1,99 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__input {
+    @extend %main-text;
+
+    width: 100%;
+    height: 48px;
+    padding: 12px 20px;
+    border: 1px solid $tertiary-text;
+
+    font-size: 14px;
+
+    outline: none;
+
+    background-color: $c-gray;
+
+    transition: all $transition;
+
+    &::placeholder {
+      @extend %main-text;
+
+      color: $arrow;
+    }
+
+    &:focus {
+      border-color: $feature-green;
+    }
+
+    &--error {
+      border-color: $error;
+    }
+
+    &--error:focus {
+      border-color: $error;
+    }
+
+    &:is(:autofill, :-webkit-autofil) {
+      box-shadow: inset 0 0 0 1000px $c-gray;
+      -webkit-text-fill-color: $main-black;
+    }
+  }
+
+  &__textarea {
+    @extend %main-text;
+
+    width: 100%;
+    height: 128px;
+    padding: 12px 20px;
+    border: 1px solid $tertiary-text;
+
+    font-size: 14px;
+
+    background-color: $c-gray;
+    outline: none;
+
+    @include on-tablet {
+      height: 201px;
+    }
+
+    @include on-desktop {
+      height: 128px;
+    }
+
+    &::placeholder {
+      @extend %main-text;
+
+      color: $arrow;
+    }
+
+    &:focus {
+      border-color: $feature-green;
+    }
+  }
+
+  &__submit {
+    @extend %button;
+
+    border: none;
+    width: 102px;
+    height: 40px;
+    margin-top: 10px;
+    padding: 0;
+    color: $white;
+
+    background-color: $green-link;
+
+    cursor: pointer;
+
+    @include hover(background-color, $feature-green);
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $disabled-bt;
+    }
+  }
+}

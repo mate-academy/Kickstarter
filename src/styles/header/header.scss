@@ -1,0 +1,103 @@
+.header {
+  @include grid-page;
+
+  @include on-tablet {
+    @include padding-inline;
+  }
+
+  &__top-bar {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      margin-bottom: 105px;
+    }
+
+    @include on-design {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__container-image {
+    grid-column: 1 / -1;
+    
+    width: 100%;
+    background-image: url(../images/header/mobile-header.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    aspect-ratio: 1.31;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      grid-row: 2;
+
+      aspect-ratio: 1.35;
+
+      background-image: url(../images/header/tablet-header.webp);
+    }
+
+    @include on-desktop {
+      grid-column: 5 / -1;
+      height: 464px;
+      background-image: url(../images/header/desktop-header.webp);
+      background-size: contain;
+    }
+
+    @include on-design {
+      transform: translateX(-30px);
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding-inline: 30px;
+    padding-block: 40px 0;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column: 1 / 5;
+      grid-row: 2;
+      gap: 30px;
+
+      align-self: self-end;
+
+      height: fit-content;
+
+      padding: 0;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+  }
+
+  &__title-break {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__paragraph {
+    @extend %main-text;
+
+    grid-column: 1 / span 3;
+    margin: 0;
+  }
+
+  &__nav {
+    display: none;
+
+    grid-column: 1 / -1;
+    margin-top: 170px;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+}

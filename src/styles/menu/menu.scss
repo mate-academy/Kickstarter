@@ -1,0 +1,56 @@
+.menu {
+  position: relative;
+  height: 100vh;
+  background-color: $c-gray;
+
+  & &__button {
+    position: fixed;
+
+    display: block;
+    
+    right: 30px;
+    left: 30px;
+    bottom: 30px;
+
+    width: auto;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  @include on-tablet {
+    @include padding-inline;
+  }
+
+  &__nav-container {
+    @include padding-inline;
+
+    @include on-tablet {
+      padding-inline: 0;
+    }
+  }
+
+  &__language {
+    display: flex;
+    gap: 4px;
+  }
+
+  &__top-bar-content {
+    position: absolute;
+    top: 280px;
+    left: 30px;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    & .menu__specs, & .menu__language {
+      display: flex;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+  }
+}

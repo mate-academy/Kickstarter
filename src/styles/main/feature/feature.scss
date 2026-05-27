@@ -1,0 +1,209 @@
+.features {
+  position: relative;
+  margin-inline: -30px;
+
+  @include on-tablet {
+    margin-inline: 0;
+    background-color: $feature-bg;
+
+    @include grid-page;
+  }
+
+  &__title {
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    color: $main-black;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+
+      margin-bottom: 0;
+      margin-left: 0;
+
+      padding-bottom: 30px;
+
+      background-color: $c-gray;
+    }
+
+    @include on-desktop {
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__container {
+    padding-top: 30px;
+    padding-inline: 30px;
+    background-color: $feature-bg;
+
+    @include on-tablet {
+      grid-column: 2 / span 3;
+      padding-top: 60px;
+      padding-inline: 0;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__title-slide {
+    margin-bottom: 20px;
+    color: $feature-green;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    list-style-type: disc;
+
+    padding-left: 16px;
+
+    @include on-tablet {
+      padding-left: 16px;
+    }
+  }
+
+  &__item {
+    @extend %secondary-text;
+
+    width: 100%;
+    color: $main-black;
+
+    @include on-design {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+
+    @include on-tablet {
+      justify-content: flex-start;
+    }
+
+    span:first-child {
+      @extend %main-text;
+
+      display: block;
+
+      transform: translateY(-6px);
+      min-width: 2ch;
+
+      &::before {
+        content: '0';
+      }
+    }
+
+    span:last-child {
+      display: block;
+
+      min-width: 2ch;
+
+      font-family: Inter, sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 100%;
+      color: $feature-green;
+      letter-spacing: 0;
+
+      &::before {
+        content: '0';
+      }
+    }
+  }
+
+  &__swiper {
+    padding-inline: 30px;
+
+    & .features__pagination {
+      position: static;
+      margin-top: 20px;
+      padding-left: 24px;
+    }
+  }
+
+  &__arrow-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+    @include on-tablet {
+      justify-content: flex-start;
+    }
+  }
+
+  &__button {
+    &--left {
+      svg {
+        fill: $arrow;
+      }
+    }
+
+    &--right {
+      svg {
+        fill: $main-black;
+      }
+    }
+
+    &:hover svg {
+      fill: $feature-green;
+    }
+  }
+
+  &__slide {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+
+    &--connectivity {
+      grid-column: 2 / span 4;
+      margin-block: 60px 56px;
+    }
+
+    &--app {
+      grid-column: 7 / span 3;
+      margin-block: 60px 56px;
+    }
+
+    &--sound {
+      grid-column: 2 / span 4;
+    }
+  }
+
+  &__container-img {
+    width: 100%;
+    min-height: 174px;
+
+    background-color: $feature-bg;
+    background-image: url('../images/main/features/erasebg-transformed.webp');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: calc(100% - 7px) 100%;
+
+    @include on-tablet {
+      position: absolute;
+      bottom: -120px;
+      min-height: 226px;
+    }
+
+    @include on-desktop {
+      position: static;
+
+      grid-column: 7 / -1;
+
+      height: 301px;
+      background-position: calc(100% - 7px) 100%;
+    }
+  }
+}
