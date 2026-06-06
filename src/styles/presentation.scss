@@ -1,0 +1,95 @@
+@use './utils/vars' as *;
+@use './utils/mixins' as *;
+
+.presentation {
+  padding-block: 110px;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    @include grid;
+    @include padd-inl;
+
+    padding-block: 140px;
+  }
+
+  @include desktop {
+    padding-block: 170px;
+  }
+
+  &__nav.nav {
+    display: none;
+    padding: 0;
+
+    @include desktop {
+      display: flex;
+      grid-column: span 12;
+    }
+  }
+
+  &__nav-list.nav-list {
+    @include desktop {
+      @include padd-inl;
+
+      justify-content: center;
+      gap: 84px;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 0 60px;
+    }
+  }
+
+  &__item {
+    @include padd-inl;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    &:nth-child(n + 3) {
+      display: none;
+
+      @include tablet {
+        display: block;
+      }
+    }
+
+    @include tablet {
+      grid-column: span 4;
+      padding: 0;
+    }
+
+    @include desktop {
+      grid-column: span 3;
+    }
+  }
+
+  &__img {
+    margin-inline: auto;
+    width: 50px;
+    height: 40px;
+    display: block;
+    object-fit: contain;
+  }
+
+  &__title {
+    margin: 0;
+    padding-block: 40px 20px;
+
+    @include font(22px, null, 28px, 700);
+  }
+
+  &__text {
+    margin: 0;
+    color: $c-gray;
+
+    @include hover-t;
+  }
+
+  &__nav-item {
+    @include hover(1.1);
+  }
+}

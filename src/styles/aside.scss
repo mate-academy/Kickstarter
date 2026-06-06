@@ -1,0 +1,58 @@
+@use './utils/vars' as *;
+@use './utils/mixins' as *;
+
+.aside {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: $c-wh2;
+  transform: translateX(-200%);
+  transition: all 0.3s ease;
+
+  &.is-open {
+    transform: translateX(0);
+  }
+
+  &__menu-btn {
+    background-image: url(../images/menu-close.png);
+    background-position: center;
+    background-size: 16px 16px;
+  }
+
+  &__nav-link.nav-link {
+    @include tablet {
+      @include font(22px, null, 28px);
+    }
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 50px;
+    height: 100%;
+  }
+
+  &__language,
+  &__specs {
+    display: block;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__link-buy {
+    margin-top: 162px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

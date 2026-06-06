@@ -1,0 +1,89 @@
+@use './utils/mixins' as *;
+@use './utils/vars' as *;
+
+.testimonilas {
+  @include padd-inl;
+
+  padding-block: 110px;
+  box-sizing: border-box;
+
+  @include tablet {
+    @include grid;
+
+    padding-block: 30px 140px;
+  }
+
+  @include desktop {
+    padding-bottom: 170px;
+  }
+
+  &__item {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include tablet {
+      grid-column: span 8;
+    }
+
+    @include desktop {
+      grid-column: 3 / 11;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    line-height: 20px;
+    font-weight: 700;
+    padding-top: 50px;
+    background-image: url(../images/testimonilas.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include hover-t;
+
+    @include tablet {
+      font-size: 24px;
+      line-height: 36px;
+      padding-top: 60px;
+    }
+
+    @include desktop {
+      padding-block: 42px;
+    }
+  }
+
+  &__user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-inline: auto;
+
+    @include hover(1.1);
+  }
+
+  &__photo {
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+  }
+
+  &__name {
+    @include font(16px, null, 22px, 700);
+
+    margin: 0;
+
+    @include tablet {
+      margin-top: 15px;
+    }
+  }
+
+  &__post {
+    color: $c-gray;
+    margin: 0;
+  }
+}

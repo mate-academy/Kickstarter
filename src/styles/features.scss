@@ -1,0 +1,162 @@
+@use './utils/mixins' as *;
+@use './utils/vars' as *;
+
+.features {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    @include padd-inl;
+  }
+
+  @include desktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+
+    &__grid {
+      box-sizing: border-box;
+      grid-column: span 12;
+      background-color: $c-gr-wh;
+      padding-block: 60px 0;
+
+      @include grid;
+    }
+  }
+
+  &__title {
+    @include font(30px, null, 40px, 700);
+
+    margin: 0 30px 30px;
+
+    @include tablet {
+      margin: 0 0 30px;
+    }
+
+    @include desktop {
+      grid-column: span 12;
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__container {
+    background-color: $c-gr-wh;
+    display: flex;
+    flex-direction: column;
+
+    @include padd-inl;
+
+    &:nth-child(n + 2) {
+      display: none;
+
+      @include desktop {
+        display: flex;
+      }
+    }
+
+    @include tablet {
+      padding-inline: 90px;
+    }
+
+    @include desktop {
+      padding-inline: 0;
+    }
+  }
+
+  &__sound {
+    @include font(18px, null, 22px, 700);
+
+    margin-block: 30px 20px;
+    color: $c-green2;
+    text-transform: uppercase;
+
+    @include tablet {
+      margin-top: 60px;
+    }
+
+    @include desktop {
+      margin-top: 0;
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    gap: 10px;
+
+    @include tablet {
+      max-width: 260px;
+    }
+  }
+
+  &__function {
+    margin: 0;
+  }
+
+  &__img-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: $c-gr-wh;
+
+    @include tablet {
+      flex-direction: row;
+      padding-inline: 90px 0;
+      gap: 100px;
+    }
+
+    @include desktop {
+      gap: 0;
+
+      grid-column: 7 / 13;
+      padding: 0;
+    }
+  }
+
+  &__img1 {
+    padding-top: 50px;
+    height: 47px;
+    width: 93px;
+    object-fit: contain;
+    margin-inline: auto;
+
+    @include tablet {
+      margin: 0;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__img2 {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    @include tablet {
+      flex-shrink: 1;
+      min-width: 0;
+    }
+  }
+
+  &__container--1 {
+    grid-row: 2;
+    grid-column: 2 / span 4;
+  }
+
+  &__container--3 {
+    grid-column: 2 / span 4;
+    grid-row: 1;
+  }
+
+  &__container--2 {
+    grid-column: 7 / span 4;
+  }
+}
