@@ -1,0 +1,79 @@
+@use './utils/vars' as *;
+@use './utils/mixins' as *;
+
+.benefits {
+  box-sizing: border-box;
+  width: 100%;
+
+  @include tablet {
+    @include grid;
+    @include padd-inl;
+
+    padding-top: 100px;
+  }
+
+  @include desktop {
+    padding-top: 60px;
+  }
+
+  &__images {
+    height: 245px;
+    width: 100%;
+    background-image: url(../images/2_original.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include tablet {
+      grid-column: 4 / span 5;
+      grid-row: 1;
+      height: 100%;
+    }
+
+    @include desktop {
+      grid-column: 4 / span 9;
+      background-image: url(../images/1_original.png);
+    }
+  }
+
+  &__item {
+    @include padd-inl;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 40px;
+
+    @include tablet {
+      grid-column: 1 / span 4;
+      grid-row: 1;
+      padding: 0;
+    }
+
+    &-title {
+      margin: 0;
+      text-transform: uppercase;
+
+      @include font(40px, $c-black, 52px, 700);
+      @include tablet {
+        font-size: 48px;
+        line-height: 62px;
+      }
+
+      @include desktop {
+        font-size: 62px;
+        line-height: 78px;
+        padding-top: 80px;
+      }
+    }
+
+    &-text {
+      margin: 0;
+
+      @include font(16px, $c-black, 24px, 400);
+      @include tablet {
+        max-width: 250px;
+      }
+    }
+  }
+}

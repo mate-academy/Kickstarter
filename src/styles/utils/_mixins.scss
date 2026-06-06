@@ -1,6 +1,77 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin font($size: null, $color: null, $line: null, $weight: null) {
+  @if $size {
+    font-size: $size;
+  }
+  @if $color {
+    color: $color;
+  }
+  @if $line {
+    line-height: $line;
+  }
+  @if $weight {
+    font-weight: $weight;
+  }
+}
+
+@mixin padd-inl() {
+  padding-inline: 30px;
+
+  @include tablet {
+    padding-inline: 34px;
+  }
+
+  @include desktop {
+    padding-inline: 123px;
+  }
+}
+
+@mixin tablet() {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin grid() {
+  display: grid;
+
+  @include tablet {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+  }
+}
+
+@mixin hover($scale) {
+  transition: all 0.3s ease;
+
   &:hover {
-    #{$_property}: $_toValue;
+    transform: scale($scale);
+  }
+}
+
+@mixin hover-b() {
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(13, 178, 179, 1);
+    box-shadow: 0 0 15px rgba(13, 178, 179, 1);
+  }
+}
+
+@mixin hover-t() {
+  transition: all 0.3s ease;
+
+  &:hover {
+    text-shadow: 0 0 15px rgba(13, 178, 179, 1);
   }
 }

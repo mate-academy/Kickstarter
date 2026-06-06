@@ -1,0 +1,40 @@
+@use './utils/vars' as *;
+@use './utils/mixins' as *;
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  padding-block: 30px 50px;
+
+  @include padd-inl;
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include tablet {
+      gap: 40px;
+    }
+  }
+
+  &-link {
+    text-decoration: none;
+    color: $c-black;
+    line-height: 20px;
+
+    @include hover-t;
+  }
+
+  &-item {
+    &:first-child {
+      .aside__nav-link,
+      .presentation__nav-link {
+        font-weight: 700;
+      }
+    }
+  }
+}

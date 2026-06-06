@@ -1,0 +1,98 @@
+@use './utils/vars' as *;
+@use './utils/mixins' as *;
+
+.top-bar {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-block: 25px;
+
+  @include padd-inl;
+  @include tablet {
+    padding-block: 30px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+}
+
+.specs {
+  position: relative;
+  display: none;
+  height: 17px;
+  width: 45px;
+  object-fit: contain;
+
+  @include tablet {
+    display: flex;
+  }
+
+  @include hover(1.1);
+}
+
+.language {
+  display: none;
+  height: 18px;
+  width: auto;
+  object-fit: contain;
+
+  @include hover(1.1);
+  @include tablet {
+    display: flex;
+  }
+}
+
+.menu-btn {
+  display: block;
+  height: 32px;
+  width: 32px;
+  padding: 0;
+  background-image: url(../images/menu-burger.png);
+  background-size: 24px 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  @include hover(1.1);
+  @include desktop {
+    display: none;
+  }
+}
+
+.logo {
+  display: block;
+  height: 25px;
+  width: 161px;
+  object-fit: contain;
+
+  @include hover(1.1);
+}
+
+.link-buy {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 100px;
+  background-color: $c-black;
+
+  @include hover-b;
+  @include tablet {
+    display: flex;
+  }
+}
+
+.buy {
+  display: block;
+  align-items: center;
+  height: 25px;
+  width: 25px;
+  object-fit: contain;
+}
