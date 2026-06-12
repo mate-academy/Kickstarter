@@ -1,0 +1,249 @@
+.header {
+  position: relative;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 0;
+
+    @include on-tablet {
+      margin-bottom: 130px;
+    }
+
+    @include on-large-desktop {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__logo-img {
+    height: 25px;
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: row;
+    gap: 34px;
+    align-items: center;
+  }
+
+  &__desktop-controls {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      align-items: center;
+    }
+  }
+
+  &__meta {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 100%;
+    text-transform: uppercase;
+
+    transition:
+      color $effectDuration ease,
+      font-weight $effectDuration ease;
+
+    &:hover {
+      font-weight: 400;
+      color: $dark-gray;
+    }
+  }
+
+  &__content {
+    padding-bottom: 65px;
+
+    @include on-tablet {
+      @include page-grid;
+
+      padding-bottom: 75px;
+    }
+
+    @include on-large-desktop {
+      padding-bottom: 85px;
+    }
+  }
+
+  &__hero {
+    &-picture {
+      display: block;
+      margin-bottom: 40px;
+
+      @include on-tablet {
+        display: inline-block;
+        grid-column: 4 /-1;
+        grid-row: 1;
+        margin-bottom: 0;
+      }
+
+      @include on-large-desktop {
+        grid-column: 5 /-1;
+        grid-row: 1;
+      }
+    }
+    &-img {
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+
+      @include on-tablet {
+        grid-column: 1 /4;
+        grid-row: 1;
+      }
+
+      @include on-large-desktop {
+        grid-column: 1 /5;
+        grid-row: 1;
+        padding-top: 80px;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 24px;
+
+    @include on-large-desktop {
+      padding-right: 120px;
+    }
+  }
+
+  &__desktop {
+    &-nav {
+      display: none;
+
+      @include on-large-desktop {
+        display: block;
+        margin-bottom: 90px;
+      }
+    }
+    &-list {
+      display: flex;
+      flex-direction: row;
+      gap: 84px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    vertical-align: middle;
+
+    transition:
+      color $effectDuration ease,
+      font-weight $effectDuration ease;
+
+    &:hover {
+      font-weight: 700;
+      color: $btn-hover;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 50px;
+
+    @include on-large-desktop {
+      display: block;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include on-tablet {
+      gap: 40px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    z-index: 1001;
+    inset: 0;
+    transform: translateY(-10px);
+
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+    padding: 24px;
+
+    visibility: hidden;
+    opacity: 0;
+    background: #fff;
+
+    transition: 0.3s ease;
+
+    &.is-open {
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
+
+      @include on-large-desktop {
+        display: none;
+      }
+    }
+
+    @include on-tablet {
+      padding-inline: 24px;
+    }
+
+    &-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 55px;
+
+      @include on-tablet {
+        margin-bottom: 64px;
+      }
+    }
+
+    &-bottom {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &-specs {
+      &-lang {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin-bottom: 162px;
+      }
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: row;
+      gap: 84px;
+    }
+  }
+}

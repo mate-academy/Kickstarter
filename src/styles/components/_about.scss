@@ -1,0 +1,257 @@
+.about {
+  margin-top: 55px;
+
+  @include on-tablet {
+    margin-top: 70px;
+  }
+
+  @include on-desktop {
+    margin-top: 85px;
+  }
+
+  &__banner {
+    display: block;
+    width: 100%;
+    margin-bottom: 110px;
+
+    &-img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    @include on-tablet {
+      margin-bottom: 140px;
+    }
+
+    @include on-desktop {
+      max-width: 846px;
+      margin: 0 auto 170px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 110px;
+  }
+
+  // ================= CARD =================
+  &__card {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
+      align-items: start;
+
+      min-height: 415px;
+      padding-right: 34px;
+    }
+
+    @include on-desktop {
+      column-gap: 30px;
+      min-height: 582px;
+      padding-right: 0;
+    }
+
+    &--reverse {
+      @include on-tablet {
+        padding-left: 34px;
+
+        .about__image {
+          grid-column: 2;
+        }
+
+        .about__title,
+        .about__text,
+        .about__link {
+          grid-column: 1;
+        }
+      }
+
+      @include on-desktop {
+        padding-left: 0;
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      overflow: hidden;
+      grid-column: 1;
+      grid-row: 1 / span 3;
+
+      width: 100%;
+      height: 100%;
+      margin-bottom: 0;
+    }
+
+    &-img {
+      display: block;
+      width: 100%;
+      height: auto;
+
+      @include on-tablet {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__title,
+  &__text,
+  &__link {
+    @include on-tablet {
+      grid-column: 2;
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    text-transform: uppercase;
+
+    &--luna {
+      margin-bottom: 20px;
+      font-size: 36px;
+      line-height: 46px;
+
+      @include on-tablet {
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      @include on-desktop {
+        font-size: 56px;
+        line-height: 70px;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #7c7c7c;
+
+    &--future {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    width: fit-content;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    color: #0db2b3;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+
+      width: 53px;
+      height: 1px;
+
+      background-color: #0db2b3;
+
+      @include on-desktop {
+        width: 65px;
+      }
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__testimonial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0 auto;
+    padding: 110px 30px;
+
+    text-align: center;
+
+    background-image: url('../images/about/vector.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 20%;
+    background-size: 208px;
+
+    @include on-tablet {
+      padding: 140px 34px;
+      background-position: 50% 15%;
+      background-size: 233px;
+    }
+
+    @include on-desktop {
+      max-width: 786px;
+      padding: 170px 0;
+      background-position: 50% 30%;
+    }
+
+    &-text {
+      margin-bottom: 30px;
+
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+      color: $dark-gray;
+      text-align: center;
+
+      @include on-tablet {
+        margin-bottom: 40px;
+        font-size: 24px;
+        line-height: 36px;
+      }
+
+      @include on-desktop {
+        margin-bottom: 30px;
+      }
+    }
+
+    &-photo {
+      width: 62px;
+      height: 62px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+
+      @include on-tablet {
+        margin-bottom: 20px;
+      }
+    }
+
+    &-name {
+      margin-bottom: 5px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+    }
+
+    &-role {
+      font-size: 14px;
+      line-height: 21px;
+      color: #7c7c7c;
+    }
+  }
+}

@@ -1,0 +1,229 @@
+.footer {
+  padding-top: 45px;
+  padding-bottom: 20px;
+
+  @include on-tablet {
+    padding-top: 70px;
+    padding-bottom: 30px;
+  }
+
+  @include on-desktop {
+    padding-top: 85px;
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 110px;
+
+    @include on-tablet {
+      flex-direction: row;
+      row-gap: 21px;
+      margin-bottom: 140px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 170px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 27px;
+
+    @include on-tablet {
+      margin-right: 21px;
+    }
+
+    @include on-desktop {
+      margin-right: 28px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__field {
+    display: block;
+  }
+
+  &__input {
+    margin-bottom: 20px;
+  }
+
+  &__textarea {
+    resize: none;
+    min-height: 128px;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      min-height: 201px;
+    }
+
+    @include on-desktop {
+      min-height: 128px;
+    }
+  }
+
+  &__input,
+  &__textarea {
+    width: 260px;
+    padding: 12px 20px;
+    border: 1px solid #828282;
+
+    font-size: 16px;
+    line-height: 24px;
+    color: #bdbdbd;
+
+    background: transparent;
+
+    @include on-tablet {
+      width: 340px;
+      padding: 12px 30px;
+    }
+
+    @include on-desktop {
+      width: 582px;
+      padding: 12px 36px;
+    }
+  }
+
+  &__button {
+    width: 102px;
+    height: 40px;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    color: $white;
+    text-transform: uppercase;
+
+    background-color: #0db2b3;
+
+    transition: background-color $effectDuration ease;
+
+    &:hover {
+      background-color: #0c797a;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background: #cfeff0;
+    }
+
+    @include on-desktop {
+      width: 124px;
+      height: 48px;
+    }
+  }
+
+  &__top {
+    &-row {
+      display: none;
+
+      @include on-tablet {
+        @include page-grid;
+
+        margin-bottom: 60px;
+      }
+    }
+  }
+  &__logo {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      grid-column: 4 /6;
+      text-align: center;
+    }
+
+    @include on-small-desktop {
+      grid-column: 6 /8;
+    }
+
+    &-img {
+      height: 25px;
+    }
+  }
+
+  &__scroll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #333;
+
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      color: #0c797a;
+    }
+
+    @include on-tablet {
+      grid-column: 8;
+    }
+
+    @include on-small-desktop {
+      grid-column: 12;
+    }
+
+    &-icon {
+      display: block;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      gap: 49px;
+      margin-bottom: 60px;
+    }
+
+    @include on-small-desktop {
+      gap: 40px;
+    }
+  }
+
+  &__social {
+    &-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 24px;
+      height: 24px;
+
+      color: #4f4f4f;
+
+      transition: color $effectDuration ease;
+
+      &:hover {
+        color: #0c797a;
+      }
+    }
+
+    &-icon {
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__copyright {
+    font-size: 14px;
+    line-height: 21px;
+    color: #bdbdbd;
+    text-align: center;
+  }
+}
