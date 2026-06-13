@@ -73,11 +73,43 @@
     padding: 12px 20px;
     border: 1px solid #828282;
 
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 500;
     line-height: 24px;
-    color: #bdbdbd;
+    color: $dark-gray;
 
     background: transparent;
+
+    transition: border-color $effectDuration ease;
+
+    &::placeholder {
+      font-size: 16px;
+      color: #828282;
+    }
+
+    // hover
+
+    &:hover {
+      border-color: #0c797a;
+    }
+
+    // focus (коли пишеш)
+
+    &:focus {
+      border-color: #0c797a;
+    }
+
+    // ERROR має ПЕРЕБИВАТИ ВСЕ
+
+    &.error {
+      border-color: #eb5757 !important;
+    }
+
+    // success (тимчасовий)
+
+    &.success {
+      border-color: #0c797a;
+    }
 
     @include on-tablet {
       width: 340px;
@@ -206,10 +238,24 @@
 
       color: #4f4f4f;
 
-      transition: color $effectDuration ease;
+      transition:
+        color $effectDuration ease,
+        transform $effectDuration ease;
 
       &:hover {
+        transform: scale(1.15);
         color: #0c797a;
+      }
+
+      &:active {
+        transform: scale(0.95);
+        color: #0a5f60;
+      }
+
+      &:focus-visible {
+        border-radius: 4px;
+        outline: 2px solid #0c797a;
+        outline-offset: 3px;
       }
     }
 

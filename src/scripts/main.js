@@ -85,4 +85,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
     update();
   }
+
+  // ================= FOOTER FORM =================
+  const form = document.querySelector('.footer__form');
+  const email = document.querySelector('.footer__input');
+  const message = document.querySelector('.footer__textarea');
+
+  if (form && email && message) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let isValid = true;
+
+      // reset перед перевіркою
+      email.classList.remove('error', 'success');
+      message.classList.remove('error', 'success');
+
+      const emailValue = email.value.trim();
+      const messageValue = message.value.trim();
+
+      // EMAIL VALIDATION (жорстка)
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailValue || !emailRegex.test(emailValue)) {
+        email.classList.add('error');
+        isValid = false;
+      }
+
+      // MESSAGE VALIDATION
+      if (!messageValue) {
+        message.classList.add('error');
+        isValid = false;
+      }
+
+      // SUCCESS
+      if (isValid) {
+        email.classList.add('success');
+        message.classList.add('success');
+
+        // короткий success ефект
+        setTimeout(() => {
+          email.value = '';
+          message.value = '';
+
+          email.classList.remove('success');
+          message.classList.remove('success');
+        }, 400);
+      }
+    });
+
+    // прибираємо помилку під час вводу
+    [email, message].forEach((field) => {
+      field.addEventListener('input', () => {
+        field.classList.remove('error');
+      });
+    });
+  }
 });
