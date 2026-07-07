@@ -1,0 +1,116 @@
+.header {
+  margin-bottom: clamp(25px, 5vh, 56px);
+  padding-top: $page-padding-top;
+
+  @include on-tablet {
+    margin-bottom: clamp(56px, 9vh, 90px);
+  }
+
+  @include on-desktop {
+    margin-bottom: clamp(48px, 7vh, 80px);
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: flex;
+    color: $color-primary;
+    text-decoration: none;
+  }
+
+  &__logo-icon {
+    display: block;
+    width: 161px;
+    height: 26px;
+    fill: currentColor;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__right {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+
+    @include on-tablet {
+      gap: 28px;
+    }
+  }
+
+  &__actions {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      gap: 27px;
+      align-items: center;
+    }
+  }
+
+  &__specs-link {
+    @extend %button-text;
+
+    color: $color-gray-dark;
+    text-decoration: none;
+
+    @include hover(color, $color-primary);
+  }
+
+  &__language {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+  }
+
+  &__language-link {
+    @extend %button-text;
+
+    color: $color-gray;
+    text-decoration: none;
+
+    @include hover(color, $color-primary);
+
+    &--active {
+      color: $color-primary;
+    }
+  }
+
+  &__language-divider {
+    @extend %button-text;
+
+    color: $color-primary;
+  }
+
+  &__button {
+    width: 142px;
+  }
+
+  &__menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 16px;
+
+    color: $color-primary;
+    text-decoration: none;
+
+    @include on-desktop {
+      display: none;
+    }
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__menu-icon {
+    display: block;
+    width: 24px;
+    height: 16px;
+    fill: currentColor;
+  }
+}

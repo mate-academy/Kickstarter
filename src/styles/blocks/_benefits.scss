@@ -1,0 +1,99 @@
+.benefits {
+  margin-bottom: 110px;
+
+  @include on-tablet {
+    margin-bottom: 140px;
+  }
+
+  &__list {
+    margin-bottom: 70px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 64px $grid-gap-tablet;
+      margin-bottom: 90px;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: $grid-gap-desktop;
+      margin-bottom: 120px;
+    }
+  }
+
+  &__item {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: 285px;
+    margin-bottom: 65px;
+
+    text-align: center;
+
+    transition: opacity $transition-extra-slow ease-in-out;
+
+    &.is-active {
+      display: flex;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include on-tablet {
+      display: flex;
+      grid-column: span 4;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: span 1;
+    }
+  }
+
+  &__icon {
+    width: 50px;
+    height: 41px;
+    margin-bottom: 40px;
+    fill: $color-gray-dark;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__title {
+    @extend %h4;
+
+    width: 100%;
+    margin: 0 0 20px;
+    color: $color-primary;
+
+    @include on-desktop {
+      min-height: 56px;
+    }
+  }
+
+  &__text {
+    @extend %secondary-text;
+
+    width: 100%;
+    margin: 0;
+    color: $color-text-muted;
+  }
+
+  &__picture {
+    display: block;
+    width: 100%;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    mix-blend-mode: darken;
+
+    @include hover(transform, scale(1.1));
+  }
+}

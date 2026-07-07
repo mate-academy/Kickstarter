@@ -1,0 +1,83 @@
+.quote {
+  margin-bottom: 110px;
+
+  @include on-tablet {
+    margin-bottom: 140px;
+  }
+
+  &__content {
+    position: relative;
+    max-width: 260px;
+    margin: 0 auto;
+    text-align: center;
+
+    @include on-tablet {
+      max-width: 600px;
+    }
+
+    @include on-desktop-small {
+      max-width: 700px;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    z-index: -1;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 208px;
+    height: 171px;
+
+    fill: $color-accent;
+  }
+
+  &__text {
+    @extend %quote;
+
+    margin: 0 0 30px;
+    color: $color-primary;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__author-image {
+    width: 62px;
+    height: 62px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__author-name {
+    @extend %h5;
+
+    margin-bottom: 5px;
+    font-style: normal;
+    color: $color-primary;
+    text-transform: none;
+  }
+
+  &__author-position {
+    @extend %secondary-text;
+
+    margin: 0;
+    color: $color-text-muted;
+  }
+}

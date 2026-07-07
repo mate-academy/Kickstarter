@@ -1,0 +1,130 @@
+.button {
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 48px;
+  padding: 0 24px;
+  border: 1px solid transparent;
+
+  font-family: $font-secondary;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition:
+    color $transition-fast ease,
+    border-color $transition-fast ease,
+    background-color $transition-fast ease;
+
+  &:disabled,
+  &--disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  &--dark {
+    border-color: $color-primary;
+    color: $color-white;
+    background-color: $color-primary;
+
+    &:hover {
+      border-color: $color-black;
+      background-color: $color-black;
+    }
+
+    &:active {
+      border-color: $color-gray-lighter;
+      color: $color-white;
+      background-color: $color-gray-lighter;
+    }
+
+    &:disabled,
+    &.button--disabled {
+      border-color: $color-gray-lighter;
+      color: $color-white;
+      background-color: $color-gray-lighter;
+    }
+  }
+
+  &--accent {
+    border-color: $color-accent;
+    color: $color-white;
+    background-color: $color-accent;
+
+    &:hover {
+      border-color: $color-accent-dark;
+      background-color: $color-accent-dark;
+    }
+
+    &:active {
+      border-color: $color-accent-light;
+      color: $color-white;
+      background-color: $color-accent-light;
+    }
+
+    &:disabled,
+    &.button--disabled {
+      border-color: $color-accent-light;
+      color: $color-white;
+      background-color: $color-accent-light;
+    }
+  }
+
+  &--outline-accent {
+    border-color: $color-accent;
+    color: $color-accent;
+    background-color: transparent;
+
+    &:hover {
+      border-color: $color-accent-dark;
+      color: $color-white;
+      background-color: $color-accent-dark;
+    }
+  }
+
+  &--outline-dark {
+    border-color: $color-gray;
+    color: $color-primary;
+    background-color: transparent;
+
+    &:hover {
+      border-color: $color-black;
+      color: $color-white;
+      background-color: $color-black;
+    }
+  }
+
+  &--link {
+    display: inline-block;
+
+    height: auto;
+    padding: 0;
+    border: 0;
+
+    color: $color-accent;
+
+    background-color: transparent;
+
+    &::after {
+      content: '';
+
+      display: block;
+
+      width: 53px;
+      margin-top: 5px;
+      border-top: 1px solid $color-accent;
+
+      transition: width $transition-slow ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

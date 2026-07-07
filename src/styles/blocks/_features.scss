@@ -1,0 +1,249 @@
+.features {
+  margin-bottom: 88px;
+
+  @include on-tablet {
+    margin-bottom: 140px;
+  }
+
+  &__title {
+    @extend %h2;
+
+    margin: 0 0 32px;
+    color: $color-primary;
+  }
+
+  &__panel {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 575px;
+    margin-right: -$container-padding-mobile;
+    margin-left: -$container-padding-mobile;
+    padding: 32px $container-padding-mobile 0;
+
+    background-color: $color-feature-bg;
+
+    @media (min-width: 390px) and (max-width: 767px) {
+      min-height: 660px;
+    }
+
+    @include on-tablet {
+      min-height: 555px;
+      margin-right: 0;
+      margin-left: 0;
+      padding: 60px 90px 0;
+    }
+
+    @include on-desktop {
+      min-height: 640px;
+      padding: 60px 90px 0;
+    }
+  }
+
+  &__list {
+    touch-action: pan-y;
+
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+
+    width: 100%;
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 56px $grid-gap-desktop;
+    }
+  }
+
+  &__card {
+    display: none;
+    flex: 0 0 100%;
+    min-height: 320px;
+    transition: opacity $transition-extra-slow ease-in-out;
+
+    &.is-active {
+      display: block;
+    }
+
+    @include on-tablet {
+      min-height: 310px;
+    }
+
+    @include on-desktop {
+      display: block;
+      flex: initial;
+      min-height: auto;
+    }
+
+    &--connectivity {
+      @include on-desktop {
+        grid-column: 2 / 6;
+        grid-row: 1;
+      }
+    }
+
+    &--sound {
+      @include on-desktop {
+        grid-column: 2 / 6;
+        grid-row: 2;
+      }
+    }
+
+    &--app {
+      @include on-desktop {
+        grid-column: 7 / 12;
+        grid-row: 1;
+      }
+    }
+  }
+
+  &__card-title {
+    @extend %h4;
+
+    margin: 0 0 20px;
+    color: $color-accent-dark;
+  }
+
+  &__items {
+    width: 255px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include on-tablet {
+      width: 300px;
+    }
+
+    @include on-desktop {
+      width: 100%;
+    }
+  }
+
+  &__item {
+    @extend %secondary-text;
+
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    color: $color-primary;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 9px;
+      left: 0;
+
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+
+      background-color: $color-primary;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__controls {
+    position: relative;
+    z-index: 5;
+    width: 90px;
+    margin-top: 0;
+
+    @include on-tablet {
+      margin-top: -20px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  &__arrow {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 49px;
+    height: 14px;
+    padding: 0;
+    border: 0;
+
+    color: $color-gray-light;
+
+    background-color: transparent;
+
+    @include hover(color, $color-accent-dark);
+  }
+
+  &__arrow-icon {
+    display: block;
+    width: 49px;
+    height: 14px;
+    fill: currentColor;
+  }
+
+  &__counter {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  &__counter-current {
+    @extend %main-text;
+
+    color: $color-primary;
+  }
+
+  &__counter-total {
+    font-family: $font-main;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13px;
+    color: $color-accent-dark;
+  }
+
+  &__picture {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 0;
+    transform-origin: center bottom;
+
+    display: block;
+
+    width: 100%;
+
+    mix-blend-mode: darken;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      width: 435px;
+    }
+
+    @include on-desktop {
+      width: 582px;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    mix-blend-mode: darken;
+  }
+}

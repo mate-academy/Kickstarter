@@ -1,5 +1,58 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin on-tablet {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin on-desktop-small {
+  @media (min-width: $breakpoint-desktop-small) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin on-nav-desktop {
+  @media (min-width: $breakpoint-nav-desktop) {
+    @content;
+  }
+}
+
+@mixin visually-hidden-until($breakpoint) {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+
+  @media (min-width: $breakpoint) {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@mixin grid($columns, $gap: $grid-gap-tablet) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  column-gap: $gap;
+}
+
+@mixin hover-scale($scale: 1.1) {
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    transform: scale($scale);
+    transition: all $transition-fast;
+  }
+}
+
+@mixin hover($_property, $_toValue, $_duration: $transition-fast) {
+  transition: #{$_property} $_duration ease;
+
   &:hover {
     #{$_property}: $_toValue;
   }
