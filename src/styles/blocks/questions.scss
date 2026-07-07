@@ -1,0 +1,198 @@
+.questions {
+  scroll-margin-top: 90px;
+
+  @include on-tablet {
+    scroll-margin-top: 140px;
+  }
+
+  &__content {
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__title {
+    @extend %h2;
+
+    margin-bottom: 27px;
+    font-size: 31px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__success-message {
+    display: none; // За замовчуванням повідомлення повністю сховане
+    margin-bottom: 20px;
+    font-family: inter, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: $green-1; // Ваш зелений брендовий колір
+    text-align: left;
+
+    // 👇 КЛАС, ЯКИЙ ДОДАЄТЬСЯ ЧЕРЕЗ JS ПРИ УСПІШНІЙ ВІДПРАВЦІ
+    &--visible {
+      display: block !important;
+
+      // Викликаємо вашу анімацію розгортання з центру по горизонталі
+      animation: scale-in-hor-center 0.4s ease-in-out forwards;
+    }
+  }
+
+  &__email {
+    height: 48px;
+    margin-bottom: 20px;
+    border: 1px solid $form-border;
+    color: var(--black2);
+    background-color: var(--main-background);
+    padding-left: 20px;
+    outline: none;
+
+    @extend %main-text;
+
+    @include on-tablet {
+      padding-left: 30px;
+    }
+
+    @include on-desktop {
+      padding-left: 36px;
+    }
+
+    &::placeholder {
+      color: $gray-3;
+    }
+
+    // 🎯 КРОК 1: Базові стани (фокус) та плейсхолдери піднято нагору
+    &:focus {
+      border-color: var(--gren4);
+      font-weight: 500;
+      font-size: 14px;
+
+      &::placeholder {
+        color: var(--gren4);
+      }
+    }
+
+    // Стан помилки (також базовий псевдоклас)
+    &--error {
+      border-color: rgba(235, 87, 87, 0.3) !important;
+
+      &::placeholder {
+        color: rgba(235, 87, 87, 0.6) !important;
+      }
+
+      &:focus {
+        border-color: rgba(235, 87, 87, 0.6) !important;
+      }
+    }
+
+    // 🎯 КРОК 2: Важкі WebKit-хаки для автозаповнення опущено в самий кінець
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 1000px var(--main-background) inset !important;
+      box-shadow: 0 0 0 1000px var(--main-background) inset !important;
+      -webkit-text-fill-color: var(--black2) !important;
+      transition: background-color 9999s ease-in-out 0s;
+    }
+  }
+
+  &--error {
+    border-color: rgba(235, 87, 87, 0.3) !important;
+
+    &::placeholder {
+      color: rgba(235, 87, 87, 0.6) !important;
+    }
+
+    &:focus {
+      border-color: rgba(235, 87, 87, 0.6) !important;
+    }
+  }
+
+  &__message {
+    height: 128px;
+    margin-bottom: 30px;
+    border: 1px solid $form-border;
+    color: var(--black2);
+    background-color: var(--main-background);
+    padding: 12px 0 0 20px;
+    font-family: inter, sans-serif;
+    outline: none;
+    resize: none;
+
+    @extend %main-text;
+
+    @include on-tablet {
+      height: 201px;
+      padding-left: 30px;
+    }
+
+    @include on-desktop {
+      padding: 16px 0 0 36px;
+    }
+
+    &::placeholder {
+      font-family: inter, sans-serif;
+      color: $gray-3;
+    }
+
+    &:focus {
+      border-color: var(--gren4);
+      font-weight: 500;
+      font-size: 14px;
+
+      &::placeholder {
+        color: var(--gren4);
+      }
+    }
+  }
+
+  &__button {
+    width: 102px;
+    height: 40px;
+
+    @extend %button;
+
+    background-color: $green-1;
+    color: #fff;
+    border: transparent;
+    font-family: inter, sans-serif;
+    transition: all 0.3s;
+
+    @include on-desktop {
+      width: 124px;
+      height: 48px;
+    }
+
+    &:hover {
+      box-shadow: 1px 1px 5px #000;
+      background-color: $green-1;
+      color: var(--black);
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+}

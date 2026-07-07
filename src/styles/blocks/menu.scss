@@ -1,0 +1,172 @@
+.menu {
+  background-color: var(--main-background);
+  transform: translateX(-100%);
+  transition: all 0.5s;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(0);
+  }
+
+  &__top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    margin-bottom: 25px;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__logo-image {
+    transition: all 0.3s ease;
+    height: 26px;
+
+    &:hover {
+      transform: scale(1.1);
+
+      @include filter-green;
+    }
+  }
+
+  &__close-icon {
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.5) rotate(180deg);
+
+      @include filter-green;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 50px;
+    list-style: none;
+
+    @include on-tablet {
+      gap: 40px;
+    }
+  }
+
+  &__item .menu__link--first {
+    @extend %h6;
+
+    color: var(--black);
+
+    @include on-tablet {
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 22px;
+      line-height: 28px;
+    }
+  }
+
+  &__link {
+    @extend %thirdary-text;
+
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: var(--black2);
+    transition: all 0.3s;
+
+    @include on-tablet {
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    &::after {
+      @include underline-after;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      color: $green-1;
+      text-shadow: 1px 1px 24px #000;
+    }
+  }
+
+  &__link:hover::after {
+    transform-origin: 0;
+    transform: scaleX(1);
+  }
+
+  &__icons {
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &::after {
+      @include underline-after;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+
+      @include filter-green;
+    }
+  }
+
+  &__icons:hover::after {
+    transform-origin: 0;
+    transform: scaleX(1);
+  }
+
+  &__buttons {
+    margin-bottom: 162px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__buy-button {
+    @include base-button;
+
+    width: 100%;
+    max-width: 300px;
+    min-height: 48px;
+    margin-bottom: 30px;
+    align-self: center;
+    transition: all 0.3s;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &:hover {
+      box-shadow: 1px 1px 5px #000;
+      background-color: $green-1;
+      color: var(--black);
+      border-radius: 10px;
+    }
+  }
+
+  &__item--active,
+  &__logo--active,
+  &__buttons--active {
+    animation: scale-up-hor-left 1.3s cubic-bezier(0.39, 0.57, 0.56, 1) both;
+  }
+
+  &__close--active {
+    animation: swirl-in-fwd 1.3s ease-out both;
+  }
+
+  &__buy-button--active {
+    animation: scale-in-hor-center 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      both;
+  }
+}

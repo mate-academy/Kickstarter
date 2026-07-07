@@ -1,0 +1,262 @@
+.benefits {
+  scroll-margin-top: 76px;
+
+  @include on-tablet {
+    scroll-margin-top: 140px;
+  }
+
+  &__wrapper-1 {
+    @include on-tablet {
+      margin-top: 5px;
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__wrapper-2 {
+    @include on-tablet {
+      margin-top: 5px;
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 7;
+    }
+  }
+
+  &__wrapper-3 {
+    @include on-tablet {
+      margin-top: 5px;
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 10;
+    }
+  }
+
+  &__wrapper-4 {
+    @include on-tablet {
+      margin-top: 5px;
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 10 / -1;
+    }
+  }
+
+  &__icon {
+    width: 70px;
+    height: 50px;
+    margin-bottom: 40px;
+    transition: all 0.3s;
+  }
+
+  &__title {
+    @extend %h4;
+
+    margin-bottom: 20px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  &__description {
+    @extend %secondary-text;
+
+    max-width: 300px;
+    color: $gray-2;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  &__card {
+    cursor: pointer;
+
+    position: relative;
+    display: flex;
+    height: 320px;
+    margin: 30px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--main-background); // Білий фон картки залишається
+    transition: all 0.3s;
+
+    // 🎯 ВИПРАВЛЕННЯ: Повністю ховаємо рамку, яку малювали ці псевдоелементи
+    &::after,
+    &::before {
+      display: none !important; // Рамка зникає, але структура коду нижче не ламається
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+      z-index: -1;
+      translate: -50% -50%;
+      border-radius: 13px;
+      background-image: conic-gradient(
+        from var(--angle),
+        transparent 70%,
+        #0db2b3
+      );
+      transition: all 0.3s;
+    }
+
+    &::before {
+      opacity: 0.8;
+      filter: blur(7px);
+    }
+
+    @include on-tablet {
+      height: 300px;
+      margin: 0;
+    }
+
+    @include on-desktop {
+      height: 320px;
+    }
+
+    &:hover::after,
+    &:hover::before {
+      background-image: conic-gradient(
+        from var(--angle),
+        transparent 70%,
+        $gray-3
+      );
+    }
+
+    // 🚀 ВСІ ІНШІ СТИЛІ ТА ХОВЕРИ ЗАЛИШИЛИСЯ НЕДОТОРКАНИМИ:
+    &:hover .benefits__icon {
+      margin-top: 15px;
+      transform: scale(1.5);
+      margin-bottom: 30px;
+      filter: drop-shadow(3px 3px 3px $green-1);
+    }
+
+    &:hover .benefits__title {
+      margin-bottom: 10px;
+      transform: scale(0.95);
+      color: $green-1;
+    }
+
+    &:hover .benefits__description {
+      color: var(--black);
+    }
+
+    &--1 {
+      &::after,
+      &::before {
+        animation: linear infinite;
+      }
+    }
+
+    &--2 {
+      &::after,
+      &::before {
+        background-image: conic-gradient(
+          from var(--angle),
+          #0db2b3,
+          transparent 30%
+        );
+      }
+
+      &:hover::after,
+      &:hover::before {
+        background-image: conic-gradient(
+          from var(--angle),
+          $gray-3,
+          transparent 30%
+        );
+      }
+
+      @include on-desktop {
+        &::after,
+        &::before {
+          background-image: conic-gradient(
+            from var(--angle),
+            #0db2b3,
+            transparent 50%
+          );
+          animation: linear infinite;
+        }
+
+        &:hover::after,
+        &:hover::before {
+          background-image: conic-gradient(
+            from var(--angle),
+            $gray-3,
+            transparent 50%
+          );
+        }
+      }
+    }
+
+    &--3 {
+      &::after,
+      &::before {
+        background-image: conic-gradient(
+          from var(--angle),
+          #0db2b3,
+          transparent 30%
+        );
+      }
+
+      &:hover::after,
+      &:hover::before {
+        background-image: conic-gradient(
+          from var(--angle),
+          $gray-3,
+          transparent 30%
+        );
+      }
+
+      @include on-desktop {
+        &::after,
+        &::before {
+          background-image: conic-gradient(
+            from var(--angle),
+            transparent 50%,
+            #0db2b3
+          );
+        }
+
+        &:hover::after,
+        &:hover::before {
+          background-image: conic-gradient(
+            from var(--angle),
+            transparent 50%,
+            $gray-3
+          );
+        }
+      }
+    }
+
+    &--4 {
+      @include on-desktop {
+        &::after,
+        &::before {
+          background-image: conic-gradient(
+            from var(--angle),
+            #0db2b3,
+            transparent 30%
+          );
+        }
+
+        &:hover::after,
+        &:hover::before {
+          background-image: conic-gradient(
+            from var(--angle),
+            $gray-3,
+            transparent 50%
+          );
+        }
+      }
+    }
+  }
+}

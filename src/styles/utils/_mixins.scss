@@ -4,3 +4,219 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  --columns: 4;
+  --columns-width: 50px;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), var(--columns-width));
+  column-gap: 20px;
+
+  @include on-tablet {
+    --columns: 8;
+    --columns-width: 1fr;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+    --columns-width: 72px;
+
+    column-gap: 30px;
+  }
+}
+
+@mixin underline-after {
+  content: '';
+
+  transform-origin: 100%;
+
+  width: 100%;
+  height: 3px;
+  margin-top: 2px;
+  position: absolute;
+  transition: transform 0.3s;
+  top: 100%;
+  left: 0;
+  transform: scaleX(0);
+  background-color: $green-1;
+}
+
+@mixin filter-green {
+  filter: brightness(0) saturate(100%) invert(76%) sepia(16%) saturate(5387%)
+    hue-rotate(137deg) brightness(65%) contrast(105%)
+    drop-shadow(0 8px 14px rgba(0, 0, 0, 0.45));
+}
+
+@mixin base-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  text-decoration: none;
+  background-color: var(--black2);
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+@mixin main-class {
+  scroll-margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+  padding-inline: 30px;
+
+  @include on-tablet {
+    scroll-margin-top: 140px;
+    flex-direction: row;
+    gap: 20px;
+    padding: 0;
+  }
+}
+
+@mixin title {
+  @extend %h2;
+
+  margin-bottom: 30px;
+}
+
+@mixin title-mobile {
+  @include on-tablet {
+    display: none;
+  }
+}
+
+@mixin title-tablet {
+  display: none;
+
+  @include on-tablet {
+    display: block;
+    max-width: 300px;
+  }
+
+  @include on-desktop {
+    max-width: 582px;
+  }
+}
+
+@mixin image-box {
+  width: 100%;
+  height: 100%;
+
+  @include on-desktop {
+    width: initial;
+    height: initial;
+  }
+}
+
+@mixin image {
+  align-self: center;
+  width: 100%;
+  margin-bottom: 20px;
+  aspect-ratio: 3.86 / 3.12;
+  object-fit: cover;
+  transition: all 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.04);
+  }
+
+  @include on-tablet {
+    min-width: 374px;
+    max-height: 415px;
+    margin-bottom: 0;
+    aspect-ratio: inherit;
+  }
+
+  @include on-desktop {
+    min-width: 582px;
+    min-height: 388px;
+  }
+}
+
+@mixin block {
+  @include on-tablet {
+    max-width: 580px;
+    margin-right: 34px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include on-desktop {
+    margin-right: 0;
+  }
+}
+
+@mixin text {
+  @extend %secondary-text;
+
+  margin-bottom: 30px;
+  color: $gray-2;
+
+  @include on-tablet {
+    margin-bottom: 60px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@mixin link {
+  @extend %button;
+
+  position: relative;
+  color: $green-1;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 53px;
+    height: 1px;
+    left: 0;
+    top: 100%;
+    margin-top: 5px;
+    transform: translateX(100%);
+    transform: translateY(100%);
+    background-color: $green-1;
+    transition: all 0.3s;
+
+    @include on-desktop {
+      width: 65px;
+    }
+  }
+
+  &:hover::after {
+    width: 126px;
+  }
+}
+
+@mixin page-about-us {
+  min-width: 320px;
+  margin-bottom: 110px;
+
+  @include on-tablet {
+    margin-bottom: 140px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 170px;
+    max-width: 1194px;
+    margin-inline: 123px;
+  }
+}

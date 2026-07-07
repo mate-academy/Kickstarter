@@ -1,0 +1,47 @@
+.nav {
+  display: none;
+  padding-block: 28px;
+  background-color: var(--main-background);
+
+  @include on-desktop {
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    gap: 84px;
+    list-style: none;
+  }
+
+  &__item .nav__link--first {
+    @extend %h6;
+
+    color: var(--black);
+  }
+
+  &__link {
+    @extend %thirdary-text;
+
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: var(--black2);
+    transition: all 0.3s;
+
+    &::after {
+      @include underline-after;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      color: $green-1;
+      text-shadow: 1px 1px 24px #000;
+    }
+  }
+
+  &__link:hover::after {
+    transform-origin: 0;
+    transform: scaleX(1);
+  }
+}

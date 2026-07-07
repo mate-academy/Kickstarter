@@ -1,19 +1,1286 @@
 <!doctype html>
-<html lang="en">
+<html
+  class="page"
+  lang="en"
+>
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Title</title>
+    <title>Kickstarter</title>
+    <script type="module" src="./src/scripts/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
-      href="src/styles/main.scss"
+      href="./src/styles/main.scss"
+    />
+    <link
+      rel="icon"
+      href="./src/images/icon/favicon2.svg"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/aos@next/dist/aos.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
-    <script src="src/scripts/main.js"></script>
+  <body class="page__body">
+    <aside
+      class="menu page__menu"
+      id="menu"
+    >
+      <div class="container container--flex">
+        <div class="menu__container">
+          <div class="menu__top-bar">
+            <a
+              href="#"
+              class="menu__logo page__logo"
+            >
+              <img
+                src="./src/images/icon/logo.svg"
+                alt="crazy-baby-logo"
+                class="menu__logo-image"
+              />
+            </a>
+            <a
+              href="#"
+              class="menu__close"
+            >
+              <img
+                src="./src/images/icon/Icon-Close (2).svg"
+                alt="close-icon"
+                class="menu__close-icon"
+              />
+            </a>
+          </div>
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a
+                href="#about-us"
+                class="menu__link menu__link--first"
+              >
+                <span class="page__lang en">OUR STORY</span>
+                <span class="page__lang ua">НАША ІСТОРІЯ</span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a
+                href="#about-us"
+                class="menu__link"
+              >
+                <span class="page__lang en">ABOUT US</span>
+                <span class="page__lang ua">ПРО НАС</span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a
+                href="#features"
+                class="menu__link"
+              >
+                <span class="page__lang en">FEATURES</span>
+                <span class="page__lang ua">ОСОБЛИВОСТІ</span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a
+                href="#questions"
+                class="menu__link"
+              >
+                <span class="page__lang en">GET IN TOUCH</span>
+                <span class="page__lang ua">ЗВ'ЯЖІТЬСЯ З НАМИ</span>
+              </a>
+            </li>
+          </ul>
+          <div class="menu__buttons">
+            <a
+              href="#features"
+              class="menu__link"
+            >
+              <span class="page__lang en">SPECS</span>
+              <span class="page__lang ua">ХАРАКТЕРИСТИКИ</span>
+            </a>
+            <div class="menu__icons lang-icons">
+              <img
+                src="./src/images/icon/EN.svg"
+                alt="lang-en"
+                class="menu__lang-icon en icon-en"
+              />
+              <img
+                src="./src/images/icon/UA.svg"
+                alt="lang-ua"
+                class="menu__lang-icon ua icon-ua"
+              />
+            </div>
+          </div>
+        </div>
+        <a
+          href="#"
+          class="menu__buy-button"
+        >
+          <span class="page__lang en">BUY</span>
+          <span class="page__lang ua">КУПИТИ</span>
+        </a>
+      </div>
+    </aside>
+    <header class="header page__header">
+      <a
+        href="#"
+        class="header__logo"
+      >
+        <img
+          src="./src/images/icon/logo.svg"
+          alt="crazy-baby-logo"
+          class="header__logo-image page__logo"
+        />
+      </a>
+      <div class="header__right-side">
+        <div class="header__block">
+          <a
+            href="#features"
+            class="header__link"
+          >
+            <span class="page__lang en">SPECS</span>
+            <span class="page__lang ua">ХАРАКТЕРИСТИКИ</span>
+          </a>
+          <div class="lang-icons header__lang-icons">
+            <img
+              src="./src/images/icon/EN.svg"
+              alt="lang-en"
+              class="header__lang-icon en icon-en"
+            />
+            <img
+              src="./src/images/icon/UA.svg"
+              alt="lang-ua"
+              class="header__lang-icon ua icon-ua"
+            />
+          </div>
+          <a
+            href="#"
+            class="header__buy-button"
+          >
+            <span class="page__lang en">BUY</span>
+            <span class="page__lang ua">КУПИТИ</span>
+          </a>
+        </div>
+        <a
+          href="#menu"
+          class="header__menu"
+        >
+          <img
+            src="./src/images/add/Icon-Burger-menu (1).svg"
+            alt="menu"
+            class="header__menu-icon"
+          />
+        </a>
+      </div>
+    </header>
+    <main class="main page__main">
+      <section class="hero page__hero">
+        <picture class="hero__image-box">
+          <source
+      media="(min-width: 1440px)"
+      srcset="./src/images/header-1d.png"
+    />
+          <source
+      media="(min-width: 768px)"
+      srcset="./src/images/header-1t.png"
+    />
+          <img
+      src="./src/images/header-1m.png"
+      alt="luna"
+      class="hero__image"
+    />
+        </picture>
+        <h1 class="hero__title">
+          <span class="page__lang en">
+            <span>Futuristic</span>
+            <span>Wireless</span>
+            <span>Speaker</span>
+          </span>
+          <span class="page__lang ua">
+            <span>Футуристична</span>
+            <span>бездротова</span>
+            <span>колонка</span>
+          </span>
+        </h1>
+        <p class="hero__description">
+          <span class="page__lang en">
+            Luna’s performance is balanced and smooth in all frequency ranges
+            which makes the music both naturally pleasant and distinctly more
+            layered.
+          </span>
+          <span class="page__lang ua">
+            Виконання Luna збалансоване та плавне у всіх частотних діапазонах,
+            що робить музику одночасно природно приємною та помітно більш
+            багатошаровою.
+          </span>
+        </p>
+      </section>
+      <nav
+        class="nav page__nav"
+        data-aos="flip-right"
+        data-aos-duration="1000"
+      >
+        <ul class="nav__list">
+          <li
+            class="nav__item"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            data-aos-delay="500"
+          >
+            <a
+              href="#technology"
+              class="nav__link nav__link--first"
+            >
+              <span class="page__lang en">OUR STORY</span>
+              <span class="page__lang ua">НАША ІСТОРІЯ</span>
+            </a>
+          </li>
+          <li
+            class="nav__item"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            data-aos-delay="500"
+          >
+            <a
+              href="#about-us"
+              class="nav__link"
+            >
+              <span class="page__lang en">ABOUT US</span>
+              <span class="page__lang ua">ПРО НАС</span>
+            </a>
+          </li>
+          <li
+            class="nav__item"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            data-aos-delay="500"
+          >
+            <a
+              href="#features"
+              class="nav__link"
+            >
+              <span class="page__lang en">FEATURES</span>
+              <span class="page__lang ua">ОСОБЛИВОСТІ</span>
+            </a>
+          </li>
+          <li
+            class="nav__item"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            data-aos-delay="500"
+          >
+            <a
+              href="#questions"
+              class="nav__link"
+            >
+              <span class="page__lang en">GET IN TOUCH</span>
+              <span class="page__lang ua">ЗВ'ЯЖІТЬСЯ З НАМИ</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="page__wrapper">
+        <section
+          class="benefits page__benefits"
+          id="benefits"
+        >
+          <div
+            class="swiper swiper-off"
+            data-aos="flip-left"
+            data-aos-duration="1000"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="benefits__card">
+                  <img
+                    src="./src/images/icon/ts.svg"
+                    alt="design"
+                    class="benefits__icon"
+                  />
+                  <h4 class="benefits__title">
+                    <span class="page__lang en">Futuristic Design</span>
+                    <span class="page__lang ua">Футуристичний дизайн</span>
+                  </h4>
+                  <p class="benefits__description">
+                    <span class="page__lang en">
+                      To give Luna a truly flawless look, we specifically picked
+                      aircraft grade aluminum as its material and adopted both
+                      three-dimensional stretch-bending technology and a high
+                      precision cold forging technique.
+                    </span>
+                    <span class="page__lang ua">
+                      Щоб надати Luna справді бездоганного вигляду, ми
+                      спеціально обрали авіаційний алюміній як її матеріал та
+                      застосували як технологію тривимірного
+                      розтягування-згинання, так і техніку високоточного
+                      холодного кування.
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="benefits__card">
+                  <img
+                    src="./src/images/icon/spick.svg"
+                    alt="tweeter-system"
+                    class="benefits__icon"
+                  />
+                  <h4 class="benefits__title">
+                    <span class="page__lang en">Tweeter Speaker System</span>
+                    <span class="page__lang ua">
+                      Твітерна акустична система
+                    </span>
+                  </h4>
+                  <p class="benefits__description">
+                    <span class="page__lang en">
+                      To deliver a more layered sound performance better than a
+                      sole full-range speaker, our team equipped Luna with one
+                      more tweeter speaker responsible for high-frequency sound
+                      independently.
+                    </span>
+                    <span class="page__lang ua">
+                      Щоб забезпечити більш деталізоване звучання, яке
+                      перевершує можливості одного повнодіапазонного динаміка,
+                      наша команда оснастила Luna ще одним твітером, який
+                      незалежно відповідає за високочастотний звук.
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="benefits__card">
+                  <img
+                    src="./src/images/icon/wifi.svg"
+                    alt="multiroom"
+                    class="benefits__icon"
+                  />
+                  <h4 class="benefits__title">
+                    <span class="page__lang en">Multiroom System</span>
+                    <span class="page__lang ua">Мультирум-система</span>
+                  </h4>
+                  <p class="benefits__description">
+                    <span class="page__lang en">
+                      Luna is natively compatible with your home Wi-Fi. Set up
+                      multiple speakers in different rooms to expand your music
+                      experience into the entire house.
+                    </span>
+                    <span class="page__lang ua">
+                      Luna початково сумісна з вашою домашньою мережею Wi-Fi.
+                      Налаштуйте кілька динаміків у різних кімнатах, щоб
+                      поширити музичне враження на весь будинок.
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="benefits__card">
+                  <img
+                    src="./src/images/icon/sun.svg"
+                    alt="design"
+                    class="benefits__icon"
+                  />
+                  <h4 class="benefits__title">
+                    <span class="page__lang en">Intuitive Lighting System</span>
+                    <span class="page__lang ua">
+                      Інтуїтивна система освітлення
+                    </span>
+                  </h4>
+                  <p class="benefits__description">
+                    <span class="page__lang en">
+                      An intuitive user interface allows you to adjust the hue
+                      and saturation of color for lighting that fits any mood
+                      and situation.
+                    </span>
+                    <span class="page__lang ua">
+                      Інтуїтивний користувацький інтерфейс дозволяє вам
+                      регулювати відтінок (колір) та насиченість для освітлення,
+                      яке пасуватиме до будь-якого настрою та ситуації.
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="container container--grid"
+            data-aos="flip-left"
+            data-aos-duration="1000"
+          >
+            <div
+              class="benefits__wrapper-1"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+              data-aos-delay="500"
+            >
+              <div class="benefits__card benefits__card--1">
+                <img
+                  src="./src/images/icon/ts.svg"
+                  alt="design"
+                  class="benefits__icon"
+                />
+                <h4 class="benefits__title">
+                  <span class="page__lang en">Futuristic Design</span>
+                  <span class="page__lang ua">Футуристичний дизайн</span>
+                </h4>
+                <p class="benefits__description">
+                  <span class="page__lang en">
+                    To give Luna a truly flawless look, we specifically picked
+                    aircraft grade aluminum as its material and adopted both
+                    three-dimensional stretch-bending technology and a high
+                    precision cold forging technique.
+                  </span>
+                  <span class="page__lang ua">
+                    Щоб надати Luna справді бездоганного вигляду, ми спеціально
+                    обрали авіаційний алюміній як її матеріал та застосували як
+                    технологію тривимірного розтягування-згинання, так і техніку
+                    високоточного холодного кування.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div
+              class="benefits__wrapper-2"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+            >
+              <div class="benefits__card benefits__card--2">
+                <img
+                  src="./src/images/icon/spick.svg"
+                  alt="tweeter-system"
+                  class="benefits__icon"
+                />
+                <h4 class="benefits__title">
+                  <span class="page__lang en">Tweeter Speaker System</span>
+                  <span class="page__lang ua">Твітерна акустична система</span>
+                </h4>
+                <p class="benefits__description">
+                  <span class="page__lang en">
+                    To deliver a more layered sound performance better than a
+                    sole full-range speaker, our team equipped Luna with one
+                    more tweeter speaker responsible for high-frequency sound
+                    independently.
+                  </span>
+                  <span class="page__lang ua">
+                    Щоб забезпечити більш деталізоване звучання, яке перевершує
+                    можливості одного повнодіапазонного динаміка, наша команда
+                    оснастила Luna ще одним твітером, який незалежно відповідає
+                    за високочастотний звук.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div
+              class="benefits__wrapper-3"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+            >
+              <div class="benefits__card benefits__card--3">
+                <img
+                  src="./src/images/icon/wifi.svg"
+                  alt="multiroom"
+                  class="benefits__icon"
+                />
+                <h4 class="benefits__title">
+                  <span class="page__lang en">Multiroom System</span>
+                  <span class="page__lang ua">Мультирум-система</span>
+                </h4>
+                <p class="benefits__description">
+                  <span class="page__lang en">
+                    Luna is natively compatible with your home Wi-Fi. Set up
+                    multiple speakers in different rooms to expand your music
+                    experience into the entire house.
+                  </span>
+                  <span class="page__lang ua">
+                    Luna початково сумісна з вашою домашньою мережею Wi-Fi.
+                    Налаштуйте кілька динаміків у різних кімнатах, щоб поширити
+                    музичне враження на весь будинок.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div
+              class="benefits__wrapper-4"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+              data-aos-delay="500"
+            >
+              <div class="benefits__card benefits__card--4">
+                <img
+                  src="./src/images/icon/sun.svg"
+                  alt="design"
+                  class="benefits__icon"
+                />
+                <h4 class="benefits__title">
+                  <span class="page__lang en">Intuitive Lighting System</span>
+                  <span class="page__lang ua">
+                    Інтуїтивна система освітлення
+                  </span>
+                </h4>
+                <p class="benefits__description">
+                  <span class="page__lang en">
+                    An intuitive user interface allows you to adjust the hue and
+                    saturation of color for lighting that fits any mood and
+                    situation.
+                  </span>
+                  <span class="page__lang ua">
+                    Інтуїтивний користувацький інтерфейс дозволяє вам регулювати
+                    відтінок (колір) та насиченість для освітлення, яке
+                    пасуватиме до будь-якого настрою та ситуації.
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="presentation page__presentation"
+          id="presentation"
+          data-aos="zoom-in-down"
+          data-aos-duration="1000"
+        >
+          <img
+            src="./src/images/desctop/1-d-transpar.png"
+            alt="luna"
+            class="presentation__image"
+          />
+        </section>
+        <section
+          class="about-us page__about-us"
+          id="about-us"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+        >
+          <h2 class="about-us__title about-us__title--mobile">
+            <span class="page__lang en">DESIGNED FOR THE FUTURE</span>
+            <span class="page__lang ua">СТВОРЕНО ДЛЯ МАЙБУТНЬОГО</span>
+          </h2>
+          <picture
+            class="about-us__image-box"
+            data-aos="flip-left"
+            data-aos-duration="1000"
+          >
+            <source
+              media="(min-width: 1440px)"
+              srcset="./src/images/image-3-d.png"
+            />
+            <source
+              media="(min-width: 768px)"
+              srcset="./src/images/image-3-t.png"
+            />
+            <img
+              src="./src/images/image-3-m.png"
+              alt="about-us"
+              class="about-us__image"
+            />
+          </picture>
+          <div class="about-us__block">
+            <h2 class="about-us__title about-us__title--tablet">
+              <span class="page__lang en">DESIGNED FOR THE FUTURE</span>
+              <span class="page__lang ua">СТВОРЕНО ДЛЯ МАЙБУТНЬОГО</span>
+            </h2>
+            <p
+              class="about-us__text"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+            >
+              <span class="page__lang en">
+                In 2014, a group of geeky industrial designers, engineering
+                veterans and acoustic experts formed crazybaby. This is a bunch
+                of passionate people who are crazy enough to think they can
+                challenge the industry with disruptive audio products.
+              </span>
+              <span class="page__lang ua">
+                У 2014 році група захоплених промислових дизайнерів, досвідчених
+                інженерів та експертів з акустики заснувала компанію crazybaby.
+                Це спільнота азартних людей, яким вистачає зухвалості вірити, що
+                вони здатні кинути виклик індустрії, створюючи проривні
+                аудіопродукти.
+              </span>
+            </p>
+            <a
+              href="#"
+              class="about-us__link"
+              data-aos="fade-down"
+              data-aos-duration="1000"
+            >
+              <span class="page__lang en">See more about us</span>
+              <span class="page__lang ua">Більше про нас</span>
+            </a>
+          </div>
+        </section>
+        <section
+          class="technology page__technology"
+          id="technology"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+        >
+          <h2 class="technology__title technology__title--mobile">
+            <span class="page__lang en">Luna Eye</span>
+            <span class="page__lang ua">Місячне око</span>
+          </h2>
+          <picture
+            class="technology__image-box"
+            data-aos="flip-right"
+            data-aos-duration="1000"
+          >
+            <source
+              media="(min-width: 1440px)"
+              srcset="./src/images/img-2d.png"
+            />
+            <source
+              media="(min-width: 768px)"
+              srcset="./src/images/img-2t.png"
+            />
+            <img
+              src="./src/images/img-2m.png"
+              alt="about-us"
+              class="technology__image"
+            />
+          </picture>
+          <div class="technology__block">
+            <h2 class="technology__title technology__title--tablet">
+              <span class="page__lang en">Luna Eye</span>
+              <span class="page__lang ua">Місячне око</span>
+            </h2>
+            <p
+              class="technology__text"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+            >
+              <span class="page__lang en">
+                Luna Eye is to the essence of this innovative light and audio
+                system. It comprises an independent tweeter speaker, a light
+                guiding component, a dome and a ring ornament.
+              </span>
+              <span class="page__lang ua">
+                Luna Eye — суть цієї інноваційної системи освітлення та
+                аудіосистеми. Вона складається з незалежного високочастотного
+                динаміка, світловодного компонента, купола та кільцевого
+                орнаменту.
+              </span>
+            </p>
+            <a
+              href="#"
+              class="technology__link"
+              data-aos="fade-down"
+              data-aos-duration="1000"
+            >
+              <span class="page__lang en">See more about us</span>
+              <span class="page__lang ua">Більше про нас</span>
+            </a>
+          </div>
+        </section>
+        <section
+          class="testimonilas page__testimonilas"
+          id="testimonilas"
+        >
+          <div class="container">
+            <div class="testimonilas__content">
+              <div class="testimonilas__image"></div>
+              <p
+                class="testimonilas__text"
+                data-aos="fade-up"
+                data-aos-duration="2000"
+              >
+                <span class="page__lang en">
+                  “It really took me by surprise honestly to have such full
+                  beautiful sound that coming out of this small compact device.
+                  And with the brush aluminum surface, it feels so familiar.
+                  Like my iPhone.”
+                </span>
+                <span class="page__lang ua">
+                  "Мене дуже здивував такий повний звук, який виходить із цього
+                  невеликого компактного пристрою. А з матовою алюмінієвою
+                  поверхнею він здається таким знайомим. Як мій iPhone".
+                </span>
+              </p>
+              <div class="testimonilas__person">
+                <div
+                  class="testimonilas__person-image"
+                  data-aos="flip-left"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="1000"
+                >
+                  <img
+                    src="./src/images/add/avatar.svg"
+                    alt="avatar-icon"
+                    class="testimonilas__person-icon"
+                  />
+                </div>
+                <div
+                  class="testimonilas__person-name"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                >
+                  <span class="page__lang en">Garrett Martin</span>
+                  <span class="page__lang page__lang--up ua">
+                    Гаррет Мартін
+                  </span>
+                </div>
+                <div
+                  class="testimonilas__person-position"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                >
+                  <span class="page__lang en">Creative Director</span>
+                  <span class="page__lang ua">Креативний директор</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="features page__features"
+          id="features"
+        >
+          <h2
+            class="features__title"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
+            <span class="page__lang en">FEATURES</span>
+            <span class="page__lang ua">ОСОБЛИВОСТІ</span>
+          </h2>
+          <div
+            class="features__content"
+            data-aos="zoom-in-down"
+            data-aos-duration="1000"
+          >
+            <div
+              class="swiper swiper-features-off"
+              data-aos="fade-down"
+              data-aos-duration="1000"
+              data-aos-delay="500"
+            >
+              <div class="swiper-wrapper swiper-wrapper-flex-of">
+                <div class="swiper-slide">
+                  <div class="features__card">
+                    <h3 class="features__card-title">
+                      <span class="page__lang en">Sound & Music</span>
+                      <span class="page__lang ua">Звук і музика</span>
+                    </h3>
+                    <ul class="features__card-list">
+                      <li class="features__item">
+                        <span class="page__lang en">
+                          Feel-in-chest Base Power
+                        </span>
+                        <span class="page__lang ua">
+                          Відчуйте потужність в грудях
+                        </span>
+                      </li>
+                      <li class="features__item">
+                        <span class="page__lang en">
+                          Lossless Digital Audio Transmission
+                        </span>
+                        <span class="page__lang ua">
+                          Передача цифрового звуку без втрат
+                        </span>
+                      </li>
+                      <li class="features__item">
+                        <span class="page__lang en">
+                          Easy & Stable Stereo Pairing
+                        </span>
+                        <span class="page__lang ua">
+                          Легке та стабільне стереоз’єднання
+                        </span>
+                      </li>
+                      <li class="features__item">
+                        <span class="page__lang en">
+                          Crisp and Clear High Frequency Sound
+                        </span>
+                        <span class="page__lang ua">
+                          Чіткий і чистий високочастотний звук
+                        </span>
+                      </li>
+                      <li class="features__item">
+                        <span class="page__lang en">
+                          Streams from Cloud Music and Local Library
+                        </span>
+                        <span class="page__lang ua">
+                          Стрімінг з Cloud Music і локальної бібліотеки
+                        </span>
+                      </li>
+                      <li class="features__item">
+                        <span class="page__lang en">
+                          Auto Music Playback from Last Song Stopped
+                        </span>
+                        <span class="page__lang ua">
+                          Автовідтворення музики з останньої пісні
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="features__card">
+                    <h3 class="features__card-title">
+                      <span class="page__lang en">App Features</span>
+                      <span class="page__lang ua">Особливості програми</span>
+                    </h3>
+                    <ul class="features__card-list">
+                      <li class="features__item">
+                        <span class="page__lang en">
+                          Customize Music Schedule
+                        </span>
+                        <span class="page__lang ua">
+                          Налаштуй графік відтворення
+                        </span>
+                      </li>
+                      <li class="features__item">
+                        <span class="page__lang en">
+                          Wake Up with Favorite Songs
+                        </span>
+                        <span class="page__lang ua">
+                          Прокидайтеся з улюбленими піснями
+                        </span>
+                      </li>
+                      <li class="features__item">
+                        <span class="page__lang en">
+                          Home Detection Auto Wake Up
+                        </span>
+                        <span class="page__lang ua">
+                          Автоматичне вмикання вдома
+                        </span>
+                      </li>
+                      <li class="features__item">
+                        <span class="page__lang en">Color Wheel</span>
+                        <span class="page__lang ua">Кольорове колесо</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="features__card">
+                    <h3 class="features__card-title">
+                      <span class="page__lang en">Connectivity</span>
+                      <span class="page__lang ua">Підключення</span>
+                    </h3>
+                    <ul class="features__card-list">
+                      <li class="features__item">
+                        <span class="page__lang en">
+                          Hands Free Wireless Audio
+                        </span>
+                        <span class="page__lang ua">
+                          Бездротова аудіосистема
+                        </span>
+                      </li>
+                      <li class="features__item">
+                        <span class="page__lang en">Bluetooth 4.0 LE</span>
+                        <span class="page__lang ua">Bluetooth 4.0 LE</span>
+                      </li>
+                      <li class="features__item">
+                        <span class="page__lang en">
+                          Wi-Fi 2.4 GHz (802.11 b/g/n)
+                        </span>
+                        <span class="page__lang ua">
+                          Wi-Fi 2.4 GHz (802.11 b/g/n)
+                        </span>
+                      </li>
+                      <li class="features__item">
+                        <span class="page__lang en">
+                          Smart Multiroom System Set Up
+                        </span>
+                        <span class="page__lang ua">
+                          Розумне налаштування Multiroom системи
+                        </span>
+                      </li>
+                      <li class="features__item">
+                        <span class="page__lang en">
+                          Party Mode with 6.0 Units and above
+                        </span>
+                        <span class="page__lang ua">
+                          Режим вечірки з 6.0 одиницями і більше
+                        </span>
+                      </li>
+                      <li class="features__item">
+                        <span class="page__lang en">
+                          MESHNET Multi Speaker Network
+                        </span>
+                        <span class="page__lang ua">
+                          Мережа MESHNET з декількома гучномовцями
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-aditishionals">
+                <div class="swiper-button-prev">
+                  <svg
+                    width="48"
+                    height="14"
+                    viewBox="0 0 48 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      class="swiper-path"
+                      d="M48 4.19628e-06L0.329261 0L0.329261 0.999998L48 1V4.19628e-06Z"
+                      fill="#333333"
+                    />
+                    <path
+                      class="swiper-path"
+                      d="M18.2022 11.8047L0.440509 0.000149576L0 1.19548L17.7616 13L18.2022 11.8047Z"
+                      fill="#333333"
+                    />
+                  </svg>
+                </div>
+                <div class="swiper-button-next">
+                  <svg
+                    width="48"
+                    height="14"
+                    viewBox="0 0 48 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      class="swiper-path"
+                      d="M0 13H47.6707V12H0V13Z"
+                      fill="#333333"
+                    />
+                    <path
+                      class="swiper-path"
+                      d="M29.7978 1.19533L47.5595 12.9999L48 11.8045L30.2384 0L29.7978 1.19533Z"
+                      fill="#333333"
+                    />
+                  </svg>
+                </div>
+                <div class="swiper-counter">
+                  <span class="swiper-curent">01</span>
+                  <span class="swiper-slesh">/</span>
+                  <span class="swiper-total">03</span>
+                </div>
+              </div>
+            </div>
+            <div class="features__card-box">
+              <div
+                class="features__card features__card-1"
+                data-aos="flip-down"
+                data-aos-duration="1000"
+                data-aos-delay="200"
+              >
+                <h3 class="features__card-title">
+                  <span class="page__lang en">Sound & Music</span>
+                  <span class="page__lang ua">Звук і музика</span>
+                </h3>
+                <ul class="features__card-list">
+                  <li class="features__item">
+                    <span class="page__lang en">Feel-in-chest Base Power</span>
+                    <span class="page__lang ua">
+                      Відчуйте потужність в грудях
+                    </span>
+                  </li>
+                  <li class="features__item">
+                    <span class="page__lang en">
+                      Lossless Digital Audio Transmission
+                    </span>
+                    <span class="page__lang ua">
+                      Передача цифрового звуку без втрат
+                    </span>
+                  </li>
+                  <li class="features__item">
+                    <span class="page__lang en">
+                      Easy & Stable Stereo Pairing
+                    </span>
+                    <span class="page__lang ua">
+                      Легке та стабільне стереоз’єднання
+                    </span>
+                  </li>
+                  <li class="features__item">
+                    <span class="page__lang en">
+                      Crisp and Clear High Frequency Sound
+                    </span>
+                    <span class="page__lang ua">
+                      Чіткий і чистий високочастотний звук
+                    </span>
+                  </li>
+                  <li class="features__item">
+                    <span class="page__lang en">
+                      Streams from Cloud Music and Local Library
+                    </span>
+                    <span class="page__lang ua">
+                      Стрімінг з Cloud Music і локальної бібліотеки
+                    </span>
+                  </li>
+                  <li class="features__item">
+                    <span class="page__lang en">
+                      Auto Music Playback from Last Song Stopped
+                    </span>
+                    <span class="page__lang ua">
+                      Автовідтворення музики з останньої пісні
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="features__card features__card-2"
+                data-aos="flip-down"
+                data-aos-duration="1000"
+                data-aos-delay="800"
+              >
+                <h3 class="features__card-title">
+                  <span class="page__lang en">App Features</span>
+                  <span class="page__lang ua">Особливості програми</span>
+                </h3>
+                <ul class="features__card-list">
+                  <li class="features__item">
+                    <span class="page__lang en">Customize Music Schedule</span>
+                    <span class="page__lang ua">
+                      Налаштуй графік відтворення
+                    </span>
+                  </li>
+                  <li class="features__item">
+                    <span class="page__lang en">
+                      Wake Up with Favorite Songs
+                    </span>
+                    <span class="page__lang ua">
+                      Прокидайтеся з улюбленими піснями
+                    </span>
+                  </li>
+                  <li class="features__item">
+                    <span class="page__lang en">
+                      Home Detection Auto Wake Up
+                    </span>
+                    <span class="page__lang ua">
+                      Автоматичне вмикання вдома
+                    </span>
+                  </li>
+                  <li class="features__item">
+                    <span class="page__lang en">Color Wheel</span>
+                    <span class="page__lang ua">Кольорове колесо</span>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="features__card features__card-3"
+                data-aos="flip-down"
+                data-aos-duration="1000"
+                data-aos-delay="800"
+              >
+                <h3 class="features__card-title">
+                  <span class="page__lang en">Connectivity</span>
+                  <span class="page__lang ua">Підключення</span>
+                </h3>
+                <ul class="features__card-list">
+                  <li class="features__item">
+                    <span class="page__lang en">Hands Free Wireless Audio</span>
+                    <span class="page__lang ua">Бездротова аудіосистема</span>
+                  </li>
+                  <li class="features__item">
+                    <span class="page__lang en">Bluetooth 4.0 LE</span>
+                    <span class="page__lang ua">Bluetooth 4.0 LE</span>
+                  </li>
+                  <li class="features__item">
+                    <span class="page__lang en">
+                      Wi-Fi 2.4 GHz (802.11 b/g/n)
+                    </span>
+                    <span class="page__lang ua">
+                      Wi-Fi 2.4 GHz (802.11 b/g/n)
+                    </span>
+                  </li>
+                  <li class="features__item">
+                    <span class="page__lang en">
+                      Smart Multiroom System Set Up
+                    </span>
+                    <span class="page__lang ua">
+                      Розумне налаштування Multiroom системи
+                    </span>
+                  </li>
+                  <li class="features__item">
+                    <span class="page__lang en">
+                      Party Mode with 6.0 Units and above
+                    </span>
+                    <span class="page__lang ua">
+                      Режим вечірки з 6.0 одиницями і більше
+                    </span>
+                  </li>
+                  <li class="features__item">
+                    <span class="page__lang en">
+                      MESHNET Multi Speaker Network
+                    </span>
+                    <span class="page__lang ua">
+                      Мережа MESHNET з декількома гучномовцями
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="features__image"
+              data-aos="fade-up-left"
+              data-aos-duration="1000"
+            ></div>
+          </div>
+        </section>
+        <section
+          class="questions page__questions"
+          id="questions"
+        >
+          <div class="container">
+            <div class="questions__content">
+              <h2
+                class="questions__title"
+                data-aos="fade-up-right"
+                data-aos-duration="1000"
+              >
+                <span class="page__lang en">Do you have any questions?</span>
+                <span class="page__lang ua">У ВАС Є ЗАПИТАННЯ?</span>
+              </h2>
+              <form
+                action="#"
+                method="post"
+                id="form"
+                class="questions__form" novalidate
+              >
+
+                <p class="questions__success-message">
+                  <span class="page__lang en">Thank you! Your message has been sent.</span>
+                  <span class="page__lang ua">Дякуємо! Ваше повідомлення успішно надіслано.</span>
+                </p>
+
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your email"
+                  required
+                  class="questions__email"
+                  data-aos="fade-up-left"
+                  data-aos-duration="1000"
+                />
+                <textarea
+                  name="message"
+                  placeholder="Your message..."
+                  minlength="2"
+                  maxlength="300"
+                  required
+                  class="questions__message"
+                  data-aos="fade-up-left"
+                  data-aos-duration="1000"
+                  data-aos-delay="100"
+                ></textarea>
+                <div
+                  class="questions__button-wrapper"
+                  data-aos="zoom-in-up"
+                  data-aos-duration="1000"
+                >
+                  <button
+                    type="submit"
+                    class="questions__button"
+                  >
+                    <span class="page__lang en">SEND</span>
+                    <span class="page__lang ua">ВІДПРАВИТИ</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer
+      class="footer page__footer"
+      id="footer"
+    >
+      <div class="container">
+        <div class="footer__content">
+          <a
+            href="#"
+            data-aos="zoom-in-up"
+            data-aos-duration="1000"
+          >
+            <img
+              src="./src/images/icon/logo.svg"
+              alt="logo"
+              class="footer__logo page__logo"
+            />
+          </a>
+          <div class="footer__social">
+            <a
+              href="https://www.facebook.com/hicrazybaby/"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+            >
+              <img
+                src="./src/images/icon/facebook.svg"
+                alt="facebook"
+                class="footer__soc-icon"
+              />
+            </a>
+            <a
+              href="https://x.com/crazybabyaudio"
+              data-aos="zoom-in-up"
+              data-aos-duration="1000"
+            >
+              <img
+                src="./src/images/icon/twitter.svg"
+                alt="twitter"
+                class="footer__soc-icon"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/crazybaby/"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+            >
+              <img
+                src="./src/images/icon/insta.svg"
+                alt="instagram"
+                class="footer__soc-icon"
+              />
+            </a>
+          </div>
+          <div
+            class="footer__copyright"
+            data-aos="zoom-in-up"
+            data-aos-duration="1000"
+            data-aos-offset="0"
+          >
+            <span class="page__lang en">
+              © 2026 All rights reserved. Terms of Use & Privacy Policy
+            </span>
+            <span class="page__lang ua">
+              © 2026 Усі права захищено. Умови використання та політика
+              конфіденційності
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="page__go-to-top">
+      <a
+        href="#"
+        class="page__go-to-top-icon"
+      >
+        <img
+          src="./src/images/icon/go-to-top.svg"
+          alt="go-to-top"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          data-aos-offset="800"
+        />
+      </a>
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

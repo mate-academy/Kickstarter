@@ -1,0 +1,117 @@
+.hero {
+  // GRID
+  @include on-tablet {
+    @include page-grid;
+
+    row-gap: 30px;
+  }
+
+  @include on-desktop {
+    row-gap: 0;
+  }
+
+  //  КАРТИНКА-КОНТЕЙНЕР
+  &__image-box {
+    width: 100%;
+
+    @include on-tablet {
+      grid-column: 4 / 9; // 5 колонок
+      grid-row: 1 / 3;
+      z-index: 1;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 13; // ~8 колонок
+    }
+  }
+
+  // КАРТИНКА
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: left;
+    margin-bottom: 40px;
+    aspect-ratio: 320 / 245;
+
+    cursor: pointer;
+
+    @include on-tablet {
+      margin-bottom: 0;
+      aspect-ratio: auto;
+    }
+  }
+
+  // ЗАГОЛОВОК
+  &__title {
+    position: relative;
+    z-index: 2;
+    margin: 0 30px 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      grid-row: 1 / 2;
+      margin: 0;
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__title .en {
+    @extend %h1;
+
+    color: var(--black2);
+  }
+
+  &__title .ua {
+    @extend %h1;
+
+    color: var(--black2);
+
+    font-size: 31px;
+    line-height: 43px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      font-size: 41px;
+      line-height: 55px;
+    }
+
+    @include on-desktop {
+      font-size: 60px;
+      line-height: 76px;
+    }
+  }
+
+  &__title span span {
+    width: 100%;
+    display: block;
+    line-height: 1.1;
+  }
+
+  // ОПИС
+  &__description {
+    @extend %main-text;
+
+    color: var(--black-duplicate);
+    margin: 0 30px;
+    position: relative;
+    z-index: 2;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 2 / 3;
+      margin: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 4;
+      margin-top: 30px;
+    }
+  }
+}
