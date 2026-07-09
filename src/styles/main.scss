@@ -2,6 +2,1064 @@
 @import 'fonts';
 @import 'typography';
 
+// Base: regras globais que normalizam comportamento e tipografia.
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: $c-gray;
+  min-width: 320px;
+  margin: 0;
+
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: $color-dark;
+
+  background: $color-page;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+// Layout: container reutilizavel com larguras responsivas do design.
+.container {
+  width: min(100% - 60px, $content-max-width);
+  margin: 0 auto;
+
+  @include on-tablet {
+    width: min(100% - 68px, $content-max-width);
+  }
+
+  @include on-desktop {
+    width: min(100% - 246px, $content-max-width);
+  }
+}
+
+// Acessibilidade: texto visivel apenas para leitores de tela.
+.visually-hidden {
+  position: absolute;
+
+  overflow: hidden;
+
+  width: 1px;
+  height: 1px;
+
+  white-space: nowrap;
+
+  clip: rect(0 0 0 0);
+}
+
+// Tipografia compartilhada: titulo usado em varias sections.
+.section-title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: $color-dark;
+  text-transform: uppercase;
+
+  @include on-tablet {
+    font-size: 36px;
+  }
+
+  @include on-desktop {
+    font-size: 56px;
+    line-height: 1.25;
+  }
+}
+
+// Link decorado usado nas chamadas "See more about us".
+.text-link {
+  display: inline-block;
+
+  font-weight: 700;
+  line-height: 1.2;
+  color: $color-accent;
+  text-transform: uppercase;
+
+  &::after {
+    content: '';
+
+    transform-origin: left;
+
+    display: block;
+
+    width: 53px;
+    height: 1px;
+    margin-top: 5px;
+
+    background-color: $color-accent;
+
+    transition: transform 0.3s;
+  }
+
+  &:hover::after {
+    transform: scaleX(2.15);
+  }
+}
+
+// Botao reutilizavel com variacoes de cor.
+.button {
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 102px;
+  min-height: 48px;
+  border: 0;
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  color: $color-white;
+  text-transform: uppercase;
+
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+
+  &--dark {
+    background-color: $color-dark;
+
+    &:hover {
+      background-color: $color-black;
+    }
+  }
+
+  &--accent {
+    background-color: $color-accent;
+
+    &:hover {
+      background-color: $color-accent-dark;
+    }
+  }
+}
+
+// Logo da marca criado com texto e simbolo em CSS.
+.logo {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+
+  font-weight: 700;
+  line-height: 1;
+  color: $color-black;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.08);
+  }
+
+  &__mark {
+    position: relative;
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
+    background-color: $color-black;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: -6px;
+      left: 6px;
+
+      width: 8px;
+      height: 8px;
+      border-radius: 8px 8px 0 0;
+
+      background-color: $color-black;
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 5px;
+      left: 5px;
+
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+
+      background-color: $color-page;
+    }
+  }
+}
+
+// Header: topo da pagina, acoes e menu hamburger.
+.header {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  background-color: rgba($color-page, 0.96);
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 76px;
+  }
+
+  &__logo {
+    font-size: 18px;
+  }
+
+  &__nav,
+  &__actions {
+    display: none;
+  }
+
+  &__menu {
+    cursor: pointer;
+
+    display: grid;
+
+    width: 32px;
+    height: 32px;
+    padding: 7px 4px;
+    border: 0;
+
+    background-color: transparent;
+  }
+
+  &__menu-line {
+    width: 24px;
+    height: 2px;
+    background-color: $color-dark;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+  }
+
+  &__lang {
+    font-size: 14px;
+    color: $color-light-gray;
+
+    &--active {
+      color: $color-dark;
+    }
+  }
+
+  &__divider {
+    color: $color-light-gray;
+  }
+
+  &--menu-open {
+    .header__menu-line:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .header__menu-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .header__menu-line:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+
+  @include on-tablet {
+    &__container {
+      min-height: 100px;
+    }
+
+    &__actions {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    &__button {
+      margin-left: 22px;
+    }
+  }
+
+  @include on-desktop {
+    position: static;
+
+    &__container {
+      min-height: 112px;
+    }
+
+    &__nav {
+      display: flex;
+    }
+
+    &__menu {
+      display: none;
+    }
+  }
+}
+
+// Navegacao principal do header.
+.nav {
+  gap: 84px;
+  align-items: center;
+
+  &__link {
+    font-size: 14px;
+    color: $color-dark;
+    text-transform: uppercase;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
+
+// Menu mobile aberto pelo botao hamburger.
+.mobile-menu {
+  position: fixed;
+  inset: 76px 0 auto;
+  transform: translateY(-130%);
+
+  display: grid;
+  gap: 26px;
+
+  padding: 28px 30px 40px;
+
+  background-color: $color-page;
+  box-shadow: 0 12px 24px rgba($color-black, 0.08);
+
+  transition: transform 0.3s;
+
+  &__link {
+    font-weight: 700;
+    color: $color-dark;
+    text-transform: uppercase;
+  }
+
+  &__button {
+    width: 102px;
+  }
+
+  &--open {
+    transform: translateY(0);
+  }
+
+  @include on-tablet {
+    inset-block-start: 100px;
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+// Navegacao interna exibida abaixo do hero no desktop.
+.page-nav {
+  display: none;
+
+  @include on-desktop {
+    display: block;
+    padding: 0 0 40px;
+
+    &__container {
+      display: flex;
+      gap: 84px;
+      justify-content: center;
+    }
+
+    &__link {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: $color-dark;
+      text-transform: uppercase;
+
+      transition: color 0.3s;
+
+      &--active {
+        font-weight: 700;
+      }
+
+      &:hover {
+        color: $color-accent;
+      }
+    }
+  }
+}
+
+// Hero: primeira dobra com texto principal e imagem do produto.
+.hero {
+  padding: 38px 0 46px;
+
+  &__container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 36px;
+  }
+
+  &__title {
+    max-width: 420px;
+
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: $color-dark;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    max-width: 276px;
+    margin-top: 24px;
+    font-size: 16px;
+    color: $color-dark;
+  }
+
+  &__picture {
+    align-self: center;
+    width: min(100%, 430px);
+  }
+
+  &__image {
+    cursor: pointer;
+    width: 100%;
+  }
+
+  @include on-tablet {
+    padding: 24px 0 66px;
+
+    &__container {
+      display: grid;
+      grid-template-columns: 1fr 58%;
+      gap: 0;
+      align-items: center;
+    }
+
+    &__content {
+      position: relative;
+      z-index: 1;
+    }
+
+    &__title {
+      font-size: 48px;
+    }
+
+    &__picture {
+      width: 100%;
+      margin-left: -36px;
+    }
+  }
+
+  @include on-desktop {
+    padding: 56px 0 78px;
+
+    &__container {
+      grid-template-columns: 380px 1fr;
+    }
+
+    &__title {
+      font-size: 64px;
+      line-height: 1.2;
+    }
+
+    &__picture {
+      margin-left: -6px;
+    }
+  }
+}
+
+// Benefits: grid com os quatro diferenciais do produto.
+.benefits {
+  padding: 44px 0;
+
+  &__container {
+    display: grid;
+    gap: 64px;
+  }
+
+  &__item {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+  }
+
+  &__icon {
+    cursor: pointer;
+
+    width: 70px;
+    height: 50px;
+
+    object-fit: contain;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: translateY(-8px) scale(1.08);
+    }
+  }
+
+  &__title {
+    min-height: 44px;
+    margin-top: 36px;
+
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.27;
+    color: $color-dark;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    max-width: 276px;
+    margin-top: 20px;
+
+    font-size: 14px;
+    line-height: 1.5;
+    color: $color-gray;
+  }
+
+  @include on-tablet {
+    padding: 52px 0;
+
+    &__container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 64px 28px;
+    }
+  }
+
+  @include on-desktop {
+    padding: 62px 0;
+
+    &__container {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+  }
+}
+
+// Presentation: imagem central de apresentacao da familia Luna.
+.presentation {
+  padding: 36px 0 58px;
+
+  &__image {
+    cursor: pointer;
+    width: min(100%, 846px);
+    margin: 0 auto;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  @include on-tablet {
+    padding: 58px 0 88px;
+  }
+}
+
+// About: bloco com imagem de sketches e texto institucional.
+.about {
+  padding: 36px 0;
+
+  &__container {
+    display: grid;
+    gap: 32px;
+  }
+
+  &__image {
+    cursor: pointer;
+
+    width: 100%;
+    min-height: 210px;
+
+    object-fit: cover;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  &__text {
+    margin: 24px 0 30px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $color-gray;
+  }
+
+  &__nowrap {
+    white-space: nowrap;
+  }
+
+  @include on-tablet {
+    padding: 54px 0;
+
+    &__container {
+      grid-template-columns: 50% 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+  }
+
+  @include on-desktop {
+    padding: 70px 0;
+
+    &__container {
+      grid-template-columns: 582px 1fr;
+      gap: 78px;
+    }
+
+    &__text {
+      margin: 30px 0 60px;
+      font-size: 20px;
+    }
+  }
+}
+
+// Technology: bloco sobre o Luna Eye com texto e imagem lateral.
+.technology {
+  padding: 36px 0 54px;
+
+  &__container {
+    display: grid;
+    gap: 28px;
+  }
+
+  &__text {
+    margin: 24px 0 30px;
+    font-size: 16px;
+    color: $color-gray;
+  }
+
+  &__image {
+    cursor: pointer;
+
+    width: 100%;
+    min-height: 210px;
+
+    object-fit: cover;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  @include on-tablet {
+    padding: 54px 0 76px;
+
+    &__container {
+      grid-template-columns: 1fr 50%;
+      gap: 36px;
+      align-items: center;
+    }
+
+    &__image {
+      order: 2;
+    }
+  }
+
+  @include on-desktop {
+    padding: 70px 0 92px;
+
+    &__container {
+      grid-template-columns: 1fr 582px;
+      gap: 78px;
+    }
+
+    &__text {
+      max-width: 470px;
+    }
+  }
+}
+
+// Testimonials: depoimento com aspas decorativas e avatar.
+.testimonials {
+  padding: 66px 0 82px;
+  text-align: center;
+
+  &__container {
+    position: relative;
+    display: grid;
+    justify-items: center;
+
+    &::before {
+      content: '“';
+
+      position: absolute;
+      z-index: -1;
+      top: -64px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      font-size: 220px;
+      font-weight: 700;
+      line-height: 1;
+      color: $color-extra-light;
+    }
+  }
+
+  &__quote {
+    max-width: 786px;
+
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: $color-dark;
+  }
+
+  &__avatar {
+    width: 62px;
+    height: 62px;
+    margin-top: 30px;
+    border-radius: 50%;
+  }
+
+  &__name {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    color: $color-dark;
+  }
+
+  &__position {
+    margin-top: 5px;
+    color: $color-gray;
+  }
+
+  @include on-tablet {
+    padding: 86px 0 104px;
+
+    &__quote {
+      font-size: 22px;
+    }
+  }
+
+  @include on-desktop {
+    padding: 92px 0 116px;
+
+    &__quote {
+      font-size: 24px;
+    }
+  }
+}
+
+// Features: painel tecnico com listas e imagem explodida do produto.
+.features {
+  padding: 0 0 44px;
+
+  &__title {
+    margin-bottom: 28px;
+  }
+
+  &__panel {
+    position: relative;
+
+    overflow: hidden;
+    display: grid;
+    gap: 28px;
+
+    padding: 30px;
+
+    background-color: #d6ecec;
+  }
+
+  &__subtitle {
+    margin-bottom: 16px;
+
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: $color-accent-dark;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    margin: 0;
+    padding-left: 18px;
+    color: $color-dark;
+  }
+
+  &__item {
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+
+  &__image {
+    cursor: pointer;
+
+    place-self: end;
+
+    width: min(100%, 416px);
+    margin-right: -30px;
+    margin-bottom: -30px;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+
+  @include on-tablet {
+    padding-bottom: 70px;
+
+    &__panel {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 38px 52px 0;
+    }
+
+    &__image {
+      grid-column: 2;
+    }
+  }
+
+  @include on-desktop {
+    padding-bottom: 86px;
+
+    &__title {
+      margin-bottom: 30px;
+    }
+
+    &__panel {
+      grid-template-columns: 1fr 1fr 420px;
+      min-height: 458px;
+      padding: 60px 60px 0;
+    }
+
+    &__group:nth-child(3) {
+      grid-column: 1 / 2;
+    }
+
+    &__image {
+      grid-column: 3;
+      grid-row: 1 / 4;
+      width: 416px;
+      margin-right: -60px;
+    }
+  }
+}
+
+// Questions: chamada de contato com titulo e formulario.
+.questions {
+  padding: 32px 0 54px;
+
+  &__title-line {
+    display: block;
+    white-space: nowrap;
+  }
+
+  &__container {
+    display: grid;
+    gap: 28px;
+  }
+
+  @include on-tablet {
+    padding: 46px 0 72px;
+
+    &__container {
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+    }
+  }
+
+  @include on-desktop {
+    padding: 54px 0 88px;
+
+    &__container {
+      grid-template-columns: 480px 1fr;
+      gap: 112px;
+    }
+  }
+}
+
+// Form: campos e botao do formulario de contato.
+.form {
+  display: grid;
+
+  &__input {
+    width: 100%;
+    height: 48px;
+    padding: 12px 18px;
+    border: 1px solid $color-light-gray;
+
+    color: $color-dark;
+
+    background-color: transparent;
+    outline: none;
+
+    transition: border-color 0.3s;
+
+    &::placeholder {
+      color: $color-light-gray;
+    }
+
+    &:focus {
+      border-color: $color-accent;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      border-color: $color-accent;
+      box-shadow: 0 0 0 1000px $color-page inset;
+      transition: background-color 5000s ease-in-out 0s;
+
+      -webkit-text-fill-color: $color-dark;
+    }
+
+    &--textarea {
+      resize: none;
+      height: 128px;
+    }
+  }
+
+  &__field + &__field {
+    margin-top: -1px;
+  }
+
+  &__button {
+    width: 102px;
+    margin-top: 30px;
+  }
+}
+
+// Footer: logo, seta para topo, redes sociais e copyright.
+.footer {
+  padding: 34px 0 28px;
+
+  &__container {
+    position: relative;
+    display: grid;
+    justify-items: center;
+  }
+
+  &__logo {
+    font-size: 16px;
+  }
+
+  &__top {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 28px;
+    height: 28px;
+
+    transition: transform 0.3s;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: $color-dark;
+    }
+
+    &::before {
+      top: 6px;
+      left: 13px;
+      width: 2px;
+      height: 18px;
+    }
+
+    &::after {
+      top: 6px;
+      left: 9px;
+      transform: rotate(45deg);
+
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid $color-dark;
+      border-left: 2px solid $color-dark;
+
+      background-color: transparent;
+    }
+
+    &:hover {
+      transform: scale(1.22);
+    }
+  }
+
+  &__social {
+    margin-top: 56px;
+  }
+
+  &__copy {
+    margin-top: 34px;
+    color: #bdbdbd;
+    text-align: center;
+  }
+
+  @include on-tablet {
+    padding: 54px 0 30px;
+  }
+}
+
+// Social: icones do footer usando o sprite exportado do Figma.
+.social {
+  display: flex;
+  gap: 40px;
+
+  margin-bottom: 0;
+  padding: 0;
+
+  list-style: none;
+
+  &__link {
+    display: block;
+
+    width: 24px;
+    height: 24px;
+
+    background-image: url('../images/Group 8 (1).png');
+    background-repeat: no-repeat;
+    background-size: 152px 24px;
+
+    transition:
+      opacity 0.3s,
+      transform 0.3s;
+
+    &:hover {
+      transform: scale(1.15);
+      opacity: 0.7;
+    }
+
+    &--facebook {
+      background-position: 0 0;
+    }
+
+    &--twitter {
+      background-position: -64px 0;
+    }
+
+    &--instagram {
+      background-position: -128px 0;
+    }
+  }
 }
