@@ -1,0 +1,67 @@
+.benefits {
+  margin-top: 140px;
+  margin-bottom: 120px;
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 100px;
+  }
+
+  @include on-tablet {
+    &__content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px;
+    }
+  }
+
+  @media (max-width: 639px) {
+    margin-top: 80px;
+    margin-bottom: 80px;
+
+    &__content {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+}
+
+.benefit {
+  text-align: center;
+
+  &__icon {
+    width: 42px;
+    height: 42px;
+
+    margin: 0 auto 40px;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2) rotate(8deg);
+    }
+  }
+
+  &__title {
+    margin-bottom: 22px;
+
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: $c-text-gray;
+  }
+
+  @media (max-width: 639px) {
+    &__title {
+      font-size: 20px;
+    }
+  }
+}

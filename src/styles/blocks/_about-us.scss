@@ -1,0 +1,98 @@
+.about-us {
+  margin-top: 180px;
+  margin-bottom: 160px;
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+  }
+
+  &__title {
+    margin: 0 0 32px;
+    font-size: 52px;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    max-width: 360px;
+    margin: 0 0 32px;
+
+    font-size: 16px;
+    line-height: 1.5;
+    color: $c-text-gray;
+  }
+
+  &__link {
+    position: relative;
+
+    font-size: 12px;
+    font-weight: 700;
+    color: $c-accent;
+    text-transform: uppercase;
+
+    @include hover(color, $c-dark);
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+
+      width: 60px;
+      transition: width 0.3s;
+      height: 1px;
+
+      background-color: $c-accent;
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+
+  // Tablet
+  @include on-tablet {
+    margin-top: 120px;
+    margin-bottom: 120px;
+
+    &__content {
+      gap: 32px;
+    }
+
+    &__title {
+      font-size: 40px;
+    }
+  }
+
+  // Mobile
+  @media (max-width: 639px) {
+    margin-top: 80px;
+    margin-bottom: 80px;
+
+    &__content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__text {
+      max-width: 100%;
+    }
+
+    &__image {
+      order: -1;
+    }
+  }
+}

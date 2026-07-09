@@ -1,0 +1,102 @@
+.header {
+  padding-top: 40px;
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    margin-right: auto;
+  }
+
+  &__logo-image {
+    width: 180px;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.08);
+    }
+  }
+
+  &__nav {
+    margin-right: 48px;
+  }
+
+  &__link,
+  &__language {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    @include hover(color, $c-accent);
+  }
+
+  &__actions {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  &__buy {
+    display: inline-block;
+
+    padding: 16px 40px;
+
+    font-size: 12px;
+    font-weight: 700;
+    color: $c-white;
+    text-transform: uppercase;
+
+    background: $c-dark;
+
+    @include hover(background-color, $c-accent);
+  }
+
+  @include on-tablet {
+    &__logo-image {
+      width: 160px;
+    }
+
+    &__actions {
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 639px) {
+    &__nav {
+      display: none;
+    }
+
+    &__language {
+      display: none;
+    }
+
+    &__content {
+      justify-content: space-between;
+    }
+
+    &__buy {
+      padding: 12px 28px;
+    }
+
+    &__logo-image {
+      width: 140px;
+    }
+  }
+}
+
+.header__mobile-nav {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .header__mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+  }
+}
