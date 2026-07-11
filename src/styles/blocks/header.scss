@@ -1,0 +1,147 @@
+.header {
+  --column: 4;
+
+  @include on-tablet {
+    --column: 8;
+  }
+
+  @include on-desktop {
+    --column: 12;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(var(--column), 1fr);
+    column-gap: 20px;
+
+    @include on-tablet {
+      margin-inline: $margin-main-table;
+    }
+
+    @include on-desktop {
+      column-gap: 30px;
+      width: min($width-desktop, calc(100% - #{$margin-main-desktop} * 2));
+      margin-inline: auto;
+    }
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+    order: 2;
+    margin-inline: $margin-main;
+
+    @include on-tablet {
+      z-index: 3;
+
+      display: flex;
+      grid-column: span 3;
+      flex-direction: column;
+      justify-content: flex-end;
+      order: 1;
+
+      margin-inline: 0;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__image {
+    grid-column: 1 / -1;
+    order: 1;
+    width: 100%;
+
+    @include on-tablet {
+      z-index: 2;
+
+      display: flex;
+      grid-column: span 5;
+      align-items: flex-end;
+      order: 1;
+
+      margin-top: 148px;
+    }
+
+    @include on-desktop {
+      grid-column: span 8;
+      margin-top: 90px;
+    }
+
+    &-item {
+      display: flex;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__title {
+    margin-block: 40px 20px;
+    font-size: 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      margin-block: 0 30px;
+      font-size: 48px;
+      line-height: 62px;
+    }
+
+    @include on-desktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__text {
+    line-height: 24px;
+    color: $color-text-secondary;
+  }
+
+  &__nav {
+    display: none;
+    grid-template-columns: repeat(12, 1fr);
+
+    @include on-desktop {
+      display: grid;
+    }
+
+    &-wrapper {
+      display: flex;
+      grid-column: 4 / 10;
+      align-items: center;
+      justify-content: space-between;
+
+      height: 76px;
+      margin-top: 170px;
+    }
+
+    &-link {
+      font-size: 14px;
+      font-weight: 400;
+      color: $color-text-primary;
+      text-decoration: none;
+
+      &::after {
+        content: '';
+
+        display: block;
+
+        width: 0;
+        height: 1px;
+
+        background-color: $color-text-primary;
+
+        transition: width $time-animation ease-in-out;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+
+      &.active {
+        font-weight: 700;
+      }
+    }
+  }
+}

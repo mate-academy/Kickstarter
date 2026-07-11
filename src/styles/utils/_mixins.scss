@@ -1,6 +1,66 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin on-tablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin button-reset {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  font: inherit;
+  font-family: Inter, sans-serif;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  outline: none;
+}
+
+@mixin button-primary-dark {
+  @include button-reset;
+
+  color: $color-bg-primary;
+  background-color: $color-text-primary; // #131313
+
   &:hover {
-    #{$_property}: $_toValue;
+    background-color: $color-text-secondary; // #333333
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: $color-bg-primary;
+    background-color: $color-gray-light; // #BDBDBD
+  }
+}
+
+@mixin button-primary-accent {
+  @include button-reset;
+
+  color: $color-bg-primary;
+  background-color: $color-accent; // #4a9e9e типу teal
+
+  &:hover {
+    background-color: $color-accent-dark; // темніший teal
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: $color-bg-primary;
+    background-color: $color-accent-light; // #CFEFF0
   }
 }
