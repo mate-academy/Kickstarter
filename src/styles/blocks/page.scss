@@ -1,0 +1,42 @@
+.page {
+  scroll-behavior: smooth;
+
+  &:has(.menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    position: relative;
+
+    overflow-x: hidden;
+
+    margin: 0;
+
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 150%;
+    color: $color-text-primary;
+
+    background-color: $color-bg-primary;
+  }
+}
+
+.container {
+  position: relative;
+  margin-inline: $margin-main;
+
+  @include on-tablet {
+    margin-inline: $margin-main-table;
+  }
+
+  @include on-desktop {
+    max-width: $width-desktop;
+    margin-inline: max(
+      #{$margin-main-desktop},
+      calc((100% - #{$width-desktop}) / 2)
+    );
+  }
+}

@@ -1,0 +1,131 @@
+.form-contact {
+  --count: 4;
+
+  display: grid;
+  grid-template-columns: repeat(var(--count), 1fr);
+  column-gap: 20px;
+
+  &--margin {
+    margin-block: 110px 206px;
+
+    @include on-tablet {
+      margin-block: 140px;
+    }
+
+    @include on-desktop {
+      margin-block: 170px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    margin-bottom: 27px;
+
+    font-size: 30px;
+    line-height: 40px;
+    color: $color-text-secondary;
+
+    @include on-tablet {
+      grid-column: span 4;
+      margin-bottom: 0;
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+      font-size: 56px;
+      line-height: 70px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__input {
+    box-sizing: border-box;
+    height: 48px;
+    padding-left: 20px;
+    border: 1px solid $color-gray-light-2;
+    border-radius: 0;
+
+    font-size: 16px;
+    font-weight: 400;
+    color: $color-text-secondary;
+
+    background-color: $color-bg-primary;
+    outline: none;
+
+    &::placeholder {
+      color: $color-gray-light;
+    }
+
+    &:focus {
+      border-color: $color-accent-dark;
+      color: $color-text-secondary;
+    }
+
+    &:-webkit-autofill,
+    &:autofill,
+    &:-webkit-autofill:hover,
+    &:autofill:hover,
+    &:-webkit-autofill:focus,
+    &:autofill:focus {
+      box-shadow: 0 0 0 1000px $color-bg-primary inset !important;
+      transition: background-color 5000s ease-in-out 0s;
+
+      -webkit-text-fill-color: $color-text-secondary !important;
+    }
+
+    &--textarea {
+      resize: none;
+      height: 128px;
+      margin-block: 20px 30px;
+      padding-top: 15px;
+    }
+
+    &--error {
+      border-color: $color-error;
+    }
+  }
+
+  &__button {
+    @include button-primary-accent;
+
+    display: flex;
+
+    width: 102px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+
+    text-transform: uppercase;
+
+    @include on-desktop {
+      width: 123px;
+      height: 48px;
+    }
+  }
+
+  @include on-tablet {
+    --count: 8;
+  }
+
+  @include on-desktop {
+    --count: 12;
+
+    column-gap: 30px;
+  }
+}

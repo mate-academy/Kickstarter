@@ -1,0 +1,90 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+
+  @include on-tablet {
+    height: auto;
+    margin-top: 29px;
+  }
+
+  &__logo {
+    display: block;
+
+    img {
+      display: flex;
+      width: 161px;
+      height: 26px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+    justify-content: end;
+
+    &-link {
+      display: none;
+
+      font-family: Inter, sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: $color-gray-light-3;
+      text-decoration: none;
+
+      @include on-tablet {
+        display: flex;
+      }
+    }
+
+    &-menu {
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    &-buy {
+      @include button-primary-dark;
+
+      display: none;
+
+      width: 100px;
+      height: 48px;
+
+      font-weight: 400;
+      text-transform: uppercase;
+
+      @include on-tablet {
+        display: flex;
+      }
+    }
+  }
+
+  .lang {
+    display: none;
+    column-gap: 3px;
+    align-items: center;
+
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: $color-text-primary;
+
+    @include on-tablet {
+      display: flex;
+    }
+
+    &__item {
+      font-weight: 300;
+      color: $color-gray-light-2;
+      text-decoration: none;
+
+      &.active {
+        font-weight: 400;
+        color: $color-text-primary;
+      }
+    }
+  }
+}
