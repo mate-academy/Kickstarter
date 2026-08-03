@@ -1,0 +1,89 @@
+.menu {
+  @extend %thirdary-text;
+
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+
+  display: none;
+
+  width: 100%;
+  height: 100vh;
+
+  background: $c-white;
+
+  &:target {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 30px;
+
+    @include on-tablet {
+      padding: 33.6px 34px;
+    }
+
+    &-close {
+      display: flex;
+      align-items: center;
+
+      &-img {
+        width: 32.4px;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 31px 30px;
+
+    @include on-tablet {
+      padding: 40px 34px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    gap: 20px;
+    margin: 50px 0 0;
+    padding: 0 30px;
+
+    @include on-tablet {
+      display: none;
+      padding: 0 34px;
+    }
+  }
+
+  &__buy {
+    @extend %button-black;
+
+    display: flex;
+    margin: auto 30px 30px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}
+
+.nav {
+  @extend %thirdary-text;
+
+  display: none;
+
+  @include on-desktop {
+    display: flex;
+    grid-column: 1 / -1;
+    gap: 40px;
+    justify-content: center;
+
+    margin: 170px 0 62px;
+  }
+}

@@ -1,0 +1,71 @@
+.testimonial {
+  position: relative;
+
+  display: flex;
+  grid-column: 1 / -1;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0 0 110px;
+
+  text-align: center;
+
+  @include on-tablet {
+    margin: 0 0 140px;
+  }
+
+  @include on-desktop {
+    max-width: 786px;
+    margin: 0 auto 170px;
+  }
+
+  &__quote-icon {
+    pointer-events: none;
+
+    position: absolute;
+    z-index: 0;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 208px;
+    height: auto;
+
+    @include on-tablet {
+      top: -60px;
+      width: 233px;
+    }
+
+    @include on-desktop {
+      top: -50px;
+      left: 51%;
+    }
+  }
+
+  &__quote {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 30px;
+    color: $c-light-black;
+  }
+
+  &__avatar {
+    width: 60px;
+    height: 60px;
+    margin: 0 0 10px;
+    border-radius: 50%;
+
+    object-fit: cover;
+  }
+
+  &__name {
+    margin: 0 0 4px;
+    text-transform: none;
+  }
+
+  &__role {
+    @extend %secondary-text;
+
+    margin: 0;
+  }
+}

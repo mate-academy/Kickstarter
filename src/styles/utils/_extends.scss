@@ -1,4 +1,180 @@
-%h1 {
-  font-family: Roboto, sans-serif;
+%main-text {
+  font-size: 16px;
   font-weight: 400;
+  line-height: 24px;
+}
+
+%secondary-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+%thirdary-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+%button-base {
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px;
+
+  font-family: $font-main;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+%button-black {
+  @extend %button-base;
+
+  border: 1px solid transparent;
+  color: $c-white;
+  background-color: $c-light-black;
+
+  &:hover {
+    background-color: $c-black;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $c-gray;
+  }
+}
+
+%button-blue {
+  @extend %button-base;
+
+  border: 1px solid transparent;
+  font-weight: 700;
+  color: $c-white;
+  background-color: $c-blue;
+
+  &:hover {
+    background-color: $c-dark-blue;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $c-light-blue;
+  }
+}
+
+%button-outline-black {
+  @extend %button-base;
+
+  border: 1px solid $c-black;
+  color: $c-black;
+  background-color: transparent;
+
+  &:hover {
+    color: $c-white;
+    background-color: $c-black;
+  }
+}
+
+%button-outline-blue {
+  @extend %button-base;
+
+  border: 1px solid $c-dark-blue;
+  color: $c-dark-blue;
+  background-color: transparent;
+
+  &:hover {
+    border: 1px solid $c-dark-blue;
+    color: $c-white;
+    background-color: $c-dark-blue;
+  }
+}
+
+%button-text-blue {
+  @extend %button-base;
+
+  position: relative;
+
+  padding-bottom: 4px;
+  border: none;
+
+  font-weight: 700;
+  color: $c-dark-blue;
+
+  background: transparent;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+
+    width: 54px;
+    height: 1px;
+
+    background: $c-dark-blue;
+
+    transition: width 0.3s;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+%button-text-black {
+  @extend %button-base;
+
+  border: none;
+  color: $c-deep-dark-gray;
+  background: transparent;
+
+  &:hover {
+    border: 1px solid $c-deep-dark-gray;
+  }
+}
+%input-base {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid $c-dark-gray;
+
+  font-family: $font-main;
+  font-size: 16px;
+  line-height: 24px;
+
+  appearance: none;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+
+  transition: border 0.3s;
+
+  &::placeholder {
+    color: $c-light-gray;
+  }
+
+  &:focus {
+    border-color: $c-dark-blue;
+  }
+
+  &:invalid:not(:placeholder-shown) {
+    border-color: $c-red;
+    color: $c-red;
+    box-shadow: none;
+
+    &::placeholder {
+      color: $c-red;
+    }
+  }
 }

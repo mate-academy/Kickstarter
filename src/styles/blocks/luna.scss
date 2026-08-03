@@ -1,0 +1,68 @@
+.luna {
+  position: relative;
+
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 0 110px;
+
+  @include on-tablet {
+    margin: 0 0 140px;
+  }
+
+  @include on-desktop {
+    margin: 0 0 170px;
+  }
+
+  &__spacer {
+    aspect-ratio: 370 / 295;
+    width: 100%;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__img {
+    position: relative;
+    width: 100%;
+
+    &--mobile {
+      position: absolute;
+      top: 0;
+      left: -15px;
+
+      display: block;
+
+      width: 110%;
+
+      @include on-tablet {
+        position: relative;
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+      max-width: 846px;
+
+      @include on-desktop {
+        display: block;
+      }
+    }
+  }
+}
