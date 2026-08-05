@@ -19,10 +19,9 @@
 
   &__form {
     display: flex;
+    grid-column: 1/-1;
     flex-direction: column;
     gap: 20px;
-
-    grid-column: 1/-1;
 
     @include to-tablet {
       grid-column: 5/-1;
@@ -33,27 +32,29 @@
     }
   }
 
-  &__input,
-  &__textarea {
-    @extend %secondary-text;
-    border: 1px solid $color-grey;
-    padding: 16px;
-    background: transparent;
-
-    &::placeholder {
-      color: $color-grey-light;
-      @extend %secondary-text;
-    }
-
-    &:focus {
-      outline: none;
-      border-color: $color-primary;
-    }
-  }
-
   &__textarea {
     resize: vertical;
     min-height: 160px;
+  }
+
+  &__input,
+  &__textarea {
+    @extend %secondary-text;
+
+    padding: 16px;
+    border: 1px solid $color-grey;
+    background: transparent;
+
+    &::placeholder {
+      @extend %secondary-text;
+
+      color: $color-grey-light;
+    }
+
+    &:focus {
+      border-color: $color-primary;
+      outline: none;
+    }
   }
 
   &__submit {

@@ -7,22 +7,25 @@
 
   &__content {
     @include grid;
-    background-color: $color-primary-light;
-    padding-block: 30px 173px;
+
     row-gap: 50px;
 
     width: calc(100% + ($container-padding-mobile * 2));
     margin-left: -$container-padding-mobile;
+    padding-block: 30px 173px;
     padding-inline: $container-padding-mobile;
 
+    background-color: $color-primary-light;
+
     @include to-tablet {
+      position: relative;
+
+      justify-items: left;
+
       width: 100%;
       margin-left: auto;
-      padding-inline: 0;
-
       padding-block: 60px 123px;
-      position: relative;
-      justify-items: left;
+      padding-inline: 0;
     }
 
     @include to-desktop {
@@ -31,16 +34,18 @@
   }
 
   &__group {
+    z-index: 1;
     display: none;
     grid-column: 1/-1;
-    z-index: 1;
 
     &:nth-child(2) {
       display: block;
     }
+
     @include to-tablet {
       grid-column: 2/5;
     }
+
     @include to-desktop {
       display: block;
       grid-column: span 3;
@@ -70,41 +75,47 @@
   }
 
   &__group-title {
-    color: $color-primary;
     margin-bottom: 20px;
+    color: $color-primary;
   }
 
   &__list {
-    list-style: none;
     @extend %secondary-text;
+
+    list-style: none;
   }
   &__item {
-    margin-bottom: 10px;
     display: flex;
-    align-items: center;
     gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
 
     &::before {
       content: '';
+
+      display: block;
+
       min-width: 4px;
       height: 4px;
-      background-color: $color-black;
-      display: block;
       border-radius: 50%;
+
+      background-color: $color-black;
     }
   }
 
   &__image {
     position: absolute;
-    display: block;
-    width: 100%;
     bottom: 0;
     left: 0;
 
+    display: block;
+
+    width: 100%;
+
     @include to-tablet {
-      width: 60%;
       right: 0;
       left: auto;
+      width: 60%;
     }
 
     @include to-desktop {
@@ -115,14 +126,15 @@
 
 .slider-nav {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
   grid-column: 2/-2;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
 
   @include to-tablet {
     grid-column: 2/4;
   }
+
   @include to-desktop {
     display: none;
   }
@@ -133,16 +145,20 @@
   }
 
   &__arrow {
-    display: flex;
-    background: none;
-    border: none;
-    padding: 0;
     cursor: pointer;
+
+    display: flex;
+
+    padding: 0;
+    border: none;
+
     color: $color-black;
 
+    background: none;
+
     &--prev {
-      color: $color-primary;
       transform: rotate(180deg);
+      color: $color-primary;
     }
   }
 

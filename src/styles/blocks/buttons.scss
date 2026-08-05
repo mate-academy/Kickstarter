@@ -1,21 +1,27 @@
+@use 'sass:color';
+
 .button {
   @extend %button-text;
+
+  cursor: pointer;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   padding: 16px 32px;
   border: 1px solid transparent;
-  cursor: pointer;
+
   text-decoration: none;
 
   &:disabled {
-    cursor: not-allowed;
     pointer-events: none;
+    cursor: not-allowed;
   }
 
   &--dark {
-    background-color: $color-dark;
     color: #fff;
+    background-color: $color-dark;
 
     @include hover(background-color, $color-black);
 
@@ -25,10 +31,13 @@
   }
 
   &--teal {
-    background-color: $color-primary;
     color: #fff;
+    background-color: $color-primary;
 
-    @include hover(background-color, darken($color-primary, 10%));
+    @include hover(
+      background-color,
+      color.adjust($color-primary, $lightness: -10%)
+    );
 
     &:disabled {
       background-color: $color-primary-lightest;
@@ -36,55 +45,62 @@
   }
 
   &--outline-teal {
-    background-color: transparent;
     border-color: $color-primary;
     color: $color-primary;
+    background-color: transparent;
     transition:
       background-color 0.3s,
       color 0.3s;
 
     &:hover {
-      background-color: $color-primary;
       color: #fff;
+      background-color: $color-primary;
     }
   }
 
   &--outline-black {
-    background-color: transparent;
     border-color: $color-black;
     color: $color-black;
+    background-color: transparent;
     transition:
       background-color 0.3s,
       color 0.3s;
 
     &:hover {
-      background-color: $color-black;
       color: #fff;
+      background-color: $color-black;
     }
   }
 
   &--outline-grey {
-    background-color: transparent;
     border-color: $color-grey-light;
     color: $color-grey;
+    background-color: transparent;
   }
 
   &--link {
     position: relative;
-    background-color: transparent;
-    border: none;
+
     padding: 0;
     padding-bottom: 4px; // місце під лінію знизу
+    border: none;
+
     color: $color-primary;
+
+    background-color: transparent;
 
     &::after {
       content: '';
+
       position: absolute;
-      left: 0;
       bottom: 0;
+      left: 0;
+
       width: 50%;
       height: 1px;
+
       background-color: $color-primary;
+
       transition: width 0.3s;
     }
 

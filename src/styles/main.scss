@@ -19,33 +19,38 @@
 @import 'blocks/footer';
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
+
 html {
   background-color: $color-grey-lightest;
 }
+
 body {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  color: $color-dark;
+  scroll-behavior: smooth;
 
   box-sizing: border-box;
-  scroll-behavior: smooth;
+
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: $color-dark;
 }
 
 a {
-  text-decoration: none;
-  margin: 0;
   display: inline-flex;
+  margin: 0;
+  text-decoration: none;
 }
+
 main {
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 110px;
+
+  width: 100%;
   margin-block: 110px;
 
   @include to-tablet {
@@ -61,8 +66,8 @@ main {
 
 .container {
   width: 100%;
-  max-width: $container-max-width;
   min-width: $container-min-width;
+  max-width: $container-max-width;
   margin: 0 auto;
   padding: 0 $container-padding-mobile;
 
@@ -76,19 +81,21 @@ main {
 }
 
 .page__menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  transition: all 0.3s;
-  opacity: 0;
-  transform: translateX(-100%);
   pointer-events: none;
 
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  transform: translateX(-100%);
+
+  opacity: 0;
+
+  transition: all 0.3s;
+
   &:target {
-    opacity: 1;
-    transform: translateX(0);
     pointer-events: all;
+    transform: translateX(0);
+    opacity: 1;
   }
 }
