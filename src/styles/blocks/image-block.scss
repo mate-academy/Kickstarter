@@ -2,6 +2,7 @@
   @include grid;
 
   &__picture {
+    overflow: hidden;
     display: none;
     grid-column: 1/-1;
 
@@ -27,7 +28,15 @@
     height: auto;
     margin: 0 auto;
   }
-  &__image--mob {
+  &__picture &__image,
+  &__frame &__image {
+    cursor: pointer;
+
+    @include hover(transform, scale(1.05));
+  }
+  &__frame {
+    overflow: hidden;
+    display: block;
     grid-column: 1/-1;
 
     @include to-tablet {
