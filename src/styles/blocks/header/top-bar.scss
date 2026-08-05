@@ -1,0 +1,57 @@
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 25px;
+  gap: 30px;
+
+  @include to-tablet {
+    padding-block: 30px;
+  }
+
+  &__logo {
+    height: 26px;
+    @include hover(transform, scale(1.2));
+  }
+
+  &__specs {
+    @extend %secondary-text;
+    color: $color-grey-dark;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 300;
+
+    @include hover(color, $color-dark);
+  }
+
+  &__lang {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    @extend %secondary-text;
+  }
+
+  &__lang-link {
+    color: $color-grey-light;
+    text-decoration: none;
+
+    &--active {
+      color: $color-dark;
+      font-weight: 400;
+    }
+
+    @include hover(color, $color-dark);
+  }
+}
+
+.top-bar__actions {
+  display: none;
+  gap: 30px;
+  align-items: center;
+  margin-left: auto;
+
+  @include to-tablet {
+    display: flex;
+  }
+}

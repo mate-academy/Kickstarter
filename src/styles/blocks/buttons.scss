@@ -1,0 +1,95 @@
+.button {
+  @extend %button-text;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &--dark {
+    background-color: $color-dark;
+    color: #fff;
+
+    @include hover(background-color, $color-black);
+
+    &:disabled {
+      background-color: $color-grey-lighter;
+    }
+  }
+
+  &--teal {
+    background-color: $color-primary;
+    color: #fff;
+
+    @include hover(background-color, darken($color-primary, 10%));
+
+    &:disabled {
+      background-color: $color-primary-lightest;
+    }
+  }
+
+  &--outline-teal {
+    background-color: transparent;
+    border-color: $color-primary;
+    color: $color-primary;
+    transition:
+      background-color 0.3s,
+      color 0.3s;
+
+    &:hover {
+      background-color: $color-primary;
+      color: #fff;
+    }
+  }
+
+  &--outline-black {
+    background-color: transparent;
+    border-color: $color-black;
+    color: $color-black;
+    transition:
+      background-color 0.3s,
+      color 0.3s;
+
+    &:hover {
+      background-color: $color-black;
+      color: #fff;
+    }
+  }
+
+  &--outline-grey {
+    background-color: transparent;
+    border-color: $color-grey-light;
+    color: $color-grey;
+  }
+
+  &--link {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    padding-bottom: 4px; // місце під лінію знизу
+    color: $color-primary;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50%;
+      height: 1px;
+      background-color: $color-primary;
+      transition: width 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

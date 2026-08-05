@@ -1,0 +1,56 @@
+.header {
+  @include to-tablet {
+    height: max-content;
+    position: relative;
+  }
+
+  &__picture {
+    display: block;
+  }
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+
+    @include to-tablet {
+      width: 429px;
+      margin: 0;
+
+      position: absolute;
+      z-index: -1;
+      right: $container-padding-tablet;
+      bottom: 0;
+    }
+
+    @include to-desktop {
+      width: 816px;
+      right: $container-padding-desktop;
+      bottom: 190px;
+    }
+  }
+
+  &__hero {
+    margin-top: 40px;
+
+    @include to-tablet {
+      @include grid;
+      margin-top: 100px;
+    }
+    @include to-desktop {
+      margin-top: 140px;
+    }
+  }
+
+  &__title {
+    @include to-tablet {
+      grid-column: 1/5;
+    }
+  }
+  &__text {
+    margin-top: 20px;
+    @include to-tablet {
+      grid-column: 1/4;
+    }
+  }
+}

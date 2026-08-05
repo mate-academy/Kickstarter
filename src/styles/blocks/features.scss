@@ -1,0 +1,160 @@
+.features {
+  position: relative;
+
+  &__title {
+    margin-bottom: 32px;
+  }
+
+  &__content {
+    @include grid;
+    background-color: $color-primary-light;
+    padding-block: 30px 173px;
+    row-gap: 50px;
+
+    width: calc(100% + ($container-padding-mobile * 2));
+    margin-left: -$container-padding-mobile;
+    padding-inline: $container-padding-mobile;
+
+    @include to-tablet {
+      width: 100%;
+      margin-left: auto;
+      padding-inline: 0;
+
+      padding-block: 60px 123px;
+      position: relative;
+      justify-items: left;
+    }
+
+    @include to-desktop {
+      padding-block: 60px;
+    }
+  }
+
+  &__group {
+    display: none;
+    grid-column: 1/-1;
+    z-index: 1;
+
+    &:nth-child(2) {
+      display: block;
+    }
+    @include to-tablet {
+      grid-column: 2/5;
+    }
+    @include to-desktop {
+      display: block;
+      grid-column: span 3;
+    }
+
+    &--connectivity {
+      @include to-desktop {
+        grid-column: 2/6;
+        grid-row: 1;
+      }
+    }
+
+    &--sound {
+      @include to-desktop {
+        grid-column: 2/6;
+        grid-row: 2;
+      }
+    }
+
+    &--app {
+      @include to-desktop {
+        grid-column: 7/11;
+        grid-row: 1/3;
+        align-self: start;
+      }
+    }
+  }
+
+  &__group-title {
+    color: $color-primary;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    list-style: none;
+    @extend %secondary-text;
+  }
+  &__item {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &::before {
+      content: '';
+      min-width: 4px;
+      height: 4px;
+      background-color: $color-black;
+      display: block;
+      border-radius: 50%;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    display: block;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+
+    @include to-tablet {
+      width: 60%;
+      right: 0;
+      left: auto;
+    }
+
+    @include to-desktop {
+      width: 50%;
+    }
+  }
+}
+
+.slider-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  grid-column: 2/-2;
+
+  @include to-tablet {
+    grid-column: 2/4;
+  }
+  @include to-desktop {
+    display: none;
+  }
+
+  &__arrows {
+    display: flex;
+    align-items: center;
+  }
+
+  &__arrow {
+    display: flex;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: $color-black;
+
+    &--prev {
+      color: $color-primary;
+      transform: rotate(180deg);
+    }
+  }
+
+  &__counter {
+    @extend %secondary-text;
+  }
+
+  &__current {
+    color: $color-black;
+  }
+
+  &__total {
+    color: $color-primary;
+  }
+}

@@ -1,0 +1,62 @@
+.questions {
+  &__content {
+    @include grid;
+  }
+
+  &__title {
+    grid-column: 1/-1;
+    margin-bottom: 30px;
+
+    @include to-tablet {
+      grid-column: 1/4;
+      margin-bottom: 0;
+    }
+
+    @include to-desktop {
+      grid-column: 1/7;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    grid-column: 1/-1;
+
+    @include to-tablet {
+      grid-column: 5/-1;
+    }
+
+    @include to-desktop {
+      grid-column: 7/-1;
+    }
+  }
+
+  &__input,
+  &__textarea {
+    @extend %secondary-text;
+    border: 1px solid $color-grey;
+    padding: 16px;
+    background: transparent;
+
+    &::placeholder {
+      color: $color-grey-light;
+      @extend %secondary-text;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 160px;
+  }
+
+  &__submit {
+    align-self: flex-start;
+  }
+}

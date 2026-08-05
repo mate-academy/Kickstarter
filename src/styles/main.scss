@@ -2,6 +2,93 @@
 @import 'fonts';
 @import 'typography';
 
+@import 'blocks/icons';
+@import 'blocks/buttons';
+
+@import 'blocks/header/top-bar';
+@import 'blocks/header/nav';
+@import 'blocks/header/header';
+@import 'blocks/header/menu';
+
+@import 'blocks/benefits';
+@import 'blocks/presentation';
+@import 'blocks/image-block';
+@import 'blocks/testimonials';
+@import 'blocks/features';
+@import 'blocks/questions';
+@import 'blocks/footer';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  background-color: $color-grey-lightest;
+}
 body {
-  background: $c-gray;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: $color-dark;
+
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  margin: 0;
+  display: inline-flex;
+}
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+  margin-block: 110px;
+
+  @include to-tablet {
+    gap: 140px;
+    margin-block: 140px;
+  }
+
+  @include to-desktop {
+    gap: 170px;
+    margin-block: 62px 170px;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  min-width: $container-min-width;
+  margin: 0 auto;
+  padding: 0 $container-padding-mobile;
+
+  @include to-tablet {
+    padding: 0 $container-padding-tablet;
+  }
+
+  @include to-desktop {
+    padding: 0 $container-padding-desktop;
+  }
+}
+
+.page__menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  transition: all 0.3s;
+  opacity: 0;
+  transform: translateX(-100%);
+  pointer-events: none;
+
+  &:target {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
 }
