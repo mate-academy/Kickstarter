@@ -1,0 +1,73 @@
+.questions {
+  &__content {
+    @include grid;
+  }
+
+  &__title {
+    grid-column: 1/-1;
+    margin-bottom: 30px;
+
+    @include to-tablet {
+      grid-column: 1/4;
+      margin-bottom: 0;
+    }
+
+    @include to-desktop {
+      grid-column: 1/7;
+    }
+  }
+
+  &__form {
+    display: flex;
+    grid-column: 1/-1;
+    flex-direction: column;
+    gap: 20px;
+
+    @include to-tablet {
+      grid-column: 5/-1;
+    }
+
+    @include to-desktop {
+      grid-column: 7/-1;
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 160px;
+  }
+
+  &__input,
+  &__textarea {
+    @extend %secondary-text;
+
+    padding: 16px;
+    border: 1px solid $color-grey;
+    background: transparent;
+
+    &::placeholder {
+      @extend %secondary-text;
+
+      color: $color-grey-light;
+    }
+
+    &:focus {
+      border-color: $color-primary;
+      outline: none;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 1000px $color-grey-lightest inset;
+      box-shadow: 0 0 0 1000px $color-grey-lightest inset;
+      transition: background-color 5000s ease-in-out 0s;
+
+      -webkit-text-fill-color: $color-dark;
+    }
+  }
+
+  &__submit {
+    align-self: flex-start;
+  }
+}

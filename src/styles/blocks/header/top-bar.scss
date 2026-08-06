@@ -1,0 +1,61 @@
+.top-bar {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding-block: 25px;
+
+  @include to-tablet {
+    padding-block: 30px;
+  }
+
+  &__logo {
+    height: 26px;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__specs {
+    @extend %secondary-text;
+
+    font-weight: 300;
+    color: $color-grey-dark;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include hover(color, $color-dark);
+  }
+
+  &__lang {
+    @extend %secondary-text;
+
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  &__lang-link {
+    color: $color-grey-light;
+    text-decoration: none;
+
+    &--active {
+      font-weight: 400;
+      color: $color-dark;
+    }
+
+    @include hover(color, $color-dark);
+  }
+}
+
+.top-bar__actions {
+  display: none;
+  gap: 30px;
+  align-items: center;
+  margin-left: auto;
+
+  @include to-tablet {
+    display: flex;
+  }
+}

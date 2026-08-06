@@ -1,0 +1,78 @@
+.image-block {
+  @include grid;
+
+  &__picture {
+    overflow: hidden;
+    display: none;
+    grid-column: 1/-1;
+
+    @include to-tablet {
+      display: block;
+      grid-column: span 4;
+      &--technology {
+        margin-right: -$container-padding-tablet;
+      }
+      &--about {
+        margin-left: -$container-padding-tablet;
+      }
+    }
+
+    @include to-desktop {
+      grid-column: span 6;
+      margin-inline: 0;
+    }
+  }
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  &__picture &__image,
+  &__frame &__image {
+    cursor: pointer;
+
+    @include hover(transform, scale(1.05));
+  }
+  &__frame {
+    overflow: hidden;
+    display: block;
+    grid-column: 1/-1;
+
+    @include to-tablet {
+      display: none;
+    }
+  }
+
+  &__content {
+    grid-column: 1/-1;
+
+    @include to-tablet {
+      grid-column: span 4;
+    }
+
+    @include to-desktop {
+      grid-column: span 6;
+    }
+  }
+  &__title {
+    margin-bottom: 30px;
+
+    @include to-tablet {
+      margin-bottom: 0;
+    }
+  }
+  &__text {
+    margin-block: 20px 30px;
+    color: $color-grey;
+
+    @include to-tablet {
+      margin-block: 30px 60px;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: fit-content;
+  }
+}

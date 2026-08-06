@@ -1,0 +1,111 @@
+@use 'sass:color';
+
+.button {
+  @extend %button-text;
+
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px 32px;
+  border: 1px solid transparent;
+
+  text-decoration: none;
+
+  &:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  &--dark {
+    color: #fff;
+    background-color: $color-dark;
+
+    @include hover(background-color, $color-black);
+
+    &:disabled {
+      background-color: $color-grey-lighter;
+    }
+  }
+
+  &--teal {
+    color: #fff;
+    background-color: $color-primary;
+
+    @include hover(
+      background-color,
+      color.adjust($color-primary, $lightness: -10%)
+    );
+
+    &:disabled {
+      background-color: $color-primary-lightest;
+    }
+  }
+
+  &--outline-teal {
+    border-color: $color-primary;
+    color: $color-primary;
+    background-color: transparent;
+    transition:
+      background-color 0.3s,
+      color 0.3s;
+
+    &:hover {
+      color: #fff;
+      background-color: $color-primary;
+    }
+  }
+
+  &--outline-black {
+    border-color: $color-black;
+    color: $color-black;
+    background-color: transparent;
+    transition:
+      background-color 0.3s,
+      color 0.3s;
+
+    &:hover {
+      color: #fff;
+      background-color: $color-black;
+    }
+  }
+
+  &--outline-grey {
+    border-color: $color-grey-light;
+    color: $color-grey;
+    background-color: transparent;
+  }
+
+  &--link {
+    position: relative;
+
+    padding: 0;
+    padding-bottom: 4px; // місце під лінію знизу
+    border: none;
+
+    color: $color-primary;
+
+    background-color: transparent;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 50%;
+      height: 1px;
+
+      background-color: $color-primary;
+
+      transition: width 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
