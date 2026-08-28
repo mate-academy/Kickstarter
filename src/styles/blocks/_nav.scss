@@ -1,0 +1,31 @@
+.nav {
+  display: none;
+
+  @include on-desktop {
+    display: block;
+  }
+
+  &__container {
+    @extend %container;
+
+    display: flex;
+    gap: 84px;
+    align-items: center;
+    justify-content: center;
+
+    height: 76px;
+  }
+
+  &__link {
+    @extend %thirdary-text;
+
+    color: $c-dark;
+
+    @include hover(color, $c-accent);
+
+    &--active {
+      font-weight: $fw-bold;
+      color: $c-black;
+    }
+  }
+}

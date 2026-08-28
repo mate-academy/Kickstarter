@@ -1,0 +1,93 @@
+.hero {
+  &__container {
+    @extend %container;
+
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 110px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: 271px 1fr;
+      align-items: start;
+
+      padding-top: 130px;
+      padding-bottom: 140px;
+    }
+
+    @include on-desktop {
+      grid-template-columns: 378px 1fr;
+      padding-top: 90px;
+      padding-bottom: 140px;
+    }
+  }
+
+  &__content {
+    @include on-tablet {
+      z-index: 1;
+      grid-column: 1;
+      grid-row: 1;
+      width: 340px;
+    }
+
+    @include on-desktop {
+      width: auto;
+      margin-top: 81px;
+    }
+  }
+
+  &__picture {
+    display: block;
+    order: -1;
+
+    aspect-ratio: 320 / 245;
+    width: calc(100% + #{$page-padding-mobile * 2});
+    margin-bottom: 40px;
+    margin-inline: -$page-padding-mobile;
+
+    @include on-tablet {
+      grid-column: 2;
+      grid-row: 1;
+
+      aspect-ratio: 430 / 317;
+      width: 100%;
+      margin: 18px 0 0;
+    }
+
+    @media (min-width: 1024px) {
+      aspect-ratio: 816 / 464;
+    }
+
+    @include on-desktop {
+      aspect-ratio: 816 / 464;
+      margin-top: 0;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__title {
+    color: $c-dark;
+  }
+
+  &__description {
+    margin-top: 20px;
+    color: $c-dark;
+
+    @include on-tablet {
+      max-width: 250px;
+      margin-top: 30px;
+    }
+
+    @include on-desktop {
+      max-width: 276px;
+    }
+  }
+}

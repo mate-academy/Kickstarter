@@ -1,0 +1,88 @@
+.quote {
+  &__container {
+    @extend %container;
+
+    isolation: isolate;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-bottom: 110px;
+
+    text-align: center;
+
+    @include on-tablet {
+      padding-bottom: 140px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 170px;
+    }
+  }
+
+  &__mark {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 208px;
+
+    @include on-tablet {
+      width: 233px;
+    }
+  }
+
+  &__text {
+    @extend %quote;
+
+    margin-top: 50px;
+    color: $c-dark;
+
+    @include on-tablet {
+      max-width: 700px;
+      margin-top: 60px;
+    }
+
+    @include on-desktop {
+      max-width: 786px;
+      margin-top: 42px;
+    }
+  }
+
+  &__avatar {
+    width: 62px;
+    height: 62px;
+    margin-top: 30px;
+    border-radius: 50%;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+
+    @include on-desktop {
+      margin-top: 30px;
+    }
+  }
+
+  &__name {
+    @extend %h5;
+
+    margin-top: 10px;
+    color: $c-dark;
+
+    @include on-tablet {
+      margin-top: 20px;
+    }
+  }
+
+  &__role {
+    @extend %secondary-text;
+
+    margin-top: 5px;
+    color: $c-gray;
+  }
+}

@@ -1,0 +1,44 @@
+.showcase {
+  &__container {
+    @extend %container;
+
+    padding-bottom: 110px;
+
+    @include on-tablet {
+      padding-bottom: 140px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 170px;
+    }
+  }
+
+  &__picture {
+    display: block;
+    aspect-ratio: 296 / 195;
+    width: calc(100% + 36px);
+    margin-inline: -18px;
+
+    @include on-tablet {
+      aspect-ratio: 700 / 430;
+      width: 100%;
+      margin-inline: 0;
+    }
+
+    @include on-desktop {
+      aspect-ratio: 846 / 520;
+      max-width: 846px;
+      margin-inline: auto;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+    mix-blend-mode: darken;
+  }
+}

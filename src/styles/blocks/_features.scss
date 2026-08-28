@@ -1,0 +1,161 @@
+.features {
+  &__container {
+    @extend %container;
+
+    padding-bottom: 110px;
+
+    @include on-tablet {
+      padding-bottom: 140px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 170px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__box {
+    position: relative;
+
+    overflow: hidden;
+
+    width: calc(100% + #{$page-padding-mobile * 2});
+    margin-inline: -$page-padding-mobile;
+    padding: 30px 30px 0;
+
+    background-color: $c-accent-mist;
+
+    @include on-tablet {
+      width: 100%;
+      margin-inline: 0;
+      padding: 60px 90px 0;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: 378px 276px;
+      gap: 56px 132px;
+      align-items: start;
+
+      padding: 60px 102px;
+    }
+  }
+
+  &__groups {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include on-desktop {
+      display: contents;
+    }
+  }
+
+  &__group {
+    display: none;
+
+    &--active {
+      display: block;
+    }
+
+    @include on-desktop {
+      display: block;
+
+      &:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      &:nth-child(2) {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      &:nth-child(3) {
+        grid-column: 2;
+        grid-row: 1;
+      }
+    }
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    font-weight: $fw-bold;
+    line-height: 22px;
+    color: $c-accent-dark;
+    text-transform: uppercase;
+
+    @include on-desktop {
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 20px;
+
+    @include on-desktop {
+      margin-top: 30px;
+    }
+  }
+
+  &__item {
+    @extend %main-text;
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: $c-dark;
+
+    &::before {
+      content: '';
+
+      flex-shrink: 0;
+
+      width: 6px;
+      height: 6px;
+
+      background-color: $c-dark;
+    }
+  }
+
+  &__picture {
+    display: block;
+    aspect-ratio: 320 / 173;
+    width: calc(100% + 60px);
+    margin: 40px -30px 0;
+
+    @include on-tablet {
+      aspect-ratio: 416 / 226;
+      width: calc(100% + 90px);
+      max-width: 415px;
+      margin: 40px -90px 0 auto;
+    }
+
+    @include on-desktop {
+      position: absolute;
+      right: 46px;
+      bottom: 0;
+
+      aspect-ratio: 543 / 301;
+      width: 543px;
+      max-width: none;
+      margin: 0;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+}
