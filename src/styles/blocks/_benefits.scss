@@ -2,11 +2,10 @@
   &__container {
     @extend %container;
 
-    display: grid;
-    gap: 50px;
     padding-bottom: 110px;
 
     @include on-tablet {
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 65px $grid-gap-tablet;
       padding-bottom: 140px;
@@ -15,8 +14,22 @@
     @include on-desktop {
       grid-template-columns: repeat(4, 1fr);
       gap: $grid-gap-desktop;
+
+      // Gap from the navigation strip, which mobile and tablet do not have
       padding-top: 62px;
       padding-bottom: 170px;
+    }
+  }
+
+  // On mobile the cards are switched by the slider; from tablet up the
+  // container grid places them and the wrapper dissolves.
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    @include on-tablet {
+      display: contents;
     }
   }
 
@@ -40,8 +53,26 @@
     }
   }
 
+  // The icons cannot be recoloured - fill is baked into the SVG,
+  // so the hover state animates a transform instead
   &__card:hover &__icon {
     transform: scale(1.15) rotate(-8deg);
+  }
+
+  &__cards--slider {
+    .benefits__card {
+      display: none;
+    }
+
+    .benefits__card--active {
+      display: flex;
+    }
+
+    @include on-tablet {
+      .benefits__card {
+        display: flex;
+      }
+    }
   }
 
   &__title {
@@ -55,6 +86,8 @@
     }
 
     @include on-desktop {
+      // One-line and two-line headings must start their text at the same
+      // height - in the design it always sits 160px below the icon
       min-height: 80px;
       margin-top: 30px;
     }

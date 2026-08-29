@@ -5,7 +5,7 @@
 
 1. Add favicon
 2. Add a smooth scroll for the whole page (`scroll-behavior: smooth;`)
-3. Menu on mobile should contain navigation links. [Menu example](http://joxi.ru/VrwJRDPcoOzEZA)
+3. Menu on mobile should contain navigation links. [Menu example](http://404)
 4. Logos should become bigger on hover and lead to the first section
 5. Icons in the “about us” block should be ***animated*** on hover
 6. The arrow icon in the footer should increase when hovering and when clicked smoothly scroll the page to the top
@@ -14,7 +14,7 @@
 9. Make sure when you click on logo there is no 404 error (Use `href="#"` in `anchor tag`)
 10. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded
 11. The form shouldn’t submit empty
-12. After autocomplete the form, change the [default styles](http://joxi.ru/xAeW7w9CMp9GPm). Read more about [changing autocomplete styles](https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/)
+12. After autocomplete the form, change the [default styles](http://404). Read more about [changing autocomplete styles](https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/)
 13. OPTIONAL: After everything is done you can add a slider in the “features” section (for mobile version)
 
 ## HR review

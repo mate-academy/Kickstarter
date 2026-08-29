@@ -6,6 +6,9 @@
     flex-direction: column;
     padding-bottom: 110px;
 
+    // Two columns: text and photo in one grid row. The first column is
+    // narrower than the text block - in the design the photo slides under
+    // the heading, so the text sits on top.
     @include on-tablet {
       display: grid;
       grid-template-columns: 271px 1fr;
@@ -36,6 +39,9 @@
     }
   }
 
+  // The grid cell is the picture, not the img: every breakpoint has its
+  // own crop (320x245 / 430x317 / 816x464).
+  // On mobile the photo spans the full screen width and comes first.
   &__picture {
     display: block;
     order: -1;
@@ -54,6 +60,10 @@
       margin: 18px 0 0;
     }
 
+    // From 1024 the layout is still the tablet one, but the photo column
+    // is already wider than the tablet file (430px), so it looked blurry.
+    // Swap in the desktop crop together with its aspect ratio: changing
+    // only the file would make object-fit cut the speakers off.
     @media (min-width: 1024px) {
       aspect-ratio: 816 / 464;
     }
@@ -66,6 +76,9 @@
 
   &__image {
     width: 100%;
+
+    // max-width is reset: the base reset sets 100% on img, which clipped
+    // the full-bleed width back to the container
     max-width: none;
     height: 100%;
 

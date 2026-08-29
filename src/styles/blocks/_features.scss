@@ -17,6 +17,7 @@
     margin-bottom: 30px;
   }
 
+  // Teal backdrop. Full screen width on mobile, container width above.
   &__box {
     position: relative;
 
@@ -34,6 +35,8 @@
       padding: 60px 90px 0;
     }
 
+    // Two columns: Connectivity and Sound & Music on the left,
+    // App Features on the right. The image is pinned to the bottom right.
     @include on-desktop {
       display: grid;
       grid-template-columns: 378px 276px;
@@ -44,6 +47,8 @@
     }
   }
 
+  // On mobile and tablet the groups are switched by the slider;
+  // on desktop all three are shown and the box grid places them.
   &__groups {
     display: flex;
     flex-direction: column;
@@ -54,15 +59,27 @@
     }
   }
 
-  &__group {
-    display: none;
+  // Without JS every group stays visible and there are no arrows.
+  // The script hides the inactive ones only after it has initialised,
+  // so a failing script degrades to a plain stacked list.
+  &__groups--slider {
+    .features__group {
+      display: none;
+    }
 
-    &--active {
+    .features__group--active {
       display: block;
     }
 
     @include on-desktop {
-      display: block;
+      .features__group {
+        display: block;
+      }
+    }
+  }
+
+  &__group {
+    @include on-desktop {
 
       &:nth-child(1) {
         grid-column: 1;
@@ -74,6 +91,7 @@
         grid-row: 2;
       }
 
+      // App Features - second column, level with the first group
       &:nth-child(3) {
         grid-column: 2;
         grid-row: 1;
@@ -81,6 +99,8 @@
     }
   }
 
+  // H3 34/42 on desktop, 16/22 below.
+  // The colour is the dark accent, unlike the rest of the text.
   &__subtitle {
     font-size: 16px;
     font-weight: $fw-bold;
@@ -150,6 +170,10 @@
     }
   }
 
+  // The flat background (#EFEFEF) is cut out of the image into
+  // transparency, so it sits straight on the teal backdrop.
+  // mix-blend-mode would not work here: darken would collapse the bright
+  // highlights on the speaker body into the backdrop colour.
   &__image {
     width: 100%;
     max-width: none;
