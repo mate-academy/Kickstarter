@@ -1,0 +1,95 @@
+// Group switcher in the FEATURES section.
+// Not needed on desktop, where all three groups are visible at once.
+.slider {
+  display: none;
+
+  // Shown only once the script has taken over the groups
+  &--ready {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: fit-content;
+    margin: 40px auto 0;
+
+    // Aligned to the left edge of the content on tablet, centred on mobile
+    @include on-tablet {
+      margin-right: auto;
+      margin-left: 0;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  // The BENEFITS slider is mobile only: from tablet up the design
+  // shows every card in a grid.
+  &--mobile {
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  // In the design the arrows are offset vertically and overlap by 3px -
+  // together they form a single slanted line
+  &__arrow {
+    @extend %interactive;
+
+    display: block;
+
+    padding: 0;
+    border: none;
+
+    color: $c-dark;
+
+    background: none;
+
+    &:hover {
+      color: $c-accent-dark;
+    }
+
+    &:disabled {
+      cursor: default;
+      color: $c-gray-light;
+    }
+
+    &--prev {
+      margin-top: 2px;
+    }
+
+    &--next {
+      margin-left: -3px;
+    }
+  }
+
+  &__icon {
+    display: block;
+  }
+
+  &__counter {
+    display: flex;
+    gap: 3px;
+    align-items: baseline;
+    margin-top: 9px;
+  }
+
+  &__current {
+    font-size: 18px;
+    font-weight: $fw-bold;
+    line-height: 24px;
+    color: $c-dark;
+  }
+
+  &__divider,
+  &__total {
+    font-size: 12px;
+    line-height: 14px;
+    color: $c-gray-light;
+  }
+}

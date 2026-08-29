@@ -1,0 +1,108 @@
+.contacts {
+  &__container {
+    @extend %container;
+
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 110px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: $grid-gap-tablet;
+      align-items: start;
+
+      padding-bottom: 140px;
+    }
+
+    @include on-desktop {
+      gap: $grid-gap-desktop;
+      padding-bottom: 170px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+
+    @include on-tablet {
+      margin-top: 0;
+    }
+  }
+
+  &__field {
+    @extend %main-text;
+
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid $c-input-border;
+    border-radius: 0;
+
+    color: $c-dark;
+
+    background-color: transparent;
+    outline: none;
+
+    transition: border-color $transition-duration;
+
+    &::placeholder {
+      color: $c-gray-light;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: $c-accent;
+    }
+
+    // The browser paints its own yellow field on autofill.
+    // An inset shadow overrides it: background-color is ignored
+    // in this state.
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      box-shadow: 0 0 0 1000px $c-bg inset;
+      caret-color: $c-dark;
+
+      -webkit-text-fill-color: $c-dark;
+    }
+
+    @include on-tablet {
+      padding-inline: 30px;
+    }
+
+    @include on-desktop {
+      padding-inline: 36px;
+    }
+  }
+
+  &__email {
+    height: 48px;
+  }
+
+  &__message {
+    resize: none;
+    height: 128px;
+    margin-top: 20px;
+
+    @include on-tablet {
+      height: 201px;
+    }
+
+    @include on-desktop {
+      height: 128px;
+      padding-top: 16px;
+    }
+  }
+
+  &__button {
+    align-self: start;
+    height: 40px;
+    margin-top: 30px;
+
+    @include on-desktop {
+      min-width: 124px;
+      height: 48px;
+    }
+  }
+}

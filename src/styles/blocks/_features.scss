@@ -1,0 +1,185 @@
+.features {
+  &__container {
+    @extend %container;
+
+    padding-bottom: 110px;
+
+    @include on-tablet {
+      padding-bottom: 140px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 170px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  // Teal backdrop. Full screen width on mobile, container width above.
+  &__box {
+    position: relative;
+
+    overflow: hidden;
+
+    width: calc(100% + #{$page-padding-mobile * 2});
+    margin-inline: -$page-padding-mobile;
+    padding: 30px 30px 0;
+
+    background-color: $c-accent-mist;
+
+    @include on-tablet {
+      width: 100%;
+      margin-inline: 0;
+      padding: 60px 90px 0;
+    }
+
+    // Two columns: Connectivity and Sound & Music on the left,
+    // App Features on the right. The image is pinned to the bottom right.
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: 378px 276px;
+      gap: 56px 132px;
+      align-items: start;
+
+      padding: 60px 102px;
+    }
+  }
+
+  // On mobile and tablet the groups are switched by the slider;
+  // on desktop all three are shown and the box grid places them.
+  &__groups {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include on-desktop {
+      display: contents;
+    }
+  }
+
+  // Without JS every group stays visible and there are no arrows.
+  // The script hides the inactive ones only after it has initialised,
+  // so a failing script degrades to a plain stacked list.
+  &__groups--slider {
+    .features__group {
+      display: none;
+    }
+
+    .features__group--active {
+      display: block;
+    }
+
+    @include on-desktop {
+      .features__group {
+        display: block;
+      }
+    }
+  }
+
+  &__group {
+    @include on-desktop {
+
+      &:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      &:nth-child(2) {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      // App Features - second column, level with the first group
+      &:nth-child(3) {
+        grid-column: 2;
+        grid-row: 1;
+      }
+    }
+  }
+
+  // H3 34/42 on desktop, 16/22 below.
+  // The colour is the dark accent, unlike the rest of the text.
+  &__subtitle {
+    font-size: 16px;
+    font-weight: $fw-bold;
+    line-height: 22px;
+    color: $c-accent-dark;
+    text-transform: uppercase;
+
+    @include on-desktop {
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 20px;
+
+    @include on-desktop {
+      margin-top: 30px;
+    }
+  }
+
+  &__item {
+    @extend %main-text;
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: $c-dark;
+
+    &::before {
+      content: '';
+
+      flex-shrink: 0;
+
+      width: 6px;
+      height: 6px;
+
+      background-color: $c-dark;
+    }
+  }
+
+  &__picture {
+    display: block;
+    aspect-ratio: 320 / 173;
+    width: calc(100% + 60px);
+    margin: 40px -30px 0;
+
+    @include on-tablet {
+      aspect-ratio: 416 / 226;
+      width: calc(100% + 90px);
+      max-width: 415px;
+      margin: 40px -90px 0 auto;
+    }
+
+    @include on-desktop {
+      position: absolute;
+      right: 46px;
+      bottom: 0;
+
+      aspect-ratio: 543 / 301;
+      width: 543px;
+      max-width: none;
+      margin: 0;
+    }
+  }
+
+  // The flat background (#EFEFEF) is cut out of the image into
+  // transparency, so it sits straight on the teal backdrop.
+  // mix-blend-mode would not work here: darken would collapse the bright
+  // highlights on the speaker body into the backdrop colour.
+  &__image {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+}

@@ -1,0 +1,50 @@
+.showcase {
+  &__container {
+    @extend %container;
+
+    padding-bottom: 110px;
+
+    @include on-tablet {
+      padding-bottom: 140px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 170px;
+    }
+  }
+
+  // The image width does not match the container: on mobile it is wider
+  // than the content (296 vs 260), on desktop narrower (846 vs 1194).
+  &__picture {
+    display: block;
+    aspect-ratio: 296 / 195;
+    width: calc(100% + 36px);
+    margin-inline: -18px;
+
+    @include on-tablet {
+      aspect-ratio: 700 / 430;
+      width: 100%;
+      margin-inline: 0;
+    }
+
+    @include on-desktop {
+      aspect-ratio: 846 / 520;
+      max-width: 846px;
+      margin-inline: auto;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    // The design uses a blend mode here: the image background (#F9F9F9)
+    // is lighter than the page (#F7F7F7), so it disappears, while the
+    // speakers are darker and stay. Without it a rectangle is visible.
+    mix-blend-mode: darken;
+  }
+}

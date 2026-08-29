@@ -1,0 +1,114 @@
+.menu {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  transform: translateX(100%);
+
+  overflow-y: auto;
+
+  background-color: $c-bg;
+
+  transition: transform $transition-duration;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  // On desktop the navigation lives in the strip below the first screen
+  @include on-desktop {
+    display: none;
+  }
+
+  &__container {
+    @extend %container;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    padding-top: 24px;
+    padding-bottom: 30px;
+  }
+
+  &__top {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__close {
+    @extend %interactive;
+
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    &:hover {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 55px;
+
+    @include on-tablet {
+      gap: 40px;
+      margin-top: 66px;
+    }
+  }
+
+  &__link {
+    @extend %thirdary-text;
+
+    color: $c-dark;
+
+    @include hover(color, $c-accent);
+
+    @include on-tablet {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    &--active {
+      font-weight: $fw-bold;
+      color: $c-black;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 50px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__specs {
+    @extend %thirdary-text;
+
+    color: $c-gray-dark;
+
+    @include hover(color, $c-dark);
+  }
+
+  &__buy {
+    width: 100%;
+    margin-top: auto;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}
+
+// Lock page scrolling behind the open menu
+body:has(.menu:target) {
+  overflow: hidden;
+}

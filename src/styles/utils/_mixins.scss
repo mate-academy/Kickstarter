@@ -1,6 +1,45 @@
+// Smooth change of a property on hover.
+// Usage: @include hover(color, $c-accent);
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition-duration;
+
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+// Media queries. The layout is mobile-first, so min-width only.
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+// Column grid of the design: 4 / 8 / 12 columns.
+@mixin page-grid {
+  display: grid;
+  grid-template-columns: repeat($grid-columns-mobile, 1fr);
+  gap: $grid-gap-mobile;
+
+  @include on-tablet {
+    grid-template-columns: repeat($grid-columns-tablet, 1fr);
+    gap: $grid-gap-tablet;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat($grid-columns-desktop, 1fr);
+    gap: $grid-gap-desktop;
+  }
+}
+
+// Places an element across grid columns.
+// Usage: @include grid-column(1, 6);
+@mixin grid-column($_start, $_end) {
+  grid-column: #{$_start} / #{$_end + 1};
 }

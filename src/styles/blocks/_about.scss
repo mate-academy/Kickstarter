@@ -1,0 +1,115 @@
+.about {
+  &__container {
+    @extend %container;
+
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 110px;
+
+    // Image on the left across the full height, text column on the right.
+    // The markup order is the mobile one (heading first); on wider screens
+    // the grid takes over.
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: $grid-gap-tablet;
+      align-items: start;
+
+      padding-bottom: 140px;
+    }
+
+    @include on-desktop {
+      gap: $grid-gap-desktop;
+      padding-bottom: 170px;
+    }
+  }
+
+  &__picture {
+    display: block;
+    aspect-ratio: 259 / 210;
+    width: 100%;
+    margin-top: 30px;
+
+    @include on-tablet {
+      grid-column: 1;
+      grid-row: 1 / span 3;
+
+      aspect-ratio: 374 / 415;
+
+      // On tablet the image runs past the left edge of the container
+      width: calc(100% + #{$page-padding-tablet});
+      margin-top: 0;
+      margin-left: -$page-padding-tablet;
+    }
+
+    @include on-desktop {
+      aspect-ratio: 582 / 388;
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__title {
+    @include on-tablet {
+      grid-column: 2;
+      grid-row: 1;
+    }
+  }
+
+  &__text {
+    margin-top: 20px;
+    color: $c-gray;
+
+    @include on-tablet {
+      grid-column: 2;
+      grid-row: 2;
+      margin-top: 30px;
+    }
+  }
+
+  &__link {
+    align-self: start;
+    margin-top: 30px;
+
+    @include on-tablet {
+      grid-column: 2;
+      grid-row: 3;
+      margin-top: 60px;
+    }
+  }
+
+  // Mirrored variant (Luna Eye): image right, text left.
+  // In the design this is the same "about us" frame rotated 180 degrees.
+  &--reverse {
+    .about__picture {
+      @include on-tablet {
+        grid-column: 2;
+
+        // Overhang on the right edge instead of the left
+        margin-right: -$page-padding-tablet;
+        margin-left: 0;
+      }
+
+      @include on-desktop {
+        margin-right: 0;
+      }
+    }
+
+    .about__title,
+    .about__text,
+    .about__link {
+      @include on-tablet {
+        grid-column: 1;
+      }
+    }
+  }
+}

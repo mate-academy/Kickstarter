@@ -1,0 +1,87 @@
+.footer {
+  &__container {
+    @extend %container;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-bottom: 30px;
+  }
+
+  // The design has neither logo nor arrow on mobile -
+  // only the social icons and the copyright line
+  &__logo {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__top {
+    @extend %interactive;
+
+    display: none;
+
+    @include on-tablet {
+      position: absolute;
+      top: 0;
+      right: $page-padding-tablet;
+
+      display: block;
+
+      width: 21px;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    @include on-desktop {
+      right: $page-padding-desktop;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 40px;
+
+    @include on-tablet {
+      gap: 48px;
+      margin-top: 60px;
+    }
+
+    @include on-desktop {
+      gap: 40px;
+    }
+  }
+
+  // The icon colour is baked into the SVG (#4F4F4F), so the hover
+  // state animates size rather than fill
+  &__social {
+    @extend %interactive;
+
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__copyright {
+    @extend %secondary-text;
+
+    margin-top: 30px;
+    color: $c-gray-light;
+    text-align: center;
+
+    @include on-tablet {
+      margin-top: 60px;
+    }
+  }
+}

@@ -1,0 +1,86 @@
+.header {
+  position: relative;
+  z-index: 10;
+
+  &__container {
+    @extend %container;
+
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+    // Fixed height: the row contains a 32px burger, so vertical padding
+    // pushed the header taller than the design
+    min-height: $header-height-mobile;
+
+    @include on-tablet {
+      min-height: $header-height;
+      padding-top: $header-padding-top;
+    }
+  }
+
+  &__logo {
+    margin-right: auto;
+  }
+
+  // SPECS, language switch and the Buy button.
+  // On mobile they move into the burger menu.
+  &__actions {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+  }
+
+  &__specs {
+    @extend %thirdary-text;
+
+    color: $c-gray-dark;
+
+    @include hover(color, $c-dark);
+  }
+
+  &__buy {
+    @include on-desktop {
+      margin-left: 17px;
+    }
+  }
+
+  &__burger {
+    @extend %interactive;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}
+
+.logo {
+  @extend %interactive;
+
+  display: block;
+  width: 161px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+}
