@@ -1,0 +1,179 @@
+.benefits {
+  @include section-gap;
+
+  &__container {
+    @include page-padding;
+  }
+
+  &__viewport {
+    touch-action: pan-y;
+    user-select: none;
+    overflow: hidden;
+    width: 100%;
+
+    @include on-tablet {
+      overflow: visible;
+    }
+  }
+
+  &__track {
+    display: flex;
+    transition: transform 0.6s;
+
+    @include on-tablet {
+      transform: none;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 65px 20px;
+
+      transition: none;
+    }
+
+    @include on-desktop {
+      transform: none;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0 30px;
+
+      transition: none;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex: 0 0 100%;
+    flex-direction: column;
+    align-items: center;
+
+    @include on-tablet {
+      flex: none;
+      width: auto;
+    }
+  }
+
+  &__item-icon {
+    display: block;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+
+    @include on-tablet {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  &__item-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__item-image {
+    @include on-tablet {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+    }
+  }
+
+  &__item-title {
+    @extend %h2-benefits;
+
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+
+    @include on-desktop {
+      min-height: 56px;
+    }
+  }
+
+  &__item-text {
+    @extend %secondary-text;
+
+    margin: 0;
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+
+    margin-top: 40px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__arrow {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    border: none;
+
+    line-height: 0;
+    color: $c-slider-active;
+
+    background-color: transparent;
+
+    &:hover,
+    &:active {
+      color: $c-slider-hover;
+    }
+  }
+
+  &__control-icon {
+    display: block;
+    width: 48px;
+    height: 14px;
+    margin-bottom: 10px;
+  }
+
+  &__counter {
+    margin: 0;
+
+    font-family: $ff-main;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+  }
+
+  &__counter-current {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $c-slider-active;
+  }
+
+  &__counter-total {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13px;
+    color: $c-slider-hover;
+  }
+}

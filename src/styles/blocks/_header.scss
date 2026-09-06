@@ -1,0 +1,135 @@
+.header {
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    @include page-padding;
+
+    @include on-tablet {
+      margin: 0;
+      margin-top: 40px;
+    }
+
+    @include on-desktop {
+      margin-top: 43px;
+    }
+  }
+
+  &__logo {
+    cursor: pointer;
+    display: block;
+    margin-right: auto;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+  }
+
+  &__burger {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+
+    @include on-tablet {
+      margin-left: 30px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__burger-icon {
+    display: block;
+    width: 24px;
+    height: 16px;
+  }
+
+  &__meta {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      margin: 0;
+    }
+  }
+
+  &__meta-text {
+    margin: 0;
+  }
+
+  &__meta-link {
+    @extend %menu-link-not-active;
+
+    cursor: pointer;
+    margin: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover,
+    &:active {
+      font-weight: 700;
+      color: $c-menu-link-active;
+    }
+  }
+
+  &__lang {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+  }
+
+  &__button {
+    @extend %primary-button-buy;
+
+    cursor: pointer;
+
+    display: none;
+
+    text-decoration: none;
+    text-transform: uppercase;
+
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+
+    @include on-tablet {
+      display: flex;
+      margin: 0;
+      margin-left: 30px;
+    }
+
+    @include on-desktop {
+      margin-left: 47px;
+    }
+  }
+}

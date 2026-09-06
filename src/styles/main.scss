@@ -1,7 +1,47 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import 'blocks/header';
+@import 'blocks/menu';
+@import 'blocks/hero';
+@import 'blocks/nav';
+@import 'blocks/benefits';
+@import 'blocks/presentation';
+@import 'blocks/about';
+@import 'blocks/technology';
+@import 'blocks/testimonials';
+@import 'blocks/features';
+@import 'blocks/questions';
+@import 'blocks/footer';
 
 body {
-  background: $c-gray;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background: $c-bg;
+}
+
+body:has(.menu__toggle:checked) {
+  overflow: hidden;
+
+  @include on-desktop {
+    overflow: auto;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.reveal {
+  transform: translateY(50px);
+  opacity: 0;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal--visible {
+  transform: translateY(0);
+  opacity: 1;
 }

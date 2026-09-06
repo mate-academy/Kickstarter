@@ -1,0 +1,128 @@
+.footer {
+  &__container {
+    @include page-padding;
+  }
+
+  &__top {
+    display: block;
+
+    @include on-tablet {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 30px;
+  }
+
+  &__social-link {
+    cursor: pointer;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include on-tablet {
+      cursor: pointer;
+      display: block;
+      margin-bottom: 60px;
+      transition:
+        transform 0.3s,
+        opacity 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__logo-icon {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__to-up {
+    display: none;
+
+    @include on-tablet {
+      cursor: pointer;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+
+      width: 50px;
+      height: 50px;
+
+      transition:
+        transform 0.3s,
+        opacity 0.3s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__to-up-icon {
+    @include on-tablet {
+      width: 21px;
+      height: 20px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__text {
+    @extend %secondary-text;
+
+    margin: 0;
+    margin-bottom: 20px;
+    color: $c-footer-text;
+    text-align: center;
+  }
+
+  &__legal-link {
+    cursor: pointer;
+
+    display: inline-block;
+
+    color: inherit;
+    text-decoration: none;
+
+    transition:
+      transform 0.3s,
+      color 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+      color: $c-secondary-button;
+    }
+  }
+}

@@ -1,0 +1,181 @@
+.about {
+  @include section-gap;
+
+  &__container {
+    @include page-padding;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: auto auto 1fr;
+      column-gap: 20px;
+      align-items: start;
+
+      padding: 0;
+      padding-right: 34px;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto auto 1fr;
+      column-gap: 30px;
+      align-items: start;
+
+      padding: 0;
+
+      @include page-padding;
+    }
+  }
+
+  &__title {
+    @extend %h2-about;
+
+    margin-top: 0;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      grid-column: 5 / 9;
+      grid-row: 1;
+      align-self: start;
+
+      margin: 0;
+
+      font-size: 32px;
+      line-height: 42px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 13;
+      grid-row: 1;
+      align-self: start;
+
+      margin: 0;
+
+      font-size: 50px;
+      line-height: 68px;
+    }
+  }
+
+  &__picture {
+    overflow: hidden;
+    display: block;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      grid-row: 1 / 4;
+
+      height: 100%;
+      min-height: 390px;
+
+      object-fit: cover;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+      height: 100%;
+      min-height: 390px;
+      object-fit: cover;
+    }
+  }
+
+  &__image {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+
+    @include on-tablet {
+      width: 100%;
+      height: 100%;
+      min-height: 390px;
+      object-fit: cover;
+    }
+
+    @include on-desktop {
+      height: 100%;
+      min-height: 390px;
+      object-fit: cover;
+    }
+  }
+
+  &__text {
+    @extend %secondary-text;
+
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      grid-column: 5 / 9;
+      grid-row: 2;
+      align-self: start;
+
+      margin-top: 24px;
+      margin-bottom: 50px;
+
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 13;
+      grid-row: 2;
+      align-self: start;
+
+      margin-top: 30px;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__button {
+    @extend %secondary-button;
+
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+
+      width: 50%;
+      height: 1px;
+
+      background-color: $c-secondary-button;
+
+      transition: width 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    @include on-tablet {
+      grid-column: 5 / 9;
+      grid-row: 3;
+      place-self: start;
+
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 13;
+      grid-row: 3;
+      place-self: start;
+
+      width: fit-content;
+      max-width: 100%;
+    }
+  }
+}

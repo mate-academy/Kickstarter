@@ -1,0 +1,46 @@
+.nav {
+  display: none;
+
+  @include on-desktop {
+    display: block;
+    background-color: $c-bg;
+  }
+
+  &__container {
+    @include page-padding;
+
+    @include on-desktop {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 76px;
+      margin-bottom: 62px;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include on-desktop {
+      display: flex;
+      gap: 84px;
+    }
+  }
+
+  &__link {
+    @extend %menu-link-not-active;
+
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover,
+    &:active {
+      font-weight: 700;
+      color: $c-menu-link-active;
+    }
+  }
+}
