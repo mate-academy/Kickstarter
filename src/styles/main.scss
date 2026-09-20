@@ -1,7 +1,72 @@
 @import 'utils';
-@import 'fonts';
 @import 'typography';
 
-body {
-  background: $c-gray;
+@import 'blocks/container';
+@import 'blocks/logo';
+@import 'blocks/button';
+@import 'blocks/nav';
+@import 'blocks/mainnav';
+@import 'blocks/more';
+@import 'blocks/socials';
+@import 'blocks/form';
+@import 'blocks/slider';
+@import 'blocks/header';
+@import 'blocks/menu';
+@import 'blocks/hero';
+@import 'blocks/benefits';
+@import 'blocks/showcase';
+@import 'blocks/story';
+@import 'blocks/eye';
+@import 'blocks/review';
+@import 'blocks/features';
+@import 'blocks/contacts';
+@import 'blocks/footer';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:target {
+  scroll-margin-top: $header-height;
+
+  @include tablet {
+    scroll-margin-top: 0;
+  }
+}
+
+.page {
+  margin: 0;
+  padding-top: $header-height;
+
+  font-family: $font-main;
+  color: $c-text;
+
+  background-color: $c-bg;
+
+  @include tablet {
+    padding-top: 0;
+  }
+
+  &--locked {
+    overflow: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

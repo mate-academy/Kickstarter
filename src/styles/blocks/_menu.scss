@@ -1,0 +1,123 @@
+.menu {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+
+  overflow-y: auto;
+  display: none;
+
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  padding-bottom: 30px;
+
+  background-color: $c-menu;
+
+  &--open {
+    display: block;
+  }
+
+  @include desktop {
+    display: none;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 74px;
+  }
+
+  &__close {
+    cursor: pointer;
+
+    position: relative;
+
+    display: block;
+
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+
+    background-color: transparent;
+
+    @include hover(opacity, 0.7);
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 11px;
+      left: 0;
+
+      width: 24px;
+      height: 2px;
+
+      background-color: $c-black;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__nav {
+    margin-top: 31px;
+  }
+
+  &__specs {
+    display: flex;
+
+    @include tablet {
+      display: none;
+    }
+
+    gap: 20px;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  &__specs-link {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: $c-icon;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include hover(color, $c-green);
+  }
+
+  &__lang {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: $c-icon;
+  }
+
+  &__lang-item--active {
+    font-weight: 700;
+    color: $c-black;
+  }
+
+  &__button {
+    margin-top: 162px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

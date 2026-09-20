@@ -1,0 +1,113 @@
+.header {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: $header-height;
+
+  background-color: $c-bg;
+
+  @include tablet {
+    position: static;
+    height: auto;
+    padding-top: 29px;
+  }
+
+  @include desktop {
+    padding-top: 0;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+
+    @include tablet {
+      height: 48px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+
+    @include tablet {
+      gap: 30px;
+    }
+  }
+
+  &__specs {
+    @extend %text-secondary;
+
+    display: none;
+    color: $c-text;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include hover(color, $c-green);
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  &__lang {
+    @extend %text-secondary;
+
+    display: none;
+    gap: 4px;
+    color: $c-placeholder;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__lang-item--active {
+    font-weight: 700;
+    color: $c-text;
+  }
+
+  &__button {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      width: 100px;
+    }
+
+    @include desktop {
+      margin-left: 19px;
+    }
+  }
+
+  &__burger {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+
+    background-color: transparent;
+
+    @include hover(opacity, 0.7);
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__burger-icon {
+    display: block;
+    width: 24px;
+    height: 16px;
+  }
+}
