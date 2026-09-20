@@ -1,0 +1,27 @@
+.more {
+  @extend %text-button;
+
+  display: inline-block;
+  color: $c-green;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+
+    display: block;
+
+    width: 53px;
+    height: 1px;
+    margin-top: 5px;
+
+    background-color: $c-green;
+
+    transition: width 0.3s;
+  }
+
+  @include can-hover {
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

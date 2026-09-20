@@ -1,0 +1,107 @@
+.story {
+  margin-top: 110px;
+
+  @include tablet {
+    margin-top: 140px;
+  }
+
+  @include desktop {
+    margin-top: 170px;
+  }
+
+  &__inner {
+    @include tablet {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      min-height: 415px;
+    }
+
+    @include desktop {
+      justify-content: flex-start;
+      min-height: 388px;
+    }
+  }
+
+  &__picture {
+    display: block;
+
+    @include tablet {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    @include desktop {
+      left: $padding-desktop;
+    }
+  }
+
+  &__image {
+    display: block;
+
+    width: 100%;
+    height: 210px;
+    margin-top: 30px;
+
+    object-fit: cover;
+
+    @include tablet {
+      width: $about-image-tablet;
+      height: 415px;
+      margin-top: 0;
+    }
+
+    @include desktop {
+      width: $about-image-desktop;
+      height: 388px;
+    }
+  }
+
+  &__title {
+    @extend %h2;
+
+    @include tablet {
+      margin-left: $about-image-tablet - $padding-tablet + $about-gap-tablet;
+    }
+
+    @include desktop {
+      margin-left: $about-image-desktop + $about-gap-desktop;
+    }
+  }
+
+  &__text {
+    @extend %text-secondary;
+
+    margin-top: 20px;
+    color: $c-gray;
+
+    @include tablet {
+      margin-top: 30px;
+      margin-left: $about-image-tablet - $padding-tablet + $about-gap-tablet;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @include desktop {
+      margin-left: $about-image-desktop + $about-gap-desktop;
+    }
+  }
+
+  &__more {
+    margin-top: 30px;
+
+    @include tablet {
+      align-self: flex-start;
+      margin-top: 60px;
+      margin-left: $about-image-tablet - $padding-tablet + $about-gap-tablet;
+    }
+
+    @include desktop {
+      margin-left: $about-image-desktop + $about-gap-desktop;
+    }
+  }
+}

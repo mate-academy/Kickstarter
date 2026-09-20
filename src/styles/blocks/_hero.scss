@@ -1,0 +1,80 @@
+.hero {
+  &__inner {
+    @include tablet {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__picture {
+    display: block;
+
+    @include tablet {
+      position: absolute;
+      top: 148px;
+      right: $padding-tablet;
+    }
+
+    @include desktop {
+      top: 90px;
+      right: auto;
+      left: $padding-desktop + $hero-column;
+    }
+  }
+
+  &__image {
+    display: block;
+
+    width: calc(100% + #{$padding-mobile * 2});
+    height: 245px;
+    margin-left: -$padding-mobile;
+
+    object-fit: cover;
+
+    @include tablet {
+      width: 429px;
+      height: 317px;
+      margin-left: 0;
+    }
+
+    @include desktop {
+      width: 816px;
+      height: 464px;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+
+    margin-top: 40px;
+
+    @include tablet {
+      position: relative;
+      max-width: 340px;
+      margin-top: 130px;
+    }
+
+    @include desktop {
+      max-width: $hero-column;
+      margin-top: 171px;
+    }
+  }
+
+  &__text {
+    @extend %text-main;
+
+    margin-top: 20px;
+
+    @include tablet {
+      position: relative;
+      max-width: 250px;
+      margin-top: 30px;
+    }
+
+    @include desktop {
+      max-width: 276px;
+    }
+  }
+}
