@@ -1,0 +1,100 @@
+.header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  background-color: #fff;
+
+  &__container {
+    @include container;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  &__logo-link {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    display: block;
+    width: auto;
+    height: 26px;
+  }
+
+  &__specs {
+    font-family: $ff-second;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    color: $c-gray-dark;
+
+    @include hover(color, $c-primary);
+  }
+
+  &__lang {
+    gap: 3px;
+
+    font-family: $ff-second;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    color: #828282;
+  }
+
+  &__buy-btn {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+    .header__specs,
+    .header__lang,
+    .header__buy-btn {
+      display: none;
+    }
+
+    @include tablet {
+      .header__specs,
+      .header__lang,
+      .header__buy-btn {
+        display: inline-flex;
+      }
+    }
+  }
+
+  &__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 18px;
+    height: 12px;
+
+    @include desktop {
+      display: none;
+    }
+
+    span {
+      display: block;
+
+      width: 100%;
+      height: 2px;
+
+      background: #292929;
+
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+    }
+  }
+}

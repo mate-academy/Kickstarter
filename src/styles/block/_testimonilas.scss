@@ -1,0 +1,91 @@
+.testimonilas {
+  @include section-spacing;
+  @include grid;
+
+  gap: 29px;
+
+  &__text {
+    position: relative;
+
+    grid-column: 1 / -1;
+
+    padding-top: 50px;
+
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: center;
+
+    @include tablet-small {
+      padding: 60px 0 15px;
+      font-size: 22px;
+      line-height: 36px;
+    }
+
+    @include tablet {
+      font-size: 24px;
+    }
+
+    @include desktop {
+      grid-column: 3 / 11;
+      padding: 42px 0;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 171px;
+
+      background-image: url(../images/testimonilas/quote.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+
+      @include tablet-small {
+        height: 189px;
+      }
+
+      @include desktop {
+        height: 192px;
+      }
+    }
+  }
+
+  &__card {
+    grid-column: 1 / -1;
+    justify-items: center;
+  }
+
+  &__img {
+    max-width: 62px;
+    padding-bottom: 10px;
+
+    @include tablet-small {
+      padding-bottom: 20px;
+    }
+  }
+
+  &__title {
+    padding-bottom: 5px;
+
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    color: $c-text-dark;
+    letter-spacing: 0;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: $c-text-gray;
+    letter-spacing: 0;
+  }
+}

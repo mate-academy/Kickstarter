@@ -1,0 +1,97 @@
+.footer {
+  @include grid;
+
+  padding-bottom: 20px;
+
+  @include tablet-small {
+    padding-bottom: 30px;
+  }
+
+  @include desktop {
+    padding-bottom: 40px;
+  }
+
+  &__container {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+
+    @include tablet-small {
+      grid-row: 1;
+      gap: 60px;
+    }
+  }
+
+  &__logo-link {
+    display: none;
+
+    @include tablet-small {
+      display: block;
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: auto;
+    height: auto;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $c-gray-medium;
+
+    @include hover(color, $c-green-dark);
+
+    &:hover {
+      transform: scale(1.08);
+    }
+
+    svg {
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__copyright {
+    @extend %main-text;
+
+    text-align: center;
+  }
+
+  &__arrow {
+    @include grid;
+
+    position: relative;
+    z-index: 1;
+    display: none;
+
+    @include tablet-small {
+      display: block;
+      grid-column: 8;
+      grid-row: 1;
+      justify-self: end;
+    }
+
+    @include desktop {
+      grid-column: 12;
+    }
+
+    @include hover(color, $c-green-dark);
+  }
+
+  &__arrow-icon {
+    width: 24px;
+    height: 24px;
+  }
+}

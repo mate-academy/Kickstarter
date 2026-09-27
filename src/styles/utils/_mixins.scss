@@ -4,3 +4,77 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin tablet-small {
+  @media (min-width: $bp-tablet-small) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding-right: $container-padding-mobile;
+  padding-left: $container-padding-mobile;
+
+  @include tablet-small {
+    padding-right: $container-padding-tablet;
+    padding-left: $container-padding-tablet;
+  }
+
+  @include desktop {
+    padding-right: $container-padding-desktop;
+    padding-left: $container-padding-desktop;
+  }
+}
+
+@mixin section-spacing {
+  padding-bottom: $section-spacing-mobile;
+
+  @include tablet {
+    padding-bottom: $section-spacing-tablet;
+  }
+
+  @include desktop {
+    padding-bottom: $section-spacing-desktop;
+  }
+}
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat($columns-mobile, 1fr);
+  gap: 0 $gutter-mobile;
+
+  @include tablet-small {
+    grid-template-columns: repeat($columns-tablet-small, 1fr);
+    gap: 0 $gutter-tablet-small;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat($columns-desktop, 1fr);
+    column-gap: $gutter-desktop;
+  }
+}
+
+@mixin full-width-left {
+  width: calc(100% + #{$container-padding-tablet});
+  margin-left: -#{$container-padding-tablet};
+}
+
+@mixin full-width-right {
+  width: calc(100% + #{$container-padding-tablet});
+  margin-right: -#{$container-padding-tablet};
+}

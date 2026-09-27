@@ -1,0 +1,147 @@
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+
+  align-content: start;
+
+  width: 100%;
+  height: 100vh;
+  padding: 0 30px;
+
+  background-color: #f9f9f9;
+
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @include grid;
+
+  &.is-open {
+    transform: translateX(0);
+  }
+
+  &__top {
+    grid-column: 1 / -1;
+
+    @include grid;
+
+    align-items: center;
+    height: 76px;
+
+    .nav__logo-link {
+      display: flex;
+      grid-column: 1 / 5;
+      align-items: center;
+    }
+
+    .nav__close {
+      display: flex;
+      grid-column: -1;
+      justify-content: flex-end;
+
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &__close-icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__body {
+    grid-column: 1 / -1;
+    align-self: center;
+    padding: 31px 0 50px;
+  }
+
+  &__list {
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include grid;
+
+    @include tablet {
+      gap: 40px;
+    }
+
+    .nav__item {
+      grid-column: 1 / -1;
+    }
+  }
+  &__link {
+    font-family: $ff-main;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 28px;
+    color: $c-text-dark;
+
+    @include hover(font-size, 23px);
+  }
+
+  &__bottom-actions {
+    grid-column: 1 / -1;
+
+    @include grid;
+
+    align-items: center;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__specs {
+    grid-column: span 1;
+
+    font-family: $ff-second;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    color: $c-gray-dark;
+  }
+
+  &__lang {
+    display: flex;
+    grid-column: span 2;
+    gap: 4px;
+    align-items: center;
+    justify-self: start;
+
+    font-family: $ff-second;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    color: #828282;
+  }
+
+  &__lang-item {
+    font-family: $ff-second;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    color: #828282;
+
+    &--active {
+      font-weight: 700;
+      color: $c-text-dark;
+    }
+  }
+
+  &__lang-divider {
+    font-weight: 700;
+    color: $c-text-dark;
+  }
+
+  &__buy-btn {
+    display: block;
+    grid-column: 1 / -1;
+    width: 100%;
+    text-align: center;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

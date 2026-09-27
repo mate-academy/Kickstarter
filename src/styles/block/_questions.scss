@@ -1,0 +1,116 @@
+.questions {
+  @include section-spacing;
+  @include grid;
+
+  &__container {
+    @include grid;
+
+    grid-column: 1 / -1;
+  }
+
+  &__title {
+    @extend %h2;
+
+    display: grid;
+    grid-column: 1 / -1;
+    margin-bottom: 30px;
+
+    @include tablet-small {
+      grid-column: 1 / 5;
+    }
+
+    @include desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+    width: 100%;
+
+    @include tablet-small {
+      grid-column: 5 / -1;
+    }
+
+    @include desktop {
+      grid-column: 7 / -1;
+    }
+  }
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  &__field {
+    width: 100%;
+  }
+  &__input {
+    @extend %main-text;
+
+    display: block;
+
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid $c-gray-medium;
+    border-radius: 0;
+
+    background-color: transparent;
+
+    &::placeholder {
+      color: $c-gray-light;
+      opacity: 1;
+    }
+
+    @include hover(border-color, $c-green-dark);
+
+    &:focus {
+      border-color: $c-green-dark;
+      color: $c-text-dark;
+      outline: none;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 1000px transparent inset;
+      transition: background-color 5000s ease-in-out 0s;
+
+      -webkit-text-fill-color: $c-text-dark;
+    }
+
+    &.is-success {
+      border-color: $c-red;
+      color: $c-text-dark;
+
+      &::placeholder {
+        color: rgba($c-red, 0.3);
+        opacity: 1;
+      }
+    }
+  }
+  textarea.questions__input {
+    resize: none;
+    height: 128px;
+  }
+
+  &__button {
+    @extend %button;
+
+    display: block;
+
+    margin-top: 30px;
+    padding: 13px 35px;
+
+    color: #fff;
+
+    background-color: $c-primary;
+
+    @include hover(background-color, $c-green-dark);
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $c-primary-light;
+    }
+  }
+}

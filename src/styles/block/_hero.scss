@@ -1,0 +1,65 @@
+.hero {
+  &__main {
+    @include grid;
+    @include section-spacing;
+
+    align-items: center;
+  }
+
+  &__image-wrapper {
+    grid-column: 1 / -1;
+    order: -1;
+
+    width: calc(100% + 2 * $container-padding-mobile);
+    min-width: 0;
+    margin-left: -$container-padding-mobile;
+
+    @include tablet-small {
+      grid-column: 4 / -1;
+      grid-row: 1;
+      width: 100%;
+      margin: 0;
+    }
+
+    @include desktop {
+      grid-column: 5 / -1;
+      grid-row: 1;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__text-content {
+    grid-column: 1 / -1;
+
+    @include tablet-small {
+      grid-column: 1 / 4;
+    }
+
+    @include tablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+
+    grid-column: 1 / -1;
+    padding: 40px 0 20px;
+
+    @include tablet-small {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__description {
+    @extend %main-text;
+
+    grid-column: 1 / -1;
+  }
+}

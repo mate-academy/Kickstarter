@@ -1,0 +1,109 @@
+.benefits {
+  @include section-spacing;
+
+  .visually-hidden {
+    @extend %visually-hidden;
+  }
+
+  // ---------- Nav menu (desktop) ----------
+  &__nav {
+    display: none;
+
+    @include desktop {
+      display: block;
+      margin-bottom: 62px;
+    }
+
+    &-list {
+      @include desktop {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+      }
+    }
+
+    &-link {
+      @extend %thirdary-text;
+
+      color: $c-text-gray;
+      text-decoration: none;
+
+      @include hover(color, $c-primary);
+    }
+  }
+
+  // ---------- Benefits Gard (Slider Swiper - mobile) ----------
+  &__slider {
+    @include container;
+
+    overflow: hidden;
+
+    @include tablet-small {
+      overflow: visible;
+    }
+  }
+
+  .swiper-wrapper {
+    display: flex;
+
+    @include tablet-small {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 65px 20px;
+    }
+
+    @include desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__slide {
+    flex-shrink: 0;
+    height: auto;
+
+    @include tablet-small {
+      transform: none;
+      display: grid;
+      grid-column: span 4;
+    }
+
+    @include desktop {
+      grid-column: span 3;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: auto;
+
+    text-align: center;
+
+    background-color: $c-white;
+  }
+
+  &__icon {
+    margin-bottom: 40px;
+
+    img {
+      display: block;
+    }
+  }
+
+  &__title {
+    @extend %h3;
+
+    margin-bottom: 20px;
+    color: $c-text-dark;
+  }
+
+  &__description {
+    @extend %main-text;
+
+    color: $c-text-gray;
+  }
+}
