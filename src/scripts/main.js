@@ -154,19 +154,4 @@ document.addEventListener('DOMContentLoaded', () => {
     email.classList.add('is-success');
     message.classList.add('is-success');
   });
-
-  updateFormState();
 });
-
-const scrollToTopBtn = document.querySelector('.footer__scroll-top');
-
-if (scrollToTopBtn) {
-  scrollToTopBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  });
-}
