@@ -180,6 +180,81 @@ const initializeScrollReveal = () => {
 
 initializeScrollReveal();
 
+const initializeSectionNavigation = () => {
+  const linkSelector = '.menu__link, .navigation__link';
+  const navigationLinks = [...document.querySelectorAll(linkSelector)];
+
+  const sections = navigationLinks.reduce((sectionMap, link) => {
+    const sectionId = link.hash.slice(1);
+    const section = document.getElementById(sectionId);
+
+    if (section && !sectionMap.has(sectionId)) {
+      sectionMap.set(sectionId, section);
+    }
+
+    return sectionMap;
+  }, new Map());
+
+  if (navigationLinks.length === 0 || sections.size === 0) {
+    return;
+  }
+
+  let activeSectionId = '';
+  let scrollFrameId = null;
+
+  const updateActiveLinks = () => {
+    const activationPoint = window.innerHeight * 0.4;
+    let currentSectionId = sections.keys().next().value;
+
+    sections.forEach((section, sectionId) => {
+      if (section.getBoundingClientRect().top <= activationPoint) {
+        currentSectionId = sectionId;
+      }
+    });
+
+    if (currentSectionId === activeSectionId) {
+      return;
+    }
+
+    navigationLinks.forEach((link) => {
+      const isActive = link.hash === `#${currentSectionId}`;
+      const activeClass = link.classList.contains('menu__link')
+        ? 'menu__link--active'
+        : 'navigation__link--active';
+
+      link.classList.toggle(activeClass, isActive);
+
+      if (isActive) {
+        link.setAttribute('aria-current', 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+
+    activeSectionId = currentSectionId;
+  };
+
+  const handlePagePositionChange = () => {
+    if (scrollFrameId !== null) {
+      return;
+    }
+
+    scrollFrameId = window.requestAnimationFrame(() => {
+      updateActiveLinks();
+      scrollFrameId = null;
+    });
+  };
+
+  updateActiveLinks();
+
+  window.addEventListener('scroll', handlePagePositionChange, {
+    passive: true,
+  });
+  window.addEventListener('resize', handlePagePositionChange);
+};
+
+initializeSectionNavigation();
+
 const menu = document.querySelector('.menu');
 const menuOpenButton = document.querySelector('.header__menu-button');
 const menuCloseButton = menu?.querySelector('.menu__close-button');
