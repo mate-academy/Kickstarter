@@ -1,0 +1,49 @@
+.navigation {
+  height: 76px;
+
+  &__container {
+    @include flex-center;
+
+    height: 100%;
+  }
+
+  &__list {
+    display: flex;
+    gap: 84px;
+  }
+
+  &__link {
+    font-size: $font-size-small;
+    line-height: 20px;
+    color: $color-gray-800;
+    text-transform: uppercase;
+
+    transition:
+      color $transition-duration,
+      font-weight $transition-duration;
+
+    &:focus-visible {
+      outline: 2px solid $color-turquoise-500;
+      outline-offset: 3px;
+    }
+
+    &--active {
+      font-weight: $font-weight-bold;
+      color: $color-gray-900;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        font-weight: $font-weight-bold;
+        color: $color-gray-900;
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        font-weight: $font-weight-bold;
+        color: $color-gray-900;
+      }
+    }
+  }
+}

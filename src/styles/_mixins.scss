@@ -1,0 +1,99 @@
+@mixin responsive-font-size($mobile, $tablet, $desktop) {
+  font-size: $mobile;
+
+  @include on-tablet {
+    font-size: $tablet;
+  }
+
+  @include on-desktop {
+    font-size: $desktop;
+  }
+}
+
+@mixin responsive-line-height($mobile, $tablet, $desktop) {
+  line-height: $mobile;
+
+  @include on-tablet {
+    line-height: $tablet;
+  }
+
+  @include on-desktop {
+    line-height: $desktop;
+  }
+}
+
+@mixin text-secondary {
+  font-size: $font-size-small;
+  font-weight: $font-weight-regular;
+  line-height: 21px;
+}
+
+@mixin text-tertiary {
+  @include text-secondary;
+
+  text-transform: uppercase;
+}
+
+@mixin reset-button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+@mixin flex-center($isInline: false) {
+  @if $isInline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+@mixin square($size) {
+  aspect-ratio: 1;
+  width: $size;
+}
+
+@mixin page-grid {
+  --columns: 4;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: $mobile-tablet-grid-gap;
+
+  @include on-tablet {
+    --columns: 8;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+
+    column-gap: $desktop-grid-gap;
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute !important;
+
+  overflow: hidden !important;
+
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+
+  white-space: nowrap !important;
+
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(100%) !important;
+}

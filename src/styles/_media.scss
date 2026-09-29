@@ -1,0 +1,37 @@
+$mobile-max-width: 767px;
+$tablet-min-width: 768px;
+$desktop-min-width: 1440px;
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-mobile {
+  @media (max-width: $mobile-max-width) {
+    @content;
+  }
+}
+
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} $transition-duration;
+
+  @media (hover: hover) {
+    &:hover {
+      #{$_property}: $_toValue;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      #{$_property}: $_toValue;
+    }
+  }
+}

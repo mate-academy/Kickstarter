@@ -1,0 +1,105 @@
+.benefits {
+  &__navigation {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__container {
+    @include on-desktop {
+      margin-top: 62px;
+    }
+  }
+
+  &__viewport {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    overflow: auto hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include on-tablet {
+      scroll-behavior: auto;
+      scroll-snap-type: none;
+      overflow: visible;
+    }
+  }
+
+  &__track {
+    display: flex;
+
+    @include on-tablet {
+      @include page-grid;
+
+      row-gap: 65px;
+    }
+  }
+
+  &__card {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    display: flex;
+    flex: 0 0 100%;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    @include on-tablet {
+      scroll-snap-align: none;
+      scroll-snap-stop: normal;
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+  }
+
+  &__icon {
+    width: 70px;
+    height: 50px;
+  }
+
+  &__title {
+    margin-top: 30px;
+    font-size: 22px;
+    line-height: 28px;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+
+    @include on-desktop {
+      display: flex;
+      align-items: start;
+      min-height: 56px;
+      margin-top: 30px;
+    }
+  }
+
+  &__description {
+    @include text-secondary;
+
+    margin-top: 20px;
+    color: $color-gray-500;
+
+    @include on-desktop {
+      margin-top: 24px;
+    }
+  }
+
+  &__pagination {
+    margin: 30px auto 0;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}

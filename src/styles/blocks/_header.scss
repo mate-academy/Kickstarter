@@ -1,0 +1,122 @@
+.header {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  background-color: $color-gray-100;
+
+  @include on-tablet {
+    padding-top: 30px;
+  }
+
+  &__container {
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 76px;
+
+    @include on-tablet {
+      height: 48px;
+    }
+  }
+
+  &__logo {
+    cursor: pointer;
+    flex-shrink: 0;
+    align-items: center;
+
+    @include hover(transform, scale($image-hover-scale));
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+
+    @include on-tablet {
+      gap: 30px;
+    }
+  }
+
+  &__link,
+  &__language {
+    font-size: $font-size-small;
+    font-weight: $font-weight-regular;
+    line-height: 18px;
+    text-transform: uppercase;
+
+    @include on-desktop {
+      line-height: 20px;
+    }
+  }
+
+  &__link {
+    display: none;
+
+    @include on-tablet {
+      display: inline-flex;
+      color: $color-gray-700;
+
+      @include hover(color, $color-gray-900);
+    }
+  }
+
+  &__languages {
+    display: none;
+
+    @include on-tablet {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    @include on-desktop {
+      margin-right: 13px;
+    }
+  }
+
+  &__language {
+    color: $color-gray-300;
+
+    @include hover(color, $color-gray-900);
+
+    &--active {
+      color: $color-gray-800;
+    }
+  }
+
+  &__separator {
+    margin-inline: 3px;
+    font-size: $font-size-small;
+    line-height: 18px;
+    color: $color-gray-800;
+
+    @include on-desktop {
+      line-height: 20px;
+    }
+  }
+
+  &__buy {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      width: 100px;
+    }
+
+    @include on-desktop {
+      width: 102px;
+    }
+  }
+
+  &__menu-button {
+    @include reset-button;
+    @include square(32px);
+    @include flex-center;
+
+    @include hover(transform, scale($image-hover-scale));
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}

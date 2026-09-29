@@ -1,0 +1,68 @@
+.reveal {
+  --reveal-translate-x: 0;
+  --reveal-translate-y: 36px;
+  --reveal-scale: 1;
+  --reveal-delay: 0ms;
+
+  &--left,
+  &--right {
+    @include on-tablet {
+      --reveal-translate-y: 0;
+    }
+  }
+
+  &--left {
+    @include on-tablet {
+      --reveal-translate-x: -36px;
+    }
+  }
+
+  &--right {
+    @include on-tablet {
+      --reveal-translate-x: 36px;
+    }
+  }
+
+  &--scale {
+    --reveal-translate-y: 18px;
+    --reveal-scale: 0.98;
+  }
+
+  &--delay-1 {
+    --reveal-delay: 90ms;
+  }
+
+  &--delay-2 {
+    --reveal-delay: 180ms;
+  }
+
+  &--delay-3 {
+    --reveal-delay: 270ms;
+  }
+}
+
+.reveal--ready {
+  transform: translate3d(
+      var(--reveal-translate-x),
+      var(--reveal-translate-y),
+      0
+    )
+    scale(var(--reveal-scale));
+  opacity: 0;
+  transition:
+    opacity calc($transition-duration * 2) ease-out var(--reveal-delay),
+    transform calc($transition-duration * 2) ease-out var(--reveal-delay);
+}
+
+.reveal--visible {
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal--ready {
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+}

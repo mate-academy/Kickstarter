@@ -1,0 +1,90 @@
+.pagination {
+  width: 93px;
+
+  &__controls {
+    display: flex;
+  }
+
+  &__control {
+    @include reset-button;
+
+    cursor: pointer;
+
+    position: relative;
+
+    width: 48px;
+    height: 15px;
+
+    color: $color-gray-800;
+
+    @include hover(color, $color-turquoise-700);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      height: 1px;
+      background-color: currentColor;
+    }
+
+    &::before {
+      width: 48px;
+    }
+
+    &::after {
+      width: 20px;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-turquoise-500;
+      outline-offset: 3px;
+    }
+
+    &:disabled {
+      cursor: default;
+      color: $color-gray-300;
+    }
+
+    &--previous {
+      &::before,
+      &::after {
+        top: 0;
+        left: 0;
+        transform-origin: left;
+      }
+
+      &::after {
+        transform: rotate(35deg);
+      }
+    }
+
+    &--next {
+      &::before,
+      &::after {
+        right: 0;
+        bottom: 0;
+        transform-origin: right;
+      }
+
+      &::after {
+        transform: rotate(35deg);
+      }
+    }
+  }
+
+  &__counter {
+    display: flex;
+    gap: 4px;
+    align-items: flex-end;
+    justify-content: center;
+
+    margin-top: 8px;
+  }
+
+  &__separator,
+  &__total {
+    font-size: 11px;
+    line-height: 100%;
+    color: $color-turquoise-700;
+  }
+}
