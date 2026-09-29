@@ -1,0 +1,184 @@
+.menu {
+  transform: translateY(-100%);
+
+  overflow: hidden;
+
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  color: $color-gray-800;
+
+  opacity: 0;
+  background-color: $color-menu-background;
+
+  transition:
+    opacity $transition-duration,
+    transform $transition-duration;
+
+  &::backdrop {
+    background-color: transparent;
+  }
+
+  &[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &--open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 74px;
+  }
+
+  &__logo {
+    flex-shrink: 0;
+
+    @include hover(transform, scale($image-hover-scale));
+  }
+
+  &__close-button {
+    @include reset-button;
+    @include square(24px);
+    @include flex-center;
+
+    flex-shrink: 0;
+
+    @include hover(transform, scale($image-hover-scale));
+  }
+
+  &__content {
+    overflow-y: auto;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    width: 100%;
+    min-height: 0;
+    padding-bottom: 30px;
+  }
+
+  &__navigation {
+    margin-top: 31px;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include on-tablet {
+      gap: 40px;
+    }
+  }
+
+  &__link {
+    width: 100%;
+
+    font-size: $font-size-small;
+    line-height: 20px;
+    color: $color-gray-800;
+    text-transform: uppercase;
+
+    transition:
+      color $transition-duration,
+      font-weight $transition-duration;
+
+    &:focus-visible {
+      outline: 2px solid $color-turquoise-500;
+      outline-offset: 3px;
+    }
+
+    &--active {
+      font-weight: $font-weight-bold;
+      color: $color-gray-900;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        font-weight: $font-weight-bold;
+        color: $color-gray-900;
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        font-weight: $font-weight-bold;
+        color: $color-gray-900;
+      }
+    }
+
+    @include on-tablet {
+      font-size: 22px;
+      line-height: 28px;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    flex-shrink: 0;
+    gap: 20px;
+    align-items: center;
+
+    margin-top: 50px;
+
+    font-size: $font-size-small;
+    line-height: 18px;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__specs {
+    color: $color-gray-700;
+
+    @include hover(color, $color-gray-900);
+  }
+
+  &__languages {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__language {
+    color: $color-gray-400;
+
+    @include hover(color, $color-gray-900);
+
+    &--active {
+      color: $color-gray-800;
+    }
+  }
+
+  &__separator {
+    margin-inline: 3px;
+    color: $color-gray-800;
+  }
+
+  &__buy {
+    flex-shrink: 0;
+    margin-top: auto;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}

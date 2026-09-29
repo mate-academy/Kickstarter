@@ -1,3 +1,45 @@
-@import 'utils/vars';
-@import 'utils/mixins';
-@import 'utils/extends';
+.container {
+  max-width: calc($max-container-width + ($container-padding-x * 2));
+  margin-inline: auto;
+  padding-inline: $container-padding-x;
+
+  @include on-tablet {
+    padding-inline: $container-padding-x-tablet;
+  }
+
+  @include on-desktop {
+    padding-inline: $container-padding-x;
+  }
+}
+
+.section {
+  padding-block: var(--section-padding-y);
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &--footer {
+    padding-bottom: 20px;
+
+    @include on-tablet {
+      padding-bottom: 30px;
+    }
+  }
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.hidden-mobile {
+  @include on-mobile {
+    display: none !important;
+  }
+}
+
+.only-mobile {
+  @include on-tablet {
+    display: none !important;
+  }
+}

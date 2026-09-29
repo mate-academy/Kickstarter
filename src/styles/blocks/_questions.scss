@@ -1,0 +1,113 @@
+.questions {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__title {
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include on-tablet {
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-desktop {
+      gap: 19px;
+    }
+  }
+
+  &__field {
+    height: $control-height;
+    padding: 11px 19px;
+    border: $border-form;
+
+    color: $color-gray-800;
+
+    background-color: transparent;
+
+    @include on-tablet {
+      padding-inline: 29px;
+    }
+
+    @include on-desktop {
+      padding-inline: 35px;
+    }
+
+    &::placeholder {
+      color: $color-gray-300;
+      opacity: 1;
+    }
+
+    &:focus {
+      border-color: $color-turquoise-700;
+      outline: none;
+    }
+
+    &:-webkit-autofill {
+      box-shadow: 0 0 0 1000px $color-gray-100 inset;
+
+      -webkit-text-fill-color: $color-gray-800;
+    }
+
+    &:user-invalid,
+    &:invalid:not(:placeholder-shown) {
+      border-color: $color-red-500;
+
+      &::placeholder {
+        color: $color-red-500-alpha-30;
+      }
+    }
+  }
+
+  &__field--message {
+    resize: none;
+    height: 128px;
+
+    @include on-tablet {
+      height: 201px;
+    }
+
+    @include on-desktop {
+      height: 128px;
+      padding-top: 15px;
+    }
+  }
+
+  &__button {
+    width: 102px;
+    height: 40px;
+    font-weight: $font-weight-bold;
+
+    @include on-desktop {
+      width: 124px;
+      height: $control-height;
+    }
+  }
+}
