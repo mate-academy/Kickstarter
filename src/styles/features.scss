@@ -1,0 +1,228 @@
+.features {
+  position: relative;
+  overflow: hidden;
+  font-family: Inter, sans-serif;
+  margin-top: 120px;
+
+  &__title {
+    padding: 14px 32px;
+    color: $c-text1;
+
+    @include on-desktop {
+      padding-inline: 123px;
+    }
+  }
+
+  &__content {
+    padding: 32px 32px 0;
+    background-color: $c-background2;
+
+    @include on-tablet {
+      margin: 0 34px;
+      padding-top: 1px;
+    }
+
+    @include on-desktop {
+      margin: 0 123px;
+    }
+  }
+
+  // вікно слайдера
+  &__slider {
+    overflow: hidden;
+
+    @include on-tablet {
+      margin: 90px;
+    }
+
+    @include on-desktop {
+      margin: 0;
+      margin-top: 60px;
+    }
+  }
+
+  // стрічка зі слайдами, яку ми зсуваємо
+  &__track {
+    display: flex;
+    transition: transform 0.4s ease;
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 50px;
+      transform: none !important;
+    }
+  }
+
+  &__item {
+    flex: 0 0 100%; // кожен слайд = 100% ширини вікна
+    min-width: 0;
+
+    @include on-desktop {
+      flex: none;
+    }
+
+    &:nth-child(1) {
+      @include on-desktop {
+        grid-column: 2 / 6;
+      }
+    }
+
+    &:nth-child(2) {
+      @include on-desktop {
+        grid-column: 7 / 11;
+      }
+    }
+
+    &:nth-child(3) {
+      @include on-desktop {
+        grid-column: 2 / 6;
+      }
+    }
+  }
+
+  &__subtitle {
+    margin: 0 0 24px;
+    color: $c-text4;
+  }
+
+  &__list {
+    margin: 0;
+    padding-left: 16px;
+    list-style: disc;
+
+    li {
+      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 1.4;
+      color: $c-text1;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+
+    @include on-tablet {
+      align-items: start;
+      margin-left: 90px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    gap: 4px;
+  }
+
+  &__arrow {
+    width: 48px;
+    height: 17px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      background-color: $c-text1;
+
+      mask-size: contain;
+      mask-position: center;
+      mask-repeat: no-repeat;
+
+      -webkit-mask-size: contain;
+      -webkit-mask-position: center;
+      -webkit-mask-repeat: no-repeat;
+    }
+
+    &--prev::before {
+      mask-image: url('../images/icons/slider-left.svg');
+      -webkit-mask-image: url('../images/icons/slider-left.svg');
+    }
+
+    &--next::before {
+      mask-image: url('../images/icons/slider-right.svg');
+      -webkit-mask-image: url('../images/icons/slider-right.svg');
+    }
+
+    &:not(:disabled):hover::before {
+      background-color: $c-text4;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+  }
+
+  &__counter {
+    margin: 0;
+    font-size: 18px;
+    color: $c-text1;
+  }
+
+  &__total {
+    font-size: 12px;
+    color: $c-text4;
+  }
+
+  &__background {
+    box-sizing: border-box;
+    width: 100%;
+    background-color: $c-background2;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      height: 105px;
+      margin-inline: 34px;
+      width: calc(100% - 68px);
+    }
+
+    @include on-desktop {
+      height: 141px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 50px;
+
+      margin: 0 123px;
+      width: calc(100% - 246px);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: 174px;
+      object-fit: contain;
+      object-position: right bottom;
+
+      @include on-tablet {
+        height: 225px;
+        padding-right: 10px;
+        position: relative;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / 13;
+        height: 300px;
+        width: 100%;
+        padding: 0;
+        padding-right: 50px;
+        position: relative;
+        top: -160px;
+      }
+    }
+  }
+}

@@ -1,0 +1,124 @@
+.benefits {
+  margin-top: 120px;
+  @include content-padding-inline;
+
+  @include on-desktop {
+    margin-top: 170px;
+  }
+
+  &__menu {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 70px;
+
+      margin-bottom: 60px;
+    }
+
+    &-item {
+      text-decoration: none;
+      color: $c-text1;
+      font-size: 14px;
+    }
+
+    h6 {
+      font-size: 14px;
+    }
+  }
+
+  &__slider {
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  &__items {
+    display: flex;
+    transition: transform 0.3s ease;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: 64px 34px;
+      transform: none !important;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+  }
+
+  &__item {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+
+    img {
+      display: block;
+      width: 50px;
+      height: 50px;
+      margin: 0 auto;
+    }
+
+    @include on-tablet {
+      width: auto;
+      grid-column: span 4;
+      text-align: center;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+  }
+
+  &__text {
+    color: $c-text2;
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: $c-switch-default;
+    cursor: pointer;
+
+    &--active {
+      background-color: $c-switch-specs;
+    }
+  }
+
+  @include on-tablet {
+    &__slider {
+      overflow: visible;
+    }
+
+    &__items {
+      display: grid;
+      transform: none !important;
+    }
+
+    &__item {
+      width: auto;
+    }
+
+    &__dots {
+      display: none;
+    }
+  }
+}
