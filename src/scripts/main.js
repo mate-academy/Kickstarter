@@ -116,6 +116,7 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
 
   const isEmailValid = email.value.trim() !== '' && email.validity.valid;
+
   const isMessageValid = message.value.trim() !== '';
 
   email.classList.toggle('is-error', !isEmailValid);
@@ -123,6 +124,13 @@ form.addEventListener('submit', (event) => {
 
   message.classList.toggle('is-error', !isMessageValid);
   message.classList.toggle('is-valid', isMessageValid);
+
+  if (isEmailValid && isMessageValid) {
+    form.reset();
+
+    email.classList.remove('is-valid');
+    message.classList.remove('is-valid');
+  }
 });
 
 [email, message].forEach((field) => {
