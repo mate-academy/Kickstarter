@@ -1,7 +1,51 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import 'header';
+@import 'menu';
+@import 'button';
+@import 'switcher';
+@import 'benefits';
+@import 'meet-luna';
+@import 'about';
+@import 'quote';
+@import 'features';
+@import 'questions';
+@import 'footer';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+
+  scroll-behavior: smooth;
+}
 
 body {
-  background: $c-gray;
+  margin: 0;
+  min-width: 320px;
+
+  background: $c-background1;
+  color: $c-text1;
+
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin-top: 120px;
+
+  @include content-padding-inline;
+}
+
+body:has(.menu:target) {
+  overflow: hidden;
 }

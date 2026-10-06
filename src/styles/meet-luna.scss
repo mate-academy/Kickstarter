@@ -1,0 +1,42 @@
+.meet-luna {
+  width: 100%;
+  margin-top: 120px;
+
+  @include on-desktop {
+    margin-top: 170px;
+  }
+
+  &__background {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: 195px;
+    object-fit: contain;
+    margin: 0 auto;
+
+    &--mobile {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        width: 100%;
+        max-width: 945px;
+        min-height: 430px;
+        box-sizing: border-box;
+        object-fit: cover;
+        padding: 0;
+        margin: 0 auto;
+      }
+
+      @include on-desktop {
+        min-height: 520px;
+      }
+    }
+  }
+}

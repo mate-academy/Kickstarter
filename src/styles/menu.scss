@@ -1,0 +1,106 @@
+.menu {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 28px;
+  background: $c-background1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  opacity: 0;
+  pointer-events: none;
+
+  &:target {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @include on-tablet {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 41px;
+  }
+
+  @include on-desktop {
+    position: absolute;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 25px;
+
+    @include content-padding-inline;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+
+    &-logo {
+      display: flex;
+      width: 161px;
+      height: 26px;
+
+      @include hover(transform, scale(1.05));
+    }
+
+    &-icon {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+
+    @include content-padding-inline;
+
+    &-items {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      @include on-tablet {
+        gap: 40px;
+      }
+    }
+
+    &-item {
+      text-decoration: none;
+      color: $c-text1;
+      margin: 0;
+
+      @include hover(transform, scale(0.9));
+    }
+
+    h6 {
+      margin: 0;
+    }
+
+    &-switcher {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &-button {
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+  }
+}
