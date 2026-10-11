@@ -1,0 +1,97 @@
+.footer {
+  margin-top: 120px;
+
+  &__top {
+    display: none;
+
+    @include on-tablet {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-logo {
+      display: flex;
+      justify-content: center;
+
+      @include hover(transform, scale(1.05));
+    }
+
+    &-icon {
+      position: absolute;
+      right: 0;
+      top: 50%;
+
+      @include content-padding-inline;
+
+      @include hover(transform, scale(1.05));
+    }
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+
+    margin-bottom: 50px;
+
+    @include on-tablet {
+      margin: 60px;
+    }
+  }
+
+  &__social-link {
+    display: block;
+    width: 24px;
+    height: 24px;
+    color: $c-text1;
+    transition:
+      transform 0.3s,
+      color 0.3s;
+
+    img {
+      display: none;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: currentColor;
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+    }
+
+    &:hover {
+      transform: scale(1.12);
+      color: $c-text3;
+    }
+
+    &:nth-child(1)::before {
+      mask-image: url('../images/icons/facebook.svg');
+    }
+
+    &:nth-child(2)::before {
+      mask-image: url('../images/icons/twitter.svg');
+    }
+
+    &:nth-child(3)::before {
+      mask-image: url('../images/icons/instagram.svg');
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: $c-switch-default;
+    margin-bottom: 20px;
+
+    @include content-padding-inline;
+  }
+}
