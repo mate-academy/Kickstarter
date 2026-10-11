@@ -1,0 +1,96 @@
+.questions {
+  margin-top: 120px;
+
+  @include content-padding-inline;
+
+  @include on-tablet {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: space-between;
+  }
+
+  @include on-desktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &__title {
+    margin: 0 0 30px;
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    @include on-desktop {
+      grid-column: 7 / 13;
+    }
+  }
+
+  &__input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 48px;
+    padding: 0 20px;
+  }
+
+  &__message {
+    box-sizing: border-box;
+    width: 100%;
+    height: 128px;
+    padding: 10px 20px;
+    resize: none;
+  }
+
+  &__input,
+  &__message {
+    border: 1px solid $i-default;
+
+    font: inherit;
+
+    color: $c-text1;
+    background-color: transparent;
+
+    outline: none;
+
+    &::placeholder {
+      color: $c-switch-default;
+    }
+
+    &:focus {
+      border-color: $i-selected;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 1000px transparent inset;
+
+      -webkit-text-fill-color: $c-text1;
+
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    &.is-error {
+      border-color: $i-success-border;
+      color: $i-success-text;
+
+      &::placeholder {
+        color: $i-success-text;
+      }
+    }
+
+    &.is-valid {
+      border-color: $i-selected;
+      color: $c-text1;
+    }
+  }
+}
