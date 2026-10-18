@@ -1,0 +1,77 @@
+.testimonial {
+  @include section-offset;
+
+  @include page-gutter;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__bubble {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+    padding: 72px 32px 56px;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      inset: 0;
+
+      background-image: url('../images/icons/quote.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% 100%;
+    }
+
+    @include for-desktop-and-up {
+      padding: 56px 72px 120px;
+
+      &::before {
+        inset: auto 0 0;
+        height: 50%;
+        background-size: 100% 100%;
+      }
+    }
+  }
+
+  &__quote {
+    position: relative;
+    margin: 0;
+  }
+
+  &__text {
+    @extend %text-quote;
+
+    margin: 0;
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+
+    margin-top: 48px;
+  }
+
+  &__avatar {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__name {
+    @extend %heading-5;
+
+    margin: 8px 0 0;
+  }
+
+  &__role {
+    margin: 0;
+  }
+}

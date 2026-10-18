@@ -2,6 +2,90 @@
 @import 'fonts';
 @import 'typography';
 
+@import 'blocks/btn';
+@import 'blocks/btn-link';
+@import 'blocks/lang-switch';
+@import 'blocks/site-header';
+@import 'blocks/site-nav';
+@import 'blocks/mobile-menu';
+@import 'blocks/hero';
+@import 'blocks/benefits';
+@import 'blocks/presentation';
+@import 'blocks/about';
+@import 'blocks/testimonial';
+@import 'blocks/technology';
+@import 'blocks/contact-form';
+@import 'blocks/site-footer';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: $c-gray;
+  overflow-x: hidden;
+
+  min-width: 320px;
+  margin: 0;
+
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: $color-text;
+
+  background-color: $color-bg;
+
+  &.menu-is-open {
+    overflow: hidden;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a,
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+svg {
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid $color-accent;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

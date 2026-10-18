@@ -1,0 +1,98 @@
+.contact-form {
+  @include section-offset;
+
+  @include page-gutter;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @include for-tablet-and-up {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    column-gap: 30px;
+    align-items: start;
+  }
+
+  @include for-desktop-and-up {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  &__title {
+    max-width: 480px;
+    margin: 0;
+
+    @include for-desktop-and-up {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    @include for-tablet-and-up {
+      grid-column: 1 / 13;
+    }
+
+    @include for-desktop-and-up {
+      grid-column: 7 / 13;
+    }
+  }
+
+  &__input {
+    height: 48px;
+  }
+
+  &__message {
+    resize: none;
+    height: 128px;
+    padding-block: 14px;
+  }
+
+  &__input,
+  &__message {
+    width: 100%;
+    padding: 0 20px;
+    border: 1px solid $color-field-border;
+    border-radius: 8px;
+
+    font: inherit;
+    font-size: 16px;
+    line-height: 24px;
+    color: $color-text;
+
+    background-color: transparent;
+    outline: none;
+
+    transition: border-color $transition-duration $transition-easing;
+
+    &::placeholder {
+      color: $color-inactive;
+    }
+
+    &:focus {
+      border-color: $color-field-border-focus;
+    }
+
+    &.is-error {
+      border-color: $color-error;
+
+      &::placeholder {
+        color: $color-error-soft;
+      }
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      box-shadow: 0 0 0 1000px $color-bg inset;
+      caret-color: $color-text;
+      transition: background-color 5000s ease-in-out 0s;
+
+      -webkit-text-fill-color: $color-text;
+    }
+  }
+}

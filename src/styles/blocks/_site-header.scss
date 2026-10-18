@@ -1,0 +1,67 @@
+.site-header {
+  &__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 68px;
+
+    @include page-gutter;
+
+    @include for-tablet-and-up {
+      min-height: 100px;
+    }
+  }
+
+  &__logo {
+    display: inline-flex;
+    flex-shrink: 0;
+
+    img {
+      @include hover(transform, scale(1.15));
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include for-desktop-and-up {
+      display: flex;
+      gap: 40px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+    .lang-switch {
+      display: none;
+
+      @include for-tablet-and-up {
+        display: flex;
+      }
+    }
+
+    .btn--buy {
+      display: none;
+
+      @include for-tablet-and-up {
+        display: inline-flex;
+        width: 102px;
+        height: 40px;
+      }
+    }
+  }
+
+  &__burger {
+    display: inline-flex;
+    color: $color-text;
+
+    @include hover(transform, scale(1.15));
+
+    @include for-desktop-and-up {
+      display: none;
+    }
+  }
+}

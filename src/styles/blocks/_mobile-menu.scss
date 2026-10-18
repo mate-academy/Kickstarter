@@ -1,0 +1,52 @@
+.mobile-menu {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 14px 30px 100px;
+
+  visibility: hidden;
+  opacity: 0;
+  background-color: $color-bg;
+
+  transition:
+    opacity $transition-duration $transition-easing,
+    visibility $transition-duration $transition-easing;
+
+  &.is-open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 54px;
+  }
+
+  &__logo {
+    display: inline-flex;
+
+    img {
+      @include hover(transform, scale(1.15));
+    }
+  }
+
+  &__close {
+    display: inline-flex;
+    color: $color-text;
+
+    @include hover(transform, scale(1.15));
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+}

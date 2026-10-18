@@ -1,0 +1,107 @@
+.benefits {
+  @include section-offset;
+
+  @include page-gutter;
+
+  &__viewport {
+    touch-action: pan-y;
+    overflow: hidden;
+  }
+
+  &__track {
+    display: flex;
+    transition: transform $transition-duration $transition-easing;
+
+    @include for-tablet-and-up {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 64px 34px;
+    }
+
+    @include for-desktop-and-up {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      column-gap: 24px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex: 0 0 100%;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 0;
+
+    text-align: center;
+
+    @include for-tablet-and-up {
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
+
+  &__icon {
+    width: 70px;
+    height: 50px;
+    margin-bottom: 32px;
+    object-fit: contain;
+
+    @include for-tablet-and-up {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__card:hover &__icon {
+    animation: benefits-icon $transition-duration $transition-easing;
+  }
+
+  &__card-title {
+    @extend %heading-4;
+
+    margin: 0 0 16px;
+  }
+
+  &__card-text {
+    margin: 0;
+  }
+
+  &__dots {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 32px;
+
+    @include for-tablet-and-up {
+      display: none;
+    }
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border-radius: 50%;
+
+    background-color: $color-inactive;
+
+    transition: background-color $transition-duration $transition-easing;
+
+    &.is-active {
+      background-color: $color-icon;
+    }
+  }
+}
+
+@keyframes benefits-icon {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15) rotate(-2deg);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
