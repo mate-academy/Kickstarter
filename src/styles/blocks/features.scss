@@ -1,0 +1,209 @@
+.features {
+  margin-top: 110px;
+
+  @include tablet {
+    margin-top: 140px;
+  }
+
+  @include desktop {
+    margin-top: 170px;
+  }
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin-bottom: 32px;
+    color: #333;
+
+    @include desktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__info {
+    position: relative;
+
+    @include page-inline-indent;
+    @include page-grid;
+
+    grid-column: 1 / -1;
+
+    margin-right: -30px;
+    margin-left: -30px;
+    padding-top: 30px;
+
+    background-color: #d6ecec;
+
+    @include tablet {
+      margin: 0;
+      padding: 0;
+      padding-top: 60px;
+    }
+
+    @include desktop {
+      padding-block: 60px;
+    }
+  }
+
+  &__carousel {
+    overflow: hidden;
+    grid-column: 1 / -1;
+
+    width: 100%;
+    max-width: 260px;
+    margin-bottom: 50px;
+
+    @include tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__slide {
+    display: flex;
+    column-gap: 20px;
+    transition: all 0.5s linear;
+  }
+
+  &__feature {
+    flex-shrink: 0;
+    width: 100%;
+
+    &--1 {
+      display: none;
+      grid-column: 2 / 6;
+      margin-bottom: 56px;
+
+      @include desktop {
+        display: block;
+      }
+    }
+
+    &--2 {
+      display: none;
+      grid-column: 2 / 6;
+
+      @include desktop {
+        display: block;
+      }
+    }
+
+    &--3 {
+      display: none;
+      grid-column: 7 / 10;
+      grid-row: 1;
+
+      @include desktop {
+        display: block;
+      }
+    }
+  }
+
+  &__name {
+    margin-bottom: 20px;
+    color: #0c797a;
+
+    @include tablet {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    @include desktop {
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    color: #333;
+  }
+
+  &__item {
+    position: relative;
+    left: 11px;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 9px;
+      left: -11px;
+
+      display: block;
+
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+
+      background-color: black;
+    }
+
+    @include desktop {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__roll {
+    display: flex;
+    grid-column: 2 / 4;
+    flex-direction: column;
+    row-gap: 8px;
+    align-items: center;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+  }
+
+  &__amount {
+    color: #333;
+    text-align: center;
+
+    &--remined {
+      font-size: 11px;
+      line-height: 100%;
+      color: #0c797a;
+    }
+  }
+
+  &__picture {
+    display: flex;
+    grid-column: 1 / -1;
+    margin-right: -30px;
+    margin-left: -30px;
+
+    @include tablet {
+      grid-column: 4 / -1;
+      margin: 0;
+    }
+
+    @include desktop {
+      position: absolute;
+      bottom: 0;
+      left: 96px;
+      grid-column: 6 / -1;
+    }
+  }
+
+  &__img {
+    width: 100%;
+
+    @include desktop {
+      max-width: 543px;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+.nav {
+  grid-column: 1 / -1;
+
+  @include desktop {
+    grid-column: 4 / 10;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+
+    @include tablet {
+      row-gap: 40px;
+    }
+
+    @include desktop {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__link {
+    color: #333;
+    transition: all $transition-time linear;
+
+    &:hover {
+      font-weight: 700;
+    }
+
+    @include tablet {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    @include desktop {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}

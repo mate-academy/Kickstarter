@@ -1,0 +1,79 @@
+.top-bar {
+  grid-column: 1 / -1;
+  padding-block: 22px;
+
+  @include tablet {
+    padding-top: 25px;
+    padding-bottom: 0;
+  }
+
+  @include desktop {
+    padding-top: 30px;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    @include animate(transform, scale(1.1));
+  }
+
+  &__nav {
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+
+    @include desktop {
+      column-gap: 0;
+    }
+  }
+
+  &__specs {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  &__lang {
+    display: none;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    width: 100px;
+    height: 48px;
+    border: none;
+
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 100%;
+    color: #fff;
+    text-transform: uppercase;
+
+    background-color: #333;
+
+    transition: all $transition-time linear;
+
+    @include tablet {
+      display: block;
+    }
+
+    @include desktop {
+      width: 102px;
+    }
+    &:hover {
+      background-color: #131313;
+    }
+  }
+}
