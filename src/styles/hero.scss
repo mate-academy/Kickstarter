@@ -1,0 +1,137 @@
+.hero {
+  @include page-grid;
+
+  margin-top: 140px;
+  margin-bottom: 110px;
+
+  @include on-tablets {
+    @include content-padding-inline;
+
+    margin-bottom: 141px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 141px;
+  }
+
+  &__image {
+    display: block;
+    grid-column: 1 / -1;
+
+    width: 95%;
+    height: auto;
+    max-height: 250px;
+
+    object-position: 50px;
+
+    @include on-tablets {
+      transform: translateX(0);
+
+      grid-column: 4 / 9;
+
+      width: 95%;
+      max-width: 429px;
+      height: 75%;
+      max-height: 317px;
+      margin-left: 0;
+
+      object-fit: cover;
+      object-position: 0;
+    }
+
+    @media (min-width: 700px) {
+      transform: translateX(0);
+
+      grid-column: 4 / 9;
+
+      width: 95%;
+      max-width: 429px;
+      height: 100%;
+      max-height: 317px;
+      margin-left: 0;
+
+      object-fit: cover;
+      object-position: 0;
+    }
+
+    @include on-large-tablets {
+      max-width: 816px;
+      max-height: 464px;
+
+      // object-fit: cover;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 13;
+      width: 100%;
+      max-width: 816px;
+      height: 100%;
+    }
+
+    @include on-large-desktop {
+      object-fit: contain;
+      object-position: left;
+    }
+  }
+
+  &__content {
+    @include content-padding-inline;
+
+    grid-column: 1 / -1;
+
+    @include on-tablets {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      padding-inline: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 52px;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0%;
+
+    @include on-tablets {
+      margin-bottom: 30px;
+      font-size: 40px;
+      line-height: 52px;
+    }
+
+    @media (min-width: 700px) {
+      margin-bottom: 30px;
+      font-size: 48px;
+    }
+
+    @include on-desktop {
+      font-size: 62px;
+      line-height: 78px;
+    }
+  }
+
+  &__para {
+    grid-column: 1 / -1;
+
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 24px;
+    color: $c-titles;
+    letter-spacing: 0%;
+
+    @include on-tablets {
+      min-width: 240px;
+      max-width: 276px;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    @media (min-width: 700px) {
+      font-size: 16px;
+    }
+  }
+}
