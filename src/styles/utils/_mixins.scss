@@ -16,3 +16,15 @@
     @content;
   }
 }
+
+@mixin section-gap($property: padding-top) {
+  #{$property}: $section-gap-mobile;
+
+  @include on-tablet {
+    #{$property}: $section-gap-tablet;
+  }
+
+  @include on-desktop {
+    #{$property}: $section-gap-desktop;
+  }
+}

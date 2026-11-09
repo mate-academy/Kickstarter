@@ -1,0 +1,136 @@
+.about {
+  @include section-gap;
+
+  &__container {
+    display: grid;
+
+    @include section-gap(row-gap);
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: $about-gap-tablet;
+      align-items: start;
+      margin: 0 (-$container-padding-tablet);
+    }
+
+    @include on-desktop {
+      column-gap: $about-gap-desktop;
+      margin: 0;
+    }
+  }
+
+  &__picture {
+    display: block;
+    margin-top: 30px;
+
+    @include on-tablet {
+      margin-top: 0;
+    }
+  }
+
+  &__item--reversed &__picture {
+    @include on-tablet {
+      order: 1;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__content {
+    display: contents;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-right: $container-padding-tablet;
+    }
+
+    @include on-desktop {
+      padding: 0;
+    }
+  }
+
+  &__item--reversed &__content {
+    @include on-tablet {
+      padding: 0 0 0 $container-padding-tablet;
+    }
+
+    @include on-desktop {
+      padding: 0;
+    }
+  }
+
+  &__title {
+    @include text-h2-mobile;
+
+    order: -1;
+
+    @include on-tablet {
+      @include text-h2-tablet;
+
+      order: 0;
+    }
+
+    @include on-desktop {
+      @include text-h2-desktop;
+    }
+  }
+
+  &__text {
+    @include text-secondary;
+
+    margin-top: 20px;
+    color: $c-muted;
+
+    @include on-tablet {
+      @include text-main;
+
+      margin-top: 30px;
+    }
+  }
+
+  &__link {
+    @include text-button;
+
+    position: relative;
+    align-self: flex-start;
+    padding-bottom: $link-line-offset + $link-line-height;
+    margin-top: 30px;
+    color: $c-green;
+    text-decoration: none;
+
+    @include on-tablet {
+      margin-top: 60px;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: $link-line-width;
+      height: $link-line-height;
+      content: '';
+      background-color: $c-green;
+      transition: width $transition-duration;
+
+      @include on-desktop {
+        width: $link-line-width-desktop;
+      }
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
