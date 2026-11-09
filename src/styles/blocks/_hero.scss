@@ -1,0 +1,95 @@
+.hero {
+  @include on-tablet {
+    padding-top: 130px;
+  }
+
+  @include on-desktop {
+    padding-top: 90px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      display: grid;
+    }
+
+    @include on-desktop {
+      grid-template-columns: 378px 816px;
+    }
+  }
+
+  &__text {
+    margin-top: 40px;
+
+    @include on-tablet {
+      position: relative;
+      z-index: 1;
+      grid-area: 1 / 1;
+      margin-top: 0;
+    }
+
+    @include on-desktop {
+      padding-top: 81px;
+    }
+  }
+
+  &__title {
+    @include text-h1-mobile;
+
+    @include on-tablet {
+      @include text-h1-tablet;
+
+      max-width: 340px;
+    }
+
+    @include on-desktop {
+      @include text-h1-desktop;
+
+      max-width: 378px;
+    }
+  }
+
+  &__description {
+    @include text-main;
+
+    margin-top: 20px;
+
+    @include on-tablet {
+      max-width: 250px;
+      margin-top: 30px;
+    }
+
+    @include on-desktop {
+      max-width: 276px;
+    }
+  }
+
+  &__picture {
+    display: block;
+    order: -1;
+    margin: 0 (-$container-padding-mobile);
+
+    @include on-tablet {
+      grid-area: 1 / 1;
+      justify-self: end;
+      order: 0;
+      width: calc(430 / 700 * 100%);
+      margin: 18px 0 0;
+    }
+
+    @include on-desktop {
+      grid-area: 1 / 2;
+      justify-self: start;
+      width: 816px;
+      margin: 0;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}

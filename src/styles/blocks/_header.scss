@@ -1,0 +1,139 @@
+.header {
+  @include on-tablet {
+    padding-top: 29px;
+  }
+
+  @include on-desktop {
+    padding-top: 30px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+
+    @include on-tablet {
+      height: 48px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    transition: transform $transition-duration;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__logo-image {
+    display: block;
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-left: auto;
+    }
+  }
+
+  &__link {
+    @include text-nav-tablet($font-weight-light);
+
+    color: $c-secondary;
+    text-decoration: none;
+
+    @include hover(color, $c-primary);
+
+    @include on-desktop {
+      @include text-tertiary;
+    }
+  }
+
+  &__lang {
+    display: flex;
+    gap: 3px;
+  }
+
+  &__lang-link {
+    @include text-nav-tablet($font-weight-light);
+
+    color: $c-lang-inactive-tablet;
+    text-decoration: none;
+
+    @include hover(color, $c-primary);
+
+    @include on-desktop {
+      @include text-tertiary;
+
+      color: $c-lang-inactive;
+    }
+
+    &--active {
+      font-weight: $font-weight-regular;
+      color: $c-primary;
+    }
+  }
+
+  &__lang-divider {
+    @include text-nav-tablet;
+
+    color: $c-primary;
+
+    @include on-desktop {
+      @include text-tertiary;
+    }
+  }
+
+  &__buy {
+    @include text-button-tablet;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 48px;
+    color: $c-white;
+    text-decoration: none;
+    background-color: $c-primary;
+
+    @include hover(background-color, $c-button-hover);
+
+    @include on-desktop {
+      @include text-button;
+
+      width: 102px;
+      margin-left: 17px;
+    }
+  }
+
+  &__burger {
+    display: flex;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: transform $transition-duration;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include on-tablet {
+      margin-left: 30px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__burger-icon {
+    display: block;
+  }
+}
