@@ -1,0 +1,29 @@
+.nav {
+  display: none;
+
+  @include on-desktop {
+    display: flex;
+    justify-content: center;
+    gap: 84px;
+    padding: 28px 0;
+    margin-top: 170px;
+  }
+
+  &__link {
+    @include text-tertiary;
+
+    color: $c-primary;
+    text-decoration: none;
+
+    @include hover(color, $c-dark);
+
+    &:hover,
+    &--active {
+      @include text-h6;
+    }
+
+    &--active {
+      color: $c-dark;
+    }
+  }
+}
