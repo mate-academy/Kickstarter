@@ -1,0 +1,81 @@
+.quote {
+  @include section-gap;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    text-align: center;
+    background-image: url('../images/icons/quote.svg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: $quote-bg-width-mobile $quote-bg-height-mobile;
+
+    @include on-tablet {
+      padding-top: 60px;
+      background-size: $quote-bg-width-tablet $quote-bg-height-tablet;
+    }
+
+    @include on-desktop {
+      max-width: $quote-width-desktop;
+      padding-top: 42px;
+      margin: 0 auto;
+      background-size: $quote-bg-width-tablet $quote-bg-height-desktop;
+    }
+  }
+
+  &__text {
+    @include text-quote-mobile;
+
+    &::before {
+      content: '“';
+    }
+
+    &::after {
+      content: '”';
+    }
+
+    @include on-tablet {
+      @include text-quote-desktop;
+
+      &::before,
+      &::after {
+        content: none;
+      }
+    }
+  }
+
+  &__avatar {
+    display: block;
+    width: $quote-avatar-size;
+    height: $quote-avatar-size;
+    margin-top: 30px;
+    border-radius: 50%;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+
+    @include on-desktop {
+      margin-top: 30px;
+    }
+  }
+
+  &__name {
+    @include text-h5;
+
+    margin-top: 10px;
+
+    @include on-tablet {
+      margin-top: 20px;
+    }
+  }
+
+  &__role {
+    @include text-secondary;
+
+    margin-top: 5px;
+    color: $c-muted;
+  }
+}
