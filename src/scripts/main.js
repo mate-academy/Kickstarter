@@ -37,3 +37,11 @@ function initFeaturesSlider() {
 }
 
 initFeaturesSlider();
+
+document
+  .querySelector('.contacts__form')
+  .addEventListener('submit', (event) => {
+    event.preventDefault();
+    event.currentTarget.reset();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
