@@ -38,6 +38,49 @@ function initFeaturesSlider() {
 
 initFeaturesSlider();
 
+function initMenu() {
+  const menu = document.querySelector('[data-menu]');
+  const openButton = document.querySelector('[data-menu-open]');
+  const closeButton = document.querySelector('[data-menu-close]');
+  const desktopQuery = window.matchMedia('(min-width: 1280px)');
+
+  function setMenuOpen(isOpen) {
+    menu.classList.toggle('menu--open', isOpen);
+    openButton.setAttribute('aria-expanded', String(isOpen));
+  }
+
+  openButton.addEventListener('click', () => {
+    setMenuOpen(true);
+    closeButton.focus();
+  });
+
+  closeButton.addEventListener('click', () => {
+    setMenuOpen(false);
+    openButton.focus();
+  });
+
+  menu.addEventListener('click', (event) => {
+    if (event.target.closest('a')) {
+      setMenuOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu.classList.contains('menu--open')) {
+      setMenuOpen(false);
+      openButton.focus();
+    }
+  });
+
+  desktopQuery.addEventListener('change', (event) => {
+    if (event.matches) {
+      setMenuOpen(false);
+    }
+  });
+}
+
+initMenu();
+
 document
   .querySelector('.contacts__form')
   .addEventListener('submit', (event) => {
