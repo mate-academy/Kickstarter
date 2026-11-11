@@ -1,22 +1,25 @@
 .contacts {
+  $message-height: 128px;
+  $message-height-tablet: 201px;
+
   @include section-gap;
 
   &__container {
     @include on-tablet {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: $contacts-column-gap-tablet;
+      gap: 20px;
     }
 
     @include on-desktop {
-      gap: $contacts-column-gap-desktop;
+      gap: 30px;
     }
   }
 
   &__title {
     @include text-h2-mobile;
 
-    margin-bottom: $contacts-title-gap-mobile;
+    margin-bottom: 27px;
 
     @include on-tablet {
       @include text-h2-tablet;
@@ -39,62 +42,60 @@
     @include text-main;
 
     width: 100%;
-    height: $contacts-field-height;
-    padding: $contacts-field-padding-vertical $contacts-field-padding-mobile;
+    height: 48px;
+    padding: 12px 20px;
     color: $c-primary;
     background: transparent;
-    border: $contacts-border-width solid $c-lang-inactive-tablet;
+    border: 1px solid $c-gray;
     border-radius: 0;
 
     &::placeholder {
-      color: $c-lang-inactive;
+      color: $c-gray-light;
       opacity: 1;
     }
 
     &:focus {
-      border-color: $c-contacts-hover;
+      border-color: $c-green-dark;
       outline: none;
     }
 
     @include on-tablet {
-      padding-right: $contacts-field-padding-tablet;
-      padding-left: $contacts-field-padding-tablet;
+      padding-inline: 30px;
     }
 
     @include on-desktop {
-      padding-right: calc(30 / 480 * 100%);
-      padding-left: calc(30 / 480 * 100%);
+      padding-inline: calc(30 / 480 * 100%);
     }
   }
 
   &__message {
     // the designed height is also the minimum, so the field can only grow
-    height: $contacts-message-height;
-    min-height: $contacts-message-height;
-    margin-top: $contacts-field-gap;
+    height: $message-height;
+    min-height: $message-height;
+    margin-top: 20px;
     resize: vertical;
 
     @include on-tablet {
-      height: $contacts-message-height-tablet;
-      min-height: $contacts-message-height-tablet;
+      height: $message-height-tablet;
+      min-height: $message-height-tablet;
     }
 
     @include on-desktop {
-      height: $contacts-message-height;
-      min-height: $contacts-message-height;
-      padding-top: $contacts-message-padding-desktop;
-      margin-top: $contacts-field-gap-desktop;
+      height: $message-height;
+      min-height: $message-height;
+      padding-top: 16px;
+      margin-top: 19px;
     }
   }
 
   &__button {
     @include text-button;
-    @include hover(background-color, $c-contacts-hover);
+    @include hover(background-color, $c-green-dark);
 
-    width: $contacts-button-width;
-    height: $contacts-button-height;
+    width: 102px;
+    height: 40px;
     padding: 0;
-    margin-top: $contacts-button-gap;
+    margin-top: 30px;
     color: $c-white;
     cursor: pointer;
     background: $c-green;
@@ -102,12 +103,12 @@
 
     &:disabled {
       cursor: default;
-      background: $c-contacts-disabled;
+      background: $c-green-light;
     }
 
     @include on-desktop {
       width: calc(102 / 480 * 100%);
-      height: $contacts-button-height-desktop;
+      height: 48px;
     }
   }
 }

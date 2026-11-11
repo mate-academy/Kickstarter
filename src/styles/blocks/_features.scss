@@ -1,52 +1,54 @@
 .features {
+  $bullet-size: 6px;
+
   @include section-gap;
 
   &__title {
     @include text-h2-mobile;
 
-    margin-bottom: $features-title-gap-mobile;
+    margin-bottom: 32px;
 
     @include on-tablet {
-      margin-bottom: $features-title-gap-tablet;
+      margin-bottom: 30px;
     }
 
     @include on-desktop {
       @include text-h2-desktop;
 
-      margin-bottom: $features-title-gap-desktop;
+      margin-bottom: 40px;
     }
   }
 
   &__panel {
     position: relative;
-    min-height: $features-panel-height-mobile;
-    padding: $features-panel-top-mobile $container-padding-mobile 0;
+    min-height: 575px;
+    padding: 30px $container-padding-mobile 0;
     margin: 0 (-$container-padding-mobile);
     overflow: hidden;
-    background: $c-features-bg;
+    background: $c-green-pale;
 
     @include on-tablet {
-      min-height: $features-panel-height-tablet;
-      padding: $features-panel-top-tablet $features-panel-inset-tablet 0;
+      min-height: 555px;
+      padding: 60px 90px 0;
       margin: 0;
     }
 
     @include on-desktop {
-      min-height: $features-panel-height-desktop;
-      padding: $features-panel-top-tablet $features-panel-inset-desktop 0;
+      min-height: 642px;
+      padding-inline: 102px;
     }
   }
 
   &__groups {
     position: relative;
     z-index: 1;
-    max-width: $features-group-width-mobile;
-    min-height: $features-groups-min-height;
+    max-width: 260px;
+    min-height: 275px;
 
     @include on-desktop {
       display: grid;
       grid-template-columns: repeat(10, minmax(0, 1fr));
-      gap: $features-group-row-gap-desktop $features-grid-gap-desktop;
+      gap: 56px 30px;
       max-width: none;
       min-height: 0;
     }
@@ -93,16 +95,16 @@
   &__heading {
     @include text-h3-mobile;
 
-    margin: 0 0 $features-heading-gap-mobile;
-    color: $c-features-heading;
+    margin: 0 0 20px;
+    color: $c-green-dark;
 
     @include on-desktop {
       @include text-h3-desktop;
 
       display: flex;
       align-items: center;
-      height: $features-heading-height-desktop;
-      margin-bottom: $features-heading-gap-desktop;
+      height: 40px;
+      margin-bottom: 30px;
     }
   }
 
@@ -111,19 +113,19 @@
 
     display: flex;
     flex-direction: column;
-    gap: $features-list-gap-mobile;
+    gap: 8px;
     padding: 0;
     margin: 0;
     list-style: none;
 
     li {
       display: flex;
-      gap: $features-bullet-gap;
+      gap: 10px;
       align-items: center;
 
       &::before {
-        flex: 0 0 $features-bullet-size;
-        height: $features-bullet-size;
+        flex: 0 0 $bullet-size;
+        height: $bullet-size;
         content: '';
         background: url('../images/icons/features-bullet.svg') center / contain
           no-repeat;
@@ -133,10 +135,10 @@
     @include on-desktop {
       @include text-main;
 
-      gap: $features-list-gap-desktop;
+      gap: 10px;
 
       li {
-        height: $features-list-item-height-desktop;
+        height: 19px;
       }
     }
   }
@@ -159,7 +161,7 @@
     position: relative;
     z-index: 1;
     width: max-content;
-    margin: $features-controls-gap auto 0;
+    margin: 50px auto 0;
 
     @include on-tablet {
       margin-left: 0;
@@ -177,9 +179,9 @@
 
   &__arrow-icon {
     display: block;
-    width: $features-arrow-width;
-    height: $features-arrow-height;
-    background-color: $c-features-arrow;
+    width: 48px;
+    height: 13px;
+    background-color: $c-primary;
     mask-repeat: no-repeat;
     mask-size: 100% 100%;
     transition: background-color $transition-duration;
@@ -201,11 +203,11 @@
     }
 
     & + & {
-      margin-left: -$features-arrow-overlap;
+      margin-left: -3px;
     }
 
     &--prev {
-      margin-top: $features-arrow-prev-offset;
+      margin-top: 2px;
 
       .features__arrow-icon {
         mask-image: url('../images/icons/features-prev.svg');
@@ -217,12 +219,12 @@
     }
 
     &:disabled .features__arrow-icon {
-      background-color: $c-features-arrow-disabled;
+      background-color: $c-gray-light;
     }
 
     @media (hover: hover) {
       &:hover:not(:disabled) .features__arrow-icon {
-        background-color: $c-features-arrow-hover;
+        background-color: $c-green-dark;
       }
     }
   }
@@ -230,14 +232,14 @@
   &__pagination {
     @include text-main;
 
-    margin-top: $features-pagination-gap;
+    margin-top: 8px;
     text-align: center;
   }
 
   &__total {
-    font-size: $features-pagination-small-size;
+    font-size: 11px;
     line-height: normal;
-    color: $c-features-heading;
+    color: $c-green-dark;
   }
 
   &__picture {
@@ -256,7 +258,7 @@
     }
 
     @include on-desktop {
-      right: $features-image-inset-desktop;
+      right: 46px;
     }
   }
 
