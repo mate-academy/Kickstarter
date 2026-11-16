@@ -1,0 +1,325 @@
+.header{
+
+&__block{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-inline: 123px;
+
+  @include on($bp-small-desktop){
+    padding-inline: 34px;
+  }
+
+    @include on($bp-tablet){
+   padding-inline: 15px;
+  }
+}
+
+&__card{
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+align-items: center;
+
+@include on($bp-tablet){
+  grid-template-columns: repeat(4, auto);
+  column-gap: 15px;
+  padding-left: 15px;
+}
+
+  @include on($bp-mobile){
+    grid-template-columns: auto;
+    column-gap: 0;
+    padding-left: 0;
+  }
+
+&--text{
+  margin: 0;
+
+   font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4F4F4F;
+
+    @include on($bp-mobile){
+    display: none;
+  }
+}
+
+&--lenguage{
+   font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+
+      @include on($bp-mobile){
+    display: none;
+  }
+}
+&--ua{
+  color: #BDBDBD;
+}
+&--burger{
+display: none;
+
+    @include on($bp-tablet){
+  display: flex;
+
+  width: 32px;
+  height: 32px;
+   padding-left: 5px;
+  }
+}
+}
+&__buy{
+      @include on($bp-mobile){
+    display: none;
+  }
+  &--button{
+    width: 102px;
+    height: 48px;
+    border: none;
+    background-color: #333;
+  }
+
+  &--text{
+ font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFF;
+  }
+}
+
+
+}
+
+.hero{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  padding-inline: 123px;
+
+  @include on($bp-small-desktop){
+    justify-content: normal;
+    padding-inline: 34px;
+  }
+
+  @include on($bp-tablet){
+    grid-template-columns: 1fr;
+    justify-self: center;
+  padding-left: 50px;
+  padding-inline: 0;
+  }
+
+  &__photo{
+  @include on($bp-small-desktop){
+    width: 500px;
+    height: 400px;
+    padding-top: 50px;
+  }
+
+      @include on($bp-mobile){
+        order: 1;
+  width: 320px;
+  }
+
+  }
+
+  &__card{
+
+        @include on($bp-mobile){
+    order: 2;
+ }
+
+   &--title{
+  margin: 0;
+  padding-top: 50px;
+
+   font-family: Inter, sans-serif;
+  font-size: 62px;
+  font-weight: bold;
+  color: #333;
+
+      @include on($bp-mobile){
+  font-size: 40px;
+  }
+  }
+
+  &--text{
+  width: 280px;
+  margin: 0;
+  padding-top: 30px;
+
+     font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+
+      @include on($bp-mobile){
+  width: 280px;
+  }
+  }
+  }
+}
+
+
+.menu-toggle{
+  display: none;
+}
+
+.menu{
+position: fixed;
+inset: 0;
+
+display: flex;
+flex-direction: column;
+
+visibility: hidden;
+opacity: 0;
+background-color: #FFF;
+
+transition:
+    opacity 0.4s ease-in-out,
+    visibility 0.4s ease-in-out;
+
+&__header{
+display: flex;
+justify-content: space-between;
+padding-top: 45px;
+padding-inline: 131px;
+
+   @include on($bp-tablet){
+   padding-inline: 20px;
+  }
+
+  @include on($bp-mobile){
+ padding-top: 30px;
+  }
+
+
+}
+&__list{
+margin: 0;
+padding-left: 20px;
+&--item{
+  padding-top: 40px;
+ list-style: none;
+}
+
+
+&--link{
+cursor: pointer;
+
+  position: relative;
+
+  font-family: Inter,sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+color: #333;
+text-decoration: none;
+
+opacity: 1;
+
+transition: opacity 0.4s ease-in-out;
+
+&::after{
+content: '';
+
+position: absolute;
+bottom: -2px;
+left: 0;
+
+width: 0;
+height: 1px;
+
+background-color: #333;
+
+transition: width 0.4s ease-in-out;
+}
+
+&:hover::after{
+  width: 100%;
+}
+
+ &:hover{
+      opacity: 0.8;
+    }
+
+}
+
+}
+&__card{
+    @include on($bp-mobile){
+      display: flex;
+    column-gap: 20px;
+    align-items: center;
+
+      padding-top: 50px;
+    padding-left: 20px;
+    }
+&--text{
+  display: none;
+
+   @include on($bp-mobile){
+    display: flex;
+
+  margin: 0;
+
+   font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4F4F4F;
+
+  }
+}
+
+&--lenguage{
+  display: none;
+
+  @include on($bp-mobile){
+    display: flex;
+
+   font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+
+  }
+}
+}
+&__buy{
+    display: none;
+
+        @include on($bp-mobile){
+ display: flex;
+ justify-content: center;
+padding-top: 170px;
+ padding-bottom: 30px;
+
+     }
+
+  &--button{
+     @include on($bp-mobile){
+    width: 260px;
+    height: 48px;
+    border: none;
+    background-color: #333;
+     }
+  }
+
+  &--text{
+     @include on($bp-mobile){
+ font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFF;
+     }
+  }
+
+
+}
+}
+
+.menu-toggle:checked ~ .menu {
+  visibility: visible;
+  opacity: 1;
+}
