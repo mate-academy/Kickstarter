@@ -4,3 +4,34 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin default-text{
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #7C7C7C;
+}
+
+
+@mixin on($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+$bp-desktop: 1400px;
+$bp-small-desktop: 1200px;
+$bp-tablet: 860px;
+$bp-mobile: 520px;
+$bp-mobile-benefits: 620px;
+$bp-tablet-hero: 700px;
+$bp-tablet-luna: 750px;
+$bp-tablet-features: 700px;
+
+@mixin hover-scale($scale: 1.04) {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale($scale);
+  }
+}

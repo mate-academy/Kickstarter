@@ -1,0 +1,97 @@
+.about-us{
+
+
+&__block{
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  column-gap: 30px;
+  justify-self: center;
+
+  padding-top: 170px;
+
+  @include on($bp-tablet-luna){
+grid-template-columns: max-content;
+justify-content: center;
+}
+
+
+}
+
+&__photo{
+  @include hover-scale;
+
+  @include on($bp-tablet){
+    width: 370px;
+  }
+
+  @include on($bp-mobile){
+    order: 2;
+ width: 260px;
+    padding-top: 20px;
+  }
+
+
+}
+
+&__card{
+  @include on($bp-small-desktop){
+  width: 350px;
+  }
+
+    @include on($bp-tablet-luna){
+order: 2;
+
+}
+
+@include on($bp-mobile){
+display: contents;
+width: 100%;
+}
+ &--title{
+width: 580px;
+margin: 0;
+
+ font-family: Inter, sans-serif;
+font-size: 56px;
+font-weight: bold;
+color: #333;
+
+@include on($bp-small-desktop){
+  width: 345px;
+  font-size: 36px;
+
+}
+
+@include on($bp-tablet){
+  padding-top: 50px;
+}
+
+@include on($bp-mobile){
+  order: 1;
+  width: 260px;
+ padding-top: 0;
+ font-size: 30px
+}
+ }
+
+ &--text{
+  @include default-text;
+
+  width: 582px;
+margin: 0;
+padding-block: 30px 60px;
+  font-size: 16px;
+
+@include on($bp-small-desktop){
+  width: 345px;
+
+}
+
+@include on($bp-mobile){
+order: 3;
+  width: 260px;
+  padding-block: 20px 30px;
+}
+ }
+}
+}
