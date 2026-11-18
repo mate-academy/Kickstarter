@@ -1,0 +1,215 @@
+.icon {
+  display: block;
+
+  width: 24px;
+  height: 24px;
+
+  background-color: black;
+
+  -webkit-mask-image: url('mask.png');
+  mask-image: url('mask.png');
+
+  -webkit-mask-size: cover;
+  mask-size: cover;
+
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  transition: background-color $translition;
+
+  &:hover {
+    background-color: $turquoise-accent;
+  }
+
+  &--burger-menu {
+    width: 32px;
+    height: 32px;
+
+    -webkit-mask-image: url('../images/icon/burger-menu.svg');
+    mask-image: url('../images/icon/burger-menu.svg');
+  }
+
+  &--social {
+    background-color: $gray2;
+    cursor: pointer;
+  }
+
+  &--facebook {
+    -webkit-mask-image: url('../images/icon/social/facebook.svg');
+    mask-image: url('../images/icon/social/facebook.svg');
+  }
+
+  &--twitter {
+    -webkit-mask-image: url('../images/icon/social/twitter.svg');
+    mask-image: url('../images/icon/social/twitter.svg');
+  }
+
+  &--instagram {
+    -webkit-mask-image: url('../images/icon/social/instagram.svg');
+    mask-image: url('../images/icon/social/instagram.svg');
+  }
+
+  &--close-menu {
+    -webkit-mask-image: url('../images/icon/icon-close.svg');
+    mask-image: url('../images/icon/icon-close.svg');
+  }
+}
+
+.specs {
+  display: block;
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: $gray2;
+  height: 100%;
+
+  transition: color $translition;
+
+  &--top-bar {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &--menu {
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &:hover {
+    color: $turquoise-accent;
+  }
+}
+
+.lang {
+  background-color: transparent;
+
+  gap: 5px;
+
+  align-items: center;
+
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  border: none;
+  cursor: pointer;
+  display: flex;
+
+  color: $gray3;
+
+  &--top-bar {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &--menu {
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__span {
+    display: block;
+
+    transition:
+      color $translition,
+      transform $translition;
+  }
+
+  &:hover &__span:not(&__span--active) {
+    color: $turquoise-accent;
+    transform: scale(1.2);
+  }
+
+  &__span--active {
+    font-weight: 400;
+    color: $gray1;
+  }
+}
+
+.button-buy {
+  display: none;
+  width: 100px;
+  height: 48px;
+  background-color: $gray1;
+  align-content: center;
+
+  color: white;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  transition: background-color $translition;
+
+  @include on-tablet {
+    display: block;
+  }
+
+  &:hover {
+    background-color: $black;
+  }
+
+  &:disabled {
+    background-color: $gray4;
+  }
+}
+
+.container {
+  --count-column: 4;
+
+  display: grid;
+  padding-inline: 30px;
+  grid-template-columns: repeat(var(--count-column), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --count-column: 8;
+
+    padding-inline: 34px;
+  }
+
+  @include on-small-desktop {
+    --count-column: 12;
+
+    column-gap: 30px;
+    padding-inline: 123px;
+  }
+}
+
+.button-arrow {
+  background-image: url('../images/button/arrow.svg');
+  transform: scaleX(-1);
+  width: 48px;
+  height: 13px;
+  border: none;
+}
+
+.logo {
+  display: block;
+  color: black;
+  cursor: pointer;
+
+  transition: color $translition;
+
+  &:hover {
+    color: $turquoise-accent;
+  }
+
+  &__svg {
+    display: block;
+    object-fit: contain;
+    object-position: center;
+    width: 162px;
+  }
+}
