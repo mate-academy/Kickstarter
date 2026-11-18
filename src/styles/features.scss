@@ -35,6 +35,11 @@ padding-left: 80px;
 }
 
 @include on($bp-tablet){
+width: 600px;
+padding-left: 50px;
+}
+
+@include on($bp-tablet-features){
 width: 440px;
 padding-left: 50px;
 }
@@ -69,7 +74,13 @@ column-gap: 150px;
 }
 
 @include on($bp-tablet){
-grid-template-columns: 1fr;
+grid-template-columns:repeat(2, max-content);
+column-gap: 110px;
+}
+
+@include on($bp-tablet-features){
+grid-template-columns:max-content;
+
 }
 }
 
@@ -132,9 +143,7 @@ padding-left: 40px;
 display: none;
 }
 
-@include on($bp-tablet){
-display: none;
-}
+
 }
 
 .Connectivity, .app, .sound{
@@ -150,6 +159,10 @@ padding-top: 60px;
 
 &__list{
 margin: 0;
+
+  @include on($bp-small-desktop){
+ width: 260px;
+}
 }
 &__title{
   margin: 0;

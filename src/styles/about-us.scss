@@ -14,16 +14,23 @@ grid-template-columns: max-content;
 justify-content: center;
 }
 
+
 }
 
 &__photo{
+  @include hover-scale;
+
   @include on($bp-tablet){
     width: 370px;
   }
 
   @include on($bp-mobile){
+    order: 2;
  width: 260px;
+    padding-top: 20px;
   }
+
+
 }
 
 &__card{
@@ -37,6 +44,7 @@ order: 2;
 }
 
 @include on($bp-mobile){
+display: contents;
 width: 100%;
 }
  &--title{
@@ -59,9 +67,10 @@ color: #333;
 }
 
 @include on($bp-mobile){
- order: 1;
+  order: 1;
   width: 260px;
- font-size: 30px;
+ padding-top: 0;
+ font-size: 30px
 }
  }
 
@@ -81,6 +90,7 @@ padding-block: 30px 60px;
 @include on($bp-mobile){
 order: 3;
   width: 260px;
+  padding-block: 20px 30px;
 }
  }
 }
