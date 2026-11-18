@@ -63,7 +63,6 @@ display: none;
 
     @include on($bp-tablet){
   display: flex;
-
   width: 32px;
   height: 32px;
    padding-left: 5px;
@@ -71,6 +70,11 @@ display: none;
 }
 }
 &__buy{
+    @include on($bp-tablet){
+      padding-left: 10px;
+      padding-inline: 10px;
+    }
+
       @include on($bp-mobile){
     display: none;
   }
@@ -104,10 +108,13 @@ display: none;
   }
 
   @include on($bp-tablet){
-    grid-template-columns: 1fr;
     justify-self: center;
-  padding-left: 50px;
+  padding-left: 70px;
   padding-inline: 0;
+  }
+
+  @include on($bp-tablet-hero){
+  grid-template-columns: 1fr;
   }
 
   &__photo{
@@ -115,6 +122,11 @@ display: none;
     width: 500px;
     height: 400px;
     padding-top: 50px;
+    padding-left: 20px;
+  }
+
+  @include on($bp-tablet){
+    width: 420px;
   }
 
       @include on($bp-mobile){
@@ -125,10 +137,16 @@ display: none;
   }
 
   &__card{
+   @include on($bp-tablet){
+  padding-left: 70px;
+
+  }
 
         @include on($bp-mobile){
     order: 2;
+   padding-left: 30px;
  }
+
 
    &--title{
   margin: 0;

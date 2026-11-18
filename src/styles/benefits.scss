@@ -68,10 +68,14 @@ transition: width 0.4s ease-in-out;
   }
 
   @include on( $bp-tablet ){
-grid-template-columns: 1fr;
+grid-template-columns: repeat(2, min-content);
+column-gap: 50px;
+padding-top: 0;
 }
 
-
+        @include on($bp-mobile){
+padding-top: 0;
+ }
 
 }
 
@@ -80,10 +84,11 @@ grid-template-columns: 1fr;
 justify-items: center;
 
 @include on( $bp-tablet ){
+width: 240px;
 padding-top: 30px;
 }
 
-@include on( $bp-mobile ){
+@include on( $bp-mobile-benefits ){
   &:not(:nth-child(3)){
     display: none;
   }
