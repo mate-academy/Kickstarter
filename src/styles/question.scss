@@ -1,0 +1,134 @@
+.question {
+  padding: 170px 0;
+  &__content {
+    display: flex;
+    gap: 27px;
+
+    @include on-tablet {
+      gap: 0;
+      justify-content: space-between;
+    }
+
+    &-form {
+      display: flex;
+      flex-direction: column;
+
+      &:has(:invalid) .question__content-button {
+        background-color: #cfeff0;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+    }
+
+    &-input {
+      width: 581px;
+      height: 48px;
+      border-radius: 0;
+      border: solid 1px #828282;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0%;
+      vertical-align: middle;
+      color: #bdbdbd;
+      outline: none;
+
+      @include on-tablet {
+        width: 340px;
+        height: 48px;
+      }
+
+      &::placeholder {
+        padding: 12px 36px;
+      }
+
+      &:focus {
+        border-color: #0c797a;
+      }
+      &:valid {
+        border-color: #eb5757;
+      }
+    }
+
+    &-area {
+      height: 128px;
+      resize: none;
+      margin-bottom: 30px;
+      margin-top: 19px;
+      border-radius: 0;
+      border: solid 1px #828282;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0%;
+      vertical-align: middle;
+      color: #bdbdbd;
+      outline: none;
+
+      @include on-tablet {
+        width: 340px;
+        height: 201px;
+      }
+
+      &::placeholder {
+        padding: 12px 36px;
+      }
+
+      &:focus {
+        border-color: #0c797a;
+      }
+
+      &:valid {
+        border-color: #eb5757;
+      }
+    }
+
+    &-button {
+      height: 48px;
+      width: 123px;
+      border-radius: 0;
+      border: none;
+      background-color: #0db2b3;
+
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      font-style: Bold;
+      font-size: 12px;
+      line-height: 14px;
+      letter-spacing: 0%;
+      text-transform: uppercase;
+      color: #fff;
+      transition: background-color linear 0.3s;
+
+      &:hover {
+        background-color: #0c797a;
+      }
+      @include on-tablet {
+        width: 102px;
+        height: 40px;
+      }
+    }
+
+    &-label {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      font-style: Bold;
+      font-size: 56px;
+      line-height: 70px;
+      letter-spacing: 0%;
+      text-transform: uppercase;
+      color: #333333;
+      margin-top: 0;
+
+      @include on-tablet {
+        font-size: 36px;
+        line-height: 46px;
+        max-width: 339px;
+      }
+    }
+  }
+}
