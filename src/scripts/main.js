@@ -43,3 +43,5 @@ prevBtn.addEventListener('click', () => showSlide(index - 1));
 nextBtn.addEventListener('click', () => showSlide(index + 1));
 
 showSlide(0);
+
+
