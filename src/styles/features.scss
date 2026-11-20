@@ -1,0 +1,172 @@
+.features {
+  .container {
+    @include on-mobile {
+      display: contents;
+    }
+  }
+  &__content {
+    display: flex;
+    gap: 132px;
+    box-sizing: border-box;
+    background-color: #d6ecec;
+
+    @include on-tablet {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    &-right {
+      padding-top: 60px;
+
+      @include on-tablet {
+        padding: 0;
+      }
+    }
+
+    &-left {
+      padding-top: 60px;
+      padding-left: 102px;
+
+      @include on-tablet {
+        padding-left: 90px;
+      }
+
+      @include on-mobile {
+        padding-left: 30px;
+        padding-top: 20px;
+      }
+    }
+
+    &-card {
+      &-label {
+        font-family: Inter, Arial, Helvetica, sans-serif;
+        font-size: 34px;
+        font-weight: 700;
+        font-style: Bold;
+        line-height: 42px;
+        color: #0c797a;
+        text-transform: uppercase;
+        letter-spacing: 0%;
+        vertical-align: middle;
+
+        @include on-tablet {
+          font-size: 18px;
+          line-height: 22px;
+        }
+      }
+
+      &-list {
+        padding: 0;
+        list-style: none;
+
+        @include on-tablet {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+      &-item {
+        position: relative;
+
+        padding-left: 10px;
+
+        font-family: Inter, Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        color: #333;
+        letter-spacing: 0%;
+
+        @include on-tablet {
+          max-width: 240px;
+          font-size: 14px;
+          line-height: 21px;
+        }
+
+        &::before {
+          content: '';
+
+          position: absolute;
+          top: 9px;
+          left: 0;
+
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+
+          background-color: #000;
+        }
+      }
+
+      @include on-tablet {
+        &-1 {
+          display: none;
+        }
+        &-3 {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__label {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    font-style: Bold;
+    line-height: 70px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0%;
+    vertical-align: middle;
+
+    @include on-tablet {
+      font-size: 30px;
+      line-height: 40px;
+    }
+  }
+
+  &__photo {
+    display: flex;
+    justify-content: flex-end;
+
+    &-image {
+      display: block;
+      width: 582px;
+      height: 302px;
+
+      @include on-tablet {
+        width: 435px;
+        height: 226px;
+      }
+      @include on-mobile {
+        width: 335px;
+        height: 174px;
+      }
+    }
+  }
+  &__slider {
+    display: none;
+    margin-top: 60px;
+    padding-left: 90px;
+
+    @include on-tablet {
+      display: block;
+      width: 93px;
+      height: 47px;
+    }
+    &-image {
+      width: 93px;
+      height: 47px;
+    }
+  }
+
+  &__images {
+    display: flex;
+    justify-content: space-between;
+
+    @include on-mobile {
+      flex-direction: column;
+    }
+  }
+}
