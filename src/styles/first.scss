@@ -2,22 +2,30 @@
   &__content {
     display: flex;
 
+    @include on-mobile {
+      flex-direction: column;
+    }
+
     &-text {
       &-label {
         font-family: Inter, Arial, Helvetica, sans-serif;
+        font-size: 62px;
         font-weight: 700;
         font-style: Bold;
-        font-size: 62px;
         line-height: 78px;
+        color: #333;
+        text-transform: uppercase;
         letter-spacing: 0%;
         vertical-align: middle;
-        text-transform: uppercase;
-        color: #333333;
 
         @include on-tablet {
-          line-height: 62px;
-        font-size: 48px;
         margin-bottom:30px ;
+        font-size: 48px;
+          line-height: 62px;
+      }
+      @include on-mobile {
+        font-size: 40px;
+        line-height: 52px;
       }
       }
     }
@@ -26,7 +34,7 @@
   &__image {
     width: 816px;
     height: 464px;
-    
+
     @include on-tablet {
       box-sizing: border-box;
       width: 400px;

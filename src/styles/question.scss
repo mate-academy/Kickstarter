@@ -1,5 +1,10 @@
 .question {
   padding: 170px 0;
+
+  @include on-mobile {
+    padding: 110px 0;
+  }
+
   &__content {
     display: flex;
     gap: 27px;
@@ -9,30 +14,29 @@
       justify-content: space-between;
     }
 
+    @include on-mobile{
+      flex-direction: column;
+    }
+
     &-form {
       display: flex;
       flex-direction: column;
-
-      &:has(:invalid) .question__content-button {
-        background-color: #cfeff0;
-        cursor: not-allowed;
-        pointer-events: none;
-      }
     }
 
     &-input {
       width: 581px;
       height: 48px;
-      border-radius: 0;
+      padding: 12px 36px;
       border: solid 1px #828282;
+      border-radius: 0;
+
       font-family: Inter, Arial, Helvetica, sans-serif;
-      font-weight: 400;
-      font-style: Regular;
       font-size: 16px;
+      font-weight: 400;
       line-height: 24px;
+      color: #333;
       letter-spacing: 0%;
-      vertical-align: middle;
-      color: #bdbdbd;
+
       outline: none;
 
       @include on-tablet {
@@ -40,33 +44,42 @@
         height: 48px;
       }
 
+      @include on-mobile {
+        width: 260px;
+        box-sizing: border-box;
+        padding: 12px 20px;
+      }
+
       &::placeholder {
-        padding: 12px 36px;
+        color: #bdbdbd;
       }
 
       &:focus {
         border-color: #0c797a;
       }
-      &:valid {
-        border-color: #eb5757;
+
+      &:not(:placeholder-shown):valid {
+        border-color: #0db2b3;
       }
     }
 
     &-area {
-      height: 128px;
       resize: none;
-      margin-bottom: 30px;
+
+      height: 128px;
       margin-top: 19px;
-      border-radius: 0;
+      margin-bottom: 30px;
+      padding: 12px 36px;
       border: solid 1px #828282;
+      border-radius: 0;
+
       font-family: Inter, Arial, Helvetica, sans-serif;
-      font-weight: 400;
-      font-style: Regular;
       font-size: 16px;
+      font-weight: 400;
       line-height: 24px;
+      color: #333;
       letter-spacing: 0%;
-      vertical-align: middle;
-      color: #bdbdbd;
+
       outline: none;
 
       @include on-tablet {
@@ -74,60 +87,75 @@
         height: 201px;
       }
 
+      @include on-mobile {
+        width: 260px;
+        height: 128px;
+        box-sizing: border-box;
+        padding: 12px 20px;
+      }
+
       &::placeholder {
-        padding: 12px 36px;
+        color: #bdbdbd;
       }
 
       &:focus {
         border-color: #0c797a;
       }
 
-      &:valid {
-        border-color: #eb5757;
+      &:not(:placeholder-shown):valid {
+        border-color: #0db2b3;
       }
     }
 
     &-button {
-      height: 48px;
       width: 123px;
-      border-radius: 0;
+      height: 48px;
       border: none;
-      background-color: #0db2b3;
+      border-radius: 0;
 
       font-family: Inter, Arial, Helvetica, sans-serif;
-      font-weight: 700;
-      font-style: Bold;
       font-size: 12px;
+      font-weight: 700;
       line-height: 14px;
-      letter-spacing: 0%;
-      text-transform: uppercase;
       color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0%;
+
+      background-color: #0db2b3;
+
       transition: background-color linear 0.3s;
 
       &:hover {
         background-color: #0c797a;
       }
+
       @include on-tablet {
         width: 102px;
         height: 40px;
       }
     }
 
+    &-form:has(:invalid) &-button {
+      pointer-events: none;
+      cursor: not-allowed;
+      background-color: #cfeff0;
+    }
+
     &-label {
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      font-weight: 700;
-      font-style: Bold;
-      font-size: 56px;
-      line-height: 70px;
-      letter-spacing: 0%;
-      text-transform: uppercase;
-      color: #333333;
       margin-top: 0;
 
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 70px;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 0%;
+
       @include on-tablet {
+        max-width: 339px;
         font-size: 36px;
         line-height: 46px;
-        max-width: 339px;
       }
     }
   }
