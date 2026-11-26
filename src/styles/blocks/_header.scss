@@ -1,0 +1,249 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+
+.header {
+  position: fixed;
+  z-index: $z-header;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  background: $c-bg;
+}
+
+.nav {
+  @include container;
+
+  display: flex;
+  gap: $space-lg;
+  align-items: center;
+  justify-content: space-between;
+
+  height: $header-height;
+}
+
+.nav__logo {
+  flex-shrink: 0;
+
+  @include transition(transform);
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
+
+.nav__logo-img {
+  display: block;
+}
+
+.nav__actions {
+  display: flex;
+  gap: $space-md;
+  align-items: center;
+}
+
+.nav__specs {
+  display: none;
+
+  @include font-specs;
+
+  color: $c-specs;
+
+  @include mq-desktop {
+    display: block;
+  }
+
+  @include mq-tablet-only {
+    display: block;
+  }
+}
+
+.nav__lang {
+  display: none;
+
+  @include mq-desktop {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+  }
+
+  @include mq-tablet-only {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+  }
+}
+
+.nav__lang-current {
+  @include font-lang;
+
+  color: $c-black;
+}
+
+.nav__lang-sep {
+  @include font-lang;
+
+  color: $c-black;
+}
+
+.nav__lang-other {
+  @include font-lang;
+
+  color: $c-medium-gray;
+}
+
+.nav__buy {
+  display: none;
+
+  @include mq-desktop {
+    display: flex;
+
+    width: 102px;
+    height: 48px;
+
+    color: $c-white;
+
+    background: $c-black;
+
+    @include flex-center;
+    @include font-button;
+    @include transition(background-color);
+    &:hover {
+      cursor: pointer;
+      background: $c-green;
+    }
+  }
+
+  @include mq-tablet-only {
+    display: flex;
+
+    width: 100px;
+    height: 48px;
+
+    color: $c-white;
+
+    background: $c-black;
+
+    @include flex-center;
+    @include font-button;
+    @include transition(background-color);
+    &:hover {
+      cursor: pointer;
+      background: $c-green;
+    }
+  }
+}
+
+.nav__burger {
+  display: flex;
+
+  @include flex-center;
+
+  width: 32px;
+  height: 32px;
+
+  @include transition(transform);
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+
+  @include mq-desktop {
+    display: none;
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  z-index: $z-mobile-menu;
+  inset: $header-height 0 0 0;
+
+  padding: $space-2xl $space-xl;
+
+  background: $c-bg;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.mobile-menu__nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+}
+
+.mobile-menu__link {
+  @include font-h4;
+
+  color: $c-black;
+
+  @include transition(color);
+  &:hover {
+    cursor: pointer;
+    color: $c-green;
+  }
+}
+
+// Nav menu bar (below hero, above benefits)
+.nav-menu {
+  display: none;
+  border-top: 1px solid $c-border;
+  border-bottom: 1px solid $c-border;
+  background: $c-bg;
+
+  @include mq-desktop {
+    display: block;
+  }
+}
+
+.nav-menu__list {
+  @include container;
+
+  display: flex;
+  gap: 84px;
+  align-items: center;
+  justify-content: center;
+
+  height: $header-height;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.nav-menu__item {
+  flex-shrink: 0;
+}
+
+.nav-menu__link {
+  @include font-nav;
+
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  color: $c-black;
+
+  @include transition(color, border-color);
+
+  &:hover {
+    cursor: pointer;
+    border-bottom-color: $c-green;
+    color: $c-green;
+  }
+
+  &--active {
+    border-bottom-color: $c-black;
+    color: $c-black;
+
+    &:hover {
+      border-bottom-color: $c-green;
+      color: $c-green;
+    }
+  }
+}

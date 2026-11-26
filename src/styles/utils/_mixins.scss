@@ -1,6 +1,233 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@use './vars' as *;
+
+// Media query mixins
+@mixin mq-mobile {
+  @media (min-width: $bp-mobile) {
+    @content;
   }
+}
+
+@mixin mq-tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin mq-desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin mq-design {
+  @media (min-width: $bp-design) {
+    @content;
+  }
+}
+
+@mixin mq-max-tablet {
+  @media (max-width: #{$bp-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin mq-max-desktop {
+  @media (max-width: #{$bp-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin mq-tablet-only {
+  @media (min-width: $bp-tablet) and (max-width: #{$bp-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin mq-mobile-only {
+  @media (max-width: #{$bp-tablet - 1px}) {
+    @content;
+  }
+}
+
+// Transition mixin
+@mixin transition(
+  $property: all,
+  $duration: $transition-duration,
+  $easing: $transition-easing
+) {
+  transition: $property $duration $easing;
+}
+
+// Hover scale mixin
+@mixin hover-scale($scale: 1.1) {
+  @include transition(transform);
+  &:hover {
+    cursor: pointer;
+    transform: scale($scale);
+  }
+}
+
+// Visually hidden
+%visually-hidden {
+  position: absolute;
+
+  overflow: hidden;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  white-space: nowrap;
+
+  clip: rect(0, 0, 0, 0);
+}
+
+@mixin visually-hidden {
+  @extend %visually-hidden;
+}
+
+// Container
+%container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+@mixin container {
+  @extend %container;
+}
+
+// Flex center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Font styles
+@mixin font-h1 {
+  font-family: $font-family;
+  font-size: 62px;
+  font-weight: $font-weight-bold;
+  line-height: 78px;
+  text-transform: uppercase;
+
+  @include mq-tablet {
+    font-size: 48px;
+    line-height: 62px;
+  }
+
+  @include mq-mobile-only {
+    font-size: 40px;
+    line-height: 52px;
+  }
+}
+
+@mixin font-h2 {
+  font-family: $font-family;
+  font-size: 56px;
+  font-weight: $font-weight-bold;
+  line-height: 70px;
+  text-transform: uppercase;
+
+  @include mq-tablet {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  @include mq-mobile-only {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+@mixin font-h3 {
+  font-family: $font-family;
+  font-size: 34px;
+  font-weight: $font-weight-bold;
+  line-height: 42px;
+  text-transform: uppercase;
+
+  @include mq-mobile-only {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+@mixin font-h4 {
+  font-family: $font-family;
+  font-size: 22px;
+  font-weight: $font-weight-bold;
+  line-height: 28px;
+  text-transform: uppercase;
+}
+
+@mixin font-h5 {
+  font-family: $font-family;
+  font-size: 16px;
+  font-weight: $font-weight-bold;
+  line-height: 22px;
+}
+
+@mixin font-body {
+  font-family: $font-family;
+  font-size: 16px;
+  font-weight: $font-weight-regular;
+  line-height: 24px;
+}
+
+@mixin font-body-small {
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: $font-weight-regular;
+  line-height: 21px;
+}
+
+@mixin font-button {
+  font-family: $font-family;
+  font-size: 12px;
+  font-weight: $font-weight-bold;
+  line-height: 14px;
+  text-transform: uppercase;
+}
+
+@mixin font-quote {
+  font-family: $font-family;
+  font-size: 24px;
+  font-weight: $font-weight-bold;
+  line-height: 36px;
+}
+
+@mixin font-nav {
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: $font-weight-bold;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+@mixin font-nav-regular {
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: $font-weight-regular;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+@mixin font-specs {
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: $font-weight-regular;
+  line-height: 20px;
+}
+
+@mixin font-lang {
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: $font-weight-regular;
+  line-height: 20px;
 }

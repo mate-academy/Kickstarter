@@ -1,0 +1,135 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+
+.about {
+  padding: $space-2xl $container-padding;
+  background: $c-bg;
+
+  @include mq-tablet {
+    padding: $space-xl $container-padding;
+  }
+
+  @include mq-desktop {
+    padding: $space-2xl $container-padding;
+  }
+}
+
+.about__blocks {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2xl;
+
+  max-width: 1194px;
+  margin: 0 auto;
+}
+
+.about__block {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+  align-items: center;
+
+  @include mq-desktop {
+    flex-direction: row;
+    gap: $space-2xl;
+    align-items: center;
+  }
+
+  &--second {
+    @include mq-desktop {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.about__visual {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 582px;
+
+  @include mq-mobile-only {
+    max-width: 374px;
+  }
+}
+
+.about__img {
+  width: 100%;
+  height: auto;
+}
+
+.about__content {
+  max-width: 340px;
+  text-align: center;
+
+  @include mq-desktop {
+    flex: 1;
+    max-width: 582px;
+    text-align: left;
+  }
+}
+
+.about__heading {
+  @include font-h2;
+
+  margin-bottom: $space-lg;
+  color: $c-black;
+
+  @include mq-tablet {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  @include mq-mobile-only {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+.about__text {
+  @include font-body;
+
+  margin-bottom: $space-xl;
+  color: $c-dark-gray;
+
+  @include mq-desktop {
+    margin-bottom: $space-2xl;
+  }
+}
+
+.about__link-wrapper {
+  display: inline-flex;
+  gap: $space-sm;
+  align-items: center;
+  margin-bottom: $space-xl;
+
+  @include mq-desktop {
+    margin-bottom: $space-lg;
+  }
+}
+
+.about__line {
+  display: inline-block;
+  width: 53px;
+  height: 1px;
+  background: $c-green;
+
+  @include transition(width);
+}
+
+.about__link {
+  @include font-button;
+
+  color: $c-green;
+  white-space: nowrap;
+
+  @include transition(color);
+  &:hover {
+    cursor: pointer;
+    color: $c-green-dark;
+  }
+  &:hover + .about__line,
+  &:focus + .about__line {
+    width: 100%;
+  }
+}

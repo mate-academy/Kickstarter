@@ -1,0 +1,80 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+@use 'sass:math';
+
+.benefits {
+  padding: $space-2xl $container-padding;
+  background: $c-bg;
+
+  @include mq-tablet {
+    padding: $space-xl $container-padding;
+  }
+
+  @include mq-desktop {
+    padding: $space-2xl $container-padding;
+  }
+}
+
+.benefits__list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3xl;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  @include mq-tablet {
+    flex-flow: row wrap;
+    gap: $space-xl;
+    justify-content: space-between;
+  }
+
+  @include mq-desktop {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+
+    max-width: 1194px;
+    margin: 0 auto;
+  }
+}
+
+.benefits__item {
+  flex: 1 1 100%;
+  text-align: center;
+
+  @include mq-tablet {
+    flex: 0 1 calc(50% - #{math.div($space-xl, 2)});
+    max-width: 340px;
+  }
+
+  @include mq-desktop {
+    flex: 1;
+    max-width: 276px;
+  }
+}
+
+.benefits__icon {
+  margin: 0 auto $space-lg;
+
+  @include transition(transform);
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
+
+.benefits__title {
+  @include font-h4;
+
+  margin-bottom: $space-md;
+  color: $c-black;
+}
+
+.benefits__text {
+  @include font-body-small;
+
+  color: $c-dark-gray;
+}

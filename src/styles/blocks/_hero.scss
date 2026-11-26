@@ -1,0 +1,113 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+
+.hero {
+  position: relative;
+  background: $c-bg;
+}
+
+.hero__container {
+  @include container;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: $space-4xl $container-padding $space-2xl;
+
+  @include mq-tablet {
+    padding-top: $space-3xl;
+  }
+
+  @include mq-desktop {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    max-width: calc(1194px + 2 * #{$container-padding});
+    padding-top: 138px;
+    padding-bottom: 36px;
+  }
+}
+
+.hero__content {
+  z-index: 1;
+  max-width: 280px;
+  text-align: center;
+
+  @include mq-tablet {
+    max-width: 340px;
+    text-align: left;
+  }
+
+  @include mq-desktop {
+    flex: 0 0 auto;
+    max-width: 378px;
+    padding-top: 81px;
+    text-align: left;
+  }
+}
+
+.hero__title {
+  @include font-h1;
+
+  margin-bottom: $space-lg;
+  color: $c-black;
+}
+
+.hero__text {
+  @include font-body;
+
+  max-width: 276px;
+  margin: 0 auto;
+  color: $c-black;
+
+  @include mq-tablet {
+    max-width: 250px;
+    margin: 0;
+  }
+
+  @include mq-desktop {
+    max-width: 276px;
+    margin: 0;
+  }
+}
+
+.hero__visual {
+  position: relative;
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  aspect-ratio: 816 / 464;
+  width: 100%;
+  max-width: 320px;
+  margin-top: $space-2xl;
+
+  @include mq-tablet {
+    max-width: 429px;
+    margin-top: $space-xl;
+  }
+
+  @include mq-desktop {
+    flex: 0 1 816px;
+    align-self: flex-start;
+
+    aspect-ratio: 816 / 464;
+    max-width: 816px;
+    margin-top: 0;
+  }
+}
+
+.hero__img {
+  position: absolute;
+  top: -32.44%;
+  left: -23.96%;
+
+  width: 141.47%;
+  max-width: none;
+  height: 164.46%;
+
+  mix-blend-mode: darken;
+}
