@@ -1,3 +1,87 @@
-h1 {
-  @extend %h1;
+@use 'utils/vars' as *;
+@use 'utils/mixins' as *;
+@use 'utils/extends' as *;
+
+html {
+  @include smooth-scroll;
+
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: $font-family;
+  font-size: 16px;
+  font-weight: $font-weight-regular;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  color: $c-black;
+
+  background-color: $c-bg;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: $font-family;
+  font-weight: $font-weight-bold;
+  color: $c-black;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  @extend %link-reset;
+}
+
+button {
+  @extend %button-reset;
+}
+
+ul,
+ol {
+  @extend %list-reset;
+}
+
+img {
+  @extend %img-fluid;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: $c-input-text;
+  background: transparent;
+
+  &::placeholder {
+    color: $c-placeholder;
+    opacity: 1;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px $c-bg inset !important;
+    box-shadow: 0 0 0 1000px $c-bg inset !important;
+    caret-color: $c-input-text;
+
+    -webkit-text-fill-color: $c-input-text !important;
+  }
+}
+
+.visually-hidden {
+  @extend %visually-hidden;
+}
+
+.container {
+  @extend %container;
 }

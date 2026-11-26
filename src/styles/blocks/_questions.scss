@@ -1,0 +1,135 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+
+.questions {
+  padding: $space-4xl $container-padding;
+  background: $c-bg;
+
+  @include mq-tablet {
+    padding: $space-3xl $container-padding;
+  }
+
+  @include mq-desktop {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    gap: $space-3xl;
+    align-items: start;
+
+    padding: $space-4xl max($container-padding, calc((100% - 1194px) / 2));
+  }
+}
+
+.questions__title {
+  @include font-h2;
+
+  margin-bottom: $space-3xl;
+  color: $c-black;
+  text-align: center;
+
+  @include mq-tablet {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  @include mq-mobile-only {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  @include mq-desktop {
+    margin-bottom: 0;
+    padding-left: 102px;
+    text-align: left;
+  }
+}
+
+.questions__form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
+
+  @include mq-tablet {
+    max-width: 340px;
+  }
+
+  @include mq-desktop {
+    max-width: 480px;
+    margin: 0;
+  }
+}
+
+.questions__field {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.questions__input {
+  height: 48px;
+}
+
+.questions__textarea {
+  resize: none;
+  height: 128px;
+  padding-top: $space-sm;
+
+  @include mq-tablet {
+    height: 201px;
+  }
+}
+
+.questions__input,
+.questions__textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: $space-sm $space-md;
+  border: 1px solid $c-border;
+
+  color: $c-input-text;
+
+  @include font-body;
+  @include transition(border-color);
+
+  &::placeholder {
+    color: $c-placeholder;
+  }
+
+  &:focus {
+    border-color: $c-green;
+    outline: none;
+  }
+}
+
+.questions__submit {
+  cursor: pointer;
+
+  align-self: flex-start;
+
+  width: 102px;
+  height: 48px;
+  border: none;
+
+  color: $c-white;
+
+  background: $c-green;
+
+  @include font-button;
+  @include transition(background-color);
+
+  &:hover {
+    background: $c-green-dark;
+  }
+
+  @include mq-tablet {
+    height: 40px;
+  }
+
+  @include mq-desktop {
+    width: 124px;
+    height: 48px;
+  }
+}

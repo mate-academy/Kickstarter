@@ -1,4 +1,86 @@
-%h1 {
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
+@use './vars' as *;
+@use './mixins' as *;
+
+%reset {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  font: inherit;
+  vertical-align: baseline;
+}
+
+*,
+*::before,
+*::after {
+  @extend %reset;
+}
+
+%link-reset {
+  color: inherit;
+  text-decoration: none;
+
+  @include transition(color);
+  &:hover {
+    color: $c-green;
+  }
+}
+
+%button-reset {
+  cursor: pointer;
+
+  padding: 0;
+  border: none;
+
+  font: inherit;
+  color: inherit;
+
+  background: none;
+}
+
+%list-reset {
+  list-style: none;
+}
+
+%img-fluid {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+%container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+%visually-hidden {
+  position: absolute;
+
+  overflow: hidden;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  white-space: nowrap;
+
+  clip: rect(0, 0, 0, 0);
+}
+
+%clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+@mixin smooth-scroll {
+  html {
+    scroll-behavior: smooth;
+  }
 }

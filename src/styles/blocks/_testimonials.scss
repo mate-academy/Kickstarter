@@ -1,0 +1,115 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+
+.testimonials {
+  padding: $space-3xl $container-padding;
+  background: $c-bg;
+
+  @include mq-tablet {
+    padding: $space-3xl $container-padding;
+  }
+
+  @include mq-desktop {
+    padding: $space-4xl $container-padding;
+  }
+}
+
+.testimonials__container {
+  @include container;
+
+  position: relative;
+  max-width: 786px;
+  text-align: center;
+}
+
+.testimonials__quote-mark {
+  pointer-events: none;
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 233px;
+  height: 192px;
+
+  @include mq-tablet {
+    width: 233px;
+    height: 192px;
+  }
+
+  @include mq-mobile-only {
+    top: 24px;
+    width: 208px;
+    height: 171px;
+  }
+}
+
+.testimonials__quote {
+  position: relative;
+  z-index: 1;
+  padding-top: $space-xl;
+
+  @include mq-desktop {
+    padding-top: $space-2xl;
+  }
+}
+
+.testimonials__text {
+  @include font-quote;
+
+  margin-bottom: $space-xl;
+
+  font-weight: $font-weight-bold;
+  font-style: italic;
+  line-height: 36px;
+  color: $c-black;
+
+  @include mq-tablet {
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  @include mq-mobile-only {
+    @include font-body-small;
+
+    font-weight: $font-weight-bold;
+    font-style: italic;
+    line-height: 20px;
+  }
+}
+
+.testimonials__author {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  align-items: center;
+
+  margin-top: $space-lg;
+}
+
+.testimonials__avatar-wrapper {
+  flex-shrink: 0;
+}
+
+.testimonials__avatar {
+  display: block;
+
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+.testimonials__name {
+  @include font-h5;
+
+  color: $c-black;
+}
+
+.testimonials__role {
+  @include font-body-small;
+
+  color: $c-dark-gray;
+}

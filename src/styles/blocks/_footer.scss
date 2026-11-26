@@ -1,0 +1,117 @@
+@use '../utils/vars' as *;
+@use '../utils/mixins' as *;
+
+.footer {
+  padding: $space-2xl $container-padding $space-xl;
+  background: $c-bg;
+
+  @include mq-tablet {
+    padding: $space-2xl $container-padding $space-xl;
+  }
+
+  @include mq-desktop {
+    min-height: 200px;
+    padding: $space-2xl $container-padding $space-xl;
+  }
+}
+
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+  align-items: center;
+
+  width: 100%;
+  max-width: 1194px;
+  margin: 0 auto;
+
+  text-align: center;
+
+  @include mq-desktop {
+    gap: $space-2xl;
+  }
+}
+
+.footer__top-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+
+  @include mq-mobile-only {
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+    justify-items: center;
+  }
+}
+
+.footer__logo {
+  display: flex;
+  grid-column: 2;
+  gap: $space-md;
+  align-items: center;
+
+  @include hover-scale;
+
+  @include mq-mobile-only {
+    flex-direction: column;
+    gap: $space-sm;
+  }
+}
+
+.footer__logo-wordmark {
+  display: block;
+  height: auto;
+}
+
+.footer__social {
+  display: flex;
+  gap: $space-lg;
+  justify-content: center;
+
+  @include mq-tablet {
+    gap: $space-md;
+  }
+}
+
+.footer__social-link {
+  @include flex-center;
+
+  width: 24px;
+  height: 24px;
+
+  @include hover-scale;
+}
+
+.footer__copyright {
+  @include font-body-small;
+
+  max-width: 100%;
+  color: $c-medium-gray;
+  text-align: center;
+
+  @include mq-tablet {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+.footer__to-top {
+  grid-column: 3;
+  flex-shrink: 0;
+  justify-self: end;
+
+  padding: 0;
+  border: none;
+
+  background: transparent;
+
+  @include flex-center;
+  @include hover-scale;
+}
+
+.footer__arrow {
+  @include hover-scale;
+
+  display: block;
+}
