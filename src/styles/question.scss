@@ -14,7 +14,7 @@
       justify-content: space-between;
     }
 
-    @include on-mobile{
+    @include on-mobile {
       flex-direction: column;
     }
 
@@ -60,6 +60,14 @@
 
       &:not(:placeholder-shown):valid {
         border-color: #0db2b3;
+      }
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+        box-shadow: 0 0 0 1000px #ffffff inset !important;
+        -webkit-text-fill-color: #111111 !important;
       }
     }
 
@@ -156,6 +164,9 @@
         max-width: 339px;
         font-size: 36px;
         line-height: 46px;
+      }
+      @include on-mobile {
+        max-width: 260px;
       }
     }
   }

@@ -10,6 +10,10 @@
     box-sizing: border-box;
     background-color: #d6ecec;
 
+    @include on-mobile {
+      width: 100%;
+    }
+
     @include on-tablet {
       flex-direction: column;
       gap: 0;
@@ -140,9 +144,13 @@
         height: 226px;
       }
       @include on-mobile {
-        width: 335px;
-        height: 174px;
+        width: 100%;
+        max-width: 335px;
+        height: auto;
       }
+    }
+    @include on-mobile {
+      justify-content: start;
     }
   }
   &__slider {
